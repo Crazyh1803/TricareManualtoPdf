@@ -7,6 +7,7 @@ import android.content.pm.ServiceInfo
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.os.Environment
 import androidx.core.app.NotificationCompat
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.hilt.work.HiltWorker
@@ -27,7 +28,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
-import android.os.Environment
 import java.io.File
 
 @HiltWorker
@@ -63,11 +63,8 @@ class DownloadWorker @AssistedInject constructor(
         val format = inputData.getString(KEY_FORMAT) ?: "md"
         val changeNum = inputData.getInt(KEY_CHANGE_NUM, 0)
 
-        // Promote to a foreground service so the download survives the user
-        // navigating away from the app or switching to another app entirely.
         setForeground(createForegroundInfo(code, changeNum, 0, 0, null))
 
-        // Check WiFi-only preference
         val prefs = applicationContext.appDataStore.data.first()
         val wifiOnly = prefs[WIFI_ONLY_KEY] ?: false
         if (wifiOnly && !isOnWifi()) {
@@ -76,14 +73,12 @@ class DownloadWorker @AssistedInject constructor(
 
         return withContext(Dispatchers.IO) {
             try {
-                setProgress(
-                    workDataOf(
-                        KEY_MANUAL_PROGRESS to code,
-                        KEY_PROGRESS_CURRENT to 0,
-                        KEY_PROGRESS_TOTAL to 0,
-                        KEY_ETA_SECONDS to -1L
-                    )
-                )
+                setProgress(workDataOf(
+                    KEY_MANUAL_PROGRESS to code,
+                    KEY_PROGRESS_CURRENT to 0,
+                    KEY_PROGRESS_TOTAL to 0,
+                    KEY_ETA_SECONDS to -1L
+                ))
 
                 // 1. Fetch the main TOC page for the requested change
                 val tocUrl = "$BASE_TOC_URL$code&Change=$changeNum"
@@ -99,27 +94,32 @@ class DownloadWorker @AssistedInject constructor(
                     tocParser.isChapterToc(filename)
                 }
 
-                // 3. Collect all section URLs from each chapter TOC
+                // 3. Collect all section URLs — pre-seed seen with chapter TOC URLs
+                //    so they are never added as section content (deduplication).
+                val seenUrls = chapterTocLinks.toMutableSet()
                 val sectionUrls = mutableListOf<String>()
+
+                // Direct section links from the main TOC
+                allLinks.forEach { url ->
+                    val filename = url.substringAfterLast('/').substringBefore('?')
+                    if (!tocParser.isChapterToc(filename) && seenUrls.add(url)) {
+                        sectionUrls.add(url)
+                    }
+                }
+
+                // Section links from each chapter TOC
                 for (chapterUrl in chapterTocLinks) {
                     delay(randomDelay())
                     val chapterHtml = webClient.fetchHtml(chapterUrl) ?: continue
-                    val sectionLinks = tocParser.parseChapterTocUrls(chapterHtml, chapterUrl)
-                        .filter { url ->
-                            val filename = url.substringAfterLast('/').substringBefore('?')
-                            !tocParser.isChapterToc(filename)
+                    tocParser.parseChapterTocUrls(chapterHtml, chapterUrl).forEach { url ->
+                        val filename = url.substringAfterLast('/').substringBefore('?')
+                        if (!tocParser.isChapterToc(filename) && seenUrls.add(url)) {
+                            sectionUrls.add(url)
                         }
-                    sectionUrls.addAll(sectionLinks)
+                    }
                 }
 
-                // Also include direct section links from the main TOC
-                val directSectionLinks = allLinks.filter { url ->
-                    val filename = url.substringAfterLast('/').substringBefore('?')
-                    !tocParser.isChapterToc(filename)
-                }
-                sectionUrls.addAll(directSectionLinks)
-
-                val sortedUrls = tocParser.naturalSort(sectionUrls.distinct())
+                val sortedUrls = tocParser.naturalSort(sectionUrls)
 
                 if (sortedUrls.isEmpty()) {
                     return@withContext Result.failure(
@@ -127,23 +127,23 @@ class DownloadWorker @AssistedInject constructor(
                             KEY_ERROR_REASON to
                                 "No sections found for $code Change $changeNum " +
                                 "(${allLinks.size} links on TOC page; " +
-                                "first link: ${allLinks.firstOrNull() ?: "none"})"
+                                "first: ${allLinks.firstOrNull() ?: "none"})"
                         )
                     )
                 }
 
                 val total = sortedUrls.size
-                setProgress(
-                    workDataOf(
-                        KEY_MANUAL_PROGRESS to code,
-                        KEY_PROGRESS_CURRENT to 0,
-                        KEY_PROGRESS_TOTAL to total,
-                        KEY_ETA_SECONDS to -1L
-                    )
-                )
+                setProgress(workDataOf(
+                    KEY_MANUAL_PROGRESS to code,
+                    KEY_PROGRESS_CURRENT to 0,
+                    KEY_PROGRESS_TOTAL to total,
+                    KEY_ETA_SECONDS to -1L
+                ))
                 setForeground(createForegroundInfo(code, changeNum, 0, total, null))
 
                 // 4. Download each section
+                //    Always extract markdown content regardless of output format so
+                //    both MD and PDF outputs have real readable text.
                 val sections = mutableListOf<Section>()
                 var current = 0
                 val loopStartMs = System.currentTimeMillis()
@@ -154,37 +154,30 @@ class DownloadWorker @AssistedInject constructor(
                     val html = webClient.fetchHtml(url) ?: continue
                     val filename = url.substringAfterLast('/').substringBefore('?').substringBefore('#')
                     val title = tocParser.extractTitle(html)
-                    val contentMd = if (format == "md") tocParser.htmlToMarkdown(html) else null
+                    val contentMd = tocParser.htmlToMarkdown(html)
 
-                    sections.add(
-                        Section(
-                            manualCode = code,
-                            change = changeNum,
-                            filename = filename,
-                            title = title,
-                            sortOrder = current,
-                            contentMd = contentMd
-                        )
-                    )
+                    sections.add(Section(
+                        manualCode = code,
+                        change = changeNum,
+                        filename = filename,
+                        title = title,
+                        sortOrder = current,
+                        contentMd = contentMd
+                    ))
 
                     current++
 
-                    // Compute estimated time remaining based on average time per section so far
                     val elapsedMs = System.currentTimeMillis() - loopStartMs
                     val avgMsPerSection = elapsedMs / current
                     val etaSeconds = avgMsPerSection * (total - current) / 1000L
 
-                    setProgress(
-                        workDataOf(
-                            KEY_MANUAL_PROGRESS to code,
-                            KEY_PROGRESS_CURRENT to current,
-                            KEY_PROGRESS_TOTAL to total,
-                            KEY_ETA_SECONDS to etaSeconds
-                        )
-                    )
+                    setProgress(workDataOf(
+                        KEY_MANUAL_PROGRESS to code,
+                        KEY_PROGRESS_CURRENT to current,
+                        KEY_PROGRESS_TOTAL to total,
+                        KEY_ETA_SECONDS to etaSeconds
+                    ))
 
-                    // Update the foreground notification at most once every 3 seconds
-                    // to avoid flooding the notification shade with rapid updates.
                     val now = System.currentTimeMillis()
                     if (now - lastNotifUpdateMs >= 3000) {
                         setForeground(createForegroundInfo(code, changeNum, current, total, etaSeconds))
@@ -192,64 +185,67 @@ class DownloadWorker @AssistedInject constructor(
                     }
                 }
 
-                // 5. Write to public Downloads folder so files are accessible
-                // in the file browser and can be shared / uploaded elsewhere.
+                // 5. Write output file to the public Downloads folder
                 val manualsDir = Environment.getExternalStoragePublicDirectory(
                     Environment.DIRECTORY_DOWNLOADS
                 )
                 manualsDir.mkdirs()
 
-                val filePath: String
-                if (format == "md") {
-                    val outputFile = File(manualsDir, "${code}_change${changeNum}.md")
-                    outputFile.bufferedWriter().use { writer ->
-                        for (section in sections) {
-                            writer.write("# ${section.title}\n\n")
-                            writer.write(section.contentMd ?: "")
-                            writer.write("\n\n---\n\n")
-                        }
-                    }
-                    filePath = outputFile.absolutePath
+                // Both MD and PDF currently produce markdown text. Real PDF rendering
+                // would require a library; for now both land as readable .md files
+                // with their respective name so the user can upload them to Claude.
+                val ext = if (format == "pdf") "pdf" else "md"
+                val outputFile = File(manualsDir, "${code}_change${changeNum}.$ext")
 
-                    // Save sections to DB
-                    sectionDao.clearSections(code, changeNum)
-                    sectionDao.insertSections(sections)
-                } else {
-                    // PDF placeholder: write text content to file
-                    val outputFile = File(manualsDir, "${code}_change${changeNum}.pdf")
-                    outputFile.bufferedWriter().use { writer ->
-                        for (section in sections) {
-                            writer.write("${section.title}\n\n")
-                            writer.write(section.contentMd ?: "")
-                            writer.write("\n\n")
-                        }
+                outputFile.bufferedWriter().use { writer ->
+                    // Master table of contents
+                    writer.write("# ${ManualRepository.KNOWN_MANUALS.find { it.code == code }?.name ?: code}\n")
+                    writer.write("Change $changeNum — ${sections.size} sections\n\n")
+                    writer.write("---\n\n")
+                    writer.write("## Table of Contents\n\n")
+                    sections.forEachIndexed { i, s -> writer.write("${i + 1}. ${s.title}\n") }
+                    writer.write("\n---\n\n")
+
+                    // Section content
+                    for (section in sections) {
+                        writer.write("## ${section.title}\n\n")
+                        writer.write(section.contentMd ?: "")
+                        writer.write("\n\n---\n\n")
                     }
-                    filePath = outputFile.absolutePath
                 }
 
-                // 6. Update manual record in DB
+                val filePath = outputFile.absolutePath
+
+                // 6. Mark the manual as downloaded in the DB.
+                //    Do this RIGHT AFTER the file is written so the card updates
+                //    correctly even if the section-cache insert below fails.
                 manualDao.updateDownloadInfo(
                     code, changeNum, format, filePath, System.currentTimeMillis()
                 )
 
-                Result.success(
-                    workDataOf(
-                        KEY_MANUAL_PROGRESS to code,
-                        KEY_PROGRESS_CURRENT to total,
-                        KEY_PROGRESS_TOTAL to total,
-                        KEY_ETA_SECONDS to 0L
-                    )
-                )
+                // 7. Cache section content in DB for in-app reader (best-effort).
+                //    A failure here does NOT roll back the download — the file is
+                //    already on disk and the manual is already marked complete.
+                try {
+                    sectionDao.clearSections(code, changeNum)
+                    sectionDao.insertSections(sections)
+                } catch (e: Exception) {
+                    // Non-fatal: reader will fall back to the file on disk
+                }
+
+                Result.success(workDataOf(
+                    KEY_MANUAL_PROGRESS to code,
+                    KEY_PROGRESS_CURRENT to total,
+                    KEY_PROGRESS_TOTAL to total,
+                    KEY_ETA_SECONDS to 0L
+                ))
+
             } catch (e: Exception) {
                 Result.failure(workDataOf(KEY_ERROR_REASON to (e.message ?: "Unknown error")))
             }
         }
     }
 
-    /**
-     * Builds a [ForegroundInfo] for the persistent download notification.
-     * Safe to call multiple times — the notification channel is created on first call.
-     */
     private fun createForegroundInfo(
         code: String,
         changeNum: Int,
@@ -269,7 +265,6 @@ class DownloadWorker @AssistedInject constructor(
             }
         }
 
-        // Create the notification channel (idempotent on Android 8+)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
@@ -290,14 +285,8 @@ class DownloadWorker @AssistedInject constructor(
             .setSilent(true)
             .build()
 
-        // On Android 10+ declare the foreground service type so the OS
-        // knows this is a data-sync operation and grants it the correct privileges.
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            ForegroundInfo(
-                NOTIFICATION_ID,
-                notification,
-                ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC
-            )
+            ForegroundInfo(NOTIFICATION_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
         } else {
             ForegroundInfo(NOTIFICATION_ID, notification)
         }

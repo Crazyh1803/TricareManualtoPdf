@@ -21,7 +21,8 @@ private const val PAYLOAD_PROGRESS = "progress"
 class ManualAdapter(
     private val onOpenClick: (Manual) -> Unit,
     private val onDownloadClick: (Manual) -> Unit,
-    private val onShareClick: (Manual) -> Unit
+    private val onShareClick: (Manual) -> Unit,
+    private val onExportPdfClick: (Manual) -> Unit
 ) : ListAdapter<Manual, ManualAdapter.ManualViewHolder>(ManualDiffCallback()) {
 
     private val progressMap = mutableMapOf<String, WorkInfo?>()
@@ -122,12 +123,15 @@ class ManualAdapter(
                 binding.btnOpen.visibility = View.GONE
             }
 
-            // Share button — only when a file is present
+            // Share + Export PDF buttons — only when a file is present
             if (manual.filePath != null) {
                 binding.btnShare.visibility = View.VISIBLE
                 binding.btnShare.setOnClickListener { onShareClick(manual) }
+                binding.btnExportPdf.visibility = View.VISIBLE
+                binding.btnExportPdf.setOnClickListener { onExportPdfClick(manual) }
             } else {
                 binding.btnShare.visibility = View.GONE
+                binding.btnExportPdf.visibility = View.GONE
             }
 
             // Download button — always visible; label reflects state

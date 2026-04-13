@@ -20,49 +20,14 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- RecyclerView scrolls below the AppBar; bottom padding clears footer -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_manuals"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingBottom="90dp"
+        android:paddingBottom="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/item_manual" />
-
-    <!-- Footer pinned to the bottom as a direct CoordinatorLayout child -->
-    <LinearLayout
-        android:id="@+id/footer_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="?attr/colorSurface"
-        android:elevation="4dp"
-        android:orientation="vertical">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?attr/colorControlHighlight" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_buy_me_a_coffee"
-            android:layout_width="wrap_content"
-            android:layout_height="52dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:maxWidth="280dp"
-            android:minWidth="200dp"
-            android:text="@string/bmc_button_label"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            app:backgroundTint="#FFDD00"
-            app:cornerRadius="8dp"
-            app:strokeColor="#000000"
-            app:strokeWidth="1.5dp" />
-
-    </LinearLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

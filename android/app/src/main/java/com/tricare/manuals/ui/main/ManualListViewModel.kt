@@ -92,8 +92,7 @@ class ManualListViewModel @Inject constructor(
     fun enqueueDownload(code: String) {
         viewModelScope.launch {
             val manual = repository.getManual(code) ?: return@launch
-            val prefs = context.appDataStore.data.first()
-            val format = prefs[FORMAT_KEY] ?: "md"
+            val format = "md" // Markdown is the download format; PDF export is a separate action
             val changeNum = manual.latestChange.takeIf { it > 0 } ?: 1
             val inputData = workDataOf(
                 DownloadWorker.KEY_MANUAL_CODE to code,

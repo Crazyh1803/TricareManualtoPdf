@@ -1,4 +1,4 @@
-#Mon Apr 13 14:25:07 CEST 2026
+#Mon Apr 13 19:12:40 CEST 2026
 base.0=D\:\\Users\\dwhit\\Documents\\GitHub\\TricareManualtoPdf\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=D\:\\Users\\dwhit\\Documents\\GitHub\\TricareManualtoPdf\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.10=D\:\\Users\\dwhit\\Documents\\GitHub\\TricareManualtoPdf\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex

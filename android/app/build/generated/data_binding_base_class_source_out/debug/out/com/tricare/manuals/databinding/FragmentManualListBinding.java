@@ -14,7 +14,6 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.tricare.manuals.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -31,9 +30,6 @@ public final class FragmentManualListBinding implements ViewBinding {
   public final MaterialButton btnBuyMeACoffee;
 
   @NonNull
-  public final ExtendedFloatingActionButton fabDownload;
-
-  @NonNull
   public final LinearLayout footerLayout;
 
   @NonNull
@@ -44,12 +40,11 @@ public final class FragmentManualListBinding implements ViewBinding {
 
   private FragmentManualListBinding(@NonNull CoordinatorLayout rootView,
       @NonNull AppBarLayout appBar, @NonNull MaterialButton btnBuyMeACoffee,
-      @NonNull ExtendedFloatingActionButton fabDownload, @NonNull LinearLayout footerLayout,
-      @NonNull RecyclerView recyclerManuals, @NonNull Toolbar toolbar) {
+      @NonNull LinearLayout footerLayout, @NonNull RecyclerView recyclerManuals,
+      @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.appBar = appBar;
     this.btnBuyMeACoffee = btnBuyMeACoffee;
-    this.fabDownload = fabDownload;
     this.footerLayout = footerLayout;
     this.recyclerManuals = recyclerManuals;
     this.toolbar = toolbar;
@@ -94,12 +89,6 @@ public final class FragmentManualListBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.fab_download;
-      ExtendedFloatingActionButton fabDownload = ViewBindings.findChildViewById(rootView, id);
-      if (fabDownload == null) {
-        break missingId;
-      }
-
       id = R.id.footer_layout;
       LinearLayout footerLayout = ViewBindings.findChildViewById(rootView, id);
       if (footerLayout == null) {
@@ -119,7 +108,7 @@ public final class FragmentManualListBinding implements ViewBinding {
       }
 
       return new FragmentManualListBinding((CoordinatorLayout) rootView, appBar, btnBuyMeACoffee,
-          fabDownload, footerLayout, recyclerManuals, toolbar);
+          footerLayout, recyclerManuals, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

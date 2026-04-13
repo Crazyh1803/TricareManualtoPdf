@@ -6,4 +6,8 @@
     <cache-path
         name="cache"
         path="." />
+    <!-- Public Downloads folder — needed for sharing files saved there -->
+    <external-path
+        name="downloads"
+        path="." />
 </paths>

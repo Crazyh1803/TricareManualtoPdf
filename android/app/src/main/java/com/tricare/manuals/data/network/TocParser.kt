@@ -37,6 +37,32 @@ class TocParser @Inject constructor() {
         )
 
         // Regex patterns applied to the final markdown text
+
+        // Strips "Military Health System" nav block (appears in every section)
+        private val MHS_NAV_REGEX = Regex(
+            """(?s)## Military Health System\n.*?(?=\nTRICARE (?:Operations|Policy|Reimbursement|Systems) Manual|\Z)""",
+            setOf(RegexOption.IGNORE_CASE)
+        )
+        // Strips the duplicated nav list "- DHA Home … - TRICARE" that appears inside sections
+        private val NAV_LIST_REGEX = Regex(
+            """(?m)(?:- DHA Home\n(?:- [^\n]+\n)*- TRICARE\n?)+""",
+            RegexOption.IGNORE_CASE
+        )
+        // Strips the per-section footer starting with "tricare.mil is the official…"
+        private val TRICARE_FOOTER_REGEX = Regex(
+            """(?s)- tricare\.mil is the official website.*""",
+            RegexOption.IGNORE_CASE
+        )
+        // Strips '- END -' marker and any attached DHA Logo image
+        private val END_MARKER_REGEX = Regex(
+            """- END -!\[DHA Logo\][^\n]*""",
+            RegexOption.IGNORE_CASE
+        )
+        // Strips standalone DHA Logo image line
+        private val DHA_LOGO_REGEX = Regex(
+            """(?m)^!\[DHA Logo\][^\n]*\n?""",
+            RegexOption.IGNORE_CASE
+        )
         // Strips the "official .mil website" banner block
         private val GOV_BANNER_REGEX = Regex(
             """(?s)\[Skip (main navigation|to main content)\][^\n]*\n.*?Share sensitive information only on official, secure websites\.\s*""",
@@ -185,6 +211,19 @@ class TocParser @Inject constructor() {
 
     private fun postProcess(md: String): String {
         var result = md
+
+        // Remove "Military Health System" nav block (per-section nav header)
+        result = MHS_NAV_REGEX.replace(result, "")
+
+        // Remove duplicated "- DHA Home … - TRICARE" nav lists
+        result = NAV_LIST_REGEX.replace(result, "")
+
+        // Remove "tricare.mil is the official website…" footer block
+        result = TRICARE_FOOTER_REGEX.replace(result, "")
+
+        // Remove "- END -" marker and DHA Logo
+        result = END_MARKER_REGEX.replace(result, "")
+        result = DHA_LOGO_REGEX.replace(result, "")
 
         // Remove gov banner block ("Skip main navigation … secure websites.")
         result = GOV_BANNER_REGEX.replace(result, "")

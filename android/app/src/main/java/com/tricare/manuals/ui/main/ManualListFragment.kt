@@ -22,7 +22,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import com.tricare.manuals.BuildConfig
 import com.tricare.manuals.R
 import com.tricare.manuals.data.model.Manual
 import com.tricare.manuals.data.repository.ManualRepository
@@ -120,7 +119,7 @@ class ManualListFragment : Fragment() {
 
         val uri: Uri = FileProvider.getUriForFile(
             requireContext(),
-            "${BuildConfig.APPLICATION_ID}.fileprovider",
+            "com.tricare.manuals.fileprovider",
             file
         )
 

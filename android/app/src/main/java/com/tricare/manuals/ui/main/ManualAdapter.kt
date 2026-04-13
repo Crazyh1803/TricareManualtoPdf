@@ -30,7 +30,19 @@ class ManualAdapter(
     fun updateProgress(code: String, workInfo: WorkInfo?) {
         progressMap[code] = workInfo
         val pos = currentList.indexOfFirst { it.code == code }
-        if (pos >= 0) notifyItemChanged(pos, PAYLOAD_PROGRESS)
+        if (pos < 0) return
+
+        // Use a full rebind for terminal states so the status text, Open button,
+        // and Download label all refresh from the updated database values.
+        // Use a partial (progress-only) rebind while actively running to avoid
+        // resetting the spinner selection mid-download.
+        val isActiveState = workInfo?.state == WorkInfo.State.RUNNING ||
+                workInfo?.state == WorkInfo.State.ENQUEUED
+        if (isActiveState) {
+            notifyItemChanged(pos, PAYLOAD_PROGRESS)
+        } else {
+            notifyItemChanged(pos)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ManualViewHolder {

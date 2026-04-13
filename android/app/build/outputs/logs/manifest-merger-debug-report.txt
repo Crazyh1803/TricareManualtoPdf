@@ -1,0 +1,723 @@
+-- Merging decision tree log ---
+provider#androidx.startup.InitializationProvider
+INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:51:9-60:20
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f527fb635e96922f8d00f29969327a25\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f527fb635e96922f8d00f29969327a25\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:29:9-37:20
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:29:9-37:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\5822b81a09da79a86d3da911816574cc\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\5822b81a09da79a86d3da911816574cc\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\80e614cf5e56ab66459330be847ace97\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\80e614cf5e56ab66459330be847ace97\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:55:13-31
+	android:authorities
+		INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:53:13-68
+	android:exported
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:54:13-37
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:52:13-67
+provider#androidx.core.content.FileProvider
+INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:62:9-70:20
+	android:grantUriPermissions
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:66:13-47
+	android:authorities
+		INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:64:13-64
+	android:exported
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:65:13-37
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:63:13-62
+manifest
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:2:1-74:12
+INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:2:1-74:12
+INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:2:1-74:12
+INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:2:1-74:12
+MERGED from [androidx.databinding:viewbinding:8.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f6b1902ed2032cf0d637962668e8f9da\transformed\jetified-viewbinding-8.2.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-common:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e1a74416a9bc89dcccb9006190cee7e5\transformed\navigation-common-2.7.6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\d46570a144f9549d5f72455f59ff0529\transformed\navigation-common-ktx-2.7.6\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\646852ee0319c327c41af64fbc997897\transformed\navigation-runtime-2.7.6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e97ba1398e1f7e124847fad3656bef10\transformed\navigation-runtime-ktx-2.7.6\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-fragment:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\57aca848fff66ca2df449e60505d2230\transformed\navigation-fragment-2.7.6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\b7d6d51fd43b969a0331264793f1e232\transformed\navigation-fragment-ktx-2.7.6\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e25453c6ab0d741096e801a1de4a9b20\transformed\navigation-ui-ktx-2.7.6\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-ui:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e425ea7ebc105320e974af3d5a944be1\transformed\navigation-ui-2.7.6\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f22fba2fed3f43e15f53a291fb261bd5\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\dwhit\Coding\jdks\caches\transforms-3\55b803cc272d0616359d75dfce818516\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
+MERGED from [io.coil-kt:coil:2.5.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\53af6ef84615dd9217a3512f5d079d61\transformed\jetified-coil-2.5.0\AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-base:2.5.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f391ae5f309878d021d7798018ff6137\transformed\jetified-coil-base-2.5.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\c8c1dd071a701da430446f0312390b48\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.preference:preference-ktx:1.2.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\0bab43219c888f2e8017310f10b9f232\transformed\jetified-preference-ktx-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.preference:preference:1.2.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\49f1502083228aa4ae017eb178e6ac4a\transformed\preference-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\fe0d96e6b895d1795c28b65243018feb\transformed\appcompat-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.hilt:hilt-work:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\77a25169d5cbc43fc0cd558d139a62f1\transformed\jetified-hilt-work-1.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.dagger:hilt-android:2.50] C:\Users\dwhit\Coding\jdks\caches\transforms-3\71cc2310a643d9b8beb554d33925b488\transformed\jetified-hilt-android-2.50\AndroidManifest.xml:16:1-19:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\40c62b4bf22c500c0ca5149ad894981a\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3490f700aec0f99ca114c7b3fdbb8df8\transformed\fragment-1.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ca6128b9af197c8414a150c30b388acb\transformed\jetified-fragment-ktx-1.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3641679d04e3438605895adf94ea7e40\transformed\drawerlayout-1.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ddd9819e2b7cd9f9c4e722bda360444d\transformed\jetified-emoji2-views-helper-1.2.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f527fb635e96922f8d00f29969327a25\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.activity:activity-ktx:1.8.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e1468582c5983d77e3f9bced24b1e2dd\transformed\jetified-activity-ktx-1.8.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.8.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\bf7b2d589bf789bc62ee46ae4f980f83\transformed\jetified-activity-1.8.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\1c2c6743fce8f858c666ae6b0e48ac58\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\277395b54656e8bf1d2e69bfd8636ee1\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3609ee278c1b0f17dd3503fb603954be\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\d6124dac7a72a50380a1e0b97a4e4244\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4f35e4bd87be8be7c44bfcd0dd41370c\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4894cd96a555909de6fae263f4b59b21\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\9eda21410f4232fa895165008f5987e1\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e6801cbfaa2b9580a47754974a907303\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.work:work-runtime-ktx:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\8c8343a134e53a207bbd4055c1173018\transformed\work-runtime-ktx-2.9.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:17:1-145:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\14d86790583a38fa118a886ffe7d1393\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4391b0a3246d78b3b91c12fecdc562b1\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.4.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\fd27659256dcc22daa55b778fe15f826\transformed\transition-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\29b714e53f0becfcc31891d851273779\transformed\jetified-lifecycle-runtime-ktx-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a9fae7f474cdea1a6f97fc1b65fb69ba\transformed\jetified-lifecycle-service-2.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\9f1150b1c30ddee665ede7634516eca8\transformed\lifecycle-livedata-core-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\5822b81a09da79a86d3da911816574cc\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7c1b81dc8264281be64bab18e01558b1\transformed\jetified-savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\909c335847f97e134e5d62a424c543ce\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\463c42768f4eb630e950a22a10517244\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\1edb35d0bf3fd3cf8047efe271fd08a9\transformed\lifecycle-livedata-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\bdfae0d419bba91ff913a94987b2f6d2\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ac4e7d26a6b284666110f67119aac09d\transformed\lifecycle-viewmodel-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7825284b6440a8f430f0890e532f8250\transformed\jetified-lifecycle-viewmodel-ktx-2.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\abc7af45a38dd482510ef47770763468\transformed\jetified-lifecycle-livedata-ktx-2.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\0a67a658d7811088061b6ec2d10fea65\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4f16a2c09b18710a79aa7f8390bc000c\transformed\jetified-core-ktx-1.12.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.room:room-ktx:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\54cc5cdc3b869c08452be5d0140c1366\transformed\jetified-room-ktx-2.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ec8ef50f4b053ace69feb4db5b10519a\transformed\jetified-datastore-preferences-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3f15b6dc12b30f0376efbc675e605055\transformed\sqlite-framework-2.4.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite:2.4.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4f8dc486357f1ce123149dc0f3d4d6ff\transformed\sqlite-2.4.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\56279dfa2293175e575f217b9840b442\transformed\jetified-datastore-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a5767255963225584bb080c65affecb5\transformed\jetified-annotation-experimental-1.3.1\AndroidManifest.xml:17:1-22:12
+MERGED from [io.noties.markwon:html:4.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\31f6af115eeb9d99284d365ea5cd8e25\transformed\jetified-html-4.6.2\AndroidManifest.xml:2:1-11:12
+MERGED from [io.noties.markwon:image:4.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f11f6fdb368ef454c38a1d2d7bbd1059\transformed\jetified-image-4.6.2\AndroidManifest.xml:2:1-11:12
+MERGED from [io.noties.markwon:core:4.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\0a9955406f870202f9e56274edae22eb\transformed\jetified-core-4.6.2\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\b2c4ce8733a574a8c5c01b1d55709208\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\8276a200b491ea442ef0300e4d361070\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\81da09da0e5f4a5bf3bf66247b9d03f6\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\b27761f1e50d5e59b728a74f5b1677de\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2f62fec0c849dd7e2eb579a9242fa6e3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\80e614cf5e56ab66459330be847ace97\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\d32a20a7330fa5929e3ad18c37cad104\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\acaa37aa8972eeabbae8d3688ad9cce5\transformed\exifinterface-1.3.6\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ef47504c045ce18a36d7832b046ac00a\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\238e90ff527dfbbec78ebf830beb3ae9\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6f38fab010b85b7184342660bc556408\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.dagger:dagger-lint-aar:2.50] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4e61a20085bc628e79f394367ebe7332\transformed\jetified-dagger-lint-aar-2.50\AndroidManifest.xml:16:1-19:12
+	package
+		INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:6:5-79
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:24:5-79
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:6:22-76
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:7:5-77
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:26:5-77
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:26:5-77
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:7:22-74
+uses-permission#android.permission.FOREGROUND_SERVICE_DATA_SYNC
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:9:5-87
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:9:22-84
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:11:5-77
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:11:22-74
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:13:5-15:38
+	android:maxSdkVersion
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:15:9-35
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:14:9-65
+application
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:17:5-72:19
+INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:17:5-72:19
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f22fba2fed3f43e15f53a291fb261bd5\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f22fba2fed3f43e15f53a291fb261bd5\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\dwhit\Coding\jdks\caches\transforms-3\55b803cc272d0616359d75dfce818516\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\dwhit\Coding\jdks\caches\transforms-3\55b803cc272d0616359d75dfce818516\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f527fb635e96922f8d00f29969327a25\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f527fb635e96922f8d00f29969327a25\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:28:5-143:19
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:28:5-143:19
+MERGED from [androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\5822b81a09da79a86d3da911816574cc\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\5822b81a09da79a86d3da911816574cc\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2f62fec0c849dd7e2eb579a9242fa6e3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2f62fec0c849dd7e2eb579a9242fa6e3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\80e614cf5e56ab66459330be847ace97\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\80e614cf5e56ab66459330be847ace97\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:24:9-35
+	android:label
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:21:9-41
+	android:roundIcon
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:23:9-54
+	android:icon
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:20:9-43
+	android:allowBackup
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:19:9-35
+	android:theme
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:25:9-52
+	android:networkSecurityConfig
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:22:9-69
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:18:9-35
+activity#com.tricare.manuals.ui.main.MainActivity
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:27:9-35:20
+	android:windowSoftInputMode
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:30:13-55
+	android:exported
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:29:13-36
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:28:13-49
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:31:13-34:29
+action#android.intent.action.MAIN
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:32:17-69
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:32:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:33:17-77
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:33:27-74
+activity#com.tricare.manuals.ui.reader.ReaderActivity
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:37:9-41:58
+	android:parentActivityName
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:40:13-63
+	android:windowSoftInputMode
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:41:13-55
+	android:exported
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:39:13-37
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:38:13-53
+service#androidx.work.impl.foreground.SystemForegroundService
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:46:9-49:34
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:53:9-59:35
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:53:9-59:35
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:56:13-77
+	tools:node
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:49:13-31
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:57:13-37
+	tools:ignore
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:58:13-60
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:59:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:55:13-44
+	android:foregroundServiceType
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:48:13-53
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:47:13-81
+meta-data#androidx.work.WorkManagerInitializer
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:56:13-59:39
+REJECTED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:34:13-36:52
+	tools:node
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:59:17-36
+	android:value
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:58:17-49
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:57:17-68
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:67:13-69:63
+	android:resource
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:69:17-60
+	android:name
+		ADDED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:68:17-67
+uses-sdk
+INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml
+INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:8.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f6b1902ed2032cf0d637962668e8f9da\transformed\jetified-viewbinding-8.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:8.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f6b1902ed2032cf0d637962668e8f9da\transformed\jetified-viewbinding-8.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e1a74416a9bc89dcccb9006190cee7e5\transformed\navigation-common-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e1a74416a9bc89dcccb9006190cee7e5\transformed\navigation-common-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\d46570a144f9549d5f72455f59ff0529\transformed\navigation-common-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\d46570a144f9549d5f72455f59ff0529\transformed\navigation-common-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\646852ee0319c327c41af64fbc997897\transformed\navigation-runtime-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\646852ee0319c327c41af64fbc997897\transformed\navigation-runtime-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e97ba1398e1f7e124847fad3656bef10\transformed\navigation-runtime-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e97ba1398e1f7e124847fad3656bef10\transformed\navigation-runtime-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\57aca848fff66ca2df449e60505d2230\transformed\navigation-fragment-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\57aca848fff66ca2df449e60505d2230\transformed\navigation-fragment-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\b7d6d51fd43b969a0331264793f1e232\transformed\navigation-fragment-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\b7d6d51fd43b969a0331264793f1e232\transformed\navigation-fragment-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e25453c6ab0d741096e801a1de4a9b20\transformed\navigation-ui-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e25453c6ab0d741096e801a1de4a9b20\transformed\navigation-ui-ktx-2.7.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-ui:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e425ea7ebc105320e974af3d5a944be1\transformed\navigation-ui-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui:2.7.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e425ea7ebc105320e974af3d5a944be1\transformed\navigation-ui-2.7.6\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f22fba2fed3f43e15f53a291fb261bd5\transformed\material-1.11.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f22fba2fed3f43e15f53a291fb261bd5\transformed\material-1.11.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\dwhit\Coding\jdks\caches\transforms-3\55b803cc272d0616359d75dfce818516\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\dwhit\Coding\jdks\caches\transforms-3\55b803cc272d0616359d75dfce818516\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
+MERGED from [io.coil-kt:coil:2.5.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\53af6ef84615dd9217a3512f5d079d61\transformed\jetified-coil-2.5.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil:2.5.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\53af6ef84615dd9217a3512f5d079d61\transformed\jetified-coil-2.5.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.5.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f391ae5f309878d021d7798018ff6137\transformed\jetified-coil-base-2.5.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.5.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f391ae5f309878d021d7798018ff6137\transformed\jetified-coil-base-2.5.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\c8c1dd071a701da430446f0312390b48\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\c8c1dd071a701da430446f0312390b48\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.preference:preference-ktx:1.2.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\0bab43219c888f2e8017310f10b9f232\transformed\jetified-preference-ktx-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.preference:preference-ktx:1.2.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\0bab43219c888f2e8017310f10b9f232\transformed\jetified-preference-ktx-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.preference:preference:1.2.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\49f1502083228aa4ae017eb178e6ac4a\transformed\preference-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.preference:preference:1.2.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\49f1502083228aa4ae017eb178e6ac4a\transformed\preference-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\fe0d96e6b895d1795c28b65243018feb\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\fe0d96e6b895d1795c28b65243018feb\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.hilt:hilt-work:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\77a25169d5cbc43fc0cd558d139a62f1\transformed\jetified-hilt-work-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.hilt:hilt-work:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\77a25169d5cbc43fc0cd558d139a62f1\transformed\jetified-hilt-work-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:hilt-android:2.50] C:\Users\dwhit\Coding\jdks\caches\transforms-3\71cc2310a643d9b8beb554d33925b488\transformed\jetified-hilt-android-2.50\AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:hilt-android:2.50] C:\Users\dwhit\Coding\jdks\caches\transforms-3\71cc2310a643d9b8beb554d33925b488\transformed\jetified-hilt-android-2.50\AndroidManifest.xml:18:3-42
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\40c62b4bf22c500c0ca5149ad894981a\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\40c62b4bf22c500c0ca5149ad894981a\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3490f700aec0f99ca114c7b3fdbb8df8\transformed\fragment-1.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3490f700aec0f99ca114c7b3fdbb8df8\transformed\fragment-1.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ca6128b9af197c8414a150c30b388acb\transformed\jetified-fragment-ktx-1.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ca6128b9af197c8414a150c30b388acb\transformed\jetified-fragment-ktx-1.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3641679d04e3438605895adf94ea7e40\transformed\drawerlayout-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3641679d04e3438605895adf94ea7e40\transformed\drawerlayout-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ddd9819e2b7cd9f9c4e722bda360444d\transformed\jetified-emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ddd9819e2b7cd9f9c4e722bda360444d\transformed\jetified-emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f527fb635e96922f8d00f29969327a25\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f527fb635e96922f8d00f29969327a25\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e1468582c5983d77e3f9bced24b1e2dd\transformed\jetified-activity-ktx-1.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e1468582c5983d77e3f9bced24b1e2dd\transformed\jetified-activity-ktx-1.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.8.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\bf7b2d589bf789bc62ee46ae4f980f83\transformed\jetified-activity-1.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\bf7b2d589bf789bc62ee46ae4f980f83\transformed\jetified-activity-1.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\1c2c6743fce8f858c666ae6b0e48ac58\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\1c2c6743fce8f858c666ae6b0e48ac58\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\277395b54656e8bf1d2e69bfd8636ee1\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\277395b54656e8bf1d2e69bfd8636ee1\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3609ee278c1b0f17dd3503fb603954be\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3609ee278c1b0f17dd3503fb603954be\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\d6124dac7a72a50380a1e0b97a4e4244\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\d6124dac7a72a50380a1e0b97a4e4244\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4f35e4bd87be8be7c44bfcd0dd41370c\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4f35e4bd87be8be7c44bfcd0dd41370c\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4894cd96a555909de6fae263f4b59b21\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4894cd96a555909de6fae263f4b59b21\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\9eda21410f4232fa895165008f5987e1\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\9eda21410f4232fa895165008f5987e1\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e6801cbfaa2b9580a47754974a907303\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\e6801cbfaa2b9580a47754974a907303\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.work:work-runtime-ktx:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\8c8343a134e53a207bbd4055c1173018\transformed\work-runtime-ktx-2.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.work:work-runtime-ktx:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\8c8343a134e53a207bbd4055c1173018\transformed\work-runtime-ktx-2.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\14d86790583a38fa118a886ffe7d1393\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\14d86790583a38fa118a886ffe7d1393\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4391b0a3246d78b3b91c12fecdc562b1\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4391b0a3246d78b3b91c12fecdc562b1\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.4.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\fd27659256dcc22daa55b778fe15f826\transformed\transition-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.4.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\fd27659256dcc22daa55b778fe15f826\transformed\transition-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\29b714e53f0becfcc31891d851273779\transformed\jetified-lifecycle-runtime-ktx-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\29b714e53f0becfcc31891d851273779\transformed\jetified-lifecycle-runtime-ktx-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a9fae7f474cdea1a6f97fc1b65fb69ba\transformed\jetified-lifecycle-service-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a9fae7f474cdea1a6f97fc1b65fb69ba\transformed\jetified-lifecycle-service-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\9f1150b1c30ddee665ede7634516eca8\transformed\lifecycle-livedata-core-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\9f1150b1c30ddee665ede7634516eca8\transformed\lifecycle-livedata-core-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\5822b81a09da79a86d3da911816574cc\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\5822b81a09da79a86d3da911816574cc\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7c1b81dc8264281be64bab18e01558b1\transformed\jetified-savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7c1b81dc8264281be64bab18e01558b1\transformed\jetified-savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\909c335847f97e134e5d62a424c543ce\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\909c335847f97e134e5d62a424c543ce\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\463c42768f4eb630e950a22a10517244\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\463c42768f4eb630e950a22a10517244\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\1edb35d0bf3fd3cf8047efe271fd08a9\transformed\lifecycle-livedata-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\1edb35d0bf3fd3cf8047efe271fd08a9\transformed\lifecycle-livedata-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\bdfae0d419bba91ff913a94987b2f6d2\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\bdfae0d419bba91ff913a94987b2f6d2\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ac4e7d26a6b284666110f67119aac09d\transformed\lifecycle-viewmodel-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ac4e7d26a6b284666110f67119aac09d\transformed\lifecycle-viewmodel-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7825284b6440a8f430f0890e532f8250\transformed\jetified-lifecycle-viewmodel-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7825284b6440a8f430f0890e532f8250\transformed\jetified-lifecycle-viewmodel-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\abc7af45a38dd482510ef47770763468\transformed\jetified-lifecycle-livedata-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\abc7af45a38dd482510ef47770763468\transformed\jetified-lifecycle-livedata-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\0a67a658d7811088061b6ec2d10fea65\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\0a67a658d7811088061b6ec2d10fea65\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4f16a2c09b18710a79aa7f8390bc000c\transformed\jetified-core-ktx-1.12.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4f16a2c09b18710a79aa7f8390bc000c\transformed\jetified-core-ktx-1.12.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-ktx:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\54cc5cdc3b869c08452be5d0140c1366\transformed\jetified-room-ktx-2.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-ktx:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\54cc5cdc3b869c08452be5d0140c1366\transformed\jetified-room-ktx-2.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ec8ef50f4b053ace69feb4db5b10519a\transformed\jetified-datastore-preferences-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ec8ef50f4b053ace69feb4db5b10519a\transformed\jetified-datastore-preferences-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3f15b6dc12b30f0376efbc675e605055\transformed\sqlite-framework-2.4.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3f15b6dc12b30f0376efbc675e605055\transformed\sqlite-framework-2.4.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.4.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4f8dc486357f1ce123149dc0f3d4d6ff\transformed\sqlite-2.4.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.4.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4f8dc486357f1ce123149dc0f3d4d6ff\transformed\sqlite-2.4.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\56279dfa2293175e575f217b9840b442\transformed\jetified-datastore-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\56279dfa2293175e575f217b9840b442\transformed\jetified-datastore-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a5767255963225584bb080c65affecb5\transformed\jetified-annotation-experimental-1.3.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a5767255963225584bb080c65affecb5\transformed\jetified-annotation-experimental-1.3.1\AndroidManifest.xml:20:5-44
+MERGED from [io.noties.markwon:html:4.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\31f6af115eeb9d99284d365ea5cd8e25\transformed\jetified-html-4.6.2\AndroidManifest.xml:7:5-9:41
+MERGED from [io.noties.markwon:html:4.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\31f6af115eeb9d99284d365ea5cd8e25\transformed\jetified-html-4.6.2\AndroidManifest.xml:7:5-9:41
+MERGED from [io.noties.markwon:image:4.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f11f6fdb368ef454c38a1d2d7bbd1059\transformed\jetified-image-4.6.2\AndroidManifest.xml:7:5-9:41
+MERGED from [io.noties.markwon:image:4.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f11f6fdb368ef454c38a1d2d7bbd1059\transformed\jetified-image-4.6.2\AndroidManifest.xml:7:5-9:41
+MERGED from [io.noties.markwon:core:4.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\0a9955406f870202f9e56274edae22eb\transformed\jetified-core-4.6.2\AndroidManifest.xml:7:5-9:41
+MERGED from [io.noties.markwon:core:4.6.2] C:\Users\dwhit\Coding\jdks\caches\transforms-3\0a9955406f870202f9e56274edae22eb\transformed\jetified-core-4.6.2\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\b2c4ce8733a574a8c5c01b1d55709208\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\b2c4ce8733a574a8c5c01b1d55709208\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\8276a200b491ea442ef0300e4d361070\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\8276a200b491ea442ef0300e4d361070\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\81da09da0e5f4a5bf3bf66247b9d03f6\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\81da09da0e5f4a5bf3bf66247b9d03f6\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\b27761f1e50d5e59b728a74f5b1677de\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\b27761f1e50d5e59b728a74f5b1677de\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2f62fec0c849dd7e2eb579a9242fa6e3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2f62fec0c849dd7e2eb579a9242fa6e3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\80e614cf5e56ab66459330be847ace97\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\80e614cf5e56ab66459330be847ace97\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\d32a20a7330fa5929e3ad18c37cad104\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\d32a20a7330fa5929e3ad18c37cad104\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\acaa37aa8972eeabbae8d3688ad9cce5\transformed\exifinterface-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] C:\Users\dwhit\Coding\jdks\caches\transforms-3\acaa37aa8972eeabbae8d3688ad9cce5\transformed\exifinterface-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ef47504c045ce18a36d7832b046ac00a\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\ef47504c045ce18a36d7832b046ac00a\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\238e90ff527dfbbec78ebf830beb3ae9\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\238e90ff527dfbbec78ebf830beb3ae9\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6f38fab010b85b7184342660bc556408\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6f38fab010b85b7184342660bc556408\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-lint-aar:2.50] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4e61a20085bc628e79f394367ebe7332\transformed\jetified-dagger-lint-aar-2.50\AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:dagger-lint-aar:2.50] C:\Users\dwhit\Coding\jdks\caches\transforms-3\4e61a20085bc628e79f394367ebe7332\transformed\jetified-dagger-lint-aar-2.50\AndroidManifest.xml:18:3-42
+	android:targetSdkVersion
+		INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f527fb635e96922f8d00f29969327a25\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f527fb635e96922f8d00f29969327a25\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\f527fb635e96922f8d00f29969327a25\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:23:5-68
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:23:22-65
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:25:5-81
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:25:22-78
+service#androidx.work.impl.background.systemalarm.SystemAlarmService
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:39:9-45:35
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:42:13-72
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:43:13-37
+	tools:ignore
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:44:13-60
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:45:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:41:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:40:13-88
+service#androidx.work.impl.background.systemjob.SystemJobService
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:46:9-52:35
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:49:13-70
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:50:13-36
+	android:permission
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:51:13-69
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:52:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:48:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:47:13-84
+receiver#androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:61:9-66:35
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:64:13-35
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:65:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:66:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:63:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:62:13-88
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:67:9-77:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:70:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:71:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:72:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:69:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:68:13-106
+intent-filter#action:name:android.intent.action.ACTION_POWER_CONNECTED+action:name:android.intent.action.ACTION_POWER_DISCONNECTED
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:73:13-76:29
+action#android.intent.action.ACTION_POWER_CONNECTED
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:74:17-87
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:74:25-84
+action#android.intent.action.ACTION_POWER_DISCONNECTED
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:75:17-90
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:75:25-87
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:78:9-88:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:81:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:82:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:83:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:80:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:79:13-104
+intent-filter#action:name:android.intent.action.BATTERY_LOW+action:name:android.intent.action.BATTERY_OKAY
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:84:13-87:29
+action#android.intent.action.BATTERY_OKAY
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:85:17-77
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:85:25-74
+action#android.intent.action.BATTERY_LOW
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:86:17-76
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:86:25-73
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:89:9-99:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:92:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:93:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:94:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:91:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:90:13-104
+intent-filter#action:name:android.intent.action.DEVICE_STORAGE_LOW+action:name:android.intent.action.DEVICE_STORAGE_OK
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:95:13-98:29
+action#android.intent.action.DEVICE_STORAGE_LOW
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:96:17-83
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:96:25-80
+action#android.intent.action.DEVICE_STORAGE_OK
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:97:17-82
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:97:25-79
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:100:9-109:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:103:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:104:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:105:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:102:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:101:13-103
+intent-filter#action:name:android.net.conn.CONNECTIVITY_CHANGE
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:106:13-108:29
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:107:17-79
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:107:25-76
+receiver#androidx.work.impl.background.systemalarm.RescheduleReceiver
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:110:9-121:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:113:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:114:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:115:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:112:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:111:13-88
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.TIMEZONE_CHANGED+action:name:android.intent.action.TIME_SET
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:116:13-120:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:117:17-79
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:117:25-76
+action#android.intent.action.TIME_SET
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:118:17-73
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:118:25-70
+action#android.intent.action.TIMEZONE_CHANGED
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:119:17-81
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:119:25-78
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:122:9-131:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:125:13-72
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:126:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:127:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:124:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:123:13-99
+intent-filter#action:name:androidx.work.impl.background.systemalarm.UpdateProxies
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:128:13-130:29
+action#androidx.work.impl.background.systemalarm.UpdateProxies
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:129:17-98
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:129:25-95
+receiver#androidx.work.impl.diagnostics.DiagnosticsReceiver
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:132:9-142:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:135:13-35
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:136:13-36
+	android:permission
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:137:13-57
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:138:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:134:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:133:13-78
+intent-filter#action:name:androidx.work.diagnostics.REQUEST_DIAGNOSTICS
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:139:13-141:29
+action#androidx.work.diagnostics.REQUEST_DIAGNOSTICS
+ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:140:17-88
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:140:25-85
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:26:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:28:9-30:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:29:13-51
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+permission#com.tricare.manuals.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+uses-permission#com.tricare.manuals.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\5822b81a09da79a86d3da911816574cc\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\5822b81a09da79a86d3da911816574cc\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\5822b81a09da79a86d3da911816574cc\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+	android:exported
+		ADDED from [androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:28:13-60
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary brand colors -->
+    <color name="color_primary">#1A5276</color>
+    <color name="color_primary_variant">#154360</color>
+    <color name="color_on_primary">#FFFFFF</color>
+
+    <!-- Secondary / BMC yellow -->
+    <color name="color_secondary">#FFDD00</color>
+    <color name="color_secondary_variant">#F0C800</color>
+    <color name="color_on_secondary">#000000</color>
+
+    <!-- Background -->
+    <color name="color_background">#F5F7FA</color>
+    <color name="color_surface">#FFFFFF</color>
+    <color name="color_on_surface">#1C1C1E</color>
+    <color name="color_on_surface_variant">#6C757D</color>
+
+    <!-- Error -->
+    <color name="color_error">#B00020</color>
+    <color name="color_on_error">#FFFFFF</color>
+
+    <!-- Highlight colors -->
+    <color name="highlight_yellow">#FFFF00</color>
+    <color name="highlight_blue">#ADD8FF</color>
+    <color name="highlight_green">#ADFFD6</color>
+
+    <!-- Update badge -->
+    <color name="color_update_badge">#E74C3C</color>
+
+    <!-- Dark theme -->
+    <color name="color_primary_dark">#2980B9</color>
+    <color name="color_surface_dark">#1E1E2E</color>
+    <color name="color_background_dark">#121212</color>
+</resources>

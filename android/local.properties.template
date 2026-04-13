@@ -1,0 +1,6 @@
+## This file must *NOT* be checked into Version Control Systems
+# Copy this to local.properties and set sdk.dir to your Android SDK path.
+# Example on Windows:
+sdk.dir=C\:\\Users\\YourName\\AppData\\Local\\Android\\Sdk
+# Example on macOS/Linux:
+# sdk.dir=/Users/yourname/Library/Android/sdk

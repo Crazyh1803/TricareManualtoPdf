@@ -1,0 +1,3 @@
+com.tricare.manuals.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

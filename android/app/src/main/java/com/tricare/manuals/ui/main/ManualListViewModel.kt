@@ -1,14 +1,21 @@
 package com.tricare.manuals.ui.main
 
 import android.content.Context
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import com.tricare.manuals.data.model.Manual
 import com.tricare.manuals.data.network.NtpClient
 import com.tricare.manuals.data.repository.ManualRepository
 import com.tricare.manuals.util.appDataStore
+import com.tricare.manuals.worker.DownloadWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
@@ -19,6 +26,9 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.util.Calendar
 import javax.inject.Inject
+
+private val FORMAT_KEY = stringPreferencesKey("download_format")
+private val WIFI_ONLY_KEY = booleanPreferencesKey("wifi_only_downloads")
 
 private val LAST_BIRTHDAY_YEAR_KEY = intPreferencesKey("last_birthday_year")
 
@@ -76,6 +86,30 @@ class ManualListViewModel @Inject constructor(
             } catch (e: Exception) {
                 // Silently ignore NTP errors
             }
+        }
+    }
+
+    fun enqueueDownload(code: String) {
+        viewModelScope.launch {
+            val manual = repository.getManual(code) ?: return@launch
+            val prefs = context.appDataStore.data.first()
+            val format = prefs[FORMAT_KEY] ?: "md"
+            val changeNum = manual.latestChange.takeIf { it > 0 } ?: 1
+            val inputData = workDataOf(
+                DownloadWorker.KEY_MANUAL_CODE to code,
+                DownloadWorker.KEY_FORMAT to format,
+                DownloadWorker.KEY_CHANGE_NUM to changeNum
+            )
+            val workRequest = OneTimeWorkRequestBuilder<DownloadWorker>()
+                .setInputData(inputData)
+                .addTag(code)
+                .build()
+            // REPLACE ensures tapping Download twice cancels the first and restarts cleanly
+            WorkManager.getInstance(context).enqueueUniqueWork(
+                "download_$code",
+                ExistingWorkPolicy.REPLACE,
+                workRequest
+            )
         }
     }
 

@@ -20,13 +20,13 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- RecyclerView scrolls below the AppBar; bottom padding clears footer + FAB -->
+    <!-- RecyclerView scrolls below the AppBar; bottom padding clears footer -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_manuals"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingBottom="160dp"
+        android:paddingBottom="90dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/item_manual" />
 
@@ -64,15 +64,5 @@
 
     </LinearLayout>
 
-    <!-- FAB floats in the content area, above the footer (77dp) with 16dp clearance -->
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fab_download"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="93dp"
-        android:text="@string/fab_download_label"
-        app:icon="@android:drawable/stat_sys_download" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

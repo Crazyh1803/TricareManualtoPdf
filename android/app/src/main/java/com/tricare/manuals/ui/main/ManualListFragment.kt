@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -19,11 +20,16 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.work.WorkInfo
+import androidx.work.WorkManager
+import com.tricare.manuals.BuildConfig
 import com.tricare.manuals.R
+import com.tricare.manuals.data.model.Manual
+import com.tricare.manuals.data.repository.ManualRepository
 import com.tricare.manuals.databinding.FragmentManualListBinding
-import com.tricare.manuals.ui.download.DownloadDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.io.File
 
 @AndroidEntryPoint
 class ManualListFragment : Fragment() {
@@ -46,14 +52,13 @@ class ManualListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Set the fragment's toolbar as the activity's support action bar
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
 
         setupRecyclerView()
-        setupFab()
         setupBmcButton()
         setupMenu()
         observeViewModel()
+        observeDownloadProgress()
 
         viewModel.checkBirthdayPrompt()
         viewModel.checkAllVersions()
@@ -76,6 +81,12 @@ class ManualListFragment : Fragment() {
                     }
                     startActivity(intent)
                 }
+            },
+            onDownloadClick = { manual ->
+                viewModel.enqueueDownload(manual.code)
+            },
+            onShareClick = { manual ->
+                shareManual(manual)
             }
         )
         binding.recyclerManuals.apply {
@@ -84,11 +95,42 @@ class ManualListFragment : Fragment() {
         }
     }
 
-    private fun setupFab() {
-        binding.fabDownload.setOnClickListener {
-            DownloadDialogFragment.newInstance()
-                .show(childFragmentManager, DownloadDialogFragment.TAG)
+    /** Observe WorkManager for each known manual code and forward state to the adapter. */
+    private fun observeDownloadProgress() {
+        val workManager = WorkManager.getInstance(requireContext())
+        ManualRepository.KNOWN_MANUALS.forEach { known ->
+            workManager.getWorkInfosForUniqueWorkLiveData("download_${known.code}")
+                .observe(viewLifecycleOwner) { workInfos ->
+                    // There will be at most one work item per unique name
+                    val workInfo = workInfos?.firstOrNull()
+                    adapter.updateProgress(known.code, workInfo)
+                }
         }
+    }
+
+    private fun shareManual(manual: Manual) {
+        val filePath = manual.filePath ?: return
+        val file = File(filePath)
+        if (!file.exists()) return
+
+        val mimeType = when {
+            filePath.endsWith(".pdf", ignoreCase = true) -> "application/pdf"
+            else -> "text/plain"
+        }
+
+        val uri: Uri = FileProvider.getUriForFile(
+            requireContext(),
+            "${BuildConfig.APPLICATION_ID}.fileprovider",
+            file
+        )
+
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = mimeType
+            putExtra(Intent.EXTRA_STREAM, uri)
+            putExtra(Intent.EXTRA_SUBJECT, "${manual.name} — Change ${manual.downloadedChange}")
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        }
+        startActivity(Intent.createChooser(intent, "Share ${manual.name}"))
     }
 
     private fun setupBmcButton() {

@@ -61,6 +61,35 @@ _CONTENT_SELECTORS = ["main", "#content", ".Content", ".container",
                       "#main", "#page", "article", "body"]
 _FRONT_MATTER      = {"FOREWORD", "INTRO", "PREFACE", "SUMMARY"}
 
+# CSS selectors for US-gov site chrome to strip before content extraction.
+# These cover the standard USWDS / MHS banner, header, footer, and skip-nav.
+_BOILERPLATE_SELECTORS = [
+    ".usa-banner",          # "An official website…" top banner
+    ".usa-header",
+    ".usa-nav",
+    ".usa-footer",
+    ".usa-identifier",      # agency identifier bar at very bottom
+    ".usa-skipnav",
+    "a.skipnav",
+    "[class*='skipnav']",
+    "[id*='skipnav']",
+    "[class*='site-header']",
+    "[class*='site-footer']",
+    "[class*='social']",
+    "[class*='govdelivery']",
+    "[id*='GovDelivery']",
+    "section.usa-banner",
+    "div.usa-banner",
+    # MHS / manuals.health.mil specific
+    ".mil-header",
+    ".mil-footer",
+    ".disclaimer-modal",
+    # Role-based fallbacks
+    "[role='banner']",
+    "[role='contentinfo']",
+    "[role='navigation']",
+]
+
 
 # ── URL helpers ───────────────────────────────────────────────────────────────
 
@@ -89,16 +118,31 @@ def file_url(path: Path) -> str:
 # ── Sorting ───────────────────────────────────────────────────────────────────
 
 def natural_key(name: str):
-    """Sort filenames in logical manual order: front matter → chapters → addenda."""
+    """Sort filenames in logical manual order: front matter → chapters → addenda.
+
+    Handles prefixed filenames like TST5_FOREWORD.html and TST5_C1S1.html
+    by stripping any leading CODE_ prefix before pattern-matching.
+    """
     base = name.split(".", 1)[0].upper()
-    if base in _FRONT_MATTER:
-        return (-1, 0, 0, 0, base)
+    # Strip common manual-code prefix (e.g. "TST5_", "TPT5_")
+    base = re.sub(r"^[A-Z]{3,5}\d*_", "", base)
+
+    # Front matter — exact match OR filename ending with a front-matter keyword
+    for keyword in _FRONT_MATTER:
+        if base == keyword or base.endswith(keyword):
+            return (-1, 0, 0, 0, base)
+
+    # Chapter section: C1S1, C1S1_1, C01S02_3, etc.
     m = re.match(r"^C(\d+)S(\d+)(?:_(\d+))?$", base)
     if m:
         return (0, int(m.group(1)), int(m.group(2)), int(m.group(3) or 0), "")
-    m = re.match(r"^C(\d+)AD(.+)$", base)
+
+    # Addendum: C1AD_A, C1ADA, C2ADDENDUM, etc.
+    m = re.match(r"^C(\d+)AD(.*)$", base)
     if m:
         return (1, int(m.group(1)), 9999, 9999, m.group(2).upper())
+
+    # Any other file that at least starts with a chapter number
     m = re.match(r"^C(\d+)", base)
     c = int(m.group(1)) if m else 999_999
     return (9, c, 999_999, 999_999, base)
@@ -332,6 +376,12 @@ def clean_html_keep_main(html_text: str) -> tuple[str, str]:
         tag.decompose()
     for c in soup.find_all(string=lambda t: isinstance(t, Comment)):
         c.extract()
+
+    # Strip US-gov site chrome (banner, header, footer, skip-nav, social links)
+    # BEFORE content extraction so they don't inflate the "best content" score.
+    for sel in _BOILERPLATE_SELECTORS:
+        for el in soup.select(sel):
+            el.decompose()
 
     best = _extract_main_node(soup)
     if best is None:
@@ -569,7 +619,9 @@ async def process_manual(
 
     # Stage 2
     print("Stage 2: collecting section links from each chapter TOC…")
-    seen:          set[str]  = set()
+    # Pre-seed seen with every chapter TOC URL so they are never added to
+    # section_links (either from top_level or from links within a chapter page).
+    seen:          set[str]  = set(chapter_tocs)
     section_links: list[str] = []
 
     for u in top_level:

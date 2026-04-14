@@ -9,6 +9,7 @@ import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
+import com.tricare.manuals.data.model.Manual
 import com.tricare.manuals.data.network.NtpClient
 import com.tricare.manuals.data.repository.ManualRepository
 import com.tricare.manuals.util.appDataStore

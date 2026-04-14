@@ -40,24 +40,21 @@
             android:parentActivityName=".ui.main.MainActivity"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- Disable default WorkManager initializer so Hilt can take over -->
-        <!-- Declare WorkManager's foreground service with dataSync type so Android grants
-             the correct privileges when DownloadWorker calls setForeground() -->
+        <!-- TricareApp implements Configuration.Provider, so WorkManager uses on-demand
+             initialization. Removing the entire InitializationProvider entry prevents
+             the default auto-init from running and silences the RemoveWorkManagerInitializer
+             Play Console lint warning. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove" />
+
+        <!-- Declare WorkManager's foreground service with dataSync type so Android 14+
+             grants the correct privileges when DownloadWorker calls setForeground(). -->
         <service
             android:name="androidx.work.impl.foreground.SystemForegroundService"
             android:foregroundServiceType="dataSync"
             tools:node="merge" />
-
-        <provider
-            android:name="androidx.startup.InitializationProvider"
-            android:authorities="${applicationId}.androidx-startup"
-            android:exported="false"
-            tools:node="merge">
-            <meta-data
-                android:name="androidx.work.WorkManagerInitializer"
-                android:value="androidx.startup"
-                tools:node="remove" />
-        </provider>
 
         <provider
             android:name="androidx.core.content.FileProvider"

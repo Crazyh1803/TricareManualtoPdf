@@ -1,17 +1,14 @@
 package com.tricare.manuals.ui.main
 
 import android.content.Context
-import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
-import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
-import com.tricare.manuals.data.model.Manual
 import com.tricare.manuals.data.network.NtpClient
 import com.tricare.manuals.data.repository.ManualRepository
 import com.tricare.manuals.util.appDataStore
@@ -27,9 +24,6 @@ import kotlinx.coroutines.launch
 import java.util.Calendar
 import javax.inject.Inject
 
-private val FORMAT_KEY = stringPreferencesKey("download_format")
-private val WIFI_ONLY_KEY = booleanPreferencesKey("wifi_only_downloads")
-
 private val LAST_BIRTHDAY_YEAR_KEY = intPreferencesKey("last_birthday_year")
 
 @HiltViewModel
@@ -44,9 +38,6 @@ class ManualListViewModel @Inject constructor(
     private val _showBirthdayPrompt = MutableStateFlow(false)
     val showBirthdayPrompt: StateFlow<Boolean> = _showBirthdayPrompt.asStateFlow()
 
-    private val _isCheckingVersions = MutableStateFlow(false)
-    val isCheckingVersions: StateFlow<Boolean> = _isCheckingVersions.asStateFlow()
-
     init {
         viewModelScope.launch {
             repository.ensureDefaultManualsExist()
@@ -58,12 +49,10 @@ class ManualListViewModel @Inject constructor(
 
     fun checkAllVersions() {
         viewModelScope.launch {
-            _isCheckingVersions.value = true
             val currentManuals = _manuals.value
             for (manual in currentManuals) {
                 repository.checkLatestVersion(manual.code)
             }
-            _isCheckingVersions.value = false
         }
     }
 

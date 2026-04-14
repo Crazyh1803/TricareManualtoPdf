@@ -30,7 +30,7 @@ private val LAST_BIRTHDAY_YEAR_KEY = intPreferencesKey("last_birthday_year")
 @HiltViewModel
 class ManualListViewModel @Inject constructor(
     private val repository: ManualRepository,
-    @ApplicationContext private val context: Context
+    @param:ApplicationContext private val context: Context
 ) : ViewModel() {
 
     private val _manuals = MutableStateFlow<List<Manual>>(emptyList())
@@ -73,7 +73,7 @@ class ManualListViewModel @Inject constructor(
                         _showBirthdayPrompt.value = true
                     }
                 }
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 // Silently ignore NTP errors
             }
         }

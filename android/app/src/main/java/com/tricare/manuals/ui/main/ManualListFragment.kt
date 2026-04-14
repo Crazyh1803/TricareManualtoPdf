@@ -148,7 +148,7 @@ class ManualListFragment : Fragment() {
         var inList = false
         var inTable = false
 
-        for (rawLine in md.lines()) {
+        lineLoop@ for (rawLine in md.lines()) {
             val line = rawLine.trim()
 
             if (inList && !line.startsWith("- ") && line.isNotEmpty()) {
@@ -170,7 +170,7 @@ class ManualListFragment : Fragment() {
                 }
                 line.startsWith("|") && !line.replace(Regex("\\|[-: ]+"), "").isBlank() -> {
                     if (!inTable) { sb.append("<table>\n"); inTable = true }
-                    if (line.replace("|","").replace("-","").replace(" ","").isEmpty()) return@for
+                    if (line.replace("|","").replace("-","").replace(" ","").isEmpty()) continue@lineLoop
                     val cells = line.split("|").drop(1).dropLast(1)
                     sb.append("<tr>")
                     cells.forEach { sb.append("<td>${esc(it.trim())}</td>") }

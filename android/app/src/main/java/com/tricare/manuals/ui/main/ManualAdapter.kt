@@ -64,7 +64,7 @@ class ManualAdapter(
         payloads: MutableList<Any>
     ) {
         if (payloads.contains(PAYLOAD_PROGRESS)) {
-            holder.bindProgress(getItem(position), progressMap[getItem(position).code])
+            holder.bindProgress(progressMap[getItem(position).code])
         } else {
             super.onBindViewHolder(holder, position, payloads)
         }
@@ -153,11 +153,11 @@ class ManualAdapter(
                 binding.tvDownloadedAt.visibility = View.GONE
             }
 
-            bindProgress(manual, workInfo)
+            bindProgress(workInfo)
         }
 
         /** Updates only the progress row — called both from full bind and partial payloads. */
-        fun bindProgress(manual: Manual, workInfo: WorkInfo?) {
+        fun bindProgress(workInfo: WorkInfo?) {
             val isActive = workInfo?.state == WorkInfo.State.RUNNING ||
                     workInfo?.state == WorkInfo.State.ENQUEUED
 

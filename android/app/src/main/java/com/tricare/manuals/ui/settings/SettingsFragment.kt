@@ -1,12 +1,16 @@
 package com.tricare.manuals.ui.settings
 
+import android.content.ContentUris
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
@@ -74,18 +78,19 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
 
     private fun setupStorageUsed() {
         val storagePref = findPreference<Preference>("storage_used")
-        // Files now live in the public Downloads folder
-        val downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-        val totalBytes = if (downloadsDir.exists()) {
-            downloadsDir.listFiles { f ->
-                f.isFile && (f.name.startsWith("TOT5_") || f.name.startsWith("TPT5_") ||
-                        f.name.startsWith("TRT5_") || f.name.startsWith("TST5_"))
+        val totalBytes = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            mediaStoreManualBytes()
+        } else {
+            legacyDownloadsDir()?.listFiles { f ->
+                f.isFile && isManualFile(f.name)
             }?.sumOf { it.length() } ?: 0L
-        } else 0L
+        }
         val totalMb = totalBytes / (1024.0 * 1024.0)
-        storagePref?.summary = if (totalMb >= 0.1) "%.1f MB used".format(totalMb)
-        else if (totalBytes > 0) "${totalBytes / 1024} KB used"
-        else "No manuals downloaded"
+        storagePref?.summary = when {
+            totalMb >= 0.1  -> "%.1f MB used".format(totalMb)
+            totalBytes > 0  -> "${totalBytes / 1024} KB used"
+            else            -> "No manuals downloaded"
+        }
     }
 
     private fun setupDeleteAll() {
@@ -103,20 +108,72 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
     }
 
     private fun deleteAllDownloads() {
-        val downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-        var deletedCount = 0
-        downloadsDir.listFiles { f ->
-            f.isFile && (f.name.startsWith("TOT5_") || f.name.startsWith("TPT5_") ||
-                    f.name.startsWith("TRT5_") || f.name.startsWith("TST5_"))
-        }?.forEach { f ->
-            if (f.delete()) deletedCount++
+        val deleted = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            deleteMediaStoreManuals()
+        } else {
+            var count = 0
+            legacyDownloadsDir()?.listFiles { f -> f.isFile && isManualFile(f.name) }
+                ?.forEach { if (it.delete()) count++ }
+            count
         }
         setupStorageUsed()
         android.widget.Toast.makeText(
             requireContext(),
-            if (deletedCount > 0) getString(R.string.delete_done) else "No files found to delete.",
+            if (deleted > 0) getString(R.string.delete_done) else "No files found to delete.",
             android.widget.Toast.LENGTH_SHORT
         ).show()
+    }
+
+    // ── Storage helpers ───────────────────────────────────────────────────────
+
+    private fun isManualFile(name: String) =
+        name.startsWith("TOT5_") || name.startsWith("TPT5_") ||
+        name.startsWith("TRT5_") || name.startsWith("TST5_")
+
+    private fun legacyDownloadsDir(): File? =
+        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+            .takeIf { it.exists() }
+
+    @RequiresApi(Build.VERSION_CODES.Q)
+    private fun mediaStoreManualBytes(): Long {
+        var total = 0L
+        val resolver = requireContext().contentResolver
+        val collection = MediaStore.Downloads.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+        resolver.query(
+            collection,
+            arrayOf(MediaStore.Downloads.DISPLAY_NAME, MediaStore.Downloads.SIZE),
+            null, null, null
+        )?.use { cursor ->
+            val nameCol = cursor.getColumnIndexOrThrow(MediaStore.Downloads.DISPLAY_NAME)
+            val sizeCol = cursor.getColumnIndexOrThrow(MediaStore.Downloads.SIZE)
+            while (cursor.moveToNext()) {
+                if (isManualFile(cursor.getString(nameCol) ?: continue)) {
+                    total += cursor.getLong(sizeCol)
+                }
+            }
+        }
+        return total
+    }
+
+    @RequiresApi(Build.VERSION_CODES.Q)
+    private fun deleteMediaStoreManuals(): Int {
+        val resolver = requireContext().contentResolver
+        val collection = MediaStore.Downloads.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+        val toDelete = mutableListOf<Uri>()
+        resolver.query(
+            collection,
+            arrayOf(MediaStore.Downloads._ID, MediaStore.Downloads.DISPLAY_NAME),
+            null, null, null
+        )?.use { cursor ->
+            val idCol   = cursor.getColumnIndexOrThrow(MediaStore.Downloads._ID)
+            val nameCol = cursor.getColumnIndexOrThrow(MediaStore.Downloads.DISPLAY_NAME)
+            while (cursor.moveToNext()) {
+                if (isManualFile(cursor.getString(nameCol) ?: continue)) {
+                    toDelete.add(ContentUris.withAppendedId(collection, cursor.getLong(idCol)))
+                }
+            }
+        }
+        return toDelete.count { resolver.delete(it, null, null) > 0 }
     }
 
     private fun setupSupportDeveloper() {

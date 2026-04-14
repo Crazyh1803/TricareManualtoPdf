@@ -38,16 +38,6 @@ class TocParser @Inject constructor() {
 
         // Regex patterns applied to the final markdown text
 
-        // Strips "Military Health System" nav block (appears in every section)
-        private val MHS_NAV_REGEX = Regex(
-            """(?s)## Military Health System\n.*?(?=\nTRICARE (?:Operations|Policy|Reimbursement|Systems) Manual|\Z)""",
-            setOf(RegexOption.IGNORE_CASE)
-        )
-        // Strips the duplicated nav list "- DHA Home … - TRICARE" that appears inside sections
-        private val NAV_LIST_REGEX = Regex(
-            """(?m)(?:- DHA Home\n(?:- [^\n]+\n)*- TRICARE\n?)+""",
-            RegexOption.IGNORE_CASE
-        )
         // Strips the per-section footer starting with "tricare.mil is the official…"
         private val TRICARE_FOOTER_REGEX = Regex(
             """(?s)- tricare\.mil is the official website.*""",
@@ -71,11 +61,6 @@ class TocParser @Inject constructor() {
         // Strips the "Need larger text?" link
         private val LARGER_TEXT_REGEX = Regex(
             """\[Need larger text\?\]\([^)]*\)\s*""",
-            RegexOption.IGNORE_CASE
-        )
-        // Strips breadcrumb lines that start a numbered list with "DHA Home"
-        private val BREADCRUMB_REGEX = Regex(
-            """(?m)^(\d+\.\s*(DHA Home|TRICARE|Defense Health Agency)[^\n]*)(\n\d+\.[^\n]*)*\n?""",
             RegexOption.IGNORE_CASE
         )
         // Strips Previous/Next nav links that survived HTML removal
@@ -212,12 +197,6 @@ class TocParser @Inject constructor() {
     private fun postProcess(md: String): String {
         var result = md
 
-        // Remove "Military Health System" nav block (per-section nav header)
-        result = MHS_NAV_REGEX.replace(result, "")
-
-        // Remove duplicated "- DHA Home … - TRICARE" nav lists
-        result = NAV_LIST_REGEX.replace(result, "")
-
         // Remove "tricare.mil is the official website…" footer block
         result = TRICARE_FOOTER_REGEX.replace(result, "")
 
@@ -230,9 +209,6 @@ class TocParser @Inject constructor() {
 
         // Remove "Need larger text?" link
         result = LARGER_TEXT_REGEX.replace(result, "")
-
-        // Remove breadcrumb numbered list starting with DHA Home
-        result = BREADCRUMB_REGEX.replace(result, "")
 
         // Remove any surviving Previous/Next markdown links
         result = PREV_NEXT_REGEX.replace(result, "")

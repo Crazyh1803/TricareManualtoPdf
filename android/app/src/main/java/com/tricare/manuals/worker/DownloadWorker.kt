@@ -2,12 +2,15 @@ package com.tricare.manuals.worker
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.ContentValues
 import android.content.Context
 import android.content.pm.ServiceInfo
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Environment
+import android.provider.MediaStore
+import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.hilt.work.HiltWorker
@@ -28,6 +31,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
+import java.io.BufferedWriter
 import java.io.File
 
 @HiltWorker
@@ -49,6 +53,7 @@ class DownloadWorker @AssistedInject constructor(
         const val KEY_MANUAL_PROGRESS = "manual"
         const val KEY_ERROR_REASON = "error_reason"
         const val KEY_ETA_SECONDS = "eta_seconds"
+        const val KEY_FILE_PATH = "file_path"
 
         private val WIFI_ONLY_KEY = booleanPreferencesKey("wifi_only_downloads")
         private const val BASE_TOC_URL = "https://manuals.health.mil/pages/ManualToc.aspx?Manual="
@@ -125,9 +130,10 @@ class DownloadWorker @AssistedInject constructor(
                     return@withContext Result.failure(
                         workDataOf(
                             KEY_ERROR_REASON to
-                                "No sections found for $code Change $changeNum " +
-                                "(${allLinks.size} links on TOC page; " +
-                                "first: ${allLinks.firstOrNull() ?: "none"})"
+                                "No sections found for $code Change $changeNum. " +
+                                "TOC had ${allLinks.size} links, " +
+                                "${chapterTocLinks.size} chapter TOCs. " +
+                                "First link: ${allLinks.firstOrNull() ?: "none"}"
                         )
                     )
                 }
@@ -185,36 +191,19 @@ class DownloadWorker @AssistedInject constructor(
                     }
                 }
 
-                // 5. Write output file to the public Downloads folder
-                val manualsDir = Environment.getExternalStoragePublicDirectory(
-                    Environment.DIRECTORY_DOWNLOADS
-                )
-                manualsDir.mkdirs()
-
-                // Both MD and PDF currently produce markdown text. Real PDF rendering
-                // would require a library; for now both land as readable .md files
-                // with their respective name so the user can upload them to Claude.
+                // 5. Write output file to the public Downloads folder.
+                //    Android 10+ (API 29+): MediaStore.Downloads — no permission needed.
+                //    Android 9 and below: direct file write (WRITE_EXTERNAL_STORAGE granted by user).
                 val ext = if (format == "pdf") "pdf" else "md"
-                val outputFile = File(manualsDir, "${code}_change${changeNum}.$ext")
+                val fileName = "${code}_change${changeNum}.$ext"
 
-                outputFile.bufferedWriter().use { writer ->
-                    // Master table of contents
-                    writer.write("# ${ManualRepository.KNOWN_MANUALS.find { it.code == code }?.name ?: code}\n")
-                    writer.write("Change $changeNum — ${sections.size} sections\n\n")
-                    writer.write("---\n\n")
-                    writer.write("## Table of Contents\n\n")
-                    sections.forEachIndexed { i, s -> writer.write("${i + 1}. ${s.title}\n") }
-                    writer.write("\n---\n\n")
-
-                    // Section content
-                    for (section in sections) {
-                        writer.write("## ${section.title}\n\n")
-                        writer.write(section.contentMd ?: "")
-                        writer.write("\n\n---\n\n")
-                    }
-                }
-
-                val filePath = outputFile.absolutePath
+                val filePath = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    writeViaMediaStore(fileName, code, changeNum, sections)
+                } else {
+                    writeViaLegacy(fileName, code, changeNum, sections)
+                } ?: return@withContext Result.failure(
+                    workDataOf(KEY_ERROR_REASON to "Failed to write file to Downloads folder")
+                )
 
                 // 6. Mark the manual as downloaded in the DB.
                 //    Do this RIGHT AFTER the file is written so the card updates
@@ -237,12 +226,93 @@ class DownloadWorker @AssistedInject constructor(
                     KEY_MANUAL_PROGRESS to code,
                     KEY_PROGRESS_CURRENT to total,
                     KEY_PROGRESS_TOTAL to total,
-                    KEY_ETA_SECONDS to 0L
+                    KEY_ETA_SECONDS to 0L,
+                    KEY_FILE_PATH to filePath
                 ))
 
             } catch (e: Exception) {
                 Result.failure(workDataOf(KEY_ERROR_REASON to (e.message ?: "Unknown error")))
             }
+        }
+    }
+
+    /** Android 10+ (API 29+): write via MediaStore so the file lands in the real Downloads
+     *  folder without needing WRITE_EXTERNAL_STORAGE. Returns the file-system path on success. */
+    @RequiresApi(Build.VERSION_CODES.Q)
+    private fun writeViaMediaStore(
+        fileName: String, code: String, changeNum: Int, sections: List<Section>
+    ): String? {
+        val resolver = applicationContext.contentResolver
+        val collection = MediaStore.Downloads.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+
+        // Delete any stale entry with the same name (re-download scenario)
+        resolver.query(collection,
+            arrayOf(MediaStore.Downloads._ID),
+            "${MediaStore.Downloads.DISPLAY_NAME} = ?", arrayOf(fileName), null
+        )?.use { cursor ->
+            if (cursor.moveToFirst()) {
+                val id = cursor.getLong(0)
+                resolver.delete(
+                    android.content.ContentUris.withAppendedId(collection, id), null, null
+                )
+            }
+        }
+
+        val cv = ContentValues().apply {
+            put(MediaStore.Downloads.DISPLAY_NAME, fileName)
+            put(MediaStore.Downloads.MIME_TYPE, "text/markdown")
+            put(MediaStore.Downloads.IS_PENDING, 1)
+        }
+        val uri = resolver.insert(collection, cv) ?: return null
+
+        return try {
+            resolver.openOutputStream(uri)!!.bufferedWriter().use { w ->
+                writeContent(w, code, changeNum, sections)
+            }
+            cv.clear()
+            cv.put(MediaStore.Downloads.IS_PENDING, 0)
+            resolver.update(uri, cv, null, null)
+
+            // Get the real file-system path; fall back to constructing it if DATA is null
+            @Suppress("DEPRECATION")
+            resolver.query(uri, arrayOf(MediaStore.Downloads.DATA), null, null, null)
+                ?.use { c -> if (c.moveToFirst()) c.getString(0) else null }
+                ?: "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)}/$fileName"
+        } catch (e: Exception) {
+            resolver.delete(uri, null, null)
+            null
+        }
+    }
+
+    /** Android 9 and below: direct write to the public Downloads folder.
+     *  Requires WRITE_EXTERNAL_STORAGE, which the user granted before enqueueing. */
+    private fun writeViaLegacy(
+        fileName: String, code: String, changeNum: Int, sections: List<Section>
+    ): String? {
+        return try {
+            val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+            dir.mkdirs()
+            val file = File(dir, fileName)
+            file.bufferedWriter().use { w -> writeContent(w, code, changeNum, sections) }
+            file.absolutePath
+        } catch (e: Exception) {
+            null
+        }
+    }
+
+    private fun writeContent(
+        w: BufferedWriter, code: String, changeNum: Int, sections: List<Section>
+    ) {
+        w.write("# ${ManualRepository.KNOWN_MANUALS.find { it.code == code }?.name ?: code}\n")
+        w.write("Change $changeNum — ${sections.size} sections\n\n")
+        w.write("---\n\n")
+        w.write("## Table of Contents\n\n")
+        sections.forEachIndexed { i, s -> w.write("${i + 1}. ${s.title}\n") }
+        w.write("\n---\n\n")
+        for (section in sections) {
+            w.write("## ${section.title}\n\n")
+            w.write(section.contentMd ?: "")
+            w.write("\n\n---\n\n")
         }
     }
 

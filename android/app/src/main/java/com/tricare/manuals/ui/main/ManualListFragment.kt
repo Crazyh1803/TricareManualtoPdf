@@ -1,8 +1,11 @@
 package com.tricare.manuals.ui.main
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.print.PrintAttributes
 import android.print.PrintManager
@@ -15,8 +18,10 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -44,6 +49,30 @@ class ManualListFragment : Fragment() {
 
     private val viewModel: ManualListViewModel by viewModels()
     private lateinit var adapter: ManualAdapter
+
+    // Track work IDs we've already shown a terminal toast for, to avoid duplicate toasts
+    // on LiveData re-emissions (e.g. screen rotation).
+    private val toastedWorkIds = mutableSetOf<java.util.UUID>()
+
+    // ── Storage permission (Android 9 and below only) ─────────────────────────
+    // Android 10+ uses MediaStore.Downloads — no permission needed at all.
+
+    private var pendingDownloadCode: String? = null
+
+    private val writePermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { granted ->
+        if (granted) {
+            pendingDownloadCode?.let { viewModel.enqueueDownload(it) }
+        } else {
+            Toast.makeText(
+                requireContext(),
+                "Storage permission is required to save files to the Downloads folder.",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+        pendingDownloadCode = null
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -86,7 +115,7 @@ class ManualListFragment : Fragment() {
                     startActivity(intent)
                 }
             },
-            onDownloadClick = { manual -> viewModel.enqueueDownload(manual.code) },
+            onDownloadClick = { manual -> startDownload(manual.code) },
             onShareClick = { manual -> shareManual(manual) },
             onExportPdfClick = { manual -> exportAsPdf(manual) }
         )
@@ -96,12 +125,63 @@ class ManualListFragment : Fragment() {
         }
     }
 
+    /** On Android 10+ the MediaStore.Downloads API requires no permission.
+     *  On Android 9 and below we need WRITE_EXTERNAL_STORAGE — ask for it here,
+     *  before the worker even starts, so the worker never hits a permission error. */
+    private fun startDownload(code: String) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            // Android 10+: MediaStore handles the write — no permission dialog needed
+            viewModel.enqueueDownload(code)
+            return
+        }
+        if (ContextCompat.checkSelfPermission(
+                requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            viewModel.enqueueDownload(code)
+        } else {
+            pendingDownloadCode = code
+            writePermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        }
+    }
+
     private fun observeDownloadProgress() {
         val workManager = androidx.work.WorkManager.getInstance(requireContext())
         ManualRepository.KNOWN_MANUALS.forEach { known ->
             workManager.getWorkInfosForUniqueWorkLiveData("download_${known.code}")
                 .observe(viewLifecycleOwner) { workInfos ->
-                    adapter.updateProgress(known.code, workInfos?.firstOrNull())
+                    val info = workInfos?.firstOrNull()
+                    adapter.updateProgress(known.code, info)
+
+                    val workId = info?.id
+                    val isTerminal = info?.state == androidx.work.WorkInfo.State.FAILED ||
+                            info?.state == androidx.work.WorkInfo.State.SUCCEEDED
+                    if (isTerminal && workId != null && toastedWorkIds.add(workId)) {
+                        when (info.state) {
+                            androidx.work.WorkInfo.State.FAILED -> {
+                                val reason = info.outputData.getString(
+                                    com.tricare.manuals.worker.DownloadWorker.KEY_ERROR_REASON
+                                ) ?: "Unknown error"
+                                Toast.makeText(
+                                    requireContext(),
+                                    "${known.code} download failed:\n$reason",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                            androidx.work.WorkInfo.State.SUCCEEDED -> {
+                                val filePath = info.outputData.getString(
+                                    com.tricare.manuals.worker.DownloadWorker.KEY_FILE_PATH
+                                )
+                                val msg = if (filePath != null) {
+                                    "${known.code} saved to:\n$filePath"
+                                } else {
+                                    "${known.code} download complete"
+                                }
+                                Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
+                            }
+                            else -> { /* should not reach */ }
+                        }
+                    }
                 }
         }
     }

@@ -78,9 +78,15 @@ class ManualAdapter(
             binding.tvManualName.text = manual.name
 
             // Status text
+            val downloadFailed = workInfo?.state == WorkInfo.State.FAILED
             if (manual.downloadedChange != null) {
                 binding.tvStatus.text = "Change ${manual.downloadedChange} downloaded"
                     .let { if (manual.downloadedFormat != null) "$it (${manual.downloadedFormat.uppercase()})" else it }
+            } else if (downloadFailed) {
+                val reason = workInfo?.outputData?.getString(
+                    com.tricare.manuals.worker.DownloadWorker.KEY_ERROR_REASON
+                ) ?: "Unknown error"
+                binding.tvStatus.text = "Download failed — $reason"
             } else {
                 binding.tvStatus.text = "Not downloaded"
             }

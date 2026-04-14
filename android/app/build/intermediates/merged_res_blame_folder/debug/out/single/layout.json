@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-mergeDebugResources-61:\\layout\\nav_header_reader.xml",
-        "source": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-main-64:\\layout\\nav_header_reader.xml"
-    },
-    {
         "merged": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-mergeDebugResources-61:\\layout\\item_section.xml",
         "source": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-main-64:\\layout\\item_section.xml"
     },
@@ -20,6 +16,22 @@
         "source": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-main-64:\\layout\\activity_main.xml"
     },
     {
+        "merged": "com.tricare.manuals.app-mergeDebugResources-61:/layout/item_manual.xml",
+        "source": "com.tricare.manuals.app-main-64:/layout/item_manual.xml"
+    },
+    {
+        "merged": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-mergeDebugResources-61:\\layout\\fragment_settings.xml",
+        "source": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-main-64:\\layout\\fragment_settings.xml"
+    },
+    {
+        "merged": "com.tricare.manuals.app-mergeDebugResources-61:/layout/fragment_manual_list.xml",
+        "source": "com.tricare.manuals.app-main-64:/layout/fragment_manual_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-mergeDebugResources-61:\\layout\\nav_header_reader.xml",
+        "source": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-main-64:\\layout\\nav_header_reader.xml"
+    },
+    {
         "merged": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-mergeDebugResources-61:\\layout\\item_bookmark.xml",
         "source": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-main-64:\\layout\\item_bookmark.xml"
     },
@@ -32,15 +44,7 @@
         "source": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-main-64:\\layout\\fragment_download_dialog.xml"
     },
     {
-        "merged": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-mergeDebugResources-61:\\layout\\fragment_settings.xml",
-        "source": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-main-64:\\layout\\fragment_settings.xml"
-    },
-    {
         "merged": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-mergeDebugResources-61:\\layout\\fragment_bookmark_sheet.xml",
         "source": "C:\\Users\\dwhit\\Coding\\jdks\\daemon\\8.2\\com.tricare.manuals.app-main-64:\\layout\\fragment_bookmark_sheet.xml"
-    },
-    {
-        "merged": "com.tricare.manuals.app-mergeDebugResources-61:/layout/fragment_manual_list.xml",
-        "source": "com.tricare.manuals.app-main-64:/layout/fragment_manual_list.xml"
     }
 ]

@@ -2,11 +2,15 @@ package com.tricare.manuals.worker
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.ContentValues
 import android.content.Context
 import android.content.pm.ServiceInfo
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.os.Environment
+import android.provider.MediaStore
+import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.hilt.work.HiltWorker
@@ -27,7 +31,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
-import android.os.Environment
+import java.io.BufferedWriter
 import java.io.File
 
 @HiltWorker
@@ -49,6 +53,7 @@ class DownloadWorker @AssistedInject constructor(
         const val KEY_MANUAL_PROGRESS = "manual"
         const val KEY_ERROR_REASON = "error_reason"
         const val KEY_ETA_SECONDS = "eta_seconds"
+        const val KEY_FILE_PATH = "file_path"
 
         private val WIFI_ONLY_KEY = booleanPreferencesKey("wifi_only_downloads")
         private const val BASE_TOC_URL = "https://manuals.health.mil/pages/ManualToc.aspx?Manual="
@@ -63,11 +68,8 @@ class DownloadWorker @AssistedInject constructor(
         val format = inputData.getString(KEY_FORMAT) ?: "md"
         val changeNum = inputData.getInt(KEY_CHANGE_NUM, 0)
 
-        // Promote to a foreground service so the download survives the user
-        // navigating away from the app or switching to another app entirely.
         setForeground(createForegroundInfo(code, changeNum, 0, 0, null))
 
-        // Check WiFi-only preference
         val prefs = applicationContext.appDataStore.data.first()
         val wifiOnly = prefs[WIFI_ONLY_KEY] ?: false
         if (wifiOnly && !isOnWifi()) {
@@ -76,14 +78,12 @@ class DownloadWorker @AssistedInject constructor(
 
         return withContext(Dispatchers.IO) {
             try {
-                setProgress(
-                    workDataOf(
-                        KEY_MANUAL_PROGRESS to code,
-                        KEY_PROGRESS_CURRENT to 0,
-                        KEY_PROGRESS_TOTAL to 0,
-                        KEY_ETA_SECONDS to -1L
-                    )
-                )
+                setProgress(workDataOf(
+                    KEY_MANUAL_PROGRESS to code,
+                    KEY_PROGRESS_CURRENT to 0,
+                    KEY_PROGRESS_TOTAL to 0,
+                    KEY_ETA_SECONDS to -1L
+                ))
 
                 // 1. Fetch the main TOC page for the requested change
                 val tocUrl = "$BASE_TOC_URL$code&Change=$changeNum"
@@ -99,51 +99,57 @@ class DownloadWorker @AssistedInject constructor(
                     tocParser.isChapterToc(filename)
                 }
 
-                // 3. Collect all section URLs from each chapter TOC
+                // 3. Collect all section URLs — pre-seed seen with chapter TOC URLs
+                //    so they are never added as section content (deduplication).
+                val seenUrls = chapterTocLinks.toMutableSet()
                 val sectionUrls = mutableListOf<String>()
+
+                // Direct section links from the main TOC
+                allLinks.forEach { url ->
+                    val filename = url.substringAfterLast('/').substringBefore('?')
+                    if (!tocParser.isChapterToc(filename) && seenUrls.add(url)) {
+                        sectionUrls.add(url)
+                    }
+                }
+
+                // Section links from each chapter TOC
                 for (chapterUrl in chapterTocLinks) {
                     delay(randomDelay())
                     val chapterHtml = webClient.fetchHtml(chapterUrl) ?: continue
-                    val sectionLinks = tocParser.parseChapterTocUrls(chapterHtml, chapterUrl)
-                        .filter { url ->
-                            val filename = url.substringAfterLast('/').substringBefore('?')
-                            !tocParser.isChapterToc(filename)
+                    tocParser.parseChapterTocUrls(chapterHtml, chapterUrl).forEach { url ->
+                        val filename = url.substringAfterLast('/').substringBefore('?')
+                        if (!tocParser.isChapterToc(filename) && seenUrls.add(url)) {
+                            sectionUrls.add(url)
                         }
-                    sectionUrls.addAll(sectionLinks)
+                    }
                 }
 
-                // Also include direct section links from the main TOC
-                val directSectionLinks = allLinks.filter { url ->
-                    val filename = url.substringAfterLast('/').substringBefore('?')
-                    !tocParser.isChapterToc(filename)
-                }
-                sectionUrls.addAll(directSectionLinks)
-
-                val sortedUrls = tocParser.naturalSort(sectionUrls.distinct())
+                val sortedUrls = tocParser.naturalSort(sectionUrls)
 
                 if (sortedUrls.isEmpty()) {
                     return@withContext Result.failure(
                         workDataOf(
                             KEY_ERROR_REASON to
-                                "No sections found for $code Change $changeNum " +
-                                "(${allLinks.size} links on TOC page; " +
-                                "first link: ${allLinks.firstOrNull() ?: "none"})"
+                                "No sections found for $code Change $changeNum. " +
+                                "TOC had ${allLinks.size} links, " +
+                                "${chapterTocLinks.size} chapter TOCs. " +
+                                "First link: ${allLinks.firstOrNull() ?: "none"}"
                         )
                     )
                 }
 
                 val total = sortedUrls.size
-                setProgress(
-                    workDataOf(
-                        KEY_MANUAL_PROGRESS to code,
-                        KEY_PROGRESS_CURRENT to 0,
-                        KEY_PROGRESS_TOTAL to total,
-                        KEY_ETA_SECONDS to -1L
-                    )
-                )
+                setProgress(workDataOf(
+                    KEY_MANUAL_PROGRESS to code,
+                    KEY_PROGRESS_CURRENT to 0,
+                    KEY_PROGRESS_TOTAL to total,
+                    KEY_ETA_SECONDS to -1L
+                ))
                 setForeground(createForegroundInfo(code, changeNum, 0, total, null))
 
                 // 4. Download each section
+                //    Always extract markdown content regardless of output format so
+                //    both MD and PDF outputs have real readable text.
                 val sections = mutableListOf<Section>()
                 var current = 0
                 val loopStartMs = System.currentTimeMillis()
@@ -154,37 +160,30 @@ class DownloadWorker @AssistedInject constructor(
                     val html = webClient.fetchHtml(url) ?: continue
                     val filename = url.substringAfterLast('/').substringBefore('?').substringBefore('#')
                     val title = tocParser.extractTitle(html)
-                    val contentMd = if (format == "md") tocParser.htmlToMarkdown(html) else null
+                    val contentMd = tocParser.htmlToMarkdown(html)
 
-                    sections.add(
-                        Section(
-                            manualCode = code,
-                            change = changeNum,
-                            filename = filename,
-                            title = title,
-                            sortOrder = current,
-                            contentMd = contentMd
-                        )
-                    )
+                    sections.add(Section(
+                        manualCode = code,
+                        change = changeNum,
+                        filename = filename,
+                        title = title,
+                        sortOrder = current,
+                        contentMd = contentMd
+                    ))
 
                     current++
 
-                    // Compute estimated time remaining based on average time per section so far
                     val elapsedMs = System.currentTimeMillis() - loopStartMs
                     val avgMsPerSection = elapsedMs / current
                     val etaSeconds = avgMsPerSection * (total - current) / 1000L
 
-                    setProgress(
-                        workDataOf(
-                            KEY_MANUAL_PROGRESS to code,
-                            KEY_PROGRESS_CURRENT to current,
-                            KEY_PROGRESS_TOTAL to total,
-                            KEY_ETA_SECONDS to etaSeconds
-                        )
-                    )
+                    setProgress(workDataOf(
+                        KEY_MANUAL_PROGRESS to code,
+                        KEY_PROGRESS_CURRENT to current,
+                        KEY_PROGRESS_TOTAL to total,
+                        KEY_ETA_SECONDS to etaSeconds
+                    ))
 
-                    // Update the foreground notification at most once every 3 seconds
-                    // to avoid flooding the notification shade with rapid updates.
                     val now = System.currentTimeMillis()
                     if (now - lastNotifUpdateMs >= 3000) {
                         setForeground(createForegroundInfo(code, changeNum, current, total, etaSeconds))
@@ -192,64 +191,131 @@ class DownloadWorker @AssistedInject constructor(
                     }
                 }
 
-                // 5. Write to public Downloads folder so files are accessible
-                // in the file browser and can be shared / uploaded elsewhere.
-                val manualsDir = Environment.getExternalStoragePublicDirectory(
-                    Environment.DIRECTORY_DOWNLOADS
-                )
-                manualsDir.mkdirs()
+                // 5. Write output file to the public Downloads folder.
+                //    Android 10+ (API 29+): MediaStore.Downloads — no permission needed.
+                //    Android 9 and below: direct file write (WRITE_EXTERNAL_STORAGE granted by user).
+                val ext = if (format == "pdf") "pdf" else "md"
+                val fileName = "${code}_change${changeNum}.$ext"
 
-                val filePath: String
-                if (format == "md") {
-                    val outputFile = File(manualsDir, "${code}_change${changeNum}.md")
-                    outputFile.bufferedWriter().use { writer ->
-                        for (section in sections) {
-                            writer.write("# ${section.title}\n\n")
-                            writer.write(section.contentMd ?: "")
-                            writer.write("\n\n---\n\n")
-                        }
-                    }
-                    filePath = outputFile.absolutePath
-
-                    // Save sections to DB
-                    sectionDao.clearSections(code, changeNum)
-                    sectionDao.insertSections(sections)
+                val filePath = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    writeViaMediaStore(fileName, code, changeNum, sections)
                 } else {
-                    // PDF placeholder: write text content to file
-                    val outputFile = File(manualsDir, "${code}_change${changeNum}.pdf")
-                    outputFile.bufferedWriter().use { writer ->
-                        for (section in sections) {
-                            writer.write("${section.title}\n\n")
-                            writer.write(section.contentMd ?: "")
-                            writer.write("\n\n")
-                        }
-                    }
-                    filePath = outputFile.absolutePath
-                }
+                    writeViaLegacy(fileName, code, changeNum, sections)
+                } ?: return@withContext Result.failure(
+                    workDataOf(KEY_ERROR_REASON to "Failed to write file to Downloads folder")
+                )
 
-                // 6. Update manual record in DB
+                // 6. Mark the manual as downloaded in the DB.
+                //    Do this RIGHT AFTER the file is written so the card updates
+                //    correctly even if the section-cache insert below fails.
                 manualDao.updateDownloadInfo(
                     code, changeNum, format, filePath, System.currentTimeMillis()
                 )
 
-                Result.success(
-                    workDataOf(
-                        KEY_MANUAL_PROGRESS to code,
-                        KEY_PROGRESS_CURRENT to total,
-                        KEY_PROGRESS_TOTAL to total,
-                        KEY_ETA_SECONDS to 0L
-                    )
-                )
+                // 7. Cache section content in DB for in-app reader (best-effort).
+                //    A failure here does NOT roll back the download — the file is
+                //    already on disk and the manual is already marked complete.
+                try {
+                    sectionDao.clearSections(code, changeNum)
+                    sectionDao.insertSections(sections)
+                } catch (e: Exception) {
+                    // Non-fatal: reader will fall back to the file on disk
+                }
+
+                Result.success(workDataOf(
+                    KEY_MANUAL_PROGRESS to code,
+                    KEY_PROGRESS_CURRENT to total,
+                    KEY_PROGRESS_TOTAL to total,
+                    KEY_ETA_SECONDS to 0L,
+                    KEY_FILE_PATH to filePath
+                ))
+
             } catch (e: Exception) {
                 Result.failure(workDataOf(KEY_ERROR_REASON to (e.message ?: "Unknown error")))
             }
         }
     }
 
-    /**
-     * Builds a [ForegroundInfo] for the persistent download notification.
-     * Safe to call multiple times — the notification channel is created on first call.
-     */
+    /** Android 10+ (API 29+): write via MediaStore so the file lands in the real Downloads
+     *  folder without needing WRITE_EXTERNAL_STORAGE. Returns the file-system path on success. */
+    @RequiresApi(Build.VERSION_CODES.Q)
+    private fun writeViaMediaStore(
+        fileName: String, code: String, changeNum: Int, sections: List<Section>
+    ): String? {
+        val resolver = applicationContext.contentResolver
+        val collection = MediaStore.Downloads.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+
+        // Delete any stale entry with the same name (re-download scenario)
+        resolver.query(collection,
+            arrayOf(MediaStore.Downloads._ID),
+            "${MediaStore.Downloads.DISPLAY_NAME} = ?", arrayOf(fileName), null
+        )?.use { cursor ->
+            if (cursor.moveToFirst()) {
+                val id = cursor.getLong(0)
+                resolver.delete(
+                    android.content.ContentUris.withAppendedId(collection, id), null, null
+                )
+            }
+        }
+
+        val cv = ContentValues().apply {
+            put(MediaStore.Downloads.DISPLAY_NAME, fileName)
+            put(MediaStore.Downloads.MIME_TYPE, "text/markdown")
+            put(MediaStore.Downloads.IS_PENDING, 1)
+        }
+        val uri = resolver.insert(collection, cv) ?: return null
+
+        return try {
+            resolver.openOutputStream(uri)!!.bufferedWriter().use { w ->
+                writeContent(w, code, changeNum, sections)
+            }
+            cv.clear()
+            cv.put(MediaStore.Downloads.IS_PENDING, 0)
+            resolver.update(uri, cv, null, null)
+
+            // Get the real file-system path; fall back to constructing it if DATA is null
+            @Suppress("DEPRECATION")
+            resolver.query(uri, arrayOf(MediaStore.Downloads.DATA), null, null, null)
+                ?.use { c -> if (c.moveToFirst()) c.getString(0) else null }
+                ?: "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)}/$fileName"
+        } catch (e: Exception) {
+            resolver.delete(uri, null, null)
+            null
+        }
+    }
+
+    /** Android 9 and below: direct write to the public Downloads folder.
+     *  Requires WRITE_EXTERNAL_STORAGE, which the user granted before enqueueing. */
+    private fun writeViaLegacy(
+        fileName: String, code: String, changeNum: Int, sections: List<Section>
+    ): String? {
+        return try {
+            val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+            dir.mkdirs()
+            val file = File(dir, fileName)
+            file.bufferedWriter().use { w -> writeContent(w, code, changeNum, sections) }
+            file.absolutePath
+        } catch (e: Exception) {
+            null
+        }
+    }
+
+    private fun writeContent(
+        w: BufferedWriter, code: String, changeNum: Int, sections: List<Section>
+    ) {
+        w.write("# ${ManualRepository.KNOWN_MANUALS.find { it.code == code }?.name ?: code}\n")
+        w.write("Change $changeNum — ${sections.size} sections\n\n")
+        w.write("---\n\n")
+        w.write("## Table of Contents\n\n")
+        sections.forEachIndexed { i, s -> w.write("${i + 1}. ${s.title}\n") }
+        w.write("\n---\n\n")
+        for (section in sections) {
+            w.write("## ${section.title}\n\n")
+            w.write(section.contentMd ?: "")
+            w.write("\n\n---\n\n")
+        }
+    }
+
     private fun createForegroundInfo(
         code: String,
         changeNum: Int,
@@ -269,7 +335,6 @@ class DownloadWorker @AssistedInject constructor(
             }
         }
 
-        // Create the notification channel (idempotent on Android 8+)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
@@ -290,14 +355,8 @@ class DownloadWorker @AssistedInject constructor(
             .setSilent(true)
             .build()
 
-        // On Android 10+ declare the foreground service type so the OS
-        // knows this is a data-sync operation and grants it the correct privileges.
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            ForegroundInfo(
-                NOTIFICATION_ID,
-                notification,
-                ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC
-            )
+            ForegroundInfo(NOTIFICATION_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
         } else {
             ForegroundInfo(NOTIFICATION_ID, notification)
         }

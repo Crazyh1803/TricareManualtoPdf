@@ -3325,8 +3325,10 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btn_buy_me_a_coffee
+id btn_download
 id btn_download_selected
 id btn_open
+id btn_share
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3417,7 +3419,6 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id fab_download
 id fade
 id fill
 id fill_horizontal
@@ -3606,6 +3607,7 @@ id preferences_detail
 id preferences_header
 id preferences_sliding_pane_layout
 id pressed
+id progress_bar
 id progress_circular
 id progress_horizontal
 id progress_manual1
@@ -3751,6 +3753,7 @@ id tv_bookmark_title
 id tv_downloaded_at
 id tv_manual_name
 id tv_no_bookmarks
+id tv_progress
 id tv_progress_manual1
 id tv_progress_manual2
 id tv_progress_manual3

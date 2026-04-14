@@ -35,14 +35,15 @@ id action_refresh
 id action_settings
 id app_bar
 id btn_buy_me_a_coffee
+id btn_download
 id btn_download_selected
 id btn_open
+id btn_share
 id cb_manual1
 id cb_manual2
 id cb_manual3
 id cb_manual4
 id drawer_layout
-id fab_download
 id footer_layout
 id layout_progress
 id main_container
@@ -50,6 +51,7 @@ id manualListFragment
 id nav_graph
 id nav_host_fragment
 id nav_view
+id progress_bar
 id progress_manual1
 id progress_manual2
 id progress_manual3
@@ -67,6 +69,7 @@ id tv_bookmark_title
 id tv_downloaded_at
 id tv_manual_name
 id tv_no_bookmarks
+id tv_progress
 id tv_progress_manual1
 id tv_progress_manual2
 id tv_progress_manual3

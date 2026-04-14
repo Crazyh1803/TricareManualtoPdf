@@ -41,17 +41,22 @@
 
     <!-- Settings -->
     <string name="settings_title">Settings</string>
-    <string name="pref_download_format_title">Download Format</string>
-    <string name="pref_download_format_summary">PDF is for reading; Markdown is recommended for AI chatbots like Claude</string>
+    <string name="pref_dark_theme_title">Dark Theme</string>
+    <string name="pref_dark_theme_summary">Use dark background throughout the app</string>
     <string name="pref_wifi_only_title">WiFi-only Downloads</string>
     <string name="pref_wifi_only_summary">Only download manuals when connected to WiFi</string>
-    <string name="pref_storage_used_title">Storage Used</string>
+    <string name="pref_storage_used_title">Storage Used (Downloads folder)</string>
     <string name="pref_delete_all_title">Delete All Downloads</string>
     <string name="pref_delete_all_summary">Remove all downloaded manual files from this device</string>
+    <string name="pref_support_title">Support the Developer ☕</string>
+    <string name="pref_support_summary">Buy me a drink to help keep the app updated</string>
+    <string name="pref_version_title">Version</string>
     <string name="delete_confirm_title">Delete All Downloads?</string>
-    <string name="delete_confirm_message">This will remove all downloaded manual files. You will need to re-download to read them offline.</string>
+    <string name="delete_confirm_message">This will remove all downloaded manual files from your Downloads folder. You will need to re-download to read them offline.</string>
     <string name="delete_confirm_positive">Delete All</string>
     <string name="delete_done">All downloads deleted.</string>
+    <string name="btn_export_pdf">Export PDF</string>
+    <string name="export_pdf_loading">Preparing PDF…</string>
 
     <!-- Birthday dialog -->
     <string name="birthday_title">🎂 Happy June 17th!</string>

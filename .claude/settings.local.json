@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"D:/Users/dwhit/Documents/GitHub/TricareManualtoPdf/android/app/src/main/java/com/tricare/manuals/data/model\")",
+      "Bash(mkdir -p \"D:/Users/dwhit/Documents/GitHub/TricareManualtoPdf/android/app/src/main/java/com/tricare/manuals/data/db\")",
+      "Bash(mkdir -p \"D:/Users/dwhit/Documents/GitHub/TricareManualtoPdf/android/app/src/main/java/com/tricare/manuals/data/network\")",
+      "Bash(mkdir -p \"D:/Users/dwhit/Documents/GitHub/TricareManualtoPdf/android/app/src/main/java/com/tricare/manuals/data/repository\")",
+      "Bash(mkdir -p \"D:/Users/dwhit/Documents/GitHub/TricareManualtoPdf/android/app/src/main/java/com/tricare/manuals/di\")",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Program Files/Android/Android Studio/jbr/**)"
+    ]
+  }
+}

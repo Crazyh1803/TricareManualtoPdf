@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="download_format_entries">
-        <item>PDF</item>
-        <item>Markdown (.md)</item>
-    </string-array>
-
-    <string-array name="download_format_values">
-        <item>pdf</item>
-        <item>md</item>
-    </string-array>
+    <!-- Reserved for future list preferences -->
 </resources>

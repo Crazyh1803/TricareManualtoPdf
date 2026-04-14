@@ -4,6 +4,9 @@ package com.tricare.manuals.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -22,7 +25,19 @@ public final class ItemManualBinding implements ViewBinding {
   private final MaterialCardView rootView;
 
   @NonNull
+  public final MaterialButton btnDownload;
+
+  @NonNull
   public final MaterialButton btnOpen;
+
+  @NonNull
+  public final ImageButton btnShare;
+
+  @NonNull
+  public final LinearLayout layoutProgress;
+
+  @NonNull
+  public final ProgressBar progressBar;
 
   @NonNull
   public final Spinner spinnerVersion;
@@ -34,19 +49,30 @@ public final class ItemManualBinding implements ViewBinding {
   public final TextView tvManualName;
 
   @NonNull
+  public final TextView tvProgress;
+
+  @NonNull
   public final TextView tvStatus;
 
   @NonNull
   public final TextView tvUpdateBadge;
 
-  private ItemManualBinding(@NonNull MaterialCardView rootView, @NonNull MaterialButton btnOpen,
+  private ItemManualBinding(@NonNull MaterialCardView rootView, @NonNull MaterialButton btnDownload,
+      @NonNull MaterialButton btnOpen, @NonNull ImageButton btnShare,
+      @NonNull LinearLayout layoutProgress, @NonNull ProgressBar progressBar,
       @NonNull Spinner spinnerVersion, @NonNull TextView tvDownloadedAt,
-      @NonNull TextView tvManualName, @NonNull TextView tvStatus, @NonNull TextView tvUpdateBadge) {
+      @NonNull TextView tvManualName, @NonNull TextView tvProgress, @NonNull TextView tvStatus,
+      @NonNull TextView tvUpdateBadge) {
     this.rootView = rootView;
+    this.btnDownload = btnDownload;
     this.btnOpen = btnOpen;
+    this.btnShare = btnShare;
+    this.layoutProgress = layoutProgress;
+    this.progressBar = progressBar;
     this.spinnerVersion = spinnerVersion;
     this.tvDownloadedAt = tvDownloadedAt;
     this.tvManualName = tvManualName;
+    this.tvProgress = tvProgress;
     this.tvStatus = tvStatus;
     this.tvUpdateBadge = tvUpdateBadge;
   }
@@ -78,9 +104,33 @@ public final class ItemManualBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btn_download;
+      MaterialButton btnDownload = ViewBindings.findChildViewById(rootView, id);
+      if (btnDownload == null) {
+        break missingId;
+      }
+
       id = R.id.btn_open;
       MaterialButton btnOpen = ViewBindings.findChildViewById(rootView, id);
       if (btnOpen == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_share;
+      ImageButton btnShare = ViewBindings.findChildViewById(rootView, id);
+      if (btnShare == null) {
+        break missingId;
+      }
+
+      id = R.id.layout_progress;
+      LinearLayout layoutProgress = ViewBindings.findChildViewById(rootView, id);
+      if (layoutProgress == null) {
+        break missingId;
+      }
+
+      id = R.id.progress_bar;
+      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
+      if (progressBar == null) {
         break missingId;
       }
 
@@ -102,6 +152,12 @@ public final class ItemManualBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tv_progress;
+      TextView tvProgress = ViewBindings.findChildViewById(rootView, id);
+      if (tvProgress == null) {
+        break missingId;
+      }
+
       id = R.id.tv_status;
       TextView tvStatus = ViewBindings.findChildViewById(rootView, id);
       if (tvStatus == null) {
@@ -114,8 +170,9 @@ public final class ItemManualBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemManualBinding((MaterialCardView) rootView, btnOpen, spinnerVersion,
-          tvDownloadedAt, tvManualName, tvStatus, tvUpdateBadge);
+      return new ItemManualBinding((MaterialCardView) rootView, btnDownload, btnOpen, btnShare,
+          layoutProgress, progressBar, spinnerVersion, tvDownloadedAt, tvManualName, tvProgress,
+          tvStatus, tvUpdateBadge);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

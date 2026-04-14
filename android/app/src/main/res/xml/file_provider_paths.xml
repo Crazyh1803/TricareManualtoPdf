@@ -6,4 +6,10 @@
     <cache-path
         name="cache"
         path="." />
+    <!-- Public Downloads folder — needed for sharing files written via MediaStore (API 29+)
+         or the legacy WRITE_EXTERNAL_STORAGE path (API ≤ 28).
+         path="." gives access to all of external storage root so both paths are covered. -->
+    <external-path
+        name="downloads"
+        path="." />
 </paths>

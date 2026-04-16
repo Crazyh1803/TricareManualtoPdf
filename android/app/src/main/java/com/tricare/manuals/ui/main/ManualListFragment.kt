@@ -300,7 +300,7 @@ ${sb.toString()}
 
         val mimeType = if (filePath.endsWith(".pdf", ignoreCase = true)) "application/pdf" else "text/plain"
         val uri: Uri = FileProvider.getUriForFile(
-            requireContext(), "com.tricare.manuals.fileprovider", file
+            requireContext(), "com.appsbydan.tricaremanuals.fileprovider", file
         )
         val intent = Intent(Intent.ACTION_SEND).apply {
             type = mimeType

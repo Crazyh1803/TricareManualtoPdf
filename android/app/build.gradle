@@ -10,7 +10,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.appsbydan.tricaremanuals"
+        applicationId "com.appsbydan.tricaremanuals.fileprovider"
         minSdk 26
         targetSdk 34
         versionCode 1

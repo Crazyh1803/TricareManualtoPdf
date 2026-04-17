@@ -24,6 +24,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.view.MenuProvider
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -92,6 +94,16 @@ class ManualListFragment : Fragment() {
         setupMenu()
         observeViewModel()
         observeDownloadProgress()
+
+        // On API 35+ edge-to-edge is enforced. The AppBarLayout handles the top (status bar)
+        // inset via fitsSystemWindows. Apply the bottom (navigation bar) inset to the
+        // RecyclerView so cards are never hidden behind the gesture bar.
+        ViewCompat.setOnApplyWindowInsetsListener(binding.recyclerManuals) { v, insets ->
+            val navBar = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val extraDp = (16 * resources.displayMetrics.density).toInt()
+            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, navBar.bottom + extraDp)
+            insets
+        }
 
         viewModel.checkBirthdayPrompt()
         viewModel.checkAllVersions()

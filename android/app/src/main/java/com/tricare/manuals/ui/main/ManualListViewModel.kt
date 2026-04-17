@@ -49,9 +49,11 @@ class ManualListViewModel @Inject constructor(
     }
 
     fun checkAllVersions() {
-        viewModelScope.launch {
-            val currentManuals = _manuals.value
-            for (manual in currentManuals) {
+        // Use KNOWN_MANUALS directly instead of _manuals.value — the StateFlow may still be
+        // empty at the moment this is called (the init coroutine hasn't finished yet), which
+        // would silently skip all version checks and leave every card showing "Change 1".
+        viewModelScope.launch(Dispatchers.IO) {
+            for (manual in ManualRepository.KNOWN_MANUALS) {
                 repository.checkLatestVersion(manual.code)
             }
         }

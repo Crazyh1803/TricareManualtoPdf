@@ -237,36 +237,62 @@ class DownloadWorker @AssistedInject constructor(
     }
 
     /** Android 10+ (API 29+): write via MediaStore so the file lands in the real Downloads
-     *  folder without needing WRITE_EXTERNAL_STORAGE. Returns the file-system path on success. */
+     *  folder without needing WRITE_EXTERNAL_STORAGE. Returns the file-system path on success.
+     *
+     *  Re-download strategy: if an entry with the same display name already exists, update it
+     *  in-place with write-truncate ("wt") rather than delete + re-insert.  Delete + re-insert
+     *  can leave the old file visible (if the delete fails silently) while Android names the new
+     *  file "TOT5_change53 (1).md", so the user sees stale content in Downloads. */
     @RequiresApi(Build.VERSION_CODES.Q)
     private fun writeViaMediaStore(
         fileName: String, code: String, changeNum: Int, sections: List<Section>
     ): String? {
         val resolver = applicationContext.contentResolver
         val collection = MediaStore.Downloads.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+        val cv = ContentValues()
 
-        // Delete any stale entry with the same name (re-download scenario)
-        resolver.query(collection,
+        // Look for any existing entries with this name (there should be at most one, but loop
+        // to handle edge cases where duplicates accumulated from earlier app versions).
+        var targetUri: android.net.Uri? = null
+        resolver.query(
+            collection,
             arrayOf(MediaStore.Downloads._ID),
-            "${MediaStore.Downloads.DISPLAY_NAME} = ?", arrayOf(fileName), null
+            "${MediaStore.Downloads.DISPLAY_NAME} = ?",
+            arrayOf(fileName),
+            null
         )?.use { cursor ->
-            if (cursor.moveToFirst()) {
+            while (cursor.moveToNext()) {
                 val id = cursor.getLong(0)
-                resolver.delete(
-                    android.content.ContentUris.withAppendedId(collection, id), null, null
-                )
+                val entryUri = android.content.ContentUris.withAppendedId(collection, id)
+                if (targetUri == null) {
+                    // Keep the first match as the update target
+                    targetUri = entryUri
+                } else {
+                    // Delete any extra duplicates so we don't accumulate stale entries
+                    resolver.delete(entryUri, null, null)
+                }
             }
         }
 
-        val cv = ContentValues().apply {
-            put(MediaStore.Downloads.DISPLAY_NAME, fileName)
-            put(MediaStore.Downloads.MIME_TYPE, "text/markdown")
-            put(MediaStore.Downloads.IS_PENDING, 1)
+        val uri: android.net.Uri
+        if (targetUri != null) {
+            // Update existing entry in-place: mark pending so it's hidden while we write
+            uri = targetUri!!
+            cv.put(MediaStore.Downloads.IS_PENDING, 1)
+            resolver.update(uri, cv, null, null)
+        } else {
+            // No existing entry — insert a new one
+            cv.apply {
+                put(MediaStore.Downloads.DISPLAY_NAME, fileName)
+                put(MediaStore.Downloads.MIME_TYPE, "text/markdown")
+                put(MediaStore.Downloads.IS_PENDING, 1)
+            }
+            uri = resolver.insert(collection, cv) ?: return null
         }
-        val uri = resolver.insert(collection, cv) ?: return null
 
         return try {
-            resolver.openOutputStream(uri)!!.bufferedWriter().use { w ->
+            // "wt" = write-truncate: clears existing bytes before writing new content
+            resolver.openOutputStream(uri, "wt")!!.bufferedWriter().use { w ->
                 writeContent(w, code, changeNum, sections)
             }
             cv.clear()
@@ -279,7 +305,8 @@ class DownloadWorker @AssistedInject constructor(
                 ?.use { c -> if (c.moveToFirst()) c.getString(0) else null }
                 ?: "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)}/$fileName"
         } catch (e: Exception) {
-            resolver.delete(uri, null, null)
+            // Only delete the URI if we freshly inserted it; leave pre-existing entries alone
+            if (targetUri == null) resolver.delete(uri, null, null)
             null
         }
     }

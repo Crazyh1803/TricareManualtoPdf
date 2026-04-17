@@ -29,3 +29,13 @@
 
 # Coil
 -keep class coil.** { *; }
+
+# Markwon optional modules — SVG and GIF support are not included in this project
+-dontwarn com.caverock.androidsvg.**
+-dontwarn pl.droidsonroids.gif.**
+
+# Markwon HTML optional — CommonMark strikethrough extension not included
+-dontwarn org.commonmark.ext.gfm.strikethrough.**
+
+# Jsoup — jspecify compile-time annotations not included at runtime
+-dontwarn org.jspecify.annotations.**

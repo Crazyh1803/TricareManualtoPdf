@@ -2,7 +2,6 @@ package com.tricare.manuals;
 
 import androidx.hilt.work.HiltWrapper_WorkerFactoryModule;
 import com.tricare.manuals.di.AppModule;
-import com.tricare.manuals.ui.download.DownloadDialogFragment_GeneratedInjector;
 import com.tricare.manuals.ui.main.MainActivity_GeneratedInjector;
 import com.tricare.manuals.ui.main.ManualListFragment_GeneratedInjector;
 import com.tricare.manuals.ui.main.ManualListViewModel_HiltModules;
@@ -234,8 +233,7 @@ public final class TricareApp_HiltComponents {
       modules = ViewWithFragmentCBuilderModule.class
   )
   @FragmentScoped
-  public abstract static class FragmentC implements DownloadDialogFragment_GeneratedInjector,
-      ManualListFragment_GeneratedInjector,
+  public abstract static class FragmentC implements ManualListFragment_GeneratedInjector,
       BookmarkSheetFragment_GeneratedInjector,
       SettingsFragment_GeneratedInjector,
       SettingsPreferenceFragment_GeneratedInjector,

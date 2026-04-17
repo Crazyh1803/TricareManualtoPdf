@@ -18,11 +18,15 @@ public final class TocParser {
     @org.jetbrains.annotations.NotNull()
     private static final java.util.List<java.lang.String> BOILERPLATE_SELECTORS = null;
     @org.jetbrains.annotations.NotNull()
+    private static final kotlin.text.Regex TRICARE_FOOTER_REGEX = null;
+    @org.jetbrains.annotations.NotNull()
+    private static final kotlin.text.Regex END_MARKER_REGEX = null;
+    @org.jetbrains.annotations.NotNull()
+    private static final kotlin.text.Regex DHA_LOGO_REGEX = null;
+    @org.jetbrains.annotations.NotNull()
     private static final kotlin.text.Regex GOV_BANNER_REGEX = null;
     @org.jetbrains.annotations.NotNull()
     private static final kotlin.text.Regex LARGER_TEXT_REGEX = null;
-    @org.jetbrains.annotations.NotNull()
-    private static final kotlin.text.Regex BREADCRUMB_REGEX = null;
     @org.jetbrains.annotations.NotNull()
     private static final kotlin.text.Regex PREV_NEXT_REGEX = null;
     @org.jetbrains.annotations.NotNull()
@@ -103,7 +107,7 @@ public final class TocParser {
         return null;
     }
     
-    @kotlin.Metadata(mv = {1, 9, 0}, k = 1, xi = 48, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\f\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0014\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0013"}, d2 = {"Lcom/tricare/manuals/data/network/TocParser$Companion;", "", "()V", "BASE64_IMAGE_REGEX", "Lkotlin/text/Regex;", "BOILERPLATE_SELECTORS", "", "", "BREADCRUMB_REGEX", "CHAPTER_TOC_REGEX", "EXCESS_BLANK_REGEX", "GOV_BANNER_REGEX", "GOV_FOOTER_REGEX", "LARGER_TEXT_REGEX", "NATURAL_SORT_REGEX", "NOTE_EXAMPLE_REGEX", "PREV_NEXT_REGEX", "SECTION_NUMBER_REGEX", "SECTION_URL_PATTERN", "app_debug"})
+    @kotlin.Metadata(mv = {1, 9, 0}, k = 1, xi = 48, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u000e\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0014\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0015"}, d2 = {"Lcom/tricare/manuals/data/network/TocParser$Companion;", "", "()V", "BASE64_IMAGE_REGEX", "Lkotlin/text/Regex;", "BOILERPLATE_SELECTORS", "", "", "CHAPTER_TOC_REGEX", "DHA_LOGO_REGEX", "END_MARKER_REGEX", "EXCESS_BLANK_REGEX", "GOV_BANNER_REGEX", "GOV_FOOTER_REGEX", "LARGER_TEXT_REGEX", "NATURAL_SORT_REGEX", "NOTE_EXAMPLE_REGEX", "PREV_NEXT_REGEX", "SECTION_NUMBER_REGEX", "SECTION_URL_PATTERN", "TRICARE_FOOTER_REGEX", "app_debug"})
     public static final class Companion {
         
         private Companion() {

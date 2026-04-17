@@ -2,8 +2,10 @@ package com.tricare.manuals.ui.main;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.preference.PreferenceManager;
 import com.tricare.manuals.R;
 import com.tricare.manuals.databinding.ActivityMainBinding;
 import dagger.hilt.android.AndroidEntryPoint;

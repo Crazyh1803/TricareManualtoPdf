@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tricare.manuals"
+    package="com.appsbydan.tricaremanuals"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -23,10 +23,10 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <permission
-        android:name="com.tricare.manuals.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.appsbydan.tricaremanuals.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.tricare.manuals.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="com.appsbydan.tricaremanuals.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
         android:name="com.tricare.manuals.TricareApp"
@@ -56,10 +56,9 @@
             android:parentActivityName="com.tricare.manuals.ui.main.MainActivity"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- Disable default WorkManager initializer so Hilt can take over -->
         <!--
-             Declare WorkManager's foreground service with dataSync type so Android grants
-             the correct privileges when DownloadWorker calls setForeground()
+             Declare WorkManager's foreground service with dataSync type so Android 14+
+             grants the correct privileges when DownloadWorker calls setForeground().
         -->
         <service
             android:name="androidx.work.impl.foreground.SystemForegroundService"
@@ -69,22 +68,8 @@
             android:foregroundServiceType="dataSync" />
 
         <provider
-            android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.tricare.manuals.androidx-startup"
-            android:exported="false" >
-            <meta-data
-                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-                android:value="androidx.startup" />
-            <meta-data
-                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-                android:value="androidx.startup" />
-            <meta-data
-                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-                android:value="androidx.startup" />
-        </provider>
-        <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.tricare.manuals.fileprovider"
+            android:authorities="com.appsbydan.tricaremanuals.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data

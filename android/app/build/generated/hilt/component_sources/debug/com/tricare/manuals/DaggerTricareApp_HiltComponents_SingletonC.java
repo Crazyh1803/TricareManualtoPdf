@@ -31,8 +31,6 @@ import com.tricare.manuals.di.AppModule_ProvideSectionDaoFactory;
 import com.tricare.manuals.di.AppModule_ProvideTocParserFactory;
 import com.tricare.manuals.di.AppModule_ProvideTricareWebClientFactory;
 import com.tricare.manuals.di.AppModule_ProvideVersionCheckerFactory;
-import com.tricare.manuals.ui.download.DownloadDialogFragment;
-import com.tricare.manuals.ui.download.DownloadDialogFragment_MembersInjector;
 import com.tricare.manuals.ui.main.MainActivity;
 import com.tricare.manuals.ui.main.ManualListFragment;
 import com.tricare.manuals.ui.main.ManualListViewModel;
@@ -348,11 +346,6 @@ public final class DaggerTricareApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public void injectDownloadDialogFragment(DownloadDialogFragment downloadDialogFragment) {
-      injectDownloadDialogFragment2(downloadDialogFragment);
-    }
-
-    @Override
     public void injectManualListFragment(ManualListFragment manualListFragment) {
     }
 
@@ -377,12 +370,6 @@ public final class DaggerTricareApp_HiltComponents_SingletonC {
     @Override
     public ViewWithFragmentComponentBuilder viewWithFragmentComponentBuilder() {
       return new ViewWithFragmentCBuilder(singletonCImpl, activityRetainedCImpl, activityCImpl, fragmentCImpl);
-    }
-
-    @CanIgnoreReturnValue
-    private DownloadDialogFragment injectDownloadDialogFragment2(DownloadDialogFragment instance) {
-      DownloadDialogFragment_MembersInjector.injectRepository(instance, singletonCImpl.provideManualRepositoryProvider.get());
-      return instance;
     }
   }
 

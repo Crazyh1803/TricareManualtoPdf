@@ -1,0 +1,369 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.appsbydan.tricaremanuals"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:5:5-67
+11-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:6:5-79
+12-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+13-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:7:5-77
+13-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:7:22-74
+14    <!-- Required on Android 14+ for FOREGROUND_SERVICE_TYPE_DATA_SYNC -->
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+15-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:9:5-87
+15-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:9:22-84
+16    <!-- Required on Android 13+ to post download progress notifications -->
+17    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+17-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:11:5-77
+17-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:11:22-74
+18    <!-- Required to write to the public Downloads folder on Android 9 and below -->
+19    <uses-permission
+19-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:13:5-15:38
+20        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+20-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:14:9-65
+21        android:maxSdkVersion="28" />
+21-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:15:9-35
+22    <uses-permission android:name="android.permission.WAKE_LOCK" />
+22-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:23:5-68
+22-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:23:22-65
+23    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+23-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:25:5-81
+23-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:25:22-78
+24
+25    <permission
+25-->[androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+26        android:name="com.appsbydan.tricaremanuals.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+26-->[androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+27        android:protectionLevel="signature" />
+27-->[androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+28
+29    <uses-permission android:name="com.appsbydan.tricaremanuals.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+29-->[androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+29-->[androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+30
+31    <application
+31-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:17:5-69:19
+32        android:name="com.tricare.manuals.TricareApp"
+32-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:18:9-35
+33        android:allowBackup="true"
+33-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:19:9-35
+34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+34-->[androidx.core:core:1.12.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\a8f100f6db49659c103813645de33cde\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+35        android:extractNativeLibs="false"
+36        android:icon="@mipmap/ic_launcher"
+36-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:20:9-43
+37        android:label="@string/app_name"
+37-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:21:9-41
+38        android:networkSecurityConfig="@xml/network_security_config"
+38-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:22:9-69
+39        android:roundIcon="@mipmap/ic_launcher_round"
+39-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:23:9-54
+40        android:supportsRtl="true"
+40-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:24:9-35
+41        android:theme="@style/Theme.TricareManuals" >
+41-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:25:9-52
+42        <activity
+42-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:27:9-35:20
+43            android:name="com.tricare.manuals.ui.main.MainActivity"
+43-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:28:13-49
+44            android:exported="true"
+44-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:29:13-36
+45            android:windowSoftInputMode="adjustResize" >
+45-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:30:13-55
+46            <intent-filter>
+46-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:31:13-34:29
+47                <action android:name="android.intent.action.MAIN" />
+47-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:32:17-69
+47-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:32:25-66
+48
+49                <category android:name="android.intent.category.LAUNCHER" />
+49-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:33:17-77
+49-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:33:27-74
+50            </intent-filter>
+51        </activity>
+52        <activity
+52-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:37:9-41:58
+53            android:name="com.tricare.manuals.ui.reader.ReaderActivity"
+53-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:38:13-53
+54            android:exported="false"
+54-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:39:13-37
+55            android:parentActivityName="com.tricare.manuals.ui.main.MainActivity"
+55-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:40:13-63
+56            android:windowSoftInputMode="adjustResize" />
+56-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:41:13-55
+57
+58        <!--
+59             Declare WorkManager's foreground service with dataSync type so Android 14+
+60             grants the correct privileges when DownloadWorker calls setForeground().
+61        -->
+62        <service
+62-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:54:9-57:34
+63            android:name="androidx.work.impl.foreground.SystemForegroundService"
+63-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:55:13-81
+64            android:directBootAware="false"
+64-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:55:13-44
+65            android:enabled="@bool/enable_system_foreground_service_default"
+65-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:56:13-77
+66            android:exported="false"
+66-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:57:13-37
+67            android:foregroundServiceType="dataSync" />
+67-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:56:13-53
+68
+69        <provider
+70            android:name="androidx.core.content.FileProvider"
+70-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:60:13-62
+71            android:authorities="com.appsbydan.tricaremanuals.fileprovider"
+71-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:61:13-64
+72            android:exported="false"
+72-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:62:13-37
+73            android:grantUriPermissions="true" >
+73-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:63:13-47
+74            <meta-data
+74-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:64:13-66:63
+75                android:name="android.support.FILE_PROVIDER_PATHS"
+75-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:65:17-67
+76                android:resource="@xml/file_provider_paths" />
+76-->D:\Users\dwhit\Documents\GitHub\TricareManualtoPdf\android\app\src\main\AndroidManifest.xml:66:17-60
+77        </provider>
+78
+79        <service
+79-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:39:9-45:35
+80            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+80-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:40:13-88
+81            android:directBootAware="false"
+81-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:41:13-44
+82            android:enabled="@bool/enable_system_alarm_service_default"
+82-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:42:13-72
+83            android:exported="false" />
+83-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:43:13-37
+84        <service
+84-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:46:9-52:35
+85            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+85-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:47:13-84
+86            android:directBootAware="false"
+86-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:48:13-44
+87            android:enabled="@bool/enable_system_job_service_default"
+87-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:49:13-70
+88            android:exported="true"
+88-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:50:13-36
+89            android:permission="android.permission.BIND_JOB_SERVICE" />
+89-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:51:13-69
+90
+91        <receiver
+91-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:61:9-66:35
+92            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+92-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:62:13-88
+93            android:directBootAware="false"
+93-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:63:13-44
+94            android:enabled="true"
+94-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:64:13-35
+95            android:exported="false" />
+95-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:65:13-37
+96        <receiver
+96-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:67:9-77:20
+97            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+97-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:68:13-106
+98            android:directBootAware="false"
+98-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:69:13-44
+99            android:enabled="false"
+99-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:70:13-36
+100            android:exported="false" >
+100-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:71:13-37
+101            <intent-filter>
+101-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:73:13-76:29
+102                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+102-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:74:17-87
+102-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:74:25-84
+103                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+103-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:75:17-90
+103-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:75:25-87
+104            </intent-filter>
+105        </receiver>
+106        <receiver
+106-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:78:9-88:20
+107            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+107-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:79:13-104
+108            android:directBootAware="false"
+108-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:80:13-44
+109            android:enabled="false"
+109-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:81:13-36
+110            android:exported="false" >
+110-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:82:13-37
+111            <intent-filter>
+111-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:84:13-87:29
+112                <action android:name="android.intent.action.BATTERY_OKAY" />
+112-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:85:17-77
+112-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:85:25-74
+113                <action android:name="android.intent.action.BATTERY_LOW" />
+113-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:86:17-76
+113-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:86:25-73
+114            </intent-filter>
+115        </receiver>
+116        <receiver
+116-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:89:9-99:20
+117            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+117-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:90:13-104
+118            android:directBootAware="false"
+118-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:91:13-44
+119            android:enabled="false"
+119-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:92:13-36
+120            android:exported="false" >
+120-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:93:13-37
+121            <intent-filter>
+121-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:95:13-98:29
+122                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+122-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:96:17-83
+122-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:96:25-80
+123                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+123-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:97:17-82
+123-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:97:25-79
+124            </intent-filter>
+125        </receiver>
+126        <receiver
+126-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:100:9-109:20
+127            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+127-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:101:13-103
+128            android:directBootAware="false"
+128-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:102:13-44
+129            android:enabled="false"
+129-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:103:13-36
+130            android:exported="false" >
+130-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:104:13-37
+131            <intent-filter>
+131-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:106:13-108:29
+132                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+132-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:107:17-79
+132-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:107:25-76
+133            </intent-filter>
+134        </receiver>
+135        <receiver
+135-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:110:9-121:20
+136            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+136-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:111:13-88
+137            android:directBootAware="false"
+137-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:112:13-44
+138            android:enabled="false"
+138-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:113:13-36
+139            android:exported="false" >
+139-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:114:13-37
+140            <intent-filter>
+140-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:116:13-120:29
+141                <action android:name="android.intent.action.BOOT_COMPLETED" />
+141-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:117:17-79
+141-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:117:25-76
+142                <action android:name="android.intent.action.TIME_SET" />
+142-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:118:17-73
+142-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:118:25-70
+143                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+143-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:119:17-81
+143-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:119:25-78
+144            </intent-filter>
+145        </receiver>
+146        <receiver
+146-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:122:9-131:20
+147            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+147-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:123:13-99
+148            android:directBootAware="false"
+148-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:124:13-44
+149            android:enabled="@bool/enable_system_alarm_service_default"
+149-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:125:13-72
+150            android:exported="false" >
+150-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:126:13-37
+151            <intent-filter>
+151-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:128:13-130:29
+152                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+152-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:129:17-98
+152-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:129:25-95
+153            </intent-filter>
+154        </receiver>
+155        <receiver
+155-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:132:9-142:20
+156            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+156-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:133:13-78
+157            android:directBootAware="false"
+157-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:134:13-44
+158            android:enabled="true"
+158-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:135:13-35
+159            android:exported="true"
+159-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:136:13-36
+160            android:permission="android.permission.DUMP" >
+160-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:137:13-57
+161            <intent-filter>
+161-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:139:13-141:29
+162                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+162-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:140:17-88
+162-->[androidx.work:work-runtime:2.9.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\7a026e93941e7a389a4c7d51de5dbf17\transformed\work-runtime-2.9.0\AndroidManifest.xml:140:25-85
+163            </intent-filter>
+164        </receiver>
+165
+166        <uses-library
+166-->[androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:25:9-27:40
+167            android:name="androidx.window.extensions"
+167-->[androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:26:13-54
+168            android:required="false" />
+168-->[androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:27:13-37
+169        <uses-library
+169-->[androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:28:9-30:40
+170            android:name="androidx.window.sidecar"
+170-->[androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:29:13-51
+171            android:required="false" />
+171-->[androidx.window:window:1.0.0] C:\Users\dwhit\Coding\jdks\caches\transforms-3\6a55e032745329ac69812145cdc2d235\transformed\jetified-window-1.0.0\AndroidManifest.xml:30:13-37
+172
+173        <service
+173-->[androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+174            android:name="androidx.room.MultiInstanceInvalidationService"
+174-->[androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+175            android:directBootAware="true"
+175-->[androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+176            android:exported="false" />
+176-->[androidx.room:room-runtime:2.6.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\3d20e8738589e9af2b64b7167ec02fee\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+177
+178        <receiver
+178-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+179            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+179-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+180            android:directBootAware="false"
+180-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+181            android:enabled="true"
+181-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+182            android:exported="true"
+182-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+183            android:permission="android.permission.DUMP" >
+183-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+184            <intent-filter>
+184-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+185                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+185-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+185-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+186            </intent-filter>
+187            <intent-filter>
+187-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+188                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+188-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+188-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+189            </intent-filter>
+190            <intent-filter>
+190-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+191                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+191-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+191-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+192            </intent-filter>
+193            <intent-filter>
+193-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+194                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+194-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+194-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dwhit\Coding\jdks\caches\transforms-3\2316a467b9b9fa91bf9081105f7e19dd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+195            </intent-filter>
+196        </receiver>
+197    </application>
+198
+199</manifest>

@@ -189,9 +189,15 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         try {
             val pInfo = requireContext().packageManager
                 .getPackageInfo(requireContext().packageName, 0)
-            versionPref?.summary = pInfo.versionName
+            @Suppress("DEPRECATION")
+            val code = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                pInfo.longVersionCode
+            } else {
+                pInfo.versionCode.toLong()
+            }
+            versionPref?.summary = "v${pInfo.versionName} (build $code)"
         } catch (e: Exception) {
-            versionPref?.summary = "1.0"
+            versionPref?.summary = "unknown"
         }
     }
 }

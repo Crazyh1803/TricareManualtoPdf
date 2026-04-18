@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Explicitly keep the DoD Root CA 3 certificate so shrinkResources never strips it.
+     The resource shrinker may not follow @raw/ references inside network_security_config.xml
+     because <certificates src="@raw/..."> uses a non-standard attribute name. -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@raw/dod_root_ca3" />

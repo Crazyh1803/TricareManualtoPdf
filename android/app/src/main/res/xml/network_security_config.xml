@@ -6,9 +6,14 @@
          connection is properly validated without bypassing SSL entirely.
          When DISA rotates to a new root, add the new PEM to res/raw and
          reference it here — no permission changes needed. -->
+    <!-- Trust both the Android system store AND the bundled DoD Root CA 3.
+         System trust covers commercial CAs (DigiCert, etc.) that DoD sometimes
+         uses for public-facing sites. DoD Root CA 3 covers legacy DoD PKI chains.
+         If TRICARE later moves to DoD Root CA 5/6, add those PEMs here too. -->
     <domain-config>
         <domain includeSubdomains="true">health.mil</domain>
         <trust-anchors>
+            <certificates src="system" />
             <certificates src="@raw/dod_root_ca3" />
         </trust-anchors>
     </domain-config>

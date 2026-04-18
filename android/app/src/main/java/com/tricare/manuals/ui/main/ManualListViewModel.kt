@@ -39,6 +39,11 @@ class ManualListViewModel @Inject constructor(
     private val _showBirthdayPrompt = MutableStateFlow(false)
     val showBirthdayPrompt: StateFlow<Boolean> = _showBirthdayPrompt.asStateFlow()
 
+    // Temporary diagnostic — shows raw checkLatestVersion() results so we can see
+    // whether the problem is a network failure (null) or a wrong value.
+    private val _versionDebug = MutableStateFlow("")
+    val versionDebug: StateFlow<String> = _versionDebug.asStateFlow()
+
     init {
         viewModelScope.launch {
             repository.ensureDefaultManualsExist()
@@ -53,9 +58,12 @@ class ManualListViewModel @Inject constructor(
         // empty at the moment this is called (the init coroutine hasn't finished yet), which
         // would silently skip all version checks and leave every card showing "Change 1".
         viewModelScope.launch(Dispatchers.IO) {
+            val results = StringBuilder()
             for (manual in ManualRepository.KNOWN_MANUALS) {
-                repository.checkLatestVersion(manual.code)
+                val result = repository.checkLatestVersion(manual.code)
+                results.append("${manual.code}=$result ")
             }
+            _versionDebug.value = results.toString().trim()
         }
     }
 

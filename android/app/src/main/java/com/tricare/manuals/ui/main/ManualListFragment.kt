@@ -351,6 +351,13 @@ ${sb.toString()}
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch { viewModel.manuals.collect { adapter.submitList(it) } }
                 launch { viewModel.showBirthdayPrompt.collect { if (it) showBirthdayDialog() } }
+                launch {
+                    viewModel.versionDebug.collect { msg ->
+                        if (msg.isNotEmpty()) {
+                            Toast.makeText(requireContext(), "Versions: $msg", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
             }
         }
     }

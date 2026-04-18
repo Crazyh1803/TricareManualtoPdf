@@ -63,6 +63,8 @@ class ManualListViewModel @Inject constructor(
                 val result = repository.checkLatestVersion(manual.code)
                 results.append("${manual.code}=$result ")
             }
+            val err = repository.getNetworkError()
+            if (err.isNotEmpty()) results.append("\n$err")
             _versionDebug.value = results.toString().trim()
         }
     }

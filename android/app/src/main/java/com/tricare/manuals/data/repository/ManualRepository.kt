@@ -46,6 +46,8 @@ class ManualRepository @Inject constructor(
         }
     }
 
+    fun getNetworkError(): String = webClient.lastError
+
     suspend fun checkLatestVersion(code: String): Int? {
         return withContext(Dispatchers.IO) {
             val latest = versionChecker.checkLatestVersion(code)

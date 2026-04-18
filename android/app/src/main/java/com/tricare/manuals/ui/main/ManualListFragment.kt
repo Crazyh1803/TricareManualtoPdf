@@ -354,7 +354,23 @@ ${sb.toString()}
                 launch {
                     viewModel.versionDebug.collect { msg ->
                         if (msg.isNotEmpty()) {
-                            Toast.makeText(requireContext(), "Versions: $msg", Toast.LENGTH_LONG).show()
+                            androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                                .setTitle("Diagnostic (build ${
+                                    try {
+                                        @Suppress("DEPRECATION")
+                                        if (android.os.Build.VERSION.SDK_INT >= 28)
+                                            requireContext().packageManager
+                                                .getPackageInfo(requireContext().packageName, 0)
+                                                .longVersionCode.toString()
+                                        else
+                                            requireContext().packageManager
+                                                .getPackageInfo(requireContext().packageName, 0)
+                                                .versionCode.toString()
+                                    } catch (_: Exception) { "?" }
+                                })")
+                                .setMessage(msg)
+                                .setPositiveButton("OK", null)
+                                .show()
                         }
                     }
                 }

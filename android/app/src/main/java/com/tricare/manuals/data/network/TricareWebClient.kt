@@ -6,6 +6,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.security.KeyStore
+import java.security.cert.CertificateException
 import java.security.cert.CertificateFactory
 import java.security.cert.X509Certificate
 import java.util.concurrent.TimeUnit
@@ -19,24 +20,19 @@ import javax.net.ssl.X509TrustManager
 class TricareWebClient @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
-    /**
-     * Stores the last network error so the diagnostic Toast can surface it.
-     * Empty string means no error yet.
-     */
+    /** Last network/SSL error message — read by the diagnostic UI. */
     @Volatile var lastError: String = ""
         private set
 
     private val client: OkHttpClient = buildClient()
 
     /**
-     * Builds an OkHttpClient whose SSLSocketFactory trusts both the Android system
-     * CA store and our bundled DoD Root CA 3 cert.
+     * Builds an OkHttpClient with a composite SSLSocketFactory that:
+     * 1. Tries the Android system CA store first (covers DigiCert, Let's Encrypt, etc.)
+     * 2. Falls back to our bundled DoD Root CA 3 if system trust fails
      *
-     * Why do this in code rather than network_security_config.xml?
-     * - resource shrinking can silently strip raw PEM files if the shrinker doesn't
-     *   recognise the @raw/ reference inside <certificates src="@raw/...">
-     * - config parsing errors fall back to a restrictive default with no indication
-     * Loading the cert programmatically is explicit, auditable, and immune to both.
+     * This is done in code (not network_security_config.xml) so it's immune to
+     * resource shrinking and XML parse errors.
      */
     private fun buildClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
@@ -45,39 +41,55 @@ class TricareWebClient @Inject constructor(
             .writeTimeout(30, TimeUnit.SECONDS)
 
         try {
-            // 1. Load DoD Root CA 3 from raw resources.
-            val cf = CertificateFactory.getInstance("X.509")
-            val dodCert = context.resources.openRawResource(R.raw.dod_root_ca3).use {
-                cf.generateCertificate(it) as X509Certificate
-            }
-
-            // 2. Build a KeyStore that holds all system-trusted CAs plus the DoD cert.
-            val keyStore = KeyStore.getInstance(KeyStore.getDefaultType())
-            keyStore.load(null, null)
-
+            // ── System trust manager ──────────────────────────────────────────
             val systemTmf = TrustManagerFactory.getInstance(
                 TrustManagerFactory.getDefaultAlgorithm()
             )
             systemTmf.init(null as KeyStore?)
-            (systemTmf.trustManagers.firstOrNull() as? X509TrustManager)
-                ?.acceptedIssuers
-                ?.forEachIndexed { i, cert -> keyStore.setCertificateEntry("sys_$i", cert) }
+            val systemTm = systemTmf.trustManagers.first() as X509TrustManager
 
-            keyStore.setCertificateEntry("dod_root_ca3", dodCert)
+            // ── DoD Root CA 3 trust manager ───────────────────────────────────
+            val cf = CertificateFactory.getInstance("X.509")
+            val dodCert = context.resources.openRawResource(R.raw.dod_root_ca3).use {
+                cf.generateCertificate(it) as X509Certificate
+            }
+            val dodKs = KeyStore.getInstance(KeyStore.getDefaultType())
+            dodKs.load(null, null)
+            dodKs.setCertificateEntry("dod_root_ca3", dodCert)
+            val dodTmf = TrustManagerFactory.getInstance(
+                TrustManagerFactory.getDefaultAlgorithm()
+            )
+            dodTmf.init(dodKs)
+            val dodTm = dodTmf.trustManagers.first() as X509TrustManager
 
-            // 3. Create a TrustManager and SSLContext from the combined store.
-            val tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm())
-            tmf.init(keyStore)
-            val trustManager = tmf.trustManagers.first() as X509TrustManager
+            // ── Composite: system first, DoD cert fallback ────────────────────
+            val compositeTm = object : X509TrustManager {
+                override fun checkClientTrusted(
+                    chain: Array<out X509Certificate>, authType: String
+                ) = Unit
 
-            val sslContext = SSLContext.getInstance("TLS")
-            sslContext.init(null, arrayOf(trustManager), null)
+                override fun checkServerTrusted(
+                    chain: Array<out X509Certificate>, authType: String
+                ) {
+                    try {
+                        systemTm.checkServerTrusted(chain, authType)
+                    } catch (_: CertificateException) {
+                        // System trust failed — try DoD Root CA 3.
+                        // Throws CertificateException if also untrusted.
+                        dodTm.checkServerTrusted(chain, authType)
+                    }
+                }
 
-            builder.sslSocketFactory(sslContext.socketFactory, trustManager)
+                override fun getAcceptedIssuers(): Array<X509Certificate> =
+                    systemTm.acceptedIssuers + dodTm.acceptedIssuers
+            }
+
+            val sslCtx = SSLContext.getInstance("TLS")
+            sslCtx.init(null, arrayOf(compositeTm), null)
+            builder.sslSocketFactory(sslCtx.socketFactory, compositeTm)
+            lastError = "SSL-setup:OK"  // overwritten by any later network error
         } catch (e: Exception) {
-            // If the custom SSL setup fails for any reason, fall back to the system
-            // default (system-trust only). Record the error so the diagnostic can show it.
-            lastError = "SSL setup: ${e.javaClass.simpleName}: ${e.message}"
+            lastError = "SSL-setup-FAILED:${e.javaClass.simpleName}:${e.message}"
         }
 
         return builder.build()
@@ -99,19 +111,15 @@ class TricareWebClient @Inject constructor(
             if (response.isSuccessful) {
                 response.body?.string()
             } else {
-                lastError = "HTTP ${response.code} for $url"
+                lastError = "HTTP-${response.code}:${url.takeLast(50)}"
                 null
             }
         } catch (e: Exception) {
-            lastError = "${e.javaClass.simpleName}: ${e.message}"
+            lastError = "${e.javaClass.simpleName}:${e.message?.take(120)}"
             null
         }
     }
 
-    /**
-     * Fetches [url], follows redirects, and returns Pair(html, finalUrl).
-     * The finalUrl reflects the URL after any server-side redirects.
-     */
     fun fetchHtmlWithFinalUrl(url: String): Pair<String, String>? {
         return try {
             val request = Request.Builder()
@@ -126,11 +134,11 @@ class TricareWebClient @Inject constructor(
                 val body = response.body?.string() ?: return null
                 Pair(body, finalUrl)
             } else {
-                lastError = "HTTP ${response.code} for $url"
+                lastError = "HTTP-${response.code}:${url.takeLast(50)}"
                 null
             }
         } catch (e: Exception) {
-            lastError = "${e.javaClass.simpleName}: ${e.message}"
+            lastError = "${e.javaClass.simpleName}:${e.message?.take(120)}"
             null
         }
     }

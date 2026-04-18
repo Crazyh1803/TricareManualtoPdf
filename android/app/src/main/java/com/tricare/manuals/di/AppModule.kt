@@ -50,7 +50,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideTricareWebClient(): TricareWebClient = TricareWebClient()
+    fun provideTricareWebClient(@ApplicationContext context: Context): TricareWebClient =
+        TricareWebClient(context)
 
     @Provides
     @Singleton

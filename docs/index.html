@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read official TRICARE manuals online — Operations, Policy, Reimbursement, and Systems.">
+  <title>TRICARE Manuals</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- ══════════════ HOME VIEW ══════════════ -->
+    <div id="view-home" class="view active">
+      <header class="home-bar">
+        <div class="home-bar-inner">
+          <div class="home-bar-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 3l5 3-5 3-5-3 5-3zm0 10l-5-3 5-3 5 3-5 3z"/>
+            </svg>
+          </div>
+          <div>
+            <h1 class="home-bar-title">TRICARE Manuals</h1>
+            <p class="home-bar-subtitle">Defense Health Agency Reference</p>
+          </div>
+          <button id="btn-dark-toggle" class="icon-btn ml-auto" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="home-main">
+        <div id="manual-grid" class="manual-grid" role="list">
+          <div class="skeleton-card" aria-hidden="true"></div>
+          <div class="skeleton-card" aria-hidden="true"></div>
+          <div class="skeleton-card" aria-hidden="true"></div>
+          <div class="skeleton-card" aria-hidden="true"></div>
+        </div>
+
+        <p class="home-note">
+          Content is scraped weekly from
+          <a href="https://manuals.health.mil" target="_blank" rel="noopener">manuals.health.mil</a>
+          and may lag by a few days. All documents are official U.S. government publications.
+        </p>
+      </main>
+    </div>
+
+    <!-- ══════════════ READER VIEW ══════════════ -->
+    <div id="view-reader" class="view">
+      <div class="reader-layout">
+
+        <!-- TOC Sidebar -->
+        <aside id="toc-panel" class="toc-panel" aria-label="Table of Contents">
+          <div class="toc-header">
+            <span class="toc-title">Table of Contents</span>
+            <button id="btn-close-toc" class="icon-btn" aria-label="Close table of contents">✕</button>
+          </div>
+          <div id="toc-search-wrap" class="toc-search-wrap">
+            <input id="toc-search" type="search" placeholder="Filter sections…" aria-label="Filter table of contents">
+          </div>
+          <nav id="toc-list" class="toc-list" aria-label="Manual sections">
+            <!-- Populated by JS -->
+          </nav>
+        </aside>
+
+        <!-- Mobile overlay -->
+        <div id="toc-overlay" class="toc-overlay" aria-hidden="true"></div>
+
+        <!-- Reader main area -->
+        <div class="reader-main">
+          <header class="reader-bar">
+            <button id="btn-back" class="back-btn" aria-label="Go back to manual list">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+              <span>Back</span>
+            </button>
+            <div class="reader-bar-center">
+              <span id="reader-manual-name" class="reader-manual-name"></span>
+              <span id="reader-change-badge" class="reader-change-badge"></span>
+            </div>
+            <button id="btn-open-toc" class="icon-btn toc-toggle-btn" aria-label="Open table of contents" aria-expanded="false" aria-controls="toc-panel">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            </button>
+          </header>
+
+          <div id="reader-body" class="reader-body">
+            <div id="reader-content" class="reader-content">
+              <div class="splash">
+                <p>Select a section from the Table of Contents →</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section nav arrows (bottom) -->
+          <div class="section-nav">
+            <button id="btn-prev-section" class="section-nav-btn" disabled aria-label="Previous section">
+              ← Prev
+            </button>
+            <span id="section-counter" class="section-counter"></span>
+            <button id="btn-next-section" class="section-nav-btn" aria-label="Next section">
+              Next →
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- #app -->
+
+  <!-- Toast notifications -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

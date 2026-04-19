@@ -1,0 +1,363 @@
+/**
+ * TRICARE Manuals — Web App
+ *
+ * Architecture:
+ *   - Reads docs/data/manuals.json  (manual list + latestChange)
+ *   - Reads docs/data/{CODE}/toc.json  (section list for a manual)
+ *   - Reads docs/data/{CODE}/s/{id}.html  (individual section content)
+ *
+ * All files are served from the same origin (GitHub Pages), so no CORS
+ * restrictions apply. Content is pre-fetched weekly by GitHub Actions.
+ */
+
+'use strict';
+
+// ── Constants ──────────────────────────────────────────────────────────────
+const DATA_ROOT = 'data';
+
+const MANUAL_ICONS = {
+  TOT5: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>',
+  TPT5: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>',
+  TRT5: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>',
+  TST5: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>',
+};
+
+// ── State ──────────────────────────────────────────────────────────────────
+const state = {
+  manuals:       [],
+  currentCode:   null,
+  currentToc:    null,   // { change, sections: [{ id, title, chapter, isChapterToc }] }
+  currentIdx:    -1,
+  tocOpen:       false,
+};
+
+// ── Element references ──────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+const els = {
+  viewHome:       $('view-home'),
+  viewReader:     $('view-reader'),
+  manualGrid:     $('manual-grid'),
+  tocPanel:       $('toc-panel'),
+  tocOverlay:     $('toc-overlay'),
+  tocList:        $('toc-list'),
+  tocSearch:      $('toc-search'),
+  readerContent:  $('reader-content'),
+  readerManual:   $('reader-manual-name'),
+  readerChangeBadge: $('reader-change-badge'),
+  btnBack:        $('btn-back'),
+  btnOpenToc:     $('btn-open-toc'),
+  btnCloseToc:    $('btn-close-toc'),
+  btnPrev:        $('btn-prev-section'),
+  btnNext:        $('btn-next-section'),
+  sectionCounter: $('section-counter'),
+  toast:          $('toast'),
+  btnDark:        $('btn-dark-toggle'),
+};
+
+// ── Initialise ──────────────────────────────────────────────────────────────
+async function init() {
+  // Restore dark mode preference
+  if (localStorage.getItem('darkMode') === '1') {
+    document.documentElement.setAttribute('data-dark', '');
+  }
+
+  els.btnDark.addEventListener('click', toggleDark);
+  els.btnBack.addEventListener('click', showHome);
+  els.btnOpenToc.addEventListener('click', () => openToc(true));
+  els.btnCloseToc.addEventListener('click', () => openToc(false));
+  els.tocOverlay.addEventListener('click', () => openToc(false));
+  els.btnPrev.addEventListener('click', () => navigateSection(-1));
+  els.btnNext.addEventListener('click', () => navigateSection(+1));
+  els.tocSearch.addEventListener('input', filterToc);
+
+  // Handle browser back/forward
+  window.addEventListener('popstate', handlePopState);
+
+  await loadManualList();
+}
+
+// ── Dark mode ───────────────────────────────────────────────────────────────
+function toggleDark() {
+  const on = document.documentElement.hasAttribute('data-dark');
+  document.documentElement.toggleAttribute('data-dark', !on);
+  localStorage.setItem('darkMode', on ? '0' : '1');
+}
+
+// ── Load manual list ────────────────────────────────────────────────────────
+async function loadManualList() {
+  try {
+    const res = await fetch(`${DATA_ROOT}/manuals.json`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    state.manuals = data.manuals;
+    renderManualGrid();
+  } catch (e) {
+    els.manualGrid.innerHTML = `
+      <div class="no-content-msg" style="grid-column:1/-1">
+        <strong>Could not load manual list</strong>
+        <p>Please try refreshing, or visit
+          <a href="https://manuals.health.mil" target="_blank" rel="noopener">manuals.health.mil</a>
+          directly.</p>
+      </div>`;
+  }
+}
+
+// ── Render home grid ────────────────────────────────────────────────────────
+function renderManualGrid() {
+  const html = state.manuals.map(m => {
+    const icon   = MANUAL_ICONS[m.code] || MANUAL_ICONS.TPT5;
+    const chip   = m.hasContent
+      ? `<span class="chip">Change ${m.latestChange}</span>`
+      : `<span class="chip no-content-chip">Content coming soon</span>`;
+    const btnDisabled = m.hasContent ? '' : 'disabled';
+    return `
+      <article class="manual-card" role="listitem">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="manual-card-icon">${icon}</div>
+          <div>
+            <div class="manual-card-name">${escHtml(m.name)}</div>
+            <div class="manual-card-meta">${escHtml(m.code)}</div>
+          </div>
+        </div>
+        <div class="manual-card-footer">
+          ${chip}
+          <button class="btn-primary" ${btnDisabled}
+            onclick="openManual('${m.code}')"
+            aria-label="Open ${escHtml(m.name)}">Open</button>
+        </div>
+      </article>`;
+  }).join('');
+  els.manualGrid.innerHTML = html;
+}
+
+// ── Open a manual ───────────────────────────────────────────────────────────
+async function openManual(code) {
+  const manual = state.manuals.find(m => m.code === code);
+  if (!manual) return;
+
+  state.currentCode = code;
+  state.currentToc  = null;
+  state.currentIdx  = -1;
+
+  // Switch to reader view
+  els.viewHome.classList.remove('active');
+  els.viewReader.classList.add('active');
+
+  els.readerManual.textContent = manual.name;
+  els.readerChangeBadge.textContent = manual.latestChange
+    ? `Change ${manual.latestChange}` : '';
+
+  // Clear content + TOC
+  setReaderContent(spinnerHtml());
+  els.tocList.innerHTML = '';
+  updateSectionNav();
+
+  history.pushState({ code }, '', `#${code}`);
+
+  // Load TOC
+  try {
+    const res = await fetch(`${DATA_ROOT}/${code}/toc.json`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    state.currentToc = await res.json();
+    renderToc(state.currentToc.sections);
+
+    // Auto-load first content section
+    const firstContent = state.currentToc.sections.findIndex(s => !s.isChapterToc);
+    if (firstContent >= 0) {
+      loadSection(firstContent);
+    }
+  } catch (e) {
+    setReaderContent(`
+      <div class="no-content-msg">
+        <strong>Table of contents unavailable</strong>
+        <p>Content for this manual has not been pre-fetched yet.<br>
+          Visit
+          <a href="https://manuals.health.mil/pages/ManualToc.aspx?Manual=${code}"
+             target="_blank" rel="noopener">manuals.health.mil</a>
+          to read it online.</p>
+      </div>`);
+  }
+}
+
+// ── Render TOC ──────────────────────────────────────────────────────────────
+function renderToc(sections) {
+  let currentChapter = null;
+  const items = sections.map((s, idx) => {
+    if (s.isChapterToc || (s.chapter !== currentChapter)) {
+      currentChapter = s.chapter;
+    }
+    const cls = s.isChapterToc
+      ? 'toc-item chapter-heading'
+      : 'toc-item section-item';
+    const label = escHtml(s.title);
+    if (s.isChapterToc) {
+      return `<div class="${cls}" aria-hidden="true">${label}</div>`;
+    }
+    return `<button class="${cls}" data-idx="${idx}"
+              onclick="loadSection(${idx})">${label}</button>`;
+  }).join('');
+  els.tocList.innerHTML = items;
+}
+
+// ── Filter TOC ──────────────────────────────────────────────────────────────
+function filterToc() {
+  const q = els.tocSearch.value.trim().toLowerCase();
+  if (!state.currentToc) return;
+  const items = els.tocList.querySelectorAll('[data-idx]');
+  items.forEach(el => {
+    const match = el.textContent.toLowerCase().includes(q);
+    el.style.display = match ? '' : 'none';
+  });
+  // Show/hide chapter headings only if they have visible children
+  const headings = els.tocList.querySelectorAll('.chapter-heading');
+  headings.forEach(h => {
+    h.style.display = q ? 'none' : '';
+  });
+}
+
+// ── Load a section ──────────────────────────────────────────────────────────
+async function loadSection(idx) {
+  if (!state.currentToc) return;
+  const section = state.currentToc.sections[idx];
+  if (!section) return;
+
+  // If it's a chapter TOC page, skip to next real section
+  if (section.isChapterToc) {
+    const next = state.currentToc.sections.findIndex((s, i) => i > idx && !s.isChapterToc);
+    if (next >= 0) { loadSection(next); return; }
+  }
+
+  state.currentIdx = idx;
+  setReaderContent(spinnerHtml());
+  highlightTocItem(idx);
+  updateSectionNav();
+  closeTocOnMobile();
+
+  try {
+    const res = await fetch(`${DATA_ROOT}/${state.currentCode}/s/${section.id}.html`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const html = await res.text();
+    setReaderContent(`<h2 style="margin-bottom:1rem">${escHtml(section.title)}</h2>${html}`);
+    scrollReaderToTop();
+  } catch (e) {
+    setReaderContent(`
+      <div class="no-content-msg">
+        <strong>Section unavailable</strong>
+        <p>This section has not been cached yet. You can read it at<br>
+          <a href="https://manuals.health.mil" target="_blank" rel="noopener">manuals.health.mil</a>.</p>
+      </div>`);
+  }
+}
+
+// ── Navigate prev/next section ──────────────────────────────────────────────
+function navigateSection(delta) {
+  if (!state.currentToc) return;
+  const sections = state.currentToc.sections;
+  let next = state.currentIdx + delta;
+  // Skip chapter heading entries
+  while (next >= 0 && next < sections.length && sections[next].isChapterToc) {
+    next += delta;
+  }
+  if (next >= 0 && next < sections.length) loadSection(next);
+}
+
+// ── TOC open/close ──────────────────────────────────────────────────────────
+function openToc(open) {
+  state.tocOpen = open;
+  els.tocPanel.classList.toggle('open', open);
+  els.tocOverlay.classList.toggle('visible', open);
+  els.btnOpenToc.setAttribute('aria-expanded', String(open));
+}
+
+function closeTocOnMobile() {
+  if (window.innerWidth <= 768) openToc(false);
+}
+
+// ── Update section prev/next buttons + counter ──────────────────────────────
+function updateSectionNav() {
+  const sections = state.currentToc ? state.currentToc.sections : [];
+  const idx = state.currentIdx;
+
+  // Count non-heading sections only
+  const contentSections = sections.filter(s => !s.isChapterToc);
+  const contentIdx = idx >= 0
+    ? contentSections.indexOf(sections[idx])
+    : -1;
+
+  els.btnPrev.disabled = idx <= 0;
+  els.btnNext.disabled = idx < 0 || idx >= sections.length - 1;
+
+  if (contentIdx >= 0) {
+    els.sectionCounter.textContent =
+      `${contentIdx + 1} / ${contentSections.length}`;
+  } else {
+    els.sectionCounter.textContent = '';
+  }
+}
+
+// ── Highlight active TOC item ───────────────────────────────────────────────
+function highlightTocItem(idx) {
+  els.tocList.querySelectorAll('.toc-item').forEach(el => {
+    el.classList.toggle('active', Number(el.dataset.idx) === idx);
+  });
+  // Scroll active item into view in TOC
+  const active = els.tocList.querySelector('.toc-item.active');
+  if (active) active.scrollIntoView({ block: 'nearest' });
+}
+
+// ── Show home ───────────────────────────────────────────────────────────────
+function showHome() {
+  state.currentCode  = null;
+  state.currentToc   = null;
+  state.currentIdx   = -1;
+  openToc(false);
+  els.viewReader.classList.remove('active');
+  els.viewHome.classList.add('active');
+  history.pushState({}, '', location.pathname);
+}
+
+// ── Handle browser back/forward ─────────────────────────────────────────────
+function handlePopState(e) {
+  const hash = location.hash.replace('#', '');
+  if (hash && state.manuals.find(m => m.code === hash)) {
+    openManual(hash);
+  } else {
+    showHome();
+  }
+}
+
+// ── Helpers ─────────────────────────────────────────────────────────────────
+function setReaderContent(html) {
+  els.readerContent.innerHTML = html;
+}
+
+function scrollReaderToTop() {
+  const body = document.getElementById('reader-body');
+  if (body) body.scrollTop = 0;
+}
+
+function spinnerHtml() {
+  return `<div class="loading-spinner">
+    <div class="spinner"></div>
+    <span>Loading…</span>
+  </div>`;
+}
+
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+let toastTimer;
+function showToast(msg) {
+  clearTimeout(toastTimer);
+  els.toast.textContent = msg;
+  els.toast.classList.add('show');
+  toastTimer = setTimeout(() => els.toast.classList.remove('show'), 2800);
+}
+
+// ── Bootstrap ───────────────────────────────────────────────────────────────
+init().catch(console.error);

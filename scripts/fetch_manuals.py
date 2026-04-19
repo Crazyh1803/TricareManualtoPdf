@@ -108,42 +108,12 @@ def get(url: str) -> requests.Response | None:
 
 
 # ── Version discovery ───────────────────────────────────────────────────────
-def find_latest_change(code: str) -> int | None:
-    """
-    Determine the latest available change number for this manual.
-
-    The TRICARE site returns HTTP 200 for ALL change numbers and redirects
-    invalid ones to the latest valid change.  We exploit this: request a
-    deliberately out-of-range change (9999), then read the actual change
-    number embedded in the section link hrefs that the site returns.
-    Falls back to probing change=1 if the high probe returns nothing.
-
-    No binary search needed — the site tells us the answer directly.
-    """
-    for probe in [9999, 1]:
-        url = TOC_URL.format(code=code, change=probe)
-        r = get(url)
-        if r is None:
-            continue
-        soup = BeautifulSoup(r.text, "lxml")
-        for a in soup.find_all("a", href=_DISPLAY_RE):
-            href = a.get("href", "")
-            params = parse_qs(urlparse(href).query, keep_blank_values=True)
-            change_vals  = params.get("Change",  params.get("change",  []))
-            manual_vals  = params.get("Manual",  params.get("manual",  []))
-            chapter_vals = params.get("chapter", params.get("Chapter", []))
-            if (chapter_vals
-                    and change_vals
-                    and any(v.upper() == code.upper() for v in manual_vals)):
-                try:
-                    found = int(change_vals[0])
-                    print(f"  [{code}] Site reports latest change: {found} (probed with {probe})")
-                    return found
-                except ValueError:
-                    pass
-
-    print(f"  [{code}] Could not determine latest change", file=sys.stderr)
-    return None
+# NOTE: manuals.health.mil echoes back whatever Change= value is in the
+# request URL, making dynamic discovery impossible via link inspection.
+# Change numbers are therefore taken from manuals.json (seeded manually
+# and updated by re-running this script with --force when a new change
+# is published).  The scraper verifies the stored change is reachable and
+# checks one change ahead in case a new one has been released.
 
 
 # ── TOC parsing ─────────────────────────────────────────────────────────────
@@ -324,14 +294,22 @@ def process_manual(entry: dict, force: bool = False) -> dict:
     print(f"\n{'═'*60}")
     print(f"  Manual: {name} ({code})")
 
-    print("  Discovering latest change…")
-    latest = find_latest_change(code)
-    if latest is None:
-        print("  Skipping — server unreachable.")
+    known = entry.get("latestChange", 0)
+    if known <= 0:
+        print("  No change number in manuals.json — skipping.", file=sys.stderr)
         return entry
 
-    print(f"  Latest change: {latest}")
-    known = entry.get("latestChange", 0)
+    # Check if a newer change has been published (try up to 5 ahead)
+    latest = known
+    for candidate in range(known + 1, known + 6):
+        sections = fetch_toc(code, candidate)
+        if sections and len(sections) >= 3:
+            print(f"  Newer change found: {candidate}")
+            latest = candidate
+        else:
+            break
+
+    print(f"  Using change: {latest}")
 
     if not force and latest == known and entry.get("hasContent"):
         print("  Already up-to-date. Skipping content fetch.")

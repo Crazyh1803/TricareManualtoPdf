@@ -3,4 +3,4 @@
      The resource shrinker may not follow @raw/ references inside network_security_config.xml
      because <certificates src="@raw/..."> uses a non-standard attribute name. -->
 <resources xmlns:tools="http://schemas.android.com/tools"
-    tools:keep="@raw/dod_root_ca3" />
+    tools:keep="@raw/dod_root_ca3,@raw/dod_root_ca5,@raw/dod_root_ca6" />

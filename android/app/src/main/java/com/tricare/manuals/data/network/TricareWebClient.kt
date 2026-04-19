@@ -48,14 +48,24 @@ class TricareWebClient @Inject constructor(
             systemTmf.init(null as KeyStore?)
             val systemTm = systemTmf.trustManagers.first() as X509TrustManager
 
-            // ── DoD Root CA 3 trust manager ───────────────────────────────────
+            // ── DoD Root CA 3 / 5 / 6 trust manager ──────────────────────────
+            // Bundle all three current DoD roots so we cover CA3 (RSA, valid to 2029),
+            // CA5 (EC, valid to 2041), and CA6 (RSA-4096, valid to 2053).
             val cf = CertificateFactory.getInstance("X.509")
-            val dodCert = context.resources.openRawResource(R.raw.dod_root_ca3).use {
-                cf.generateCertificate(it) as X509Certificate
-            }
             val dodKs = KeyStore.getInstance(KeyStore.getDefaultType())
             dodKs.load(null, null)
-            dodKs.setCertificateEntry("dod_root_ca3", dodCert)
+            listOf(
+                "dod_root_ca3" to R.raw.dod_root_ca3,
+                "dod_root_ca5" to R.raw.dod_root_ca5,
+                "dod_root_ca6" to R.raw.dod_root_ca6
+            ).forEach { (alias, resId) ->
+                try {
+                    val cert = context.resources.openRawResource(resId).use {
+                        cf.generateCertificate(it) as X509Certificate
+                    }
+                    dodKs.setCertificateEntry(alias, cert)
+                } catch (_: Exception) { /* skip if a cert can't be loaded */ }
+            }
             val dodTmf = TrustManagerFactory.getInstance(
                 TrustManagerFactory.getDefaultAlgorithm()
             )

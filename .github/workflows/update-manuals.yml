@@ -1,0 +1,74 @@
+name: Update TRICARE Manual Content
+
+# ── Triggers ────────────────────────────────────────────────────────────────
+on:
+  schedule:
+    # Every Monday at 06:00 UTC — after the weekend when DHA typically publishes changes
+    - cron: '0 6 * * 1'
+
+  workflow_dispatch:
+    inputs:
+      manual_code:
+        description: 'Only update this manual (leave blank for all)'
+        required: false
+        default: ''
+      force:
+        description: 'Force re-fetch even if change number unchanged'
+        type: boolean
+        default: false
+
+# ── Permissions ─────────────────────────────────────────────────────────────
+permissions:
+  contents: write   # needed to commit docs/data/ changes
+
+# ── Job ─────────────────────────────────────────────────────────────────────
+jobs:
+  update:
+    name: Fetch manual content
+    runs-on: ubuntu-latest
+    timeout-minutes: 120   # large manuals can take a while
+
+    steps:
+      # 1. Check out the repo
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # 2. Set up Python
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: scripts/requirements.txt
+
+      # 3. Install dependencies
+      - name: Install Python dependencies
+        run: pip install -r scripts/requirements.txt
+
+      # 4. Run scraper
+      - name: Fetch manual content
+        run: |
+          CODE_ARG=""
+          FORCE_ARG=""
+          if [ -n "${{ github.event.inputs.manual_code }}" ]; then
+            CODE_ARG="--code ${{ github.event.inputs.manual_code }}"
+          fi
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            FORCE_ARG="--force"
+          fi
+          python scripts/fetch_manuals.py $CODE_ARG $FORCE_ARG
+
+      # 5. Commit updated data files (only if anything changed)
+      - name: Commit updated content
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/
+          if git diff --cached --quiet; then
+            echo "No changes — manuals are already up to date."
+          else
+            git commit -m "chore: update manual content $(date -u +%Y-%m-%d) [skip ci]"
+            git push
+          fi

@@ -107,13 +107,31 @@ def get(url: str) -> requests.Response | None:
     return None
 
 
+CONTENT_URL = BASE_URL + "/pages/DisplayContent.aspx"
+
 # ── Version discovery ───────────────────────────────────────────────────────
-# NOTE: manuals.health.mil echoes back whatever Change= value is in the
-# request URL, making dynamic discovery impossible via link inspection.
-# Change numbers are therefore taken from manuals.json (seeded manually
-# and updated by re-running this script with --force when a new change
-# is published).  The scraper verifies the stored change is reachable and
-# checks one change ahead in case a new one has been released.
+def change_exists(code: str, change: int) -> bool:
+    """
+    Returns True if `change` genuinely exists for this manual.
+
+    The TOC page echoes back whatever Change= value is in the request URL,
+    so we can't use it for detection.  Section content pages are different:
+    their <title> tag always reflects the REAL change being served
+    (e.g. "TRICARE Manuals - Display Chap 1 TOC, Change 54").
+    If we request Change=55 but only Change=54 exists, the title will say
+    "Change 54", not "Change 55" — a reliable signal.
+    """
+    # Probe chapter 1 (exists in every manual)
+    url = f"{CONTENT_URL}?Manual={code}&chapter=1&Change={change}"
+    r = get(url)
+    if r is None:
+        return False
+    soup = BeautifulSoup(r.text, "lxml")
+    raw_title = soup.title.string.strip() if soup.title else ""
+    m = re.search(r"Change\s+(\d+)", raw_title, re.IGNORECASE)
+    if not m:
+        return False
+    return int(m.group(1)) == change
 
 
 # ── TOC parsing ─────────────────────────────────────────────────────────────
@@ -299,15 +317,14 @@ def process_manual(entry: dict, force: bool = False) -> dict:
         print("  No change number in manuals.json — skipping.", file=sys.stderr)
         return entry
 
-    # Check if a newer change has been published (try up to 5 ahead)
+    # Check if newer changes have been published since last run
     latest = known
-    for candidate in range(known + 1, known + 6):
-        sections = fetch_toc(code, candidate)
-        if sections and len(sections) >= 3:
+    for candidate in range(known + 1, known + 20):
+        if change_exists(code, candidate):
             print(f"  Newer change found: {candidate}")
             latest = candidate
         else:
-            break
+            break  # changes are sequential; first miss = done
 
     print(f"  Using change: {latest}")
 

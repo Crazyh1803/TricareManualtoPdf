@@ -21,6 +21,9 @@ on:
 permissions:
   contents: write   # needed to commit docs/data/ changes
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 # ── Job ─────────────────────────────────────────────────────────────────────
 jobs:
   update:
@@ -29,10 +32,11 @@ jobs:
     timeout-minutes: 120   # large manuals can take a while
 
     steps:
-      # 1. Check out the repo
+      # 1. Check out the web branch (scripts/ and docs/data/ live there)
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: web
           fetch-depth: 1
 
       # 2. Set up Python

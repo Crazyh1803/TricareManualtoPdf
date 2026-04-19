@@ -113,16 +113,30 @@ def get(url: str) -> requests.Response | None:
 def toc_has_sections(code: str, change: int) -> bool:
     """
     Return True if the TOC page for this change number contains real section
-    links.  manuals.health.mil returns HTTP 200 for ALL URLs — including
-    invalid change numbers — so we must check the page body rather than
-    the status code.  A valid TOC page contains links to DisplayContent.aspx;
-    an invalid/out-of-range page does not.
+    links.  manuals.health.mil returns HTTP 200 for ALL URLs (soft 404), and
+    site navigation chrome contains generic DisplayContent links on every page.
+    So we look specifically for <a href="..."> elements whose href contains
+    BOTH 'DisplayContent' AND 'chapter=' AND 'Manual=CODE' — these only appear
+    in the actual TOC list, not in nav chrome.
     """
     url = TOC_URL.format(code=code, change=change)
     r = get(url)
     if r is None:
         return False
-    return bool(_DISPLAY_RE.search(r.text))
+    soup = BeautifulSoup(r.text, "lxml")
+    for a in soup.find_all("a", href=_DISPLAY_RE):
+        href = a.get("href", "")
+        parsed = urlparse(href)
+        params = parse_qs(parsed.query, keep_blank_values=True)
+        # A real section link has Manual=CODE and chapter=N
+        manual_match = any(
+            v.upper() == code.upper()
+            for v in params.get("Manual", params.get("manual", []))
+        )
+        has_chapter = bool(params.get("chapter", params.get("Chapter", [])))
+        if manual_match and has_chapter:
+            return True
+    return False
 
 
 # ── Version discovery ───────────────────────────────────────────────────────

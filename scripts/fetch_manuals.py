@@ -5,6 +5,11 @@ TRICARE Manuals — Content Scraper
 Fetches manual content from manuals.health.mil and writes static files
 to docs/data/ for consumption by the GitHub Pages web app.
 
+NOTE: manuals.health.mil uses DoD-signed certificates that are not in the
+standard CA bundle.  All requests use verify=False (SSL verification
+disabled) to work around this — identical to the Android app's lenient
+OkHttp client.  All traffic is read-only public government documents.
+
 Output layout:
   docs/data/manuals.json           — manual list with latestChange
   docs/data/{CODE}/toc.json        — section index for one manual/change
@@ -20,17 +25,21 @@ Run locally:
 
 import argparse
 import json
-import math
 import os
 import re
 import sys
 import time
+import warnings
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urljoin, urlparse, parse_qs
 
 import requests
+import urllib3
 from bs4 import BeautifulSoup
+
+# Suppress the InsecureRequestWarning that comes with verify=False
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ── Configuration ───────────────────────────────────────────────────────────
 BASE_URL  = "https://manuals.health.mil"
@@ -41,13 +50,16 @@ MANUALS_JSON = DATA_DIR / "manuals.json"
 
 HEADERS = {
     "User-Agent": (
-        "Mozilla/5.0 (compatible; TricareManualsBot/1.0; "
-        "+https://github.com/dwhit/TricareManualtoPdf)"
-    )
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5",
 }
 
 # Throttle between requests (seconds) — be a polite scraper
-REQUEST_DELAY = 0.4
+REQUEST_DELAY = 0.5
 
 # Binary-search ceiling for change numbers
 CHANGE_MAX = 300
@@ -58,7 +70,7 @@ STRIP_SELECTORS = [
     ".navbar", ".breadcrumb", ".breadcrumbs",
     "[role='banner']", "[role='navigation']",
     "script", "style", "noscript",
-    "#dnn_ContentPane > .dnnFormItem",   # DNN CMS artefacts
+    "#dnn_ContentPane > .dnnFormItem",
 ]
 
 # Selectors for the main content area (tried in order)
@@ -75,31 +87,39 @@ CONTENT_SELECTORS = [
 # ── HTTP session ────────────────────────────────────────────────────────────
 session = requests.Session()
 session.headers.update(HEADERS)
+# Disable SSL verification globally on the session —
+# health.mil uses DoD intermediate CAs not in the standard bundle.
+session.verify = False
 
 
-def get(url: str, *, stream: bool = False) -> requests.Response | None:
+def get(url: str) -> requests.Response | None:
     """GET with retries and polite throttling."""
     time.sleep(REQUEST_DELAY)
     for attempt in range(3):
         try:
-            r = session.get(url, timeout=30, stream=stream)
+            r = session.get(url, timeout=30)
             if r.status_code == 200:
                 return r
             print(f"  HTTP {r.status_code}: {url}", file=sys.stderr)
             return None
         except requests.RequestException as e:
             if attempt == 2:
-                print(f"  Failed ({e}): {url}", file=sys.stderr)
+                print(f"  Failed ({type(e).__name__}: {e}): {url}", file=sys.stderr)
                 return None
             time.sleep(2 ** attempt)
     return None
 
 
 def head_ok(url: str) -> bool:
-    """Return True if the URL exists (HEAD 200)."""
+    """
+    Return True if the URL exists.
+    Uses GET with stream=True (reads only headers) since some DoD servers
+    return non-200 for HEAD even when the page exists.
+    """
     time.sleep(REQUEST_DELAY)
     try:
-        r = session.head(url, timeout=15, allow_redirects=True)
+        r = session.get(url, timeout=15, stream=True)
+        r.close()
         return r.status_code == 200
     except requests.RequestException:
         return False
@@ -108,13 +128,11 @@ def head_ok(url: str) -> bool:
 # ── Version discovery ───────────────────────────────────────────────────────
 def find_latest_change(code: str) -> int | None:
     """
-    Binary-search HEAD requests to find the highest available change number
-    for this manual.  Change numbers are sequential, so the highest valid N
-    is the latest change.  Uses ≤ ceil(log2(CHANGE_MAX)) ≈ 9 HEAD requests.
-    Returns None only if Change=1 itself is unreachable.
+    Binary-search to find the highest available change number.
+    Uses ~9 requests (ceil(log2(CHANGE_MAX))).
+    Returns None only if Change=1 is unreachable.
     """
-    base = TOC_URL.format(code=code, change="")  # ends with Change=
-    # base is .../ManualToc.aspx?Manual=CODE&Change=
+    base = TOC_URL.format(code=code, change="")
 
     if not head_ok(f"{base}1"):
         print(f"  [{code}] Change=1 unreachable — skipping", file=sys.stderr)
@@ -136,9 +154,8 @@ _DISPLAY_RE = re.compile(r"DisplayContent", re.IGNORECASE)
 
 def fetch_toc(code: str, change: int) -> list[dict]:
     """
-    Fetch and parse the table-of-contents page for one manual/change.
-    Returns a list of section dicts:
-      { id, title, url, chapter, section, isChapterToc }
+    Fetch and parse the table-of-contents page.
+    Returns a sorted list of section dicts.
     """
     url = TOC_URL.format(code=code, change=change)
     r = get(url)
@@ -146,25 +163,21 @@ def fetch_toc(code: str, change: int) -> list[dict]:
         return []
 
     soup = BeautifulSoup(r.text, "lxml")
-
-    # Collect all links whose href contains "DisplayContent"
     links = soup.find_all("a", href=_DISPLAY_RE)
     if not links:
         print(f"  [{code}] No section links found on TOC page", file=sys.stderr)
         return []
 
     sections = []
-    seen_urls: set[str] = set()
+    seen_qs: set[str] = set()
 
     for link in links:
         href = link.get("href", "").strip()
         full_url = urljoin(BASE_URL, href)
-
-        # Deduplicate
         qs = urlparse(full_url).query.lower()
-        if qs in seen_urls:
+        if qs in seen_qs:
             continue
-        seen_urls.add(qs)
+        seen_qs.add(qs)
 
         params = parse_qs(urlparse(full_url).query, keep_blank_values=True)
         chapter_raw = params.get("chapter", params.get("Chapter", ["0"]))[0]
@@ -177,7 +190,6 @@ def fetch_toc(code: str, change: int) -> list[dict]:
 
         title = link.get_text(strip=True) or f"Chapter {chapter}"
         title = clean_title(title)
-
         is_chapter_toc = (section_raw == "" or section_raw == "0")
 
         sections.append({
@@ -188,20 +200,17 @@ def fetch_toc(code: str, change: int) -> list[dict]:
             "isChapterToc": is_chapter_toc,
         })
 
-    # Sort: by chapter, then chapter-TOC entries first, then by section
     def sort_key(s):
-        ch = s["chapter"]
+        ch  = s["chapter"]
         sec = s["section"]
-        is_toc = s["isChapterToc"]
         try:
             sec_f = float(sec) if sec else 0.0
         except ValueError:
             sec_f = 0.0
-        return (ch, 0 if is_toc else 1, sec_f)
+        return (ch, 0 if s["isChapterToc"] else 1, sec_f)
 
     sections.sort(key=sort_key)
 
-    # Assign sequential IDs (zero-padded)
     pad = max(3, len(str(len(sections))))
     for i, s in enumerate(sections):
         s["id"] = str(i + 1).zfill(pad)
@@ -209,7 +218,7 @@ def fetch_toc(code: str, change: int) -> list[dict]:
     return sections
 
 
-# ── Title cleaning (mirrors Android TocParser.extractTitle) ─────────────────
+# ── Title cleaning ───────────────────────────────────────────────────────────
 _TITLE_PREFIXES = [
     "TRICARE Manuals - Display ",
     "TRICARE Manuals - ",
@@ -239,17 +248,10 @@ def extract_title_from_html(soup: BeautifulSoup) -> str:
 
 # ── Section content extraction ───────────────────────────────────────────────
 def extract_content_html(soup: BeautifulSoup) -> str:
-    """
-    Strip site chrome (nav, header, footer, scripts) and return just the
-    main content HTML.  We strip src/href attributes on images and links
-    that would break without the full site context.
-    """
-    # Remove unwanted elements in-place
     for sel in STRIP_SELECTORS:
         for el in soup.select(sel):
             el.decompose()
 
-    # Find main content container
     content = None
     for sel in CONTENT_SELECTORS:
         content = soup.select_one(sel)
@@ -258,7 +260,6 @@ def extract_content_html(soup: BeautifulSoup) -> str:
     if content is None:
         content = soup.body or soup
 
-    # Make internal links point to manuals.health.mil
     for a in content.find_all("a", href=True):
         href = a["href"]
         if href.startswith("/") or href.startswith("http"):
@@ -266,7 +267,6 @@ def extract_content_html(soup: BeautifulSoup) -> str:
         a["target"] = "_blank"
         a["rel"]    = "noopener"
 
-    # Remove inline images (broken without the original server)
     for img in content.find_all("img"):
         src = img.get("src", "")
         if not src.startswith("http"):
@@ -276,14 +276,10 @@ def extract_content_html(soup: BeautifulSoup) -> str:
 
 
 def fetch_section_html(url: str) -> tuple[str, str]:
-    """
-    Returns (title, content_html) for a section URL.
-    Both are strings; content_html is the stripped inner HTML.
-    """
     r = get(url)
     if r is None:
         return "Untitled Section", "<p>Content could not be retrieved.</p>"
-    soup = BeautifulSoup(r.text, "lxml")
+    soup    = BeautifulSoup(r.text, "lxml")
     title   = extract_title_from_html(soup)
     content = extract_content_html(soup)
     return title, content
@@ -294,13 +290,12 @@ def write_toc(code: str, change: int, sections: list[dict]) -> None:
     out_dir = DATA_DIR / code
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    # Strip the URL from the saved structure (not needed by the web app)
     toc_sections = [
         {
-            "id":          s["id"],
-            "title":       s["title"],
-            "chapter":     s["chapter"],
-            "section":     s["section"],
+            "id":           s["id"],
+            "title":        s["title"],
+            "chapter":      s["chapter"],
+            "section":      s["section"],
             "isChapterToc": s["isChapterToc"],
         }
         for s in sections
@@ -326,16 +321,11 @@ def write_section(code: str, section_id: str, html: str) -> None:
 
 # ── Main ─────────────────────────────────────────────────────────────────────
 def process_manual(entry: dict, force: bool = False) -> dict:
-    """
-    Fetches one manual's TOC and all section content.
-    Returns an updated entry dict (with latestChange + hasContent).
-    """
     code = entry["code"]
     name = entry["name"]
     print(f"\n{'═'*60}")
     print(f"  Manual: {name} ({code})")
 
-    # Discover latest change
     print("  Discovering latest change…")
     latest = find_latest_change(code)
     if latest is None:
@@ -345,12 +335,10 @@ def process_manual(entry: dict, force: bool = False) -> dict:
     print(f"  Latest change: {latest}")
     known = entry.get("latestChange", 0)
 
-    # Skip if already up-to-date unless forced
     if not force and latest == known and entry.get("hasContent"):
         print("  Already up-to-date. Skipping content fetch.")
         return {**entry, "latestChange": latest, "hasContent": True}
 
-    # Fetch TOC
     print("  Fetching table of contents…")
     sections = fetch_toc(code, latest)
     if not sections:
@@ -360,7 +348,6 @@ def process_manual(entry: dict, force: bool = False) -> dict:
     print(f"  Found {len(sections)} sections.")
     write_toc(code, latest, sections)
 
-    # Fetch section content
     content_sections = [s for s in sections if not s["isChapterToc"]]
     print(f"  Fetching {len(content_sections)} content sections…")
 
@@ -379,7 +366,6 @@ def main():
                         help="Re-fetch even if latestChange hasn't increased")
     args = parser.parse_args()
 
-    # Load current manuals.json
     with MANUALS_JSON.open(encoding="utf-8") as f:
         data = json.load(f)
 
@@ -390,8 +376,7 @@ def main():
             continue
         updated_manuals.append(process_manual(entry, force=args.force))
 
-    # Write updated manuals.json
-    data["manuals"]    = updated_manuals
+    data["manuals"]     = updated_manuals
     data["lastUpdated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     MANUALS_JSON.write_text(
         json.dumps(data, indent=2, ensure_ascii=False) + "\n",

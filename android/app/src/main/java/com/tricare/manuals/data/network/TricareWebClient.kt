@@ -41,11 +41,18 @@ class TricareWebClient @Inject constructor(
             .writeTimeout(30, TimeUnit.SECONDS)
 
         try {
-            // ── System trust manager ──────────────────────────────────────────
+            // ── System + user-installed CA trust manager ──────────────────────
+            // "AndroidCAStore" includes both system CAs and user-installed CAs
+            // (e.g. Bitdefender Net-Defender, corporate SSL inspection proxies).
+            // TrustManagerFactory.init(null) only loads system CAs for apps
+            // targeting API 24+, which is why Bitdefender's intercepted cert was
+            // rejected even though the user's browser accepted it fine.
+            val caStore = KeyStore.getInstance("AndroidCAStore")
+            caStore.load(null, null)
             val systemTmf = TrustManagerFactory.getInstance(
                 TrustManagerFactory.getDefaultAlgorithm()
             )
-            systemTmf.init(null as KeyStore?)
+            systemTmf.init(caStore)
             val systemTm = systemTmf.trustManagers.first() as X509TrustManager
 
             // ── DoD Root CA 3 / 5 / 6 trust manager ──────────────────────────

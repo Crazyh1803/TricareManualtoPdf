@@ -14,6 +14,9 @@
         <domain includeSubdomains="true">health.mil</domain>
         <trust-anchors>
             <certificates src="system" />
+            <!-- Trust user-installed CAs so SSL-inspection tools (e.g. Bitdefender
+                 Net-Defender) don't silently block all connections to health.mil. -->
+            <certificates src="user" />
             <certificates src="@raw/dod_root_ca3" />
             <certificates src="@raw/dod_root_ca5" />
             <certificates src="@raw/dod_root_ca6" />

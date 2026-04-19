@@ -61,9 +61,6 @@ HEADERS = {
 # Throttle between requests (seconds) — be a polite scraper
 REQUEST_DELAY = 0.5
 
-# Binary-search ceiling for change numbers
-CHANGE_MAX = 300
-
 # CSS selectors for site chrome to strip from section HTML
 STRIP_SELECTORS = [
     "header", "footer", "nav", "#navigation", "#header", "#footer",
@@ -110,55 +107,43 @@ def get(url: str) -> requests.Response | None:
     return None
 
 
-def toc_has_sections(code: str, change: int) -> bool:
-    """
-    Return True if the TOC page for this change number contains real section
-    links.  manuals.health.mil returns HTTP 200 for ALL URLs (soft 404), and
-    site navigation chrome contains generic DisplayContent links on every page.
-    So we look specifically for <a href="..."> elements whose href contains
-    BOTH 'DisplayContent' AND 'chapter=' AND 'Manual=CODE' — these only appear
-    in the actual TOC list, not in nav chrome.
-    """
-    url = TOC_URL.format(code=code, change=change)
-    r = get(url)
-    if r is None:
-        return False
-    soup = BeautifulSoup(r.text, "lxml")
-    for a in soup.find_all("a", href=_DISPLAY_RE):
-        href = a.get("href", "")
-        parsed = urlparse(href)
-        params = parse_qs(parsed.query, keep_blank_values=True)
-        # A real section link has Manual=CODE and chapter=N
-        manual_match = any(
-            v.upper() == code.upper()
-            for v in params.get("Manual", params.get("manual", []))
-        )
-        has_chapter = bool(params.get("chapter", params.get("Chapter", [])))
-        if manual_match and has_chapter:
-            return True
-    return False
-
-
 # ── Version discovery ───────────────────────────────────────────────────────
 def find_latest_change(code: str) -> int | None:
     """
-    Binary-search to find the highest change number that has real content.
-    Uses content detection (not HTTP status) because the site soft-404s with
-    HTTP 200 for every URL.  ~9 page fetches per manual.
-    Returns None only if Change=1 itself has no section links.
-    """
-    if not toc_has_sections(code, 1):
-        print(f"  [{code}] Change=1 has no section links — skipping", file=sys.stderr)
-        return None
+    Determine the latest available change number for this manual.
 
-    lo, hi = 1, CHANGE_MAX
-    while lo < hi - 1:
-        mid = (lo + hi) // 2
-        if toc_has_sections(code, mid):
-            lo = mid
-        else:
-            hi = mid
-    return lo
+    The TRICARE site returns HTTP 200 for ALL change numbers and redirects
+    invalid ones to the latest valid change.  We exploit this: request a
+    deliberately out-of-range change (9999), then read the actual change
+    number embedded in the section link hrefs that the site returns.
+    Falls back to probing change=1 if the high probe returns nothing.
+
+    No binary search needed — the site tells us the answer directly.
+    """
+    for probe in [9999, 1]:
+        url = TOC_URL.format(code=code, change=probe)
+        r = get(url)
+        if r is None:
+            continue
+        soup = BeautifulSoup(r.text, "lxml")
+        for a in soup.find_all("a", href=_DISPLAY_RE):
+            href = a.get("href", "")
+            params = parse_qs(urlparse(href).query, keep_blank_values=True)
+            change_vals  = params.get("Change",  params.get("change",  []))
+            manual_vals  = params.get("Manual",  params.get("manual",  []))
+            chapter_vals = params.get("chapter", params.get("Chapter", []))
+            if (chapter_vals
+                    and change_vals
+                    and any(v.upper() == code.upper() for v in manual_vals)):
+                try:
+                    found = int(change_vals[0])
+                    print(f"  [{code}] Site reports latest change: {found} (probed with {probe})")
+                    return found
+                except ValueError:
+                    pass
+
+    print(f"  [{code}] Could not determine latest change", file=sys.stderr)
+    return None
 
 
 # ── TOC parsing ─────────────────────────────────────────────────────────────

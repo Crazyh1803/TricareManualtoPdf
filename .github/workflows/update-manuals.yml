@@ -72,5 +72,5 @@ jobs:
             echo "No changes — manuals are already up to date."
           else
             git commit -m "chore: update manual content $(date -u +%Y-%m-%d) [skip ci]"
-            git push
+            git push origin web
           fi

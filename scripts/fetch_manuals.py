@@ -110,38 +110,37 @@ def get(url: str) -> requests.Response | None:
     return None
 
 
-def head_ok(url: str) -> bool:
+def toc_has_sections(code: str, change: int) -> bool:
     """
-    Return True if the URL exists.
-    Uses GET with stream=True (reads only headers) since some DoD servers
-    return non-200 for HEAD even when the page exists.
+    Return True if the TOC page for this change number contains real section
+    links.  manuals.health.mil returns HTTP 200 for ALL URLs — including
+    invalid change numbers — so we must check the page body rather than
+    the status code.  A valid TOC page contains links to DisplayContent.aspx;
+    an invalid/out-of-range page does not.
     """
-    time.sleep(REQUEST_DELAY)
-    try:
-        r = session.get(url, timeout=15, stream=True)
-        r.close()
-        return r.status_code == 200
-    except requests.RequestException:
+    url = TOC_URL.format(code=code, change=change)
+    r = get(url)
+    if r is None:
         return False
+    return bool(_DISPLAY_RE.search(r.text))
 
 
 # ── Version discovery ───────────────────────────────────────────────────────
 def find_latest_change(code: str) -> int | None:
     """
-    Binary-search to find the highest available change number.
-    Uses ~9 requests (ceil(log2(CHANGE_MAX))).
-    Returns None only if Change=1 is unreachable.
+    Binary-search to find the highest change number that has real content.
+    Uses content detection (not HTTP status) because the site soft-404s with
+    HTTP 200 for every URL.  ~9 page fetches per manual.
+    Returns None only if Change=1 itself has no section links.
     """
-    base = TOC_URL.format(code=code, change="")
-
-    if not head_ok(f"{base}1"):
-        print(f"  [{code}] Change=1 unreachable — skipping", file=sys.stderr)
+    if not toc_has_sections(code, 1):
+        print(f"  [{code}] Change=1 has no section links — skipping", file=sys.stderr)
         return None
 
     lo, hi = 1, CHANGE_MAX
     while lo < hi - 1:
         mid = (lo + hi) // 2
-        if head_ok(f"{base}{mid}"):
+        if toc_has_sections(code, mid):
             lo = mid
         else:
             hi = mid

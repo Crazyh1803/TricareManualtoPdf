@@ -1,0 +1,91 @@
+{
+  "code": "TST5",
+  "change": 32,
+  "fetchedAt": "2026-04-20T07:39:28Z",
+  "sections": [
+    {
+      "id": "001",
+      "title": "Foreword",
+      "chapter": 0,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "002",
+      "title": "Chapter 1 – Contents",
+      "chapter": 1,
+      "section": "",
+      "isChapterToc": true
+    },
+    {
+      "id": "003",
+      "title": "Chapter 1, Section 1.1",
+      "chapter": 1,
+      "section": "1.1",
+      "isChapterToc": false
+    },
+    {
+      "id": "004",
+      "title": "Chapter 2 – Contents",
+      "chapter": 2,
+      "section": "",
+      "isChapterToc": true
+    },
+    {
+      "id": "005",
+      "title": "Chapter 2, Section 1.1",
+      "chapter": 2,
+      "section": "1.1",
+      "isChapterToc": false
+    },
+    {
+      "id": "006",
+      "title": "Chapter 3 – Contents",
+      "chapter": 3,
+      "section": "",
+      "isChapterToc": true
+    },
+    {
+      "id": "007",
+      "title": "Chapter 3, Section 1.1",
+      "chapter": 3,
+      "section": "1.1",
+      "isChapterToc": false
+    },
+    {
+      "id": "008",
+      "title": "Chapter 3, Section 5.2",
+      "chapter": 3,
+      "section": "5.2",
+      "isChapterToc": false
+    },
+    {
+      "id": "009",
+      "title": "Chapter 4 – Contents",
+      "chapter": 4,
+      "section": "",
+      "isChapterToc": true
+    },
+    {
+      "id": "010",
+      "title": "Chapter 4, Section 1.1",
+      "chapter": 4,
+      "section": "1.1",
+      "isChapterToc": false
+    },
+    {
+      "id": "011",
+      "title": "Chapter 1 Addendum B",
+      "chapter": 1,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "012",
+      "title": "Chapter 2 Addendum N",
+      "chapter": 2,
+      "section": "",
+      "isChapterToc": false
+    }
+  ]
+}

@@ -1,0 +1,2030 @@
+
+<div class="needLargerText"><a href="https://manuals.health.mil/pages/GetLargerText.aspx" rel="noopener" target="_blank">Need larger text?</a></div>
+<div id="breadcrumb">
+
+</div>
+<div class="main1column">
+<div class="doc_navigation" id="MainContent_DocumentNavigationPanelPre">
+<a class="button FullStoryLink floatLeft" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-03-05/AsOf/TST5/C1ADA.html" rel="noopener" target="_blank" title="View previous section (Chap 1 Addendum A)"><i class="fa fa-arrow-circle-left"></i> Previous</a><a class="button FullStoryLink floatRight" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-03-05/AsOf/TST5/C2TOC.html" rel="noopener" target="_blank" title="View next section (Chap 2 TOC)">Next <i class="fa fa-arrow-circle-right"></i></a>
+</div>
+<div class="document">
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<article class="TSM" data-manualacronym="TST5"><div class="Header">TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div class="MPChapterTitle">General Automated Data Processing (ADP) Requirements</div>
+<section data-element-change-state="Unchanged" data-element-id="TST504400001" data-element-type="Header">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-id="TST504400002" data-element-type="Text" id="FM144158">Chapter 1</div>
+<div class="Addendum" data-element-change-state="Unchanged" data-element-id="TST504400003" data-element-type="Text" id="FM144162">Addendum B</div>
+<div class="AddendumTitle" data-element-change-state="Unchanged" data-element-id="TST504400004" data-element-type="Text" id="FM144167">United States Air Force (USAF)
+Allotment Record Layouts For Defense Health Agency (DHA) Contracts</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-id="TST504400005" data-element-type="No Type">Revision:  </div>
+<div class="Line"></div></section>
+<section data-element-change-state="Unchanged" data-element-id="TST504400006" data-element-type="Content">
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST504400007" data-element-type="Outline" role="heading">1.0  Data
+Element field DESCRIPTIONS<div data-element-change-state="Unchanged" data-element-id="TST504400008" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST504400009" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Data Type - Type of data stored
+in the data element (i.e., Varchar2, Date, Number, etc.).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50440000A" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Field Size - Maximum field
+size for the data element.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50440000B" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Multi Row - Identifies if the
+data element has multiple rows of data (i.e., most USAF members
+have several rows of enlisted/officer performance report data).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50440000C" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Seq of Field - Order of the
+field on output or incoming transactions if sent via flat file (i.e.,
+Card Column 3-18 (or) Position 3 of 18 fields).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50440000D" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Key Field - Identifies if the
+data element is a key field in the interface partner’s database.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50440000E" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Required Field - Identifies
+whether or not a field is mandatory in the interface partner’s database.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50440000F" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Customer Definition and Data
+Usage - Functional description of the data contained in the data
+element.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST504400010" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Example of Data - Example of
+the data contained in the data element.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST504400011" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Date Format - Format for the
+data contained in the data element, if applicable (i.e., YY/MM/DD,
+MMDDYY, DDMMMYYY).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST504400012" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Upper/Lower Case Restriction
+- Identifies if there are any upper or lower case restrictions/rules
+for the data element (i.e., Yes, must all be uppercase).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST504400013" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Field Filler - Field filler
+required by the interface partner’s database if this data element
+can’t be null.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST504400014" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Remarks - Identifies any remarks
+pertaining to the data element.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST504400015" data-element-type="Outline" role="heading">2.0  Data Elements - Premium Deduction
+Inbound File<div class="TblSepSA">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504400016" data-element-type="Text">
+<colgroup>
+<col style="width:8.96551724137931%"/>
+<col style="width:8.275862068965516%"/>
+<col style="width:4.137931034482758%"/>
+<col style="width:5.517241379310344%"/>
+<col style="width:6.206896551724137%"/>
+<col style="width:5.517241379310344%"/>
+<col style="width:8.275862068965516%"/>
+<col style="width:10.344827586206895%"/>
+<col style="width:7.586206896551724%"/>
+<col style="width:6.896551724137931%"/>
+<col style="width:9.655172413793101%"/>
+<col style="width:6.206896551724137%"/>
+<col style="width:12.413793103448274%"/>
+</colgroup>
+<thead>
+<tr>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400017" data-element-type="Text">requested Data element/name</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400018" data-element-type="Text">Data TYPE</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400019" data-element-type="Text">FILE SIZE</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST50440001A" data-element-type="Text">multi row</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST50440001B" data-element-type="Text">SEQ OF FIELD</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST50440001C" data-element-type="Text">KEY FIELD</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST50440001D" data-element-type="Text">required FIELD</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST50440001E" data-element-type="Text">CUSTOMER DEFINITION AND DATE USAGE</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST50440001F" data-element-type="Text">EXAMPLE OF DATA</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400020" data-element-type="Text">DATE FORMAT</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400021" data-element-type="Text">Upper/lower case restriction</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400022" data-element-type="Text">field filler</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400023" data-element-type="Text">remarks</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400024" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400025" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400026" data-element-type="Text">2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400027" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400028" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400029" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440002A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440002B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440002C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440002D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440002E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440002F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400030" data-element-type="Text">The column will always be blank.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400031" data-element-type="Text">Social Security #</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400032" data-element-type="Text">NUMBER</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400033" data-element-type="Text">9</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400034" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400035" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400036" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400037" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400038" data-element-type="Text">Member’s SSN-Numeric</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400039" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440003A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440003B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440003C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440003D" data-element-type="No Type"></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440003E" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440003F" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400040" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400041" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400042" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400043" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400044" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400045" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400046" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400047" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400048" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400049" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440004A" data-element-type="Text">The column will always be blank.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440004B" data-element-type="Text">Member Status (Service Component)</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440004C" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440004D" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440004E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440004F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400050" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400051" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400052" data-element-type="Text">A = Active</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400053" data-element-type="Text">G = Guard</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400054" data-element-type="Text">V = Reserve</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400055" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400056" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400057" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400058" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400059" data-element-type="No Type"></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440005A" data-element-type="Text">Branch of Service (DoD Component)</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440005B" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440005C" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440005D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440005E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440005F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400060" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400061" data-element-type="Text">A = Army</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400062" data-element-type="Text">F = Air Force</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400063" data-element-type="Text">N = Navy</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400064" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400065" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400066" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400067" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400068" data-element-type="No Type"></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400069" data-element-type="Text">Short Name</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440006A" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440006B" data-element-type="Text">5</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440006C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440006D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440006E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440006F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400070" data-element-type="Text">First 5 letters of member’s
+last name.</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400071" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400072" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400073" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400074" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400075" data-element-type="Text">If member’s last name is 3
+or less letters, skip one space, and fill remaining spaces with
+first letters from the member’s first name. If last name is 4 letters, leave
+remaining space blank. No embedded special characters are to be used.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400076" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400077" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400078" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400079" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440007A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440007B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440007C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440007D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440007E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440007F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400080" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400081" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400082" data-element-type="Text">The column will always be blank.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400083" data-element-type="Text">Last Name</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400084" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400085" data-element-type="Text">15</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400086" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400087" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400088" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400089" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440008A" data-element-type="Text">Member’s last name.</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440008B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440008C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440008D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440008E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440008F" data-element-type="No Type"></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400090" data-element-type="Text">First Name/Middle Initial</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400091" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400092" data-element-type="Text">7</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400093" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400094" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400095" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400096" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400097" data-element-type="Text">Member’s first name and middle
+initial.</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400098" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400099" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440009A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440009B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440009C" data-element-type="Text">A space should separate the
+name and initial. If the first name is more than 5 characters, use
+only the first name. No punctuation is allowed.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440009D" data-element-type="Text">Transaction Code</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440009E" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440009F" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000A0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000A1" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000A2" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000A3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000A4" data-element-type="Text">For active component:</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000A5" data-element-type="Text">1 = start</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000A6" data-element-type="Text">2 = stop</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000A7" data-element-type="Text">3 = increase monthly deduction</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000A8" data-element-type="Text">4 = decrease monthly deduction</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000A9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000AA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000AB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000AC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000AD" data-element-type="Text">The column will always be blank
+for Reserve/Guard.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000AE" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000AF" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000B0" data-element-type="Text">6</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000B1" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000B2" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000B3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000B4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000B5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000B6" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000B7" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000B8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000B9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000BA" data-element-type="Text">The column will always be blank.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000BB" data-element-type="Text">Effective Date</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000BC" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000BD" data-element-type="Text">8</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000BE" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000BF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000C0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000C1" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000C2" data-element-type="Text">Month of deduction from member’s
+pay. Use first day of month in YYYYMMDD format. (Always the first
+day of the month of receipt from contractor.)</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000C3" data-element-type="Text">19990501</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000C4" data-element-type="Text">YYYYMMDD</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000C5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000C6" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000C7" data-element-type="Text">Effective date is the first
+deduction date of a new or changed transaction. It is filled if
+the Transaction Code is 1, 3, or 4 (start, increase, decrease). For
+Transaction Code 2 (stop), it is zero filled.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000C8" data-element-type="Text">Discontinue Date</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000C9" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000CA" data-element-type="Text">8</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000CB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000CC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000CD" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000CE" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000CF" data-element-type="Text">Last deduction date for active component.</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000D0" data-element-type="Text">19990501</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000D1" data-element-type="Text">YYYYMMDD</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000D2" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000D3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000D4" data-element-type="Text">The column will always be zero
+for Reserve/Guard.</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000D5" data-element-type="Text">For Active the field is filled
+if Transaction Code is 2, 3, or 4 (stop, increase, or decrease).
+For Transaction Code 1 (start), it is zeros. For Transaction Code
+2 (stop), it must be the month prior to the current work month,
+e.g., for May 1999 work month, the date is 199990501. For Transaction
+Code 3 or 4 (increase or decrease), it must be the month prior to
+the Effective Date.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000D6" data-element-type="Text">Amount</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000D7" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000D8" data-element-type="Text">6</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000D9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000DA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000DB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000DC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000DD" data-element-type="Text">Monthly deduction amount. (Zero fill
+to the left.)</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000DE" data-element-type="Text">000100</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000DF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000E0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000E1" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000E2" data-element-type="Text">Show the amount of the deduction
+to be started or stopped as a numeric with 2 decimal positions implied.
+For starts or changes, minimum amount is one dollar (000100). For changes,
+it is the amount of the new deduction.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000E3" data-element-type="Text">Original Amount</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000E4" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000E5" data-element-type="Text">6</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000E6" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000E7" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000E8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000E9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000EA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000EB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000EC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000ED" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000EE" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000EF" data-element-type="Text">The column will always be zero
+for Reserve/Guard.</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000F0" data-element-type="Text">For Active must be provided
+for transaction codes 3 and 4 (increase or decrease). For Transaction
+Codes 1 and 2 (start and stop) it is zeros. For Transaction Code
+3 (increase, Original Amount must be less than the amount starting
+in position 66. For Transaction Code 4 (decrease), it is the amount
+starting in position 66.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000F1" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000F2" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000F3" data-element-type="Text">6</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000F4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000F5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000F6" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000F7" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000F8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000F9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000FA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000FB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000FC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000FD" data-element-type="Text">The column will always be blank.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000FE" data-element-type="Text">Purpose Code</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044000FF" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400100" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400101" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400102" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400103" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400104" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400105" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400106" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400107" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400108" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400109" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440010A" data-element-type="Text">The column will always be blank
+for Reserve/Guard.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440010B" data-element-type="Text">Account Number</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440010C" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440010D" data-element-type="Text">17</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440010E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440010F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400110" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400111" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400112" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400113" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400114" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400115" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400116" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400117" data-element-type="Text">The column will always be blank
+for Reserve/Guard.</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400118" data-element-type="Text">For active component, the Account
+Number equals active member SSN. Applies to Transaction Codes 1,
+3, and 4 (start, increase, and decrease). For Transaction Code 2, it
+is spaces.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST504400119" data-element-type="Outline" role="heading">3.0  Data Elements - deduct/no deduct
+outbound file<div class="TblSepSA">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST50440011A" data-element-type="Text">
+<colgroup>
+<col style="width:8.96551724137931%"/>
+<col style="width:8.275862068965516%"/>
+<col style="width:4.137931034482758%"/>
+<col style="width:5.517241379310344%"/>
+<col style="width:6.206896551724137%"/>
+<col style="width:5.517241379310344%"/>
+<col style="width:8.275862068965516%"/>
+<col style="width:10.344827586206895%"/>
+<col style="width:7.586206896551724%"/>
+<col style="width:6.896551724137931%"/>
+<col style="width:9.655172413793101%"/>
+<col style="width:6.206896551724137%"/>
+<col style="width:12.413793103448274%"/>
+</colgroup>
+<thead>
+<tr>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST50440011B" data-element-type="Text">requested Data element/name</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST50440011C" data-element-type="Text">Data TYPE</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST50440011D" data-element-type="Text">FILE SIZE</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST50440011E" data-element-type="Text">multi row</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST50440011F" data-element-type="Text">SEQ OF FIELD</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400120" data-element-type="Text">KEY FIELD</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400121" data-element-type="Text">required FIELD</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400122" data-element-type="Text">CUSTOMER DEFINITION AND DATE USAGE</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400123" data-element-type="Text">EXAMPLE OF DATA</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400124" data-element-type="Text">DATE FORMAT</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400125" data-element-type="Text">Upper/lower case restriction</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400126" data-element-type="Text">field filler</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST504400127" data-element-type="Text">remarks</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400128" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400129" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440012A" data-element-type="Text">2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440012B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440012C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440012D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440012E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440012F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400130" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400131" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400132" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400133" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400134" data-element-type="Text">The column will always be blank and
+show spaces.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400135" data-element-type="Text">Social Security #</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400136" data-element-type="Text">NUMBER</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400137" data-element-type="Text">9</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400138" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400139" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440013A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440013B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440013C" data-element-type="Text">Member’s SSN</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440013D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440013E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440013F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400140" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400141" data-element-type="No Type"></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400142" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400143" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400144" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400145" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400146" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400147" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400148" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400149" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440014A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440014B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440014C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440014D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440014E" data-element-type="Text">The column will always be blank and
+show spaces.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440014F" data-element-type="Text">Short Name</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400150" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400151" data-element-type="Text">5</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400152" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400153" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400154" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400155" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400156" data-element-type="Text">First 5 letters of member’s
+last name.</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400157" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400158" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400159" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440015A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440015B" data-element-type="Text">If member’s last name is 3
+or less letters, skip one space, and fill remaining spaces with
+first letters from the member’s first name. If last name is 4 letters, leave
+remaining space blank. No embedded special characters are to be used.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440015C" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440015D" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440015E" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440015F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400160" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400161" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400162" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400163" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400164" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400165" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400166" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400167" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400168" data-element-type="Text">The column will always be blank and
+show spaces.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400169" data-element-type="Text">Effective Date</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440016A" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440016B" data-element-type="Text">8</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440016C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440016D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440016E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440016F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400170" data-element-type="Text">Effective date of month of deduction.
+Use first day of month. Take date from contractor file, fields 50-57. (Note
+2)</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400171" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400172" data-element-type="Text">YYYYMMDD</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400173" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400174" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400175" data-element-type="Text">The date represents the first day
+of the month for which a deduction has been attempted.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400176" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400177" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400178" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400179" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440017A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440017B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440017C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440017D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440017E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440017F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400180" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400181" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400182" data-element-type="Text">The column will always be blank and
+show spaces.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400183" data-element-type="Text">Reason Code</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400184" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400185" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400186" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400187" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400188" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400189" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440018A" data-element-type="Text">Reason Codes for Deduct/No Deduct</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440018B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440018C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440018D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440018E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440018F" data-element-type="Text"><span class="Bold">Service Level Codes</span>:</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400190" data-element-type="Text">A = No match on SSN</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400191" data-element-type="Text">B = Non-pay status</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400192" data-element-type="Text">C = Separated/Retired (could
+be recent event or before the next pay month)</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400193" data-element-type="Text">D = Deceased</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400194" data-element-type="Text"><span class="Bold">Allotment Status Codes</span>:</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400195" data-element-type="Text">F = Invalid effective date</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400196" data-element-type="Text">G = Open allotment already on
+file (applies to Start transactions - Type 1) </div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400197" data-element-type="Text">H = No open allotment on file (applies
+to Stop &amp; Change transactions - Types 2, 3, 4) </div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400198" data-element-type="Text">I = Invalid transaction type code
+(i.e., not 1, 2, 3, 4)</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400199" data-element-type="Text"><span class="Bold">Other Transaction Edit
+Codes</span>:</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440019A" data-element-type="Text">J = No Match on Name (short
+name)</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440019B" data-element-type="Text">K = “Original Amount” on transaction
+does not match current allotment amount (applies to Change transactions
+- Types 3, 4)</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440019C" data-element-type="Text">L = SSN Change</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440019D" data-element-type="Text">M = Name Change</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440019E" data-element-type="Text"><span class="Bold">Compute Pay Codes</span>:</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440019F" data-element-type="Text">“ “= Deduction performed</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001A0" data-element-type="Text">N = No Pay Available for Deduction</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001A1" data-element-type="Text"><span class="Bold">“Something’s Wrong” Code</span>:</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001A2" data-element-type="Text"> Z = Unspecified</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001A3" data-element-type="Text">Premium Deducted</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001A4" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001A5" data-element-type="Text">6</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001A6" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001A7" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001A8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001A9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001AA" data-element-type="Text">Numeric – fill from the right ($$$$CC)</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001AB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001AC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001AD" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001AE" data-element-type="Text">0</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001AF" data-element-type="Text">Use dollar amount deducted
+or zeros if there was no deduction. Fill from the right. Leave no spaces.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001B0" data-element-type="Text">Branch of Service (DoD Component)</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001B1" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001B2" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001B3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001B4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001B5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001B6" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001B7" data-element-type="Text">A = Army</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001B8" data-element-type="Text">F = Air Force</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001B9" data-element-type="Text">N = Navy</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001BA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001BB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001BC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001BD" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001BE" data-element-type="No Type"></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001BF" data-element-type="Text">Member Status (Service Component)</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001C0" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001C1" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001C2" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001C3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001C4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001C5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001C6" data-element-type="Text">A = Active</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001C7" data-element-type="Text">G = Guard</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001C8" data-element-type="Text">V = Reserve</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001C9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001CA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001CB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001CC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001CD" data-element-type="No Type"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST5044001CE" data-element-type="Outline" role="heading">4.0  Data Elements - No Match Outbound
+file<div class="TblSepSA">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST5044001CF" data-element-type="Text">
+<colgroup>
+<col style="width:8.96551724137931%"/>
+<col style="width:8.275862068965516%"/>
+<col style="width:4.137931034482758%"/>
+<col style="width:5.517241379310344%"/>
+<col style="width:6.206896551724137%"/>
+<col style="width:5.517241379310344%"/>
+<col style="width:8.275862068965516%"/>
+<col style="width:10.344827586206895%"/>
+<col style="width:7.586206896551724%"/>
+<col style="width:6.896551724137931%"/>
+<col style="width:9.655172413793101%"/>
+<col style="width:6.206896551724137%"/>
+<col style="width:12.413793103448274%"/>
+</colgroup>
+<thead>
+<tr>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001D0" data-element-type="Text">requested Data element/name</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001D1" data-element-type="Text">Data TYPE</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001D2" data-element-type="Text">FILE SIZE</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001D3" data-element-type="Text">multi row</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001D4" data-element-type="Text">SEQ OF FIELD</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001D5" data-element-type="Text">KEY FIELD</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001D6" data-element-type="Text">required FIELD</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001D7" data-element-type="Text">CUSTOMER DEFINITION AND DATE USAGE</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001D8" data-element-type="Text">EXAMPLE OF DATA</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001D9" data-element-type="Text">DATE FORMAT</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001DA" data-element-type="Text">Upper/lower case restriction</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001DB" data-element-type="Text">field filler</div>
+</th>
+<th>
+<div class="CellHeading7L" data-element-change-state="Unchanged" data-element-id="TST5044001DC" data-element-type="Text">remarks</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001DD" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001DE" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001DF" data-element-type="Text">2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001E0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001E1" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001E2" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001E3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001E4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001E5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001E6" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001E7" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001E8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001E9" data-element-type="Text">The column will always be blank.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001EA" data-element-type="Text">Social Security #</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001EB" data-element-type="Text">NUMBER</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001EC" data-element-type="Text">9</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001ED" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001EE" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001EF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001F0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001F1" data-element-type="Text">Member’s SSN</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001F2" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001F3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001F4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001F5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001F6" data-element-type="No Type"></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001F7" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001F8" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001F9" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001FA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001FB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001FC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001FD" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001FE" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST5044001FF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400200" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400201" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400202" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400203" data-element-type="Text">The column will always be blank.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400204" data-element-type="Text">Short Name</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400205" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400206" data-element-type="Text">5</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400207" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400208" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400209" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440020A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440020B" data-element-type="Text">First 5 letters of member’s
+last name.</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440020C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440020D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440020E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440020F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400210" data-element-type="Text">If member’s last name is 3
+or less letters, skip one space, and fill remaining spaces with
+first letters from the member’s first name. If last name is 4 letters, leave
+remaining space blank. No embedded special characters are to be used.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400211" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400212" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400213" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400214" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400215" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400216" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400217" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400218" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400219" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440021A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440021B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440021C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440021D" data-element-type="Text">The column will always be blank and
+show spaces.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440021E" data-element-type="Text">Effective Date</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440021F" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400220" data-element-type="Text">8</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400221" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400222" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400223" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400224" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400225" data-element-type="Text">Effective date of month of deduction.
+Use first day of month.</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400226" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400227" data-element-type="Text">YYYYMMDD</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400228" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400229" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440022A" data-element-type="Text">The date represents the first day
+of the month for which a deduction has been attempted.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440022B" data-element-type="Text">Filler</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440022C" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440022D" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440022E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440022F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400230" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400231" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400232" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400233" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400234" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400235" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400236" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400237" data-element-type="Text">The column will always be blank and
+show spaces.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400238" data-element-type="Text">Reason Code</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400239" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440023A" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440023B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440023C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440023D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440023E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440023F" data-element-type="Text">Reason Codes for Deduct/No Deduct</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400240" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400241" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400242" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400243" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400244" data-element-type="Text"><span class="Bold">Service Level Codes</span>:</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400245" data-element-type="Text">A = No match on SSN</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400246" data-element-type="Text">B = Non-pay status</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400247" data-element-type="Text">C = Separated/Retired (could
+be recent event or before the next pay month)</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400248" data-element-type="Text">D = Deceased</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400249" data-element-type="Text"><span class="Bold">Allotment Status Codes</span>:</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440024A" data-element-type="Text">F = Invalid effective date</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440024B" data-element-type="Text">G = Open allotment already on
+file (applies to Start transactions - Type 1) </div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440024C" data-element-type="Text">H = No open allotment on file (applies
+to Stop &amp; Change transactions - Types 2, 3, 4) </div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440024D" data-element-type="Text">I = Invalid transaction type code
+(i.e., not 1, 2, 3, 4)</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440024E" data-element-type="Text"><span class="Bold">Other Transaction Edit
+Codes</span>:</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440024F" data-element-type="Text">J = No Match on Name (short
+name)</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400250" data-element-type="Text">K = “Original Amount” on transaction
+does not match current allotment amount (applies to Change transactions
+- Types 3, 4)</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400251" data-element-type="Text">L = SSN Change</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400252" data-element-type="Text">M = Name Change</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400253" data-element-type="Text"><span class="Bold">Compute Pay Codes</span>:</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400254" data-element-type="Text">“ “= Deduction performed</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400255" data-element-type="Text">N = No Pay Available for Deduction</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400256" data-element-type="Text"><span class="Bold">“Something’s Wrong” Code</span>:</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400257" data-element-type="Text"> Z = Unspecified</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400258" data-element-type="Text">Premium Deducted</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400259" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440025A" data-element-type="Text">6</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440025B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440025C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440025D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440025E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440025F" data-element-type="Text">Numeric – fill from the right ($$$$CC)</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400260" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400261" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400262" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400263" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400264" data-element-type="Text">Use dollar amount deducted
+or zeros if there was no deduction. Fill from the right. Leave no spaces.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400265" data-element-type="Text">Branch of Service (DoD Component)</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400266" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400267" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400268" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400269" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440026A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440026B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440026C" data-element-type="Text">A = Army</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440026D" data-element-type="Text">F = Air Force</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440026E" data-element-type="Text">N = Navy</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440026F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400270" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400271" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400272" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400273" data-element-type="No Type"></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400274" data-element-type="Text">Member Status (Service Component)</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400275" data-element-type="Text">VARCHAR2</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400276" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400277" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400278" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400279" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440027A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440027B" data-element-type="Text">A = Active</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440027C" data-element-type="Text">G = Guard</div>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440027D" data-element-type="Text">V = Reserve</div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440027E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST50440027F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400280" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400281" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody7L" data-element-change-state="Unchanged" data-element-id="TST504400282" data-element-type="No Type"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSep"></div></section>
+<div class="END">- END -</div></article>
+</div>
+<div class="doc_navigation" id="MainContent_DocumentNavigationPanelPost">
+<a class="button FullStoryLink floatLeft" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-03-05/AsOf/TST5/C1ADA.html" rel="noopener" target="_blank" title="View previous section (Chap 1 Addendum A)"><i class="fa fa-arrow-circle-left"></i> Previous</a><a class="button FullStoryLink floatRight" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-03-05/AsOf/TST5/C2TOC.html" rel="noopener" target="_blank" title="View next section (Chap 2 TOC)">Next <i class="fa fa-arrow-circle-right"></i></a>
+</div>
+</div>
+<div class="clearfix"></div>

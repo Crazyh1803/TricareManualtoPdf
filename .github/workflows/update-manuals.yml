@@ -47,7 +47,11 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r scripts/requirements.txt
 
-      # 4. Run scraper
+      # 4. Install Playwright browser (needed for JS-rendered TOC pages)
+      - name: Install Playwright browser
+        run: playwright install --with-deps chromium
+
+      # 5. Run scraper
       - name: Fetch manual content
         run: |
           CODE_ARG=""
@@ -60,7 +64,7 @@ jobs:
           fi
           python scripts/fetch_manuals.py $CODE_ARG $FORCE_ARG
 
-      # 5. Commit updated data files (only if anything changed)
+      # 6. Commit updated data files (only if anything changed)
       - name: Commit updated content
         run: |
           git config user.name  "github-actions[bot]"

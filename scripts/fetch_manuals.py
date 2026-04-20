@@ -107,31 +107,130 @@ def get(url: str) -> requests.Response | None:
     return None
 
 
-CONTENT_URL = BASE_URL + "/pages/DisplayContent.aspx"
+NO_CHANGE_URL   = BASE_URL + "/pages/ManualToc.aspx?Manual={code}"
+CHANGE_PARAM_RE = re.compile(r"[?&]Change=(\d+)", re.IGNORECASE)
 
-# ── Version discovery ───────────────────────────────────────────────────────
-def change_exists(code: str, change: int) -> bool:
-    """
-    Returns True if `change` genuinely exists for this manual.
 
-    The TOC page echoes back whatever Change= value is in the request URL,
-    so we can't use it for detection.  Section content pages are different:
-    their <title> tag always reflects the REAL change being served
-    (e.g. "TRICARE Manuals - Display Chap 1 TOC, Change 54").
-    If we request Change=55 but only Change=54 exists, the title will say
-    "Change 54", not "Change 55" — a reliable signal.
+# ── Version discovery (faithful port of Android VersionChecker) ─────────────
+#
+# The TRICARE site has three behaviours we have to navigate:
+#   - It returns HTTP 200 for every URL (soft 404).
+#   - It encodes ampersands as "&amp;" in attribute values — so regex on raw
+#     HTML fails; we must parse with BeautifulSoup so .get("href") decodes them.
+#   - Section links on a TOC page for an *invalid* Change= echo back whichever
+#     change the server fell back to serving, NOT what we requested.  So
+#     comparing "requested vs rendered" Change= values reveals validity.
+
+def _page_serves_change(html: str, n: int) -> bool:
     """
-    # Probe chapter 1 (exists in every manual)
-    url = f"{CONTENT_URL}?Manual={code}&chapter=1&Change={change}"
-    r = get(url)
-    if r is None:
+    True iff the page genuinely corresponds to change N (not a soft-404
+    fallback to a different change).
+    Strategy 1 — look for decoded hrefs containing ?Change=N or &Change=N
+    (anchored so Change=54 doesn't match Change=540).
+    Strategy 2 — fall back to scanning visible text for "Change N".
+    """
+    try:
+        soup = BeautifulSoup(html, "lxml")
+    except Exception:
         return False
-    soup = BeautifulSoup(r.text, "lxml")
-    raw_title = soup.title.string.strip() if soup.title else ""
-    m = re.search(r"Change\s+(\d+)", raw_title, re.IGNORECASE)
-    if not m:
-        return False
-    return int(m.group(1)) == change
+
+    link_re = re.compile(rf"[?&]Change={n}(?:[^0-9]|$)", re.IGNORECASE)
+    for a in soup.find_all("a", href=True):
+        # BeautifulSoup decodes &amp; → & when reading the attribute value.
+        if link_re.search(a["href"]):
+            return True
+
+    text = ((soup.title.string or "") if soup.title else "") + " " + soup.get_text()
+    text = text.replace("\u00A0", " ")
+    return bool(re.search(rf"change\W{{0,4}}{n}(?:\D|$)", text, re.IGNORECASE))
+
+
+def _max_change_in_page(html: str) -> int | None:
+    """
+    Scan all decoded <a href> attributes and <select name=Change> <option>
+    values for the maximum Change=N.
+    """
+    try:
+        soup = BeautifulSoup(html, "lxml")
+    except Exception:
+        return None
+
+    candidates: list[int] = []
+    for a in soup.find_all("a", href=True):
+        for m in CHANGE_PARAM_RE.finditer(a["href"]):
+            try:
+                candidates.append(int(m.group(1)))
+            except ValueError:
+                pass
+
+    for opt in soup.select('[name="Change"] option, [name="change"] option'):
+        try:
+            candidates.append(int(opt.get("value", "")))
+        except ValueError:
+            pass
+
+    return max(candidates) if candidates else None
+
+
+def find_latest_change(code: str) -> int | None:
+    """
+    Three-stage discovery matching the Android app:
+
+      1. Fetch ManualToc.aspx?Manual=CODE with NO Change param.
+         If the server redirects to ?Change=N, return N immediately.
+         Otherwise scan the returned HTML for the highest Change=N in any
+         decoded href or <option value="N">.
+
+      2. If Step 1 yielded nothing usable, binary-search [1..200] by requesting
+         ?Change=mid and asking _page_serves_change() whether the response
+         genuinely reflects that change.  The search hinges on the fact that
+         invalid requests fall back to a valid change whose links give that
+         change away.
+
+      3. Returns None only if Change=1 itself is unreachable.
+    """
+    # ── Step 1: no-Change fetch ──────────────────────────────────────────────
+    url = NO_CHANGE_URL.format(code=code)
+    time.sleep(REQUEST_DELAY)
+    try:
+        r = session.get(url, timeout=30, allow_redirects=True)
+    except requests.RequestException as e:
+        print(f"  [{code}] Step 1 failed: {type(e).__name__}", file=sys.stderr)
+        r = None
+
+    if r is not None and r.status_code == 200:
+        # (a) Did the server redirect to ?Change=N?
+        m = CHANGE_PARAM_RE.search(r.url)
+        if m:
+            found = int(m.group(1))
+            if found > 0:
+                print(f"  [{code}] Server redirected to Change={found}")
+                return found
+        # (b) Scan decoded hrefs / options for max Change=N
+        m_max = _max_change_in_page(r.text)
+        if m_max and m_max > 1:
+            print(f"  [{code}] Page-scan max change: {m_max}")
+            return m_max
+
+    # ── Step 2: binary search with rendered-change verification ──────────────
+    # Verify Change=1 is reachable first — if not, the server is down.
+    probe = get(TOC_URL.format(code=code, change=1))
+    if probe is None:
+        print(f"  [{code}] Change=1 unreachable", file=sys.stderr)
+        return None
+
+    lo, hi = 1, 200
+    while lo < hi - 1:
+        mid = (lo + hi) // 2
+        r = get(TOC_URL.format(code=code, change=mid))
+        if r is None:
+            return lo  # network hiccup — best known
+        if _page_serves_change(r.text, mid):
+            lo = mid
+        else:
+            hi = mid
+    print(f"  [{code}] Binary search result: {lo}")
+    return lo
 
 
 # ── TOC parsing ─────────────────────────────────────────────────────────────

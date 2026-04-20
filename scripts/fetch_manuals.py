@@ -7,8 +7,13 @@ to docs/data/ for consumption by the GitHub Pages web app.
 
 NOTE: manuals.health.mil uses DoD-signed certificates that are not in the
 standard CA bundle.  All requests use verify=False (SSL verification
-disabled) to work around this — identical to the Android app's lenient
-OkHttp client.  All traffic is read-only public government documents.
+disabled) and Playwright uses ignore_https_errors=True — identical to the
+Android app's lenient OkHttp client.  All traffic is read-only public
+government documents.
+
+The ManualToc.aspx page renders its section tree via JavaScript, so we use
+Playwright (headless Chromium) to collect the section links, then fall back
+to plain requests for fetching the individual static HTML files.
 
 Output layout:
   docs/data/manuals.json           — manual list with latestChange
@@ -16,14 +21,18 @@ Output layout:
   docs/data/{CODE}/s/{id}.html     — individual section content (body HTML only)
 
 Run locally:
-  pip install requests beautifulsoup4 lxml
+  pip install -r scripts/requirements.txt
+  playwright install chromium
   python scripts/fetch_manuals.py
 
   # Fetch only a specific manual (faster during development):
   python scripts/fetch_manuals.py --code TOT5
 """
 
+from __future__ import annotations
+
 import argparse
+import asyncio
 import json
 import os
 import re
@@ -37,6 +46,7 @@ from urllib.parse import urljoin, urlparse, parse_qs
 import requests
 import urllib3
 from bs4 import BeautifulSoup
+from playwright.async_api import async_playwright
 
 # Suppress the InsecureRequestWarning that comes with verify=False
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -61,9 +71,6 @@ HEADERS = {
 # Throttle between requests (seconds) — be a polite scraper
 REQUEST_DELAY = 0.5
 
-# Binary-search ceiling for change numbers
-CHANGE_MAX = 300
-
 # CSS selectors for site chrome to strip from section HTML
 STRIP_SELECTORS = [
     "header", "footer", "nav", "#navigation", "#header", "#footer",
@@ -82,6 +89,9 @@ CONTENT_SELECTORS = [
     "#content",
     "body",
 ]
+
+# Front-matter filenames (sorted before chapters)
+_FRONT_MATTER = {"FOREWORD", "INTRO", "PREFACE", "SUMMARY"}
 
 
 # ── HTTP session ────────────────────────────────────────────────────────────
@@ -110,106 +120,283 @@ def get(url: str) -> requests.Response | None:
     return None
 
 
-def head_ok(url: str) -> bool:
-    """
-    Return True if the URL exists.
-    Uses GET with stream=True (reads only headers) since some DoD servers
-    return non-200 for HEAD even when the page exists.
-    """
-    time.sleep(REQUEST_DELAY)
+_CHANGE_PARAM_RE = re.compile(r"[?&]Change=(\d+)", re.IGNORECASE)
+
+
+# ── URL helpers ──────────────────────────────────────────────────────────────
+
+def is_display_html(u: str) -> bool:
+    """Match any .html file served under the DisplayManualHtmlFile path."""
+    return bool(u and re.search(r"/pages/DisplayManualHtmlFile/.+\.html", u, re.I))
+
+
+def is_chapter_toc_name(name: str) -> bool:
+    return bool(re.match(r"^C\d+TOC\.HTML$", name.upper()))
+
+
+def natural_sort_key(name: str):
+    """Sort filenames in logical manual order: front matter → chapters (TOC heading first, then sections, then addenda)."""
+    base = name.split(".", 1)[0].upper()
+    # Strip common manual-code prefix (e.g. "TST5_", "TPT5_")
+    base = re.sub(r"^[A-Z]{3,5}\d*_", "", base)
+
+    for keyword in _FRONT_MATTER:
+        if base == keyword or base.endswith(keyword):
+            return (-1, 0, 0, 0, base)
+
+    # Chapter TOC page (C1TOC.html) — sorts before all sections in that chapter
+    m = re.match(r"^C(\d+)TOC$", base)
+    if m:
+        return (0, int(m.group(1)), 0, 0, "")
+
+    # Chapter section: C1S1, C1S1_1, C01S02_3, etc.
+    m = re.match(r"^C(\d+)S(\d+)(?:_(\d+))?$", base)
+    if m:
+        return (0, int(m.group(1)), int(m.group(2)), int(m.group(3) or 0), "")
+
+    # Addendum: C1AD_A, C1ADA, C2ADDENDUM, etc.
+    m = re.match(r"^C(\d+)AD(.*)$", base)
+    if m:
+        return (1, int(m.group(1)), 9999, 9999, m.group(2).upper())
+
+    # Any other file that at least starts with a chapter number
+    m = re.match(r"^C(\d+)", base)
+    c = int(m.group(1)) if m else 999_999
+    return (9, c, 999_999, 999_999, base)
+
+
+def parse_chapter_section(name: str) -> tuple[int, str]:
+    """Return (chapter_number, section_string) from a DisplayManualHtmlFile filename."""
+    base = name.split(".", 1)[0].upper()
+    base = re.sub(r"^[A-Z]{3,5}\d*_", "", base)
+
+    m = re.match(r"^C(\d+)S(\d+)(?:_(\d+))?$", base)
+    if m:
+        chapter = int(m.group(1))
+        section = m.group(2) + ("." + m.group(3) if m.group(3) else "")
+        return chapter, section
+
+    m = re.match(r"^C(\d+)", base)
+    if m:
+        return int(m.group(1)), ""
+
+    return 0, ""
+
+
+# ── TOC collection via Playwright ────────────────────────────────────────────
+
+async def _expand_toc(page) -> None:
+    """Click 'Expand All' if present and wait for the tree to render."""
+    selectors = [
+        "a:has-text('Expand All')",
+        "button:has-text('Expand All')",
+        "a[title*='Expand']",
+        "a:has-text('Expand')",
+    ]
+    for frame in page.frames:
+        for sel in selectors:
+            try:
+                el = await frame.query_selector(sel)
+                if el:
+                    await el.click()
+                    await page.wait_for_load_state("networkidle", timeout=15_000)
+                    return
+            except Exception:
+                pass
+
+
+async def _collect_display_hrefs(page, base_url: str) -> list[str]:
+    """Return all unique DisplayManualHtmlFile hrefs visible across all frames."""
+    host = urlparse(base_url).netloc
+    seen: set[str] = set()
+    out:  list[str] = []
+    for frame in page.frames:
+        try:
+            hrefs: list[str] = await frame.eval_on_selector_all(
+                "a",
+                "els => els.map(a => a.href || a.getAttribute('href') || '')",
+            )
+        except Exception:
+            continue
+        for href in hrefs or []:
+            if not href:
+                continue
+            full = urljoin(frame.url, href)
+            if urlparse(full).netloc != host:
+                continue
+            if not is_display_html(full):
+                continue
+            if full not in seen:
+                seen.add(full)
+                out.append(full)
+    return out
+
+
+async def _toc_has_sections(ctx, code: str, change: int) -> bool:
+    """Return True if the TOC page for this change has DisplayManualHtmlFile links."""
+    toc_url = TOC_URL.format(code=code, change=change)
+    page = await ctx.new_page()
     try:
-        r = session.get(url, timeout=15, stream=True)
-        r.close()
-        return r.status_code == 200
-    except requests.RequestException:
-        return False
+        try:
+            await page.goto(toc_url, wait_until="networkidle", timeout=20_000)
+        except Exception:
+            pass
+        await page.wait_for_timeout(2_000)
+        urls = await _collect_display_hrefs(page, toc_url)
+        return len(urls) > 0
+    finally:
+        await page.close()
 
 
-# ── Version discovery ───────────────────────────────────────────────────────
-def find_latest_change(code: str) -> int | None:
+async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int | None, list[str]]:
     """
-    Binary-search to find the highest available change number.
-    Uses ~9 requests (ceil(log2(CHANGE_MAX))).
-    Returns None only if Change=1 is unreachable.
+    Single Playwright session that detects the latest change number AND
+    collects the top-level TOC URLs (chapter TOCs + front matter).
+
+    Version detection:
+      Start from known_change (from manuals.json).  Check up to 5 increments
+      ahead — a change is "valid" only if its TOC page actually renders
+      DisplayManualHtmlFile section links.  This avoids the false-positive
+      caused by the site always returning HTTP 200, even for invalid changes.
+
+    Returns (latest_change, top_level_urls).
     """
-    base = TOC_URL.format(code=code, change="")
+    async with async_playwright() as pw:
+        browser = await pw.chromium.launch(headless=True)
+        ctx = await browser.new_context(ignore_https_errors=True)
+        try:
+            # ── Detect latest change ──────────────────────────────────────────
+            # Walk forward from known_change until we find one with no links.
+            latest = known_change
+            print(f"  [{code}] Checking change {latest} (known)…")
+            if not await _toc_has_sections(ctx, code, latest):
+                # Known change itself has no sections — server may be down or
+                # content not yet published.  Return known value anyway.
+                print(f"  [{code}] Known change {latest} has no sections (server issue?)", file=sys.stderr)
+            else:
+                for candidate in range(known_change + 1, known_change + 6):
+                    print(f"  [{code}] Checking change {candidate}…")
+                    if await _toc_has_sections(ctx, code, candidate):
+                        latest = candidate
+                    else:
+                        break
 
-    if not head_ok(f"{base}1"):
-        print(f"  [{code}] Change=1 unreachable — skipping", file=sys.stderr)
-        return None
+            print(f"  [{code}] Latest change: {latest}")
 
-    lo, hi = 1, CHANGE_MAX
-    while lo < hi - 1:
-        mid = (lo + hi) // 2
-        if head_ok(f"{base}{mid}"):
-            lo = mid
-        else:
-            hi = mid
-    return lo
+            # ── Collect top-level TOC URLs for the detected change ─────────────
+            toc_url = TOC_URL.format(code=code, change=latest)
+            page = await ctx.new_page()
+            try:
+                try:
+                    await page.goto(toc_url, wait_until="networkidle", timeout=30_000)
+                except Exception as e:
+                    print(f"  [{code}] goto failed ({e}), continuing…", file=sys.stderr)
+
+                await page.wait_for_timeout(2_000)
+                await _expand_toc(page)
+                await page.wait_for_timeout(3_000)
+
+                urls: list[str] = []
+                for wait_s in (0, 2, 5):
+                    if wait_s:
+                        await page.wait_for_timeout(wait_s * 1_000)
+                    urls = await _collect_display_hrefs(page, toc_url)
+                    print(f"  [{code}] After expand+{wait_s}s: {len(urls)} URLs found")
+                    if urls:
+                        break
+
+                if not urls:
+                    all_hrefs: list[str] = []
+                    for frame in page.frames:
+                        try:
+                            hs = await frame.eval_on_selector_all(
+                                "a", "els => els.map(a => a.href || '')"
+                            )
+                            all_hrefs.extend(h for h in (hs or []) if h)
+                        except Exception:
+                            pass
+                    print(f"  [{code}] Sample hrefs on page (first 10):", file=sys.stderr)
+                    for h in list(dict.fromkeys(all_hrefs))[:10]:
+                        print(f"    {h}", file=sys.stderr)
+
+                return latest, urls
+            finally:
+                await page.close()
+        finally:
+            await ctx.close()
+            await browser.close()
 
 
-# ── TOC parsing ─────────────────────────────────────────────────────────────
-_DISPLAY_RE = re.compile(r"DisplayContent", re.IGNORECASE)
-
-
-def fetch_toc(code: str, change: int) -> list[dict]:
+def fetch_chapter_section_urls(chapter_toc_url: str) -> list[str]:
     """
-    Fetch and parse the table-of-contents page.
-    Returns a sorted list of section dicts.
+    Stage 2: Fetch a chapter TOC page (static HTML) with requests and extract
+    all DisplayManualHtmlFile section links.  Chapter TOC self-references are
+    excluded.
     """
-    url = TOC_URL.format(code=code, change=change)
-    r = get(url)
+    r = get(chapter_toc_url)
     if r is None:
         return []
 
+    host = urlparse(chapter_toc_url).netloc
+    seen: set[str] = set()
+    results: list[str] = []
+
     soup = BeautifulSoup(r.text, "lxml")
-    links = soup.find_all("a", href=_DISPLAY_RE)
-    if not links:
-        print(f"  [{code}] No section links found on TOC page", file=sys.stderr)
-        return []
-
-    sections = []
-    seen_qs: set[str] = set()
-
-    for link in links:
-        href = link.get("href", "").strip()
-        full_url = urljoin(BASE_URL, href)
-        qs = urlparse(full_url).query.lower()
-        if qs in seen_qs:
+    for a in soup.find_all("a", href=True):
+        href = a["href"].strip()
+        if not href:
             continue
-        seen_qs.add(qs)
+        full = urljoin(BASE_URL, href)
+        if urlparse(full).netloc != host:
+            continue
+        if not is_display_html(full):
+            continue
+        name = Path(urlparse(full).path).name
+        if is_chapter_toc_name(name):
+            continue  # skip self-references to the chapter TOC itself
+        if full not in seen:
+            seen.add(full)
+            results.append(full)
 
-        params = parse_qs(urlparse(full_url).query, keep_blank_values=True)
-        chapter_raw = params.get("chapter", params.get("Chapter", ["0"]))[0]
-        section_raw = params.get("section", params.get("Section", [""]))[0]
+    return results
 
-        try:
-            chapter = int(chapter_raw)
-        except ValueError:
-            chapter = 0
 
-        title = link.get_text(strip=True) or f"Chapter {chapter}"
-        title = clean_title(title)
-        is_chapter_toc = (section_raw == "" or section_raw == "0")
+# ── TOC parsing ─────────────────────────────────────────────────────────────
+
+def build_toc_sections(urls: list[str]) -> list[dict]:
+    """
+    Convert a list of DisplayManualHtmlFile URLs into sorted section dicts.
+    Titles are derived from the filename; actual page titles are filled in
+    later when the section HTML is fetched.
+    """
+    seen: set[str] = set()
+    sections: list[dict] = []
+
+    for url in urls:
+        name = Path(urlparse(url).path).name
+        if not name:
+            continue
+        key = name.upper()
+        if key in seen:
+            continue
+        seen.add(key)
+
+        is_chap_toc = is_chapter_toc_name(name)
+        chapter, section = parse_chapter_section(name)
+
+        # Placeholder title — replaced when we fetch the page
+        title = name
 
         sections.append({
-            "url":          full_url,
+            "url":          url,
+            "name":         name,
             "chapter":      chapter,
-            "section":      section_raw,
+            "section":      section,
             "title":        title,
-            "isChapterToc": is_chapter_toc,
+            "isChapterToc": is_chap_toc,
         })
 
-    def sort_key(s):
-        ch  = s["chapter"]
-        sec = s["section"]
-        try:
-            sec_f = float(sec) if sec else 0.0
-        except ValueError:
-            sec_f = 0.0
-        return (ch, 0 if s["isChapterToc"] else 1, sec_f)
-
-    sections.sort(key=sort_key)
+    sections.sort(key=lambda s: natural_sort_key(s["name"]))
 
     pad = max(3, len(str(len(sections))))
     for i, s in enumerate(sections):
@@ -323,38 +510,59 @@ def write_section(code: str, section_id: str, html: str) -> None:
 def process_manual(entry: dict, force: bool = False) -> dict:
     code = entry["code"]
     name = entry["name"]
-    print(f"\n{'═'*60}")
+    print(f"\n{'='*60}")
     print(f"  Manual: {name} ({code})")
 
-    print("  Discovering latest change…")
-    latest = find_latest_change(code)
+    known = entry.get("latestChange", 1) or 1
+    print("  Discovering latest change + collecting TOC URLs via Playwright…")
+    latest, top_urls = asyncio.run(fetch_change_and_toc_urls(code, known))
     if latest is None:
-        print("  Skipping — server unreachable.")
+        print("  Skipping — could not detect latest change number.")
         return entry
-
-    print(f"  Latest change: {latest}")
-    known = entry.get("latestChange", 0)
 
     if not force and latest == known and entry.get("hasContent"):
         print("  Already up-to-date. Skipping content fetch.")
         return {**entry, "latestChange": latest, "hasContent": True}
 
-    print("  Fetching table of contents…")
-    sections = fetch_toc(code, latest)
-    if not sections:
-        print("  No sections found — skipping.")
-        return entry
+    if not top_urls:
+        print("  No URLs found on TOC page — skipping content fetch.")
+        return {**entry, "latestChange": latest}
 
-    print(f"  Found {len(sections)} sections.")
-    write_toc(code, latest, sections)
+    chapter_toc_urls = [u for u in top_urls if is_chapter_toc_name(Path(urlparse(u).path).name)]
+    front_matter_urls = [u for u in top_urls if not is_chapter_toc_name(Path(urlparse(u).path).name)]
+    print(f"  Found {len(chapter_toc_urls)} chapter TOC(s) + {len(front_matter_urls)} front-matter page(s).")
 
+    # ── Stage 2: get individual section URLs from each chapter TOC page ────────
+    print("  Stage 2: collecting section URLs from chapter TOC pages…")
+    all_section_urls: list[str] = list(front_matter_urls)
+    all_section_urls.extend(chapter_toc_urls)  # keep chapter TOCs for isChapterToc metadata
+    for i, chap_url in enumerate(chapter_toc_urls, 1):
+        sec_urls = fetch_chapter_section_urls(chap_url)
+        print(f"    Chapter TOC {i}/{len(chapter_toc_urls)}: {len(sec_urls)} section(s)")
+        all_section_urls.extend(sec_urls)
+
+    sections = build_toc_sections(all_section_urls)
+    print(f"  Built {len(sections)} total section entries.")
+
+    # Fetch titles and content for each non-chapter-TOC section
     content_sections = [s for s in sections if not s["isChapterToc"]]
-    print(f"  Fetching {len(content_sections)} content sections…")
+    print(f"  Fetching titles + content for {len(content_sections)} content sections…")
 
     for i, s in enumerate(content_sections, 1):
-        print(f"  [{i}/{len(content_sections)}] {s['title'][:70]}")
-        _, html = fetch_section_html(s["url"])
+        print(f"  [{i}/{len(content_sections)}] {s['name']}")
+        title, html = fetch_section_html(s["url"])
+        s["title"] = title
         write_section(code, s["id"], html)
+
+    # Fetch titles for chapter TOC entries (not stored as content, title only)
+    for s in sections:
+        if s["isChapterToc"]:
+            r = get(s["url"])
+            if r:
+                soup = BeautifulSoup(r.text, "lxml")
+                s["title"] = extract_title_from_html(soup)
+
+    write_toc(code, latest, sections)
 
     return {**entry, "latestChange": latest, "hasContent": True}
 

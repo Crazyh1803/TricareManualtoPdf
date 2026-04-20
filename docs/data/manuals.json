@@ -5,13 +5,13 @@
       "code": "TOT5",
       "name": "TRICARE Operations Manual",
       "latestChange": 54,
-      "hasContent": false
+      "hasContent": true
     },
     {
       "code": "TPT5",
       "name": "TRICARE Policy Manual",
       "latestChange": 48,
-      "hasContent": false
+      "hasContent": true
     },
     {
       "code": "TRT5",

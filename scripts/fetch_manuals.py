@@ -186,12 +186,17 @@ def parse_chapter_section(name: str) -> tuple[int, str]:
 # ── TOC collection via Playwright ────────────────────────────────────────────
 
 async def _expand_toc(page) -> None:
-    """Click 'Expand All' if present and wait for the tree to render."""
+    """Click 'Expand All' if present and wait for the tree to render.
+
+    Uses only very specific selectors — the generic 'a:has-text(Expand)'
+    is intentionally omitted because it can match unrelated navigation links
+    (e.g. on TRT5) and navigate the page away from the TOC entirely.
+    """
     selectors = [
         "a:has-text('Expand All')",
         "button:has-text('Expand All')",
-        "a[title*='Expand']",
-        "a:has-text('Expand')",
+        "input[value*='Expand All']",
+        "a[title='Expand All']",
     ]
     for frame in page.frames:
         for sel in selectors:
@@ -356,17 +361,27 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                     print(f"  [{code}] goto failed ({e}), continuing…", file=sys.stderr)
 
                 await page.wait_for_timeout(2_000)
-                await _expand_toc(page)
-                await page.wait_for_timeout(3_000)
 
-                urls: list[str] = []
-                for wait_s in (0, 2, 5):
-                    if wait_s:
-                        await page.wait_for_timeout(wait_s * 1_000)
-                    urls = await _collect_display_hrefs(page, toc_url)
-                    print(f"  [{code}] After expand+{wait_s}s: {len(urls)} URLs found")
-                    if urls:
-                        break
+                # ── Pass 1: collect without expanding ─────────────────────────
+                # eval_on_selector_all sees all DOM nodes including hidden ones,
+                # so collapsed trees are still found.  Collecting first avoids
+                # any risk that clicking "Expand All" navigates a frame away
+                # (observed on TRT5 where a nav link matched the old selectors).
+                urls = await _collect_display_hrefs(page, toc_url)
+                print(f"  [{code}] Before expand: {len(urls)} URLs found")
+
+                # ── Pass 2: expand and re-collect only if Pass 1 found nothing ─
+                if not urls:
+                    await _expand_toc(page)
+                    await page.wait_for_timeout(3_000)
+
+                    for wait_s in (0, 2, 5):
+                        if wait_s:
+                            await page.wait_for_timeout(wait_s * 1_000)
+                        urls = await _collect_display_hrefs(page, toc_url)
+                        print(f"  [{code}] After expand+{wait_s}s: {len(urls)} URLs found")
+                        if urls:
+                            break
 
                 if not urls:
                     all_hrefs: list[str] = []

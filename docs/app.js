@@ -529,5 +529,40 @@ function mdTable(table) {
   return `\n\n${fmt(hdr || sep)}\n${fmt(sep)}\n${body.map(fmt).join('\n')}\n\n`;
 }
 
+// ── Easter egg visitor counter ───────────────────────────────────────────────
+// Uses CounterAPI (counterapi.dev) for persistent cross-device counts.
+// localStorage tracks whether THIS browser has visited before so we only
+// bump the "unique" counter once per browser.
+(async function initCounter() {
+  const NS   = 'appsbydan-manualbridge-v1';
+  const isNew = !localStorage.getItem('mb_visited');
+  if (isNew) localStorage.setItem('mb_visited', '1');
+
+  const base = 'https://api.counterapi.dev/v1';
+
+  try {
+    // Always increment total hits; only increment unique on first visit.
+    const [hitRes, uniqRes] = await Promise.all([
+      fetch(`${base}/${NS}/hits/up`),
+      isNew
+        ? fetch(`${base}/${NS}/unique/up`)
+        : fetch(`${base}/${NS}/unique`),
+    ]);
+
+    if (!hitRes.ok || !uniqRes.ok) return;
+
+    const { count: hits   } = await hitRes.json();
+    const { count: unique } = await uniqRes.json();
+
+    const el = document.getElementById('visitor-counts');
+    if (el) {
+      el.textContent =
+        `👁 ${unique.toLocaleString()} unique  ·  🔁 ${hits.toLocaleString()} total`;
+    }
+  } catch {
+    // Counter service unavailable — fail silently, easter egg stays hidden
+  }
+})();
+
 // ── Bootstrap ───────────────────────────────────────────────────────────────
 init().catch(console.error);

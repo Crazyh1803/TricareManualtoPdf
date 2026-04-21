@@ -137,7 +137,7 @@ a:hover { text-decoration: underline; }
 /* Manual Cards */
 .manual-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-bottom: 32px;
 }
@@ -300,6 +300,24 @@ a:hover { text-decoration: underline; }
   color: var(--accent);
 }
 .btn-export-card svg { flex-shrink: 0; }
+
+/* Easter egg visitor counter */
+.visitor-egg {
+  margin-top: 18px;
+  text-align: center;
+}
+#visitor-counts {
+  font-size: .65rem;
+  color: var(--border);          /* nearly invisible — blends into background */
+  letter-spacing: .04em;
+  font-variant-numeric: tabular-nums;
+  cursor: default;
+  user-select: none;
+  transition: color .3s;
+}
+#visitor-counts:hover {
+  color: var(--text-secondary);  /* reveal on hover */
+}
 
 /* Support / buy me a drink row */
 .support-row {
@@ -810,4 +828,12 @@ a:hover { text-decoration: underline; }
   .back-btn span { display: none; }
 
   .home-main { padding: 20px 12px 60px; }
+
+  /* 2 columns on tablet */
+  .manual-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  /* 1 column on phone */
+  .manual-grid { grid-template-columns: 1fr; }
 }

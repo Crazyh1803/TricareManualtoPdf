@@ -623,7 +623,8 @@ def process_manual(entry: dict, force: bool = False) -> dict:
     print(f"\n{'='*60}")
     print(f"  Manual: {name} ({code})")
 
-    known = entry.get("latestChange", 1) or 1
+    _raw = entry.get("latestChange")
+    known = _raw if _raw is not None else 1  # preserve 0 (special sentinel for TRT5)
     print("  Discovering latest change + collecting TOC URLs via Playwright…")
     latest, top_urls = asyncio.run(fetch_change_and_toc_urls(code, known))
     if latest is None:

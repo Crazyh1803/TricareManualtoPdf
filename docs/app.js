@@ -52,8 +52,6 @@ const els = {
   sectionCounter: $('section-counter'),
   toast:          $('toast'),
   btnDark:        $('btn-dark-toggle'),
-  btnDownloadMd:  $('btn-download-md'),
-  btnPrint:       $('btn-print'),
   printContainer: $('print-container'),
 };
 
@@ -66,8 +64,6 @@ async function init() {
 
   els.btnDark.addEventListener('click', toggleDark);
   els.btnBack.addEventListener('click', showHome);
-  els.btnDownloadMd.addEventListener('click', () => exportManual('md'));
-  els.btnPrint.addEventListener('click',      () => exportManual('print'));
   els.btnOpenToc.addEventListener('click', () => openToc(true));
   els.btnCloseToc.addEventListener('click', () => openToc(false));
   els.tocOverlay.addEventListener('click', () => openToc(false));
@@ -116,6 +112,21 @@ function renderManualGrid() {
       ? `<span class="chip">${changeLabel}</span>`
       : `<span class="chip no-content-chip">Content coming soon</span>`;
     const btnDisabled = m.hasContent ? '' : 'disabled';
+
+    const exportRow = m.hasContent ? `
+      <div class="manual-card-exports">
+        <button class="btn-export-card" onclick="exportManual('${m.code}','md')"
+          aria-label="Download ${escHtml(m.name)} as Markdown">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Download .md
+        </button>
+        <button class="btn-export-card" onclick="exportManual('${m.code}','print')"
+          aria-label="Print or save ${escHtml(m.name)} as PDF">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+          Print / PDF
+        </button>
+      </div>` : '';
+
     return `
       <article class="manual-card" role="listitem">
         <div style="display:flex;align-items:center;gap:12px">
@@ -131,6 +142,7 @@ function renderManualGrid() {
             onclick="openManual('${m.code}')"
             aria-label="Open ${escHtml(m.name)}">Open</button>
         </div>
+        ${exportRow}
       </article>`;
   }).join('');
   els.manualGrid.innerHTML = html;
@@ -368,16 +380,36 @@ function showToast(msg) {
 // ── Export: Download Markdown / Print PDF ───────────────────────────────────
 
 /**
- * Fetch every content section for the current manual, then either:
+ * Fetch every content section for a manual, then either:
  *   format='md'    → convert to Markdown and trigger a file download
  *   format='print' → inject into a print container and call window.print()
+ *
+ * Works from both the home screen and the reader (code is always explicit).
  */
-async function exportManual(format) {
-  if (!state.currentToc || !state.currentCode) return;
+async function exportManual(code, format) {
+  const manual = state.manuals.find(m => m.code === code);
+  if (!manual || !manual.hasContent) return;
 
-  const manual   = state.manuals.find(m => m.code === state.currentCode);
-  const name     = manual ? manual.name : state.currentCode;
-  const sections = state.currentToc.sections.filter(s => !s.isChapterToc);
+  const name = manual.name;
+
+  // Load TOC — reuse the already-loaded one if the reader has it open,
+  // otherwise fetch it fresh (home screen path).
+  let toc;
+  if (state.currentCode === code && state.currentToc) {
+    toc = state.currentToc;
+  } else {
+    showToast('Loading table of contents…');
+    try {
+      const r = await fetch(`${DATA_ROOT}/${code}/toc.json`);
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      toc = await r.json();
+    } catch (e) {
+      showToast('Could not load manual — try again');
+      return;
+    }
+  }
+
+  const sections = toc.sections.filter(s => !s.isChapterToc);
 
   showToast(`Preparing ${sections.length} sections…`);
 
@@ -385,7 +417,7 @@ async function exportManual(format) {
   const fetched = await Promise.all(
     sections.map(async s => {
       try {
-        const res = await fetch(`${DATA_ROOT}/${state.currentCode}/s/${s.id}.html`);
+        const res = await fetch(`${DATA_ROOT}/${code}/s/${s.id}.html`);
         return res.ok ? { title: s.title, html: await res.text() } : null;
       } catch { return null; }
     })
@@ -402,7 +434,7 @@ async function exportManual(format) {
     }
     const blob = new Blob([lines.join('\n')], { type: 'text/markdown; charset=utf-8' });
     const url  = URL.createObjectURL(blob);
-    const a    = Object.assign(document.createElement('a'), { href: url, download: `${state.currentCode}.md` });
+    const a    = Object.assign(document.createElement('a'), { href: url, download: `${code}.md` });
     a.click();
     URL.revokeObjectURL(url);
     showToast('Download started');

@@ -233,7 +233,15 @@ async def _collect_display_hrefs(page, base_url: str) -> list[str]:
 
 
 async def _toc_has_sections(ctx, code: str, change: int) -> bool:
-    """Return True if the TOC page for this change has DisplayManualHtmlFile links."""
+    """Return True if the TOC page for this change *genuinely* has sections.
+
+    The TRICARE site returns HTTP 200 for ANY change number (even non-existent
+    ones), serving the current content instead.  The only reliable test is to
+    check whether the section links that appear on the page actually reference
+    the requested Change number.  If all links carry a *different* Change value
+    the server redirected us to a different version, which means this change
+    does not exist yet.
+    """
     toc_url = TOC_URL.format(code=code, change=change)
     page = await ctx.new_page()
     try:
@@ -243,7 +251,27 @@ async def _toc_has_sections(ctx, code: str, change: int) -> bool:
             pass
         await page.wait_for_timeout(2_000)
         urls = await _collect_display_hrefs(page, toc_url)
-        return len(urls) > 0
+        if not urls:
+            return False
+
+        # Inspect Change= parameters in the returned URLs.
+        change_vals: set[int] = set()
+        has_paramless = False
+        for url in urls:
+            m = _CHANGE_PARAM_RE.search(url)
+            if m:
+                change_vals.add(int(m.group(1)))
+            else:
+                has_paramless = True  # URL has no Change param — can't validate
+
+        if has_paramless or not change_vals:
+            # Cannot validate via Change= param → fall back to "has links" check
+            return True
+
+        # If *any* returned link matches the requested change, the page is valid.
+        # If all links carry a different change number the site silently served a
+        # different version, so this change does not actually exist.
+        return change in change_vals
     finally:
         await page.close()
 

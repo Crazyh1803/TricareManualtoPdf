@@ -29,10 +29,12 @@ jobs:
     timeout-minutes: 120   # large manuals can take a while
 
     steps:
-      # 1. Check out the repo
+      # 1. Check out the repo (always the web branch — that is where the
+      #    GitHub Pages site lives and where docs/data/ changes must land).
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: web
           fetch-depth: 1
 
       # 2. Set up Python
@@ -74,6 +76,6 @@ jobs:
             echo "No changes — manuals are already up to date."
           else
             git commit -m "chore: update manual content $(date -u +%Y-%m-%d) [skip ci]"
-            git pull --rebase
-            git push
+            git pull --rebase origin web
+            git push origin HEAD:web
           fi

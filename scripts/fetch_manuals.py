@@ -295,8 +295,24 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
     Returns (latest_change, top_level_urls).
     """
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(headless=True)
-        ctx = await browser.new_context(ignore_https_errors=True)
+        browser = await pw.chromium.launch(
+            headless=True,
+            args=["--disable-blink-features=AutomationControlled"],
+        )
+        ctx = await browser.new_context(
+            ignore_https_errors=True,
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            ),
+            viewport={"width": 1280, "height": 900},
+            extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
+        )
+        # Hide the navigator.webdriver property that sites use for bot detection
+        await ctx.add_init_script(
+            "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+        )
         try:
             # ── Detect latest change ──────────────────────────────────────────
             # Walk forward from known_change until we find one with no links.
@@ -360,32 +376,40 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                 except Exception as e:
                     print(f"  [{code}] goto failed ({e}), continuing…", file=sys.stderr)
 
-                await page.wait_for_timeout(2_000)
-
-                # ── Pass 1: collect without expanding ─────────────────────────
-                # eval_on_selector_all sees all DOM nodes including hidden ones,
-                # so collapsed trees are still found.  Collecting first avoids
-                # any risk that clicking "Expand All" navigates a frame away
-                # (observed on TRT5 where a nav link matched the old selectors).
-                urls = await _collect_display_hrefs(page, toc_url)
-                print(f"  [{code}] Before expand: {len(urls)} URLs found")
+                # ── Pass 1: progressive waits, collect without expanding ───────
+                # eval_on_selector_all sees all DOM nodes including hidden ones
+                # so collapsed trees are still found.  Collecting before any
+                # expand avoids the risk that clicking a nav link navigates
+                # the page away (observed on TRT5 with the old broad selectors).
+                # Mirror the PDF tool's progressive strategy: 2s → 5s → 8s.
+                urls: list[str] = []
+                for wait_ms in (2_000, 3_000, 5_000):
+                    await page.wait_for_timeout(wait_ms)
+                    urls = await _collect_display_hrefs(page, toc_url)
+                    print(f"  [{code}] Pass-1 after {wait_ms//1000}s: {len(urls)} URLs")
+                    if urls:
+                        break
 
                 # ── Pass 2: expand and re-collect only if Pass 1 found nothing ─
                 if not urls:
                     await _expand_toc(page)
-                    await page.wait_for_timeout(3_000)
-
-                    for wait_s in (0, 2, 5):
+                    await page.wait_for_timeout(5_000)
+                    for wait_s in (0, 3, 5):
                         if wait_s:
                             await page.wait_for_timeout(wait_s * 1_000)
                         urls = await _collect_display_hrefs(page, toc_url)
-                        print(f"  [{code}] After expand+{wait_s}s: {len(urls)} URLs found")
+                        print(f"  [{code}] Pass-2 after expand+{wait_s}s: {len(urls)} URLs")
                         if urls:
                             break
 
                 if not urls:
+                    # ── Diagnostics: print everything visible to help debug ────
+                    page_title = await page.title()
+                    print(f"  [{code}] Page title: {page_title!r}")
+                    print(f"  [{code}] Frames on page:")
                     all_hrefs: list[str] = []
                     for frame in page.frames:
+                        print(f"    frame url: {frame.url}")
                         try:
                             hs = await frame.eval_on_selector_all(
                                 "a", "els => els.map(a => a.href || '')"
@@ -393,9 +417,10 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                             all_hrefs.extend(h for h in (hs or []) if h)
                         except Exception:
                             pass
-                    print(f"  [{code}] Sample hrefs on page (first 10):", file=sys.stderr)
-                    for h in list(dict.fromkeys(all_hrefs))[:10]:
-                        print(f"    {h}", file=sys.stderr)
+                    unique_hrefs = list(dict.fromkeys(all_hrefs))
+                    print(f"  [{code}] All hrefs on page ({len(unique_hrefs)} unique):")
+                    for h in unique_hrefs[:30]:
+                        print(f"    {h}")
 
                 return latest, urls
             finally:

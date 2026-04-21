@@ -112,6 +112,20 @@ a:hover { text-decoration: underline; }
   margin-top: 1px;
 }
 
+/* Hero banner */
+.hero-banner {
+  width: 100%;
+  background: #0a1628;
+  line-height: 0;
+}
+.hero-banner-img {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* Main content */
 .home-main {
   max-width: 960px;
@@ -286,6 +300,46 @@ a:hover { text-decoration: underline; }
   color: var(--accent);
 }
 .btn-export-card svg { flex-shrink: 0; }
+
+/* Support / buy me a drink row */
+.support-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.btn-support {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFDD00;
+  color: #000;
+  font-weight: 700;
+  font-size: .92rem;
+  padding: 10px 24px;
+  border-radius: 24px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+  white-space: nowrap;
+}
+.btn-support:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+
+/* Logo image */
+.home-bar-logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
 
 /* Home footer note */
 .home-note {

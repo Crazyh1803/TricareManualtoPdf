@@ -298,9 +298,44 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
             latest = known_change
             print(f"  [{code}] Checking change {latest} (known)…")
             if not await _toc_has_sections(ctx, code, latest):
-                # Known change itself has no sections — server may be down or
-                # content not yet published.  Return known value anyway.
-                print(f"  [{code}] Known change {latest} has no sections (server issue?)", file=sys.stderr)
+                # The known change failed URL-param validation — the site may be
+                # serving a newer version than we have recorded.  Try to recover
+                # by reading the actual Change= value from the served links.
+                toc_url_probe = TOC_URL.format(code=code, change=latest)
+                probe_page = await ctx.new_page()
+                try:
+                    try:
+                        await probe_page.goto(toc_url_probe, wait_until="networkidle", timeout=20_000)
+                    except Exception:
+                        pass
+                    await probe_page.wait_for_timeout(2_000)
+                    probe_urls = await _collect_display_hrefs(probe_page, toc_url_probe)
+                finally:
+                    await probe_page.close()
+
+                served_change: int | None = None
+                for u in probe_urls:
+                    m = _CHANGE_PARAM_RE.search(u)
+                    if m:
+                        served_change = int(m.group(1))
+                        break
+
+                if served_change and served_change != latest:
+                    print(
+                        f"  [{code}] Site served Change={served_change} when asked for "
+                        f"Change={latest}. Advancing known to {served_change}.",
+                        file=sys.stderr,
+                    )
+                    latest = served_change
+                    # Walk forward from the discovered change
+                    for candidate in range(served_change + 1, served_change + 6):
+                        print(f"  [{code}] Checking change {candidate}…")
+                        if await _toc_has_sections(ctx, code, candidate):
+                            latest = candidate
+                        else:
+                            break
+                else:
+                    print(f"  [{code}] Known change {latest} has no sections (server issue?)", file=sys.stderr)
             else:
                 for candidate in range(known_change + 1, known_change + 6):
                     print(f"  [{code}] Checking change {candidate}…")

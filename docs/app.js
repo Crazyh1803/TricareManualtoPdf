@@ -52,6 +52,9 @@ const els = {
   sectionCounter: $('section-counter'),
   toast:          $('toast'),
   btnDark:        $('btn-dark-toggle'),
+  btnDownloadMd:  $('btn-download-md'),
+  btnPrint:       $('btn-print'),
+  printContainer: $('print-container'),
 };
 
 // ── Initialise ──────────────────────────────────────────────────────────────
@@ -63,6 +66,8 @@ async function init() {
 
   els.btnDark.addEventListener('click', toggleDark);
   els.btnBack.addEventListener('click', showHome);
+  els.btnDownloadMd.addEventListener('click', () => exportManual('md'));
+  els.btnPrint.addEventListener('click',      () => exportManual('print'));
   els.btnOpenToc.addEventListener('click', () => openToc(true));
   els.btnCloseToc.addEventListener('click', () => openToc(false));
   els.tocOverlay.addEventListener('click', () => openToc(false));
@@ -105,9 +110,10 @@ async function loadManualList() {
 // ── Render home grid ────────────────────────────────────────────────────────
 function renderManualGrid() {
   const html = state.manuals.map(m => {
-    const icon   = MANUAL_ICONS[m.code] || MANUAL_ICONS.TPT5;
-    const chip   = m.hasContent
-      ? `<span class="chip">Change ${m.latestChange}</span>`
+    const icon        = MANUAL_ICONS[m.code] || MANUAL_ICONS.TPT5;
+    const changeLabel = m.latestChange ? `Change ${m.latestChange}` : 'Current';
+    const chip        = m.hasContent
+      ? `<span class="chip">${changeLabel}</span>`
       : `<span class="chip no-content-chip">Content coming soon</span>`;
     const btnDisabled = m.hasContent ? '' : 'disabled';
     return `
@@ -145,7 +151,7 @@ async function openManual(code) {
 
   els.readerManual.textContent = manual.name;
   els.readerChangeBadge.textContent = manual.latestChange
-    ? `Change ${manual.latestChange}` : '';
+    ? `Change ${manual.latestChange}` : 'Current Edition';
 
   // Clear content + TOC
   setReaderContent(spinnerHtml());
@@ -357,6 +363,138 @@ function showToast(msg) {
   els.toast.textContent = msg;
   els.toast.classList.add('show');
   toastTimer = setTimeout(() => els.toast.classList.remove('show'), 2800);
+}
+
+// ── Export: Download Markdown / Print PDF ───────────────────────────────────
+
+/**
+ * Fetch every content section for the current manual, then either:
+ *   format='md'    → convert to Markdown and trigger a file download
+ *   format='print' → inject into a print container and call window.print()
+ */
+async function exportManual(format) {
+  if (!state.currentToc || !state.currentCode) return;
+
+  const manual   = state.manuals.find(m => m.code === state.currentCode);
+  const name     = manual ? manual.name : state.currentCode;
+  const sections = state.currentToc.sections.filter(s => !s.isChapterToc);
+
+  showToast(`Preparing ${sections.length} sections…`);
+
+  // Fetch all section HTML in parallel
+  const fetched = await Promise.all(
+    sections.map(async s => {
+      try {
+        const res = await fetch(`${DATA_ROOT}/${state.currentCode}/s/${s.id}.html`);
+        return res.ok ? { title: s.title, html: await res.text() } : null;
+      } catch { return null; }
+    })
+  );
+  const valid = fetched.filter(Boolean);
+
+  if (format === 'md') {
+    const lines = [`# ${name}\n`];
+    if (manual && manual.latestChange) lines.push(`_Change ${manual.latestChange}_\n`);
+    for (const { title, html } of valid) {
+      lines.push(`\n## ${title}\n`);
+      lines.push(htmlToMarkdown(html));
+      lines.push('\n---\n');
+    }
+    const blob = new Blob([lines.join('\n')], { type: 'text/markdown; charset=utf-8' });
+    const url  = URL.createObjectURL(blob);
+    const a    = Object.assign(document.createElement('a'), { href: url, download: `${state.currentCode}.md` });
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('Download started');
+
+  } else {
+    // Build print document
+    const changeStr = (manual && manual.latestChange) ? `, Change ${manual.latestChange}` : '';
+    const body = valid.map(({ title, html }) =>
+      `<section class="ps"><h2>${escHtml(title)}</h2>${html}</section>`
+    ).join('\n');
+
+    els.printContainer.innerHTML =
+      `<h1>${escHtml(name)}${escHtml(changeStr)}</h1>` +
+      `<p class="pm">Defense Health Agency &middot; manuals.health.mil</p>` +
+      body;
+
+    window.print();
+    els.printContainer.innerHTML = '';
+    showToast('Print dialog opened');
+  }
+}
+
+// ── HTML → Markdown converter ────────────────────────────────────────────────
+
+function htmlToMarkdown(htmlStr) {
+  const doc = new DOMParser().parseFromString(htmlStr, 'text/html');
+  return domToMd(doc.body).replace(/\n{3,}/g, '\n\n').trim();
+}
+
+function domToMd(node) {
+  if (node.nodeType === Node.TEXT_NODE) {
+    return node.textContent.replace(/[ \t]+/g, ' ');
+  }
+  if (node.nodeType !== Node.ELEMENT_NODE) return '';
+
+  const tag   = node.tagName.toLowerCase();
+  const inner = () => Array.from(node.childNodes).map(domToMd).join('');
+
+  if (tag === 'table')  return mdTable(node);
+  if (tag === 'script' || tag === 'style' || tag === 'noscript') return '';
+
+  switch (tag) {
+    case 'h1': return `\n\n# ${inner().trim()}\n\n`;
+    case 'h2': return `\n\n## ${inner().trim()}\n\n`;
+    case 'h3': return `\n\n### ${inner().trim()}\n\n`;
+    case 'h4': return `\n\n#### ${inner().trim()}\n\n`;
+    case 'h5': case 'h6': return `\n\n##### ${inner().trim()}\n\n`;
+    case 'p':  return `\n\n${inner().trim()}\n\n`;
+    case 'br': return '\n';
+    case 'hr': return '\n\n---\n\n';
+    case 'strong': case 'b':  return `**${inner()}**`;
+    case 'em':     case 'i':  return `*${inner()}*`;
+    case 'code': return `\`${node.textContent}\``;
+    case 'pre':  return `\n\n\`\`\`\n${node.textContent.trim()}\n\`\`\`\n\n`;
+    case 'blockquote': return `\n\n> ${inner().trim().replace(/\n/g, '\n> ')}\n\n`;
+    case 'a': {
+      const href = node.getAttribute('href') || '';
+      const text = inner().trim();
+      return href ? `[${text}](${href})` : text;
+    }
+    case 'ul': {
+      const items = Array.from(node.children)
+        .filter(c => c.tagName === 'LI')
+        .map(li => `- ${domToMd(li).trim()}`)
+        .join('\n');
+      return `\n\n${items}\n\n`;
+    }
+    case 'ol': {
+      const items = Array.from(node.children)
+        .filter(c => c.tagName === 'LI')
+        .map((li, i) => `${i + 1}. ${domToMd(li).trim()}`)
+        .join('\n');
+      return `\n\n${items}\n\n`;
+    }
+    case 'li': return inner();
+    default:   return inner();
+  }
+}
+
+function mdTable(table) {
+  const rows = Array.from(table.querySelectorAll('tr'));
+  if (!rows.length) return '';
+  const cells = rows.map(r =>
+    Array.from(r.querySelectorAll('th, td'))
+      .map(c => c.textContent.trim().replace(/\|/g, '\\|').replace(/\s+/g, ' '))
+  );
+  const cols  = Math.max(...cells.map(r => r.length));
+  const pad   = row => { while (row.length < cols) row.push(''); return row; };
+  const fmt   = row => `| ${pad(row).join(' | ')} |`;
+  const [hdr, ...body] = cells;
+  const sep   = Array(cols).fill('---');
+  return `\n\n${fmt(hdr || sep)}\n${fmt(sep)}\n${body.map(fmt).join('\n')}\n\n`;
 }
 
 // ── Bootstrap ───────────────────────────────────────────────────────────────

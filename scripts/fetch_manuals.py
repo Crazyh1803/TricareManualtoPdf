@@ -357,6 +357,13 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                             break
                 else:
                     print(f"  [{code}] Known change {latest} has no sections (server issue?)", file=sys.stderr)
+            elif known_change == 0:
+                # Change=0 is a special "always-current" sentinel used by manuals
+                # whose TOC links are date-based (no ?Change= parameter).  The
+                # server accepts any numeric change value and returns the same
+                # content, so a forward walk would just increment the number by 5
+                # every CI run forever.  Pin to 0 and skip the walk entirely.
+                print(f"  [{code}] Change=0 sentinel — skipping forward walk.")
             else:
                 for candidate in range(known_change + 1, known_change + 6):
                     print(f"  [{code}] Checking change {candidate}…")

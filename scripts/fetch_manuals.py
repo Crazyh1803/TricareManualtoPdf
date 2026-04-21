@@ -68,8 +68,15 @@ HEADERS = {
     "Accept-Language": "en-US,en;q=0.5",
 }
 
-# Throttle between requests (seconds) — be a polite scraper
-REQUEST_DELAY = 0.5
+# Throttle between individual section HTTP requests (seconds).
+# manuals.health.mil rate-limits aggressively; 0.5s was too fast.
+REQUEST_DELAY = 1.5
+
+# Cooldown between processing different manuals (seconds).
+# After scraping 50–80+ sections for one manual the server starts
+# resetting connections.  A 60-second pause lets the rate-limit
+# window reset before we begin the next manual.
+MANUAL_COOLDOWN_SECS = 60
 
 # CSS selectors for site chrome to strip from section HTML
 STRIP_SELECTORS = [
@@ -689,11 +696,16 @@ def main():
         data = json.load(f)
 
     updated_manuals = []
+    processed_count = 0
     for entry in data["manuals"]:
         if args.code and entry["code"] != args.code:
             updated_manuals.append(entry)
             continue
+        if processed_count > 0:
+            print(f"\nCooling down {MANUAL_COOLDOWN_SECS}s before next manual to avoid rate-limiting…")
+            time.sleep(MANUAL_COOLDOWN_SECS)
         updated_manuals.append(process_manual(entry, force=args.force))
+        processed_count += 1
 
     data["manuals"]     = updated_manuals
     data["lastUpdated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")

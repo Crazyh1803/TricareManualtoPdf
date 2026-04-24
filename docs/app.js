@@ -541,36 +541,48 @@ function mdTable(table) {
 }
 
 // ── Visitor counter (retro easter egg 🥚) ────────────────────────────────────
-// Uses CounterAPI (counterapi.dev) for persistent cross-device counts.
-// localStorage tracks whether THIS browser has visited before so we only
-// bump the "unique" counter once per browser.
+// Uses hits.sh SVG badges for persistent cross-device counts.
+// Total URL is fetched every visit (always increments).
+// Unique URL is only fetched on the very first visit per browser
+// (tracked via localStorage); returning visitors read the stored value
+// so the unique counter doesn't get bumped on repeat visits.
 (async function initCounter() {
-  const NS    = 'appsbydan-manualbridge-v1';
+  const BASE  = 'https://hits.sh/github.com/Crazyh1803/TricareManualtoPdf';
   const isNew = !localStorage.getItem('mb_visited');
-  if (isNew) localStorage.setItem('mb_visited', '1');
 
-  const base = 'https://api.counterapi.dev/v1';
+  // Parse the numeric count out of a hits.sh SVG response.
+  async function fetchCount(url) {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const svg = await res.text();
+    const doc = new DOMParser().parseFromString(svg, 'image/svg+xml');
+    for (const el of doc.querySelectorAll('text')) {
+      const v = el.textContent.trim();
+      if (/^\d+$/.test(v)) return parseInt(v, 10);
+    }
+    return null;
+  }
 
   try {
-    // Always increment total hits; only increment unique on first visit.
-    const [hitRes, uniqRes] = await Promise.all([
-      fetch(`${base}/${NS}/hits/up`),
-      isNew
-        ? fetch(`${base}/${NS}/unique/up`)
-        : fetch(`${base}/${NS}/unique`),
-    ]);
-
-    if (!hitRes.ok || !uniqRes.ok) return;
-
-    const { count: hits   } = await hitRes.json();
-    const { count: unique } = await uniqRes.json();
-
-    const elUniq  = document.getElementById('vc-unique');
+    // Total: increment on every visit.
+    const hits = await fetchCount(`${BASE}.svg`);
     const elTotal = document.getElementById('vc-total');
-    if (elUniq)  elUniq.textContent  = unique.toLocaleString();
-    if (elTotal) elTotal.textContent = hits.toLocaleString();
+    if (hits !== null && elTotal) elTotal.textContent = hits.toLocaleString();
+
+    // Unique: only increment on first visit; reuse stored value on return visits.
+    let unique;
+    if (isNew) {
+      unique = await fetchCount(`${BASE}-unique.svg`);
+      if (unique !== null) localStorage.setItem('mb_uniq', String(unique));
+      localStorage.setItem('mb_visited', '1');
+    } else {
+      const stored = localStorage.getItem('mb_uniq');
+      unique = stored ? parseInt(stored, 10) : null;
+    }
+    const elUniq = document.getElementById('vc-unique');
+    if (unique !== null && elUniq) elUniq.textContent = unique.toLocaleString();
   } catch {
-    // Counter service unavailable — fail silently
+    // Counter service unavailable — displays stay as "—"
   }
 })();
 

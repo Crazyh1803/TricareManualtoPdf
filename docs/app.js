@@ -541,18 +541,20 @@ function mdTable(table) {
 }
 
 // ── Visitor counter (retro easter egg 🥚) ────────────────────────────────────
-// Uses hits.sh SVG badges for persistent cross-device counts.
-// Total URL is fetched every visit (always increments).
+// hits.sh doesn't send CORS headers, so we route through codetabs.com proxy
+// so the browser can actually read the SVG response.
+// Total URL is fetched (and incremented) every visit.
 // Unique URL is only fetched on the very first visit per browser
 // (tracked via localStorage); returning visitors read the stored value
 // so the unique counter doesn't get bumped on repeat visits.
 (async function initCounter() {
   const BASE  = 'https://hits.sh/github.com/Crazyh1803/TricareManualtoPdf';
+  const PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
   const isNew = !localStorage.getItem('mb_visited');
 
-  // Parse the numeric count out of a hits.sh SVG response.
+  // Fetch a hits.sh SVG through the CORS proxy and parse the numeric count.
   async function fetchCount(url) {
-    const res = await fetch(url);
+    const res = await fetch(PROXY + encodeURIComponent(url));
     if (!res.ok) return null;
     const svg = await res.text();
     const doc = new DOMParser().parseFromString(svg, 'image/svg+xml');

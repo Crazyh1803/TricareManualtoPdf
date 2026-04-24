@@ -137,9 +137,10 @@ a:hover { text-decoration: underline; }
 /* Manual Cards */
 .manual-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
   gap: 16px;
   margin-bottom: 32px;
+  justify-content: center;
 }
 
 /* Skeleton loaders */
@@ -301,22 +302,64 @@ a:hover { text-decoration: underline; }
 }
 .btn-export-card svg { flex-shrink: 0; }
 
-/* Easter egg visitor counter */
-.visitor-egg {
-  margin-top: 18px;
+/* Home support link */
+.home-support {
+  font-size: .8rem;
+  color: var(--text-secondary);
   text-align: center;
+  margin-top: 8px;
 }
-#visitor-counts {
-  font-size: .65rem;
-  color: var(--border);          /* nearly invisible — blends into background */
-  letter-spacing: .04em;
-  font-variant-numeric: tabular-nums;
+
+/* Visitor counter — retro easter egg 🥚 */
+.visitor-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 16px;
+  background: #0a0a0a;
+  border: 2px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,.7), 0 0 12px rgba(0,200,80,.1);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
   cursor: default;
   user-select: none;
-  transition: color .3s;
 }
-#visitor-counts:hover {
-  color: var(--text-secondary);  /* reveal on hover */
+
+.vc-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0 16px;
+}
+
+.vc-label {
+  font-size: .6rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #3a8a5a;
+}
+
+.vc-num {
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: .15em;
+  color: #00e060;
+  min-width: 6ch;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(0,220,80,.6);
+}
+
+.vc-divider {
+  width: 1px;
+  height: 36px;
+  background: #2a2a2a;
+  flex-shrink: 0;
 }
 
 /* Support / buy me a drink row */

@@ -302,8 +302,19 @@ function updateSectionNav() {
     ? contentSections.indexOf(sections[idx])
     : -1;
 
-  els.btnPrev.disabled = idx <= 0;
-  els.btnNext.disabled = idx < 0 || idx >= sections.length - 1;
+  // Scan for the nearest real content section in each direction,
+  // skipping chapter-heading entries so buttons disable correctly.
+  let prevIdx = -1, nextIdx = -1;
+  if (idx >= 0) {
+    for (let i = idx - 1; i >= 0; i--) {
+      if (!sections[i].isChapterToc) { prevIdx = i; break; }
+    }
+    for (let i = idx + 1; i < sections.length; i++) {
+      if (!sections[i].isChapterToc) { nextIdx = i; break; }
+    }
+  }
+  els.btnPrev.disabled = prevIdx < 0;
+  els.btnNext.disabled = idx < 0 || nextIdx < 0;
 
   if (contentIdx >= 0) {
     els.sectionCounter.textContent =
@@ -529,12 +540,12 @@ function mdTable(table) {
   return `\n\n${fmt(hdr || sep)}\n${fmt(sep)}\n${body.map(fmt).join('\n')}\n\n`;
 }
 
-// ── Easter egg visitor counter ───────────────────────────────────────────────
+// ── Visitor counter (retro easter egg 🥚) ────────────────────────────────────
 // Uses CounterAPI (counterapi.dev) for persistent cross-device counts.
 // localStorage tracks whether THIS browser has visited before so we only
 // bump the "unique" counter once per browser.
 (async function initCounter() {
-  const NS   = 'appsbydan-manualbridge-v1';
+  const NS    = 'appsbydan-manualbridge-v1';
   const isNew = !localStorage.getItem('mb_visited');
   if (isNew) localStorage.setItem('mb_visited', '1');
 
@@ -554,13 +565,12 @@ function mdTable(table) {
     const { count: hits   } = await hitRes.json();
     const { count: unique } = await uniqRes.json();
 
-    const el = document.getElementById('visitor-counts');
-    if (el) {
-      el.textContent =
-        `👁 ${unique.toLocaleString()} unique  ·  🔁 ${hits.toLocaleString()} total`;
-    }
+    const elUniq  = document.getElementById('vc-unique');
+    const elTotal = document.getElementById('vc-total');
+    if (elUniq)  elUniq.textContent  = unique.toLocaleString();
+    if (elTotal) elTotal.textContent = hits.toLocaleString();
   } catch {
-    // Counter service unavailable — fail silently, easter egg stays hidden
+    // Counter service unavailable — fail silently
   }
 })();
 

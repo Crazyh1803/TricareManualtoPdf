@@ -541,18 +541,18 @@ function mdTable(table) {
 }
 
 // ── Visitor counter (retro easter egg 🥚) ────────────────────────────────────
-// hits.sh doesn't send CORS headers, so we route through codetabs.com proxy
-// so the browser can actually read the SVG response.
-// Total URL is fetched (and incremented) every visit.
-// Unique URL is only fetched on the very first visit per browser
-// (tracked via localStorage); returning visitors read the stored value
-// so the unique counter doesn't get bumped on repeat visits.
+// hits.sh doesn't send CORS headers, so we route through codetabs.com proxy.
+// Both counters are fetched in parallel to avoid sequential rate-limiting.
+// Unique URL is only fetched when this browser hasn't stored a count yet;
+// once stored in localStorage, return visits read the cached value instead.
 (async function initCounter() {
-  const BASE  = 'https://hits.sh/github.com/Crazyh1803/TricareManualtoPdf';
-  const PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
-  const isNew = !localStorage.getItem('mb_visited');
+  const BASE    = 'https://hits.sh/github.com/Crazyh1803/TricareManualtoPdf';
+  const PROXY   = 'https://api.codetabs.com/v1/proxy?quest=';
+  const isNew   = !localStorage.getItem('mb_visited');
+  const hasUniq = !!localStorage.getItem('mb_uniq');
+  // Also retry unique if a previous first-visit attempt failed (no stored value).
+  const needUniq = isNew || !hasUniq;
 
-  // Fetch a hits.sh SVG through the CORS proxy and parse the numeric count.
   async function fetchCount(url) {
     const res = await fetch(PROXY + encodeURIComponent(url));
     if (!res.ok) return null;
@@ -566,25 +566,26 @@ function mdTable(table) {
   }
 
   try {
-    // Total: increment on every visit.
-    const hits = await fetchCount(`${BASE}.svg`);
-    const elTotal = document.getElementById('vc-total');
-    if (hits !== null && elTotal) elTotal.textContent = hits.toLocaleString();
+    // Fire both in parallel — avoids proxy rate-limiting the sequential 2nd call.
+    const [hits, fetchedUniq] = await Promise.all([
+      fetchCount(`${BASE}.svg`),
+      needUniq ? fetchCount(`${BASE}-unique.svg`) : Promise.resolve(null),
+    ]);
 
-    // Unique: only increment on first visit; reuse stored value on return visits.
-    let unique;
-    if (isNew) {
-      unique = await fetchCount(`${BASE}-unique.svg`);
-      if (unique !== null) localStorage.setItem('mb_uniq', String(unique));
-      localStorage.setItem('mb_visited', '1');
-    } else {
-      const stored = localStorage.getItem('mb_uniq');
-      unique = stored ? parseInt(stored, 10) : null;
-    }
-    const elUniq = document.getElementById('vc-unique');
-    if (unique !== null && elUniq) elUniq.textContent = unique.toLocaleString();
+    const unique = needUniq
+      ? fetchedUniq
+      : parseInt(localStorage.getItem('mb_uniq'), 10);
+
+    const elTotal = document.getElementById('vc-total');
+    const elUniq  = document.getElementById('vc-unique');
+    if (hits   != null && elTotal) elTotal.textContent = hits.toLocaleString();
+    if (unique != null && elUniq)  elUniq.textContent  = unique.toLocaleString();
+
+    // Persist after display so a partial failure doesn't lock out future retries.
+    if (isNew)                           localStorage.setItem('mb_visited', '1');
+    if (needUniq && fetchedUniq != null) localStorage.setItem('mb_uniq', String(fetchedUniq));
   } catch {
-    // Counter service unavailable — displays stay as "—"
+    // Counter unavailable — displays stay as "—"
   }
 })();
 

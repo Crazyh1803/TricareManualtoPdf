@@ -27,6 +27,8 @@ jobs:
     name: Fetch manual content
     runs-on: ubuntu-latest
     timeout-minutes: 120   # large manuals can take a while
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'   # opt into Node 24 ahead of June 2026 forced cutover
 
     steps:
       # 1. Check out the repo

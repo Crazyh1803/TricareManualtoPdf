@@ -83,8 +83,11 @@ jobs:
           cp -r docs/data /tmp/updated-data
 
           # Switch to the web branch (GitHub Pages source)
+          # Use --force because the scraper modified docs/data/ in-place on
+          # the main checkout; we've already copied the data to /tmp so it's
+          # safe to discard those local changes and let checkout overwrite them.
           git fetch origin web
-          git checkout web
+          git checkout --force web
 
           # Overlay updated data, removing anything no longer present
           rm -rf docs/data

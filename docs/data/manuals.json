@@ -1,28 +1,28 @@
 {
-  "lastUpdated": "2026-04-21",
+  "lastUpdated": "2026-05-20",
   "manuals": [
     {
       "code": "TOT5",
       "name": "TRICARE Operations Manual",
-      "latestChange": 55,
+      "latestChange": 56,
       "hasContent": true
     },
     {
       "code": "TPT5",
       "name": "TRICARE Policy Manual",
-      "latestChange": 49,
+      "latestChange": 51,
       "hasContent": true
     },
     {
       "code": "TRT5",
       "name": "TRICARE Reimbursement Manual",
-      "latestChange": 0,
+      "latestChange": 22,
       "hasContent": true
     },
     {
       "code": "TST5",
       "name": "TRICARE Systems Manual",
-      "latestChange": 32,
+      "latestChange": 35,
       "hasContent": true
     }
   ]

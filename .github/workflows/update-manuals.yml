@@ -66,16 +66,36 @@ jobs:
           fi
           python scripts/fetch_manuals.py $CODE_ARG $FORCE_ARG
 
-      # 6. Commit updated data files (only if anything changed)
-      - name: Commit updated content
+      # 6. Commit updated data files to the web branch (where GitHub Pages serves from)
+      - name: Commit updated content to web branch
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Stage everything in docs/data/ so new files are detected too
           git add docs/data/
           if git diff --cached --quiet; then
             echo "No changes — manuals are already up to date."
-          else
-            git commit -m "chore: update manual content $(date -u +%Y-%m-%d) [skip ci]"
-            git pull --rebase
-            git push
+            exit 0
           fi
+
+          # Back up the freshly-scraped data before switching branches
+          cp -r docs/data /tmp/updated-data
+
+          # Switch to the web branch (GitHub Pages source)
+          git fetch origin web
+          git checkout web
+
+          # Overlay updated data, removing anything no longer present
+          rm -rf docs/data
+          cp -r /tmp/updated-data docs/data
+
+          git add docs/data/
+          if git diff --cached --quiet; then
+            echo "Data already up to date on web branch."
+            exit 0
+          fi
+
+          git commit -m "chore: update manual content $(date -u +%Y-%m-%d) [skip ci]"
+          git pull --rebase origin web
+          git push origin web

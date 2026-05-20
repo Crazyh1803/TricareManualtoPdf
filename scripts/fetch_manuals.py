@@ -567,22 +567,106 @@ def process_manual(entry: dict, force: bool = False) -> dict:
     return {**entry, "latestChange": latest, "hasContent": True}
 
 
+def preflight_check() -> bool:
+    """Verify basic network reachability and Playwright availability."""
+    import traceback as _tb
+
+    print("── Pre-flight checks ──────────────────────────────────────────────")
+
+    # 1. Python version
+    print(f"  Python {sys.version}")
+
+    # 2. Key package versions
+    try:
+        import requests as _req
+        print(f"  requests {_req.__version__}")
+    except Exception as e:
+        print(f"  requests import failed: {e}", file=sys.stderr)
+        return False
+
+    try:
+        import playwright
+        print(f"  playwright {playwright.__version__}")
+    except Exception as e:
+        print(f"  playwright import failed: {e}", file=sys.stderr)
+        return False
+
+    try:
+        import bs4
+        print(f"  beautifulsoup4 {bs4.__version__}")
+    except Exception as e:
+        print(f"  beautifulsoup4 import failed: {e}", file=sys.stderr)
+        return False
+
+    # 3. Network connectivity to base site
+    print(f"  Checking connectivity to {BASE_URL} …")
+    try:
+        r = session.get(BASE_URL, timeout=20)
+        print(f"  {BASE_URL} → HTTP {r.status_code}")
+        if r.status_code not in (200, 301, 302, 403):
+            print(f"  WARNING: unexpected status {r.status_code}", file=sys.stderr)
+    except Exception as e:
+        print(f"  NETWORK ERROR reaching {BASE_URL}: {type(e).__name__}: {e}", file=sys.stderr)
+        print("  The DoD site may be blocking GitHub Actions IPs, or is currently down.", file=sys.stderr)
+        # Don't abort — individual manuals may still partially succeed
+
+    # 4. Playwright browser binary
+    print("  Checking Playwright Chromium executable…")
+    try:
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as pw:
+            info = pw.chromium.executable_path
+            print(f"  Chromium binary: {info}")
+            exists = Path(info).exists()
+            print(f"  Exists on disk: {exists}")
+            if not exists:
+                print("  ERROR: Chromium binary missing — run 'playwright install chromium'", file=sys.stderr)
+                return False
+    except Exception as e:
+        print(f"  Playwright check failed: {type(e).__name__}: {e}", file=sys.stderr)
+        _tb.print_exc()
+        return False
+
+    print("── Pre-flight OK ──────────────────────────────────────────────────")
+    return True
+
+
 def main():
     parser = argparse.ArgumentParser(description="Fetch TRICARE manual content")
     parser.add_argument("--code",  help="Only process this manual code (e.g. TOT5)")
     parser.add_argument("--force", action="store_true",
                         help="Re-fetch even if latestChange hasn't increased")
+    parser.add_argument("--skip-preflight", action="store_true",
+                        help="Skip the pre-flight environment check")
     args = parser.parse_args()
+
+    if not args.skip_preflight:
+        ok = preflight_check()
+        if not ok:
+            sys.exit(1)
+
+    if not MANUALS_JSON.exists():
+        print(f"ERROR: {MANUALS_JSON} not found. "
+              f"DATA_DIR resolved to: {DATA_DIR}", file=sys.stderr)
+        sys.exit(1)
 
     with MANUALS_JSON.open(encoding="utf-8") as f:
         data = json.load(f)
 
     updated_manuals = []
+    errors = []
     for entry in data["manuals"]:
         if args.code and entry["code"] != args.code:
             updated_manuals.append(entry)
             continue
-        updated_manuals.append(process_manual(entry, force=args.force))
+        try:
+            updated_manuals.append(process_manual(entry, force=args.force))
+        except Exception as exc:
+            import traceback
+            print(f"\nERROR processing {entry['code']}: {type(exc).__name__}: {exc}", file=sys.stderr)
+            traceback.print_exc()
+            errors.append(entry["code"])
+            updated_manuals.append(entry)  # keep existing entry unchanged
 
     data["manuals"]     = updated_manuals
     data["lastUpdated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -591,8 +675,22 @@ def main():
         encoding="utf-8"
     )
     print(f"\nUpdated {MANUALS_JSON.relative_to(REPO_ROOT)}")
+
+    if errors:
+        print(f"\nWARNING: {len(errors)} manual(s) failed to update: {', '.join(errors)}", file=sys.stderr)
+        print("Done (with errors).")
+        sys.exit(1)
+
     print("Done.")
 
 
 if __name__ == "__main__":
-    main()
+    import traceback as _top_tb
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception as _top_exc:
+        print(f"\nFATAL UNHANDLED EXCEPTION: {type(_top_exc).__name__}: {_top_exc}", file=sys.stderr)
+        _top_tb.print_exc()
+        sys.exit(1)

@@ -576,27 +576,19 @@ def preflight_check() -> bool:
     # 1. Python version
     print(f"  Python {sys.version}")
 
-    # 2. Key package versions
-    try:
-        import requests as _req
-        print(f"  requests {_req.__version__}")
-    except Exception as e:
-        print(f"  requests import failed: {e}", file=sys.stderr)
-        return False
+    # 2. Key package versions (use importlib.metadata — not all packages set __version__)
+    from importlib.metadata import version as _pkg_version, PackageNotFoundError
 
-    try:
-        import playwright
-        print(f"  playwright {playwright.__version__}")
-    except Exception as e:
-        print(f"  playwright import failed: {e}", file=sys.stderr)
-        return False
-
-    try:
-        import bs4
-        print(f"  beautifulsoup4 {bs4.__version__}")
-    except Exception as e:
-        print(f"  beautifulsoup4 import failed: {e}", file=sys.stderr)
-        return False
+    for pkg, import_name in [("requests", "requests"), ("playwright", None), ("beautifulsoup4", "bs4")]:
+        try:
+            ver = _pkg_version(pkg)
+            print(f"  {pkg} {ver}")
+        except PackageNotFoundError:
+            print(f"  {pkg} not installed!", file=sys.stderr)
+            return False
+        except Exception as e:
+            # Version lookup failed but package may still work — don't abort
+            print(f"  {pkg} (version unknown: {e})")
 
     # 3. Network connectivity to base site
     print(f"  Checking connectivity to {BASE_URL} …")

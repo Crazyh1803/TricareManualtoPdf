@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-20",
+  "lastUpdated": "2026-05-25",
   "manuals": [
     {
       "code": "TOT5",
@@ -22,7 +22,7 @@
     {
       "code": "TST5",
       "name": "TRICARE Systems Manual",
-      "latestChange": 35,
+      "latestChange": 32,
       "hasContent": true
     }
   ]

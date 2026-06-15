@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-08",
+  "lastUpdated": "2026-06-15",
   "manuals": [
     {
       "code": "TOT5",
@@ -10,7 +10,7 @@
     {
       "code": "TPT5",
       "name": "TRICARE Policy Manual",
-      "latestChange": 52,
+      "latestChange": 53,
       "hasContent": true
     },
     {

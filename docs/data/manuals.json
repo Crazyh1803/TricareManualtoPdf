@@ -1,16 +1,16 @@
 {
-  "lastUpdated": "2026-06-22",
+  "lastUpdated": "2026-06-29",
   "manuals": [
     {
       "code": "TOT5",
       "name": "TRICARE Operations Manual",
-      "latestChange": 56,
+      "latestChange": 57,
       "hasContent": true
     },
     {
       "code": "TPT5",
       "name": "TRICARE Policy Manual",
-      "latestChange": 53,
+      "latestChange": 54,
       "hasContent": true
     },
     {

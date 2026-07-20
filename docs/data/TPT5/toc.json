@@ -1,7 +1,7 @@
 {
   "code": "TPT5",
-  "change": 54,
-  "fetchedAt": "2026-07-13T08:58:51Z",
+  "change": 51,
+  "fetchedAt": "2026-05-20T04:02:53Z",
   "sections": [
     {
       "id": "001",
@@ -173,9 +173,9 @@
     },
     {
       "id": "025",
-      "title": "Chapter 8, Section 20.2",
+      "title": "Chapter 8, Section 20.1",
       "chapter": 8,
-      "section": "20.2",
+      "section": "20.1",
       "isChapterToc": false
     },
     {

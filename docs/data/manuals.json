@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-07-27",
+  "lastUpdated": "2026-08-03",
   "manuals": [
     {
       "code": "TOT5",
       "name": "TRICARE Operations Manual",
-      "latestChange": 60,
+      "latestChange": 61,
       "hasContent": true
     },
     {
@@ -16,7 +16,7 @@
     {
       "code": "TRT5",
       "name": "TRICARE Reimbursement Manual",
-      "latestChange": 22,
+      "latestChange": 25,
       "hasContent": true
     },
     {

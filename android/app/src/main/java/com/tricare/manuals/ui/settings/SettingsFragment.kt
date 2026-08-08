@@ -18,6 +18,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.tricare.manuals.R
+import com.tricare.manuals.data.network.TricareUrls
 import com.tricare.manuals.databinding.FragmentSettingsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
@@ -62,6 +63,14 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         setupDeleteAll()
         setupSupportDeveloper()
         setupVersion()
+        setupOfficialSourceLink()
+    }
+
+    private fun setupOfficialSourceLink() {
+        findPreference<Preference>("official_source_link")?.setOnPreferenceClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(TricareUrls.OFFICIAL_SITE)))
+            true
+        }
     }
 
     private fun setupDarkTheme() {

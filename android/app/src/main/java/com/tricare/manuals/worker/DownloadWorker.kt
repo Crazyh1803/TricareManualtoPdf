@@ -22,6 +22,7 @@ import com.tricare.manuals.data.db.ManualDao
 import com.tricare.manuals.data.db.SectionDao
 import com.tricare.manuals.data.model.Section
 import com.tricare.manuals.data.network.TocParser
+import com.tricare.manuals.data.network.TricareUrls
 import com.tricare.manuals.data.network.TricareWebClient
 import com.tricare.manuals.data.repository.ManualRepository
 import com.tricare.manuals.util.appDataStore
@@ -56,7 +57,7 @@ class DownloadWorker @AssistedInject constructor(
         const val KEY_FILE_PATH = "file_path"
 
         private val WIFI_ONLY_KEY = booleanPreferencesKey("wifi_only_downloads")
-        private const val BASE_TOC_URL = "https://manuals.health.mil/pages/ManualToc.aspx?Manual="
+        private val BASE_TOC_URL = TricareUrls.TOC_BASE
         private const val CHANNEL_ID = "tricare_download"
         private const val NOTIFICATION_ID = 1001
     }
@@ -332,6 +333,12 @@ class DownloadWorker @AssistedInject constructor(
     ) {
         w.write("# ${ManualRepository.KNOWN_MANUALS.find { it.code == code }?.name ?: code}\n")
         w.write("Change $changeNum — ${sections.size} sections\n\n")
+        w.write(
+            "> Official source: ${TricareUrls.TOC_BASE}$code&Change=$changeNum " +
+                "(U.S. Defense Health Agency). This file was prepared by the unofficial " +
+                "\"TRICARE Manuals\" app, which is not affiliated with or endorsed by the " +
+                "Department of Defense, Defense Health Agency, or TRICARE.\n\n"
+        )
         w.write("---\n\n")
         w.write("## Table of Contents\n\n")
         sections.forEachIndexed { i, s -> w.write("${i + 1}. ${s.title}\n") }

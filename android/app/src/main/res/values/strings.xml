@@ -71,6 +71,13 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_refresh">Check for Updates</string>
     <string name="menu_bookmark">Bookmark</string>
+    <string name="menu_view_official_source">View Official Source</string>
+
+    <!-- Government source / disclaimer -->
+    <string name="app_disclaimer_banner">Unofficial app — not affiliated with or endorsed by the U.S. Department of Defense, Defense Health Agency, or TRICARE.</string>
+    <string name="view_official_source">View official source ↗</string>
+    <string name="pref_official_site_title">Official TRICARE Manuals site</string>
+    <string name="pref_official_site_summary">manuals.health.mil (U.S. Defense Health Agency)</string>
 
     <!-- Status chips -->
     <string name="status_downloaded">✅</string>

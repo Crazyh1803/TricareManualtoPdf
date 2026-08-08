@@ -10,7 +10,7 @@ class VersionChecker @Inject constructor(
 ) {
 
     companion object {
-        private const val TOC_BASE = "https://manuals.health.mil/pages/ManualToc.aspx?Manual="
+        private val TOC_BASE = TricareUrls.TOC_BASE
         private val CHANGE_PARAM = Regex("[?&]Change=(\\d+)", RegexOption.IGNORE_CASE)
     }
 

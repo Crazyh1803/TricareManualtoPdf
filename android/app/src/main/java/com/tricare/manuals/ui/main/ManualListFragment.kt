@@ -35,6 +35,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tricare.manuals.R
 import com.tricare.manuals.data.model.Manual
+import com.tricare.manuals.data.network.TricareUrls
 import com.tricare.manuals.data.repository.ManualRepository
 import com.tricare.manuals.databinding.FragmentManualListBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -129,7 +130,8 @@ class ManualListFragment : Fragment() {
             },
             onDownloadClick = { manual -> startDownload(manual.code) },
             onShareClick = { manual -> shareManual(manual) },
-            onExportPdfClick = { manual -> exportAsPdf(manual) }
+            onExportPdfClick = { manual -> exportAsPdf(manual) },
+            onSourceClick = { manual -> openOfficialSource(manual.code) }
         )
         binding.recyclerManuals.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -155,6 +157,10 @@ class ManualListFragment : Fragment() {
             pendingDownloadCode = code
             writePermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
+    }
+
+    private fun openOfficialSource(code: String) {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("${TricareUrls.TOC_BASE}$code")))
     }
 
     private fun observeDownloadProgress() {

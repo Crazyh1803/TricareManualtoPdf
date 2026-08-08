@@ -22,7 +22,8 @@ class ManualAdapter(
     private val onOpenClick: (Manual) -> Unit,
     private val onDownloadClick: (Manual) -> Unit,
     private val onShareClick: (Manual) -> Unit,
-    private val onExportPdfClick: (Manual) -> Unit
+    private val onExportPdfClick: (Manual) -> Unit,
+    private val onSourceClick: (Manual) -> Unit
 ) : ListAdapter<Manual, ManualAdapter.ManualViewHolder>(ManualDiffCallback()) {
 
     private val progressMap = mutableMapOf<String, WorkInfo?>()
@@ -76,6 +77,7 @@ class ManualAdapter(
 
         fun bind(manual: Manual, workInfo: WorkInfo?) {
             binding.tvManualName.text = manual.name
+            binding.tvSourceLink.setOnClickListener { onSourceClick(manual) }
 
             // Status text
             val downloadFailed = workInfo?.state == WorkInfo.State.FAILED

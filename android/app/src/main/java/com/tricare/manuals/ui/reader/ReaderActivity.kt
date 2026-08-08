@@ -1,5 +1,7 @@
 package com.tricare.manuals.ui.reader
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tricare.manuals.R
+import com.tricare.manuals.data.network.TricareUrls
 import com.tricare.manuals.databinding.ActivityReaderBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -165,6 +168,10 @@ class ReaderActivity : AppCompatActivity() {
             }
             R.id.action_bookmarks_list -> {
                 showBookmarkSheet()
+                true
+            }
+            R.id.action_official_source -> {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("${TricareUrls.TOC_BASE}$manualCode")))
                 true
             }
             else -> super.onOptionsItemSelected(item)

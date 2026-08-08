@@ -20,6 +20,17 @@
             app:title="@string/app_name"
             app:titleTextColor="@android:color/white" />
 
+        <TextView
+            android:id="@+id/tv_disclaimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSurfaceVariant"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textSize="11sp"
+            android:padding="8dp"
+            android:gravity="center"
+            android:text="@string/app_disclaimer_banner" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView

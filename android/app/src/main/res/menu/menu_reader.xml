@@ -13,4 +13,9 @@
         android:title="@string/action_bookmarks_list"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_official_source"
+        android:title="@string/menu_view_official_source"
+        app:showAsAction="never" />
+
 </menu>

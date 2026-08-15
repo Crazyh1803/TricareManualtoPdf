@@ -91,6 +91,14 @@ SECTION_NAV_DELAY = 2.0
 SECTION_FETCH_ATTEMPTS = 3
 SECTION_RETRY_BACKOFF = 8.0
 
+# Version-detection probes need the same treatment. They were unthrottled and
+# single-shot, and since the forward walk stops at the first failure, one
+# throttled probe silently caps the detected version (TPT5 came back as 55 on
+# one run and 51 on another with identical code).
+PROBE_DELAY = 1.5
+PROBE_ATTEMPTS = 2
+PROBE_RETRY_DELAY = 6.0
+
 # How many change numbers past the known one to probe when detecting the
 # latest version.  The walk breaks at the first candidate that fails, so in
 # steady state this costs one extra probe regardless of the ceiling — the
@@ -308,16 +316,30 @@ async def _toc_has_sections(ctx, code: str, change: int) -> bool:
     does not exist yet.
     """
     toc_url = TOC_URL.format(code=code, change=change)
-    page = await ctx.new_page()
-    try:
+
+    # "No links" is ambiguous: it means either the change does not exist, or
+    # the request was throttled/reset. The forward walk stops at the first
+    # failure, so one transient miss silently truncates detection — TPT5 was
+    # detected as 55 on one run and 51 on another from exactly this. Retry an
+    # empty result before believing it; a page that renders links but for a
+    # different change is a definitive answer and is not retried.
+    for attempt in range(1, PROBE_ATTEMPTS + 1):
+        if attempt > 1:
+            await asyncio.sleep(PROBE_RETRY_DELAY)
+        page = await ctx.new_page()
         try:
-            await page.goto(toc_url, wait_until="networkidle", timeout=20_000)
-        except Exception:
-            pass
-        await page.wait_for_timeout(2_000)
-        urls = await _collect_display_hrefs(page, toc_url)
+            try:
+                await page.goto(toc_url, wait_until="networkidle", timeout=20_000)
+            except Exception as e:
+                print(f"    ({code} change {change} probe attempt {attempt}: "
+                      f"{str(e).split(chr(10))[0]})", file=sys.stderr)
+            await page.wait_for_timeout(2_000)
+            urls = await _collect_display_hrefs(page, toc_url)
+        finally:
+            await page.close()
+
         if not urls:
-            return False
+            continue  # ambiguous — try again before concluding it does not exist
 
         # Inspect Change= parameters in the returned URLs.
         change_vals: set[int] = set()
@@ -337,8 +359,8 @@ async def _toc_has_sections(ctx, code: str, change: int) -> bool:
         # If all links carry a different change number the site silently served a
         # different version, so this change does not actually exist.
         return change in change_vals
-    finally:
-        await page.close()
+
+    return False
 
 
 async def _launch_context(pw):
@@ -467,6 +489,7 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                     latest = served_change
                     # Walk forward from the discovered change
                     for candidate in range(served_change + 1, served_change + 1 + FORWARD_WALK_LIMIT):
+                        await asyncio.sleep(PROBE_DELAY)
                         print(f"  [{code}] Checking change {candidate}…")
                         if await _toc_has_sections(ctx, code, candidate):
                             latest = candidate
@@ -483,6 +506,7 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                 print(f"  [{code}] Change=0 sentinel — skipping forward walk.")
             else:
                 for candidate in range(known_change + 1, known_change + 1 + FORWARD_WALK_LIMIT):
+                    await asyncio.sleep(PROBE_DELAY)
                     print(f"  [{code}] Checking change {candidate}…")
                     if await _toc_has_sections(ctx, code, candidate):
                         latest = candidate

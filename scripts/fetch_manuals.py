@@ -328,6 +328,36 @@ async def _toc_has_sections(ctx, code: str, change: int) -> bool:
         await page.close()
 
 
+async def _launch_context(pw):
+    """Browser + context configured to get past the site's JS bot challenge.
+
+    manuals.health.mil answers plain HTTP clients with a constant 6572-byte
+    challenge interstitial (no <title>, no-cache metas, data: favicon) for
+    every URL, which is why requests-based fetching silently produced empty
+    content. A real browser runs the challenge and is then served the actual
+    document, so every fetch of manual content has to come through here.
+    """
+    browser = await pw.chromium.launch(
+        headless=True,
+        args=["--disable-blink-features=AutomationControlled"],
+    )
+    ctx = await browser.new_context(
+        ignore_https_errors=True,
+        user_agent=(
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/124.0.0.0 Safari/537.36"
+        ),
+        viewport={"width": 1280, "height": 900},
+        extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
+    )
+    # Hide the navigator.webdriver property that sites use for bot detection
+    await ctx.add_init_script(
+        "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+    )
+    return browser, ctx
+
+
 async def _collect_chapter_sections(ctx, chapter_toc_url: str) -> list[str]:
     """Render one chapter TOC page in the browser and return its section URLs.
 
@@ -386,24 +416,7 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
     Returns (latest_change, top_level_urls, chapter_section_urls).
     """
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(
-            headless=True,
-            args=["--disable-blink-features=AutomationControlled"],
-        )
-        ctx = await browser.new_context(
-            ignore_https_errors=True,
-            user_agent=(
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/124.0.0.0 Safari/537.36"
-            ),
-            viewport={"width": 1280, "height": 900},
-            extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
-        )
-        # Hide the navigator.webdriver property that sites use for bot detection
-        await ctx.add_init_script(
-            "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
-        )
+        browser, ctx = await _launch_context(pw)
         try:
             # ── Detect latest change ──────────────────────────────────────────
             # Walk forward from known_change until we find one with no links.
@@ -716,23 +729,86 @@ def is_failed_section(html: str) -> bool:
     return html == RETRIEVAL_FAILED_HTML or len(html.strip()) < MIN_SECTION_CONTENT_CHARS
 
 
-def fetch_section_html(url: str) -> tuple[str, str]:
-    r = get(url)
-    if r is None:
-        return "Untitled Section", RETRIEVAL_FAILED_HTML
-    soup    = BeautifulSoup(r.text, "lxml")
-    title   = extract_title_from_html(soup)
-    content = extract_content_html(soup)
-    if is_failed_section(content):
-        # Show what the server actually sent. An empty extraction previously
-        # became a silent 1-byte file; logging the raw response makes the
-        # difference between "wrong URL", "blocked", and "changed markup"
-        # visible from the run log instead of requiring another guess.
-        snippet = " ".join(r.text[:300].split())
-        print(f"    EMPTY EXTRACTION: {url}", file=sys.stderr)
-        print(f"      raw={len(r.text)}B extracted={len(content.strip())}ch "
-              f"title={title!r} starts: {snippet}", file=sys.stderr)
-    return title, content
+async def fetch_sections_via_browser(
+    code: str, sections: list[dict]
+) -> tuple[list[tuple[str, str]], int]:
+    """Fetch every section's page in a real browser and extract its content.
+
+    Plain HTTP cannot be used here: the site answers requests-based clients
+    with a JS challenge page, so extraction yielded empty content for every
+    section (run #42 published 199 one-byte files before this was understood).
+
+    Titles are written back onto the section dicts in place, for chapter TOC
+    entries too. Returns ([(section_id, content_html)], failed_count) for the
+    content sections only — chapter TOC entries contribute a title and no file.
+    """
+    results: list[tuple[str, str]] = []
+    failed = 0
+    content_total = sum(1 for s in sections if not s["isChapterToc"])
+    done = 0
+    diagnosed = 0
+
+    async with async_playwright() as pw:
+        browser, ctx = await _launch_context(pw)
+        page = await ctx.new_page()
+        try:
+            for s in sections:
+                raw = ""
+                try:
+                    await page.goto(s["url"], wait_until="networkidle", timeout=30_000)
+                    await page.wait_for_timeout(400)
+                    raw = await page.content()
+                except Exception as e:
+                    print(f"    (browser fetch failed for {s['url']}: {e})", file=sys.stderr)
+                    # The page may be wedged — replace it before continuing.
+                    try:
+                        await page.close()
+                    except Exception:
+                        pass
+                    page = await ctx.new_page()
+
+                if raw:
+                    soup = BeautifulSoup(raw, "lxml")
+                    s["title"] = extract_title_from_html(soup)
+                    content = extract_content_html(soup)
+                else:
+                    s["title"] = "Untitled Section"
+                    content = RETRIEVAL_FAILED_HTML
+
+                if s["isChapterToc"]:
+                    continue  # title only; chapter TOCs are not stored as files
+
+                done += 1
+                print(f"  [{done}/{content_total}] {s['name']}")
+
+                if is_failed_section(content):
+                    failed += 1
+                    if diagnosed < 3:
+                        diagnosed += 1
+                        snippet = " ".join(raw[:300].split())
+                        print(f"    EMPTY EXTRACTION: {s['url']}", file=sys.stderr)
+                        print(f"      raw={len(raw)}B extracted={len(content.strip())}ch "
+                              f"title={s['title']!r} starts: {snippet}", file=sys.stderr)
+
+                results.append((s["id"], content))
+
+                # Bail as soon as the run is clearly failing rather than
+                # putting hundreds more requests through a government server.
+                if done >= EARLY_ABORT_SAMPLE and failed == done:
+                    raise RuntimeError(
+                        f"{code}: first {done} sections all came back empty — aborting "
+                        f"before issuing {content_total - done} more requests. "
+                        f"Leaving existing data untouched."
+                    )
+        finally:
+            try:
+                await page.close()
+            except Exception:
+                pass
+            await ctx.close()
+            await browser.close()
+
+    return results, failed
 
 
 # ── File writing ─────────────────────────────────────────────────────────────
@@ -839,33 +915,17 @@ def process_manual(entry: dict, force: bool = False) -> dict:
             f"scrape rather than real content loss. Leaving existing data untouched."
         )
 
-    # Buffer content in memory rather than writing as we go: the quality check
-    # below must be able to abandon a bad scrape without having already left
-    # half-written section files on disk, which the publish step would pick up.
-    fetched: list[tuple[str, str]] = []
-    failed = 0
-    for i, s in enumerate(content_sections, 1):
-        print(f"  [{i}/{len(content_sections)}] {s['name']}")
-        title, html = fetch_section_html(s["url"])
-        s["title"] = title
-        if is_failed_section(html):
-            failed += 1
-        fetched.append((s["id"], html))
-
-        # Bail as soon as it is clear the whole run is failing, instead of
-        # putting hundreds more doomed requests through a government server
-        # just to reach the ratio check below.
-        if i >= EARLY_ABORT_SAMPLE and failed == i:
-            raise RuntimeError(
-                f"{code}: first {i} sections all came back empty — aborting before "
-                f"issuing {len(content_sections) - i} more requests. "
-                f"Leaving existing data untouched."
-            )
+    # Content is fetched through a browser (the site serves plain HTTP clients
+    # a JS challenge instead of the document) and buffered in memory: the
+    # quality check below must be able to abandon a bad scrape without having
+    # left half-written files on disk for the publish step to pick up.
+    # Chapter TOC titles are resolved in the same pass.
+    fetched, failed = asyncio.run(fetch_sections_via_browser(code, sections))
 
     # The count guard above only proves we found the right *number* of
-    # sections. If the section fetches themselves are being blocked, every one
-    # of them is an error placeholder — the right count, no actual content —
-    # and publishing that would be worse than keeping the current data.
+    # sections. If the fetches themselves are being served a challenge page,
+    # every one extracts to nothing — right count, no content — and publishing
+    # that is worse than keeping the current data.
     if content_sections and failed > len(content_sections) * MAX_FAILED_SECTION_RATIO:
         raise RuntimeError(
             f"{code}: {failed} of {len(content_sections)} section fetches returned no "
@@ -877,14 +937,6 @@ def process_manual(entry: dict, force: bool = False) -> dict:
 
     for section_id, html in fetched:
         write_section(code, section_id, html)
-
-    # Fetch titles for chapter TOC entries (not stored as content, title only)
-    for s in sections:
-        if s["isChapterToc"]:
-            r = get(s["url"])
-            if r:
-                soup = BeautifulSoup(r.text, "lxml")
-                s["title"] = extract_title_from_html(soup)
 
     write_toc(code, latest, sections)
 

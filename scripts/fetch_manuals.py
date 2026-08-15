@@ -872,6 +872,26 @@ def write_section(code: str, section_id: str, html: str) -> None:
     path.write_text(html, encoding="utf-8")
 
 
+def prune_stale_sections(code: str, keep_ids: set[str]) -> int:
+    """Delete section files the new TOC no longer references.
+
+    Nothing has ever cleaned these up, so files linger whenever a manual's
+    section count shrinks or its numbering shifts. They are invisible to the
+    web app (it only follows toc.json) but they accumulate in the repo and
+    make it hard to tell healthy data from leftovers when inspecting it.
+    Only called once the guards have accepted the scrape.
+    """
+    out_dir = DATA_DIR / code / "s"
+    if not out_dir.is_dir():
+        return 0
+    removed = 0
+    for path in out_dir.glob("*.html"):
+        if path.stem not in keep_ids:
+            path.unlink()
+            removed += 1
+    return removed
+
+
 def existing_content_count(code: str) -> int:
     """Return the content-section count in the currently committed toc.json
     for this manual, or 0 if there isn't one / it can't be read. Used by the
@@ -964,6 +984,10 @@ def process_manual(entry: dict, force: bool = False) -> dict:
 
     for section_id, html in fetched:
         write_section(code, section_id, html)
+
+    stale = prune_stale_sections(code, {section_id for section_id, _ in fetched})
+    if stale:
+        print(f"  Removed {stale} stale section file(s) no longer in the TOC.")
 
     write_toc(code, latest, sections)
 

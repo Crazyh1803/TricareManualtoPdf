@@ -106,6 +106,18 @@ MIN_CONTENT_FOR_GUARD = 4  # don't guard tiny/first-ever manuals
 # the count guard and publish a manual full of error placeholders.
 MAX_FAILED_SECTION_RATIO = 0.5
 
+# A section whose extracted content is shorter than this counts as failed.
+# Run #42 published 199 sections averaging 1 byte each: the server answered
+# HTTP 200 but extract_content_html() reduced the body to an empty string, so
+# nothing registered as a failure and the empty files went live. Real sections
+# are kilobytes, so anything this small is a failure however it was produced.
+MIN_SECTION_CONTENT_CHARS = 200
+
+# If this many sections are attempted and every one comes back empty, stop
+# immediately rather than working through hundreds of doomed requests against
+# a government server before the ratio check fires at the end.
+EARLY_ABORT_SAMPLE = 10
+
 # CSS selectors for site chrome to strip from section HTML
 STRIP_SELECTORS = [
     "header", "footer", "nav", "#navigation", "#header", "#footer",
@@ -695,6 +707,15 @@ def extract_content_html(soup: BeautifulSoup) -> str:
 RETRIEVAL_FAILED_HTML = "<p>Content could not be retrieved.</p>"
 
 
+def is_failed_section(html: str) -> bool:
+    """True if this section's content is missing rather than merely short.
+
+    Covers both failure shapes: get() returning nothing, and the server
+    answering 200 with a body that extraction reduces to (almost) nothing.
+    """
+    return html == RETRIEVAL_FAILED_HTML or len(html.strip()) < MIN_SECTION_CONTENT_CHARS
+
+
 def fetch_section_html(url: str) -> tuple[str, str]:
     r = get(url)
     if r is None:
@@ -702,6 +723,15 @@ def fetch_section_html(url: str) -> tuple[str, str]:
     soup    = BeautifulSoup(r.text, "lxml")
     title   = extract_title_from_html(soup)
     content = extract_content_html(soup)
+    if is_failed_section(content):
+        # Show what the server actually sent. An empty extraction previously
+        # became a silent 1-byte file; logging the raw response makes the
+        # difference between "wrong URL", "blocked", and "changed markup"
+        # visible from the run log instead of requiring another guess.
+        snippet = " ".join(r.text[:300].split())
+        print(f"    EMPTY EXTRACTION: {url}", file=sys.stderr)
+        print(f"      raw={len(r.text)}B extracted={len(content.strip())}ch "
+              f"title={title!r} starts: {snippet}", file=sys.stderr)
     return title, content
 
 
@@ -818,9 +848,19 @@ def process_manual(entry: dict, force: bool = False) -> dict:
         print(f"  [{i}/{len(content_sections)}] {s['name']}")
         title, html = fetch_section_html(s["url"])
         s["title"] = title
-        if html == RETRIEVAL_FAILED_HTML:
+        if is_failed_section(html):
             failed += 1
         fetched.append((s["id"], html))
+
+        # Bail as soon as it is clear the whole run is failing, instead of
+        # putting hundreds more doomed requests through a government server
+        # just to reach the ratio check below.
+        if i >= EARLY_ABORT_SAMPLE and failed == i:
+            raise RuntimeError(
+                f"{code}: first {i} sections all came back empty — aborting before "
+                f"issuing {len(content_sections) - i} more requests. "
+                f"Leaving existing data untouched."
+            )
 
     # The count guard above only proves we found the right *number* of
     # sections. If the section fetches themselves are being blocked, every one

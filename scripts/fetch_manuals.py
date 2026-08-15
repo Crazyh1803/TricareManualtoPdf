@@ -78,6 +78,19 @@ REQUEST_DELAY = 1.5
 # window reset before we begin the next manual.
 MANUAL_COOLDOWN_SECS = 60
 
+# Pause between browser navigations when fetching section content. The site
+# starts resetting connections (net::ERR_CONNECTION_RESET) when pages are
+# requested back to back — the same behaviour MANUAL_COOLDOWN_SECS above was
+# added for. The browser path needs its own throttle; it does not inherit
+# REQUEST_DELAY, which only applies to the requests session.
+SECTION_NAV_DELAY = 2.0
+
+# A reset connection is transient, so retry rather than writing the section
+# off. Backoff is per attempt (8s, then 16s), which also lets a rate-limit
+# window drain before trying again.
+SECTION_FETCH_ATTEMPTS = 3
+SECTION_RETRY_BACKOFF = 8.0
+
 # How many change numbers past the known one to probe when detecting the
 # latest version.  The walk breaks at the first candidate that fails, so in
 # steady state this costs one extra probe regardless of the ceiling — the
@@ -752,20 +765,34 @@ async def fetch_sections_via_browser(
         browser, ctx = await _launch_context(pw)
         page = await ctx.new_page()
         try:
+            first = True
             for s in sections:
+                # Throttle navigations: hammering the site back to back is what
+                # provokes the connection resets.
+                if not first:
+                    await asyncio.sleep(SECTION_NAV_DELAY)
+                first = False
+
                 raw = ""
-                try:
-                    await page.goto(s["url"], wait_until="networkidle", timeout=30_000)
-                    await page.wait_for_timeout(400)
-                    raw = await page.content()
-                except Exception as e:
-                    print(f"    (browser fetch failed for {s['url']}: {e})", file=sys.stderr)
-                    # The page may be wedged — replace it before continuing.
+                for attempt in range(1, SECTION_FETCH_ATTEMPTS + 1):
                     try:
-                        await page.close()
-                    except Exception:
-                        pass
-                    page = await ctx.new_page()
+                        await page.goto(s["url"], wait_until="domcontentloaded", timeout=30_000)
+                        await page.wait_for_timeout(700)
+                        raw = await page.content()
+                        if raw.strip():
+                            break
+                    except Exception as e:
+                        reason = str(e).split("\n", 1)[0]
+                        print(f"    (attempt {attempt}/{SECTION_FETCH_ATTEMPTS} failed for "
+                              f"{s['url']}: {reason})", file=sys.stderr)
+                        # The page may be wedged after a reset — replace it.
+                        try:
+                            await page.close()
+                        except Exception:
+                            pass
+                        page = await ctx.new_page()
+                    if attempt < SECTION_FETCH_ATTEMPTS:
+                        await asyncio.sleep(SECTION_RETRY_BACKOFF * attempt)
 
                 if raw:
                     soup = BeautifulSoup(raw, "lxml")

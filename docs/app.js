@@ -563,13 +563,19 @@ function mdTable(table) {
 
   async function fetchCount(url) {
     const res = await fetch(PROXY + encodeURIComponent(url));
-    if (!res.ok) return null;
+    if (!res.ok) {
+      console.warn(`[visitor counter] proxy fetch failed for ${url}: HTTP ${res.status}`);
+      return null;
+    }
     const svg = await res.text();
     const doc = new DOMParser().parseFromString(svg, 'image/svg+xml');
+    // Tolerate thousands separators (e.g. "1,234") in case hits.sh formats
+    // large counts that way — the old bare \d+ check would silently reject them.
     for (const el of doc.querySelectorAll('text')) {
       const v = el.textContent.trim();
-      if (/^\d+$/.test(v)) return parseInt(v, 10);
+      if (/^[\d,]+$/.test(v)) return parseInt(v.replace(/,/g, ''), 10);
     }
+    console.warn(`[visitor counter] no numeric <text> found in SVG from ${url}`, svg.slice(0, 200));
     return null;
   }
 
@@ -588,12 +594,18 @@ function mdTable(table) {
     const elUniq  = document.getElementById('vc-unique');
     if (hits   != null && elTotal) elTotal.textContent = hits.toLocaleString();
     if (unique != null && elUniq)  elUniq.textContent  = unique.toLocaleString();
+    if (hits == null || unique == null) {
+      console.warn('[visitor counter] one or both counts unavailable this load', { hits, unique });
+    }
 
     // Persist after display so a partial failure doesn't lock out future retries.
     if (isNew)                           localStorage.setItem('mb_visited', '1');
     if (needUniq && fetchedUniq != null) localStorage.setItem('mb_uniq', String(fetchedUniq));
-  } catch {
-    // Counter unavailable — displays stay as "—"
+  } catch (e) {
+    // Counter unavailable — displays stay as "—". Logged so a live failure
+    // (proxy down, hits.sh format change, CORS, etc.) is diagnosable instead
+    // of silently invisible.
+    console.warn('[visitor counter] unavailable:', e);
   }
 })();
 

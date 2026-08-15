@@ -310,7 +310,50 @@ async def _toc_has_sections(ctx, code: str, change: int) -> bool:
         await page.close()
 
 
-async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int | None, list[str]]:
+async def _collect_chapter_sections(ctx, chapter_toc_url: str) -> list[str]:
+    """Render one chapter TOC page in the browser and return its section URLs.
+
+    Restricted to the chapter's own directory: chapters cross-reference other
+    manuals and publications ("../tpt5/...", "../fr16/...") which resolve to
+    valid DisplayManualHtmlFile URLs but belong elsewhere.
+    """
+    # One bad chapter must not abort the whole manual, so every browser
+    # interaction here is contained — including new_page() itself.
+    page = None
+    try:
+        page = await ctx.new_page()
+        try:
+            await page.goto(chapter_toc_url, wait_until="networkidle", timeout=25_000)
+        except Exception:
+            pass  # partial render is still worth scraping
+        await page.wait_for_timeout(1_500)
+        found = await _collect_display_hrefs(page, chapter_toc_url)
+    except Exception as e:
+        print(f"    (browser fetch failed for {chapter_toc_url}: {e})", file=sys.stderr)
+        return []
+    finally:
+        if page is not None:
+            try:
+                await page.close()
+            except Exception:
+                pass
+
+    base_dir = chapter_toc_url.rsplit("/", 1)[0] + "/"
+    seen: set[str] = set()
+    out: list[str] = []
+    for u in found:
+        u = urldefrag(u)[0]
+        if not u.lower().startswith(base_dir.lower()):
+            continue
+        if is_chapter_toc_name(Path(urlparse(u).path).name):
+            continue  # self-reference / sibling chapter TOC
+        if u not in seen:
+            seen.add(u)
+            out.append(u)
+    return out
+
+
+async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int | None, list[str], list[str]]:
     """
     Single Playwright session that detects the latest change number AND
     collects the top-level TOC URLs (chapter TOCs + front matter).
@@ -322,7 +365,7 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
       DisplayManualHtmlFile section links.  This avoids the false-positive
       caused by the site always returning HTTP 200, even for invalid changes.
 
-    Returns (latest_change, top_level_urls).
+    Returns (latest_change, top_level_urls, chapter_section_urls).
     """
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(
@@ -458,10 +501,35 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                     print(f"  [{code}] All hrefs on page ({len(unique_hrefs)} unique):")
                     for h in unique_hrefs[:30]:
                         print(f"    {h}")
-
-                return latest, urls
             finally:
                 await page.close()
+
+            # ── Stage 2: section links from each chapter TOC, same browser ──
+            # Done inside this context on purpose: a plain requests.Session()
+            # returns these pages with no section links at all (every chapter
+            # reported "0 section(s)"), while Playwright reads the same pages
+            # fine — so the browser's rendering/session is what makes them
+            # readable. Reusing the open context also keeps cookies warm.
+            chapter_toc_urls = [
+                u for u in urls
+                if is_chapter_toc_name(Path(urlparse(u).path).name)
+            ]
+            section_urls: list[str] = []
+            if chapter_toc_urls:
+                print(f"  [{code}] Stage 2: {len(chapter_toc_urls)} chapter TOC(s) via browser…")
+            for i, chap_url in enumerate(chapter_toc_urls, 1):
+                secs = await _collect_chapter_sections(ctx, chap_url)
+                note = ""
+                if not secs:
+                    # Last resort: the old plain-requests path.
+                    secs = fetch_chapter_section_urls(chap_url)
+                    note = " [requests fallback]"
+                    if not secs:
+                        note = f" [EMPTY] {chap_url}"
+                print(f"    Chapter TOC {i}/{len(chapter_toc_urls)}: {len(secs)} section(s){note}")
+                section_urls.extend(secs)
+
+            return latest, urls, section_urls
         finally:
             await ctx.close()
             await browser.close()
@@ -686,7 +754,9 @@ def process_manual(entry: dict, force: bool = False) -> dict:
     _raw = entry.get("latestChange")
     known = _raw if _raw is not None else 1  # preserve 0 (special sentinel for TRT5)
     print("  Discovering latest change + collecting TOC URLs via Playwright…")
-    latest, top_urls = asyncio.run(fetch_change_and_toc_urls(code, known))
+    latest, top_urls, chapter_section_urls = asyncio.run(
+        fetch_change_and_toc_urls(code, known)
+    )
     if latest is None:
         print("  Skipping — could not detect latest change number.")
         return entry
@@ -703,14 +773,11 @@ def process_manual(entry: dict, force: bool = False) -> dict:
     front_matter_urls = [u for u in top_urls if not is_chapter_toc_name(Path(urlparse(u).path).name)]
     print(f"  Found {len(chapter_toc_urls)} chapter TOC(s) + {len(front_matter_urls)} front-matter page(s).")
 
-    # ── Stage 2: get individual section URLs from each chapter TOC page ────────
-    print("  Stage 2: collecting section URLs from chapter TOC pages…")
+    # Section URLs were gathered during the Playwright pass above (Stage 2).
     all_section_urls: list[str] = list(front_matter_urls)
     all_section_urls.extend(chapter_toc_urls)  # keep chapter TOCs for isChapterToc metadata
-    for i, chap_url in enumerate(chapter_toc_urls, 1):
-        sec_urls = fetch_chapter_section_urls(chap_url)
-        print(f"    Chapter TOC {i}/{len(chapter_toc_urls)}: {len(sec_urls)} section(s)")
-        all_section_urls.extend(sec_urls)
+    all_section_urls.extend(chapter_section_urls)
+    print(f"  Stage 2 returned {len(chapter_section_urls)} section URL(s).")
 
     sections = build_toc_sections(all_section_urls)
     print(f"  Built {len(sections)} total section entries.")

@@ -135,12 +135,15 @@ a:hover { text-decoration: underline; }
 }
 
 /* Manual Cards */
+/* Fixed 3 columns so five manuals always lay out 3 on top, 2 below.
+   auto-fit with a 280px minimum only fitted 2 columns between roughly
+   769px and 991px, which broke the rows into 2 + 2 + 1 at common laptop
+   window widths. */
 .manual-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 32px;
-  justify-content: center;
 }
 
 /* Skeleton loaders */
@@ -840,14 +843,12 @@ a:hover { text-decoration: underline; }
 
   .reader-content { padding: 16px 14px 40px; }
 
-  .manual-grid { grid-template-columns: 1fr; }
-
   .back-btn span { display: none; }
 
   .home-main { padding: 20px 12px 60px; }
 
   /* 2 columns on tablet */
-  .manual-grid { grid-template-columns: repeat(2, 1fr); }
+  .manual-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 480px) {

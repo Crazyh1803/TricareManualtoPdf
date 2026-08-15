@@ -68,8 +68,37 @@ HEADERS = {
     "Accept-Language": "en-US,en;q=0.5",
 }
 
-# Throttle between requests (seconds) — be a polite scraper
-REQUEST_DELAY = 0.5
+# Throttle between individual section HTTP requests (seconds).
+# manuals.health.mil rate-limits aggressively; 0.5s was too fast.
+REQUEST_DELAY = 1.5
+
+# Cooldown between processing different manuals (seconds).
+# After scraping 50–80+ sections for one manual the server starts
+# resetting connections.  A 60-second pause lets the rate-limit
+# window reset before we begin the next manual.
+MANUAL_COOLDOWN_SECS = 60
+
+# How many change numbers past the known one to probe when detecting the
+# latest version.  The walk breaks at the first candidate that fails, so in
+# steady state this costs one extra probe regardless of the ceiling — the
+# headroom only matters when catching up after the baseline has gone stale
+# (previously hardcoded to 5, which capped TOT5 at exactly known+5 and made
+# it impossible to close a multi-month gap in a single run).
+#
+# NOTE: only safe alongside the Change=-parameter validation in
+# _toc_has_sections().  The site returns HTTP 200 and serves current content
+# for *any* change number, so a bare "does the page have links?" check
+# reports every candidate as valid and a large ceiling would run away.
+FORWARD_WALK_LIMIT = 30
+
+# A manual's new content-section count must be at least this fraction of
+# what's already on disk, or the scrape is treated as failed (see the
+# regression guard in process_manual()). Guards against a rate-limited or
+# blocked run silently publishing a near-empty manual — this is what broke
+# TOT5 for weeks: every fetch legitimately returned HTTP 200, so nothing
+# flagged the collapse from 54 content sections down to 1.
+MIN_CONTENT_RATIO = 0.5
+MIN_CONTENT_FOR_GUARD = 4  # don't guard tiny/first-ever manuals
 
 # CSS selectors for site chrome to strip from section HTML
 STRIP_SELECTORS = [
@@ -186,12 +215,17 @@ def parse_chapter_section(name: str) -> tuple[int, str]:
 # ── TOC collection via Playwright ────────────────────────────────────────────
 
 async def _expand_toc(page) -> None:
-    """Click 'Expand All' if present and wait for the tree to render."""
+    """Click 'Expand All' if present and wait for the tree to render.
+
+    Uses only very specific selectors — the generic 'a:has-text(Expand)'
+    is intentionally omitted because it can match unrelated navigation links
+    (e.g. on TRT5) and navigate the page away from the TOC entirely.
+    """
     selectors = [
         "a:has-text('Expand All')",
         "button:has-text('Expand All')",
-        "a[title*='Expand']",
-        "a:has-text('Expand')",
+        "input[value*='Expand All']",
+        "a[title='Expand All']",
     ]
     for frame in page.frames:
         for sel in selectors:
@@ -233,7 +267,15 @@ async def _collect_display_hrefs(page, base_url: str) -> list[str]:
 
 
 async def _toc_has_sections(ctx, code: str, change: int) -> bool:
-    """Return True if the TOC page for this change has DisplayManualHtmlFile links."""
+    """Return True if the TOC page for this change *genuinely* has sections.
+
+    The TRICARE site returns HTTP 200 for ANY change number (even non-existent
+    ones), serving the current content instead.  The only reliable test is to
+    check whether the section links that appear on the page actually reference
+    the requested Change number.  If all links carry a *different* Change value
+    the server redirected us to a different version, which means this change
+    does not exist yet.
+    """
     toc_url = TOC_URL.format(code=code, change=change)
     page = await ctx.new_page()
     try:
@@ -243,7 +285,27 @@ async def _toc_has_sections(ctx, code: str, change: int) -> bool:
             pass
         await page.wait_for_timeout(2_000)
         urls = await _collect_display_hrefs(page, toc_url)
-        return len(urls) > 0
+        if not urls:
+            return False
+
+        # Inspect Change= parameters in the returned URLs.
+        change_vals: set[int] = set()
+        has_paramless = False
+        for url in urls:
+            m = _CHANGE_PARAM_RE.search(url)
+            if m:
+                change_vals.add(int(m.group(1)))
+            else:
+                has_paramless = True  # URL has no Change param — can't validate
+
+        if has_paramless or not change_vals:
+            # Cannot validate via Change= param → fall back to "has links" check
+            return True
+
+        # If *any* returned link matches the requested change, the page is valid.
+        # If all links carry a different change number the site silently served a
+        # different version, so this change does not actually exist.
+        return change in change_vals
     finally:
         await page.close()
 
@@ -254,27 +316,86 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
     collects the top-level TOC URLs (chapter TOCs + front matter).
 
     Version detection:
-      Start from known_change (from manuals.json).  Check up to 5 increments
-      ahead — a change is "valid" only if its TOC page actually renders
+      Start from known_change (from manuals.json).  Check up to
+      FORWARD_WALK_LIMIT increments ahead, stopping at the first candidate
+      that fails — a change is "valid" only if its TOC page actually renders
       DisplayManualHtmlFile section links.  This avoids the false-positive
       caused by the site always returning HTTP 200, even for invalid changes.
 
     Returns (latest_change, top_level_urls).
     """
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(headless=True)
-        ctx = await browser.new_context(ignore_https_errors=True)
+        browser = await pw.chromium.launch(
+            headless=True,
+            args=["--disable-blink-features=AutomationControlled"],
+        )
+        ctx = await browser.new_context(
+            ignore_https_errors=True,
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            ),
+            viewport={"width": 1280, "height": 900},
+            extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
+        )
+        # Hide the navigator.webdriver property that sites use for bot detection
+        await ctx.add_init_script(
+            "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+        )
         try:
             # ── Detect latest change ──────────────────────────────────────────
             # Walk forward from known_change until we find one with no links.
             latest = known_change
             print(f"  [{code}] Checking change {latest} (known)…")
             if not await _toc_has_sections(ctx, code, latest):
-                # Known change itself has no sections — server may be down or
-                # content not yet published.  Return known value anyway.
-                print(f"  [{code}] Known change {latest} has no sections (server issue?)", file=sys.stderr)
+                # The known change failed URL-param validation — the site may be
+                # serving a newer version than we have recorded.  Try to recover
+                # by reading the actual Change= value from the served links.
+                toc_url_probe = TOC_URL.format(code=code, change=latest)
+                probe_page = await ctx.new_page()
+                try:
+                    try:
+                        await probe_page.goto(toc_url_probe, wait_until="networkidle", timeout=20_000)
+                    except Exception:
+                        pass
+                    await probe_page.wait_for_timeout(2_000)
+                    probe_urls = await _collect_display_hrefs(probe_page, toc_url_probe)
+                finally:
+                    await probe_page.close()
+
+                served_change: int | None = None
+                for u in probe_urls:
+                    m = _CHANGE_PARAM_RE.search(u)
+                    if m:
+                        served_change = int(m.group(1))
+                        break
+
+                if served_change and served_change != latest:
+                    print(
+                        f"  [{code}] Site served Change={served_change} when asked for "
+                        f"Change={latest}. Advancing known to {served_change}.",
+                        file=sys.stderr,
+                    )
+                    latest = served_change
+                    # Walk forward from the discovered change
+                    for candidate in range(served_change + 1, served_change + 1 + FORWARD_WALK_LIMIT):
+                        print(f"  [{code}] Checking change {candidate}…")
+                        if await _toc_has_sections(ctx, code, candidate):
+                            latest = candidate
+                        else:
+                            break
+                else:
+                    print(f"  [{code}] Known change {latest} has no sections (server issue?)", file=sys.stderr)
+            elif known_change == 0:
+                # Change=0 is a special "always-current" sentinel used by manuals
+                # whose TOC links are date-based (no ?Change= parameter).  The
+                # server accepts any numeric change value and returns the same
+                # content, so a forward walk would just keep incrementing the
+                # number every CI run forever.  Pin to 0 and skip it entirely.
+                print(f"  [{code}] Change=0 sentinel — skipping forward walk.")
             else:
-                for candidate in range(known_change + 1, known_change + 6):
+                for candidate in range(known_change + 1, known_change + 1 + FORWARD_WALK_LIMIT):
                     print(f"  [{code}] Checking change {candidate}…")
                     if await _toc_has_sections(ctx, code, candidate):
                         latest = candidate
@@ -292,22 +413,40 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                 except Exception as e:
                     print(f"  [{code}] goto failed ({e}), continuing…", file=sys.stderr)
 
-                await page.wait_for_timeout(2_000)
-                await _expand_toc(page)
-                await page.wait_for_timeout(3_000)
-
+                # ── Pass 1: progressive waits, collect without expanding ───────
+                # eval_on_selector_all sees all DOM nodes including hidden ones
+                # so collapsed trees are still found.  Collecting before any
+                # expand avoids the risk that clicking a nav link navigates
+                # the page away (observed on TRT5 with the old broad selectors).
+                # Mirror the PDF tool's progressive strategy: 2s → 5s → 8s.
                 urls: list[str] = []
-                for wait_s in (0, 2, 5):
-                    if wait_s:
-                        await page.wait_for_timeout(wait_s * 1_000)
+                for wait_ms in (2_000, 3_000, 5_000):
+                    await page.wait_for_timeout(wait_ms)
                     urls = await _collect_display_hrefs(page, toc_url)
-                    print(f"  [{code}] After expand+{wait_s}s: {len(urls)} URLs found")
+                    print(f"  [{code}] Pass-1 after {wait_ms//1000}s: {len(urls)} URLs")
                     if urls:
                         break
 
+                # ── Pass 2: expand and re-collect only if Pass 1 found nothing ─
                 if not urls:
+                    await _expand_toc(page)
+                    await page.wait_for_timeout(5_000)
+                    for wait_s in (0, 3, 5):
+                        if wait_s:
+                            await page.wait_for_timeout(wait_s * 1_000)
+                        urls = await _collect_display_hrefs(page, toc_url)
+                        print(f"  [{code}] Pass-2 after expand+{wait_s}s: {len(urls)} URLs")
+                        if urls:
+                            break
+
+                if not urls:
+                    # ── Diagnostics: print everything visible to help debug ────
+                    page_title = await page.title()
+                    print(f"  [{code}] Page title: {page_title!r}")
+                    print(f"  [{code}] Frames on page:")
                     all_hrefs: list[str] = []
                     for frame in page.frames:
+                        print(f"    frame url: {frame.url}")
                         try:
                             hs = await frame.eval_on_selector_all(
                                 "a", "els => els.map(a => a.href || '')"
@@ -315,9 +454,10 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                             all_hrefs.extend(h for h in (hs or []) if h)
                         except Exception:
                             pass
-                    print(f"  [{code}] Sample hrefs on page (first 10):", file=sys.stderr)
-                    for h in list(dict.fromkeys(all_hrefs))[:10]:
-                        print(f"    {h}", file=sys.stderr)
+                    unique_hrefs = list(dict.fromkeys(all_hrefs))
+                    print(f"  [{code}] All hrefs on page ({len(unique_hrefs)} unique):")
+                    for h in unique_hrefs[:30]:
+                        print(f"    {h}")
 
                 return latest, urls
             finally:
@@ -506,6 +646,20 @@ def write_section(code: str, section_id: str, html: str) -> None:
     path.write_text(html, encoding="utf-8")
 
 
+def existing_content_count(code: str) -> int:
+    """Return the content-section count in the currently committed toc.json
+    for this manual, or 0 if there isn't one / it can't be read. Used by the
+    regression guard in process_manual() to detect a collapsed scrape."""
+    path = DATA_DIR / code / "toc.json"
+    if not path.exists():
+        return 0
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return sum(1 for s in data.get("sections", []) if not s.get("isChapterToc"))
+    except Exception:
+        return 0
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 def process_manual(entry: dict, force: bool = False) -> dict:
     code = entry["code"]
@@ -513,7 +667,8 @@ def process_manual(entry: dict, force: bool = False) -> dict:
     print(f"\n{'='*60}")
     print(f"  Manual: {name} ({code})")
 
-    known = entry.get("latestChange", 1) or 1
+    _raw = entry.get("latestChange")
+    known = _raw if _raw is not None else 1  # preserve 0 (special sentinel for TRT5)
     print("  Discovering latest change + collecting TOC URLs via Playwright…")
     latest, top_urls = asyncio.run(fetch_change_and_toc_urls(code, known))
     if latest is None:
@@ -547,6 +702,20 @@ def process_manual(entry: dict, force: bool = False) -> dict:
     # Fetch titles and content for each non-chapter-TOC section
     content_sections = [s for s in sections if not s["isChapterToc"]]
     print(f"  Fetching titles + content for {len(content_sections)} content sections…")
+
+    # ── Regression guard ────────────────────────────────────────────────────
+    # A rate-limited or blocked run can still return HTTP 200 for every
+    # request while Stage 2 finds zero real section links per chapter — that
+    # is exactly what silently broke TOT5 for weeks (82/54 sections collapsed
+    # to 29/1, and nothing flagged it because there was no HTTP error to
+    # catch). Refuse to overwrite good data with a scrape that collapsed.
+    prev_count = existing_content_count(code)
+    if prev_count >= MIN_CONTENT_FOR_GUARD and len(content_sections) < prev_count * MIN_CONTENT_RATIO:
+        raise RuntimeError(
+            f"{code}: new scrape found only {len(content_sections)} content section(s), "
+            f"down from {prev_count} currently on disk — looks like a blocked/rate-limited "
+            f"scrape rather than real content loss. Leaving existing data untouched."
+        )
 
     for i, s in enumerate(content_sections, 1):
         print(f"  [{i}/{len(content_sections)}] {s['name']}")
@@ -647,10 +816,14 @@ def main():
 
     updated_manuals = []
     errors = []
+    processed_count = 0
     for entry in data["manuals"]:
         if args.code and entry["code"] != args.code:
             updated_manuals.append(entry)
             continue
+        if processed_count > 0:
+            print(f"\nCooling down {MANUAL_COOLDOWN_SECS}s before next manual to avoid rate-limiting…")
+            time.sleep(MANUAL_COOLDOWN_SECS)
         try:
             updated_manuals.append(process_manual(entry, force=args.force))
         except Exception as exc:
@@ -659,6 +832,7 @@ def main():
             traceback.print_exc()
             errors.append(entry["code"])
             updated_manuals.append(entry)  # keep existing entry unchanged
+        processed_count += 1
 
     data["manuals"]     = updated_manuals
     data["lastUpdated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")

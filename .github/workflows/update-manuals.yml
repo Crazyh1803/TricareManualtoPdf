@@ -37,7 +37,25 @@ jobs:
         with:
           fetch-depth: 1
 
-      # 2. Set up Python
+      # 2. Seed docs/data/ from the web branch — main's own copy stopped being
+      #    updated back in May 2026 (scraped content only ever gets pushed to
+      #    web, see step 7). Without this the runner starts from that frozen
+      #    snapshot, which caused two compounding bugs:
+      #      a) the scraper re-seeded its "known change" from stale values, so
+      #         detection could never progress; and
+      #      b) step 7 copies this whole directory over web's, so any manual
+      #         the scraper skipped as "up to date" had its live content reset
+      #         to the May snapshot every single run (TPT5/TRT5/TST5 had not
+      #         been genuinely re-fetched since then).
+      #    Reading web's data into the runner fixes both. Nothing is pushed
+      #    back to main — main's docs/data/ stays as-is.
+      - name: Seed docs/data from web branch
+        run: |
+          git fetch origin web
+          rm -rf docs/data
+          git archive origin/web docs/data | tar -x
+
+      # 3. Set up Python
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
@@ -45,15 +63,15 @@ jobs:
           cache: 'pip'
           cache-dependency-path: scripts/requirements.txt
 
-      # 3. Install dependencies
+      # 4. Install dependencies
       - name: Install Python dependencies
         run: pip install -r scripts/requirements.txt
 
-      # 4. Install Playwright browser (needed for JS-rendered TOC pages)
+      # 5. Install Playwright browser (needed for JS-rendered TOC pages)
       - name: Install Playwright browser
         run: playwright install --with-deps chromium
 
-      # 5. Run scraper
+      # 6. Run scraper
       - name: Fetch manual content
         run: |
           CODE_ARG=""
@@ -66,7 +84,7 @@ jobs:
           fi
           python scripts/fetch_manuals.py $CODE_ARG $FORCE_ARG
 
-      # 6. Commit updated data files to the web branch (where GitHub Pages serves from)
+      # 7. Commit updated data files to the web branch (where GitHub Pages serves from)
       - name: Commit updated content to web branch
         run: |
           git config user.name  "github-actions[bot]"

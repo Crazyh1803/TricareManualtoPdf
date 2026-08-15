@@ -255,6 +255,7 @@ async function loadSection(idx) {
     const res = await fetch(`${DATA_ROOT}/${state.currentCode}/s/${section.id}.html`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const html = await res.text();
+    if (!html.trim()) throw new Error('Empty section content');
     setReaderContent(`<h2 style="margin-bottom:1rem">${escHtml(section.title)}</h2>${html}`);
     scrollReaderToTop();
   } catch (e) {
@@ -429,11 +430,18 @@ async function exportManual(code, format) {
     sections.map(async s => {
       try {
         const res = await fetch(`${DATA_ROOT}/${code}/s/${s.id}.html`);
-        return res.ok ? { title: s.title, html: await res.text() } : null;
+        if (!res.ok) return null;
+        const html = await res.text();
+        return html.trim() ? { title: s.title, html } : null;
       } catch { return null; }
     })
   );
   const valid = fetched.filter(Boolean);
+
+  if (!valid.length) {
+    showToast('No content available for this manual yet — try again later');
+    return;
+  }
 
   if (format === 'md') {
     const lines = [`# ${name}\n`];

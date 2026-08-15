@@ -100,6 +100,12 @@ FORWARD_WALK_LIMIT = 30
 MIN_CONTENT_RATIO = 0.5
 MIN_CONTENT_FOR_GUARD = 4  # don't guard tiny/first-ever manuals
 
+# Companion to the count guard: the fraction of section fetches allowed to come
+# back empty before the whole scrape is treated as failed. Finding the right
+# number of sections but retrieving none of their content would otherwise pass
+# the count guard and publish a manual full of error placeholders.
+MAX_FAILED_SECTION_RATIO = 0.5
+
 # CSS selectors for site chrome to strip from section HTML
 STRIP_SELECTORS = [
     "header", "footer", "nav", "#navigation", "#header", "#footer",
@@ -686,10 +692,13 @@ def extract_content_html(soup: BeautifulSoup) -> str:
     return content.decode_contents()
 
 
+RETRIEVAL_FAILED_HTML = "<p>Content could not be retrieved.</p>"
+
+
 def fetch_section_html(url: str) -> tuple[str, str]:
     r = get(url)
     if r is None:
-        return "Untitled Section", "<p>Content could not be retrieved.</p>"
+        return "Untitled Section", RETRIEVAL_FAILED_HTML
     soup    = BeautifulSoup(r.text, "lxml")
     title   = extract_title_from_html(soup)
     content = extract_content_html(soup)
@@ -800,11 +809,34 @@ def process_manual(entry: dict, force: bool = False) -> dict:
             f"scrape rather than real content loss. Leaving existing data untouched."
         )
 
+    # Buffer content in memory rather than writing as we go: the quality check
+    # below must be able to abandon a bad scrape without having already left
+    # half-written section files on disk, which the publish step would pick up.
+    fetched: list[tuple[str, str]] = []
+    failed = 0
     for i, s in enumerate(content_sections, 1):
         print(f"  [{i}/{len(content_sections)}] {s['name']}")
         title, html = fetch_section_html(s["url"])
         s["title"] = title
-        write_section(code, s["id"], html)
+        if html == RETRIEVAL_FAILED_HTML:
+            failed += 1
+        fetched.append((s["id"], html))
+
+    # The count guard above only proves we found the right *number* of
+    # sections. If the section fetches themselves are being blocked, every one
+    # of them is an error placeholder — the right count, no actual content —
+    # and publishing that would be worse than keeping the current data.
+    if content_sections and failed > len(content_sections) * MAX_FAILED_SECTION_RATIO:
+        raise RuntimeError(
+            f"{code}: {failed} of {len(content_sections)} section fetches returned no "
+            f"content — the server is refusing content requests. Leaving existing data "
+            f"untouched."
+        )
+    if failed:
+        print(f"  Note: {failed}/{len(content_sections)} section(s) could not be retrieved.")
+
+    for section_id, html in fetched:
+        write_section(code, section_id, html)
 
     # Fetch titles for chapter TOC entries (not stored as content, title only)
     for s in sections:

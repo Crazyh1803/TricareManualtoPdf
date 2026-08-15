@@ -139,6 +139,12 @@ MIN_SECTION_CONTENT_CHARS = 200
 # a government server before the ratio check fires at the end.
 EARLY_ABORT_SAMPLE = 10
 
+# How long to let a section page settle after navigation. The retry pass uses
+# the slower value together with wait_until="networkidle", to give genuinely
+# slow JS-rendered pages a second chance before they are written off.
+SECTION_SETTLE_MS = 700
+SECTION_SETTLE_SLOW_MS = 3_000
+
 # CSS selectors for site chrome to strip from section HTML
 STRIP_SELECTORS = [
     "header", "footer", "nav", "#navigation", "#header", "#footer",
@@ -757,6 +763,24 @@ def extract_content_html(soup: BeautifulSoup) -> str:
 RETRIEVAL_FAILED_HTML = "<p>Content could not be retrieved.</p>"
 
 
+def unavailable_html(url: str) -> str:
+    """Stand-in for a section whose text could not be extracted.
+
+    Some pages draw their content into a <canvas> rather than emitting HTML —
+    every manual's front matter does this, and so does FR16 chapter 199.1.
+    There is no text in the DOM to recover at any wait duration, and the
+    43-byte canvas element that extraction returns reads as missing content in
+    both the reader and the Markdown export. A link to the official page is
+    honest and usable; a blank section is neither.
+    """
+    return (
+        "<p><em>This section could not be extracted as text — the official "
+        "page renders it as an image.</em></p>\n"
+        f'<p><a href="{url}" target="_blank" rel="noopener">'
+        "Read this section on manuals.health.mil</a></p>"
+    )
+
+
 def is_failed_section(html: str) -> bool:
     """True if this section's content is missing rather than merely short.
 
@@ -798,13 +822,22 @@ async def fetch_sections_via_browser(
                 first = False
 
                 raw = ""
+                content = RETRIEVAL_FAILED_HTML
+                s["title"] = "Untitled Section"
+                ok = False
                 for attempt in range(1, SECTION_FETCH_ATTEMPTS + 1):
+                    # Retry escalates the wait: the first pass is fast, later
+                    # ones wait for the network to go idle so a slow
+                    # JS-rendered page has time to fill itself in. Extraction
+                    # is judged inside the loop — a page can return a complete
+                    # document that still yields no text, which the old
+                    # "did we get any HTML?" check accepted on the first try.
+                    wait_until = "domcontentloaded" if attempt == 1 else "networkidle"
+                    settle = SECTION_SETTLE_MS if attempt == 1 else SECTION_SETTLE_SLOW_MS
                     try:
-                        await page.goto(s["url"], wait_until="domcontentloaded", timeout=30_000)
-                        await page.wait_for_timeout(700)
+                        await page.goto(s["url"], wait_until=wait_until, timeout=30_000)
+                        await page.wait_for_timeout(settle)
                         raw = await page.content()
-                        if raw.strip():
-                            break
                     except Exception as e:
                         reason = str(e).split("\n", 1)[0]
                         print(f"    (attempt {attempt}/{SECTION_FETCH_ATTEMPTS} failed for "
@@ -815,16 +848,18 @@ async def fetch_sections_via_browser(
                         except Exception:
                             pass
                         page = await ctx.new_page()
+                        raw = ""
+
+                    if raw.strip():
+                        soup = BeautifulSoup(raw, "lxml")
+                        s["title"] = extract_title_from_html(soup)
+                        content = extract_content_html(soup)
+                        if not is_failed_section(content):
+                            ok = True
+                            break
+
                     if attempt < SECTION_FETCH_ATTEMPTS:
                         await asyncio.sleep(SECTION_RETRY_BACKOFF * attempt)
-
-                if raw:
-                    soup = BeautifulSoup(raw, "lxml")
-                    s["title"] = extract_title_from_html(soup)
-                    content = extract_content_html(soup)
-                else:
-                    s["title"] = "Untitled Section"
-                    content = RETRIEVAL_FAILED_HTML
 
                 if s["isChapterToc"]:
                     continue  # title only; chapter TOCs are not stored as files
@@ -832,7 +867,7 @@ async def fetch_sections_via_browser(
                 done += 1
                 print(f"  [{done}/{content_total}] {s['name']}")
 
-                if is_failed_section(content):
+                if not ok:
                     failed += 1
                     if diagnosed < 3:
                         diagnosed += 1
@@ -840,6 +875,12 @@ async def fetch_sections_via_browser(
                         print(f"    EMPTY EXTRACTION: {s['url']}", file=sys.stderr)
                         print(f"      raw={len(raw)}B extracted={len(content.strip())}ch "
                               f"title={s['title']!r} starts: {snippet}", file=sys.stderr)
+                    # Leave a link to the official page rather than a blank
+                    # section: some pages draw their text into a <canvas>, so
+                    # no amount of waiting yields extractable HTML, and a
+                    # 43-byte canvas element reads as missing content in both
+                    # the reader and the Markdown export.
+                    content = unavailable_html(s["url"])
 
                 results.append((s["id"], content))
 

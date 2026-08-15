@@ -1,0 +1,1918 @@
+
+<div class="needLargerText"><a href="https://manuals.health.mil/pages/GetLargerText.aspx" rel="noopener" target="_blank">Need larger text?</a></div>
+<div id="breadcrumb">
+
+</div>
+<div class="main1column">
+<div class="doc_navigation" id="MainContent_DocumentNavigationPanelPre">
+<a class="button FullStoryLink floatLeft" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C4S1_1.html" rel="noopener" target="_blank" title="View previous section (Chap 4 Sect 1.1)"><i class="fa fa-arrow-circle-left"></i> Previous</a><a class="button FullStoryLink floatRight" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C4S1_3.html" rel="noopener" target="_blank" title="View next section (Chap 4 Sect 1.3)">Next <i class="fa fa-arrow-circle-right"></i></a>
+<p></p><a class="button active" id="show-markup-button" title="Markup is shown. Click to hide change markup."><span class="check"><i class="fa fa-check"></i> </span>Show Markup</a><p></p></div>
+<div class="document">
+<article class="TSM show-change-bars" data-manualacronym="TST5"><div class="Header">TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div class="MPChapterTitle">TRICARE Duplicate Claims System (DCS) - TRICARE Encounter Data (TED) Version</div>
+<section data-element-change-state="Unchanged" data-element-id="TST507700001" data-element-type="Header">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-id="TST507700002" data-element-type="Text" id="FM104796">Chapter 4</div>
+<div class="Section" data-element-change-state="Unchanged" data-element-id="TST507700003" data-element-type="Text" id="FM104800">Section 1.2</div>
+<div class="Subject" data-element-change-state="Unchanged" data-element-id="TST507700004" data-element-type="Text" id="FM104805">Duplicate
+Claims Data</div>
+<div class="CPT" data-element-change-state="Unchanged" data-element-id="TST507700005" data-element-type="Text">Copyright:  CPT only © 2006 American Medical
+Association (or such other date of publication of CPT).
+All Rights Reserved.</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-id="TST507700006" data-element-type="No Type">Revision:  C-39, August 12, 2026</div>
+<div class="Line"></div></section>
+<section data-element-change-state="Unchanged" data-element-id="TST507700007" data-element-type="Content">
+<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507700008" data-element-type="Text">The DCS performs several functions
+for the maintenance of the DCS databases. First, it identifies,
+selects, and extracts potential duplicate claims from the TRICARE
+DCS-TRICARE Encounter Data (TED) Version database. It then groups
+potential duplicate claims into sets and stores these claims in
+the DCS Active database. Subsequently, it identifies adjustment
+and cancellation transactions processed by the TED system associated
+with claims in the DCS Active and History databases and attaches
+these adjustment transactions to their associated sets. In attaching adjustment/cancellation
+TED records to their associated sets, the system enables users to
+verify that duplicate payment records have been removed from the
+TED database.</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507700009" data-element-type="Text">The DCS performs these functions
+separate and apart from the proprietary, claims processing systems
+maintained and operated by the contractors, TRICARE Medicare Eligible
+Program (TMEP) contractor, and the TRICARE Overseas Program (TOP)
+contractor. Proprietary claims processing systems maintain claim
+and encounter processing histories which document the activities
+associated with the processing and payment of claims and encounters. These
+systems generate TEDs for submission to the Defense Health Agency
+(DHA). TEDs reflect specific claim/encounter processing activity
+and document health care services and associated payment actions.
+TEDs are in a uniform format to permit claims processing data from
+various contractors to be integrated into a single database.</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST50770000A" data-element-type="Text">Contractors are required to
+prevent duplicate claim payments. Despite a variety of automated
+and manual controls established for this purpose, duplicate payments
+are made. These duplicate payments, appearing as duplicate TEDs,
+are detectable by DHA. When duplicate payments are identified, contractors
+are expected to initiate recoupment action. Upon receipt of the
+refunds or offsets, adjustment TEDs should be submitted to reflect
+the recoupments. When adjustments are added to the TED database,
+the duplicate payments are corrected, and the duplicate conditions
+are removed from the TED database.</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST50770000B" data-element-type="Text">The correction of the TED database
+is a critical function of the DCS. Not only do duplicate TEDs represent overpayments,
+their very existence in the TED database skew statistics and reduce
+the confidence of analyses and projections based on this data. Data
+integrity is compromised if the database is not purged of TEDs representing duplicate
+payments.</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST50770000C" data-element-type="Text">The DCS is not intended to
+replace or substitute for contractor developed, maintained, and
+operated duplicate detection and resolution activities within their
+own claims processing systems. The DCS does not pretend to capture
+all potential duplicate conditions. If it did, the volume of claim
+sets would soon become unmanageable. The DCS is an adjunct to contractor
+systems. It detects and displays most common duplicate conditions
+but not all.</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST50770000D" data-element-type="Text">The contractor shall also employ
+their own systems to prevent, detect, and resolve duplicate payment
+conditions.</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST50770000E" data-element-type="Outline" id="i90620" role="heading">1.0  <span class="Cross-RefMarker" id="FM95280"></span>Source
+Of Duplicate Claims Data<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST50770000F" data-element-type="Text">The following
+describes how TEDs become DCS sets and what happens to these sets
+over time within the DCS.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507700010" data-element-type="Text" role="heading"><span class="Bold">1.1  </span>Contractors
+submit TEDs approximately daily. The TEDs are maintained on a TED
+database.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507700011" data-element-type="Text" role="heading"><span class="Bold">1.2  </span>On a monthly basis, DHA reads
+the TED database and compares the TEDs received during the previous month
+to TEDs received during the previous 12 months of TED Net data to
+identify potential duplicate claims. The identified potential duplicate
+TEDs become the DCS monthly extract.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507700012" data-element-type="Text" role="heading"><span class="Bold">1.3  </span>DHA also
+processes the daily TED data received from the contractors and extracts
+any TED adjustments and cancellations to TEDs previously identified
+as potential duplicates in a monthly extract and that reside in
+the DCS. These extracts become the DCS daily extract.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507700013" data-element-type="Text" role="heading"><span class="Bold">1.4  </span>DHA transfers the extracts
+to the Database 2 (DB2) Server platform where they are processed
+and placed into the DCS Active database.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507700014" data-element-type="Text" role="heading"><span class="Bold">1.5  </span>DCS users
+work the sets in the DCS Active database.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507700015" data-element-type="Text" role="heading"><span class="Bold">1.6  </span>After
+a specified period of time, the DCS sets are deleted from the DCS
+History database.<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507700016" data-element-type="Text" role="heading"><span class="Bold">1.6.1  </span>The DCS databases receive TED
+data through two extracts. The first extract is performed monthly,
+when TEDs submitted by contractors during the previous month are
+compared with TEDs submitted during the previous 12 months. Applying
+five different match criteria for institutional and non-institutional
+claims (four for each type), the system detects potential duplicate
+claims and selects these for extraction. See <span class="Para"><a href="#i90078" rel="noopener" target="_blank">paragraph 2.0</a></span>, for a description of
+the five match criteria.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507700017" data-element-type="Text" role="heading"><span class="Bold">1.6.2  </span>Institutional
+potential duplicates are identified by the application of the match
+criteria at the claim level. Non-institutional potential duplicates
+are identified at the line item level. This distinction is important
+in understanding how institutional and non-institutional claims
+are displayed within the claim sets. Refer to <span class="Sec"><a href="c4s1_4.html#FM118597" rel="noopener" target="_blank">Section 1.4</a></span>,
+for details regarding claim set composition.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507700018" data-element-type="Text" role="heading"><span class="Bold">1.6.3  </span>The second extract is performed
+following the processing of each payment record cycle, generally
+on a daily basis. The system maintains a table of all claims selected
+as potential duplicates during the first extract, and extracts adjustments
+and cancellations associated with these potential duplicates during
+the second extract. The system attaches the adjustments and cancellations
+to the appropriate DCS sets where users can access them.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507700019" data-element-type="Text" role="heading"><span class="Bold">1.6.4  </span>The DCS databases store claim
+level data for both institutional and non-institutional claims.
+Examples of claim level data are: Internal Control Number (ICN),
+sponsor Social Security Number (SSN), Patient ID, diagnosis code,
+and the date the TED was processed to completion (PTC).</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50770001A" data-element-type="Text" role="heading"><span class="Bold">1.6.5  </span>The system also stores line
+item data for non-institutional claims. Examples of line item detailed
+data are: procedure code, place of service, type of service, care
+begin and end dates.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50770001B" data-element-type="Text" role="heading"><span class="Bold">1.6.6  </span><span class="Add"><a href="c4adA.html#FM93586" rel="noopener" target="_blank">Addendum A</a></span>, contains a description of the
+data elements in the DCS databases.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST50770001C" data-element-type="Outline" id="i90078" role="heading">2.0  <span class="Cross-RefMarker" id="FM32244"></span>Criteria
+Used To Select Potential Duplicate Claims<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST50770001D" data-element-type="Text">The DCS uses the criteria described
+on the following pages to extract TED data and load the DCS databases.
+Prior to the National Provider Identifier (NPI) implementation,
+the DCS inspects up to 12 TED data fields in each claim record;
+on or after the NPI implementation, 14 TED data fields in each claim
+record. If the claims match on one of the criteria categories, it
+extracts and groups these claims into sets. The criteria used by
+the system identifies claims with a high probability of being actual
+duplicates.</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST50770001E" data-element-type="Outline" role="heading">2.1  Match Criteria for Institutional
+Claims Prior to the NPI Implementation<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST50770001F" data-element-type="Text">The following categories of
+match criteria are used to identify and link two or more matched
+institutional claims. <span class="Fig"><a href="#FM102359" rel="noopener" target="_blank">Figure 4.1.2-1</a></span>, shows the specific TED data
+field match criteria used to select potential institutional duplicate
+claims.</div>
+<div class="TblSepSA">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507700020" data-element-type="Text">
+<colgroup>
+<col style="width:15.517241379310345%"/>
+<col style="width:84.48275862068965%"/>
+</colgroup>
+<tbody>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700021" data-element-type="Text"><span class="Bold">Exact Match</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700022" data-element-type="Text">All 12 fields match.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700023" data-element-type="Text"><span class="Bold">Near Match</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700024" data-element-type="Text">Five fields match and the lesser
+Billed Amount is within 10% of the larger Billed Amount.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700025" data-element-type="Text"><span class="Bold">Date Overlap</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700026" data-element-type="Text">Three fields match and the
+beginning date of care of one claim falls between the beginning
+and ending dates of another.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700027" data-element-type="Text"><span class="Bold">Other</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700028" data-element-type="Text">Four fields match.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700029" data-element-type="Text"><span class="Bold">Other Inst.</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770002A" data-element-type="Text">Three fields (Patient ID, National
+Provider Identifier (NPI) - Type II, and Care Begin Date) <span class="Bold">OR</span></div>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770002B" data-element-type="Text">Four fields (Patient ID, Provider
+ID, Provider Sub ID, and Care Begin Date)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST50770002C" data-element-type="Text">
+<caption><span class="Figure" data-element-change-state="Unchanged" data-element-id="TST50770002E" data-element-type="Text" id="FM102359">Figure 4.1.2-1  <span class="Cross-RefMarker" id="FM23905"></span>Data
+Field Match Criteria For Institutional Claims Prior To The NPI Implementation</span></caption>
+<colgroup>
+<col style="width:24.137931034482758%"/>
+<col style="width:18.96551724137931%"/>
+<col style="width:18.96551724137931%"/>
+<col style="width:18.96551724137931%"/>
+<col style="width:18.96551724137931%"/>
+</colgroup>
+<thead>
+<tr>
+<th>
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST50770002F" data-element-type="Text">Field Name</div>
+</th>
+<th>
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700030" data-element-type="Text">Other</div>
+</th>
+<th>
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700031" data-element-type="Text">Date Overlap</div>
+</th>
+<th>
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700032" data-element-type="Text">Near Match</div>
+</th>
+<th>
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700033" data-element-type="Text">Exact Match</div>
+</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="5">
+<div class="Footnote" data-element-change-state="Unchanged" data-element-id="TST507700070" data-element-type="Text">*  The system determines
+date overlap as follows: (a) the begin date of care on one claim
+must be greater than the begin date of care on the other claim and
+less than the end date of care on the other claim, or (b) the begin
+date of care on one claim is equal to the begin date of care on
+the other claim(s) and the end dates of care are not equal.</div>
+<div class="Footnote" data-element-change-state="Unchanged" data-element-id="TST507700071" data-element-type="Text">**  The system calculates
+± 10% of the Billed Amount as follows: (a) the system takes the
+higher of the billed amounts and multiplies it by 90%; (b) the system
+then compares the lower billed amount from the other claim(s) to
+the 90% figure; (c) the lower billed amount(s) must be ≥ 90% of
+the higher billed amount.</div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700034" data-element-type="Text">PATIENT ID</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700035" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700036" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700037" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700038" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700039" data-element-type="Text">PATIENT DOB</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770003A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770003B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770003C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770003D" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770003E" data-element-type="Text">PROVIDER TAX ID</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770003F" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700040" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700041" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700042" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700043" data-element-type="Text">PROVIDER SUB ID</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700044" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700045" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700046" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700047" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700048" data-element-type="Text">ADMIT DATE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700049" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770004A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770004B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770004C" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770004D" data-element-type="Text">BILL FREQUENCY</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770004E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770004F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700050" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700051" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700052" data-element-type="Text">BILLED AMOUNT</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700053" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700054" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700055" data-element-type="Text"><span class="Bold">± 10%**</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700056" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700057" data-element-type="Text">ALLOWED AMOUNT</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700058" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700059" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770005A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770005B" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770005C" data-element-type="Text">CARE BEGIN DATE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770005D" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770005E" data-element-type="Text"><span class="Bold"> OVERLAP*</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770005F" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700060" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700061" data-element-type="Text">CARE END DATE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700062" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700063" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700064" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700065" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700066" data-element-type="Text">PRIN DIAGNOSIS</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700067" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700068" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700069" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770006A" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770006B" data-element-type="Text">DRG CODE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770006C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770006D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770006E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770006F" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST507700072" data-element-type="Outline" role="heading">2.2  Match
+Criteria for Institutional Claims On or After the NPI Implementation<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507700073" data-element-type="Text">The following categories of
+match criteria are used to identify and link two or more matched
+institutional claims. <span class="Fig"><a href="#FM102811" rel="noopener" target="_blank">Figure 4.1.2-2</a></span>, shows the specific TED data
+field match criteria used to select potential institutional duplicate
+claims.</div>
+<div class="TblSepSA">
+<table class="Tbl1b" data-element-change-state="Changed" data-element-id="TST507700074" data-element-type="Text">
+<colgroup>
+<col style="width:15.517241379310345%"/>
+<col style="width:84.48275862068965%"/>
+</colgroup>
+<tbody>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700075" data-element-type="Text"><span class="Bold">Exact Match</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Changed" data-element-id="TST507700076" data-element-type="Text">All<span class="ChangeDelete"> 14</span><span class="ChangeAdd">13</span> fields
+match.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700077" data-element-type="Text"><span class="Bold">Near Match</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700078" data-element-type="Text">Four fields match and the lesser
+Billed Amount is within 10% of the larger Billed Amount.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700079" data-element-type="Text"><span class="Bold">Date Overlap</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770007A" data-element-type="Text">Two fields match and the beginning
+date of care of one claim falls between the beginning and ending
+dates of another.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770007B" data-element-type="Text"><span class="Bold">Other</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770007C" data-element-type="Text">Three fields match.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST50770007D" data-element-type="Text">
+<caption><span class="Figure" data-element-change-state="Unchanged" data-element-id="TST50770007F" data-element-type="Text" id="FM102811">Figure 4.1.2-2  <span class="Cross-RefMarker" id="FM70071"></span>Data
+Field Match Criteria For Institutional Claims On Or After The NPI Implementation</span></caption>
+<colgroup>
+<col style="width:24.137931034482758%"/>
+<col style="width:18.96551724137931%"/>
+<col style="width:18.96551724137931%"/>
+<col style="width:18.96551724137931%"/>
+<col style="width:18.96551724137931%"/>
+</colgroup>
+<thead>
+<tr>
+<th>
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST507700080" data-element-type="Text">Field Name</div>
+</th>
+<th>
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700081" data-element-type="Text">Other</div>
+</th>
+<th>
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700082" data-element-type="Text">Date Overlap</div>
+</th>
+<th>
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700083" data-element-type="Text">Near Match</div>
+</th>
+<th>
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700084" data-element-type="Text">Exact Match</div>
+</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="5">
+<div class="Footnote" data-element-change-state="Unchanged" data-element-id="TST5077000C6" data-element-type="Text">*   The system determines
+date overlap as follows: (a) the begin date of care on one claim
+must be greater than the begin date of care on the other claim and
+less than the end date of care on the other claim, or (b) the begin
+date of care on one claim is equal to the begin date of care on
+the other claim(s) and the end dates of care are not equal.</div>
+<div class="Footnote" data-element-change-state="Unchanged" data-element-id="TST5077000C7" data-element-type="Text">**   The system calculates
+± 10% of the Billed Amount as follows: (a) the system takes the
+higher of the billed amounts and multiplies it by 90%; (b) the system
+then compares the lower billed amount from the other claim(s) to
+the 90% figure; (c) the lower billed amount(s) must be ≥ 90% of
+the higher billed amount.</div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700085" data-element-type="Text">PATIENT ID</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700086" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700087" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700088" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700089" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770008A" data-element-type="Text">PATIENT DOB</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770008B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770008C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770008D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770008E" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770008F" data-element-type="Text">PROVIDER ID</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700090" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700091" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700092" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700093" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700094" data-element-type="Text">PROVIDER SUB ID</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700095" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700096" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700097" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700098" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700099" data-element-type="Text">NPI - TYPE II</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770009A" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770009B" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770009C" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770009D" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770009E" data-element-type="Text">ADMIT DATE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770009F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000A0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000A1" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000A2" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000A3" data-element-type="Text">BILL FREQUENCY</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000A4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000A5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000A6" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000A7" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000A8" data-element-type="Text">BILLED AMOUNT</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000A9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000AA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000AB" data-element-type="Text"><span class="Bold">± 10%**</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000AC" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000AD" data-element-type="Text">ALLOWED AMOUNT</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000AE" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000AF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000B0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000B1" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000B2" data-element-type="Text">CARE BEGIN DATE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000B3" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000B4" data-element-type="Text"><span class="Bold"> OVERLAP*</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000B5" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000B6" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000B7" data-element-type="Text">CARE END DATE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000B8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000B9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000BA" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000BB" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000BC" data-element-type="Text">PRIN DIAGNOSIS</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000BD" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000BE" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000BF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000C0" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000C1" data-element-type="Text">DRG CODE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000C2" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000C3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000C4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000C5" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST5077000C8" data-element-type="Outline" id="i90640" role="heading">2.3  <span class="Cross-RefMarker" id="FM65901"></span>Match
+Criteria for Non-Institutional Claims Prior to the NPI Implementation<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST5077000C9" data-element-type="Text">The following categories of
+match criteria are used to identify and link two or more matched
+non-institutional claims. <span class="Fig"><a href="#FM103269" rel="noopener" target="_blank">Figure 4.1.2-3</a></span>, shows the specific TED data
+field match criteria used to select potential non-institutional duplicate
+claims.</div>
+<div class="TblSepSA">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST5077000CA" data-element-type="Text">
+<colgroup>
+<col style="width:25.862068965517242%"/>
+<col style="width:74.13793103448276%"/>
+</colgroup>
+<tbody>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000CB" data-element-type="Text"><span class="Bold">Exact Match</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000CC" data-element-type="Text">All 12 fields match.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000CD" data-element-type="Text"><span class="Bold">Near Match</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000CE" data-element-type="Text">Six fields match and the lesser
+Billed Amount is within 10% of the larger Billed Amount.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000CF" data-element-type="Text"><span class="Bold">Current Procedural Terminology, 4th
+Edition (CPT-4) Code Match</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000D0" data-element-type="Text">Five fields and the first three
+characters of the procedure code match.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000D1" data-element-type="Text"><span class="Bold">Other</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000D2" data-element-type="Text">Five fields match.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST5077000D3" data-element-type="Text">
+<caption><span class="Figure" data-element-change-state="Unchanged" data-element-id="TST5077000D5" data-element-type="Text" id="FM103269">Figure 4.1.2-3  <span class="Cross-RefMarker" id="FM77796"></span>Data
+Field Match Criteria For Non-Institutional Claims</span></caption>
+<colgroup>
+<col style="width:24.137931034482758%"/>
+<col style="width:18.96551724137931%"/>
+<col style="width:18.96551724137931%"/>
+<col style="width:18.96551724137931%"/>
+<col style="width:18.96551724137931%"/>
+</colgroup>
+<thead>
+<tr>
+<th>
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST5077000D6" data-element-type="Text">Field Name</div>
+</th>
+<th>
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5077000D7" data-element-type="Text">Other</div>
+</th>
+<th>
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5077000D8" data-element-type="Text">CPT-4 Code</div>
+</th>
+<th>
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5077000D9" data-element-type="Text">Near Match</div>
+</th>
+<th>
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5077000DA" data-element-type="Text">Exact Match</div>
+</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="5">
+<div class="Footnote" data-element-change-state="Unchanged" data-element-id="TST507700119" data-element-type="Text">*  The procedure
+code of one line item is not equal to the procedure code of the
+other line item but the first three characters of the procedure
+codes are equal.</div>
+<div class="Footnote" data-element-change-state="Unchanged" data-element-id="TST50770011A" data-element-type="Text">**  The system calculates
+± 10% of the Billed Amount as follows: (a) the system takes the
+higher of the billed amounts and multiplies it by 90%; (b) the system
+then compares the lower billed amount from the other claim(s) to
+the 90% figure; (c) the lower billed amount(s) must be ≥ 90% of
+the higher billed amount.</div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td colspan="5" style="background-color:#819089;">
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST5077000DB" data-element-type="Text">Claim
+Level</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000DC" data-element-type="Text">PATIENT ID</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000DD" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000DE" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000DF" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000E0" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000E1" data-element-type="Text">PATIENT DOB</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000E2" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000E3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000E4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000E5" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000E6" data-element-type="Text">PRIN DIAGNOSIS</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000E7" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000E8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000E9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000EA" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td colspan="5" style="background-color:#819089;">
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST5077000EB" data-element-type="Text">Line Item
+Level</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000EC" data-element-type="Text">PROVIDER TAX NBR</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000ED" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000EE" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000EF" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000F0" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000F1" data-element-type="Text">PROVIDER SUB ID</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000F2" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000F3" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000F4" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000F5" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000F6" data-element-type="Text">PLACE OF SERVICE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000F7" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000F8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000F9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000FA" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5077000FB" data-element-type="Text">TYPE OF SERVICE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000FC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000FD" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000FE" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077000FF" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700100" data-element-type="Text">CARE BEGIN DATE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700101" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700102" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700103" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700104" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700105" data-element-type="Text">CARE END DATE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700106" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700107" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700108" data-element-type="Text"><span class="ChangeDelete">4</span><span class="Bold"><span class="ChangeAdd">X</span></span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700109" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770010A" data-element-type="Text">BILLED AMOUNT</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770010B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770010C" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770010D" data-element-type="Text"><span class="Bold">± 10%**</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770010E" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770010F" data-element-type="Text">ALLOWED AMOUNT</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700110" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700111" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700112" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700113" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700114" data-element-type="Text">PROCED CODE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700115" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700116" data-element-type="Text"><span class="Bold">posn 1-3*</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700117" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700118" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST50770011B" data-element-type="Outline" role="heading">2.4  Match
+Criteria for Non-Institutional Claims On or After the NPI Implementation<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST50770011C" data-element-type="Text">The following categories of
+match criteria are used to identify and link two or more matched
+non-institutional claims. <span class="Fig"><a href="#FM103749" rel="noopener" target="_blank">Figure 4.1.2-4</a></span>, shows the specific TED data
+field match criteria used to select potential non- institutional duplicate
+claims.</div>
+<div class="TblSepSA">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST50770011D" data-element-type="Text">
+<colgroup>
+<col style="width:15.517241379310345%"/>
+<col style="width:84.48275862068965%"/>
+</colgroup>
+<tbody>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770011E" data-element-type="Text"><span class="Bold">Exact Match</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770011F" data-element-type="Text">All 14 fields match.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700120" data-element-type="Text"><span class="Bold">Near Match</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700121" data-element-type="Text">Five fields match and the lesser
+Billed Amount is within 10% of the larger Billed Amount.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700122" data-element-type="Text"><span class="Bold">CPT-4 Code Match</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700123" data-element-type="Text">Four fields and the first three
+characters of the procedure code match.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700124" data-element-type="Text"><span class="Bold">Other</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700125" data-element-type="Text">Four fields match.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700126" data-element-type="Text"><span class="Bold">Other Inst</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700127" data-element-type="Text">Four fields.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="NewPage">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507700128" data-element-type="Text">
+<caption><span class="Figure" data-element-change-state="Unchanged" data-element-id="TST50770012A" data-element-type="Text" id="FM103749">Figure 4.1.2-4  <span class="Cross-RefMarker" id="FM48868"></span>Data
+Field Match Criteria For Non-Institutional Claims On Or After The
+NPI Implementation</span></caption>
+<colgroup>
+<col style="width:20.689655172413793%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:12.068965517241379%"/>
+<col style="width:12.068965517241379%"/>
+<col style="width:12.068965517241379%"/>
+<col style="width:12.068965517241379%"/>
+<col style="width:13.793103448275861%"/>
+</colgroup>
+<thead>
+<tr>
+<th style="vertical-align:bottom;">
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST50770012B" data-element-type="Text">Field
+Name</div>
+</th>
+<th style="vertical-align:bottom;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770012C" data-element-type="Text">Other</div>
+</th>
+<th style="vertical-align:bottom;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770012D" data-element-type="Text">Other</div>
+</th>
+<th style="vertical-align:bottom;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770012E" data-element-type="Text">CPT-4
+Code</div>
+</th>
+<th style="vertical-align:bottom;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770012F" data-element-type="Text">CPT-4
+Code</div>
+</th>
+<th style="vertical-align:bottom;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700130" data-element-type="Text">Near Match</div>
+</th>
+<th style="vertical-align:bottom;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700131" data-element-type="Text">Near Match</div>
+</th>
+<th style="vertical-align:bottom;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700132" data-element-type="Text">Exact
+Match</div>
+</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="8">
+<div class="Footnote" data-element-change-state="Unchanged" data-element-id="TST5077001A5" data-element-type="Text">*  The procedure
+code of one line item is not equal to the procedure code of the
+other line item but the first three characters of the procedure
+codes are equal.</div>
+<div class="Footnote" data-element-change-state="Unchanged" data-element-id="TST5077001A6" data-element-type="Text">**  The system calculates
+± 10% of the Billed Amount as follows: (a) the system takes the
+higher of the billed amounts and multiplies it by 90%; (b) the system
+then compares the lower billed amount from the other claim(s) to
+the 90% figure; (c) the lower billed amount(s) must be ≥ 90% of
+the higher billed amount.</div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td colspan="8" style="background-color:#819089;">
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST507700133" data-element-type="Text">Claim
+Level</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700134" data-element-type="Text">PATIENT ID</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700135" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700136" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700137" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700138" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700139" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770013A" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770013B" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770013C" data-element-type="Text">PATIENT DOB</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770013D" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770013E" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770013F" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700140" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700141" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700142" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700143" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700144" data-element-type="Text">PROVIDER ID</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700145" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700146" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700147" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700148" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700149" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770014A" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770014B" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770014C" data-element-type="Text">PROVIDER SUB ID</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770014D" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770014E" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770014F" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700150" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700151" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700152" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700153" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700154" data-element-type="Text">NPI - TYPE II</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700155" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700156" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700157" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700158" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700159" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770015A" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770015B" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770015C" data-element-type="Text">NPI - TYPE I</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770015D" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770015E" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770015F" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700160" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700161" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700162" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700163" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700164" data-element-type="Text">PRIN DIAGNOSIS</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700165" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700166" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700167" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700168" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700169" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770016A" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770016B" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td colspan="8" style="vertical-align:top;background-color:#819089;">
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST50770016C" data-element-type="Text">Line Item
+Level</div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770016D" data-element-type="Text">PLACE OF SERVICE</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770016E" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770016F" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700170" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700171" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700172" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700173" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700174" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700175" data-element-type="Text">TYPE OF SERVICE</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700176" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700177" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700178" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700179" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770017A" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770017B" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770017C" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770017D" data-element-type="Text">CARE BEGIN DATE</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770017E" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770017F" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700180" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700181" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700182" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700183" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700184" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700185" data-element-type="Text">CARE END DATE</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700186" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700187" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700188" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700189" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770018A" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770018B" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770018C" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770018D" data-element-type="Text">BILLED AMOUNT</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770018E" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770018F" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700190" data-element-type="Text">4</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700191" data-element-type="Text">4</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700192" data-element-type="Text">± 10%**</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700193" data-element-type="Text">± 10%**</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST507700194" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST507700195" data-element-type="Text">ALLOWED AMOUNT</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700196" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700197" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700198" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST507700199" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770019A" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50770019B" data-element-type="No Type"></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770019C" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50770019D" data-element-type="Text">PROCED CODE</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770019E" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50770019F" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5077001A0" data-element-type="Text">posn 1-3*</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5077001A1" data-element-type="Text">posn 1-3*</div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077001A2" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077001A3" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+<td style="vertical-align:top;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5077001A4" data-element-type="Text"><span class="Bold">X</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST5077001A7" data-element-type="Outline" role="heading">2.5  Exclusions<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-id="TST5077001A8" data-element-type="Outline" role="heading">2.5.1  Exclusion of Certain Claims<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST5077001A9" data-element-type="Text">The DCS excludes claims from
+the extract if they do not meet specific minimum dollar thresholds
+and other criteria. An individual claim is excluded if:</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001AA" data-element-type="Text" role="heading"><span class="Bold">2.5.1.1  </span>The Government paid amount
+at the claim level is $0.00.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001AB" data-element-type="Text" role="heading"><span class="Bold">2.5.1.2  </span>The total allowed amount is
+less than $30.00.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001AC" data-element-type="Text" role="heading"><span class="Bold">2.5.1.3  </span>The claim’s type of submission
+code is <span class="Bold">B</span>, <span class="Bold">D</span>, <span class="Bold">E</span>, or <span class="Bold">O</span> (adjustment
+or cancellation to a prior non-TED claim or 100% paid by other health
+insurance).</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001AD" data-element-type="Text" role="heading"><span class="Bold">2.5.1.4  </span>The claim level allowed amount
+on a non-financially underwritten institutional potential duplicate
+is less than $30.00.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001AE" data-element-type="Text" role="heading"><span class="Bold">2.5.1.5  </span>The claim level allowed amount
+on an financially underwritten institutional potential duplicate
+is less than $50.00.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001AF" data-element-type="Text" role="heading"><span class="Bold">2.5.1.6  </span>The sum of the line item level
+allowed amounts on a non-financially underwritten non-institutional potential
+duplicate is less than $30.00.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001B0" data-element-type="Text" role="heading"><span class="Bold">2.5.1.7  </span>The sum of the line item level
+allowed amounts on an financially underwritten non-institutional potential
+duplicate is less than $50.00.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001B1" data-element-type="Text" role="heading"><span class="Bold">2.5.1.8  </span>The second byte of the claim’s
+type of service code is <span class="Bold">B</span> (Retail Drugs &amp; Supplies)
+or <span class="Bold">M</span> (Mail Order Pharmacy Drugs &amp; Supplies).</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-id="TST5077001B2" data-element-type="Outline" role="heading">2.5.2  Exclusion of Certain Line Items<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001B3" data-element-type="Text" role="heading"><span class="Bold">2.5.2.1  </span>DCS excludes line items from
+the extract if the line item procedure code (Healthcare Common Procedure
+Coding System (HCPCS) or CPT-4) is one of the following:<div class="TblSepSA">
+<table class="Tbl3" data-element-change-state="Unchanged" data-element-id="TST5077001B4" data-element-type="Text">
+<colgroup>
+<col style="width:17.24137931034483%"/>
+<col style="width:17.24137931034483%"/>
+<col style="width:65.51724137931035%"/>
+</colgroup>
+<thead>
+<tr>
+<th>
+<div class="CellHeadingL" data-element-change-state="Unchanged" data-element-id="TST5077001B5" data-element-type="Text">HCPCS</div>
+</th>
+<th>
+<div class="CellHeadingC" data-element-change-state="Unchanged" data-element-id="TST5077001B6" data-element-type="Text">CPT-4</div>
+</th>
+<th>
+<div class="CellHeadingL" data-element-change-state="Unchanged" data-element-id="TST5077001B7" data-element-type="Text">Description</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001B8" data-element-type="Text">A4000 - A4999</div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001B9" data-element-type="Text">06888</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001BA" data-element-type="Text">Nutrition Equipment/Supplies
+- Purchase</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001BB" data-element-type="Text">A5000 - A6500</div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001BC" data-element-type="Text">06942</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001BD" data-element-type="Text">Other Equipment/Supplies -
+Purchase</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001BE" data-element-type="Text">R_ _ _ _</div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001BF" data-element-type="Text">76499</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001C0" data-element-type="Text">Radiographic Procedure</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001C1" data-element-type="Text">P_ _ _ _</div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001C2" data-element-type="Text">84999</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001C3" data-element-type="Text">Clinical Chemistry Test</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001C4" data-element-type="Text">P_ _ _ _</div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001C5" data-element-type="Text">88305</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001C6" data-element-type="Text">Tissue Exam By Pathologist</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001C7" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001C8" data-element-type="Text">90593</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001C9" data-element-type="Text">Whole Blood Charges</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001CA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001CB" data-element-type="Text">90594</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001CC" data-element-type="Text">Professional Components Charge</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001CD" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001CE" data-element-type="Text">90595</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001CF" data-element-type="Text">Outpatient Hospital - Physician’s
+Charge</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001D0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001D1" data-element-type="Text">90596</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001D2" data-element-type="Text">Outpatient Hospital - Recovery
+Room Charge</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001D3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001D4" data-element-type="Text">90597</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001D5" data-element-type="Text">Outpatient Hospital - Operating
+Room Charge</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001D6" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001D7" data-element-type="Text">90599</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001D8" data-element-type="Text">Outpatient Hospital - Emergency
+Room Charge</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001D9" data-element-type="Text">J_ _ _ _</div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001DA" data-element-type="Text">90782</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001DB" data-element-type="Text">Injection (SC)/(IM)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001DC" data-element-type="Text">J_ _ _ _</div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001DD" data-element-type="Text">90784</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001DE" data-element-type="Text">Injection (IV)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001DF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001E0" data-element-type="Text">94799</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001E1" data-element-type="Text">Unlisted Pulmonary Service
+Or Procedures</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001E2" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001E3" data-element-type="Text">99070</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001E4" data-element-type="Text">Special Supplies</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001E5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001E6" data-element-type="Text">99088</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001E7" data-element-type="Text">Other Room, Ancillary and Drug
+Charges</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001E8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBodyC" data-element-change-state="Unchanged" data-element-id="TST5077001E9" data-element-type="Text">99592</div>
+</td>
+<td>
+<div class="CellBodyL" data-element-change-state="Unchanged" data-element-id="TST5077001EA" data-element-type="Text">Hospital Outpatient Birthing
+Room Charges</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001EB" data-element-type="Text" role="heading"><span class="Bold">2.5.2.2  </span>Anesthesia Assistants: When
+comparing two line items which have the same CPT-4 value (all five positions),
+if either of the CPT-4 Modifiers (CPT_4_1 or CPT_4_2) on one line
+item has a value of <span class="Bold">QK</span> and either of the CPT-4 Modifiers
+on the other line item has a value of <span class="Bold">QX</span> or a value
+of <span class="Bold">QS</span>.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001EC" data-element-type="Text" role="heading"><span class="Bold">2.5.2.3  </span>Assistant Surgeon Modifiers:
+When comparing two line items which have the same CPT-4 value (all five
+positions), if either of the CPT-4 Modifiers on one of the line
+items has a value of <span class="Bold">80</span>, <span class="Bold">81</span>, <span class="Bold">82</span>,
+or <span class="Bold">AS</span> and neither of the CPT-4 Modifiers on the other
+line item has any of these values.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001ED" data-element-type="Text" role="heading"><span class="Bold">2.5.2.4  </span>Left/Right: When comparing
+two line items which have the same CPT-4 value (all five positions),
+if either of the CPT-4 Modifiers on one of the line items has a
+value of <span class="Bold">RT</span> and either of the CPT-4 Modifiers on the other
+line item has a value of <span class="Bold">LT</span>.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001EE" data-element-type="Text" role="heading"><span class="Bold">2.5.2.5  </span>Professional/Technical Components:
+When comparing two line items which have the same CPT-4 value (all
+five positions), if either of the CPT-4 Modifiers on one of the
+line items has a value of <span class="Bold">26</span> and either of the CPT-4
+Modifiers on the other line item has a value of <span class="Bold">TC</span>.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001EF" data-element-type="Text" role="heading"><span class="Bold">2.5.2.6  </span>Ambulance Services: When comparing
+two line items which have the same CPT-4 value (all five positions)
+and that CPT-4 value is in the range of <span class="Bold">A0021</span> <span class="Bold">through</span> <span class="Bold">A0999</span>,
+if the values of the first CPT-4 Modifier (CPT_4_1) on the two line
+items are not equal.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-id="TST5077001F0" data-element-type="Outline" role="heading">2.5.3  Other
+Exclusions<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST5077001F1" data-element-type="Text">After
+potential duplicate claims have been identified and grouped into
+claim sets, a final test is applied to exclude certain types of
+claim sets least likely to contain actual duplicate claims. Claim
+sets are excluded if they meet any of the following conditions:</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001F2" data-element-type="Text" role="heading"><span class="Bold">2.5.3.1  </span>The claim set contains less
+than two claims after the elimination of claims in the set due to
+any of the previously listed exclusion criteria.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001F3" data-element-type="Text" role="heading"><span class="Bold">2.5.3.2  </span>The set is a “<span class="Bold">Mother-Baby</span>”
+claim set and contains no more than two claims, where one claim
+has a <span class="Bold">6...</span> series principal diagnosis code (mother
+- <span class="Bold">O00-O9A</span>) and the other claim has a <span class="Bold">V or Z...</span> series
+principal diagnosis code (baby - <span class="Bold">Z38...</span>). (Applies
+only to institutional claims.)</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5077001F4" data-element-type="Text" role="heading"><span class="Bold">2.5.3.3  </span>The set is a “<span class="Bold">Multiple
+Birth</span>” claim set and contains no more than two claims, where
+both claims have <span class="Bold">V31... through V39...</span> (International
+Classification of Diseases, 9th Revision (ICD-9)) or <span class="Bold">Z38.1
+through Z38.8</span> (International Classification of Diseases,
+9th Revision (ICD-10)) series principal diagnosis codes. (Applies
+only to institutional claims.)</div>
+</div>
+</div>
+</div></section>
+<div class="END">- END -</div><div class="change-bar" style="top:2659.859375px;height:17px;"></div><div class="change-bar" style="top:2659.859375px;height:17px;"></div><div class="change-bar" style="top:3892.40625px;height:17px;"></div><div class="change-bar" style="top:3892.40625px;height:17px;"></div></article>
+</div>
+<div class="doc_navigation" id="MainContent_DocumentNavigationPanelPost">
+<a class="button FullStoryLink floatLeft" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C4S1_1.html" rel="noopener" target="_blank" title="View previous section (Chap 4 Sect 1.1)"><i class="fa fa-arrow-circle-left"></i> Previous</a><a class="button FullStoryLink floatRight" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C4S1_3.html" rel="noopener" target="_blank" title="View next section (Chap 4 Sect 1.3)">Next <i class="fa fa-arrow-circle-right"></i></a>
+</div>
+</div>
+<div class="clearfix"></div>

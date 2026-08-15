@@ -1,0 +1,1130 @@
+
+<div class="needLargerText"><a href="https://manuals.health.mil/pages/GetLargerText.aspx" rel="noopener" target="_blank">Need larger text?</a></div>
+<div id="breadcrumb">
+
+</div>
+<div class="main1column">
+<div class="doc_navigation" id="MainContent_DocumentNavigationPanelPre">
+<a class="button FullStoryLink floatLeft" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C1S1_2.html" rel="noopener" target="_blank" title="View previous section (Chap 1 Sect 1.2)"><i class="fa fa-arrow-circle-left"></i> Previous</a><a class="button FullStoryLink floatRight" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C1ADB.html" rel="noopener" target="_blank" title="View next section (Chap 1 Addendum B)">Next <i class="fa fa-arrow-circle-right"></i></a>
+<p></p><a class="button active" id="show-markup-button" title="This section has not been modified since it's initial release and therefore does not contain any change markup to show/hide"><span class="check"><i class="fa fa-check"></i> </span>Show Markup</a><p></p></div>
+<div class="document">
+<article class="TSM" data-manualacronym="TST5"><div class="Header">TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div class="MPChapterTitle">General Automated Data Processing (ADP) Requirements</div>
+<section data-element-change-state="Unchanged" data-element-id="TST504300001" data-element-type="Header">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-id="TST504300002" data-element-type="Text" id="FM144158">Chapter 1</div>
+<div class="Addendum" data-element-change-state="Unchanged" data-element-id="TST504300003" data-element-type="Text" id="FM144162">Addendum A</div>
+<div class="AddendumTitle" data-element-change-state="Unchanged" data-element-id="TST504300004" data-element-type="Text" id="FM144167">Defense Finance And Accounting
+Service (DFAS) Allotment Record Layouts For Defense Health Agency
+(DHA) Contracts</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-id="TST504300005" data-element-type="No Type">Revision:  </div>
+<div class="Line"></div></section>
+<section data-element-change-state="Unchanged" data-element-id="TST504300006" data-element-type="Content">
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST504300007" data-element-type="Outline" role="heading">1.0  Input Data<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST504300008" data-element-type="Text">Input data includes a header
+record, detail records and control record. First position in all
+header records is <span class="Bold">H</span> and the first position in all control
+or summary records contains an <span class="Bold">S</span>.</div>
+<div class="TblSepSA">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504300009" data-element-type="Text">
+<caption><span class="CellHeadingC" data-element-change-state="Unchanged" data-element-id="TST50430000B" data-element-type="Text">Data Element
+Definition</span></caption>
+<colgroup>
+<col style="width:20.689655172413793%"/>
+<col style="width:6.896551724137931%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:34.48275862068966%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST50430000C" data-element-type="Text">ELEMENT NAME:  Input Data - Header - Record</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4">
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST50430000D" data-element-type="Text">01 HEADER - RECORD</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430000E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430000F" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300010" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300011" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300012" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300013" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300014" data-element-type="Text">HEADER-DATE-CCYYMMDD</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300015" data-element-type="Text">PIC X (8)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300016" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300017" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300018" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300019" data-element-type="Text">PIC X (91)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST50430001A" data-element-type="Text">
+<caption><span class="CellHeadingC" data-element-change-state="Unchanged" data-element-id="TST50430001C" data-element-type="Text">Data Element
+Definition</span></caption>
+<colgroup>
+<col style="width:20.689655172413793%"/>
+<col style="width:6.896551724137931%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:34.48275862068966%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST50430001D" data-element-type="Text">ELEMENT NAME:  Input Data - Detail - Record</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4">
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST50430001E" data-element-type="Text">01 DETAIL - RECORD</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430001F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300020" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300021" data-element-type="Text">RECORD-ID</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300022" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300023" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300024" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300025" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300026" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300027" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300028" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300029" data-element-type="Text">MEMBER-SSN</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430002A" data-element-type="No Type"></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430002B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430002C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430002D" data-element-type="Text">10 SSN-1 TO 7</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430002E" data-element-type="Text">PIC X (7)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430002F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300030" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300031" data-element-type="Text">10 SSN-TD</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300032" data-element-type="Text">PIC X (2)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300033" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300034" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300035" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300036" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300037" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300038" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300039" data-element-type="Text">MEMBER-STATUS</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430003A" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430003B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430003C" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430003D" data-element-type="Text">BRANCH-SERVICE</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430003E" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430003F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300040" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300041" data-element-type="Text">MEMBER-SHORT-NAME</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300042" data-element-type="Text">PIC X (5)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300043" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300044" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300045" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300046" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300047" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300048" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300049" data-element-type="Text">MEMBER-LAST-NAME</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430004A" data-element-type="Text">PIC X (15)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430004B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430004C" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430004D" data-element-type="Text">MEMBER-FIRST-MID-NAME</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430004E" data-element-type="Text">PIC X (7)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430004F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300050" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300051" data-element-type="Text">TRANS-CODE</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300052" data-element-type="Text">PIC 9</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300053" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300054" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300055" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300056" data-element-type="Text">PIC X (6)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300057" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300058" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300059" data-element-type="Text">EFF-DATE-CCYMMDD</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430005A" data-element-type="Text">PIC 9 (8)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430005B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430005C" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430005D" data-element-type="Text">DISCONT-DATE-CCYYMMDD</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430005E" data-element-type="Text">PIC 9 (8)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430005F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300060" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300061" data-element-type="Text">MONTHLY-AMOUNT</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300062" data-element-type="Text">PIC 9 (4)V99</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300063" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300064" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300065" data-element-type="Text">ORIGINAL-AMOUNT</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300066" data-element-type="Text">PIC 9(4)V99</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300067" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300068" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300069" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430006A" data-element-type="Text">PIC X (5)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430006B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430006C" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430006D" data-element-type="Text">PURPOSE-CODE</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430006E" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430006F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300070" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300071" data-element-type="Text">ACCOUNT-NUMBER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300072" data-element-type="Text">PIC 9(17)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504300073" data-element-type="Text">
+<caption><span class="CellHeadingC" data-element-change-state="Unchanged" data-element-id="TST504300075" data-element-type="Text">Data Element
+Definition</span></caption>
+<colgroup>
+<col style="width:20.689655172413793%"/>
+<col style="width:6.896551724137931%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:34.48275862068966%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST504300076" data-element-type="Text">ELEMENT NAME:  Input Data - Control - Record</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4">
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST504300077" data-element-type="Text">01 CONTROL - RECORD</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300078" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300079" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430007A" data-element-type="Text">SUMMARY</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430007B" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430007C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430007D" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430007E" data-element-type="Text">CONTROL-ITEMS</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430007F" data-element-type="Text">PIC X (7)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300080" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300081" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300082" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300083" data-element-type="Text">PIC X (92)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST504300084" data-element-type="Outline" role="heading">2.0  Reject Reports<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST504300085" data-element-type="Text">Reject data includes a header
+record, no match/reject records and control record.</div>
+<div class="TblSepSA">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504300086" data-element-type="Text">
+<caption><span class="CellHeadingC" data-element-change-state="Unchanged" data-element-id="TST504300088" data-element-type="Text">Data Element
+Definition</span></caption>
+<colgroup>
+<col style="width:20.689655172413793%"/>
+<col style="width:6.896551724137931%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:34.48275862068966%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST504300089" data-element-type="Text">ELEMENT NAME:  Reject Data - Header - Record</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4">
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST50430008A" data-element-type="Text">01 HEADER - RECORD</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430008B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430008C" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430008D" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430008E" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430008F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300090" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300091" data-element-type="Text">HEADER-DATE-CCYYMMDD</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300092" data-element-type="Text">PIC X (8)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300093" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300094" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300095" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300096" data-element-type="Text">PIC X (91)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504300097" data-element-type="Text">
+<caption><span class="CellHeadingC" data-element-change-state="Unchanged" data-element-id="TST504300099" data-element-type="Text">Data Element
+Definition</span></caption>
+<colgroup>
+<col style="width:20.689655172413793%"/>
+<col style="width:6.896551724137931%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:34.48275862068966%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST50430009A" data-element-type="Text">ELEMENT NAME:  Reject Data - Nomatch-Detail
+- Record</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4">
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST50430009B" data-element-type="Text">01 NOMATCH-DETAIL - RECORD</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430009C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430009D" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430009E" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430009F" data-element-type="Text">PIC X (2)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000A0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000A1" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000A2" data-element-type="Text">NOMATCH-SSN</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000A3" data-element-type="Text">PIC 9 (9)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000A4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000A5" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000A6" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000A7" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000A8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000A9" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000AA" data-element-type="Text">NOMATCH-SHORT-NAME</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000AB" data-element-type="Text">PIC X (5)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000AC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000AD" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000AE" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000AF" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000B0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000B1" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000B2" data-element-type="Text">NOMATCH-EFF-DATE</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000B3" data-element-type="Text">PIC X(8)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000B4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000B5" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000B6" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000B7" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000B8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000B9" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000BA" data-element-type="Text">NOMATCH-REASON</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000BB" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000BC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000BD" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000BE" data-element-type="Text">NOMATCH-PREMIUM</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000BF" data-element-type="Text">PIC X 9(6)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000C0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000C1" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000C2" data-element-type="Text">NOMATCH-BRANCH</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000C3" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000C4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000C5" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000C6" data-element-type="Text">NOMATCH-MEM-STATUS</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000C7" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST5043000C8" data-element-type="Text">
+<caption><span class="CellHeadingC" data-element-change-state="Unchanged" data-element-id="TST5043000CA" data-element-type="Text">Data Element
+Definition</span></caption>
+<colgroup>
+<col style="width:20.689655172413793%"/>
+<col style="width:6.896551724137931%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:34.48275862068966%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST5043000CB" data-element-type="Text">ELEMENT NAME:  Reject Data - Control - Record</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000CC" data-element-type="Text"><span class="Bold">01 CONTROL- RECORD</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000CD" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000CE" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000CF" data-element-type="Text">SUMMARY</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000D0" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000D1" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000D2" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000D3" data-element-type="Text">CONTROL-ITEMS</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000D4" data-element-type="Text">PIC X(7)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000D5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000D6" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000D7" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000D8" data-element-type="Text">PIC X (92)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST5043000D9" data-element-type="Outline" role="heading">3.0  Deduction Reports<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST5043000DA" data-element-type="Text">Deducts data and includes a
+header record, deducts records and control record.</div>
+<div class="TblSepSA">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST5043000DB" data-element-type="Text">
+<caption><span class="CellHeadingC" data-element-change-state="Unchanged" data-element-id="TST5043000DD" data-element-type="Text">Data Element
+Definition</span></caption>
+<colgroup>
+<col style="width:20.689655172413793%"/>
+<col style="width:6.896551724137931%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:34.48275862068966%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST5043000DE" data-element-type="Text">ELEMENT NAME:  Deduct Data - Header - Record</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000DF" data-element-type="Text"><span class="Bold">01 HEADER - RECORD</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000E0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000E1" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000E2" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000E3" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000E4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000E5" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000E6" data-element-type="Text">HEADER-DATE-CCYYMMDD</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000E7" data-element-type="Text">PIC X (8)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000E8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000E9" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000EA" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000EB" data-element-type="Text">PIC X (91)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST5043000EC" data-element-type="Text">
+<caption><span class="CellHeadingC" data-element-change-state="Unchanged" data-element-id="TST5043000EE" data-element-type="Text">Data Element
+Definition</span></caption>
+<colgroup>
+<col style="width:20.689655172413793%"/>
+<col style="width:6.896551724137931%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:34.48275862068966%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST5043000EF" data-element-type="Text">ELEMENT NAME:  Deduct Data - Nomatch-Detail
+- Record</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000F0" data-element-type="Text"><span class="Bold">01 DEDUCT-REPORT-DETAIL
+- RECORD</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000F1" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000F2" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000F3" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000F4" data-element-type="Text">PIC X (2)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000F5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000F6" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000F7" data-element-type="Text">DEDUCT-SSN</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000F8" data-element-type="Text">PIC 9 (9)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000F9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000FA" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000FB" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000FC" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000FD" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5043000FE" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5043000FF" data-element-type="Text">DEDUCT-SHORT-NAME</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300100" data-element-type="Text">PIC X (5)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300101" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300102" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300103" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300104" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300105" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300106" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300107" data-element-type="Text">DEDUCT-EFF-DATE</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300108" data-element-type="Text">PIC X(8)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300109" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430010A" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430010B" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430010C" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430010D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430010E" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430010F" data-element-type="Text">DEDUCT-REASON</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300110" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300111" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300112" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300113" data-element-type="Text">DEDUCT-PREMIUM</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300114" data-element-type="Text">PIC X 9(6)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300115" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300116" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300117" data-element-type="Text">DEDUCT-BRANCH</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300118" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300119" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430011A" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430011B" data-element-type="Text">DEDUCT-MEM-STATUS</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430011C" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST50430011D" data-element-type="Text">
+<caption><span class="CellHeadingC" data-element-change-state="Unchanged" data-element-id="TST50430011F" data-element-type="Text">Data Element
+Definition</span></caption>
+<colgroup>
+<col style="width:20.689655172413793%"/>
+<col style="width:6.896551724137931%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:34.48275862068966%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST504300120" data-element-type="Text">ELEMENT NAME:  Deduct Data - Control - Record</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4">
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST504300121" data-element-type="Text">01 CONTROL- RECORD</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300122" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300123" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300124" data-element-type="Text">SUMMARY</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300125" data-element-type="Text">PIC X</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300126" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST504300127" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300128" data-element-type="Text">CONTROL-ITEMS</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST504300129" data-element-type="Text">PIC X(7)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430012A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50430012B" data-element-type="Text">05</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430012C" data-element-type="Text">FILLER</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50430012D" data-element-type="Text">PIC X (92)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></section>
+<div class="END">- END -</div></article>
+</div>
+<div class="doc_navigation" id="MainContent_DocumentNavigationPanelPost">
+<a class="button FullStoryLink floatLeft" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C1S1_2.html" rel="noopener" target="_blank" title="View previous section (Chap 1 Sect 1.2)"><i class="fa fa-arrow-circle-left"></i> Previous</a><a class="button FullStoryLink floatRight" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C1ADB.html" rel="noopener" target="_blank" title="View next section (Chap 1 Addendum B)">Next <i class="fa fa-arrow-circle-right"></i></a>
+</div>
+</div>
+<div class="clearfix"></div>

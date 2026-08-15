@@ -1,0 +1,3979 @@
+
+<div class="needLargerText"><a href="https://manuals.health.mil/pages/GetLargerText.aspx" rel="noopener" target="_blank">Need larger text?</a></div>
+<div id="breadcrumb">
+
+</div>
+<div class="main1column">
+<div class="doc_navigation" id="MainContent_DocumentNavigationPanelPre">
+<a class="button FullStoryLink floatLeft" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C2S5_2.html" rel="noopener" target="_blank" title="View previous section (Chap 2 Sect 5.2)"><i class="fa fa-arrow-circle-left"></i> Previous</a><a class="button FullStoryLink floatRight" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C2S5_4.html" rel="noopener" target="_blank" title="View next section (Chap 2 Sect 5.4)">Next <i class="fa fa-arrow-circle-right"></i></a>
+<p></p><a class="button active" id="show-markup-button" title="Markup is shown. Click to hide change markup."><span class="check"><i class="fa fa-check"></i> </span>Show Markup</a><p></p></div>
+<div class="document">
+<article class="TSM show-change-bars" data-manualacronym="TST5"><div class="Header">TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div class="MPChapterTitle">TRICARE Encounter Data (TED)</div>
+<section data-element-change-state="Unchanged" data-element-id="TST505500001" data-element-type="Header">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-id="TST505500002" data-element-type="Text" id="FM101119">Chapter 2</div>
+<div class="Section" data-element-change-state="Unchanged" data-element-id="TST505500003" data-element-type="Text" id="FM101123">Section <span class="Cross-RefMarker" id="FM79522"></span>5.3</div>
+<div class="Subject" data-element-change-state="Unchanged" data-element-id="TST505500004" data-element-type="Text" id="FM101128">Institutional
+Edit Requirements (ELN 200 - 299)</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-id="TST505500005" data-element-type="No Type">Revision:  C-37, July 9, 2026</div>
+<div class="Line"></div></section>
+<section data-element-change-state="Unchanged" data-element-id="TST505500006" data-element-type="Content"><div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505500007" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500008" data-element-type="Text">ELEMENT NAME:  PROVIDER TAXPAYER NUMBER (1-200)</div>
+</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="Footnote-1-" data-element-change-state="Unchanged" data-element-id="TST50550004E" data-element-type="Text"><span class="Superscript">1  </span>ONLY THE FIRST FIVE DIGITS
+OF THE PROVIDER ZIP CODE ARE USED IN THE MATCH.</div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500009" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550000A" data-element-type="Text"><span class="Bold">1-200-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550000B" data-element-type="Text">MUST BE NUMERIC</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550000C" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550000D" data-element-type="Text"><span class="Bold">OR</span> (FIRST THREE
+POSITIONS MUST BE A VALID STATE/COUNTRY CODE</div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST50550000E" data-element-type="Text"><span class="Bold">AND</span> LAST
+SIX POSITIONS MUST BE NUMERIC)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550000F" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500010" data-element-type="Text"><span class="Bold">OR</span> (FIRST THREE
+POSITIONS MUST BE A VALID STATE/COUNTRY CODE</div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500011" data-element-type="Text"><span class="Bold">AND</span> FOURTH
+POSITION MUST BE = <span class="Bold">A</span></div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500012" data-element-type="Text"><span class="Bold">AND</span> LAST
+FIVE POSITIONS MUST BE NUMERIC)</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500013" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500014" data-element-type="Text"><span class="Bold">NO ERROR</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500015" data-element-type="Text">IF ADJUSTMENT/DENIAL REASON
+CODE = </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500016" data-element-type="Text">38</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500017" data-element-type="Text">SERVICES NOT PROVIDED <span class="Bold">OR</span> AUTHORIZED
+BY DESIGNATED (NETWORK) PROVIDERS <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500018" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500019" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550001A" data-element-type="Text">52</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550001B" data-element-type="Text">THE REFERRING/PRESCRIBING/RENDERING
+PROVIDER IS NOT ELIGIBLE TO REFER/PRESCRIBE/ORDER/PERFORM THE SERVICE
+BILLED <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550001C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550001D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550001E" data-element-type="Text">B7</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550001F" data-element-type="Text">THIS PROVIDER WAS NOT CERTIFIED/ELIGIBLE
+TO BE PAID FOR THIS PROCEDURE/SERVICE ON THIS DATE OF SERVICE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500020" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500021" data-element-type="Text"><span class="Bold">THEN</span> DO NOT CHECK
+PROVIDER FILE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500022" data-element-type="Text"><span class="Bold">NO ERROR</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500023" data-element-type="Text">IF ANY OCCURRENCE OF SPECIAL
+PROCESSING CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500024" data-element-type="Text">T</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500025" data-element-type="Text">MEDICARE/TRICARE DUAL ENTITLEMENT
+(SECOND PAYER) AND BEGIN DATE OF CARE ≥ 10/01/2001 <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500026" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500027" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500028" data-element-type="Text">FG</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500029" data-element-type="Text">TFL (FIRST PAYER-NO TRICARE
+PROVIDER CERTIFICATION, i.e., MEDICAL BENEFITS HAVE BEEN EXHAUSTED) <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550002A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550002B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550002C" data-element-type="Text">FS</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550002D" data-element-type="Text">TFL (SECOND PAYER) <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550002E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550002F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500030" data-element-type="Text">RS</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500031" data-element-type="Text">MEDICARE/TRICARE DUAL ENTITLEMENT
+(FIRST PAYER-NO TRICARE PROVIDER CERTIFICATION, i.e., MEDICARE BENEFITS
+HAVE BEEN EXHAUSTED) AND BEGIN DATE OF CARE ≥ 10/01/2001</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500032" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500033" data-element-type="Text"><span class="Bold">THEN</span> DO NOT CHECK
+PROVIDER FILE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500034" data-element-type="Text"><span class="Bold">NO ERROR</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500035" data-element-type="Text">IF AMOUNT ALLOWED (TOTAL) ≤
+ZERO</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500036" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500037" data-element-type="Text"><span class="Bold">THEN</span> DO NOT CHECK
+PROVIDER FILE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500038" data-element-type="Text"><span class="Bold">1-200-02R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500039" data-element-type="Text">IF ANY OCCURRENCE OF OVERRIDE
+CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550003A" data-element-type="Text">NC</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550003B" data-element-type="Text">NON-CERTIFIED PROVIDER</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550003C" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550003D" data-element-type="Text"><span class="Bold">THEN</span> THE NON-CERTIFIED
+PROVIDER MUST MATCH THE PROVIDER ON THE PROVIDER FILE USING THE
+FOLLOWING:</div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST50550003E" data-element-type="Text">INSTITUTIONAL PROVIDER TAXPAYER
+NUMBER</div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST50550003F" data-element-type="Text"><span class="Bold">AND</span> TYPE OF INSTITUTION</div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500040" data-element-type="Text"><span class="Bold">AND</span> PROVIDER
+ZIP CODE<span class="Superscript">1</span></div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500041" data-element-type="Text"><span class="Bold">AND</span> PROVIDER
+SUB-IDENTIFIER</div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500042" data-element-type="Text"><span class="Bold">AND</span> ACCEPTANCE
+AND TERMINATION DATES MUST = ZEROES</div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500043" data-element-type="Text"><span class="Bold">AND</span> PROVIDER
+CONTRACT AFFILIATION CODE MUST = <span class="Bold">5</span> (NON-CERTIFIED PROVIDER)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500044" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500045" data-element-type="Text">IF NO OCCURRENCE OF OVERRIDE
+CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500046" data-element-type="Text">NC</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500047" data-element-type="Text">NON-CERTIFIED PROVIDER</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500048" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500049" data-element-type="Text"><span class="Bold">THEN</span> CERTIFIED
+PROVIDER MUST MATCH THE PROVIDER ON THE PROVIDER FILE USING THE
+FOLLOWING:</div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST50550004A" data-element-type="Text">INSTITUTIONAL PROVIDER TAXPAYER
+NUMBER</div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST50550004B" data-element-type="Text"><span class="Bold">AND</span> TYPE OF INSTITUTION</div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST50550004C" data-element-type="Text"><span class="Bold">AND</span> PROVIDER
+ZIP CODE<span class="Superscript">1</span> </div>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST50550004D" data-element-type="Text"><span class="Bold">AND</span> PROVIDER
+SUB-IDENTIFIER</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST50550004F" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500050" data-element-type="Text">ELEMENT NAME:  PROVIDER SUB-IDENTIFIER (1-205)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500051" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500052" data-element-type="Text"><span class="Bold">1-205-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500053" data-element-type="Text">MUST BE ALPHA <span class="Bold">OR</span> NUMERIC--CANNOT
+BE BLANKS</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500054" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500055" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500056" data-element-type="Text">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505500057" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500058" data-element-type="Text">ELEMENT NAME:  SCH DRG CALCULATION (1-208)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500059" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550005A" data-element-type="Text"><span class="Bold">1-208-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550005B" data-element-type="Text">MUST BE NUMERIC AND MUST BE
+≥ ZERO</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50550005C" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550005D" data-element-type="Text"><span class="Bold">1-208-01R</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550005E" data-element-type="Text">IF SCH DRG NUMBER IS NOT BLANK</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550005F" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500060" data-element-type="Text"><span class="Bold">THEN</span> SCH DRG CALCULATION
+MUST BE &gt; ZERO</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505500061" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500062" data-element-type="Text">ELEMENT NAME:  PROVIDER ORGANIZATIONAL NPI
+NUMBER (TYPE 2) (1-215)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500063" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500064" data-element-type="Text"><span class="Bold">1-215-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500065" data-element-type="Text">MUST BE ALL BLANKS <span class="Bold">OR</span> 10
+DIGITS (MUST NOT BE ALL ZEROES)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500066" data-element-type="Text"><span class="Bold">1-215-02V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500067" data-element-type="Text">IF PROVIDER ORGANIZATIONAL
+NPI NUMBER IS ALL DIGITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500068" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500069" data-element-type="Text"><span class="Bold">THEN</span> THE CHECK
+DIGIT (POSITION 10 OF THE PROVIDER ORGANIZATIONAL NPI NUMBER) MUST
+EQUAL THE VALUE COMPUTED USING LUHN FORMULA FOR MODULES 10 “DOUBLE-ADD-DOUBLE”
+CHECK DIGIT ALGORITHM</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50550006A" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550006B" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550006C" data-element-type="Text">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST50550006D" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST50550006E" data-element-type="Text">ELEMENT NAME:  PROVIDER ZIP CODE (1-220)</div>
+</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="4">
+<div class="Footnote-1-" data-element-change-state="Unchanged" data-element-id="TST505500079" data-element-type="Text"><span class="Superscript">1  </span>WHEN FOREIGN COUNTRY CODES
+ARE SUBMITTED, THE FIRST THREE CHARACTERS WILL BE EDITED AGAINST <span class="Uppercase"><span class="Add"><a href="c2adA.html#FM54631" rel="noopener" target="_blank">Addendum A</a></span></span>.</div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50550006F" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500070" data-element-type="Text"><span class="Bold">1-220-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500071" data-element-type="Text">MUST BE NINE DIGITS <span class="Bold">OR</span> FIVE
+DIGITS WITH FOUR BLANKS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500072" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500073" data-element-type="Text">MUST BE A VALID ZIP CODE (BASED
+ON ADMISSION DATE) IN THE GOVERNMENT PROVIDED ELECTRONIC ZIP CODE
+FILE <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500074" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500075" data-element-type="Text">MUST BE A THREE CHARACTER FOREIGN
+COUNTRY CODE (BASED ON THE COUNTRY CODES TABLE<span class="Superscript">1</span>)
+FOLLOWED BY SIX BLANKS</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500076" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500077" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500078" data-element-type="Text">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST50550007A" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST50550007B" data-element-type="Text">ELEMENT NAME:  PROVIDER PARTICIPATION INDICATOR
+(1-225)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50550007C" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550007D" data-element-type="Text"><span class="Bold">1-225-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550007E" data-element-type="Text">MUST BE A VALID PROVIDER PARTICIPATION
+INDICATOR.</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50550007F" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500080" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500081" data-element-type="Text">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505500082" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500083" data-element-type="Text">ELEMENT NAME:  PROVIDER NETWORK STATUS INDICATOR
+(1-230)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500084" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500085" data-element-type="Text"><span class="Bold">1-230-01V</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500086" data-element-type="Text">MUST BE ONE OF THE FOLLOWING
+VALUES</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500087" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500088" data-element-type="Text">NETWORK PROVIDER <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500089" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550008A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550008B" data-element-type="Text">2</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550008C" data-element-type="Text">NON-NETWORK PROVIDER</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50550008D" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550008E" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550008F" data-element-type="Text">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505500090" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500091" data-element-type="Text">ELEMENT NAME:  TYPE OF INSTITUTION (1-235)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500092" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500093" data-element-type="Text"><span class="Bold">1-235-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500094" data-element-type="Text">VALUE MUST BE A VALID TYPE
+OF INSTITUTION CODE.</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500095" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500096" data-element-type="Text"><span class="Bold">1-235-02R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500097" data-element-type="Text">IF PRICING RATE CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500098" data-element-type="Text">K</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500099" data-element-type="Text">HOSPITAL-SPECIFIC PSYCHIATRIC
+PER DIEM RATE <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550009A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550009B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550009C" data-element-type="Text">L</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550009D" data-element-type="Text">REGION SPECIFIC PSYCHIATRIC
+PER DIEM RATE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550009E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550009F" data-element-type="Text"><span class="Bold">THEN</span> TYPE OF INSTITUTION
+MUST =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000A0" data-element-type="Text">22</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000A1" data-element-type="Text">PSYCHIATRIC HOSPITAL/UNIT <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000A2" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000A3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000A4" data-element-type="Text">52</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000A5" data-element-type="Text">CHILDREN’S PSYCHIATRIC HOSPITAL/UNIT</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000A6" data-element-type="Text"><span class="Bold">1-235-03R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000A7" data-element-type="Text">IF TYPE OF INSTITUTION =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000A8" data-element-type="Text">70</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000A9" data-element-type="Text">HHA</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000AA" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055000AB" data-element-type="Text"><span class="Bold">AND</span> BEGIN DATE
+OF CARE ≥ 06/01/2004</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000AC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST5055000AD" data-element-type="Text"><span class="Bold">THEN</span> ONE OCCURRENCE
+OF REVENUE CODE MUST = </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000AE" data-element-type="Text">0023</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000AF" data-element-type="Text">HHA PPS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000B0" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000B1" data-element-type="Text"><span class="Bold">UNLESS</span> AMOUNT
+ALLOWED (TOTAL) = ZERO</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000B2" data-element-type="Text"><span class="Bold">1-235-04R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000B3" data-element-type="Text">IF TYPE OF INSTITUTION =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000B4" data-element-type="Text">91</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000B5" data-element-type="Text">SCH</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000B6" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055000B7" data-element-type="Text"><span class="Bold">AND</span> ADMISSION
+DATE ≥ 01/01/2014</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000B8" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055000B9" data-element-type="Text"><span class="Bold">AND</span> AMOUNT ALLOWED
+(TOTAL) &gt; 0</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000BA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST5055000BB" data-element-type="Text"><span class="Bold">THEN</span> PRICING RATE
+CODE MUST =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000BC" data-element-type="Text">CR</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000BD" data-element-type="Text">CCR</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST5055000BE" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST5055000BF" data-element-type="Text">ELEMENT NAME:  CLAIM FORM TYPE/EMC INDICATOR
+(1-240)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055000C0" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000C1" data-element-type="Text"><span class="Bold">1-240-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000C2" data-element-type="Text">VALUE MUST BE A VALID CLAIM
+FORM TYPE/EMC INDICATOR.</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055000C3" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000C4" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000C5" data-element-type="Text">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="NewPage">
+<table class="EleNameTbl" data-element-change-state="Changed" data-element-id="TST5055000C6" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST5055000C7" data-element-type="Text">ELEMENT NAME:  FREQUENCY CODE (1-250)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055000C8" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000C9" data-element-type="Text"><span class="Bold">1-250-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000CA" data-element-type="Text">MUST BE A VALID FREQUENCY CODE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000CB" data-element-type="Text"><span class="Bold">1-250-02V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000CC" data-element-type="Text">IF DRG NUMBER IS NOT BLANK</div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000CD" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055000CE" data-element-type="Text"><span class="Bold">AND</span> TYPE OF SUBMISSION
+=</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000CF" data-element-type="Text">A</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000D0" data-element-type="Text">ADJUSTMENT TO TED RECORD DATA <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000D1" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000D2" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000D3" data-element-type="Text">C</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000D4" data-element-type="Text">COMPLETE CANCELLATION TO TED
+RECORD DATA <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000D5" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000D6" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000D7" data-element-type="Text">I</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000D8" data-element-type="Text">INITIAL TED RECORD SUBMISSION <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000D9" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000DA" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000DB" data-element-type="Text">O</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000DC" data-element-type="Text">ZERO PAYMENT TED RECORD DUE
+TO 100% OHI <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000DD" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000DE" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000DF" data-element-type="Text">R</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000E0" data-element-type="Text">RESUBMISSION OF AN INITIAL
+TED RECORD</div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000E1" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055000E2" data-element-type="Text"><span class="Bold">AND</span> FREQUENCY
+CODE =</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000E3" data-element-type="Text">2</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000E4" data-element-type="Text">INTERIM-INITIAL <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000E5" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000E6" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000E7" data-element-type="Text">3</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000E8" data-element-type="Text">INTERIM-INTERIM <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000E9" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000EA" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000EB" data-element-type="Text">4</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000EC" data-element-type="Text">INTERIM-FINAL</div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000ED" data-element-type="No Type"></div>
+</td>
+<td colspan="3" style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST5055000EE" data-element-type="Text"><span class="Bold">THEN</span> THE FREQUENCY
+CODE SUBMISSION MUST FOLLOW THE DIRECTIONS IN THE TABLE BELOW</div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000EF" data-element-type="No Type"></div>
+</td>
+<td style="background-color:#819089;border-top:1pt dashed;border-right:0.5pt solid;border-bottom:1pt dashed;border-left:0.5pt solid;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055000F0" data-element-type="Text">FREQUENCY
+CODE</div>
+</td>
+<td colspan="2" style="background-color:#819089;border-top:1pt dashed;border-right:0.5pt solid;border-bottom:1pt dashed;">
+<div class="CellHeading9L" data-element-change-state="Unchanged" data-element-id="TST5055000F1" data-element-type="Text">PREVIOUS TED RECORD FREQUENCY
+CODE</div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000F2" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;border-left:0.25pt solid;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000F3" data-element-type="Text">2</div>
+</td>
+<td colspan="2" style="border-top:0.5pt solid;border-right:0.5pt solid;border-bottom:0.5pt solid;border-left:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000F4" data-element-type="Text">= 2 <span class="Bold">OR</span> NO PREVIOUS
+TED RECORD</div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000F5" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;border-left:0.25pt solid;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000F6" data-element-type="Text">3</div>
+</td>
+<td colspan="2" style="border-top:0.5pt solid;border-right:0.5pt solid;border-bottom:0.5pt solid;border-left:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000F7" data-element-type="Text">= 2 <span class="Bold">OR</span> 3 (PREVIOUS
+TED RECORD MUST EXIST)</div>
+</td>
+</tr>
+<tr>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000F8" data-element-type="No Type"></div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;border-left:0.25pt solid;">
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055000F9" data-element-type="Text">4</div>
+</td>
+<td colspan="2" style="border-top:0.5pt solid;border-right:0.5pt solid;border-bottom:0.5pt solid;border-left:0.5pt solid;">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000FA" data-element-type="Text">= 2, 3, <span class="Bold">OR</span> 4 (PREVIOUS
+TED RECORD MUST EXIST)</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055000FB" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellHeading9L" data-element-change-state="Added" data-element-id="TST50550038E" data-element-type="Text"><span class="ChangeAdd">1-250-01R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550038F" data-element-type="Text"><span class="Bold"><span class="ChangeAdd">IF</span></span><span class="ChangeAdd"> AMOUNT
+ALLOWED (TOTAL) = ZERO</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500390" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500391" data-element-type="No Type"></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500392" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500393" data-element-type="Text"><span class="Bold"><span class="ChangeAdd">OR</span></span><span class="ChangeAdd"> ANY
+OCCURRENCE OF SPECIAL PROCESSING CODE =</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Added" data-element-id="TST505500394" data-element-type="Text"><span class="ChangeAdd">T</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500395" data-element-type="Text"><span class="ChangeAdd">MEDICARE/TRICARE
+DUAL ENTITLMENT (SECOND PAYER) </span><span class="Bold"><span class="ChangeAdd">OR</span></span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500396" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500397" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Added" data-element-id="TST505500398" data-element-type="Text"><span class="ChangeAdd">FS</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Added" data-element-id="TST505500399" data-element-type="Text"><span class="ChangeAdd">TFL (SECOND PAYER)</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550039A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST50550039B" data-element-type="Text"><span class="Bold"><span class="ChangeAdd">THEN</span></span><span class="ChangeAdd"> BYPASS
+THIS EDIT</span></div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Deleted" data-element-id="TST5055000FC" data-element-type="Text"><span class="Bold"><span class="ChangeDelete">1-250-01R</span></span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055000FD" data-element-type="Text"><span class="Bold"><span class="ChangeAdd">ELSE</span></span> <span class="Bold"><span class="ChangeAdd">IF</span></span> PATIENT
+STATUS =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Added" data-element-id="TST5055000FE" data-element-type="Text">30</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Added" data-element-id="TST5055000FF" data-element-type="Text">STILL A PATIENT</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500100" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500101" data-element-type="Text"><span class="ChangeDelete"><span class="Bold">AND</span> AMOUNT
+ALLOWED (TOTAL) ≠ ZERO</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500102" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500103" data-element-type="Text"><span class="Bold"><span class="ChangeDelete">OR</span></span><span class="ChangeDelete"> OCCURRENCE
+OF SPECIAL PROCESSING CODE =</span></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Deleted" data-element-id="TST505500104" data-element-type="Text"><span class="ChangeDelete">T</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500105" data-element-type="Text"><span class="ChangeDelete">MEDICARE/TRICARE
+DUAL ENTITLEMENT (SECOND PAYER) </span><span class="Bold"><span class="ChangeDelete">AND</span></span><span class="ChangeDelete"> BEGIN
+DATE OF CARE ≥ 10/01/2001 </span><span class="Bold"><span class="ChangeDelete">OR</span></span> </div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500106" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500107" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Deleted" data-element-id="TST505500108" data-element-type="Text"><span class="ChangeDelete">FS</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Deleted" data-element-id="TST505500109" data-element-type="Text"><span class="ChangeDelete">TFL (SECOND PAYER)</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550010A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind3" data-element-change-state="Unchanged" data-element-id="TST50550010B" data-element-type="Text"><span class="Bold">THEN</span> FREQUENCY
+CODE MUST =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550010C" data-element-type="Text">2</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550010D" data-element-type="Text">INTERIM-INITIAL <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550010E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550010F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500110" data-element-type="Text">3</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500111" data-element-type="Text">INTERIM-INTERIM</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500112" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500113" data-element-type="Text"><span class="Bold">UNLESS</span> TYPE OF
+INSTITUTION =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500114" data-element-type="Text">70</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500115" data-element-type="Text">HHA</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500116" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500117" data-element-type="Text"><span class="Bold">THEN</span> FREQUENCY
+CODE MUST =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500118" data-element-type="Text">2</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500119" data-element-type="Text">INTERIM-INITIAL <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550011A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550011B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550011C" data-element-type="Text">3</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550011D" data-element-type="Text">INTERIM-INTERIM <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550011E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550011F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500120" data-element-type="Text">7</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500121" data-element-type="Text">REPLACEMENT OF PRIOR CLAIM <span class="Bold">OR </span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500122" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500123" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500124" data-element-type="Text">8</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500125" data-element-type="Text">VOID/CANCEL OF PRIOR CLAIM <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500126" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500127" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500128" data-element-type="Text">9</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500129" data-element-type="Text">FINAL CLAIM FOR HHA EPISODE <span class="Bold"><span class="ChangeAdd">OR</span></span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550039C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550039D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Added" data-element-id="TST50550039E" data-element-type="Text"><span class="ChangeAdd">A</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550039F" data-element-type="Text"><span class="ChangeAdd">ADMISSION/ELECTION
+NOTICE</span> <span class="Bold"><span class="ChangeAdd">OR</span></span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055003A0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055003A1" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Added" data-element-id="TST5055003A2" data-element-type="Text"><span class="ChangeAdd">D</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Added" data-element-id="TST5055003A3" data-element-type="Text"><span class="ChangeAdd">CANCELLATION OF ADMISSION/ELECTION
+NOTICE</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550012A" data-element-type="Text"><span class="Bold">1-250-02R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550012B" data-element-type="Text">IF PATIENT STATUS =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550012C" data-element-type="Text">01</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550012D" data-element-type="Text">DISCHARGED <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550012E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550012F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500130" data-element-type="Text">02</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500131" data-element-type="Text">TRANSFERRED <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500132" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500133" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500134" data-element-type="Text">20</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500135" data-element-type="Text">EXPIRED</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500136" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500137" data-element-type="Text"><span class="Bold">THEN</span> FREQUENCY
+CODE MUST =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500138" data-element-type="Text">0</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500139" data-element-type="Text">NON-PAYMENT/ZERO CLAIM <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550013A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550013B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550013C" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550013D" data-element-type="Text">ADMIT THROUGH DISCHARGE <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550013E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550013F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500140" data-element-type="Text">4</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500141" data-element-type="Text">INTERIM-FINAL <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500142" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500143" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500144" data-element-type="Text">5</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500145" data-element-type="Text">LATE CHARGE(S) <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500146" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500147" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500148" data-element-type="Text">7</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500149" data-element-type="Text">REPLACEMENT OF PRIOR CLAIM <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550014A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550014B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550014C" data-element-type="Text">8</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550014D" data-element-type="Text">VOID/CANCELLATION OF PRIOR
+CLAIM <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550014E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550014F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500150" data-element-type="Text">9</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500151" data-element-type="Text">FINAL CLAIM FOR HHA PPS EPISODE <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500386" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500387" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500388" data-element-type="Text">A</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500389" data-element-type="Text">ADMISSION/ELECTION NOTICE <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550038A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550038B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550038C" data-element-type="Text">D</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550038D" data-element-type="Text">CANCELLATION OF ADMISSION/ELECTION
+NOTICE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500152" data-element-type="Text"><span class="Bold">1-250-03R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500153" data-element-type="Text">IF PRICING RATE CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500154" data-element-type="Text">H</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500155" data-element-type="Text">TRICARE DRG REIMBURSEMENT WITH
+SHORT STAY OUTLIER</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500156" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500157" data-element-type="Text"><span class="Bold">THEN</span> FREQUENCY
+CODE MUST = </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500158" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500159" data-element-type="Text">ADMIT THROUGH DISCHARGE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550015A" data-element-type="Text"><span class="Bold">1-250-05R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550015B" data-element-type="Text">IF FREQUENCY CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550015C" data-element-type="Text">5</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550015D" data-element-type="Text">LATE CHARGE(S)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550015E" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550015F" data-element-type="Text"><span class="Bold">THEN</span> AMOUNT ALLOWED
+(TOTAL) MUST = ZERO <span class="Bold">FOR ALL OCCURRENCE/LINE ITEMS</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505500160" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500161" data-element-type="Text">ELEMENT NAME:  TYPE OF ADMISSION (1-255)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500162" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500163" data-element-type="Text"><span class="Bold">1-255-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500164" data-element-type="Text">VALUE MUST BE A VALID TYPE
+OF ADMISSION CODE.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500165" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500166" data-element-type="Text"><span class="Bold">UNLESS</span> REVENUE
+CODE ON ANY OF THE OCCURRENCES/LINE ITEMS =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500167" data-element-type="Text">0023</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500168" data-element-type="Text">HHA</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500169" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550016A" data-element-type="Text"><span class="Bold">OR</span> TYPE OF INSTITUTION
+=</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550016B" data-element-type="Text">70</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550016C" data-element-type="Text">HHA</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550016D" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550016E" data-element-type="Text"><span class="Bold">OR</span> AMOUNT ALLOWED
+(TOTAL) = ZERO</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550016F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500170" data-element-type="Text"><span class="Bold">OR</span> ANY OCCURRENCE
+OF SPECIAL PROCESSING CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500171" data-element-type="Text">11</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500172" data-element-type="Text">HOSPICE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500173" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500174" data-element-type="Text"><span class="Bold">THEN</span> VALUE MUST
+BE BLANK <span class="Bold">OR</span> A VALID TYPE OF ADMISSIONS CODE</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500175" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500176" data-element-type="Text"><span class="Bold">1-255-03R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500177" data-element-type="Text">IF TYPE OF ADMISSION =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500178" data-element-type="Text">4</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500179" data-element-type="Text">NEWBORN</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550017A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550017B" data-element-type="Text"><span class="Bold">AND</span> ICD VERSION
+=</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550017C" data-element-type="Text">9</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550017D" data-element-type="Text">ICD-9</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550017E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550017F" data-element-type="Text"><span class="Bold">AND</span> POINT OF ORIGIN
+=</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500180" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500181" data-element-type="Text">NORMAL DELIVERY <span class="Bold">OR</span> </div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500182" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500183" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500184" data-element-type="Text">2</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500185" data-element-type="Text">PREMATURE DELIVERY <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500186" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500187" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500188" data-element-type="Text">4</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500189" data-element-type="Text">EXTRAMURAL BIRTH <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550018A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550018B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550018C" data-element-type="Text">5</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550018D" data-element-type="Text">BORN INSIDE THIS HOSPITAL <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550018E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550018F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500190" data-element-type="Text">6</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500191" data-element-type="Text">BORN OUTSIDE THIS HOSPITAL</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500192" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500193" data-element-type="Text"><span class="Bold">THEN</span> PRINCIPAL
+DIAGNOSIS/POA INDICATOR (POSITIONS 1-7) MUST BE BETWEEN V30.0 AND
+V39.2.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500194" data-element-type="Text"><span class="Bold">1-255-04R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500195" data-element-type="Text">IF TYPE OF ADMISSION =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500196" data-element-type="Text">4</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500197" data-element-type="Text">NEWBORN</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500198" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500199" data-element-type="Text"><span class="Bold">AND</span> ICD VERSION
+=</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550019A" data-element-type="Text">0</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550019B" data-element-type="Text">ICD-10</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550019C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST50550019D" data-element-type="Text"><span class="Bold">THEN</span> POINT OF
+ORIGIN =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550019E" data-element-type="Text">5</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550019F" data-element-type="Text">BORN INSIDE THIS HOSPITAL <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001A0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055001A1" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001A2" data-element-type="Text">6</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001A3" data-element-type="Text">BORN OUTSIDE THIS HOSPITAL</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001A4" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind3" data-element-change-state="Unchanged" data-element-id="TST5055001A5" data-element-type="Text"><span class="Bold">AND</span> PRINCIPAL
+DIAGNOSIS/POA INDICATOR (POSITIONS 1-7) MUST BE BETWEEN Z38.00 AND
+Z38.8.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST5055001A6" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST5055001A7" data-element-type="Text">ELEMENT NAME:  POINT OF ORIGIN (1-260)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055001A8" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001A9" data-element-type="Text"><span class="Bold">1-260-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001AA" data-element-type="Text">VALUE MUST BE A VALID POINT
+OF ORIGIN.</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055001AB" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001AC" data-element-type="Text"><span class="Bold">1-260-01R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001AD" data-element-type="Text">IF TYPE OF ADMISSION =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001AE" data-element-type="Text">4</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001AF" data-element-type="Text">NEWBORN</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001B0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055001B1" data-element-type="Text"><span class="Bold">THEN</span> POINT OF
+ORIGIN MUST =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001B2" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001B3" data-element-type="Text">NORMAL DELIVERY (DISCONTINUED
+10/01/2007) <span class="Bold">OR</span> </div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001B4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001B5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001B6" data-element-type="Text">2</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001B7" data-element-type="Text">PREMATURE DELIVERY (DISCONTINUED
+10/01/2007)<span class="Bold"> OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001B8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001B9" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001BA" data-element-type="Text">3</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001BB" data-element-type="Text">SICK BABY (DISCONTINUED 10/01/2007) <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001BC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001BD" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001BE" data-element-type="Text">4</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001BF" data-element-type="Text">EXTRAMURAL BIRTH <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001C0" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001C1" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001C2" data-element-type="Text">5</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001C3" data-element-type="Text">BORN INSIDE THIS HOSPITAL <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001C4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001C5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001C6" data-element-type="Text">6</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001C7" data-element-type="Text">BORN OUTSIDE THIS HOSPITAL</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST5055001C8" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST5055001C9" data-element-type="Text">ELEMENT NAME:  ADMISSION DATE (1-265)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055001CA" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001CB" data-element-type="Text"><span class="Bold">1-265-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001CC" data-element-type="Text">MUST BE A VALID GREGORIAN DATE
+AND CANNOT BE &gt; DHA CURRENT SYSTEM DATE.</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055001CD" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001CE" data-element-type="Text"><span class="Bold">1-265-01R</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001CF" data-element-type="Text">ADMISSION DATE MUST BE ≤ DATE
+TED RECORD PROCESSED TO COMPLETION (PTC)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001D0" data-element-type="Text"><span class="Bold">1-265-02R</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001D1" data-element-type="Text">ADMISSION DATE MUST BE ≤ END
+DATE OF CARE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001D2" data-element-type="Text"><span class="Bold">1-265-03R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001D3" data-element-type="Text">IF FREQUENCY CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001D4" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001D5" data-element-type="Text">ADMIT THROUGH DISCHARGE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001D6" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055001D7" data-element-type="Text"><span class="Bold">THEN</span> ADMISSION
+DATE MUST BE ≥ BEGIN DATE OF CARE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001D8" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001D9" data-element-type="Text"><span class="Bold">ELSE IF</span> FREQUENCY
+CODE = </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001DA" data-element-type="Text">2</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001DB" data-element-type="Text">INTERIM-INITIAL</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001DC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055001DD" data-element-type="Text"><span class="Bold">AND</span> TYPE OF INSTITUTION
+≠</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001DE" data-element-type="Text">70</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001DF" data-element-type="Text">HHA</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001E0" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST5055001E1" data-element-type="Text"><span class="Bold">THEN </span>ADMISSION
+DATE MUST BE ≥ BEGIN DATE OF CARE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001E2" data-element-type="Text"><span class="Bold">1-265-04R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001E3" data-element-type="Text">IF TYPE OF SUBMISSION =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001E4" data-element-type="Text">A</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001E5" data-element-type="Text">ADJUSTMENT <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001E6" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001E7" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001E8" data-element-type="Text">B</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001E9" data-element-type="Text">ADJUSTMENT OF NON-TED RECORD
+(HCSR) DATA <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001EA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001EB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001EC" data-element-type="Text">C</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001ED" data-element-type="Text">COMPLETE CANCELLATION <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001EE" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001EF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001F0" data-element-type="Text">E</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001F1" data-element-type="Text">COMPLETE CANCELLATION OF NON-TED
+RECORD (HCSR) DATA</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001F2" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055001F3" data-element-type="Text"><span class="Bold">THEN</span> ADMISSION
+DATE MUST BE ≤ DATE ADJUSTMENT IDENTIFIED</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST5055001F4" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST5055001F5" data-element-type="Text">ELEMENT NAME:  PATIENT STATUS (1-270)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055001F6" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001F7" data-element-type="Text"><span class="Bold">1-270-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001F8" data-element-type="Text">VALUE MUST BE A VALID PATIENT
+STATUS CODE.</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055001F9" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001FA" data-element-type="Text"><span class="Bold">1-270-01R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001FB" data-element-type="Text">IF FREQUENCY CODE = </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055001FC" data-element-type="Text">2</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001FD" data-element-type="Text">INTERIM-INITIAL <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001FE" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055001FF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500200" data-element-type="Text">3</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500201" data-element-type="Text">INTERIM-INTERIM</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500202" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500203" data-element-type="Text"><span class="Bold">THEN</span> PATIENT STATUS
+MUST = </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500204" data-element-type="Text">30</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500205" data-element-type="Text">STILL A PATIENT</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500206" data-element-type="Text"><span class="Bold">1-270-03R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500207" data-element-type="Text">IF PRICING RATE CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500208" data-element-type="Text">H</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500209" data-element-type="Text">TRICARE DRG REIMBURSEMENT WITH
+SHORT STAY OUTLIER <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550020A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550020B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550020C" data-element-type="Text">J</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550020D" data-element-type="Text">TRICARE DRG REIMBURSEMENT WITH
+NO OUTLIER</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550020E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550020F" data-element-type="Text"><span class="Bold">THEN</span> PATIENT STATUS
+MUST ≠ </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500210" data-element-type="Text">30</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500211" data-element-type="Text">STILL A PATIENT</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="NewPage">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505500212" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500213" data-element-type="Text">ELEMENT NAME:  BEGIN DATE OF CARE (1-275)</div>
+</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="4">
+<div class="Footnote-1-" data-element-change-state="Unchanged" data-element-id="TST505500254" data-element-type="Text"><span class="Superscript">1  </span>“AUTHORIZED” RECORD ON PROVIDER
+FILE IS BASED ON INSTITUTIONAL PROVIDER TAXPAYER NUMBER, PROVIDER
+SUB-IDENTIFIER, PROVIDER ZIP CODE, TYPE OF INSTITUTION, AND PROVIDER
+ACCEPTANCE AND TERMINATION DATES. THIS IS ONLY DETERMINED ONCE A PROVIDER
+MATCH HAS BEEN OBTAINED (1-200-02R).</div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500214" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500215" data-element-type="Text"><span class="Bold">1-275-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500216" data-element-type="Text">MUST BE A VALID GREGORIAN DATE
+AND CANNOT BE &gt; DHA CURRENT SYSTEM DATE.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500217" data-element-type="Text"><span class="Bold">1-275-02V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500218" data-element-type="Text">BEGIN DATE OF CARE CANNOT BE
+&lt; 01/01/1990.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500219" data-element-type="Text"><span class="Bold">1-275-03V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550021A" data-element-type="Text">BEGIN DATE OF CARE MUST BE
+≤ END DATE OF CARE.</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50550021B" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550021C" data-element-type="Text"><span class="Bold">1-275-02R</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550021D" data-element-type="Text">BEGIN DATE OF CARE MUST BE
+≤ DATE TED RECORD PROCESSED TO COMPLETION (PTC)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550021E" data-element-type="Text"><span class="Bold">1-275-03R</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550021F" data-element-type="Text">BEGIN DATE OF CARE MUST BE
+≥ PERSON BIRTH CALENDAR DATE (PATIENT)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500220" data-element-type="Text"><span class="Bold">1-275-05R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500221" data-element-type="Text">IF TYPE OF SUBMISSION =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500222" data-element-type="Text">A</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500223" data-element-type="Text">ADJUSTMENT <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500224" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500225" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500226" data-element-type="Text">B</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500227" data-element-type="Text">ADJUSTMENT TO NON-TED RECORD
+(HCSR) DATA <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500228" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500229" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550022A" data-element-type="Text">C</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550022B" data-element-type="Text">COMPLETE CANCELLATION <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550022C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550022D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550022E" data-element-type="Text">E</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550022F" data-element-type="Text">COMPLETE CANCELLATION OF NON-TED
+RECORD (HCSR) DATA </div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500230" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500231" data-element-type="Text"><span class="Bold">THEN</span> BEGIN DATE
+OF CARE MUST BE ≤ DATE ADJUSTMENT IDENTIFIED</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500232" data-element-type="Text"><span class="Bold">1-275-06R</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500233" data-element-type="Text">PROVIDER MUST BE “AUTHORIZED”<span class="Superscript">1</span> ON
+PROVIDER FILE FOR THIS BEGIN DATE OF CARE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500234" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500235" data-element-type="Text"><span class="Bold">UNLESS</span> AMOUNT
+ALLOWED (TOTAL) ≤ ZERO</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500236" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500237" data-element-type="Text"><span class="Bold">OR</span> ADJUSTMENT/DENIAL
+REASON 
+CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500238" data-element-type="Text">38</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500239" data-element-type="Text">SERVICES NOT PROVIDED <span class="Bold">OR</span> AUTHORIZED
+BY DESIGNATED (NETWORK) PROVIDERS <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550023A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550023B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550023C" data-element-type="Text">52</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550023D" data-element-type="Text">THE REFERRING/PRESCRIBING/RENDERING
+PROVIDER IS NOT ELIGIBLE TO REFER/PRESCRIBE/ORDER/PERFORM THE SERVICE
+BILLED <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550023E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550023F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500240" data-element-type="Text">B7</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500241" data-element-type="No Type"></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500242" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500243" data-element-type="Text"><span class="Bold">OR</span> ANY OCCURRENCE
+OF SPECIAL PROCESSING CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500244" data-element-type="Text">T</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500245" data-element-type="Text">MEDICARE/TRICARE DUAL ENTITLEMENT
+(SECOND PAYER) <span class="Bold">AND</span> BEGIN DATE OF CARE ≥ 10/01/2001 <span class="Bold">OR</span> </div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500246" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500247" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500248" data-element-type="Text">FG</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500249" data-element-type="Text">TFL (FIRST PAYER-NO TRICARE
+PROVIDER CERTIFICATION, i.e., MEDICAL BENEFITS HAVE BEEN EXHAUSTED) <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550024A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550024B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550024C" data-element-type="Text">FS</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550024D" data-element-type="Text">TFL (SECOND PAYER) <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550024E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550024F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500250" data-element-type="Text">RS</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500251" data-element-type="Text">MEDICARE/TRICARE DUAL ENTITLEMENT
+(FIRST PAYER-NO TRICARE PROVIDER CERTIFICATION, i.e., MEDICARE BENEFITS
+HAVE BEEN EXHAUSTED) <span class="Bold">AND</span> BEGIN DATE OF CARE ≥ 10/01/2001</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500252" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500253" data-element-type="Text"><span class="Bold">THEN</span> DO NOT CHECK
+PROVIDER FILE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="NewPage">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505500255" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500256" data-element-type="Text">ELEMENT NAME:  END DATE OF CARE (1-280)</div>
+</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="4">
+<div class="Footnote-1-" data-element-change-state="Unchanged" data-element-id="TST505500295" data-element-type="Text"><span class="Superscript">1  </span>“AUTHORIZED” RECORD ON PROVIDER
+FILE IS BASED ON INSTITUTIONAL PROVIDER TAXPAYER NUMBER, PROVIDER
+SUB-IDENTIFIER, PROVIDER ZIP CODE, TYPE OF INSTITUTION, AND PROVIDER
+ACCEPTANCE AND TERMINATION DATES. THIS IS ONLY DETERMINED ONCE A PROVIDER
+MATCH HAS BEEN OBTAINED (1-200-02R).</div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500257" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500258" data-element-type="Text"><span class="Bold">1-280-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500259" data-element-type="Text">MUST BE A VALID GREGORIAN DATE
+AND CANNOT BE &gt; DHA CURRENT SYSTEM DATE.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550025A" data-element-type="Text"><span class="Bold">1-280-02V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550025B" data-element-type="Text">END DATE OF CARE CANNOT BE
+&lt; 01/01/1990.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550025C" data-element-type="Text"><span class="Bold">1-280-03V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550025D" data-element-type="Text">END DATE OF CARE MUST BE ≥
+BEGIN DATE OF CARE. </div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50550025E" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550025F" data-element-type="Text"><span class="Bold">1-280-01R</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500260" data-element-type="Text">END DATE OF CARE MUST BE ≤
+DATE TED RECORD PROCESSED TO COMPLETION (PTC)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500261" data-element-type="Text"><span class="Bold">1-280-02R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500262" data-element-type="Text">IF TYPE OF SUBMISSION = </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500263" data-element-type="Text">A</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500264" data-element-type="Text">ADJUSTMENT <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500265" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500266" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500267" data-element-type="Text">B</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500268" data-element-type="Text">ADJUSTMENT TO NON-TED RECORD
+(HCSR) DATA <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500269" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550026A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550026B" data-element-type="Text">C</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550026C" data-element-type="Text">COMPLETE CANCELLATION <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550026D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550026E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550026F" data-element-type="Text">E</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500270" data-element-type="Text">COMPLETE CANCELLATION OF NON-TED
+RECORD (HCSR) DATA</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500271" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500272" data-element-type="Text"><span class="Bold">THEN</span> END DATE
+OF CARE MUST BE ≤ DATE ADJUSTMENT IDENTIFIED</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500273" data-element-type="Text"><span class="Bold">1-280-03R</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500274" data-element-type="Text">PROVIDER MUST BE “AUTHORIZED”<span class="Superscript">1</span> ON
+PROVIDER FILE FOR THIS END DATE OF CARE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500275" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500276" data-element-type="Text"><span class="Bold">UNLESS</span> AMOUNT
+ALLOWED (TOTAL) ≤ ZERO</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500277" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500278" data-element-type="Text"><span class="Bold">OR</span> ADJUSTMENT/DENIAL
+REASON CODE = </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500279" data-element-type="Text">38</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550027A" data-element-type="Text">SERVICES NOT PROVIDED <span class="Bold">OR</span> AUTHORIZED
+BY DESIGNATED (NETWORK) PROVIDERS <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550027B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550027C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550027D" data-element-type="Text">52</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550027E" data-element-type="Text">THE REFERRING/PRESCRIBING/RENDERING
+PROVIDER IS NOT ELIGIBLE TO REFER/PRESCRIBE/ORDER/PERFORM THE SERVICE
+BILLED <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550027F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500280" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500281" data-element-type="Text">B7</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500282" data-element-type="Text">THIS PROVIDER WAS NOT CERTIFIED/ELIGIBLE
+TO BE PAID FOR THIS PROCEDURE/SERVICE ON THIS DATE OF SERVICE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500283" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500284" data-element-type="Text"><span class="Bold">OR</span> ANY OCCURRENCE
+OF SPECIAL PROCESSING CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500285" data-element-type="Text">T</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500286" data-element-type="Text">MEDICARE/TRICARE DUAL ENTITLEMENT
+(SECOND PAYER) <span class="Bold">AND</span> BEGIN DATE OF CARE ≥ 10/01/2001 <span class="Bold">OR</span> </div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500287" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500288" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500289" data-element-type="Text">FG</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550028A" data-element-type="Text">TFL (FIRST PAYER-NO TRICARE
+PROVIDER CERTIFICATION, i.e., MEDICAL BENEFITS HAVE BEEN EXHAUSTED) <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550028B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550028C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550028D" data-element-type="Text">FS</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550028E" data-element-type="Text">TFL (SECOND PAYER) <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550028F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500290" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500291" data-element-type="Text">RS</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500292" data-element-type="Text">MEDICARE/TRICARE DUAL ENTITLEMENT
+(FIRST PAYER-NO TRICARE PROVIDER CERTIFICATION, i.e., MEDICARE BENEFITS
+HAVE BEEN EXHAUSTED) <span class="Bold">AND</span> BEGIN DATE OF CARE ≥ 10/01/2001</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500293" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500294" data-element-type="Text"><span class="Bold">THEN</span> DO NOT CHECK
+PROVIDER FILE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505500296" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500297" data-element-type="Text">ELEMENT NAME:  ADMINISTRATIVE CLIN (1-283)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500298" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500299" data-element-type="Text"><span class="Bold">1-283-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550029A" data-element-type="Text">MUST BE BLANKS.</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50550029B" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550029C" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550029D" data-element-type="Text">REFER TO <span class="Uppercase"><span class="Sec"><a href="c2s8_1.html#FM19915" rel="noopener" target="_blank">Section 8.1</a></span></span>.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="NewPage">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST50550029E" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST50550029F" data-element-type="Text">ELEMENT NAME:  COVERED DAYS (1-285)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055002A0" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002A1" data-element-type="Text"><span class="Bold">1-285-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002A2" data-element-type="Text">MUST BE NUMERIC.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002A3" data-element-type="Text"><span class="Bold">1-285-02V</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002A4" data-element-type="Text">IF ANY OCCURRENCE OF SPECIAL
+PROCESSING CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002A5" data-element-type="Text">11</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002A6" data-element-type="Text">HOSPICE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002A7" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055002A8" data-element-type="Text"><span class="Bold">OR</span> TYPE OF SUBMISSION
+=</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002A9" data-element-type="Text">B</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002AA" data-element-type="Text">ADJUSTMENT TO NON-TED RECORD
+(HCSR) DATA <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002AB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002AC" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002AD" data-element-type="Text">E</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002AE" data-element-type="Text">COMPLETE CANCELLATION OF NON-TED
+RECORD (HCSR) DATA</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002AF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055002B0" data-element-type="Text"><span class="Bold">OR</span> TYPE OF INSTITUTION
+=</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002B1" data-element-type="Text">78</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002B2" data-element-type="Text">NON-HOSPITAL BASED HOSPICE <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002B3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002B4" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002B5" data-element-type="Text">79</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002B6" data-element-type="Text">HOSPITAL BASED HOSPICE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002B7" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST5055002B8" data-element-type="Text"><span class="Bold">THEN</span> BYPASS THIS
+EDIT</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002B9" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002BA" data-element-type="Text"><span class="Bold">ELSE IF</span> AMOUNT
+ALLOWED (TOTAL) ≤ ZERO</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002BB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055002BC" data-element-type="Text"><span class="Bold">OR</span> TYPE OF INSTITUTION
+= </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002BD" data-element-type="Text">70</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002BE" data-element-type="Text">HHA</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002BF" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055002C0" data-element-type="Text"><span class="Bold">OR</span> THE SUM OF
+UNITS OF SERVICE BY REVENUE CODE FOR REVENUE CODES THAT INDICATE
+THAT A ROOM WAS USED (010X-021X, <span class="Bold">OR</span> 0724, <span class="Bold">OR</span> 100X)
+= ZERO</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002C1" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST5055002C2" data-element-type="Text"><span class="Bold">THEN</span> COVERED DAYS
+MUST = ZERO</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002C3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002C4" data-element-type="Text"><span class="Bold">ELSE IF</span> FREQUENCY
+CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002C5" data-element-type="Text">3</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002C6" data-element-type="Text">INTERIM - INTERIM TED RECORD</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002C7" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055002C8" data-element-type="Text"><span class="Bold">OR</span> BEGIN DATE
+OF CARE = END DATE OF CARE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002C9" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST5055002CA" data-element-type="Text"><span class="Bold">THEN</span> COVERDAYS
+MUST BE ≤ END DATE OF CARE - BEGIN DATE OF CARE + 1</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002CB" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002CC" data-element-type="Text"><span class="Bold">ELSE IF</span> ADMISSION
+DATE = END DATE OF CARE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002CD" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055002CE" data-element-type="Text"><span class="Bold">THEN</span> COVERED DAYS
+MUST BE ≤ 1</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002CF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002D0" data-element-type="Text"><span class="Bold">ELSE IF</span> FREQUENCY
+CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002D1" data-element-type="Text">1</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002D2" data-element-type="Text">ADMIT THRU DISCHARGE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002D3" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055002D4" data-element-type="Text"><span class="Bold">THEN</span> COVERED DAYS
+MUST BE ≤ END DATE OF CARE - ADMISSION DATE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002D5" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002D6" data-element-type="Text"><span class="Bold">ELSE IF</span> FREQUENCY
+CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002D7" data-element-type="Text">2</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002D8" data-element-type="Text">INTERIM - INITIAL TED RECORD</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002D9" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST5055002DA" data-element-type="Text"><span class="Bold">THEN</span> COVERED DAYS
+MUST BE ≤ END DATE OF CARE - ADMISSION DATE + 1</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002DB" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002DC" data-element-type="Text"><span class="Bold">ELSE</span> COVERED DAYS
+MUST BE ≤ END DATE OF CARE - BEGIN DATE OF CARE</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055002DD" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002DE" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002DF" data-element-type="Text">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="NewPage">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST5055002E0" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST5055002E1" data-element-type="Text">ELEMENT NAME:  DRG NUMBER (1-290)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055002E2" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002E3" data-element-type="Text"><span class="Bold">1-290-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002E4" data-element-type="Text">MUST BE A VALID DRG NUMBER <span class="Bold">OR</span> BLANK
+FILLED.</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST5055002E5" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002E6" data-element-type="Text"><span class="Bold">1-290-01R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002E7" data-element-type="Text">IF PRICING RATE CODE =</div>
+</td>
+<td>
+<div class="Blank9" data-element-change-state="Unchanged" data-element-id="TST5055002E8" data-element-type="No Type"> b </div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002E9" data-element-type="Text">NO SPECIAL RATE CODE <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002EA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002EB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002EC" data-element-type="Text">K</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002ED" data-element-type="Text">HOSPITAL-SPECIFIC PSYCHIATRIC
+PER DIEM RATE <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002EE" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002EF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002F0" data-element-type="Text">L</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002F1" data-element-type="Text">REGIONAL-SPECIFIC PSYCHIATRIC
+PER DIEM RATE <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002F2" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002F3" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002F4" data-element-type="Text">P</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002F5" data-element-type="Text">PER DIEM RATE AGREEMENT <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002F6" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002F7" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002F8" data-element-type="Text">CA</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002F9" data-element-type="Text">CAH REIMBURSEMENT <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002FA" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002FB" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST5055002FC" data-element-type="Text">CI</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002FD" data-element-type="Text">CAH IRF REIMBURSEMENT <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002FE" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST5055002FF" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500300" data-element-type="Text">CP</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500301" data-element-type="Text">CAH PSYCHIATRIC HOSPITAL PER
+DIEM RATE <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500302" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500303" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500304" data-element-type="Text">LT</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500305" data-element-type="Text">STANDARD LTCH REIMBURSEMENT <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500306" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500307" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500308" data-element-type="Text">RF</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500309" data-element-type="Text">TRICARE IRF REIMBURSEMENT <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550030A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550030B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550030C" data-element-type="Text">SN</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550030D" data-element-type="Text">SITE-NEUTRAL LTCH REIMBURSEMENT</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550030E" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550030F" data-element-type="Text"><span class="Bold">THEN</span> DRG NUMBER
+MUST = BLANK</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500310" data-element-type="Text"><span class="Bold">1-290-02R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500311" data-element-type="Text">IF ANY OCCURRENCE OF OVERRIDE
+CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500312" data-element-type="Text">Y</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500313" data-element-type="Text">NEWBORN IN MOTHER’S ROOM WITHOUT
+NURSERY CHARGES</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500314" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500315" data-element-type="Text"><span class="Bold">THEN</span> DRG NUMBER
+MUST = BLANK </div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500316" data-element-type="Text"><span class="Bold">1-290-31R</span></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500317" data-element-type="Text">IF PRICING RATE CODE =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500318" data-element-type="Text">H</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500319" data-element-type="Text">TRICARE/CHAMPUS DRG REIMBURSEMENT
+WITH SHORT STAY OUTLIER <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550031A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550031B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550031C" data-element-type="Text">I</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550031D" data-element-type="Text">TRICARE/CHAMPUS DRG REIMBURSEMENT
+WITH COST OUTLIER <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550031E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550031F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500320" data-element-type="Text">J</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500321" data-element-type="Text">TRICARE/CHAMPUS DRG REIMBURSEMENT
+WITH NO OUTLIER <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500322" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500323" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500324" data-element-type="Text">S</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500325" data-element-type="Text">HVBP ADJUSTMENT FACTOR <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500382" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500383" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500384" data-element-type="Text">CV</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500385" data-element-type="Text">COVID-19 ADJUSTMENT FACTOR <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500326" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500327" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500328" data-element-type="Text">DD</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500329" data-element-type="Text">DISCOUNTED DRG</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550032A" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550032B" data-element-type="Text"><span class="Bold">THEN</span> DRG MUST
+NOT BE BLANK</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550032C" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST50550032D" data-element-type="Text"><span class="Bold">AND</span> IF END DATE
+OF CARE &lt; 10/01/2014</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550032E" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind3" data-element-change-state="Unchanged" data-element-id="TST50550032F" data-element-type="Text"><span class="Bold">THEN</span> DATE OF ADMISSION
+MUST BE ≥ THE DRG EFFECTIVE DATE AND ≤ THE DRG TERMINATION DATE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500330" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500331" data-element-type="Text"><span class="Bold">ELSE</span> END DATE
+OF CARE MUST BE ≥ THE DRG EFFECTIVE DATE AND ≤ THE DRG TERMINATION
+DATE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505500332" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500333" data-element-type="Text">ELEMENT NAME:  HIPPS CODE (1-292)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500334" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500335" data-element-type="Text"><span class="Bold">1-292-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500336" data-element-type="Text">MUST BE VALID HIPPS CODES REFER
+TO <span class="Uppercase"><span class="Sec"><a href="c2s2_5.html#FM99841" rel="noopener" target="_blank">Section 2.5</a></span></span> <span class="Bold">AND</span> REFER
+TO CMS WEBSITE AT <span class="xrefpub"><a href="HTTPS://WWW.CMS.GOV/MEDICARE/MEDICARE-FEE-FOR-SERVICE-PAYMENT/PROSPMEDICAREFEESVCPMTGEN/HIPPSCODES" rel="noopener" target="_blank">HTTPS://WWW.CMS.GOV/MEDICARE/MEDICARE-FEE-FOR-SERVICE-PAYMENT/PROSPMEDICAREFEESVCPMTGEN/HIPPSCODES</a></span>. </div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500337" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500338" data-element-type="Text"><span class="Bold">1-292-01R</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500339" data-element-type="Text">IF HIPPS CODE = BLANK</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550033A" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550033B" data-element-type="Text"><span class="Bold">THEN</span> NO OCCURRENCE
+OF REVENUE CODE 
+CAN =</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550033C" data-element-type="Text">0022</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550033D" data-element-type="Text">SNF <span class="Bold">OR</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550033E" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550033F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500340" data-element-type="Text">0023</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500341" data-element-type="Text">HHA PPS</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="NewPage">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505500342" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500343" data-element-type="Text">ELEMENT NAME:  ICD VERSION (1-293)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500344" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500345" data-element-type="Text"><span class="Bold">1-293-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500346" data-element-type="Text">VALUE MUST BE A VALID ICD VERSION.</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500347" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500348" data-element-type="Text"><span class="Bold">NO ERROR</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500349" data-element-type="Text">IF AMOUNT ALLOWED (TOTAL) =
+ZERO </div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550034A" data-element-type="Text"><span class="Bold">1-293-02R</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550034B" data-element-type="Text">IF END DATE OF CARE ≥ 10/01/2015 </div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550034C" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550034D" data-element-type="Text"><span class="Bold">THEN</span> ICD VERSION
+MUST BE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550034E" data-element-type="Text">0</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550034F" data-element-type="Text">ICD-10</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500350" data-element-type="Text"><span class="Bold">1-293-04R</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500351" data-element-type="Text">IF END DATE OF CARE &lt; 10/01/2015</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500352" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500353" data-element-type="Text"><span class="Bold">THEN</span> ICD VERSION
+MUST BE</div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500354" data-element-type="Text">9</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500355" data-element-type="Text">ICD-9</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TblSepSA">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505500356" data-element-type="Text">
+<colgroup>
+<col style="width:10.344827586206896%"/>
+<col style="width:37.93103448275862%"/>
+<col style="width:8.620689655172414%"/>
+<col style="width:43.10344827586207%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">
+<div class="ElementName" data-element-change-state="Unchanged" data-element-id="TST505500357" data-element-type="Text">ELEMENT NAME:  ADMISSION DIAGNOSIS (1-295)</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST505500358" data-element-type="Text">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500359" data-element-type="Text"><span class="Bold">1-295-01V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550035A" data-element-type="Text"><span class="Bold">IF</span> FILING DATE
+IS PRIOR TO 10/01/2004</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550035B" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST50550035C" data-element-type="Text"><span class="Bold">THEN</span> VALUE MUST
+BE VALID ICD DIAGNOSIS CODE, EXCLUDING E000.0-E999.1</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550035D" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550035E" data-element-type="Text"><span class="Bold">UNLESS</span> REVENUE
+CODE ON ANY OF THE OCCURRENCES/LINE ITEMS = </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550035F" data-element-type="Text">0023</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500360" data-element-type="Text">HHA</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500361" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500362" data-element-type="Text"><span class="Bold">THEN</span> VALUE MUST
+BE BLANK <span class="Bold">OR</span> A VALID ICD DIAGNOSIS CODE, EXCLUDING E000.0-E999.1</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500363" data-element-type="Text"><span class="Bold">1-295-02V</span></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500364" data-element-type="Text"><span class="Bold">IF</span> FILING DATE
+ON <span class="Bold">OR</span> AFTER 10/01/2004</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500365" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500366" data-element-type="Text"><span class="Bold">THEN</span> VALUE MUST
+BE VALID ICD DIAGNOSIS CODE, EXCLUDING E000.0-E999.1 (ICD-9-CM)
+AND V00-Y99.9 (ICD-10-CM).</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500367" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST505500368" data-element-type="Text"><span class="Bold">AND</span> BEGIN DATE
+OF CARE MUST BE ON <span class="Bold">OR</span> AFTER THE DIAGNOSIS EFFECTIVE
+DATE AND NOT LATER THAN THE DIAGNOSIS TERMINATION DATE ON THE ICD
+DIAGNOSIS REFERENCE TABLE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500369" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind3" data-element-change-state="Unchanged" data-element-id="TST50550036A" data-element-type="Text"><span class="Bold">OR</span> END DATE OF
+CARE MUST BE ON <span class="Bold">OR</span> AFTER THE DIAGNOSIS EFFECTIVE DATE
+AND NOT LATER THAN THE DIAGNOSIS TERMINATION DATE ON THE ICD DIAGNOSIS
+REFERENCE TABLE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550036B" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550036C" data-element-type="Text"><span class="Bold">UNLESS</span> REVENUE
+CODE ON ANY OF THE OCCURRENCES/LINE ITEMS = </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST50550036D" data-element-type="Text">0023</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550036E" data-element-type="Text">HHA</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550036F" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500370" data-element-type="Text"><span class="Bold">OR</span> TYPE OF INSTITUTION
+= </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500371" data-element-type="Text">70</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500372" data-element-type="Text">HHA</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500373" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500374" data-element-type="Text"><span class="Bold">OR</span> AMOUNT ALLOWED
+(TOTAL) = ZERO</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500375" data-element-type="No Type"></div>
+</td>
+<td>
+<div class="CellBody9Ind1" data-element-change-state="Unchanged" data-element-id="TST505500376" data-element-type="Text"><span class="Bold">OR</span> ANY OCCURRENCE
+OF SPECIAL PROCESSING CODE = </div>
+</td>
+<td>
+<div class="CellBody9C" data-element-change-state="Unchanged" data-element-id="TST505500377" data-element-type="Text">11</div>
+</td>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500378" data-element-type="Text">HOSPICE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500379" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind2" data-element-change-state="Unchanged" data-element-id="TST50550037A" data-element-type="Text"><span class="Bold">THEN</span> VALUE MUST
+BE BLANK <span class="Bold">OR</span> VALUE MUST BE A VALID ICD DIAGNOSIS CODE,
+EXCLUDING E000.0-E999.1 (ICD-9-CM) AND V00-Y99.9 (ICD-10-CM)</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550037B" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind3" data-element-change-state="Unchanged" data-element-id="TST50550037C" data-element-type="Text"><span class="Bold">AND</span> BEGIN DATE
+OF CARE MUST BE ON <span class="Bold">OR</span> AFTER THE DIAGNOSIS EFFECTIVE
+DATE AND NOT LATER THAN THE DIAGNOSIS TERMINATION DATE ON THE ICD
+DIAGNOSIS REFERENCE TABLE</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST50550037D" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9Ind4" data-element-change-state="Unchanged" data-element-id="TST50550037E" data-element-type="Text"><span class="Bold">OR</span> END DATE OF
+CARE MUST BE ON <span class="Bold">OR</span> AFTER THE DIAGNOSIS EFFECTIVE DATE
+AND NOT LATER THAN THE DIAGNOSIS TERMINATION DATE ON THE ICD DIAGNOSIS
+REFERENCE TABLE</div>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="background-color:#819089;">
+<div class="CellHeading9C" data-element-change-state="Unchanged" data-element-id="TST50550037F" data-element-type="Text">Relational
+Edits</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500380" data-element-type="No Type"></div>
+</td>
+<td colspan="3">
+<div class="CellBody9L" data-element-change-state="Unchanged" data-element-id="TST505500381" data-element-type="Text">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></section>
+<div class="END">- END -</div><div class="change-bar" style="top:3689.484375px;height:17px;"></div><div class="change-bar" style="top:3689.484375px;height:17px;"></div><div class="change-bar" style="top:3689.484375px;height:17px;"></div><div class="change-bar" style="top:3717.328125px;height:17px;"></div><div class="change-bar" style="top:3717.328125px;height:17px;"></div><div class="change-bar" style="top:3717.328125px;height:17px;"></div><div class="change-bar" style="top:3717.328125px;height:17px;"></div><div class="change-bar" style="top:3717.328125px;height:17px;"></div><div class="change-bar" style="top:3745.171875px;height:17px;"></div><div class="change-bar" style="top:3745.171875px;height:17px;"></div><div class="change-bar" style="top:3773.015625px;height:17px;"></div><div class="change-bar" style="top:3773.015625px;height:17px;"></div><div class="change-bar" style="top:3799.859375px;height:20.4688px;"></div><div class="change-bar" style="top:3800.859375px;height:17px;"></div><div class="change-bar" style="top:3800.859375px;height:17px;"></div><div class="change-bar" style="top:3800.859375px;height:17px;"></div><div class="change-bar" style="top:3828.703125px;height:17px;"></div><div class="change-bar" style="top:3856.546875px;height:17px;"></div><div class="change-bar" style="top:3856.546875px;height:17px;"></div><div class="change-bar" style="top:3855.546875px;height:20.4688px;"></div><div class="change-bar" style="top:3856.546875px;height:17px;"></div><div class="change-bar" style="top:3856.546875px;height:17px;"></div><div class="change-bar" style="top:3856.546875px;height:17px;"></div><div class="change-bar" style="top:3856.546875px;height:37px;"></div><div class="change-bar" style="top:3877.015625px;height:17px;"></div><div class="change-bar" style="top:3903.859375px;height:20.4688px;"></div><div class="change-bar" style="top:3904.859375px;height:17px;"></div><div class="change-bar" style="top:3903.859375px;height:20.4688px;"></div><div class="change-bar" style="top:3904.859375px;height:17px;"></div><div class="change-bar" style="top:4127.609375px;height:17px;"></div><div class="change-bar" style="top:4155.453125px;height:17px;"></div><div class="change-bar" style="top:4155.453125px;height:17px;"></div><div class="change-bar" style="top:4155.453125px;height:17px;"></div><div class="change-bar" style="top:4183.296875px;height:17px;"></div><div class="change-bar" style="top:4183.296875px;height:17px;"></div></article>
+</div>
+<div class="doc_navigation" id="MainContent_DocumentNavigationPanelPost">
+<a class="button FullStoryLink floatLeft" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C2S5_2.html" rel="noopener" target="_blank" title="View previous section (Chap 2 Sect 5.2)"><i class="fa fa-arrow-circle-left"></i> Previous</a><a class="button FullStoryLink floatRight" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C2S5_4.html" rel="noopener" target="_blank" title="View next section (Chap 2 Sect 5.4)">Next <i class="fa fa-arrow-circle-right"></i></a>
+</div>
+</div>
+<div class="clearfix"></div>

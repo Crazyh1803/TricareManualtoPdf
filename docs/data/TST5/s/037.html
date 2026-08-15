@@ -1,0 +1,749 @@
+
+<div class="needLargerText"><a href="https://manuals.health.mil/pages/GetLargerText.aspx" rel="noopener" target="_blank">Need larger text?</a></div>
+<div id="breadcrumb">
+
+</div>
+<div class="main1column">
+<div class="doc_navigation" id="MainContent_DocumentNavigationPanelPre">
+<a class="button FullStoryLink floatLeft" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C3S4_1.html" rel="noopener" target="_blank" title="View previous section (Chap 3 Sect 4.1)"><i class="fa fa-arrow-circle-left"></i> Previous</a><a class="button FullStoryLink floatRight" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C3S4_3.html" rel="noopener" target="_blank" title="View next section (Chap 3 Sect 4.3)">Next <i class="fa fa-arrow-circle-right"></i></a>
+<p></p><a class="button active" id="show-markup-button" title="Markup is shown. Click to hide change markup."><span class="check"><i class="fa fa-check"></i> </span>Show Markup</a><p></p></div>
+<div class="document">
+<article class="TSM show-change-bars" data-manualacronym="TST5"><div class="Header">TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div class="MPChapterTitle">Defense Enrollment Eligibility Reporting System (DEERS)</div>
+<section data-element-change-state="Unchanged" data-element-id="TST507100001" data-element-type="Header">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-id="TST507100002" data-element-type="Text" id="FM105309">Chapter 3</div>
+<div class="Section" data-element-change-state="Unchanged" data-element-id="TST507100003" data-element-type="Text" id="FM105313">Section <span class="Cross-RefMarker" id="FM50234"></span>4.2</div>
+<div class="Subject" data-element-change-state="Unchanged" data-element-id="TST507100004" data-element-type="Text" id="FM105318">Defense
+Enrollment Eligibility Reporting System (DEERS) Functionality</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-id="TST507100005" data-element-type="No Type">Revision:  C-12,
+September 20, 2024</div>
+<div class="Line"></div></section>
+<section data-element-change-state="Unchanged" data-element-id="TST507100006" data-element-type="Content">
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST507100007" data-element-type="Outline" role="heading">1.0  Application<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100008" data-element-type="Text" role="heading"><span class="Bold">1.1  </span>This section provides functional
+guidance for all contractors that interface with the Defense Manpower Data
+Center (DMDC)/DEERS in support of their contractual requirements.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100009" data-element-type="Text" role="heading"><span class="Bold">1.2  </span>For the purpose of defining
+geographical areas, the 50 United States (US) and the District of
+Columbia are hereafter referred to as the Continental United States
+(CONUS), and all other areas are considered Outside of the Continental
+United States (OCONUS).</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710000A" data-element-type="Text" role="heading"><span class="Bold">1.3  </span>The TRICARE Program’s contracts
+provide support for specific health care service categories. Each
+major area of this section is broken into health care service categories
+for specific guidance. Some of the contracted health care service
+categories are:<div data-element-change-state="Unchanged" data-element-id="TST50710000B" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710000C" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Pharmacy: TPharm (Mail Order
+Pharmacy (MOP) and Retail Pharmacy).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710000D" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Dental: TRICARE Dental Program
+(TDP), TRICARE Retiree Dental Program (TRDP) (prior to October 31,
+2018), Active Duty Dental Program (ADDP), and Remote Active Duty
+Dental Program (RADDP).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710000E" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Medical: CONUS regional contracts,
+OCONUS contract (TRICARE Overseas Program (TOP)), Uniformed Services Family
+Health Plan (USFHP) contracts.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710000F" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Nurse Advice Lines (NALs):
+CONUS and OCONUS NALs.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100010" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Medicare Eligible Claims Processor:
+TRICARE Medicare Eligible Program (TMEP): CONUS, Puerto Rico, Guam,
+the US Virgin Islands, American Samoa, and the Northern Mariana
+Islands.</div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST507100011" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Other
+Health Insurance (OHI).</span></div>
+</div>
+</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100012" data-element-type="Text" role="heading"><span class="Bold">1.4  </span>The contractor shall at a minimum,
+accomplish the key executable business processes listed below.<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100013" data-element-type="Text" role="heading"><span class="Bold">1.4.1  </span>For all contractors and contracts:<div data-element-change-state="Unchanged" data-element-id="TST507100014" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100015" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Beneficiary identification/authentication;</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100016" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Department of Defense (DoD)
+entitlements/TRICARE benefits information (see also TRICARE Operations Manual
+(TOM) and TRICARE Policy Manual (TPM)); and</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100017" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Identification of Other Government
+Programs (OGPs) entitlement information, to include Medicare.</div>
+</div>
+</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100018" data-element-type="Text" role="heading"><span class="Bold">1.4.2  </span>When required by specific contract
+requirements:<div data-element-change-state="Unchanged" data-element-id="TST507100019" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710001A" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Enrollment processing;</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710001B" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Enrollment premiums/fees maintenance
+(includes fee exclusion);</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710001C" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Primary Care Manager (PCM)
+assignment/re-assignment;</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710001D" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Claims processing (with associated
+beneficiary contact updates);</div>
+<div class="BodyLBullet" data-element-change-state="Changed" data-element-id="TST50710001E" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Catastrophic Cap And Deductible
+Data (CCDD)<span class="ChangeDelete">;</span><span class="ChangeAdd">.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST50710001F" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">OHI Program; and</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST507100020" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Standard Insurance Table (SIT)
+Program.</span></div>
+</div>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST507100021" data-element-type="Outline" role="heading">2.0  Contractor
+Responsibility<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100022" data-element-type="Text" role="heading"><span class="Bold">2.1  </span>The contractor
+shall understand and execute the DEERS functionality described in
+this section.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100023" data-element-type="Text" role="heading"><span class="Bold">2.2  </span>The contractor
+shall use the technical information and materials provided by DMDC/DEERS
+via Defense Health Agency (DHA) Health Plan Operations Support Section
+(HPOSS), and then shall consult with DEERS and DHA for any required
+clarification.</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST507100024" data-element-type="Outline" role="heading">3.0  DEERS
+Operational Environment And Characteristics<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507100025" data-element-type="Text">The DEERS environment consists
+of a Relational Database Management System (RDBMS), rules-based
+applications processing DoD entitlements and eligibility, a Transmission
+Control Protocol/Internet Protocol (TCP/IP) sockets listener, application
+servers that enforce business rules, and web servers.</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST507100026" data-element-type="Outline" role="heading">3.1  Data Sequencing<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507100027" data-element-type="Text">The contractor shall ensure
+proper data sequencing of transactions sent to DEERS, when it applies
+to the specific interface involved as DEERS is tasked with resolving
+data conflicts from external systems using rules-based applications.
+This aids in maintaining data validity and integrity.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST507100028" data-element-type="Outline" role="heading">3.2  System Maintenance and Downtime<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100029" data-element-type="Text" role="heading"><span class="Bold">3.2.1  </span>DMDC has routinely scheduled
+times for system maintenance and will schedule additional downtimes as
+required. The routinely scheduled downtimes are:<div data-element-change-state="Unchanged" data-element-id="TST50710002A" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710002B" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Weekly: 2100 Eastern Saturday
+to 0600 Eastern Sunday.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710002C" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Daily, if needed: 2355 Eastern
+to 0100 Eastern.</div>
+</div>
+</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710002D" data-element-type="Text" role="heading"><span class="Bold">3.2.2  </span>When DMDC identifies a telecommunications,
+hardware, or software problem outside a scheduled maintenance window
+that results in contractor interface downtime two contiguous or
+cumulative hours within a business day, DMDC will notify the DHA
+of the problem and estimated time of correction. Government/DEERS
+will notify DEERS reliant contractors regarding the situation and
+provide guidance as appropriate.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710002E" data-element-type="Text" role="heading"><span class="Bold">3.2.3  </span>The contractor shall, in addition
+to the standard problem resolution procedures as referenced in DMDC documentation,
+when the contractor experiences DEERS interface downtime in the
+DEERS interface for two hours contiguously or cumulatively within
+a business day and have not been contacted by DHA, the contractor
+shall report the downtime to the DHA representative and shall report
+an updated status every two hours until the problem is resolved.
+The contractor shall give a final report upon resolution.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710002F" data-element-type="Text" role="heading"><span class="Bold">3.2.4  </span>The contractor shall submit
+a final report upon downtime resolution.</div>
+</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100030" data-element-type="Text" role="heading"><span class="Bold">3.3  </span>DEERS provides system-to-system
+interfaces, applications, web-based applications, and web-based services.<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-id="TST507100031" data-element-type="Outline" role="heading">3.3.1  External Systems - System-To-System
+Interfaces<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507100032" data-element-type="Text">The contractor
+shall ensure all system-to-system interfaces to DEERS use TCP/IP,
+File Transfer Protocol (FTP), Hypertext Transfer (Transport) Protocol
+(HTTP), Secure File Transfer Protocol (SFTP), or Hypertext Transfer (Transport)
+Protocol Secure (HTTPS) as specified by DMDC.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100033" data-element-type="Text" role="heading"><span class="Bold">3.3.1.1  </span>DEERS uses standard message
+protocols where appropriate.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100034" data-element-type="Text" role="heading"><span class="Bold">3.3.1.2  </span>DEERS defines the content and
+format of messages between DEERS and the contractor.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100035" data-element-type="Text" role="heading"><span class="Bold">3.3.1.3  </span>DEERS and the contractor shall
+use encryption for all messages that contain privacy level information.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100036" data-element-type="Text" role="heading"><span class="Bold">3.3.1.4  </span>DEERS specifies the method
+of encryption and authentication for all external interfaces.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100037" data-element-type="Text" role="heading"><span class="Bold">3.3.1.5  </span>All notifications are sent
+as full database images; they are not transaction-based. The contractor
+shall accept and apply the full image sent by DEERS.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100038" data-element-type="Text" role="heading"><span class="Bold">3.3.1.6  </span>The contractor shall add the
+information, if not present in their system.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100039" data-element-type="Text" role="heading"><span class="Bold">3.3.1.7  </span>The contractor shall update
+their system, if the information is present, by replacing their
+information with the newly received DEERS information. Notifications
+are only intended to synchronize the most current information between
+DEERS and the contractor. They do not synchronize history between
+DEERS and the contractor.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710003A" data-element-type="Text" role="heading"><span class="Bold">3.3.1.8  </span>DMDC centrally enforces all
+business rules for enrollment and enrollment-related events.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710003B" data-element-type="Text" role="heading"><span class="Bold">3.3.1.9  </span>DEERS is the database of record
+for all eligibility, enrollment information, and Catastrophic Cap
+&amp; Deductible (CC&amp;D) information.</div>
+<div aria-level="4" class="FM4LevelNT" data-element-change-state="Deleted" data-element-id="TST50710003C" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">3.3.1.10  </span><span class="ChangeDelete">DEERS is the
+central repository for OHI information.</span></div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-id="TST50710003D" data-element-type="Outline" role="heading">3.3.2  Web-Based Application Requirements
+and Functionality<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710003E" data-element-type="Text" role="heading"><span class="Bold">3.3.2.1  </span>The contractor shall use the
+web browser identified in the technical specification(s) or the
+user guide(s) for the specified applications. The web-based applications
+are all Government furnished equipment.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710003F" data-element-type="Text" role="heading"><span class="Bold">3.3.2.2  </span>The contractors shall use the
+Government furnished web-based applications for their intended use only.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100040" data-element-type="Text" role="heading"><span class="Bold">3.3.2.3  </span>The contractor shall not use
+screen scraping, HTML stripping, or any other technology or approach
+to manipulate or alter the intended use of the application or the
+application architecture.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100041" data-element-type="Text" role="heading"><span class="Bold">3.3.2.4  </span>The following functions are
+available to the contractor using Government furnished web-based applications,
+responsibilities and functions based on contractual requirements.
+They are including, but not limited to:<div data-element-change-state="Unchanged" data-element-id="TST507100042" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100043" data-element-type="Text" role="listitem"><span class="Bold">•  </span>General Inquiry of DEERS (GIQD)
+information used for research and customer service to display demographics, Health
+Care Delivery Program (HCDP) eligibility and enrollment. It may
+also allow other administrative functions like address updates.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100044" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Enrollment activities, to include
+display of enrollment premiums/fees.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100045" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Claims processing eligibility
+checks, see also <span class="Secs"><a href="c3s5_1.html#FM42597" rel="noopener" target="_blank">Sections 5.1</a></span> and <span class="Misc-Text"><a href="c3s5_2.html#FM32342" rel="noopener" target="_blank">5.2</a></span>.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100046" data-element-type="Text" role="listitem"><span class="Bold">•  </span>CCDD information that supports
+research and allows limited updates on the history of CC&amp;Ds
+and enrollment fee payment transactions posted to DEERS and stored
+on-line (current plus previous five fiscal years).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100048" data-element-type="Text" role="listitem"><span class="Bold">•  </span>PCM assignment, re-assignment,
+capacities, and enrolled counts.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST507100049" data-element-type="Outline" role="heading">4.0  DEERS
+Web-Based Applications And Notifications<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST50710004A" data-element-type="Text">Applications: The following
+is a brief description of the available applications, responsibilities
+and functions based on contractual requirements.</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST50710004B" data-element-type="Outline" role="heading">4.1  GIQD Information<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST50710004C" data-element-type="Text">GIQD information is accessed
+through a Government furnished web-based system/application that
+is used for research and customer service to display demographics,
+coverage and PCM assignment information. It also allows address
+updates.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST50710004D" data-element-type="Outline" id="i100118" role="heading">4.2  <span class="Cross-RefMarker" id="FM48822"></span>Government
+Furnished Web-Based Enrollment System/Application<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710004E" data-element-type="Text" role="heading"><span class="Bold">4.2.1  </span>The Government furnished web-based
+enrollment system/application is a full function Government Furnished
+Equipment (GFE) application developed by DMDC to support enrollment-related
+activity. The Government furnished web-based enrollment system/application
+interacts with both the main DEERS database and the National Enrollment
+Database (NED) satellite database to provide enrolling organizations
+with eligibility and enrollment information, as well as the capability
+to update the NED with new enrollments and modifications to existing
+enrollments.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710004F" data-element-type="Text" role="heading"><span class="Bold">4.2.2  </span>The Government
+furnished web-based enrollment system/application meets the Health
+Insurance Portability and Accountability Act (HIPAA) and DoD policy
+guidelines for a direct data entry application, and is data-content
+compliant for enrollment and disenrollment functions.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100050" data-element-type="Text" role="heading"><span class="Bold">4.2.3  </span>An enrolling contractor shall
+perform enrollment related functions through the Government furnished web-based
+enrollment system/application.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST507100051" data-element-type="Outline" role="heading">4.3  Government Furnished Web-Based
+Beneficiary Self-service Enrollment System/Application<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100052" data-element-type="Text" role="heading"><span class="Bold">4.3.1  </span>The Government furnished web-based
+beneficiary self-service enrollment system/application serves all TRICARE
+eligible beneficiaries and will support most enrollment programs.
+The Government furnished web-based beneficiary self-service enrollment
+system/application will interface with contractor systems for the
+purposes of accommodating on-line payment of initial enrollment
+fees.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100053" data-element-type="Text" role="heading"><span class="Bold">4.3.2  </span>DEERS
+will pre-populate data elements where possible.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100054" data-element-type="Text" role="heading"><span class="Bold">4.3.3  </span>The web application contains
+checks for beneficiary eligibility and hard edits requiring the
+beneficiary to fulfill established DEERS business rules and enrollment
+criteria. Upon completion of the web process, the beneficiary is
+informed that the enrollment actions may be reviewed by the appropriate
+contractor for accuracy and compliance with established Market or
+Military Medical Treatment Facility (MTF) requirements, and that
+they will be contacted if additional information is needed. DEERS
+will send the contractor a notification(s) informing the contractor
+new enrollment information exists for the beneficiary. See also <span class="Para"><a href="#i99620" rel="noopener" target="_blank">paragraph 5.0</a></span>.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST507100055" data-element-type="Outline" id="i99620" role="heading">5.0  <span class="Cross-RefMarker" id="FM29525"></span>DEERS
+System-To-System Notifications<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100056" data-element-type="Text" role="heading"><span class="Bold">5.1  </span>Government furnished system
+information/data notification(s) are sent to the contractor for
+various reasons and reflect the most current enrollment information
+for a beneficiary.<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100057" data-element-type="Text" role="heading"><span class="Bold">5.1.1  </span>The contractor
+shall accept, apply, and store the data contained in the notification
+as sent from DEERS to remain in sync with DEERS.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100058" data-element-type="Text" role="heading"><span class="Bold">5.1.2  </span>The contractor shall send notifications
+due to new enrollments or updates to existing enrollments.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100059" data-element-type="Text" role="heading"><span class="Bold">5.1.3  </span>The contractor shall, if it
+does not have the information contained in the notification, add
+it to their system.</div>
+</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710005A" data-element-type="Text" role="heading"><span class="Bold">5.2  </span>The contractor shall apply
+all information contained in the notification to their system, if
+the contractors already have enrollment information for the beneficiary.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710005B" data-element-type="Text" role="heading"><span class="Bold">5.3  </span>The contractor shall use the
+beneficiaries’ DEERS identifiers, DoD Identification Number or DoD
+Benefits Number (DBN), to match the notification to the correct
+beneficiary in their system.<div data-element-change-state="Unchanged" data-element-id="TST50710005C" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710005D" data-element-type="Text" role="listitem"><span class="Bold">•  </span>There are also circumstances
+where a contractor may receive a notification that does not appear
+to be updating the information that the contractor already has for
+the enrollee.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710005E" data-element-type="Text" role="listitem"><span class="Bold">•  </span>The contractor shall not treat
+such notifications as errors, apply the notification.</div>
+</div>
+</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710005F" data-element-type="Text" role="heading"><span class="Bold">5.4  </span>The contractor shall acknowledge
+all notifications sent by DEERS.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100060" data-element-type="Text" role="heading"><span class="Bold">5.5  </span>The contractor shall, if DEERS
+does not receive an acknowledgment, continue to send the notification until
+acknowledgment is received. The following information details examples
+of events that trigger DEERS to send notifications to a contractor.<div data-element-change-state="Unchanged" data-element-id="TST507100061" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100062" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Primary notifications resulting
+from enrollment actions.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100063" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Unsolicited notifications resulting
+from updates to beneficiaries’ status.</div>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST507100064" data-element-type="Outline" id="i100535" role="heading">6.0  <span class="Cross-RefMarker" id="FM71749"></span>Beneficiary
+Identification<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST507100065" data-element-type="Outline" role="heading">6.1  Patient
+Identification Merge<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100066" data-element-type="Text" role="heading"><span class="Bold">6.1.1  </span>See also <span class="Sec"><a href="c3s3_1.html#FM32148" rel="noopener" target="_blank">Section 3.1</a></span> for Beneficiary Identification.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100067" data-element-type="Text" role="heading"><span class="Bold">6.1.2  </span>Occasionally, incomplete or
+inaccurate person data is provided to DEERS and a single person
+may be temporarily assigned two DoD Identification Numbers. When
+DEERS identifies this condition, DEERS makes this information available
+on-line for all contractors.<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100068" data-element-type="Text" role="heading"><span class="Bold">6.1.2.1  </span>The contractor shall retrieve
+and apply this information on a weekly basis. The merge brings the
+data gathered under only one of the DoD Identification Numbers and
+discards the other. Although DEERS retains both numbers for an indefinite
+period, from that point on the contractor shall use only the one
+remaining DoD Identification Number for that person and for subsequent
+interaction with DEERS and other Military Health Systems (MHSs).
+If there are enrollments under both records being merged that overlap,
+the enrolling contractor shall correcting the enrollments.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100069" data-element-type="Text" role="heading"><span class="Bold">6.1.2.2  </span>The contractor shall update
+the catastrophic cap that has been posted for these records if necessary.</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST50710006A" data-element-type="Outline" role="heading">6.2  Partial Match<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710006B" data-element-type="Text" role="heading"><span class="Bold">6.2.1  </span>See also <span class="Sec"><a href="c3s3_1.html#FM32148" rel="noopener" target="_blank">Section 3.1</a></span> for
+Beneficiary Identification.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710006C" data-element-type="Text" role="heading"><span class="Bold">6.2.2  </span>A partial match response may
+be returned for any inquiry that does not use a DoD Identification Number
+or DBN. Eligibility may result in a partial match situation due
+to person ambiguity. There will be a separate listing for each person
+or family matching the requested DBN, or Sponsor Social Security
+Number (SSN).</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710006D" data-element-type="Text" role="heading"><span class="Bold">6.2.3  </span>The listing
+includes the sponsor and family member information needed to determine
+the correct beneficiary or family including the DBN(s).</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710006E" data-element-type="Text" role="heading"><span class="Bold">6.2.4  </span>The requesting contractor shall
+select which of the multiple listings is correct based on documents
+or information at hand. After this selection, the requesting contractor
+shall use the additional information returned (e.g., Date Of Birth
+(DOB), Name) to resend a DEERS inquiry.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST50710006F" data-element-type="Outline" id="i100536" role="heading">7.0  <span class="Cross-RefMarker" id="FM35455"></span>HCDP
+Eligibility For Enrollment<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100070" data-element-type="Text" role="heading"><span class="Bold">7.1  </span>DEERS
+uses rule-based software to determine a beneficiary’s entitlement
+to health care benefits. DEERS is the sole repository for these
+DoD rules, and no other eligibility determination outside of DEERS
+is considered valid. Whenever data about an individual sponsor or
+a family member changes, DEERS reapplies these rules. DEERS receives
+daily, weekly, and monthly updates to this data, which is why contractors
+shall query DEERS for eligibility information before taking action.
+This ensures that the individual is still eligible to use the benefits
+and that the respective contractor has the most current information.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100071" data-element-type="Text" role="heading"><span class="Bold">7.2  </span>A beneficiary who is considered
+eligible for DoD benefits (pharmacy, dental, medical) in accordance
+with Title 10 United States Code (USC), <span class="xrefpub"><a href="../fr16/c13.html" rel="noopener" target="_blank">32
+CFR 199.13</a></span>, <span class="xrefpub"><a href="../fr16/c22.html" rel="noopener" target="_blank">32 CFR 199.22,</a></span> and
+DoD Instruction (DoDI) 1000.13 is not required to “sign up” for
+the TRICARE benefits associated with any DEERS assigned plan. If
+an authorized organization inquires about that beneficiary’s eligibility,
+DEERS reflects if they are eligible to use the benefits. DEERS derives
+the effective and expiration dates for assigned plan coverage from
+DoDI 1000.13 rules and supporting information.</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST507100072" data-element-type="Outline" role="heading">7.3  Eligibility for Enrollment<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507100073" data-element-type="Text">DEERS provides coverage plan
+information identifying the period of eligibility and/or enrollment
+for the coverage plan. The contractor shall only enroll a beneficiary
+into the coverage plans that have an “eligible for” status. When
+a sponsor and/or family member are first added, or when sponsor
+or member status updates occurs, DEERS determines basic eligibility
+for health care benefits in accordance with Title 10 USC, <span class="xrefpub"><a href="../fr16/c13.html" rel="noopener" target="_blank">32
+CFR 199.13</a></span>, <span class="xrefpub"><a href="../fr16/c22.html" rel="noopener" target="_blank">32 CFR 199.22</a></span>, and
+DoDI 1000.13 and then establishes an assigned HCDP coverage plan
+together with coverage dates.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST507100074" data-element-type="Outline" id="i100537" role="heading">8.0  <span class="Cross-RefMarker" id="FM30269"></span>Enrollment
+Activities<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507100075" data-element-type="Text">Enrollment-related
+business events include, by contracted health care service category:</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST507100076" data-element-type="Outline" role="heading">8.1  Pharmacy: Enrollment Functionality<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507100077" data-element-type="Text">No enrollment requirement,
+as pharmacy is an assigned HCDP plan.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST507100078" data-element-type="Outline" role="heading">8.2  Dental: Enrollment Functionality<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100079" data-element-type="Text" role="heading"><span class="Bold">8.2.1  </span>Eligibility for enrollment
+identifies current enrolled coverage plans and eligibility for enrollment
+into other coverage plans (as the sponsor and/or beneficiaries role
+changes over time). See also <span class="Sec"><a href="c3s4_1.html#FM44644" rel="noopener" target="_blank">Section 4.1</a></span>.
+Some examples of plan changes over time:<div data-element-change-state="Unchanged" data-element-id="TST50710007A" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710007B" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Service member plans. ADDP,
+but can move into other dental plans based on their beneficiary
+role change (e.g., TDP, prior to October 31, 2018).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710007C" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Active Duty Family Member (ADFM)
+plans. TDP, but can move into other dental plans based on their
+beneficiary role change (e.g., ADDP, if ADFM becomes an active Service
+Member).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710007D" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Retirees. No longer supported
+by DEERS. Replaced by Federal Employees Dental and Vision Program
+(FEDVIP), which is overseen by the Office of Personnel Management
+(OPM).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710007E" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Retiree dependents. FEDVIP,
+but can move into other dental plans based on their beneficiary
+role change (e.g., TDP and ADDP, if retiree dependent becomes an
+active Service Member).</div>
+</div>
+</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710007F" data-element-type="Text" role="heading"><span class="Bold">8.2.2  </span>The contractor shall use new
+enrollments for enrolling eligible sponsors and family members into
+a HCDP coverage plans or for adding family members to an existing
+family policy. Enrollments begin on the date specified by the enrolling
+organization and extend through the beneficiaries’ end of eligibility
+for the HCDP.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100080" data-element-type="Text" role="heading"><span class="Bold">8.2.3  </span>New enrollments
+may also perform the following functions:<div data-element-change-state="Unchanged" data-element-id="TST507100081" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100082" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Update address, email address,
+and/or telephone number.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100083" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Record that the enrollee has
+OHI (does not apply to ADDP).</div>
+</div>
+</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100084" data-element-type="Text" role="heading"><span class="Bold">8.2.4  </span>The contractor shall use modifications
+of the current enrollment (updates) to change some information in
+the current enrollment plan. Modifications of the current enrollment
+include the following functions:<div data-element-change-state="Unchanged" data-element-id="TST507100085" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100086" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Change enrollment begin date.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100087" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Cancel enrollment/disenrollment.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100088" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Change prior enrollment end
+date.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100089" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Change prior enrollment end
+reason.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710008A" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Request an enrollment card
+replacement.</div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST50710008B" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Add
+OHI information for an enrollee (does not apply to ADDP).</span></div>
+</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST50710008C" data-element-type="Outline" role="heading">8.3  Medical: Enrollment Functionality<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST50710008D" data-element-type="Text" role="heading"><span class="Bold">8.3.1  </span>Eligibility for enrollment
+identifies current enrolled coverage plans and eligibility for enrollment
+into other coverage plans (as the sponsor and/or beneficiaries role
+changes over time). See also <span class="Sec"><a href="c3s4_1.html#FM44644" rel="noopener" target="_blank">Section 4.1</a></span>.
+Some examples of plan changes over time:<div data-element-change-state="Unchanged" data-element-id="TST50710008E" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710008F" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Service member plans. TRICARE
+Prime for Service member only, but can move into other medical plans
+based on their beneficiary role change (e.g., TRICARE Prime Remote
+(TPR), TRICARE Standard, TRICARE Select, TRICARE Prime, TRICARE
+Reserve Select (TRS), etc.).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100090" data-element-type="Text" role="listitem"><span class="Bold">•  </span>ADFM plans. Beneficiaries must
+select a plan or will default to direct-care only. Beneficiaries
+are limited to making changes to enrollments only during an annual
+enrollment open season or following a Qualifying Life Event (QLE).
+Direct Care (DC) only is the default assigned, but can enroll into
+other medical plans based on their beneficiary role change (e.g.,
+TRICARE Select, TRICARE Prime, TRICARE Plus, TPRADFM, etc.). See
+TOM, <span class="ChapSec"><a href="../tot5/c6s1.html#FM63551" rel="noopener" target="_blank">Chapter 6, Section 1</a></span>.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100091" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Retirees and their family members.
+Beneficiaries will select a plan or will default to DC only. Beneficiaries
+are limited to making changes to enrollments only during an annual
+enrollment open season or following a QLE. DC only is the default
+assigned, but can elect to enroll into other medical plans (e.g.,
+TRICARE Select, TRICARE Prime, TRICARE Plus, etc.). See TOM, <span class="ChapSec"><a href="../tot5/c6s1.html#FM63551" rel="noopener" target="_blank">Chapter 6, Section 1</a></span>.</div>
+</div>
+</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100092" data-element-type="Text" role="heading"><span class="Bold">8.3.2  </span>The contractor shall use new
+enrollments for enrolling eligible sponsors and family members into
+a HCDP coverage plans or for adding family members to an existing
+family policy. Enrollments begin on the date specified by the enrolling
+organization and extend through the beneficiaries’ end of eligibility
+for the HCDP.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100093" data-element-type="Text" role="heading"><span class="Bold">8.3.3  </span>New enrollments
+may also perform the following functions:<div data-element-change-state="Unchanged" data-element-id="TST507100094" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100095" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Update address, email address,
+and/or telephone number.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507100096" data-element-type="Text" role="listitem"><span class="Bold">•  </span>PCM selection (if required/allowed
+by HCDP).</div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST507100097" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Record
+that the enrollee has OHI.</span></div>
+</div>
+</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST507100098" data-element-type="Text" role="heading"><span class="Bold">8.3.4  </span>The contractor shall use modification
+of the current enrollment (updates) to change some information in
+the current enrollment plan. Modifications of the current enrollment
+include the following functions:<div data-element-change-state="Unchanged" data-element-id="TST507100099" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710009A" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Change or cancel a PCM selection.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710009B" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Transfer enrollment (enrollment
+portability) or cancel a transfer.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710009C" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Change enrollment begin date.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710009D" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Cancel enrollment/disenrollment.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710009E" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Change prior enrollment end
+date.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50710009F" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Change prior enrollment end
+reason.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST5071000A0" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Request an enrollment card
+replacement.</div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000A1" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Add
+OHI information for an enrollee.</span></div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST5071000A2" data-element-type="Text" role="listitem"><span class="Bold">•  </span>Request a replacement letter
+for PCM change or disenrollment.</div>
+</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST5071000A3" data-element-type="Outline" role="heading">8.4  NAL: Enrollment Functionality<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST5071000A4" data-element-type="Text">No enrollment requirement,
+as NAL is a service program that supports all DoD eligible beneficiaries.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST5071000A5" data-element-type="Outline" role="heading">8.5  TMEP: Enrollment Functionality<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST5071000A6" data-element-type="Text">No enrollment requirement,
+as TMEP is a claims processing contract that supports all dual eligible
+beneficiaries.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST5071000A7" data-element-type="Outline" role="heading">9.0  Disenrollments
+Activities<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000A8" data-element-type="Text" role="heading"><span class="Bold">9.1  </span>Once actively
+enrolled in a coverage plan, an individual or family may voluntarily
+disenroll or be involuntarily disenrolled. Voluntary disenrollment
+is self-elected, but does not apply to Service Member as they are not
+authorized to voluntarily disenroll from mandated medical or dental
+plans. Involuntary disenrollment occurs from failure to pay enrollment
+fees or from loss of eligibility. Upon disenrollment, DEERS will
+notify the beneficiary of the change in or loss of coverage.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000A9" data-element-type="Text" role="heading"><span class="Bold">9.2  </span>For medical plans only, see
+TOM, <span class="ChapSec"><a href="../tot5/c6s1.html#FM63551" rel="noopener" target="_blank">Chapter 6, Section 1</a></span> for disenrollment rules
+and eligibility for re-enrollment.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000AA" data-element-type="Text" role="heading"><span class="Bold">9.3  </span>When there is a disenrollment,
+the appropriate systems are notified, as necessary (see also <span class="Para"><a href="#i100118" rel="noopener" target="_blank">paragraph 4.2</a></span>).</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST5071000AB" data-element-type="Outline" role="heading">10.0  Beneficiary
+Contact Updates And Enrollment Cards<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST5071000AC" data-element-type="Outline" role="heading">10.1  Contact Updates (Applies to
+all Contractors)<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST5071000AD" data-element-type="Text">Address,
+telephone number, and email address updates.</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-id="TST5071000AE" data-element-type="Outline" role="heading">10.1.1  Addresses<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000AF" data-element-type="Text" role="heading"><span class="Bold">10.1.1.1  </span>DEERS receives address information
+from a number of source systems. Although most systems only update
+the residence address, DEERS actually maintains multiple addresses
+for each person.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000B0" data-element-type="Text" role="heading"><span class="Bold">10.1.1.2  </span>The contractor shall update
+the residential and mailing addresses in DEERS, whenever possible.
+The contractor shall not update addresses to reflect unit, Market/MTF,
+or the contractor addresses unless the information is provided directly
+by the beneficiary. The mailing address captured on DEERS is primarily
+used to mail the enrollment card and other correspondence. The residential
+address is used to determine enrollment jurisdiction at the ZIP
+Code level. DEERS uses a commercial product to validate address
+information received on-line and from batch sources.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000B1" data-element-type="Text" role="heading"><span class="Bold">10.1.1.3  </span>The contractor shall process
+all mail returned for bad addresses and shall research the address, correct
+it on DEERS, and re-mail the correspondence to the beneficiary.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000B2" data-element-type="Text" role="heading"><span class="Bold">10.1.1.4  </span>The contractor shall update
+the Mail Delivery Quality Code (MDQC) in DEERS to prevent future mailings
+to that address if the contractor cannot determine a valid address.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-id="TST5071000B3" data-element-type="Outline" role="heading">10.1.2  Telephone Numbers<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000B4" data-element-type="Text" role="heading"><span class="Bold">10.1.2.1  </span>DEERS has several types of
+telephone numbers for a person (e.g., home, work, and cellular).</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000B5" data-element-type="Text" role="heading"><span class="Bold">10.1.2.2  </span>The contractor shall make reasonable
+efforts to add or update telephone numbers.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-id="TST5071000B6" data-element-type="Outline" role="heading">10.1.3  Email Addresses<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000B7" data-element-type="Text" role="heading"><span class="Bold">10.1.3.1  </span>DEERS can store an email address
+for each person.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000B8" data-element-type="Text" role="heading"><span class="Bold">10.1.3.2  </span>The contractor shall make reasonable
+efforts to add or update this email address.</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-id="TST5071000B9" data-element-type="Outline" role="heading">10.2  Enrollment Cards and Letter
+Production<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000BA" data-element-type="Text" role="heading"><span class="Bold">10.2.1  </span>DEERS sends a notification
+directly to the enrollee at the residential mailing address specified
+in the enrollment request or via email advising them how to obtain
+a copy of their Universal TRICARE Beneficiary Card. New enrollment
+cards are automatically generated upon a new enrollment or an enrollment
+transfer to a new region (medical only). Beneficiaries are notified
+of the availability by email or postcard, unless the enrollment operator
+specifies in the Government furnished web-based enrollment system/application
+not to generate an enrollment card.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000BB" data-element-type="Text" role="heading"><span class="Bold">10.2.2  </span>The contractor may request
+a replacement notification at any time. DEERS sends a notification
+to the contractor indicating the last date an enrollment card notification
+was generated for the enrollee.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000BC" data-element-type="Text" role="heading"><span class="Bold">10.2.3  </span>DEERS also generates letters
+to beneficiaries upon changes to their enrollment, and notifies
+beneficiary via email or postcard that the letter is available.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000BD" data-element-type="Text" role="heading"><span class="Bold">10.2.4  </span>The contractor shall not send
+additional letters that duplicate those already provided by DEERS.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST5071000BE" data-element-type="Outline" id="i100843" role="heading">11.0  <span class="Cross-RefMarker" id="FM71559"></span>Claims
+Processing And Database Of Record<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000BF" data-element-type="Text" role="heading"><span class="Bold">11.1  </span>The contractor shall query
+DEERS in the process of claims adjudication to determine eligibility
+and/or enrollment status for a given period of time. DEERS is the
+system of record for eligibility and enrollment information.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000C0" data-element-type="Text" role="heading"><span class="Bold">11.2  </span>For audit and performance review
+purposes, the contractor shall retain a copy of every transaction
+and response sent and received for claims adjudication procedures.
+The contractor shall retain this information for the period required
+by the TOM.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000C1" data-element-type="Text" role="heading"><span class="Bold">11.3  </span>The contractor
+shall not override this data with information from other sources.
+The contractor shall obtain Continued Health Care Benefits Program
+(CHCBP) CC&amp;D information from the CHCBP contractor.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000C2" data-element-type="Text" role="heading"><span class="Bold">11.4  </span>The contractor shall deny a
+claim (either totally or partially) if the services were received
+partially or entirely outside any period of eligibility.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000C3" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">11.5  </span><span class="ChangeDelete">The contractor
+system is the database of record for OHI within the TRICARE Program.
+DEERS is the data repository for OHI, using its centralized repository
+of OHI information that is reliant on the MHS organizations to verify,
+update and add to at every opportunity. The contractor shall use
+OHI data received as part of the claims inquiry as part of the claims
+adjudication process.</span></div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000C4" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">11.6  </span><span class="ChangeDelete">The contractor
+shall, if it has evidence of additional or more current OHI information,
+either ‘pend’ the claim or submit the new OHI information to DEERS,
+and then reprocess the claim, or develop business processes to simultaneously
+accomplish both DEERS OHI update and claims processing using the
+newly discovered OHI data. The contractor shall ensure its process
+do not interfere with claims processing time lines.</span></div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000C5" data-element-type="Text" role="heading"><span class="RedAutoNum">11.5  </span>Although DEERS is not the database
+of record for address, it is a centralized repository that is reliant
+on numerous organizations to verify, update and add to at every
+opportunity. The contractor shall use address data received from
+the claims inquiry as part of the claims adjudication process.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000C6" data-element-type="Text" role="heading"><span class="RedAutoNum">11.6  </span>The contractor shall, if it
+has evidence of additional or more current address information,
+process claims using the additional or more current information
+and update DEERS within two business days.</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST5071000C7" data-element-type="Outline" role="heading">12.0  CCDD<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000C8" data-element-type="Text" role="heading"><span class="Bold">12.1  </span>DEERS stores Enrollment Year
+(EY), Fiscal Year (FY), and CY CC&amp;D data in a central repository.
+DEERS stores the current and the four prior yearly CC&amp;D totals.
+The purpose of the DEERS CCDD repository is to maintain and provide
+accurate CC&amp;D amounts, making them universally accessible to
+DoD claims processors.</div>
+<div class="Note" data-element-change-state="Unchanged" data-element-id="TST5071000C9" data-element-type="Text" role="note"><span class="Bold">Note:  </span>To transition to CY catastrophic
+caps as required in NDAA FY 2017, Section 701, the FY 2017 catastrophic cap
+covers the period from October 1, 2016 to December 31, 2017.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000CA" data-element-type="Text" role="heading"><span class="Bold">12.2  </span>The contractor shall use the
+CCDD Totals Inquiry to obtain CCDD balances for the year(s) that
+correspond to the requested inquiry period.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000CB" data-element-type="Text" role="heading"><span class="Bold">12.3  </span>The contractor shall inquire
+and lock CCDD totals before updating DEERS CCDD amounts.<div class="Note" data-element-change-state="Unchanged" data-element-id="TST5071000CC" data-element-type="Text" role="note"><span class="Bold">Note:  </span>A catastrophic cap record is
+not required for persons who are authorized benefits but are not
+on DEERS or eligible for medical benefits, such as prisoners or
+Government employees. The purpose of the catastrophic cap is to benefit
+those beneficiaries who are eligible for MHS benefits. Those persons
+that are authorized benefits who would not under any other circumstances
+be eligible, are not subject to catastrophic cap requirements.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Deleted" data-element-id="TST5071000CD" data-element-type="Outline" id="i98969" role="heading"><span class="StrikeThrough">13.0  </span><span class="Cross-RefMarker" id="FM37960"></span><span class="ChangeDelete">OHI
+Program</span><div aria-level="3" class="FM2LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000CE" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.1  </span><span class="ChangeDelete">OHI
+identifies non-DoD health insurance held by a beneficiary. The requirements
+for OHI are validated by the DHA Uniform Business Office (UBO).
+OHI information includes:</span><div data-element-change-state="Unchanged" data-element-id="TST5071000CF" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000D0" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">OHI policy and carrier.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000D1" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Policyholder.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000D2" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Type of coverage provided by
+the additional insurance policy.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000D3" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Employer information offering
+coverage, if applicable.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000D4" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Effective period of the policy.</span></div>
+</div>
+</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000D5" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.2  </span><span class="ChangeDelete">OHI transactions
+allow adding, updating, canceling, or viewing all OHI policy information.
+OHI policy updates can accompany enrollments or be performed alone.
+OHI information can be added to DEERS or updated on DEERS through
+multiple mechanisms.</span><div aria-level="4" class="FM3LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000D6" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.2.1  </span><span class="ChangeDelete">The
+contractor shall, at the time of enrollment, determine the existence
+of OHI.</span></div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000D7" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.2.2  </span><span class="ChangeDelete">The
+contractor shall add or update minimal OHI data through the Government
+furnished web-based enrollment system/application used by the contractors
+to enter enrollments into DEERS.</span></div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000D8" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.2.3  </span><span class="ChangeDelete">DEERS will accept
+OHI updates from a claims processor through a system-to-system interface.</span></div>
+</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000DA" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.3  </span><span class="ChangeDelete">The contractor
+shall perform an OHI Inquiry before attempting to add or update
+an OHI policy. The MHS organizations are reliant on the individual
+beneficiary to provide accurate OHI information and DEERS is reliant
+on the MHS organizations for the accurate assignment of policy information
+to the individual record. DEERS is not the system of record for
+OHI information. Performing an OHI Inquiry on a person before adding
+or attempting to update an OHI policy helps ensure that the proper
+policy is updated based on the most current information or the person.</span></div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000DB" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.4  </span><span class="ChangeDelete">Examples of
+OHI coverage are:</span><div data-element-change-state="Unchanged" data-element-id="TST5071000DC" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000DD" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Comprehensive Medical Coverage
+(plans with multiple coverage types).</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000DE" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Medical coverage.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000DF" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Inpatient coverage.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000E0" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Outpatient coverage.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000E1" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Pharmacy coverage.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000E2" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Dental coverage.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000E3" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Long-term care coverage.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000E4" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Mental health coverage.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000E5" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Vision coverage.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000E6" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Partial hospitalization coverage.</span></div>
+<div class="BodyLBullet" data-element-change-state="Deleted" data-element-id="TST5071000E7" data-element-type="Text" role="listitem"><span class="BoldStrikeThrough">•  </span><span class="ChangeDelete">Skilled nursing care coverage.</span></div>
+</div>
+</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000E8" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.5  </span><span class="ChangeDelete">The default
+coverage will be Comprehensive Medical Coverage unless another of
+the above coverages is selected. The indication of Comprehensive
+Medical Coverage presumes medical coverage, inpatient coverage, outpatient
+coverage, and pharmacy coverage.</span><div aria-level="4" class="FM3LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000E9" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.5.1  </span><span class="ChangeDelete">The medical
+contractor shall develop the OHI within 15 calendar days but is
+not responsible for pharmacy coverage development.</span></div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000EA" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.5.2  </span><span class="ChangeDelete">The pharmacy
+contractor(s) shall develop and maintain pharmacy OHI.</span></div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000EB" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.5.3  </span><span class="ChangeDelete">The pharmacy
+shall develop placeholder policies, regardless of which organization
+created the placeholder.</span></div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000EC" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.5.4  </span><span class="ChangeDelete">The contractor
+shall develop all other placeholder policies, regardless of which
+organization created the placeholder.</span></div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000ED" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.5.5  </span><span class="ChangeDelete">MHS users will
+not normally enter placeholder policies but would develop them if
+they created them.</span></div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000EE" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.5.6  </span><span class="ChangeDelete">The dental contractor
+shall develop and maintain dental OHI.</span></div>
+</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000EF" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.6  </span><span class="ChangeDelete">A person can
+have multiple types of OHI coverage for one policy. For example,
+to add an OHI policy that covers medical and vision, the contractor
+shall send DEERS two OHI coverage types, one for medical coverage
+and one for vision coverage.</span></div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000F0" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">13.7  </span><span class="ChangeDelete">A person can
+have multiple OHI policies. Multiple OHI policies may have the same
+or different Health Insurance Carriers (HICs), and/or the same or
+different OHI policy effective periods.</span></div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Deleted" data-element-id="TST5071000F1" data-element-type="Outline" id="i98968" role="heading"><span class="StrikeThrough">14.0  </span><span class="Cross-RefMarker" id="FM13978"></span><span class="ChangeDelete">SIT
+Program</span><div class="BodyL" data-element-change-state="Deleted" data-element-id="TST5071000F2" data-element-type="Text"><span class="ChangeDelete">The
+SIT Program supports the MHS billing and collection process. The
+SIT is validated by the DHA UBO through the DoD Verification Point
+of Contact (VPOC). The VPOC is ultimately responsible for maintaining
+the SIT in DEERS, which is the system of record for SIT information.
+The SIT provides uniform billing information for reimbursement of pharmacy,
+dental, and medical care costs covered through commercial policies
+held by the DoD beneficiary population. MHS personnel use the SIT
+to obtain other payer information in a standardized format.</span></div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000F3" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">14.1  </span><span class="ChangeDelete">All systems
+identified as trading partners will request an initial full SIT
+subscription from DEERS. In addition, holders of the SIT shall subscribe
+to DEERS at least daily in order to receive subsequent updates of
+the SIT.</span></div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Deleted" data-element-id="TST5071000F4" data-element-type="Text" role="heading"><span class="BoldStrikeThrough">14.2  </span><span class="ChangeDelete">The
+SIT Verification Application is used exclusively by the VPOC. The
+application queues all SIT transactions entered through the OHI
+Maintenance Application for review and verification by the VPOC.</span></div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST5071000F5" data-element-type="Outline" role="heading"><span class="RedAutoNum">13.0  </span>Medicare Data<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000F6" data-element-type="Text" role="heading"><span class="RedAutoNum">13.1  </span>DEERS performs a match with
+the Centers for Medicare and Medicaid Services (CMS) to obtain Medicare data
+and incorporates the Medicare data into the DEERS database as OGPs
+entitlement information. This information includes Medicare Parts
+A, B, C, and D eligibility along with the effective dates. The match
+includes all potential Medicare-eligible beneficiaries.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000F7" data-element-type="Text" role="heading"><span class="RedAutoNum">13.2  </span>DEERS sends Medicare Parts
+A and B information to the TMEP contractor.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST5071000F8" data-element-type="Text" role="heading"><span class="RedAutoNum">13.3  </span>The TMEP contractor shall send
+the information to the CMS Fiscal Intermediaries (FIs) for identification
+of Medicare eligible beneficiaries during claims adjudication.</div>
+</div></section>
+<div class="END">- END -</div><div class="change-bar" style="top:769.421875px;height:23.0469px;"></div><div class="change-bar" style="top:771.421875px;height:19px;"></div><div class="change-bar" style="top:1200.9375px;height:19px;"></div><div class="change-bar" style="top:1200.9375px;height:19px;"></div><div class="change-bar" style="top:1237.984375px;height:23.0469px;"></div><div class="change-bar" style="top:1239.984375px;height:19px;"></div><div class="change-bar" style="top:1277.03125px;height:23.0469px;"></div><div class="change-bar" style="top:1279.03125px;height:19px;"></div><div class="change-bar" style="top:2538.71875px;height:23.0469px;"></div><div class="change-bar" style="top:2540.71875px;height:19px;"></div><div class="change-bar" style="top:6018.453125px;height:23.0469px;"></div><div class="change-bar" style="top:6020.453125px;height:19px;"></div><div class="change-bar" style="top:6547.203125px;height:23.0469px;"></div><div class="change-bar" style="top:6549.203125px;height:19px;"></div><div class="change-bar" style="top:6921.671875px;height:23.0469px;"></div><div class="change-bar" style="top:6923.671875px;height:19px;"></div><div class="change-bar" style="top:8502.78125px;height:46.0938px;"></div><div class="change-bar" style="top:8504.78125px;height:42px;"></div><div class="change-bar" style="top:8564.875px;height:69.1406px;"></div><div class="change-bar" style="top:8566.875px;height:65px;"></div><div class="change-bar" style="top:8652.015625px;height:19px;"></div><div class="change-bar" style="top:8714.109375px;height:19px;"></div><div class="change-bar" style="top:9077.625px;height:1387.78px;"></div><div class="change-bar" style="top:9079.625px;height:19px;"></div><div class="change-bar" style="top:9116.671875px;height:218.281px;"></div><div class="change-bar" style="top:9118.671875px;height:19px;"></div><div class="change-bar" style="top:9155.71875px;height:23.0469px;"></div><div class="change-bar" style="top:9157.71875px;height:19px;"></div><div class="change-bar" style="top:9194.765625px;height:23.0469px;"></div><div class="change-bar" style="top:9196.765625px;height:19px;"></div><div class="change-bar" style="top:9233.8125px;height:23.0469px;"></div><div class="change-bar" style="top:9235.8125px;height:19px;"></div><div class="change-bar" style="top:9272.859375px;height:23.0469px;"></div><div class="change-bar" style="top:9274.859375px;height:19px;"></div><div class="change-bar" style="top:9311.90625px;height:23.0469px;"></div><div class="change-bar" style="top:9313.90625px;height:19px;"></div><div class="change-bar" style="top:9350.953125px;height:163.234px;"></div><div class="change-bar" style="top:9352.953125px;height:42px;"></div><div class="change-bar" style="top:9413.046875px;height:23.0469px;"></div><div class="change-bar" style="top:9415.046875px;height:19px;"></div><div class="change-bar" style="top:9452.09375px;height:23.0469px;"></div><div class="change-bar" style="top:9454.09375px;height:19px;"></div><div class="change-bar" style="top:9491.140625px;height:23.0469px;"></div><div class="change-bar" style="top:9493.140625px;height:19px;"></div><div class="change-bar" style="top:9530.1875px;height:69.1406px;"></div><div class="change-bar" style="top:9532.1875px;height:65px;"></div><div class="change-bar" style="top:9615.328125px;height:452.562px;"></div><div class="change-bar" style="top:9617.328125px;height:19px;"></div><div class="change-bar" style="top:9654.375px;height:23.0469px;"></div><div class="change-bar" style="top:9656.375px;height:19px;"></div><div class="change-bar" style="top:9693.421875px;height:23.0469px;"></div><div class="change-bar" style="top:9695.421875px;height:19px;"></div><div class="change-bar" style="top:9732.46875px;height:23.0469px;"></div><div class="change-bar" style="top:9734.46875px;height:19px;"></div><div class="change-bar" style="top:9771.515625px;height:23.0469px;"></div><div class="change-bar" style="top:9773.515625px;height:19px;"></div><div class="change-bar" style="top:9810.5625px;height:23.0469px;"></div><div class="change-bar" style="top:9812.5625px;height:19px;"></div><div class="change-bar" style="top:9849.609375px;height:23.0469px;"></div><div class="change-bar" style="top:9851.609375px;height:19px;"></div><div class="change-bar" style="top:9888.65625px;height:23.0469px;"></div><div class="change-bar" style="top:9890.65625px;height:19px;"></div><div class="change-bar" style="top:9927.703125px;height:23.0469px;"></div><div class="change-bar" style="top:9929.703125px;height:19px;"></div><div class="change-bar" style="top:9966.75px;height:23.0469px;"></div><div class="change-bar" style="top:9968.75px;height:19px;"></div><div class="change-bar" style="top:10005.796875px;height:23.0469px;"></div><div class="change-bar" style="top:10007.796875px;height:19px;"></div><div class="change-bar" style="top:10044.84375px;height:23.0469px;"></div><div class="change-bar" style="top:10046.84375px;height:19px;"></div><div class="change-bar" style="top:10083.890625px;height:280.375px;"></div><div class="change-bar" style="top:10085.890625px;height:42px;"></div><div class="change-bar" style="top:10145.984375px;height:23.0469px;"></div><div class="change-bar" style="top:10147.984375px;height:19px;"></div><div class="change-bar" style="top:10185.03125px;height:23.0469px;"></div><div class="change-bar" style="top:10187.03125px;height:19px;"></div><div class="change-bar" style="top:10224.078125px;height:23.0469px;"></div><div class="change-bar" style="top:10226.078125px;height:19px;"></div><div class="change-bar" style="top:10263.125px;height:23.0469px;"></div><div class="change-bar" style="top:10265.125px;height:19px;"></div><div class="change-bar" style="top:10302.171875px;height:23.0469px;"></div><div class="change-bar" style="top:10304.171875px;height:19px;"></div><div class="change-bar" style="top:10341.21875px;height:23.0469px;"></div><div class="change-bar" style="top:10343.21875px;height:19px;"></div><div class="change-bar" style="top:10380.265625px;height:46.0938px;"></div><div class="change-bar" style="top:10382.265625px;height:42px;"></div><div class="change-bar" style="top:10442.359375px;height:23.0469px;"></div><div class="change-bar" style="top:10444.359375px;height:19px;"></div><div class="change-bar" style="top:10481.40625px;height:232.375px;"></div><div class="change-bar" style="top:10483.40625px;height:19px;"></div><div class="change-bar" style="top:10520.453125px;height:69.1406px;"></div><div class="change-bar" style="top:10522.453125px;height:65px;"></div><div class="change-bar" style="top:10605.59375px;height:46.0938px;"></div><div class="change-bar" style="top:10607.59375px;height:42px;"></div><div class="change-bar" style="top:10667.6875px;height:46.0938px;"></div><div class="change-bar" style="top:10669.6875px;height:42px;"></div><div class="change-bar" style="top:10731.78125px;height:19px;"></div><div class="change-bar" style="top:10770.828125px;height:19px;"></div><div class="change-bar" style="top:10832.921875px;height:19px;"></div><div class="change-bar" style="top:10871.96875px;height:19px;"></div></article>
+</div>
+<div class="doc_navigation" id="MainContent_DocumentNavigationPanelPost">
+<a class="button FullStoryLink floatLeft" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C3S4_1.html" rel="noopener" target="_blank" title="View previous section (Chap 3 Sect 4.1)"><i class="fa fa-arrow-circle-left"></i> Previous</a><a class="button FullStoryLink floatRight" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C3S4_3.html" rel="noopener" target="_blank" title="View next section (Chap 3 Sect 4.3)">Next <i class="fa fa-arrow-circle-right"></i></a>
+</div>
+</div>
+<div class="clearfix"></div>

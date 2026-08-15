@@ -1,0 +1,353 @@
+
+<div class="needLargerText"><a href="https://manuals.health.mil/pages/GetLargerText.aspx" rel="noopener" target="_blank">Need larger text?</a></div>
+<div id="breadcrumb">
+
+</div>
+<div class="main1column">
+<div class="doc_navigation" id="MainContent_DocumentNavigationPanelPre">
+<a class="button FullStoryLink floatLeft" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C4S1_2.html" rel="noopener" target="_blank" title="View previous section (Chap 4 Sect 1.2)"><i class="fa fa-arrow-circle-left"></i> Previous</a><a class="button FullStoryLink floatRight" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C4S1_4.html" rel="noopener" target="_blank" title="View next section (Chap 4 Sect 1.4)">Next <i class="fa fa-arrow-circle-right"></i></a>
+<p></p><a class="button active" id="show-markup-button" title="This section has not been modified since it's initial release and therefore does not contain any change markup to show/hide"><span class="check"><i class="fa fa-check"></i> </span>Show Markup</a><p></p></div>
+<div class="document">
+<article class="TSM" data-manualacronym="TST5"><div class="Header">TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div class="MPChapterTitle">TRICARE Duplicate Claims System (DCS) - TRICARE Encounter Data (TED) Version</div>
+<section data-element-change-state="Unchanged" data-element-id="TST507800001" data-element-type="Header">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-id="TST507800002" data-element-type="Text" id="FM74183">Chapter 4</div>
+<div class="Section" data-element-change-state="Unchanged" data-element-id="TST507800003" data-element-type="Text" id="FM74187">Section 1.3</div>
+<div class="Subject" data-element-change-state="Unchanged" data-element-id="TST507800004" data-element-type="Text" id="FM74192">Multi-Contractor
+Claim Sets</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-id="TST507800005" data-element-type="No Type">Revision:  </div>
+<div class="Line"></div></section>
+<section data-element-change-state="Unchanged" data-element-id="TST507800006" data-element-type="Content">
+<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507800007" data-element-type="Text">On occasion, two different
+contractors will pay for the same billed services. These types of
+duplicate payments are a result of jurisdictional processing errors.
+To ensure that this type of duplicate payment is addressed in the
+Duplicate Claims System (DCS), special data fields and procedures
+have been incorporated.</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST507800008" data-element-type="Outline" role="heading">1.0  Description Of A Multi-Contractor
+Claim Set<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800009" data-element-type="Text" role="heading"><span class="Bold">1.1  </span>A multi-contractor claim set
+contains potential duplicate claims processed by two or more contractors.
+A multi-contractor set, consisting of <span class="Bold">Responsible FI</span>s
+50 and 55, is shown in <span class="Fig"><a href="#FM74225" rel="noopener" target="_blank">Figure 4.1.3-1</a></span>. The resolution of multi-contractor
+claim sets requires coordination between/among the contractors involved.
+Multi-contractor sets always involve an erroneous payment because
+only one contractor is responsible for processing and paying for
+services within a jurisdiction at any given time. When two different
+contractors pay for the same billed service, it means that one or
+more of the claims in the set were erroneously processed and paid
+by a contractor who did not have processing jurisdiction.<div class="TblSepSA">
+<table class="Tbl1a" data-element-change-state="Unchanged" data-element-id="TST50780000A" data-element-type="Text">
+<caption><span class="Figure" data-element-change-state="Unchanged" data-element-id="TST50780000C" data-element-type="Text" id="FM74225">Figure 4.1.3-1  <span class="Cross-RefMarker" id="FM63202"></span>Sample
+Multi-Contractor Claim Set</span></caption>
+<colgroup>
+<col style="width:100%"/>
+</colgroup>
+<tbody>
+<tr>
+<td>
+<div class="TblSepSA"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST50780000E" data-element-type="Text" id="i68912" role="heading"><span class="Bold">1.2  </span><span class="Cross-RefMarker" id="FM32698"></span>As
+with all other potential duplicate claim sets, the DCS assigns ownership
+of each set, i.e., responsibility for resolving the set, to the
+contractor who submitted the claim with the latest processed to
+completion (PTC) date. This contractor becomes the <span class="Bold">Owner FI</span>,
+who must research the claims in the set to determine if they had jurisdiction
+for the billed services. If the assigned <span class="Bold">Owner FI</span> determines
+that they did not have processing jurisdiction for the claims in
+the set and, therefore, paid the claims in error, the <span class="Bold">Owner
+FI</span> must resolve the duplicate situation. This means that
+the <span class="Bold">Owner FI</span> must remain as the <span class="Bold">Owner FI</span>,
+indicate that a duplicate condition exists in the set, initiate
+recoupment of the overpayments, ensure receipt of the refunds/offsets,
+submit appropriate TRICARE DCS-TRICARE Encounter Data (TED) Version
+adjustments, verify that these adjustments are reflected in the TED
+database, and resolve the set.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST50780000F" data-element-type="Text" role="heading"><span class="Bold">1.3  </span>If, however,
+the <span class="Bold">Owner FI </span>determines that they did have processing
+jurisdiction for the claims in the set and, therefore, the other
+contractor paid the claim(s) in the set in error, the current <span class="Bold">Owner
+FI </span>must change ownership of the set to the other contractor
+for resolution.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800010" data-element-type="Text" role="heading"><span class="Bold">1.4  </span>Changing
+set ownership (i.e., the <span class="Bold">Owner FI</span> field) is a function
+limited to multi-contractor sets. Ownership of other duplicate claim
+sets cannot be changed by a contractor. Only multi-contractor sets
+can be changed. The <span class="Bold">Owner FI</span> change is restricted to
+the contractors (<span class="Bold">Responsible FI</span>s) that processed claims
+in the set or are responsible for claims transferred in a contract
+transition.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800011" data-element-type="Text" role="heading"><span class="Bold">1.5  </span>When ownership of a multi-contractor
+claim set is changed, the set is moved from the view of the old <span class="Bold">Owner
+FI </span>to the new <span class="Bold">Owner FI</span>. The new <span class="Bold">Owner
+FI</span> becomes the new “owner” of the set and assumes responsibility for
+resolving the duplicate situation in the set. The old <span class="Bold">Owner
+FI </span>uses the <span class="Bold"><span class="Underscore"><span class="Underscore">M</span></span></span>odify
+function on the menu bar to re-assign ownership of the claim set
+to the other contractor.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800012" data-element-type="Text" role="heading"><span class="Bold">1.6  </span>The system
+uses three fields to manage the assignment of responsibility for
+resolving duplicate claims in multi-contractor claim sets. By default,
+the system assigns the <span class="Bold">Owner FI</span> field to the contractor
+that processed the claim with the latest PTC date. Multi-contractor
+claim sets appear along with all other claim sets assigned to the same <span class="Bold">Owner
+FI</span>. Other contractors will not have access to these sets.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800013" data-element-type="Text" role="heading"><span class="Bold">1.7  </span>The <span class="Bold">Responsible FI</span> field
+is used to identify the contractor who is currently responsible
+for a claim. This field is shown for each claim listed on the CLAIM
+SET SCREEN and the CLAIM DETAIL SCREEN. The <span class="Bold">Processing FI</span> field
+is used to identify the contractor that paid the claim. This field
+is shown on the CLAIM DETAIL SCREEN. These fields are described
+below.<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-id="TST507800014" data-element-type="Outline" role="heading">1.7.1  Owner FI Field<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507800015" data-element-type="Text">This field is assigned by the
+DCS to each claim set. The <span class="Bold">Owner FI</span> field designates
+the contractor responsible for resolving the claim set.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-id="TST507800016" data-element-type="Outline" id="i63557" role="heading">1.7.2  <span class="Cross-RefMarker" id="FM23754"></span>Responsible
+FI Field<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507800017" data-element-type="Text">This field
+is assigned by the DCS to each claim in a set to identify the contractor
+responsible for correcting any errors in the claim and for recouping
+any overpayments of actual duplicate payments. The <span class="Bold">Responsible
+FI</span> of the claim with the latest PTC date is also assigned
+as the <span class="Bold">Owner FI</span> of the set. During a contract transition,
+the system looks at all claims belonging to the outgoing contractor
+and determines if the <span class="Bold">Responsible FI</span> field should be changed
+to the incoming contractor. If the claim is included in the transition
+plan, the system will change the <span class="Bold">Responsible FI</span> field
+to the incoming contractor or to the inactive designation of FI
+99. The FI 99 designation will appear on the screen in red. If the
+claim is not included in the transition plan, the system will leave
+the field unchanged. See <span class="Para"><a href="#i63532" rel="noopener" target="_blank">paragraph 5.0</a></span>, for additional information.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-id="TST507800018" data-element-type="Outline" role="heading">1.7.3  Processing FI Field<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507800019" data-element-type="Text">This field is a claim-level
+data element that is extracted from the TED. It contains the FI
+number of the contractor that originally processed the claim. The<span class="Bold"> Processing
+FI </span>field cannot be changed in the DCS.</div>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST50780001A" data-element-type="Outline" id="i63500" role="heading">2.0  <span class="Cross-RefMarker" id="FM44737"></span>System
+Features Unique To Multi-Contractor Claim Sets<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST50780001B" data-element-type="Text">The layout of the data and
+the screens available for viewing and entering data in multi-contractor
+claim sets is the same as the layout of single contractor claim
+sets. In multi-contractor sets, though, the contractor who is designated
+the <span class="Bold">Owner FI</span> can change the <span class="Bold">Owner FI</span> field
+to designate the other contractor as the <span class="Bold">Owner FI</span>.
+This process is initiated as follows:</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST50780001C" data-element-type="Text" role="heading"><span class="Bold">2.1  </span>Click
+on the <span class="Bold"><span class="Underscore">M</span></span>odify function on
+the menu bar.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST50780001D" data-element-type="Text" role="heading"><span class="Bold">2.2  </span>Click on the <span class="Bold">Owner FI</span> option
+from the drop-down menu.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST50780001E" data-element-type="Text" role="heading"><span class="Bold">2.3  </span>The system
+displays the FI number(s) of the other contractor(s) in the set.
+Click on the contractor to be designated as the new <span class="Bold">Owner
+FI</span>.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST50780001F" data-element-type="Text" id="i63501" role="heading"><span class="Bold">2.4  </span><span class="Cross-RefMarker" id="FM43619"></span>This
+feature also requires the current <span class="Bold">Owner FI</span> to document
+contact with the contractor to which the set will be transferred
+and provide an explanation for why ownership of and responsibility
+for resolving the set is being changed. When a new <span class="Bold">Owner FI</span> is
+assigned, the <span class="Bold">Owner Region</span> field changes to <span class="Bold">&lt;to
+be assigned&gt;</span>. The new <span class="Bold">Owner FI</span> subsequently
+can click on the <span class="Bold"><span class="Underscore">M</span></span>odify function, <span class="Bold">Owner
+Region</span> option, and select the appropriate <span class="Bold">Owner Region</span>.<div data-element-change-state="Unchanged" data-element-id="TST507800020" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507800021" data-element-type="Text" role="listitem"><span class="Bold">•  </span>A system feature unique to
+multi-contractor sets is the rule for changing the status of a set
+to Pending. In effect, the system ignores the claims in the set
+in which the <span class="Bold">Responsible FI</span> is not the <span class="Bold">Owner
+FI</span>. It allows an <span class="Bold">Owner FI</span> to move a set to a
+Pending status if there is one BASE claim and all of the <span class="Bold">Owner
+FI</span>’s claims meet the general conditions for Pending status.
+That is, all <span class="Bold">Owner FI </span>claims must have a dupeflag and reason
+code, there must be a <span class="Bold">Y</span> claim, and every <span class="Bold">Y</span> claim
+must have an identified recoupment amount greater than $0.00. According
+to this rule, the status of a multi-contractor set may change as
+the <span class="Bold">Owner FI</span> changes. For example, if the <span class="Bold">Owner
+FI</span> identifies all of their claims as actual duplicates and
+enters a <span class="Bold">Y</span> in the <span class="Bold">Dupe?</span> fields, selects
+reason codes and enters amounts identified for recoupment, and leaves
+the other contractor’s claim as the BASE claim, and clicks the <span class="Bold">UPDATE
+CHANGES </span>button, the status of the set will move to <span class="Italic">Pending</span>.
+However, if the <span class="Bold">Owner FI</span> changes the <span class="Bold">Owner FI</span> field
+to the other contractor that has only the BASE claim, the new <span class="Bold">Owner
+FI</span> will receive the set in <span class="Italic">Open</span> status.
+According to the rules, the new <span class="Bold">Owner FI</span> does not have
+actual duplicate claims with associated amounts identified for recoupment. Since <span class="Italic">Pending</span> status
+means pending recoupment and since the new <span class="Bold">Owner FI</span>’s
+claim is the BASE claim and is not one of the duplicates, the set
+cannot be pending recoupment for the new <span class="Bold">Owner FI</span>.
+The set would be in Pending status for the old <span class="Bold">Owner FI</span> not
+the new <span class="Bold">Owner FI</span>.</div>
+</div>
+</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800022" data-element-type="Text" role="heading"><span class="Bold">2.5  </span>Another system feature unique
+to multi-contractor claim sets is the special logic invoked for
+multi-contractor appended sets. When a new claim is identified during
+the monthly extract as a potential duplicate of a claim in an existing
+set, the set is called an appended set. In appending a new claim
+to a set, the system applies the general rule of assigning the <span class="Bold">Owner
+FI</span> to the <span class="Bold">Responsible FI </span>of the claim with the
+latest PTC date if the status of the set is <span class="Italic">Open</span> or <span class="Italic">Closed</span>.
+If the status of the set is <span class="Italic">Pending</span> or <span class="Italic">Validate</span>,
+the system ignores this rule and leaves the current assignment of
+the <span class="Bold">Owner FI</span>. The system also applies special logic
+to determine the status of multi-contractor appended sets. The status
+of multi-contractor sets with an appended claim is determined as
+follows:<div data-element-change-state="Unchanged" data-element-id="TST507800023" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507800024" data-element-type="Text" role="listitem"><span class="Bold">•  </span><span class="Italic">Open</span> sets
+will remain <span class="Italic">Open</span> because recoupment had not been
+initiated on the set prior to the new claim being appended.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507800025" data-element-type="Text" role="listitem"><span class="Bold">•  </span><span class="Italic">Pending</span> sets
+will remain <span class="Italic">Pending</span> to allow the <span class="Bold">Owner FI</span> to
+complete recoupment of actual duplicate payments prior to determining
+if additional research is required or if the set should be transferred
+to another contractor.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507800026" data-element-type="Text" role="listitem"><span class="Bold">•  </span><span class="Italic">Validate</span> sets
+will be changed to <span class="Italic">Pending</span> to allow the <span class="Bold">Owner
+FI</span> to determine if the appended claim changes the <span class="Italic">Validate</span> situation
+prior to determining if additional research is required or if the
+set should be transferred to another contractor.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST507800027" data-element-type="Text" role="listitem"><span class="Bold">•  </span><span class="Italic">Closed</span> sets
+will be changed to <span class="Italic">Open</span> to allow the <span class="Bold">Owner
+FI </span>to determine if the appended claim requires additional
+research or if the set should immediately be transferred to another
+contractor.</div>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST507800028" data-element-type="Outline" role="heading">3.0  Coordination Requirements When
+Working With Multi-Contractor Sets<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507800029" data-element-type="Text">Resolution of multi-contractor
+claim sets requires close coordination between the contractors involved
+to ensure that research efforts and resolution activities are conducted
+efficiently, appropriately, and in a timely manner. When researching
+a multi-contractor set, the <span class="Bold">Owner FI</span> must coordinate
+with the other contractor(s) involved to determine who is responsible
+for the duplicate payment(s) and for recouping the overpayment(s).
+The method of coordination must be negotiated between contractors
+and may take whatever form is agreeable, i.e., by telephone, fax,
+email, or combination thereof. This coordination is a courtesy among
+contractors and should prevent indiscriminate transfers of sets
+back and forth. If the current <span class="Bold">Owner FI </span>is not responsible
+for the duplicate payment, the current <span class="Bold">Owner FI</span> should
+contact the other contractor to advise them of the set, its upcoming
+transfer, and to discuss or describe the circumstances involved.
+Ownership of the set must not be changed to another contractor until
+the receiving contractor has been consulted and an explanation has
+been entered into the system justifying the switch. The explanation
+entered into the system must contain:<div data-element-change-state="Unchanged" data-element-id="TST50780002A" data-element-type="Text" role="list">
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50780002B" data-element-type="Text" role="listitem"><span class="Bold">•  </span>The date the other contractor
+was contacted.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50780002C" data-element-type="Text" role="listitem"><span class="Bold">•  </span>The name and telephone number
+of the person making the contact from the current <span class="Bold">Owner FI</span>.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50780002D" data-element-type="Text" role="listitem"><span class="Bold">•  </span>The name and telephone number
+of the person contacted at the contractor to which ownership of
+the set is being changed.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" data-element-id="TST50780002E" data-element-type="Text" role="listitem"><span class="Bold">•  </span>A brief explanation for the
+change of ownership (e.g., “This claim falls within the jurisdiction
+of the West Region. Contractor for the East Region 14 paid claim
+in error and is responsible for recoupment of the overpayment.”).</div>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST50780002F" data-element-type="Outline" role="heading">4.0  Resolving Multi-Contractor
+Claim Sets<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST507800030" data-element-type="Text">Multi-contractor
+claim sets are resolved in the same manner as all other claim sets
+in the DCS.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800031" data-element-type="Text" role="heading"><span class="Bold">4.1  </span>When the initial <span class="Bold">Owner
+FI</span> conducts research and determines that they were responsible
+for the duplicate payment, the contractor can initiate recoupment
+and resolve the claim set in accordance with the rules of resolution.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800032" data-element-type="Text" role="heading"><span class="Bold">4.2  </span>When the initial <span class="Bold">Owner
+FI</span> determines that the duplicate payment belongs to a different
+contractor, the current <span class="Bold">Owner FI </span>must contact the other
+(receiving) contractor and discuss or describe the situation before
+the current <span class="Bold">Owner FI</span> can change ownership. The current <span class="Bold">Owner
+FI </span>must document the contact and the reason for the change
+in set ownership. Although the current <span class="Bold">Owner FI </span>may
+enter a <span class="Bold">Y</span> in the <span class="Bold">Dupe?</span> field of the other
+contractor’s claim, it is recommended that this action be reserved
+for the <span class="Bold">Responsible FI </span>of the claim. The <span class="Bold">Owner
+FI </span>transferring the set may not enter an amount identified
+for recoupment for the other contractor’s claims.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800033" data-element-type="Text" role="heading"><span class="Bold">4.3  </span>After documenting the contact
+and agreement to change set ownership, the current <span class="Bold">Owner FI</span> may change
+ownership to the other (receiving) contractor. Once ownership is
+changed in the system, the receiving contractor (the new <span class="Bold">Owner
+FI</span>) can view the set, initiate recoupment action, and resolve
+the claim set in accordance with the rules of resolution. Multi-contractor
+sets must not be resolved without communication and coordination among
+the involved contractors. The only exceptions to this are multi-contractor
+sets in which the only other contractor involved is FI 99.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800034" data-element-type="Text" role="heading"><span class="Bold">4.4  </span>If a multi-contractor set contains
+a BASE claim and two or more additional claims processed by different contractors,
+ownership must be transferred to each contractor responsible for
+the non-BASE claims in order to resolve the set. Each contractor
+is responsible for identifying their duplicate payments, initiating
+recoupments, and submitting TED adjustments corresponding to their
+refunds and offsets. The set cannot be resolved unless all resolution
+requirements have been met.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800035" data-element-type="Text" role="heading"><span class="Bold">4.5  </span>Ownership
+of multi-contractor sets may switch back and forth between contractors
+as research is conducted and determinations about jurisdictional
+responsibility are made. When a set changes ownership, only the
+current <span class="Bold">Owner FI </span>can view the set, including all adjustments.
+The current <span class="Bold">Owner FI</span> is never permitted to enter recoupment
+amounts in the other contractor’s claim. The current <span class="Bold">Owner
+FI</span> is, however, permitted to flag an adjustment submitted
+by another contractor to facilitate resolution.</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST507800036" data-element-type="Outline" id="i63532" role="heading">5.0  <span class="Cross-RefMarker" id="FM30892"></span>Resolving
+Claim Sets Containing Inactive FI 99 Claims<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800037" data-element-type="Text" role="heading"><span class="Bold">5.1  </span>The transition
+plan will determine if an outgoing contractor’s claim should be
+transferred to the incoming contractor or to an inactive status
+of FI 99. If a claim in a multi-contractor set is transferred to
+FI 99, special logic is applied to the resolution of the set. The
+system will not permit a multi-contractor set to have an <span class="Bold">Owner
+FI</span> of 99. Therefore, if the <span class="Bold">Responsible FI </span>on
+the claim with the latest PTC date is FI 99, the <span class="Bold">Owner FI</span> will
+be assigned to another <span class="Bold">Responsible FI</span>.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800038" data-element-type="Text" role="heading"><span class="Bold">5.2  </span>The resolution of multi-contractor
+sets normally requires <span class="Bold">Owner FI</span>s to identify at least
+one actual duplicate claim in the set. However, special logic is
+applied to multi-contractor sets containing an inactive FI 99 claim.
+If there are no other active contractors in the set, the <span class="Bold">Owner
+FI </span>can resolve the set without identifying an actual duplicate
+claim. In other words, if the <span class="Bold">Owner FI</span> is the <span class="Bold">Responsible
+FI </span>of one claim in the set and the other claim has a <span class="Bold">Responsible
+FI </span>of 99, the <span class="Bold">Owner FI </span>can identify both claims
+as non-duplicates and resolve the set to a <span class="Italic">Closed</span> status.
+The <span class="Bold">Owner FI</span> also can resolve sets containing FI 99s
+according to the general rules of resolution in which actual duplicates
+are identified, recoupments are received, and adjustments are processed.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-id="TST507800039" data-element-type="Text" role="heading"><span class="Bold">5.3  </span>Sets with FI 99 claims are
+simply another type of multi-contractor set. When confronted with
+an FI 99 set, the <span class="Bold">Owner FI</span> needs to determine if it
+had jurisdiction for the claim(s) it paid. For FI 99 sets the <span class="Bold">Owner
+FI </span>should enter an <span class="Bold">N</span> in the <span class="Bold">Dupe?</span> fields
+and enter either <span class="Bold">BASE</span> or <span class="Bold">N300</span> in the <span class="Bold">Reason
+Code</span> fields of the FI 99 claims. For the <span class="Bold">Owner FI</span>’s
+claims, an <span class="Bold">N</span> or a <span class="Bold">Y</span> may be entered in
+the <span class="Bold">Dupe?</span> field and a valid reason code should be entered.<div class="Note" data-element-change-state="Unchanged" data-element-id="TST50780003A" data-element-type="Text" role="note"><span class="Bold">Note:  </span>An <span class="Bold">Owner FI </span>claim
+may be designated as the BASE claim. If the <span class="Bold">Owner FI</span> determines
+that it did not have jurisdiction for the claim(s) it paid, then
+it must put a <span class="Bold">Y</span> in the <span class="Bold">Dupe? </span>field(s)
+of its claim(s).</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-id="TST50780003B" data-element-type="Outline" role="heading">6.0  Determining Jurisdiction For
+Claim Sets<div class="BodyL" data-element-change-state="Unchanged" data-element-id="TST50780003C" data-element-type="Text">Duplicate
+claim sets assign jurisdiction in accordance with TRICARE Operations
+Manual (TOM), <span class="xrefpub"><a href="../tot5/c8toc.html" rel="noopener" target="_blank">Chapter 8</a></span>.</div>
+</div></section>
+<div class="END">- END -</div></article>
+</div>
+<div class="doc_navigation" id="MainContent_DocumentNavigationPanelPost">
+<a class="button FullStoryLink floatLeft" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C4S1_2.html" rel="noopener" target="_blank" title="View previous section (Chap 4 Sect 1.2)"><i class="fa fa-arrow-circle-left"></i> Previous</a><a class="button FullStoryLink floatRight" href="https://manuals.health.mil/pages/DisplayManualHtmlFile/2026-08-12/AsOf/TST5/C4S1_4.html" rel="noopener" target="_blank" title="View next section (Chap 4 Sect 1.4)">Next <i class="fa fa-arrow-circle-right"></i></a>
+</div>
+</div>
+<div class="clearfix"></div>

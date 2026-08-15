@@ -41,7 +41,7 @@ import time
 import warnings
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urljoin, urlparse, parse_qs
+from urllib.parse import urljoin, urlparse, parse_qs, urldefrag
 
 import requests
 import urllib3
@@ -478,18 +478,34 @@ def fetch_chapter_section_urls(chapter_toc_url: str) -> list[str]:
         return []
 
     host = urlparse(chapter_toc_url).netloc
+
+    # Chapters link their sections with document-relative hrefs — "c1s3.html",
+    # "./c3toc.html", "../tpt5/c10s2_1.html" — so they must be resolved against
+    # the chapter TOC's own URL.  Resolving against BASE_URL (which has no path)
+    # turned "c1s3.html" into https://manuals.health.mil/c1s3.html, which fails
+    # is_display_html() and was silently discarded, yielding "0 section(s)" for
+    # every chapter of every manual.
+    base_dir = chapter_toc_url.rsplit("/", 1)[0] + "/"
+
     seen: set[str] = set()
     results: list[str] = []
 
     soup = BeautifulSoup(r.text, "lxml")
     for a in soup.find_all("a", href=True):
         href = a["href"].strip()
-        if not href:
+        if not href or href.startswith("#"):
             continue
-        full = urljoin(BASE_URL, href)
+        # Drop the fragment so "c1s3.html#FM63551" and "c1s3.html#FM99999"
+        # dedupe to one section rather than being counted several times.
+        full = urldefrag(urljoin(chapter_toc_url, href))[0]
         if urlparse(full).netloc != host:
             continue
         if not is_display_html(full):
+            continue
+        # Keep only this manual's own sections.  Chapters cross-reference other
+        # manuals and publications ("../tpt5/...", "../fr16/...") which resolve
+        # to valid DisplayManualHtmlFile URLs but belong to a different manual.
+        if not full.lower().startswith(base_dir.lower()):
             continue
         name = Path(urlparse(full).path).name
         if is_chapter_toc_name(name):

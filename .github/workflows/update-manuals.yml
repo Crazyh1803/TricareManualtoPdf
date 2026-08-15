@@ -37,15 +37,23 @@ jobs:
         with:
           fetch-depth: 1
 
-      # 2. Sync manuals.json from the web branch — main's own copy stopped
-      #    being updated back in May 2026 (scraped content only ever gets
-      #    pushed to web, see step 7), so without this the scraper always
-      #    re-seeds its "known change" from that permanently stale snapshot
-      #    and can never detect anything past a few steps beyond it.
-      - name: Sync manuals.json from web branch
+      # 2. Seed docs/data/ from the web branch — main's own copy stopped being
+      #    updated back in May 2026 (scraped content only ever gets pushed to
+      #    web, see step 7). Without this the runner starts from that frozen
+      #    snapshot, which caused two compounding bugs:
+      #      a) the scraper re-seeded its "known change" from stale values, so
+      #         detection could never progress; and
+      #      b) step 7 copies this whole directory over web's, so any manual
+      #         the scraper skipped as "up to date" had its live content reset
+      #         to the May snapshot every single run (TPT5/TRT5/TST5 had not
+      #         been genuinely re-fetched since then).
+      #    Reading web's data into the runner fixes both. Nothing is pushed
+      #    back to main — main's docs/data/ stays as-is.
+      - name: Seed docs/data from web branch
         run: |
           git fetch origin web
-          git show origin/web:docs/data/manuals.json > docs/data/manuals.json
+          rm -rf docs/data
+          git archive origin/web docs/data | tar -x
 
       # 3. Set up Python
       - name: Set up Python 3.12

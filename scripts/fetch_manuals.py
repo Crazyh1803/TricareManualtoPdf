@@ -78,6 +78,19 @@ REQUEST_DELAY = 1.5
 # window reset before we begin the next manual.
 MANUAL_COOLDOWN_SECS = 60
 
+# How many change numbers past the known one to probe when detecting the
+# latest version.  The walk breaks at the first candidate that fails, so in
+# steady state this costs one extra probe regardless of the ceiling — the
+# headroom only matters when catching up after the baseline has gone stale
+# (previously hardcoded to 5, which capped TOT5 at exactly known+5 and made
+# it impossible to close a multi-month gap in a single run).
+#
+# NOTE: only safe alongside the Change=-parameter validation in
+# _toc_has_sections().  The site returns HTTP 200 and serves current content
+# for *any* change number, so a bare "does the page have links?" check
+# reports every candidate as valid and a large ceiling would run away.
+FORWARD_WALK_LIMIT = 30
+
 # A manual's new content-section count must be at least this fraction of
 # what's already on disk, or the scrape is treated as failed (see the
 # regression guard in process_manual()). Guards against a rate-limited or
@@ -303,8 +316,9 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
     collects the top-level TOC URLs (chapter TOCs + front matter).
 
     Version detection:
-      Start from known_change (from manuals.json).  Check up to 5 increments
-      ahead — a change is "valid" only if its TOC page actually renders
+      Start from known_change (from manuals.json).  Check up to
+      FORWARD_WALK_LIMIT increments ahead, stopping at the first candidate
+      that fails — a change is "valid" only if its TOC page actually renders
       DisplayManualHtmlFile section links.  This avoids the false-positive
       caused by the site always returning HTTP 200, even for invalid changes.
 
@@ -365,7 +379,7 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                     )
                     latest = served_change
                     # Walk forward from the discovered change
-                    for candidate in range(served_change + 1, served_change + 6):
+                    for candidate in range(served_change + 1, served_change + 1 + FORWARD_WALK_LIMIT):
                         print(f"  [{code}] Checking change {candidate}…")
                         if await _toc_has_sections(ctx, code, candidate):
                             latest = candidate
@@ -377,11 +391,11 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                 # Change=0 is a special "always-current" sentinel used by manuals
                 # whose TOC links are date-based (no ?Change= parameter).  The
                 # server accepts any numeric change value and returns the same
-                # content, so a forward walk would just increment the number by 5
-                # every CI run forever.  Pin to 0 and skip the walk entirely.
+                # content, so a forward walk would just keep incrementing the
+                # number every CI run forever.  Pin to 0 and skip it entirely.
                 print(f"  [{code}] Change=0 sentinel — skipping forward walk.")
             else:
-                for candidate in range(known_change + 1, known_change + 6):
+                for candidate in range(known_change + 1, known_change + 1 + FORWARD_WALK_LIMIT):
                     print(f"  [{code}] Checking change {candidate}…")
                     if await _toc_has_sections(ctx, code, candidate):
                         latest = candidate

@@ -548,66 +548,11 @@ function mdTable(table) {
   return `\n\n${fmt(hdr || sep)}\n${fmt(sep)}\n${body.map(fmt).join('\n')}\n\n`;
 }
 
-// ── Visitor counter (retro easter egg 🥚) ────────────────────────────────────
-// hits.sh doesn't send CORS headers, so we route through codetabs.com proxy.
-// Both counters are fetched in parallel to avoid sequential rate-limiting.
-// Unique URL is only fetched when this browser hasn't stored a count yet;
-// once stored in localStorage, return visits read the cached value instead.
-(async function initCounter() {
-  const BASE    = 'https://hits.sh/github.com/Crazyh1803/TricareManualtoPdf';
-  const PROXY   = 'https://api.codetabs.com/v1/proxy?quest=';
-  const isNew   = !localStorage.getItem('mb_visited');
-  const hasUniq = !!localStorage.getItem('mb_uniq');
-  // Also retry unique if a previous first-visit attempt failed (no stored value).
-  const needUniq = isNew || !hasUniq;
-
-  async function fetchCount(url) {
-    const res = await fetch(PROXY + encodeURIComponent(url));
-    if (!res.ok) {
-      console.warn(`[visitor counter] proxy fetch failed for ${url}: HTTP ${res.status}`);
-      return null;
-    }
-    const svg = await res.text();
-    const doc = new DOMParser().parseFromString(svg, 'image/svg+xml');
-    // Tolerate thousands separators (e.g. "1,234") in case hits.sh formats
-    // large counts that way — the old bare \d+ check would silently reject them.
-    for (const el of doc.querySelectorAll('text')) {
-      const v = el.textContent.trim();
-      if (/^[\d,]+$/.test(v)) return parseInt(v.replace(/,/g, ''), 10);
-    }
-    console.warn(`[visitor counter] no numeric <text> found in SVG from ${url}`, svg.slice(0, 200));
-    return null;
-  }
-
-  try {
-    // Fire both in parallel — avoids proxy rate-limiting the sequential 2nd call.
-    const [hits, fetchedUniq] = await Promise.all([
-      fetchCount(`${BASE}.svg`),
-      needUniq ? fetchCount(`${BASE}-unique.svg`) : Promise.resolve(null),
-    ]);
-
-    const unique = needUniq
-      ? fetchedUniq
-      : parseInt(localStorage.getItem('mb_uniq'), 10);
-
-    const elTotal = document.getElementById('vc-total');
-    const elUniq  = document.getElementById('vc-unique');
-    if (hits   != null && elTotal) elTotal.textContent = hits.toLocaleString();
-    if (unique != null && elUniq)  elUniq.textContent  = unique.toLocaleString();
-    if (hits == null || unique == null) {
-      console.warn('[visitor counter] one or both counts unavailable this load', { hits, unique });
-    }
-
-    // Persist after display so a partial failure doesn't lock out future retries.
-    if (isNew)                           localStorage.setItem('mb_visited', '1');
-    if (needUniq && fetchedUniq != null) localStorage.setItem('mb_uniq', String(fetchedUniq));
-  } catch (e) {
-    // Counter unavailable — displays stay as "—". Logged so a live failure
-    // (proxy down, hits.sh format change, CORS, etc.) is diagnosable instead
-    // of silently invisible.
-    console.warn('[visitor counter] unavailable:', e);
-  }
-})();
+// ── Visitor counter ─────────────────────────────────────────────────────────
+// Now a plain <img> badge in index.html. Reading the number out of the SVG
+// required a CORS proxy (hits.sh sends no CORS headers), and that proxy chain
+// was the single point of failure that left the counter stuck on "—". An
+// image request has no such constraint, so there is no JS involved anymore.
 
 // ── Bootstrap ───────────────────────────────────────────────────────────────
 init().catch(console.error);

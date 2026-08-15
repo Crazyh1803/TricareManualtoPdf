@@ -65,16 +65,14 @@
         </div>
 
         <!-- Visitor counter — retro easter egg 🥚 -->
+        <!-- Rendered as a plain <img>: an image request is not subject to
+             CORS, so unlike the old fetch-via-proxy approach this cannot
+             silently fail. hits.sh increments the count on load. -->
         <div class="visitor-counter" title="You found the visitor counter! 🎉">
-          <div class="vc-col">
-            <span class="vc-label">Unique Visitors</span>
-            <span id="vc-unique" class="vc-num">—</span>
-          </div>
-          <div class="vc-divider"></div>
-          <div class="vc-col">
-            <span class="vc-label">Total Visits</span>
-            <span id="vc-total" class="vc-num">—</span>
-          </div>
+          <img class="vc-badge"
+               src="https://hits.sh/github.com/Crazyh1803/TricareManualtoPdf.svg?style=flat-square&amp;label=Total%20Visits&amp;labelColor=0a0a0a&amp;color=00a848"
+               alt="Total visits to this site"
+               onerror="this.closest('.visitor-counter').style.display='none'">
         </div>
       </main>
     </div>

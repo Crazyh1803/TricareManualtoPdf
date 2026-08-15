@@ -91,6 +91,14 @@ SECTION_NAV_DELAY = 2.0
 SECTION_FETCH_ATTEMPTS = 3
 SECTION_RETRY_BACKOFF = 8.0
 
+# Cool-off after a section exhausts its retries. Retrying hammers the site with
+# extra navigations, and that burst can trip throttling that then takes out the
+# *following* sections: re-scraping TPT5 retried its canvas section 001 and
+# then lost 003, 004 and 005 — all of which had real content the run before —
+# to consecutive failures. Backing off after a failure lets that window drain
+# instead of carrying the throttling into healthy pages.
+FAILED_SECTION_COOLDOWN = 20.0
+
 # Version-detection probes need the same treatment. They were unthrottled and
 # single-shot, and since the forward walk stops at the first failure, one
 # throttled probe silently caps the detected version (TPT5 came back as 55 on
@@ -881,6 +889,11 @@ async def fetch_sections_via_browser(
                     # 43-byte canvas element reads as missing content in both
                     # the reader and the Markdown export.
                     content = unavailable_html(s["url"])
+                    # Back off before the next section. A failure usually means
+                    # we are being throttled, and the retries just added to the
+                    # burst — carrying straight on is what turned one bad
+                    # section into four consecutive ones on TPT5.
+                    await asyncio.sleep(FAILED_SECTION_COOLDOWN)
 
                 results.append((s["id"], content))
 

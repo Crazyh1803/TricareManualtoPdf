@@ -37,7 +37,17 @@ jobs:
         with:
           fetch-depth: 1
 
-      # 2. Set up Python
+      # 2. Sync manuals.json from the web branch — main's own copy stopped
+      #    being updated back in May 2026 (scraped content only ever gets
+      #    pushed to web, see step 7), so without this the scraper always
+      #    re-seeds its "known change" from that permanently stale snapshot
+      #    and can never detect anything past a few steps beyond it.
+      - name: Sync manuals.json from web branch
+        run: |
+          git fetch origin web
+          git show origin/web:docs/data/manuals.json > docs/data/manuals.json
+
+      # 3. Set up Python
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
@@ -45,15 +55,15 @@ jobs:
           cache: 'pip'
           cache-dependency-path: scripts/requirements.txt
 
-      # 3. Install dependencies
+      # 4. Install dependencies
       - name: Install Python dependencies
         run: pip install -r scripts/requirements.txt
 
-      # 4. Install Playwright browser (needed for JS-rendered TOC pages)
+      # 5. Install Playwright browser (needed for JS-rendered TOC pages)
       - name: Install Playwright browser
         run: playwright install --with-deps chromium
 
-      # 5. Run scraper
+      # 6. Run scraper
       - name: Fetch manual content
         run: |
           CODE_ARG=""
@@ -66,7 +76,7 @@ jobs:
           fi
           python scripts/fetch_manuals.py $CODE_ARG $FORCE_ARG
 
-      # 6. Commit updated data files to the web branch (where GitHub Pages serves from)
+      # 7. Commit updated data files to the web branch (where GitHub Pages serves from)
       - name: Commit updated content to web branch
         run: |
           git config user.name  "github-actions[bot]"

@@ -808,14 +808,25 @@ async def fetch_sections_via_browser(
     section (run #42 published 199 one-byte files before this was understood).
 
     Titles are written back onto the section dicts in place, for chapter TOC
-    entries too. Returns ([(section_id, content_html)], failed_count) for the
-    content sections only — chapter TOC entries contribute a title and no file.
+    entries too. Returns ([(section_id, content_html)], failed_count,
+    preserved_count) for the content sections only — chapter TOC entries
+    contribute a title and no file.
+
+    A section whose fetch fails keeps whatever content the manual already had
+    for that source filename, rather than being overwritten with a
+    placeholder. It still counts as failed, so the abort guards continue to
+    see the true failure rate.
     """
     results: list[tuple[str, str]] = []
     failed = 0
+    preserved = 0
     content_total = sum(1 for s in sections if not s["isChapterToc"])
     done = 0
     diagnosed = 0
+
+    # Read before any writes — the loop below only buffers, so the files on
+    # disk still hold the previous run's content while we are fetching.
+    previous = load_previous_sections(code)
 
     async with async_playwright() as pw:
         browser, ctx = await _launch_context(pw)
@@ -888,7 +899,18 @@ async def fetch_sections_via_browser(
                     # no amount of waiting yields extractable HTML, and a
                     # 43-byte canvas element reads as missing content in both
                     # the reader and the Markdown export.
-                    content = unavailable_html(s["url"])
+                    kept = previous.get(s["name"])
+                    if kept:
+                        # We already hold real text for this section; a failed
+                        # fetch is no reason to throw it away. This is what
+                        # would have saved TPT5 003-005.
+                        content = kept["html"]
+                        s["title"] = kept["title"] or s["title"]
+                        preserved += 1
+                        print(f"    kept previous content for {s['name']} "
+                              f"({len(content):,}B)")
+                    else:
+                        content = unavailable_html(s["url"])
                     # Back off before the next section. A failure usually means
                     # we are being throttled, and the retries just added to the
                     # burst — carrying straight on is what turned one bad
@@ -913,7 +935,7 @@ async def fetch_sections_via_browser(
             await ctx.close()
             await browser.close()
 
-    return results, failed
+    return results, failed, preserved
 
 
 # ── File writing ─────────────────────────────────────────────────────────────
@@ -924,6 +946,12 @@ def write_toc(code: str, change: int, sections: list[dict]) -> None:
     toc_sections = [
         {
             "id":           s["id"],
+            # Source filename (e.g. "C1S3.html"). Ids are positional and shift
+            # whenever the section count changes, so this is the only stable
+            # identity a section has across scrapes — it is what lets the next
+            # run match a failed fetch to the content it already holds. The web
+            # app ignores the field.
+            "name":         s["name"],
             "title":        s["title"],
             "chapter":      s["chapter"],
             "section":      s["section"],
@@ -948,6 +976,47 @@ def write_section(code: str, section_id: str, html: str) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / f"{section_id}.html"
     path.write_text(html, encoding="utf-8")
+
+
+def load_previous_sections(code: str) -> dict[str, dict]:
+    """Map source filename -> {title, html} for the content already on disk.
+
+    Used to keep a section's existing content when a fetch fails, instead of
+    replacing real text with a placeholder. Keyed on the source filename
+    rather than the id, because ids are positional and shift whenever the
+    section count changes.
+
+    Returns an empty map for a manual whose toc.json predates the "name"
+    field, so the first run after that change simply has nothing to preserve
+    from — matching on id instead would risk restoring one section's content
+    under another section's heading.
+    """
+    path = DATA_DIR / code / "toc.json"
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+    out: dict[str, dict] = {}
+    for s in data.get("sections", []):
+        name = s.get("name")
+        if not name or s.get("isChapterToc"):
+            continue
+        html_path = DATA_DIR / code / "s" / f"{s.get('id')}.html"
+        if not html_path.exists():
+            continue
+        try:
+            html = html_path.read_text(encoding="utf-8")
+        except Exception:
+            continue
+        # Only worth keeping if it is real content — never carry a previous
+        # placeholder or an empty file forward as though it were a rescue.
+        if is_failed_section(html) or "could not be extracted" in html:
+            continue
+        out[name] = {"title": s.get("title", ""), "html": html}
+    return out
 
 
 def prune_stale_sections(code: str, keep_ids: set[str]) -> int:
@@ -1045,7 +1114,9 @@ def process_manual(entry: dict, force: bool = False) -> dict:
     # quality check below must be able to abandon a bad scrape without having
     # left half-written files on disk for the publish step to pick up.
     # Chapter TOC titles are resolved in the same pass.
-    fetched, failed = asyncio.run(fetch_sections_via_browser(code, sections))
+    fetched, failed, preserved = asyncio.run(
+        fetch_sections_via_browser(code, sections)
+    )
 
     # The count guard above only proves we found the right *number* of
     # sections. If the fetches themselves are being served a challenge page,
@@ -1058,7 +1129,10 @@ def process_manual(entry: dict, force: bool = False) -> dict:
             f"untouched."
         )
     if failed:
-        print(f"  Note: {failed}/{len(content_sections)} section(s) could not be retrieved.")
+        lost = failed - preserved
+        print(f"  Note: {failed}/{len(content_sections)} section(s) could not be "
+              f"retrieved — {preserved} kept their previous content, "
+              f"{lost} fell back to a source link.")
 
     for section_id, html in fetched:
         write_section(code, section_id, html)

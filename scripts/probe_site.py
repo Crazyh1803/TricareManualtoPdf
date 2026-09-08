@@ -1,27 +1,26 @@
 #!/usr/bin/env python3
-"""Throwaway diagnostic #3: everything needed to write the new scraper.
+"""Throwaway diagnostic #4: fix titles and pick the right content node.
 
-Probe #2 settled that plain HTTP gets only a ~5.8 KB SPA shell — no links, no
-title, no revision — so Playwright stays. This is the last probe: it collects
-the concrete details the rewrite needs.
+The FR16 test run fetched real content but titled every section "Publication
+Information", and stored the Alpine wrapper around the document instead of the
+document. Two questions, both needing the live DOM:
 
-  A. Per manual: revision number, published date, manual name, link count.
-  B. One section page: which DOM node holds the content, and a sample of its
-     HTML, so the extractor can be written against something real.
-  C. Every network request the page makes, so a JSON API (if one exists) is
-     not missed — probe #1 only logged json content-types and caught a CSS
-     file on an /api/ path, which hints there is more under /api/.
+  A. On a publication page, what text does each /FileName/ anchor actually
+     carry? innerText gave the same string for all 28 links, so this dumps
+     every plausible source (innerText, textContent, title, aria-label) plus
+     the anchor's own markup.
+  B. Inside #publication-document, which elements hold the section title? FR16
+     uses .Chapter + .CFRSubject; TPT5 is a different manual family and may
+     not, so both are sampled before the extractor is written.
 
 Delete once the retarget is done.
 """
-import asyncio, re, sys
+import asyncio, json, sys
 from playwright.async_api import async_playwright
 
 BASE = "https://manuals.dha.mil"
-CODES = ["TOT5", "TPT5", "TRT5", "TST5", "FR16"]
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
-REV_RE = re.compile(r"Revision\s+(\d+)\s*\(Published\s*([^)]*)\)", re.I)
 
 
 async def main():
@@ -29,110 +28,72 @@ async def main():
         browser = await pw.chromium.launch(args=["--disable-blink-features=AutomationControlled"])
         ctx = await browser.new_context(user_agent=UA, viewport={"width": 1440, "height": 900})
 
-        requests_seen = []
-        first_section = None
-
-        print("\n=== A. Revision of each tracked manual ===")
-        for code in CODES:
+        section_urls = {}
+        for code in ("FR16", "TPT5"):
+            print(f"\n=== A. {code}: text carried by each /FileName/ anchor ===")
             page = await ctx.new_page()
-            page.on("request", lambda r: requests_seen.append((r.method, r.url,
-                                                              r.resource_type)))
-            url = f"{BASE}/View-Publication/{code}"
-            try:
-                await page.goto(url, wait_until="networkidle", timeout=60_000)
-            except Exception as e:
-                print(f"  {code}: goto failed: {e}")
-                await page.close()
-                continue
+            await page.goto(f"{BASE}/View-Publication/{code}", wait_until="networkidle", timeout=60_000)
             await page.wait_for_timeout(4_000)
-
-            title = await page.title()
-            body = await page.inner_text("body")
-            m = REV_RE.search(body)
-            hrefs = await page.eval_on_selector_all(
-                "a[href]", "els => els.map(e => e.getAttribute('href'))")
-            fn = [h for h in hrefs if h and "/FileName/" in h]
-            tocs = [h for h in fn if h.rstrip("/").upper().endswith("TOC")]
-
-            print(f"  {code}: revision={m.group(1) if m else '??'} "
-                  f"published={m.group(2).strip() if m else '??'} "
-                  f"| {len(fn)} section link(s), {len(tocs)} TOC-ish "
-                  f"| title={title!r}")
-            if code == "TPT5" and fn:
-                first_section = fn[0] if fn[0].startswith("http") else BASE + fn[0]
-                print(f"    sample links: {fn[:3]}")
-                print(f"    sample TOCs : {tocs[:3]}")
-            await page.close()
-
-        print("\n=== B. Structure of one section page ===")
-        if not first_section:
-            print("  no section link captured — cannot continue")
-        else:
-            page = await ctx.new_page()
-            print(f"  {first_section}")
-            try:
-                await page.goto(first_section, wait_until="networkidle", timeout=60_000)
-            except Exception as e:
-                print(f"  goto failed: {e}")
-            await page.wait_for_timeout(4_000)
-            print(f"  final url: {page.url}")
-            print(f"  title    : {await page.title()}")
-
-            info = await page.evaluate("""() => {
+            rows = await page.evaluate("""() => {
                 const out = [];
-                const walk = (el, depth) => {
-                    if (depth > 4) return;
-                    for (const c of el.children) {
-                        const txt = (c.innerText || '').trim();
-                        out.push({
-                            depth,
-                            tag: c.tagName.toLowerCase(),
-                            id: c.id || '',
-                            cls: (c.className && c.className.baseVal !== undefined
-                                  ? c.className.baseVal : c.className) || '',
-                            chars: txt.length,
-                        });
-                        walk(c, depth + 1);
-                    }
-                };
-                walk(document.body, 0);
+                for (const a of document.querySelectorAll('a[href*="/FileName/"]')) {
+                    out.push({
+                        href: a.getAttribute('href'),
+                        innerText: (a.innerText || '').trim().slice(0, 90),
+                        textContent: (a.textContent || '').trim().replace(/\\s+/g, ' ').slice(0, 90),
+                        title: a.getAttribute('title') || '',
+                        aria: a.getAttribute('aria-label') || '',
+                        cls: a.className || '',
+                        parentCls: a.parentElement ? (a.parentElement.className || '') : '',
+                        html: a.outerHTML.replace(/\\s+/g, ' ').slice(0, 170),
+                    });
+                }
                 return out;
             }""")
-            print("\n  --- nodes with >200 chars of text (content candidates) ---")
-            for n in info:
-                if n["chars"] > 200:
-                    pad = "  " * n["depth"]
-                    print(f"    {pad}<{n['tag']} id={n['id']!r} class={str(n['cls'])[:60]!r}> "
-                          f"{n['chars']} chars")
-
-            for sel in ("main", "article", "#content", ".content", "#main-content",
-                        "[class*=publication]", "[class*=document]", "[class*=viewer]",
-                        "[class*=manual]", "iframe"):
-                try:
-                    c = await page.eval_on_selector_all(sel, "els => els.length")
-                except Exception:
-                    c = 0
-                if c:
-                    print(f"    selector {sel!r} matches {c}")
-
-            print("\n  --- first 1500 chars of visible text ---")
-            print("   ", (await page.inner_text("body"))[:1500].replace("\n", "\n    "))
+            print(f"  {len(rows)} anchor(s); showing 6")
+            for r in rows[:6]:
+                print(f"    href        : {r['href']}")
+                print(f"      innerText : {r['innerText']!r}")
+                print(f"      textContent:{r['textContent']!r}")
+                print(f"      title/aria: {r['title']!r} / {r['aria']!r}")
+                print(f"      class     : {r['cls']!r} parent={r['parentCls']!r}")
+                print(f"      html      : {r['html']!r}")
+            # keep a real (non-TOC) section to inspect in part B
+            for r in rows:
+                tok = r["href"].rstrip("/").rsplit("/", 1)[-1].upper()
+                if not tok.endswith("TOC"):
+                    section_urls[code] = BASE + r["href"].split("?")[0]
+                    break
             await page.close()
 
-        print("\n=== C. Network requests (non-image), deduped ===")
-        seen = set()
-        for method, url, rtype in requests_seen:
-            if rtype in ("image", "font", "media"):
-                continue
-            key = (method, url.split("?")[0])
-            if key in seen:
-                continue
-            seen.add(key)
-            print(f"  {method:4} {rtype:12} {url[:160]}")
+        for code, url in section_urls.items():
+            print(f"\n=== B. {code}: title-bearing elements in #publication-document ===")
+            print(f"  {url}")
+            page = await ctx.new_page()
+            await page.goto(url, wait_until="networkidle", timeout=60_000)
+            await page.wait_for_timeout(4_000)
+            rows = await page.evaluate("""() => {
+                const doc = document.querySelector('#publication-document');
+                if (!doc) return null;
+                const out = [];
+                let n = 0;
+                for (const el of doc.querySelectorAll('*')) {
+                    if (n++ > 22) break;
+                    const t = (el.innerText || '').trim().replace(/\\s+/g, ' ');
+                    out.push({tag: el.tagName.toLowerCase(),
+                              cls: el.className || '', txt: t.slice(0, 80)});
+                }
+                return out;
+            }""")
+            if rows is None:
+                print("  #publication-document NOT FOUND")
+            else:
+                for r in rows:
+                    print(f"    <{r['tag']} class={str(r['cls'])[:38]!r}> {r['txt']!r}")
+            await page.close()
 
         await browser.close()
     print("\nProbe complete.")
 
 
-if __name__ == "__main__":
-    asyncio.run(main())
+asyncio.run(main())

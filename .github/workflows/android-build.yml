@@ -24,8 +24,14 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      # The project pins Gradle 8.2 in gradle/wrapper/gradle-wrapper.properties
+      # but no gradlew script is committed, so a bare `gradle` picks up the
+      # runner's 9.x — which Android Gradle Plugin 8.2.0 does not support.
+      # Pin the version the project actually expects.
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.2'
 
       - name: Assemble debug
         working-directory: android

@@ -1,99 +1,92 @@
 #!/usr/bin/env python3
-"""Throwaway diagnostic #4: fix titles and pick the right content node.
+"""Throwaway diagnostic #5: is /api/publication/... fetchable without a browser?
 
-The FR16 test run fetched real content but titled every section "Publication
-Information", and stored the Alpine wrapper around the document instead of the
-document. Two questions, both needing the live DOM:
+Probe #4 found that every section anchor carries
+    hx-get="/api/publication/{CODE}/{REVISION}/{FILENAME}"
+    hx-target="#publication-document" hx-swap="innerHTML"
+so htmx pulls the document fragment from that endpoint. If plain HTTP can
+reach it, content fetching drops Playwright entirely and the fragment needs no
+extraction — it is already the document.
 
-  A. On a publication page, what text does each /FileName/ anchor actually
-     carry? innerText gave the same string for all 28 links, so this dumps
-     every plausible source (innerText, textContent, title, aria-label) plus
-     the anchor's own markup.
-  B. Inside #publication-document, which elements hold the section title? FR16
-     uses .Chapter + .CFRSubject; TPT5 is a different manual family and may
-     not, so both are sampled before the extractor is written.
+Tests, in order of how much we would have to keep:
+  1. plain GET, no special headers
+  2. plain GET with htmx's own HX-Request headers
+  3. the same via a browser context, as the control
+
+Also checks whether the fragment carries the manual's own title elements, so
+titles can come from the content when link text is unavailable.
 
 Delete once the retarget is done.
 """
-import asyncio, json, sys
+import asyncio, sys
+import requests
+from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
 
 BASE = "https://manuals.dha.mil"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
+TARGETS = [("FR16", 20, "C1"), ("TPT5", 56, "C1S1_1")]
 
 
-async def main():
+def describe(label, text):
+    soup = BeautifulSoup(text, "html.parser")
+    body = soup.get_text(" ", strip=True)
+    print(f"    {label}: {len(text)}B raw, {len(body)} chars text")
+    print(f"      starts: {body[:160]!r}")
+    for sel in ("#publication-document", "article", ".Header", ".MPChapterTitle",
+                ".Chapter", ".CFRSubject", ".Section", "nav", "#leftNav"):
+        found = soup.select(sel)
+        if found:
+            print(f"      {sel!r}: {len(found)}  first={found[0].get_text(' ', strip=True)[:60]!r}")
+
+
+def plain(url, headers=None):
+    try:
+        r = requests.get(url, headers={"User-Agent": UA, **(headers or {})}, timeout=45)
+        return r
+    except Exception as e:
+        print(f"    ERROR {type(e).__name__}: {e}")
+        return None
+
+
+async def via_browser(url):
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(args=["--disable-blink-features=AutomationControlled"])
-        ctx = await browser.new_context(user_agent=UA, viewport={"width": 1440, "height": 900})
-
-        section_urls = {}
-        for code in ("FR16", "TPT5"):
-            print(f"\n=== A. {code}: text carried by each /FileName/ anchor ===")
-            page = await ctx.new_page()
-            await page.goto(f"{BASE}/View-Publication/{code}", wait_until="networkidle", timeout=60_000)
-            await page.wait_for_timeout(4_000)
-            rows = await page.evaluate("""() => {
-                const out = [];
-                for (const a of document.querySelectorAll('a[href*="/FileName/"]')) {
-                    out.push({
-                        href: a.getAttribute('href'),
-                        innerText: (a.innerText || '').trim().slice(0, 90),
-                        textContent: (a.textContent || '').trim().replace(/\\s+/g, ' ').slice(0, 90),
-                        title: a.getAttribute('title') || '',
-                        aria: a.getAttribute('aria-label') || '',
-                        cls: a.className || '',
-                        parentCls: a.parentElement ? (a.parentElement.className || '') : '',
-                        html: a.outerHTML.replace(/\\s+/g, ' ').slice(0, 170),
-                    });
-                }
-                return out;
-            }""")
-            print(f"  {len(rows)} anchor(s); showing 6")
-            for r in rows[:6]:
-                print(f"    href        : {r['href']}")
-                print(f"      innerText : {r['innerText']!r}")
-                print(f"      textContent:{r['textContent']!r}")
-                print(f"      title/aria: {r['title']!r} / {r['aria']!r}")
-                print(f"      class     : {r['cls']!r} parent={r['parentCls']!r}")
-                print(f"      html      : {r['html']!r}")
-            # keep a real (non-TOC) section to inspect in part B
-            for r in rows:
-                tok = r["href"].rstrip("/").rsplit("/", 1)[-1].upper()
-                if not tok.endswith("TOC"):
-                    section_urls[code] = BASE + r["href"].split("?")[0]
-                    break
-            await page.close()
-
-        for code, url in section_urls.items():
-            print(f"\n=== B. {code}: title-bearing elements in #publication-document ===")
-            print(f"  {url}")
-            page = await ctx.new_page()
-            await page.goto(url, wait_until="networkidle", timeout=60_000)
-            await page.wait_for_timeout(4_000)
-            rows = await page.evaluate("""() => {
-                const doc = document.querySelector('#publication-document');
-                if (!doc) return null;
-                const out = [];
-                let n = 0;
-                for (const el of doc.querySelectorAll('*')) {
-                    if (n++ > 22) break;
-                    const t = (el.innerText || '').trim().replace(/\\s+/g, ' ');
-                    out.push({tag: el.tagName.toLowerCase(),
-                              cls: el.className || '', txt: t.slice(0, 80)});
-                }
-                return out;
-            }""")
-            if rows is None:
-                print("  #publication-document NOT FOUND")
-            else:
-                for r in rows:
-                    print(f"    <{r['tag']} class={str(r['cls'])[:38]!r}> {r['txt']!r}")
-            await page.close()
-
-        await browser.close()
-    print("\nProbe complete.")
+        b = await pw.chromium.launch(args=["--disable-blink-features=AutomationControlled"])
+        ctx = await b.new_context(user_agent=UA)
+        try:
+            r = await ctx.request.get(url, headers={"HX-Request": "true"})
+            return r.status, await r.text()
+        finally:
+            await ctx.close(); await b.close()
 
 
-asyncio.run(main())
+for code, rev, fn in TARGETS:
+    url = f"{BASE}/api/publication/{code}/{rev}/{fn}"
+    print(f"\n=== {url} ===")
+
+    print("  1. plain GET")
+    r = plain(url)
+    if r is not None:
+        print(f"    HTTP {r.status_code}  {r.headers.get('content-type','')}")
+        if r.status_code == 200:
+            describe("body", r.text)
+
+    print("  2. plain GET with htmx headers")
+    r2 = plain(url, {"HX-Request": "true", "HX-Target": "publication-document",
+                     "Referer": f"{BASE}/View-Publication/{code}"})
+    if r2 is not None:
+        print(f"    HTTP {r2.status_code}  {r2.headers.get('content-type','')}")
+        if r2.status_code == 200:
+            describe("body", r2.text)
+
+    print("  3. browser context (control)")
+    try:
+        status, text = asyncio.run(via_browser(url))
+        print(f"    HTTP {status}")
+        if status == 200:
+            describe("body", text)
+    except Exception as e:
+        print(f"    ERROR {type(e).__name__}: {e}")
+
+print("\nProbe complete.")

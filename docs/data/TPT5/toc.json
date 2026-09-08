@@ -1,2160 +1,2484 @@
 {
   "code": "TPT5",
-  "change": 55,
-  "fetchedAt": "2026-08-15T16:24:26Z",
+  "change": 56,
+  "fetchedAt": "2026-09-08T15:29:55Z",
   "sections": [
     {
-      "id": "001",
-      "title": "Untitled Section",
+      "id": "TPT5TOC",
+      "name": "TPT5TOC",
+      "title": "Master TOC",
+      "chapter": 0,
+      "section": "",
+      "isChapterToc": true
+    },
+    {
+      "id": "FOREWORD",
+      "name": "FOREWORD",
+      "title": "Foreword",
       "chapter": 0,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "002",
-      "title": "Untitled Section",
+      "id": "C1TOC",
+      "name": "C1TOC",
+      "title": "Chapter 1 — Administration",
       "chapter": 1,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "003",
-      "title": "Chapter 1, Section 1.1",
+      "id": "C1S1_1",
+      "name": "C1S1_1",
+      "title": "Sect 1.1 — General Policy And Responsibilities",
       "chapter": 1,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "004",
-      "title": "Chapter 1, Section 1.2",
+      "id": "C1S1_2",
+      "name": "C1S1_2",
+      "title": "Sect 1.2 — Exclusions",
       "chapter": 1,
       "section": "1.2",
       "isChapterToc": false
     },
     {
-      "id": "005",
-      "title": "Chapter 1, Section 1.3",
+      "id": "C1S1_3",
+      "name": "C1S1_3",
+      "title": "Sect 1.3 — Court-Ordered Care",
       "chapter": 1,
       "section": "1.3",
       "isChapterToc": false
     },
     {
-      "id": "006",
-      "title": "Chapter 1, Section 2.1",
+      "id": "C1S2_1",
+      "name": "C1S2_1",
+      "title": "Sect 2.1 — Unproven Drugs, Devices, Medical Treatments, And Procedures",
       "chapter": 1,
       "section": "2.1",
       "isChapterToc": false
     },
     {
-      "id": "007",
-      "title": "Chapter 1, Section 3.1",
+      "id": "C1S3_1",
+      "name": "C1S3_1",
+      "title": "Sect 3.1 — Rare Diseases",
       "chapter": 1,
       "section": "3.1",
       "isChapterToc": false
     },
     {
-      "id": "008",
-      "title": "Chapter 1, Section 4.1",
+      "id": "C1S4_1",
+      "name": "C1S4_1",
+      "title": "Sect 4.1 — Waiver Of Liability",
       "chapter": 1,
       "section": "4.1",
       "isChapterToc": false
     },
     {
-      "id": "009",
-      "title": "Chapter 1, Section 5.1",
+      "id": "C1S5_1",
+      "name": "C1S5_1",
+      "title": "Sect 5.1 — Requirements For Documentation Of Treatment In Medical Records",
       "chapter": 1,
       "section": "5.1",
       "isChapterToc": false
     },
     {
-      "id": "010",
-      "title": "Chapter 1, Section 5.2",
+      "id": "C1S5_2",
+      "name": "C1S5_2",
+      "title": "Sect 5.2 — Medical Photography",
       "chapter": 1,
       "section": "5.2",
       "isChapterToc": false
     },
     {
-      "id": "011",
-      "title": "Chapter 1, Section 6.1",
+      "id": "C1S6_1",
+      "name": "C1S6_1",
+      "title": "Sect 6.1 — Special Authorization Requirements",
       "chapter": 1,
       "section": "6.1",
       "isChapterToc": false
     },
     {
-      "id": "012",
-      "title": "Chapter 1, Section 7.1",
+      "id": "C1S7_1",
+      "name": "C1S7_1",
+      "title": "Sect 7.1 — Primary Care Managers (PCMs)",
       "chapter": 1,
       "section": "7.1",
       "isChapterToc": false
     },
     {
-      "id": "013",
-      "title": "Chapter 1, Section 8.1",
+      "id": "C1S8_1",
+      "name": "C1S8_1",
+      "title": "Sect 8.1 — Department Of Veterans Affairs/Veterans Health Administration (DVA/VHA) And Department Of Defense/Defense Health Agency (DoD/DHA) Health Care Resources Sharing",
       "chapter": 1,
       "section": "8.1",
       "isChapterToc": false
     },
     {
-      "id": "014",
-      "title": "Chapter 1, Section 9.1",
+      "id": "C1S9_1",
+      "name": "C1S9_1",
+      "title": "Sect 9.1 — Individual Case Management Program For Persons With Extraordinary Conditions (ICMP-PEC)",
       "chapter": 1,
       "section": "9.1",
       "isChapterToc": false
     },
     {
-      "id": "015",
-      "title": "Chapter 1, Section 10.1",
+      "id": "C1S10_1",
+      "name": "C1S10_1",
+      "title": "Sect 10.1 — Category II Codes - Performance Measurement",
       "chapter": 1,
       "section": "10.1",
       "isChapterToc": false
     },
     {
-      "id": "016",
-      "title": "Chapter 1, Section 11.1",
+      "id": "C1S11_1",
+      "name": "C1S11_1",
+      "title": "Sect 11.1 — Category III Codes - Temporary Codes For Emerging Technology, Services And Procedures",
       "chapter": 1,
       "section": "11.1",
       "isChapterToc": false
     },
     {
-      "id": "017",
-      "title": "Chapter 1, Section 12.1",
+      "id": "C1S12_1",
+      "name": "C1S12_1",
+      "title": "Sect 12.1 — Healthcare Common Procedure Coding System (HCPCS) “C” And “S” Codes",
       "chapter": 1,
       "section": "12.1",
       "isChapterToc": false
     },
     {
-      "id": "018",
-      "title": "Chapter 1, Section 13.1",
+      "id": "C1S13_1",
+      "name": "C1S13_1",
+      "title": "Sect 13.1 — Relationship Between TRICARE And Employer-Sponsored Group Health Plans (GHPs)",
       "chapter": 1,
       "section": "13.1",
       "isChapterToc": false
     },
     {
-      "id": "019",
-      "title": "Chapter 1, Section 14.1",
+      "id": "C1S14_1",
+      "name": "C1S14_1",
+      "title": "Sect 14.1 — Transitional Care Management Services",
       "chapter": 1,
       "section": "14.1",
       "isChapterToc": false
     },
     {
-      "id": "020",
-      "title": "Chapter 1, Section 14.2",
+      "id": "C1S14_2",
+      "name": "C1S14_2",
+      "title": "Sect 14.2 — Chronic Care Management (CCM) Services",
       "chapter": 1,
       "section": "14.2",
       "isChapterToc": false
     },
     {
-      "id": "021",
-      "title": "Chapter 1, Section 14.3",
+      "id": "C1S14_3",
+      "name": "C1S14_3",
+      "title": "Sect 14.3 — Advance Care Planning (ACP) Services",
       "chapter": 1,
       "section": "14.3",
       "isChapterToc": false
     },
     {
-      "id": "022",
-      "title": "Chapter 1, Section 15.1",
+      "id": "C1S15_1",
+      "name": "C1S15_1",
+      "title": "Sect 15.1 — TRICARE Coverage and Payment for Certain Services in Response to the Coronavirus 2019 (COVID-19) Pandemic",
       "chapter": 1,
       "section": "15.1",
       "isChapterToc": false
     },
     {
-      "id": "023",
-      "title": "Chapter 2 – Contents",
+      "id": "C2TOC",
+      "name": "C2TOC",
+      "title": "Chapter 2 — Evaluation And Management",
       "chapter": 2,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "024",
-      "title": "Chapter 2, Section 1.1",
+      "id": "C2S1_1",
+      "name": "C2S1_1",
+      "title": "Sect 1.1 — Office Visits",
       "chapter": 2,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "025",
-      "title": "Chapter 2, Section 1.2",
+      "id": "C2S1_2",
+      "name": "C2S1_2",
+      "title": "Sect 1.2 — Office Visits With Surgery",
       "chapter": 2,
       "section": "1.2",
       "isChapterToc": false
     },
     {
-      "id": "026",
-      "title": "Chapter 2, Section 1.1",
+      "id": "C2S2_1",
+      "name": "C2S2_1",
+      "title": "Sect 2.1 — Hospital Care",
       "chapter": 2,
       "section": "2.1",
       "isChapterToc": false
     },
     {
-      "id": "027",
-      "title": "Chapter 2, Section 2.2",
+      "id": "C2S2_2",
+      "name": "C2S2_2",
+      "title": "Sect 2.2 — Inpatient Concurrent Care",
       "chapter": 2,
       "section": "2.2",
       "isChapterToc": false
     },
     {
-      "id": "028",
-      "title": "Chapter 2, Section 2.3",
+      "id": "C2S2_3",
+      "name": "C2S2_3",
+      "title": "Sect 2.3 — Outpatient Observation Stays",
       "chapter": 2,
       "section": "2.3",
       "isChapterToc": false
     },
     {
-      "id": "029",
-      "title": "Chapter 2, Section 3.1",
+      "id": "C2S3_1",
+      "name": "C2S3_1",
+      "title": "Sect 3.1 — Emergency Department (ED) Services",
       "chapter": 2,
       "section": "3.1",
       "isChapterToc": false
     },
     {
-      "id": "030",
-      "title": "Chapter 2, Section 3.2",
+      "id": "C2S3_2",
+      "name": "C2S3_2",
+      "title": "Sect 3.2 — Neonatal And Pediatric Critical Care Services",
       "chapter": 2,
       "section": "3.2",
       "isChapterToc": false
     },
     {
-      "id": "031",
-      "title": "Chapter 2, Section 4.1",
+      "id": "C2S4_1",
+      "name": "C2S4_1",
+      "title": "Sect 4.1 — Consultations",
       "chapter": 2,
       "section": "4.1",
       "isChapterToc": false
     },
     {
-      "id": "032",
-      "title": "Chapter 2, Section 4.2",
+      "id": "C2S4_2",
+      "name": "C2S4_2",
+      "title": "Sect 4.2 — Anticoagulant Management",
       "chapter": 2,
       "section": "4.2",
       "isChapterToc": false
     },
     {
-      "id": "033",
-      "title": "Chapter 2, Section 5.1",
+      "id": "C2S5_1",
+      "name": "C2S5_1",
+      "title": "Sect 5.1 — Patient Transport",
       "chapter": 2,
       "section": "5.1",
       "isChapterToc": false
     },
     {
-      "id": "034",
-      "title": "Chapter 2, Section 6.1",
+      "id": "C2S6_1",
+      "name": "C2S6_1",
+      "title": "Sect 6.1 — Physician Standby Charges",
       "chapter": 2,
       "section": "6.1",
       "isChapterToc": false
     },
     {
-      "id": "035",
-      "title": "Chapter 2, Section 7.1",
+      "id": "C2S7_1",
+      "name": "C2S7_1",
+      "title": "Sect 7.1 — Remote Physiologic Monitoring (RPM)",
       "chapter": 2,
       "section": "7.1",
       "isChapterToc": false
     },
     {
-      "id": "036",
-      "title": "Chapter 3 – Contents",
+      "id": "C3TOC",
+      "name": "C3TOC",
+      "title": "Chapter 3 — Anesthesia",
       "chapter": 3,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "037",
-      "title": "Chapter 3, Section 1.1",
+      "id": "C3S1_1",
+      "name": "C3S1_1",
+      "title": "Sect 1.1 — Anesthesia",
       "chapter": 3,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "038",
-      "title": "Chapter 3, Section 1.2",
+      "id": "C3S1_2",
+      "name": "C3S1_2",
+      "title": "Sect 1.2 — Moderate (Conscious) Sedation",
       "chapter": 3,
       "section": "1.2",
       "isChapterToc": false
     },
     {
-      "id": "039",
-      "title": "Chapter 4 – Contents",
+      "id": "C4TOC",
+      "name": "C4TOC",
+      "title": "Chapter 4 — Surgery",
       "chapter": 4,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "040",
-      "title": "Chapter 4, Section 1.1",
+      "id": "C4S1_1",
+      "name": "C4S1_1",
+      "title": "Sect 1.1 — Complications (Unfortunate Sequelae) Resulting From Noncovered Surgery Or Treatment",
       "chapter": 4,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "041",
-      "title": "Chapter 4, Section 1.2",
+      "id": "C4S1_2",
+      "name": "C4S1_2",
+      "title": "Sect 1.2 — Treatment Of Unfortunate Sequelae And/Or Medically Necessary Follow-On Care Subsequent To Authorized Noncovered Initial Surgery Or Treatment In A Market/Military Medical Treatment Facility (MTF)",
       "chapter": 4,
       "section": "1.2",
       "isChapterToc": false
     },
     {
-      "id": "042",
-      "title": "Chapter 4, Section 2.1",
+      "id": "C4S2_1",
+      "name": "C4S2_1",
+      "title": "Sect 2.1 — Cosmetic, Reconstructive, And Plastic Surgery - General Guidelines",
       "chapter": 4,
       "section": "2.1",
       "isChapterToc": false
     },
     {
-      "id": "043",
-      "title": "Chapter 4, Section 2.2",
+      "id": "C4S2_2",
+      "name": "C4S2_2",
+      "title": "Sect 2.2 — General Surgery",
       "chapter": 4,
       "section": "2.2",
       "isChapterToc": false
     },
     {
-      "id": "044",
-      "title": "Chapter 4, Section 3.1",
+      "id": "C4S3_1",
+      "name": "C4S3_1",
+      "title": "Sect 3.1 — Laser Surgery",
       "chapter": 4,
       "section": "3.1",
       "isChapterToc": false
     },
     {
-      "id": "045",
-      "title": "Chapter 4, Section 3.2",
+      "id": "C4S3_2",
+      "name": "C4S3_2",
+      "title": "Sect 3.2 — Robotic Surgery",
       "chapter": 4,
       "section": "3.2",
       "isChapterToc": false
     },
     {
-      "id": "046",
-      "title": "Chapter 4, Section 4.1",
+      "id": "C4S4_1",
+      "name": "C4S4_1",
+      "title": "Sect 4.1 — Assistant Surgeons",
       "chapter": 4,
       "section": "4.1",
       "isChapterToc": false
     },
     {
-      "id": "047",
-      "title": "Chapter 4, Section 5.1",
+      "id": "C4S5_1",
+      "name": "C4S5_1",
+      "title": "Sect 5.1 — Integumentary System",
       "chapter": 4,
       "section": "5.1",
       "isChapterToc": false
     },
     {
-      "id": "048",
-      "title": "Chapter 4, Section 5.2",
+      "id": "C4S5_2",
+      "name": "C4S5_2",
+      "title": "Sect 5.2 — Post-Mastectomy Reconstructive Breast Surgery and Breast Prostheses",
       "chapter": 4,
       "section": "5.2",
       "isChapterToc": false
     },
     {
-      "id": "049",
-      "title": "Chapter 4, Section 5.3",
+      "id": "C4S5_3",
+      "name": "C4S5_3",
+      "title": "Sect 5.3 — Prophylactic Mastectomy, Prophylactic Oophorectomy, And Prophylactic Hysterectomy",
       "chapter": 4,
       "section": "5.3",
       "isChapterToc": false
     },
     {
-      "id": "050",
-      "title": "Chapter 4, Section 5.4",
+      "id": "C4S5_4",
+      "name": "C4S5_4",
+      "title": "Sect 5.4 — Reduction Mammaplasty For Macromastia",
       "chapter": 4,
       "section": "5.4",
       "isChapterToc": false
     },
     {
-      "id": "051",
-      "title": "Chapter 4, Section 5.5",
+      "id": "C4S5_5",
+      "name": "C4S5_5",
+      "title": "Sect 5.5 — Silicone Or Saline Breast Implant Removal",
       "chapter": 4,
       "section": "5.5",
       "isChapterToc": false
     },
     {
-      "id": "052",
-      "title": "Chapter 4, Section 5.6",
+      "id": "C4S5_6",
+      "name": "C4S5_6",
+      "title": "Sect 5.6 — Breast Reconstruction As A Result Of A Congenital Anomaly",
       "chapter": 4,
       "section": "5.6",
       "isChapterToc": false
     },
     {
-      "id": "053",
-      "title": "Chapter 4, Section 5.7",
+      "id": "C4S5_7",
+      "name": "C4S5_7",
+      "title": "Sect 5.7 — Gynecomastia",
       "chapter": 4,
       "section": "5.7",
       "isChapterToc": false
     },
     {
-      "id": "054",
-      "title": "Chapter 4, Section 5.8",
+      "id": "C4S5_8",
+      "name": "C4S5_8",
+      "title": "Sect 5.8 — Negative Pressure Wound Therapy (NPWT)",
       "chapter": 4,
       "section": "5.8",
       "isChapterToc": false
     },
     {
-      "id": "055",
-      "title": "Chapter 4, Section 6.1",
+      "id": "C4S6_1",
+      "name": "C4S6_1",
+      "title": "Sect 6.1 — Musculoskeletal System",
       "chapter": 4,
       "section": "6.1",
       "isChapterToc": false
     },
     {
-      "id": "056",
-      "title": "Chapter 4, Section 6.2",
+      "id": "C4S6_2",
+      "name": "C4S6_2",
+      "title": "Sect 6.2 — Bone Growth Stimulation",
       "chapter": 4,
       "section": "6.2",
       "isChapterToc": false
     },
     {
-      "id": "057",
-      "title": "Chapter 4, Section 7.1",
+      "id": "C4S7_1",
+      "name": "C4S7_1",
+      "title": "Sect 7.1 — Oral Surgery",
       "chapter": 4,
       "section": "7.1",
       "isChapterToc": false
     },
     {
-      "id": "058",
-      "title": "Chapter 4, Section 8.1",
+      "id": "C4S8_1",
+      "name": "C4S8_1",
+      "title": "Sect 8.1 — Respiratory System)",
       "chapter": 4,
       "section": "8.1",
       "isChapterToc": false
     },
     {
-      "id": "059",
-      "title": "Chapter 4, Section 8.2",
+      "id": "C4S8_2",
+      "name": "C4S8_2",
+      "title": "Sect 8.2 — Lung Volume Reduction Surgery (LVRS)",
       "chapter": 4,
       "section": "8.2",
       "isChapterToc": false
     },
     {
-      "id": "060",
-      "title": "Chapter 4, Section 9.1",
+      "id": "C4S9_1",
+      "name": "C4S9_1",
+      "title": "Sect 9.1 — Cardiovascular System",
       "chapter": 4,
       "section": "9.1",
       "isChapterToc": false
     },
     {
-      "id": "061",
-      "title": "Chapter 4, Section 9.2",
+      "id": "C4S9_2",
+      "name": "C4S9_2",
+      "title": "Sect 9.2 — Photopheresis",
       "chapter": 4,
       "section": "9.2",
       "isChapterToc": false
     },
     {
-      "id": "062",
-      "title": "Chapter 4, Section 9.3",
+      "id": "C4S9_3",
+      "name": "C4S9_3",
+      "title": "Sect 9.3 — Intracoronary Stents",
       "chapter": 4,
       "section": "9.3",
       "isChapterToc": false
     },
     {
-      "id": "063",
-      "title": "Chapter 4, Section 9.4",
+      "id": "C4S9_4",
+      "name": "C4S9_4",
+      "title": "Sect 9.4 — Therapeutic Apheresis",
       "chapter": 4,
       "section": "9.4",
       "isChapterToc": false
     },
     {
-      "id": "064",
-      "title": "Chapter 4, Section 10.1",
+      "id": "C4S10_1",
+      "name": "C4S10_1",
+      "title": "Sect 10.1 — Transjugular Intrahepatic Portosystemic Shunt (TIPS)",
       "chapter": 4,
       "section": "10.1",
       "isChapterToc": false
     },
     {
-      "id": "065",
-      "title": "Chapter 4, Section 11.1",
+      "id": "C4S11_1",
+      "name": "C4S11_1",
+      "title": "Sect 11.1 — Hemic And Lymphatic Systems",
       "chapter": 4,
       "section": "11.1",
       "isChapterToc": false
     },
     {
-      "id": "066",
-      "title": "Chapter 4, Section 12.1",
+      "id": "C4S12_1",
+      "name": "C4S12_1",
+      "title": "Sect 12.1 — Mediastinum And Diaphragm",
       "chapter": 4,
       "section": "12.1",
       "isChapterToc": false
     },
     {
-      "id": "067",
-      "title": "Chapter 4, Section 13.1",
+      "id": "C4S13_1",
+      "name": "C4S13_1",
+      "title": "Sect 13.1 — Digestive System",
       "chapter": 4,
       "section": "13.1",
       "isChapterToc": false
     },
     {
-      "id": "068",
-      "title": "Chapter 4, Section 13.2",
+      "id": "C4S13_2",
+      "name": "C4S13_2",
+      "title": "Sect 13.2 — Surgery For Morbid Obesity",
       "chapter": 4,
       "section": "13.2",
       "isChapterToc": false
     },
     {
-      "id": "069",
-      "title": "Chapter 4, Section 14.1",
+      "id": "C4S14_1",
+      "name": "C4S14_1",
+      "title": "Sect 14.1 — Urinary System",
       "chapter": 4,
       "section": "14.1",
       "isChapterToc": false
     },
     {
-      "id": "070",
-      "title": "Chapter 4, Section 15.1",
+      "id": "C4S15_1",
+      "name": "C4S15_1",
+      "title": "Sect 15.1 — Male Genital System",
       "chapter": 4,
       "section": "15.1",
       "isChapterToc": false
     },
     {
-      "id": "071",
-      "title": "Chapter 4, Section 16.1",
+      "id": "C4S16_1",
+      "name": "C4S16_1",
+      "title": "Sect 16.1 — Intersex Surgery",
       "chapter": 4,
       "section": "16.1",
       "isChapterToc": false
     },
     {
-      "id": "072",
-      "title": "Chapter 4, Section 17.1",
+      "id": "C4S17_1",
+      "name": "C4S17_1",
+      "title": "Sect 17.1 — Female Genital System",
       "chapter": 4,
       "section": "17.1",
       "isChapterToc": false
     },
     {
-      "id": "073",
-      "title": "Chapter 4, Section 18.1",
+      "id": "C4S18_1",
+      "name": "C4S18_1",
+      "title": "Sect 18.1 — Maternity Care",
       "chapter": 4,
       "section": "18.1",
       "isChapterToc": false
     },
     {
-      "id": "074",
-      "title": "Chapter 4, Section 18.2",
+      "id": "C4S18_2",
+      "name": "C4S18_2",
+      "title": "Sect 18.2 — Antepartum Services",
       "chapter": 4,
       "section": "18.2",
       "isChapterToc": false
     },
     {
-      "id": "075",
-      "title": "Chapter 4, Section 18.3",
+      "id": "C4S18_3",
+      "name": "C4S18_3",
+      "title": "Sect 18.3 — Abortions",
       "chapter": 4,
       "section": "18.3",
       "isChapterToc": false
     },
     {
-      "id": "076",
-      "title": "Chapter 4, Section 18.4",
+      "id": "C4S18_4",
+      "name": "C4S18_4",
+      "title": "Sect 18.4 — Cesarean Sections",
       "chapter": 4,
       "section": "18.4",
       "isChapterToc": false
     },
     {
-      "id": "077",
-      "title": "Chapter 4, Section 18.5",
+      "id": "C4S18_5",
+      "name": "C4S18_5",
+      "title": "Sect 18.5 — Fetal Surgery",
       "chapter": 4,
       "section": "18.5",
       "isChapterToc": false
     },
     {
-      "id": "078",
-      "title": "Chapter 4, Section 19.1",
+      "id": "C4S19_1",
+      "name": "C4S19_1",
+      "title": "Sect 19.1 — Endocrine System",
       "chapter": 4,
       "section": "19.1",
       "isChapterToc": false
     },
     {
-      "id": "079",
-      "title": "Chapter 4, Section 20.1",
+      "id": "C4S20_1",
+      "name": "C4S20_1",
+      "title": "Sect 20.1 — Nervous System",
       "chapter": 4,
       "section": "20.1",
       "isChapterToc": false
     },
     {
-      "id": "080",
-      "title": "Chapter 4, Section 20.2",
+      "id": "C4S20_2",
+      "name": "C4S20_2",
+      "title": "Sect 20.2 — Stereotactic Radiofrequency Pallidotomy With Microelectrode Mapping For Treatment Of Parkinson’s Disease",
       "chapter": 4,
       "section": "20.2",
       "isChapterToc": false
     },
     {
-      "id": "081",
-      "title": "Chapter 4, Section 20.3",
+      "id": "C4S20_3",
+      "name": "C4S20_3",
+      "title": "Sect 20.3 — Stereotactic Radiofrequency Thalamotomy)",
       "chapter": 4,
       "section": "20.3",
       "isChapterToc": false
     },
     {
-      "id": "082",
-      "title": "Chapter 4, Section 21.1",
+      "id": "C4S21_1",
+      "name": "C4S21_1",
+      "title": "Sect 21.1 — Eye And Ocular Adnexa",
       "chapter": 4,
       "section": "21.1",
       "isChapterToc": false
     },
     {
-      "id": "083",
-      "title": "Chapter 4, Section 22.1",
+      "id": "C4S22_1",
+      "name": "C4S22_1",
+      "title": "Sect 22.1 — Auditory System",
       "chapter": 4,
       "section": "22.1",
       "isChapterToc": false
     },
     {
-      "id": "084",
-      "title": "Chapter 4, Section 22.2",
+      "id": "C4S22_2",
+      "name": "C4S22_2",
+      "title": "Sect 22.2 — Cochlear Implantation",
       "chapter": 4,
       "section": "22.2",
       "isChapterToc": false
     },
     {
-      "id": "085",
-      "title": "Chapter 4, Section 23.1",
+      "id": "C4S23_1",
+      "name": "C4S23_1",
+      "title": "Sect 23.1 — High Dose Chemotherapy (HDC) And Stem Cell Transplantation",
       "chapter": 4,
       "section": "23.1",
       "isChapterToc": false
     },
     {
-      "id": "086",
-      "title": "Chapter 4, Section 24.1",
+      "id": "C4S24_1",
+      "name": "C4S24_1",
+      "title": "Sect 24.1 — Heart-Lung And Lung Transplantation",
       "chapter": 4,
       "section": "24.1",
       "isChapterToc": false
     },
     {
-      "id": "087",
-      "title": "Chapter 4, Section 24.2",
+      "id": "C4S24_2",
+      "name": "C4S24_2",
+      "title": "Sect 24.2 — Heart Transplantation",
       "chapter": 4,
       "section": "24.2",
       "isChapterToc": false
     },
     {
-      "id": "088",
-      "title": "Chapter 4, Section 24.3",
+      "id": "C4S24_3",
+      "name": "C4S24_3",
+      "title": "Sect 24.3 — Combined Heart-Kidney Transplantation (CHKT)",
       "chapter": 4,
       "section": "24.3",
       "isChapterToc": false
     },
     {
-      "id": "089",
-      "title": "Chapter 4, Section 24.4",
+      "id": "C4S24_4",
+      "name": "C4S24_4",
+      "title": "Sect 24.4 — Small Intestine (SI), Combined Small Intestine-Liver (SI/L), And Multivisceral (MV) Transplantation",
       "chapter": 4,
       "section": "24.4",
       "isChapterToc": false
     },
     {
-      "id": "090",
-      "title": "Chapter 4, Section 24.5",
+      "id": "C4S24_5",
+      "name": "C4S24_5",
+      "title": "Sect 24.5 — Liver Transplantation",
       "chapter": 4,
       "section": "24.5",
       "isChapterToc": false
     },
     {
-      "id": "091",
-      "title": "Chapter 4, Section 24.6",
+      "id": "C4S24_6",
+      "name": "C4S24_6",
+      "title": "Sect 24.6 — Combined Liver-Kidney Transplantation (CLKT)",
       "chapter": 4,
       "section": "24.6",
       "isChapterToc": false
     },
     {
-      "id": "092",
-      "title": "Chapter 4, Section 24.7",
+      "id": "C4S24_7",
+      "name": "C4S24_7",
+      "title": "Sect 24.7 — Simultaneous Pancreas-Kidney (SPK), Pancreas-After-Kidney (PAK), And Pancreas-Transplant-Alone (PTA), And Pancreatic Islet Cell Transplantation",
       "chapter": 4,
       "section": "24.7",
       "isChapterToc": false
     },
     {
-      "id": "093",
-      "title": "Chapter 4, Section 24.8",
+      "id": "C4S24_8",
+      "name": "C4S24_8",
+      "title": "Sect 24.8 — Kidney Transplantation",
       "chapter": 4,
       "section": "24.8",
       "isChapterToc": false
     },
     {
-      "id": "094",
-      "title": "Chapter 4, Section 24.9",
+      "id": "C4S24_9",
+      "name": "C4S24_9",
+      "title": "Sect 24.9 — Donor Costs",
       "chapter": 4,
       "section": "24.9",
       "isChapterToc": false
     },
     {
-      "id": "095",
-      "title": "Chapter 5 – Contents",
+      "id": "C5TOC",
+      "name": "C5TOC",
+      "title": "Chapter 5 — Radiology",
       "chapter": 5,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "096",
-      "title": "Chapter 5, Section 1.1",
+      "id": "C5S1_1",
+      "name": "C5S1_1",
+      "title": "Sect 1.1 — Diagnostic Radiology (Diagnostic Imaging)",
       "chapter": 5,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "097",
-      "title": "Chapter 5, Section 2.1",
+      "id": "C5S2_1",
+      "name": "C5S2_1",
+      "title": "Sect 2.1 — Diagnostic Ultrasound",
       "chapter": 5,
       "section": "2.1",
       "isChapterToc": false
     },
     {
-      "id": "098",
-      "title": "Chapter 5, Section 2.2",
+      "id": "C5S2_2",
+      "name": "C5S2_2",
+      "title": "Sect 2.2 — Radiologic Guidance",
       "chapter": 5,
       "section": "2.2",
       "isChapterToc": false
     },
     {
-      "id": "099",
-      "title": "Chapter 5, Section 3.1",
+      "id": "C5S3_1",
+      "name": "C5S3_1",
+      "title": "Sect 3.1 — Radiation Oncology",
       "chapter": 5,
       "section": "3.1",
       "isChapterToc": false
     },
     {
-      "id": "100",
-      "title": "Chapter 5, Section 3.2",
+      "id": "C5S3_2",
+      "name": "C5S3_2",
+      "title": "Sect 3.2 — Brachytherapy/Radiation Therapy",
       "chapter": 5,
       "section": "3.2",
       "isChapterToc": false
     },
     {
-      "id": "101",
-      "title": "Chapter 5, Section 3.3",
+      "id": "C5S3_3",
+      "name": "C5S3_3",
+      "title": "Sect 3.3 — Hyperthermia",
       "chapter": 5,
       "section": "3.3",
       "isChapterToc": false
     },
     {
-      "id": "102",
-      "title": "Chapter 5, Section 4.1",
+      "id": "C5S4_1",
+      "name": "C5S4_1",
+      "title": "Sect 4.1 — Nuclear Medicine",
       "chapter": 5,
       "section": "4.1",
       "isChapterToc": false
     },
     {
-      "id": "103",
-      "title": "Chapter 5, Section 5.1",
+      "id": "C5S5_1",
+      "name": "C5S5_1",
+      "title": "Sect 5.1 — Thermography",
       "chapter": 5,
       "section": "5.1",
       "isChapterToc": false
     },
     {
-      "id": "104",
-      "title": "Chapter 6 – Contents",
+      "id": "C6TOC",
+      "name": "C6TOC",
+      "title": "Chapter 6 — Pathology And Laboratory",
       "chapter": 6,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "105",
-      "title": "Chapter 6, Section 1.1",
+      "id": "C6S1_1",
+      "name": "C6S1_1",
+      "title": "Sect 1.1 — General",
       "chapter": 6,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "106",
-      "title": "Chapter 6, Section 2.1",
+      "id": "C6S2_1",
+      "name": "C6S2_1",
+      "title": "Sect 2.1 — Transfusion Services For Whole Blood, Blood Components, And Blood Derivatives",
       "chapter": 6,
       "section": "2.1",
       "isChapterToc": false
     },
     {
-      "id": "107",
-      "title": "Chapter 6, Section 3.1",
+      "id": "C6S3_1",
+      "name": "C6S3_1",
+      "title": "Sect 3.1 — Genetic Testing And Counseling",
       "chapter": 6,
       "section": "3.1",
       "isChapterToc": false
     },
     {
-      "id": "108",
-      "title": "Chapter 6, Section 3.2",
+      "id": "C6S3_2",
+      "name": "C6S3_2",
+      "title": "Sect 3.2 — Preconception And Prenatal Carrier Screening Tests",
       "chapter": 6,
       "section": "3.2",
       "isChapterToc": false
     },
     {
-      "id": "109",
-      "title": "Chapter 6, Section 4.1",
+      "id": "C6S4_1",
+      "name": "C6S4_1",
+      "title": "Sect 4.1 — Drug Testing",
       "chapter": 6,
       "section": "4.1",
       "isChapterToc": false
     },
     {
-      "id": "110",
-      "title": "Chapter 7 – Contents",
+      "id": "C7TOC",
+      "name": "C7TOC",
+      "title": "Chapter 7 — Medicine",
       "chapter": 7,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "111",
-      "title": "Chapter 7, Section 1.1",
+      "id": "C7S1_1",
+      "name": "C7S1_1",
+      "title": "Sect 1.1 — Sexual Dysfunctions And Paraphilic Disorders",
       "chapter": 7,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "112",
-      "title": "Chapter 7, Section 1.2",
+      "id": "C7S1_2",
+      "name": "C7S1_2",
+      "title": "Sect 1.2 — Gender Dysphoria (GD) Treatment For Dates Of Service On Or After July 1, 2022",
       "chapter": 7,
       "section": "1.2",
       "isChapterToc": false
     },
     {
-      "id": "113",
-      "title": "Chapter 7, Section 2.1",
+      "id": "C7S2_1",
+      "name": "C7S2_1",
+      "title": "Sect 2.1 — Clinical Preventive Services - TRICARE Basic Program Benefits",
       "chapter": 7,
       "section": "2.1",
       "isChapterToc": false
     },
     {
-      "id": "114",
-      "title": "Chapter 7, Section 2.2",
+      "id": "C7S2_2",
+      "name": "C7S2_2",
+      "title": "Sect 2.2 — Clinical Preventive Services - TRICARE Prime And TRICARE Select",
       "chapter": 7,
       "section": "2.2",
       "isChapterToc": false
     },
     {
-      "id": "115",
-      "title": "Chapter 7, Section 2.3",
+      "id": "C7S2_3",
+      "name": "C7S2_3",
+      "title": "Sect 2.3 — Family Planning",
       "chapter": 7,
       "section": "2.3",
       "isChapterToc": false
     },
     {
-      "id": "116",
-      "title": "Chapter 7, Section 2.4",
+      "id": "C7S2_4",
+      "name": "C7S2_4",
+      "title": "Sect 2.4 — Cervical Cancer Screening",
       "chapter": 7,
       "section": "2.4",
       "isChapterToc": false
     },
     {
-      "id": "117",
-      "title": "Chapter 7, Section 2.5",
+      "id": "C7S2_5",
+      "name": "C7S2_5",
+      "title": "Sect 2.5 — Well-Child Care",
       "chapter": 7,
       "section": "2.5",
       "isChapterToc": false
     },
     {
-      "id": "118",
-      "title": "Chapter 7, Section 2.6",
+      "id": "C7S2_6",
+      "name": "C7S2_6",
+      "title": "Sect 2.6 — Chelation Therapy",
       "chapter": 7,
       "section": "2.6",
       "isChapterToc": false
     },
     {
-      "id": "119",
-      "title": "Chapter 7, Section 2.7",
+      "id": "C7S2_7",
+      "name": "C7S2_7",
+      "title": "Sect 2.7 — Hydration, Therapeutic, Prophylactic, And Diagnostic Injections And Infusions",
       "chapter": 7,
       "section": "2.7",
       "isChapterToc": false
     },
     {
-      "id": "120",
-      "title": "Chapter 7, Section 3.1",
+      "id": "C7S3_1",
+      "name": "C7S3_1",
+      "title": "Sect 3.1 — Acute Hospital Psychiatric Care",
       "chapter": 7,
       "section": "3.1",
       "isChapterToc": false
     },
     {
-      "id": "121",
-      "title": "Chapter 7, Section 3.2",
+      "id": "C7S3_2",
+      "name": "C7S3_2",
+      "title": "Sect 3.2 — Psychiatric Residential Treatment Center (RTC) Care",
       "chapter": 7,
       "section": "3.2",
       "isChapterToc": false
     },
     {
-      "id": "122",
-      "title": "Chapter 7, Section 3.3",
+      "id": "C7S3_3",
+      "name": "C7S3_3",
+      "title": "Sect 3.3 — Inpatient/Residential Substance Use Disorder (SUD) Detoxification And Rehabilitation",
       "chapter": 7,
       "section": "3.3",
       "isChapterToc": false
     },
     {
-      "id": "123",
-      "title": "Chapter 7, Section 3.4",
+      "id": "C7S3_4",
+      "name": "C7S3_4",
+      "title": "Sect 3.4 — Psychiatric And Substance Use Disorder (SUD) Partial Hospitalization Programs (PHPs)",
       "chapter": 7,
       "section": "3.4",
       "isChapterToc": false
     },
     {
-      "id": "124",
-      "title": "Chapter 7, Section 3.5",
+      "id": "C7S3_5",
+      "name": "C7S3_5",
+      "title": "Sect 3.5 — Substance Use Disorders (SUDs) - General",
       "chapter": 7,
       "section": "3.5",
       "isChapterToc": false
     },
     {
-      "id": "125",
-      "title": "Chapter 7, Section 3.6",
+      "id": "C7S3_6",
+      "name": "C7S3_6",
+      "title": "Sect 3.6 — Specific Learning Disorders",
       "chapter": 7,
       "section": "3.6",
       "isChapterToc": false
     },
     {
-      "id": "126",
-      "title": "Chapter 7, Section 3.7",
+      "id": "C7S3_7",
+      "name": "C7S3_7",
+      "title": "Sect 3.7 — Treatment Of Mental Disorders - General",
       "chapter": 7,
       "section": "3.7",
       "isChapterToc": false
     },
     {
-      "id": "127",
-      "title": "Chapter 7, Section 3.8",
+      "id": "C7S3_8",
+      "name": "C7S3_8",
+      "title": "Sect 3.8 — Ancillary Inpatient Mental Health Services",
       "chapter": 7,
       "section": "3.8",
       "isChapterToc": false
     },
     {
-      "id": "128",
-      "title": "Chapter 7, Section 3.9",
+      "id": "C7S3_9",
+      "name": "C7S3_9",
+      "title": "Sect 3.9 — Psychological Testing",
       "chapter": 7,
       "section": "3.9",
       "isChapterToc": false
     },
     {
-      "id": "129",
-      "title": "Chapter 7, Section 3.10",
+      "id": "C7S3_10",
+      "name": "C7S3_10",
+      "title": "Sect 3.10 — Psychotherapy",
       "chapter": 7,
       "section": "3.10",
       "isChapterToc": false
     },
     {
-      "id": "130",
-      "title": "Chapter 7, Section 3.11",
+      "id": "C7S3_11",
+      "name": "C7S3_11",
+      "title": "Sect 3.11 — Family Therapy",
       "chapter": 7,
       "section": "3.11",
       "isChapterToc": false
     },
     {
-      "id": "131",
-      "title": "Chapter 7, Section 3.12",
+      "id": "C7S3_12",
+      "name": "C7S3_12",
+      "title": "Sect 3.12 — Psychotropic Pharmacologic Management",
       "chapter": 7,
       "section": "3.12",
       "isChapterToc": false
     },
     {
-      "id": "132",
-      "title": "Chapter 7, Section 3.13",
+      "id": "C7S3_13",
+      "name": "C7S3_13",
+      "title": "Sect 3.13 — Collateral Visits",
       "chapter": 7,
       "section": "3.13",
       "isChapterToc": false
     },
     {
-      "id": "133",
-      "title": "Chapter 7, Section 3.14",
+      "id": "C7S3_14",
+      "name": "C7S3_14",
+      "title": "Sect 3.14 — Eating Disorder Treatment",
       "chapter": 7,
       "section": "3.14",
       "isChapterToc": false
     },
     {
-      "id": "134",
-      "title": "Chapter 7, Section 3.15",
+      "id": "C7S3_15",
+      "name": "C7S3_15",
+      "title": "Sect 3.15 — Intensive Outpatient Program (IOP)",
       "chapter": 7,
       "section": "3.15",
       "isChapterToc": false
     },
     {
-      "id": "135",
-      "title": "Chapter 7, Section 3.16",
+      "id": "C7S3_16",
+      "name": "C7S3_16",
+      "title": "Sect 3.16 — Opioid Treatment Program (OTP)",
       "chapter": 7,
       "section": "3.16",
       "isChapterToc": false
     },
     {
-      "id": "136",
-      "title": "Chapter 7, Section 3.17",
+      "id": "C7S3_17",
+      "name": "C7S3_17",
+      "title": "Sect 3.17 — Medication Assisted Treatment (MAT)",
       "chapter": 7,
       "section": "3.17",
       "isChapterToc": false
     },
     {
-      "id": "137",
-      "title": "Chapter 7, Section 4.1",
+      "id": "C7S4_1",
+      "name": "C7S4_1",
+      "title": "Sect 4.1 — Biofeedback",
       "chapter": 7,
       "section": "4.1",
       "isChapterToc": false
     },
     {
-      "id": "138",
-      "title": "Chapter 7, Section 4.2",
+      "id": "C7S4_2",
+      "name": "C7S4_2",
+      "title": "Sect 4.2 — Dialysis",
       "chapter": 7,
       "section": "4.2",
       "isChapterToc": false
     },
     {
-      "id": "139",
-      "title": "Chapter 7, Section 5.1",
+      "id": "C7S5_1",
+      "name": "C7S5_1",
+      "title": "Sect 5.1 — Gastroenterology",
       "chapter": 7,
       "section": "5.1",
       "isChapterToc": false
     },
     {
-      "id": "140",
-      "title": "Chapter 7, Section 6.1",
+      "id": "C7S6_1",
+      "name": "C7S6_1",
+      "title": "Sect 6.1 — Ophthalmological Services",
       "chapter": 7,
       "section": "6.1",
       "isChapterToc": false
     },
     {
-      "id": "141",
-      "title": "Chapter 7, Section 6.2",
+      "id": "C7S6_2",
+      "name": "C7S6_2",
+      "title": "Sect 6.2 — Lenses (Intraocular Or Contact) And Eye Glasses",
       "chapter": 7,
       "section": "6.2",
       "isChapterToc": false
     },
     {
-      "id": "142",
-      "title": "Chapter 7, Section 6.3",
+      "id": "C7S6_3",
+      "name": "C7S6_3",
+      "title": "Sect 6.3 — Cardiovascular Therapeutic Services",
       "chapter": 7,
       "section": "6.3",
       "isChapterToc": false
     },
     {
-      "id": "143",
-      "title": "Chapter 7, Section 7.1",
+      "id": "C7S7_1",
+      "name": "C7S7_1",
+      "title": "Sect 7.1 — Speech Services",
       "chapter": 7,
       "section": "7.1",
       "isChapterToc": false
     },
     {
-      "id": "144",
-      "title": "Chapter 7, Section 8.1",
+      "id": "C7S8_1",
+      "name": "C7S8_1",
+      "title": "Sect 8.1 — Special Otorhinolaryngologic Services",
       "chapter": 7,
       "section": "8.1",
       "isChapterToc": false
     },
     {
-      "id": "145",
-      "title": "Chapter 7, Section 8.2",
+      "id": "C7S8_2",
+      "name": "C7S8_2",
+      "title": "Sect 8.2 — Hearing Aids And Hearing Aid Services",
       "chapter": 7,
       "section": "8.2",
       "isChapterToc": false
     },
     {
-      "id": "146",
-      "title": "Chapter 7, Section 8.3",
+      "id": "C7S8_3",
+      "name": "C7S8_3",
+      "title": "Sect 8.3 — Prosthetic Hearing Devices",
       "chapter": 7,
       "section": "8.3",
       "isChapterToc": false
     },
     {
-      "id": "147",
-      "title": "Chapter 7, Section 9.1",
+      "id": "C7S9_1",
+      "name": "C7S9_1",
+      "title": "Sect 9.1 — Electronystagmography (ENG)",
       "chapter": 7,
       "section": "9.1",
       "isChapterToc": false
     },
     {
-      "id": "148",
-      "title": "Chapter 7, Section 10.1",
+      "id": "C7S10_1",
+      "name": "C7S10_1",
+      "title": "Sect 10.1 — Echocardiogram For Dental And Invasive Procedures",
       "chapter": 7,
       "section": "10.1",
       "isChapterToc": false
     },
     {
-      "id": "149",
-      "title": "Chapter 7, Section 11.1",
+      "id": "C7S11_1",
+      "name": "C7S11_1",
+      "title": "Sect 11.1 — Cardiac Rehabilitation",
       "chapter": 7,
       "section": "11.1",
       "isChapterToc": false
     },
     {
-      "id": "150",
-      "title": "Chapter 7, Section 12.1",
+      "id": "C7S12_1",
+      "name": "C7S12_1",
+      "title": "Sect 12.1 — Non-Invasive Vascular Diagnostic Studies",
       "chapter": 7,
       "section": "12.1",
       "isChapterToc": false
     },
     {
-      "id": "151",
-      "title": "Chapter 7, Section 13.1",
+      "id": "C7S13_1",
+      "name": "C7S13_1",
+      "title": "Sect 13.1 — Pulmonary Services",
       "chapter": 7,
       "section": "13.1",
       "isChapterToc": false
     },
     {
-      "id": "152",
-      "title": "Chapter 7, Section 14.1",
+      "id": "C7S14_1",
+      "name": "C7S14_1",
+      "title": "Sect 14.1 — Allergy Testing And Treatment",
       "chapter": 7,
       "section": "14.1",
       "isChapterToc": false
     },
     {
-      "id": "153",
-      "title": "Chapter 7, Section 15.1",
+      "id": "C7S15_1",
+      "name": "C7S15_1",
+      "title": "Sect 15.1 — Neurology And Neuromuscular Services",
       "chapter": 7,
       "section": "15.1",
       "isChapterToc": false
     },
     {
-      "id": "154",
-      "title": "Chapter 7, Section 15.2",
+      "id": "C7S15_2",
+      "name": "C7S15_2",
+      "title": "Sect 15.2 — Sensory Evoked Potentials (SEP)",
       "chapter": 7,
       "section": "15.2",
       "isChapterToc": false
     },
     {
-      "id": "155",
-      "title": "Chapter 7, Section 16.1",
+      "id": "C7S16_1",
+      "name": "C7S16_1",
+      "title": "Sect 16.1 — Central Nervous System (CNS) Assessments/Tests",
       "chapter": 7,
       "section": "16.1",
       "isChapterToc": false
     },
     {
-      "id": "156",
-      "title": "Chapter 7, Section 16.2",
+      "id": "C7S16_2",
+      "name": "C7S16_2",
+      "title": "Sect 16.2 — Health And Behavior Assessment/Intervention",
       "chapter": 7,
       "section": "16.2",
       "isChapterToc": false
     },
     {
-      "id": "157",
-      "title": "Chapter 7, Section 16.3",
+      "id": "C7S16_3",
+      "name": "C7S16_3",
+      "title": "Sect 16.3 — Chemotherapy Administration",
       "chapter": 7,
       "section": "16.3",
       "isChapterToc": false
     },
     {
-      "id": "158",
-      "title": "Chapter 7, Section 16.4",
+      "id": "C7S16_4",
+      "name": "C7S16_4",
+      "title": "Sect 16.4 — Education And Training For Patient Self Management",
       "chapter": 7,
       "section": "16.4",
       "isChapterToc": false
     },
     {
-      "id": "159",
-      "title": "Chapter 7, Section 17.1",
+      "id": "C7S17_1",
+      "name": "C7S17_1",
+      "title": "Sect 17.1 — Dermatological Procedures - General",
       "chapter": 7,
       "section": "17.1",
       "isChapterToc": false
     },
     {
-      "id": "160",
-      "title": "Chapter 7, Section 18.1",
+      "id": "C7S18_1",
+      "name": "C7S18_1",
+      "title": "Sect 18.1 — Rehabilitation - General",
       "chapter": 7,
       "section": "18.1",
       "isChapterToc": false
     },
     {
-      "id": "161",
-      "title": "Chapter 7, Section 18.2",
+      "id": "C7S18_2",
+      "name": "C7S18_2",
+      "title": "Sect 18.2 — Physical Medicine/Therapy",
       "chapter": 7,
       "section": "18.2",
       "isChapterToc": false
     },
     {
-      "id": "162",
-      "title": "Chapter 7, Section 18.3",
+      "id": "C7S18_3",
+      "name": "C7S18_3",
+      "title": "Sect 18.3 — Occupational Therapy",
       "chapter": 7,
       "section": "18.3",
       "isChapterToc": false
     },
     {
-      "id": "163",
-      "title": "Chapter 7, Section 18.4",
+      "id": "C7S18_4",
+      "name": "C7S18_4",
+      "title": "Sect 18.4 — Osteopathic Manipulative Therapy",
       "chapter": 7,
       "section": "18.4",
       "isChapterToc": false
     },
     {
-      "id": "164",
-      "title": "Chapter 7, Section 18.5",
+      "id": "C7S18_5",
+      "name": "C7S18_5",
+      "title": "Sect 18.5 — Chiropractic Manipulative Treatment (CMT)",
       "chapter": 7,
       "section": "18.5",
       "isChapterToc": false
     },
     {
-      "id": "165",
-      "title": "Chapter 7, Section 19.1",
+      "id": "C7S19_1",
+      "name": "C7S19_1",
+      "title": "Sect 19.1 — Diagnostic Sleep Studies",
       "chapter": 7,
       "section": "19.1",
       "isChapterToc": false
     },
     {
-      "id": "166",
-      "title": "Chapter 7, Section 20.1",
+      "id": "C7S20_1",
+      "name": "C7S20_1",
+      "title": "Sect 20.1 — Hyperbaric Oxygen (HBO) Therapy",
       "chapter": 7,
       "section": "20.1",
       "isChapterToc": false
     },
     {
-      "id": "167",
-      "title": "Chapter 7, Section 21.1",
+      "id": "C7S21_1",
+      "name": "C7S21_1",
+      "title": "Sect 21.1 — Chronic Fatigue Syndrome (CFS)",
       "chapter": 7,
       "section": "21.1",
       "isChapterToc": false
     },
     {
-      "id": "168",
-      "title": "Chapter 7, Section 22.1",
+      "id": "C7S22_1",
+      "name": "C7S22_1",
+      "title": "Sect 22.1 — Telemedicine/Telehealth",
       "chapter": 7,
       "section": "22.1",
       "isChapterToc": false
     },
     {
-      "id": "169",
-      "title": "Chapter 7, Section 23.1",
+      "id": "C7S23_1",
+      "name": "C7S23_1",
+      "title": "Sect 23.1 — Augmentative Communication Devices (ACDs)",
       "chapter": 7,
       "section": "23.1",
       "isChapterToc": false
     },
     {
-      "id": "170",
-      "title": "Chapter 7, Section 24.1",
+      "id": "C7S24_1",
+      "name": "C7S24_1",
+      "title": "Sect 24.1 — Coverage Of Phase I, Phase II, And Phase III Cancer Clinical Trials Prior To August 27, 2025",
       "chapter": 7,
       "section": "24.1",
       "isChapterToc": false
     },
     {
-      "id": "171",
-      "title": "Chapter 7, Section 24.2",
+      "id": "C7S24_2",
+      "name": "C7S24_2",
+      "title": "Sect 24.2 — Coverage Of Coronavirus Disease 2019 (COVID-19) Clinical Trials Prior To April 11, 2023",
       "chapter": 7,
       "section": "24.2",
       "isChapterToc": false
     },
     {
-      "id": "172",
-      "title": "Chapter 7, Section 24.3",
+      "id": "C7S24_3",
+      "name": "C7S24_3",
+      "title": "Sect 24.3 — Coverage of Cancer Clinical Trials On and After August 27, 2025",
       "chapter": 7,
       "section": "24.3",
       "isChapterToc": false
     },
     {
-      "id": "173",
-      "title": "Chapter 7, Section 24.4",
+      "id": "C7S24_4",
+      "name": "C7S24_4",
+      "title": "Sect 24.4 — Infectious Disease Health Emergency Clinical Trials",
       "chapter": 7,
       "section": "24.4",
       "isChapterToc": false
     },
     {
-      "id": "174",
-      "title": "Chapter 7, Section 24.5",
+      "id": "C7S24_5",
+      "name": "C7S24_5",
+      "title": "Sect 24.5 — National Institutes Of Health (NIH) Clinical Trials Studying Rare Diseases, Severely Debilitating Conditions, And Life-Threatening Conditions",
       "chapter": 7,
       "section": "24.5",
       "isChapterToc": false
     },
     {
-      "id": "175",
-      "title": "Chapter 7, Section 25.1",
+      "id": "C7S25_1",
+      "name": "C7S25_1",
+      "title": "Sect 25.1 — Dermoscopy",
       "chapter": 7,
       "section": "25.1",
       "isChapterToc": false
     },
     {
-      "id": "176",
-      "title": "Chapter 7, Section 26.1",
+      "id": "C7S26_1",
+      "name": "C7S26_1",
+      "title": "Sect 26.1 — Forensic Examinations Following Sexual Assault or Domestic Violence",
       "chapter": 7,
       "section": "26.1",
       "isChapterToc": false
     },
     {
-      "id": "177",
-      "title": "Chapter 7, Section 27.1",
+      "id": "C7S27_1",
+      "name": "C7S27_1",
+      "title": "Sect 27.1 — Botulinum Toxin Injections",
       "chapter": 7,
       "section": "27.1",
       "isChapterToc": false
     },
     {
-      "id": "178",
-      "title": "Chapter 8 – Contents",
+      "id": "C8TOC",
+      "name": "C8TOC",
+      "title": "Chapter 8 — Other Services",
       "chapter": 8,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "179",
-      "title": "Chapter 8, Section 1.1",
+      "id": "C8S1_1",
+      "name": "C8S1_1",
+      "title": "Sect 1.1 — Ambulance Service",
       "chapter": 8,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "180",
-      "title": "Chapter 8, Section 2.1",
+      "id": "C8S2_1",
+      "name": "C8S2_1",
+      "title": "Sect 2.1 — Durable Equipment (DE): Basic Program",
       "chapter": 8,
       "section": "2.1",
       "isChapterToc": false
     },
     {
-      "id": "181",
-      "title": "Chapter 8, Section 2.2",
+      "id": "C8S2_2",
+      "name": "C8S2_2",
+      "title": "Sect 2.2 — Infantile Apnea Cardiorespiratory Monitor",
       "chapter": 8,
       "section": "2.2",
       "isChapterToc": false
     },
     {
-      "id": "182",
-      "title": "Chapter 8, Section 2.3",
+      "id": "C8S2_3",
+      "name": "C8S2_3",
+      "title": "Sect 2.3 — External And Implantable Infusion Pumps",
       "chapter": 8,
       "section": "2.3",
       "isChapterToc": false
     },
     {
-      "id": "183",
-      "title": "Chapter 8, Section 2.4",
+      "id": "C8S2_4",
+      "name": "C8S2_4",
+      "title": "Sect 2.4 — Cold Therapy Devices For Home Use",
       "chapter": 8,
       "section": "2.4",
       "isChapterToc": false
     },
     {
-      "id": "184",
-      "title": "Chapter 8, Section 2.5",
+      "id": "C8S2_5",
+      "name": "C8S2_5",
+      "title": "Sect 2.5 — Home Prothrombin Time (PT) International Normalized Ratio (INR) Monitor",
       "chapter": 8,
       "section": "2.5",
       "isChapterToc": false
     },
     {
-      "id": "185",
-      "title": "Chapter 8, Section 2.6",
+      "id": "C8S2_6",
+      "name": "C8S2_6",
+      "title": "Sect 2.6 — Breast Pumps, Breast Pump Supplies, And Breastfeeding Counseling",
       "chapter": 8,
       "section": "2.6",
       "isChapterToc": false
     },
     {
-      "id": "186",
-      "title": "Chapter 8, Section 2.7",
+      "id": "C8S2_7",
+      "name": "C8S2_7",
+      "title": "Sect 2.7 — Pulsed Irrigation Evacuation (PIE)",
       "chapter": 8,
       "section": "2.7",
       "isChapterToc": false
     },
     {
-      "id": "187",
-      "title": "Chapter 8, Section 2.8",
+      "id": "C8S2_8",
+      "name": "C8S2_8",
+      "title": "Sect 2.8 — Blood Pressure Monitors",
       "chapter": 8,
       "section": "2.8",
       "isChapterToc": false
     },
     {
-      "id": "188",
-      "title": "Chapter 8, Section 3.1",
+      "id": "C8S3_1",
+      "name": "C8S3_1",
+      "title": "Sect 3.1 — Orthoses (Braces And Splints)",
       "chapter": 8,
       "section": "3.1",
       "isChapterToc": false
     },
     {
-      "id": "189",
-      "title": "Chapter 8, Section 4.1",
+      "id": "C8S4_1",
+      "name": "C8S4_1",
+      "title": "Sect 4.1 — Prosthetic Devices And Supplies",
       "chapter": 8,
       "section": "4.1",
       "isChapterToc": false
     },
     {
-      "id": "190",
-      "title": "Chapter 8, Section 5.1",
+      "id": "C8S5_1",
+      "name": "C8S5_1",
+      "title": "Sect 5.1 — Medical Devices",
       "chapter": 8,
       "section": "5.1",
       "isChapterToc": false
     },
     {
-      "id": "191",
-      "title": "Chapter 8, Section 5.2",
+      "id": "C8S5_2",
+      "name": "C8S5_2",
+      "title": "Sect 5.2 — Neuromuscular Electrical Stimulation (NMES) Devices",
       "chapter": 8,
       "section": "5.2",
       "isChapterToc": false
     },
     {
-      "id": "192",
-      "title": "Chapter 8, Section 5.3",
+      "id": "C8S5_3",
+      "name": "C8S5_3",
+      "title": "Sect 5.3 — Continuous Glucose Monitoring System (CGMS) Devices",
       "chapter": 8,
       "section": "5.3",
       "isChapterToc": false
     },
     {
-      "id": "193",
-      "title": "Chapter 8, Section 5.4",
+      "id": "C8S5_4",
+      "name": "C8S5_4",
+      "title": "Sect 5.4 — Automated External Defibrillators (AEDs)",
       "chapter": 8,
       "section": "5.4",
       "isChapterToc": false
     },
     {
-      "id": "194",
-      "title": "Chapter 8, Section 6.1",
+      "id": "C8S6_1",
+      "name": "C8S6_1",
+      "title": "Sect 6.1 — Medical Supplies And Dressings (Consumables)",
       "chapter": 8,
       "section": "6.1",
       "isChapterToc": false
     },
     {
-      "id": "195",
-      "title": "Chapter 8, Section 7.1",
+      "id": "C8S7_1",
+      "name": "C8S7_1",
+      "title": "Sect 7.1 — Medically Necessary Food - For Dates Of Service On Or After December 23, 2017",
       "chapter": 8,
       "section": "7.1",
       "isChapterToc": false
     },
     {
-      "id": "196",
-      "title": "Chapter 8, Section 7.2",
+      "id": "C8S7_2",
+      "name": "C8S7_2",
+      "title": "Sect 7.2 — Liquid Protein Diets",
       "chapter": 8,
       "section": "7.2",
       "isChapterToc": false
     },
     {
-      "id": "197",
-      "title": "Chapter 8, Section 8.1",
+      "id": "C8S8_1",
+      "name": "C8S8_1",
+      "title": "Sect 8.1 — Diabetes Self-Management Training (DSMT) Services",
       "chapter": 8,
       "section": "8.1",
       "isChapterToc": false
     },
     {
-      "id": "198",
-      "title": "Chapter 8, Section 8.2",
+      "id": "C8S8_2",
+      "name": "C8S8_2",
+      "title": "Sect 8.2 — Therapeutic Shoes For Diabetics",
       "chapter": 8,
       "section": "8.2",
       "isChapterToc": false
     },
     {
-      "id": "199",
-      "title": "Chapter 8, Section 9.1",
+      "id": "C8S9_1",
+      "name": "C8S9_1",
+      "title": "Sect 9.1 — Pharmacy Benefits Program",
       "chapter": 8,
       "section": "9.1",
       "isChapterToc": false
     },
     {
-      "id": "200",
-      "title": "Chapter 8, Section 10.1",
+      "id": "C8S9_2",
+      "name": "C8S9_2",
+      "title": "Sect 9.2 — Medical Claims That Include Drugs And Biologics",
+      "chapter": 8,
+      "section": "9.2",
+      "isChapterToc": false
+    },
+    {
+      "id": "C8S10_1",
+      "name": "C8S10_1",
+      "title": "Sect 10.1 — Oxygen And Oxygen Supplies",
       "chapter": 8,
       "section": "10.1",
       "isChapterToc": false
     },
     {
-      "id": "201",
-      "title": "Chapter 8, Section 11.1",
+      "id": "C8S11_1",
+      "name": "C8S11_1",
+      "title": "Sect 11.1 — Podiatry",
       "chapter": 8,
       "section": "11.1",
       "isChapterToc": false
     },
     {
-      "id": "202",
-      "title": "Chapter 8, Section 12.1",
+      "id": "C8S12_1",
+      "name": "C8S12_1",
+      "title": "Sect 12.1 — Wigs Or Hairpiece",
       "chapter": 8,
       "section": "12.1",
       "isChapterToc": false
     },
     {
-      "id": "203",
-      "title": "Chapter 8, Section 13.1",
+      "id": "C8S13_1",
+      "name": "C8S13_1",
+      "title": "Sect 13.1 — Adjunctive Dental Care",
       "chapter": 8,
       "section": "13.1",
       "isChapterToc": false
     },
     {
-      "id": "204",
-      "title": "Chapter 8, Section 13.2",
+      "id": "C8S13_2",
+      "name": "C8S13_2",
+      "title": "Sect 13.2 — Dental Anesthesia And Institutional Benefit",
       "chapter": 8,
       "section": "13.2",
       "isChapterToc": false
     },
     {
-      "id": "205",
-      "title": "Chapter 8, Section 14.1",
+      "id": "C8S14_1",
+      "name": "C8S14_1",
+      "title": "Sect 14.1 — Physician-Assisted Suicide",
       "chapter": 8,
       "section": "14.1",
       "isChapterToc": false
     },
     {
-      "id": "206",
-      "title": "Chapter 8, Section 15.1",
+      "id": "C8S15_1",
+      "name": "C8S15_1",
+      "title": "Sect 15.1 — Custodial Care Transitional Policy (CCTP)",
       "chapter": 8,
       "section": "15.1",
       "isChapterToc": false
     },
     {
-      "id": "207",
-      "title": "Chapter 8, Section 16.1",
+      "id": "C8S16_1",
+      "name": "C8S16_1",
+      "title": "Sect 16.1 — Mucus Clearance Devices",
       "chapter": 8,
       "section": "16.1",
       "isChapterToc": false
     },
     {
-      "id": "208",
-      "title": "Chapter 8, Section 17.1",
+      "id": "C8S17_1",
+      "name": "C8S17_1",
+      "title": "Sect 17.1 — Lymphedema",
       "chapter": 8,
       "section": "17.1",
       "isChapterToc": false
     },
     {
-      "id": "209",
-      "title": "Chapter 8, Section 18.1",
+      "id": "C8S18_1",
+      "name": "C8S18_1",
+      "title": "Sect 18.1 — Continuous Passive Motion (CPM) Devices",
       "chapter": 8,
       "section": "18.1",
       "isChapterToc": false
     },
     {
-      "id": "210",
-      "title": "Chapter 8, Section 19.1",
+      "id": "C8S19_1",
+      "name": "C8S19_1",
+      "title": "Sect 19.1 — Smoking Cessation Counseling",
       "chapter": 8,
       "section": "19.1",
       "isChapterToc": false
     },
     {
-      "id": "211",
-      "title": "Chapter 8, Section 20.1",
+      "id": "C8S20_1",
+      "name": "C8S20_1",
+      "title": "Sect 20.1 — Infusion Drug Therapy Delivered In The Home",
       "chapter": 8,
       "section": "20.1",
       "isChapterToc": false
     },
     {
-      "id": "212",
-      "title": "Chapter 8, Section 20.2",
+      "id": "C8S20_2",
+      "name": "C8S20_2",
+      "title": "Sect 20.2 — Transcutaneous Electrical Nerve Stimulation (TENS) Devices",
       "chapter": 8,
       "section": "20.2",
       "isChapterToc": false
     },
     {
-      "id": "213",
-      "title": "Chapter 9 – Contents",
+      "id": "C9TOC",
+      "name": "C9TOC",
+      "title": "Chapter 9 — Extended Care Health Option (ECHO)",
       "chapter": 9,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "214",
-      "title": "Chapter 9, Section 1.1",
+      "id": "C9S1_1",
+      "name": "C9S1_1",
+      "title": "Sect 1.1 — General",
       "chapter": 9,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "215",
-      "title": "Chapter 9, Section 2.1",
+      "id": "C9S2_1",
+      "name": "C9S2_1",
+      "title": "Sect 2.1 — Eligibility - General",
       "chapter": 9,
       "section": "2.1",
       "isChapterToc": false
     },
     {
-      "id": "216",
-      "title": "Chapter 9, Section 2.2",
+      "id": "C9S2_2",
+      "name": "C9S2_2",
+      "title": "Sect 2.2 — Eligibility - Qualifying Condition: Intellectual Disability",
       "chapter": 9,
       "section": "2.2",
       "isChapterToc": false
     },
     {
-      "id": "217",
-      "title": "Chapter 9, Section 2.3",
+      "id": "C9S2_3",
+      "name": "C9S2_3",
+      "title": "Sect 2.3 — Eligibility - Qualifying Condition: Serious Physical Disability",
       "chapter": 9,
       "section": "2.3",
       "isChapterToc": false
     },
     {
-      "id": "218",
-      "title": "Chapter 9, Section 2.4",
+      "id": "C9S2_4",
+      "name": "C9S2_4",
+      "title": "Sect 2.4 — Eligibility - Qualifying Condition: Other",
       "chapter": 9,
       "section": "2.4",
       "isChapterToc": false
     },
     {
-      "id": "219",
-      "title": "Chapter 9, Section 3.1",
+      "id": "C9S3_1",
+      "name": "C9S3_1",
+      "title": "Sect 3.1 — Registration",
       "chapter": 9,
       "section": "3.1",
       "isChapterToc": false
     },
     {
-      "id": "220",
-      "title": "Chapter 9, Section 4.1",
+      "id": "C9S4_1",
+      "name": "C9S4_1",
+      "title": "Sect 4.1 — Benefit Authorization",
       "chapter": 9,
       "section": "4.1",
       "isChapterToc": false
     },
     {
-      "id": "221",
-      "title": "Chapter 9, Section 5.1",
+      "id": "C9S5_1",
+      "name": "C9S5_1",
+      "title": "Sect 5.1 — Public Facility Use Certification",
       "chapter": 9,
       "section": "5.1",
       "isChapterToc": false
     },
     {
-      "id": "222",
-      "title": "Chapter 9, Section 6.1",
+      "id": "C9S6_1",
+      "name": "C9S6_1",
+      "title": "Sect 6.1 — Diagnostic Services",
       "chapter": 9,
       "section": "6.1",
       "isChapterToc": false
     },
     {
-      "id": "223",
-      "title": "Chapter 9, Section 7.1",
+      "id": "C9S7_1",
+      "name": "C9S7_1",
+      "title": "Sect 7.1 — Treatment",
       "chapter": 9,
       "section": "7.1",
       "isChapterToc": false
     },
     {
-      "id": "224",
-      "title": "Chapter 9, Section 8.1",
+      "id": "C9S8_1",
+      "name": "C9S8_1",
+      "title": "Sect 8.1 — Training",
       "chapter": 9,
       "section": "8.1",
       "isChapterToc": false
     },
     {
-      "id": "225",
-      "title": "Chapter 9, Section 9.1",
+      "id": "C9S9_1",
+      "name": "C9S9_1",
+      "title": "Sect 9.1 — Special Education And Other Services",
       "chapter": 9,
       "section": "9.1",
       "isChapterToc": false
     },
     {
-      "id": "226",
-      "title": "Chapter 9, Section 10.1",
+      "id": "C9S10_1",
+      "name": "C9S10_1",
+      "title": "Sect 10.1 — Institutional Care",
       "chapter": 9,
       "section": "10.1",
       "isChapterToc": false
     },
     {
-      "id": "227",
-      "title": "Chapter 9, Section 11.1",
+      "id": "C9S11_1",
+      "name": "C9S11_1",
+      "title": "Sect 11.1 — Transportation",
       "chapter": 9,
       "section": "11.1",
       "isChapterToc": false
     },
     {
-      "id": "228",
-      "title": "Chapter 9, Section 12.1",
+      "id": "C9S12_1",
+      "name": "C9S12_1",
+      "title": "Sect 12.1 — Extended Care Health Option (ECHO) Respite Care",
       "chapter": 9,
       "section": "12.1",
       "isChapterToc": false
     },
     {
-      "id": "229",
-      "title": "Chapter 9, Section 13.1",
+      "id": "C9S13_1",
+      "name": "C9S13_1",
+      "title": "Sect 13.1 — Other Extended Care Health Option (ECHO) Benefits",
       "chapter": 9,
       "section": "13.1",
       "isChapterToc": false
     },
     {
-      "id": "230",
-      "title": "Chapter 9, Section 13.2",
+      "id": "C9S13_2",
+      "name": "C9S13_2",
+      "title": "Sect 13.2 — Other Extended Care Health Option (ECHO) Benefits - Hippotherapy",
       "chapter": 9,
       "section": "13.2",
       "isChapterToc": false
     },
     {
-      "id": "231",
-      "title": "Chapter 9, Section 14.1",
+      "id": "C9S14_1",
+      "name": "C9S14_1",
+      "title": "Sect 14.1 — Durable Equipment (DE) Prior To January 30, 2015",
       "chapter": 9,
       "section": "14.1",
       "isChapterToc": false
     },
     {
-      "id": "232",
-      "title": "Chapter 9, Section 14.2",
+      "id": "C9S14_2",
+      "name": "C9S14_2",
+      "title": "Sect 14.2 — Durable Equipment (DE) And Assistive Technology (AT) Devices On Or After January 30, 2015: Extended Care Health Care Option (ECHO) Program",
       "chapter": 9,
       "section": "14.2",
       "isChapterToc": false
     },
     {
-      "id": "233",
-      "title": "Chapter 9, Section 15.1",
+      "id": "C9S15_1",
+      "name": "C9S15_1",
+      "title": "Sect 15.1 — ECHO Home Health Care (EHHC)",
       "chapter": 9,
       "section": "15.1",
       "isChapterToc": false
     },
     {
-      "id": "234",
-      "title": "Chapter 9, Section 16.1",
+      "id": "C9S16_1",
+      "name": "C9S16_1",
+      "title": "Sect 16.1 — Cost-Share Liability",
       "chapter": 9,
       "section": "16.1",
       "isChapterToc": false
     },
     {
-      "id": "235",
-      "title": "Chapter 9, Section 17.1",
+      "id": "C9S17_1",
+      "name": "C9S17_1",
+      "title": "Sect 17.1 — Providers",
       "chapter": 9,
       "section": "17.1",
       "isChapterToc": false
     },
     {
-      "id": "236",
-      "title": "Chapter 9, Section 18.1",
+      "id": "C9S18_1",
+      "name": "C9S18_1",
+      "title": "Sect 18.1 — Claims",
       "chapter": 9,
       "section": "18.1",
       "isChapterToc": false
     },
     {
-      "id": "237",
-      "title": "Chapter 10 – Contents",
+      "id": "C10TOC",
+      "name": "C10TOC",
+      "title": "Chapter 10 — Eligibility And Enrollment",
       "chapter": 10,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "238",
-      "title": "Chapter 10, Section 1.1",
+      "id": "C10S1_1",
+      "name": "C10S1_1",
+      "title": "Sect 1.1 — Eligibility Requirements For TRICARE Beneficiaries",
       "chapter": 10,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "239",
-      "title": "Chapter 10, Section 2.1",
+      "id": "C10S2_1",
+      "name": "C10S2_1",
+      "title": "Sect 2.1 — TRICARE Prime And TRICARE Select Enrollment",
       "chapter": 10,
       "section": "2.1",
       "isChapterToc": false
     },
     {
-      "id": "240",
-      "title": "Chapter 10, Section 3.1",
+      "id": "C10S3_1",
+      "name": "C10S3_1",
+      "title": "Sect 3.1 — TRICARE Prime/Select And Status Changes",
       "chapter": 10,
       "section": "3.1",
       "isChapterToc": false
     },
     {
-      "id": "241",
-      "title": "Chapter 10, Section 4.1",
+      "id": "C10S4_1",
+      "name": "C10S4_1",
+      "title": "Sect 4.1 — Continued Health Care Benefit Program (CHCBP)",
       "chapter": 10,
       "section": "4.1",
       "isChapterToc": false
     },
     {
-      "id": "242",
-      "title": "Chapter 10, Section 5.1",
+      "id": "C10S5_1",
+      "name": "C10S5_1",
+      "title": "Sect 5.1 — Transitional Assistance Management Program (TAMP)",
       "chapter": 10,
       "section": "5.1",
       "isChapterToc": false
     },
     {
-      "id": "243",
-      "title": "Chapter 10, Section 6.1",
+      "id": "C10S6_1",
+      "name": "C10S6_1",
+      "title": "Sect 6.1 — TRICARE For Life (TFL) And Other Medicare-Eligible Beneficiaries",
       "chapter": 10,
       "section": "6.1",
       "isChapterToc": false
     },
     {
-      "id": "244",
-      "title": "Chapter 10, Section 7.1",
+      "id": "C10S7_1",
+      "name": "C10S7_1",
+      "title": "Sect 7.1 — Transitional Survivor Status And Survivor Status",
       "chapter": 10,
       "section": "7.1",
       "isChapterToc": false
     },
     {
-      "id": "245",
-      "title": "Chapter 10, Section 8.1",
+      "id": "C10S8_1",
+      "name": "C10S8_1",
+      "title": "Sect 8.1 — Guard And Reserve Family Member Benefits",
       "chapter": 10,
       "section": "8.1",
       "isChapterToc": false
     },
     {
-      "id": "246",
-      "title": "Chapter 10, Section 9.1",
+      "id": "C10S9_1",
+      "name": "C10S9_1",
+      "title": "Sect 9.1 — Early Eligibility Benefits For The Reserve Components (RCs)",
       "chapter": 10,
       "section": "9.1",
       "isChapterToc": false
     },
     {
-      "id": "247",
-      "title": "Chapter 10, Section 10.1",
+      "id": "C10S10_1",
+      "name": "C10S10_1",
+      "title": "Sect 10.1 — TRICARE Coverage For Certain Members Of The National Guard (NG)",
       "chapter": 10,
       "section": "10.1",
       "isChapterToc": false
     },
     {
-      "id": "248",
-      "title": "Chapter 11 – Contents -- Providers",
+      "id": "C11TOC",
+      "name": "C11TOC",
+      "title": "Chapter 11 — Providers",
       "chapter": 11,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "249",
-      "title": "Chapter 11, Section 1.1",
+      "id": "C11S1_1",
+      "name": "C11S1_1",
+      "title": "Sect 1.1 — Providers - General",
       "chapter": 11,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "250",
-      "title": "Chapter 11, Section 1.2",
+      "id": "C11S1_2",
+      "name": "C11S1_2",
+      "title": "Sect 1.2 — Institutional Provider, Individual Provider, And Other Non-Institutional Provider Participation",
       "chapter": 11,
       "section": "1.2",
       "isChapterToc": false
     },
     {
-      "id": "251",
-      "title": "Chapter 11, Section 2.1",
+      "id": "C11S2_1",
+      "name": "C11S2_1",
+      "title": "Sect 2.1 — Department of Veterans Affairs/Veterans Health Administration (DVA/VHA) Health Care Facilities",
       "chapter": 11,
       "section": "2.1",
       "isChapterToc": false
     },
     {
-      "id": "252",
-      "title": "Chapter 11, Section 2.2",
+      "id": "C11S2_2",
+      "name": "C11S2_2",
+      "title": "Sect 2.2 — Employer-Operated Medical Facilities",
       "chapter": 11,
       "section": "2.2",
       "isChapterToc": false
     },
     {
-      "id": "253",
-      "title": "Chapter 11, Section 2.3",
+      "id": "C11S2_3",
+      "name": "C11S2_3",
+      "title": "Sect 2.3 — Birthing Centers",
       "chapter": 11,
       "section": "2.3",
       "isChapterToc": false
     },
     {
-      "id": "254",
-      "title": "Chapter 11, Section 2.4",
+      "id": "C11S2_4",
+      "name": "C11S2_4",
+      "title": "Sect 2.4 — Eating Disorder Programs",
       "chapter": 11,
       "section": "2.4",
       "isChapterToc": false
     },
     {
-      "id": "255",
-      "title": "Chapter 11, Section 2.5",
+      "id": "C11S2_5",
+      "name": "C11S2_5",
+      "title": "Sect 2.5 — Psychiatric And Substance Use Disorder (SUD) Partial Hospitalization Program (PHP) Standards",
       "chapter": 11,
       "section": "2.5",
       "isChapterToc": false
     },
     {
-      "id": "256",
-      "title": "Chapter 11, Section 2.6",
+      "id": "C11S2_6",
+      "name": "C11S2_6",
+      "title": "Sect 2.6 — Psychiatric Hospitals Accreditation",
       "chapter": 11,
       "section": "2.6",
       "isChapterToc": false
     },
     {
-      "id": "257",
-      "title": "Chapter 11, Section 2.7",
+      "id": "C11S2_7",
+      "name": "C11S2_7",
+      "title": "Sect 2.7 — Intensive Outpatient Program (IOP) Standards",
       "chapter": 11,
       "section": "2.7",
       "isChapterToc": false
     },
     {
-      "id": "258",
-      "title": "Chapter 11, Section 2.8",
+      "id": "C11S2_8",
+      "name": "C11S2_8",
+      "title": "Sect 2.8 — Opioid Treatment Program (OTP) Standards",
       "chapter": 11,
       "section": "2.8",
       "isChapterToc": false
     },
     {
-      "id": "259",
-      "title": "Chapter 11, Section 2.9",
+      "id": "C11S2_9",
+      "name": "C11S2_9",
+      "title": "Sect 2.9 — Residential Treatment Center (RTC) Standards",
       "chapter": 11,
       "section": "2.9",
       "isChapterToc": false
     },
     {
-      "id": "260",
-      "title": "Chapter 11, Section 2.10",
+      "id": "C11S2_10",
+      "name": "C11S2_10",
+      "title": "Sect 2.10 — Freestanding End Stage Renal Disease (ESRD) Facilities",
       "chapter": 11,
       "section": "2.10",
       "isChapterToc": false
     },
     {
-      "id": "261",
-      "title": "Chapter 11, Section 3.1",
+      "id": "C11S3_1",
+      "name": "C11S3_1",
+      "title": "Sect 3.1 — Physician Referral And Supervision",
       "chapter": 11,
       "section": "3.1",
       "isChapterToc": false
     },
     {
-      "id": "262",
-      "title": "Chapter 11, Section 3.2",
+      "id": "C11S3_2",
+      "name": "C11S3_2",
+      "title": "Sect 3.2 — State Licensure And Certification",
       "chapter": 11,
       "section": "3.2",
       "isChapterToc": false
     },
     {
-      "id": "263",
-      "title": "Chapter 11, Section 3.3",
+      "id": "C11S3_3",
+      "name": "C11S3_3",
+      "title": "Sect 3.3 — Accreditation",
       "chapter": 11,
       "section": "3.3",
       "isChapterToc": false
     },
     {
-      "id": "264",
-      "title": "Chapter 11, Section 3.4",
+      "id": "C11S3_4",
+      "name": "C11S3_4",
+      "title": "Sect 3.4 — Nurse Anesthetist",
       "chapter": 11,
       "section": "3.4",
       "isChapterToc": false
     },
     {
-      "id": "265",
-      "title": "Chapter 11, Section 3.5",
+      "id": "C11S3_5",
+      "name": "C11S3_5",
+      "title": "Sect 3.5 — Anesthesiologist Assistant (AA)",
       "chapter": 11,
       "section": "3.5",
       "isChapterToc": false
     },
     {
-      "id": "266",
-      "title": "Chapter 11, Section 3.6",
+      "id": "C11S3_6",
+      "name": "C11S3_6",
+      "title": "Sect 3.6 — Certified Clinical Social Worker (CSW)",
       "chapter": 11,
       "section": "3.6",
       "isChapterToc": false
     },
     {
-      "id": "267",
-      "title": "Chapter 11, Section 3.7",
+      "id": "C11S3_7",
+      "name": "C11S3_7",
+      "title": "Sect 3.7 — Certified Psychiatric Nurse Specialist (CPNS)",
       "chapter": 11,
       "section": "3.7",
       "isChapterToc": false
     },
     {
-      "id": "268",
-      "title": "Chapter 11, Section 3.8",
+      "id": "C11S3_8",
+      "name": "C11S3_8",
+      "title": "Sect 3.8 — Clinical Psychologist",
       "chapter": 11,
       "section": "3.8",
       "isChapterToc": false
     },
     {
-      "id": "269",
-      "title": "Chapter 11, Section 3.9",
+      "id": "C11S3_9",
+      "name": "C11S3_9",
+      "title": "Sect 3.9 — Certified Marriage And Family Therapist",
       "chapter": 11,
       "section": "3.9",
       "isChapterToc": false
     },
     {
-      "id": "270",
-      "title": "Chapter 11, Section 3.10",
+      "id": "C11S3_10",
+      "name": "C11S3_10",
+      "title": "Sect 3.10 — Pastoral Counselor",
       "chapter": 11,
       "section": "3.10",
       "isChapterToc": false
     },
     {
-      "id": "271",
-      "title": "Chapter 11, Section 3.11",
+      "id": "C11S3_11",
+      "name": "C11S3_11",
+      "title": "Sect 3.11 — Mental Health Counselor",
       "chapter": 11,
       "section": "3.11",
       "isChapterToc": false
     },
     {
-      "id": "272",
-      "title": "Chapter 11, Section 3.12",
+      "id": "C11S3_12",
+      "name": "C11S3_12",
+      "title": "Sect 3.12 — Certified Nurse Midwife (CNM)",
       "chapter": 11,
       "section": "3.12",
       "isChapterToc": false
     },
     {
-      "id": "273",
-      "title": "Chapter 11, Section 3.13",
+      "id": "C11S3_13",
+      "name": "C11S3_13",
+      "title": "Sect 3.13 — Certified Physician Assistant (PA)",
       "chapter": 11,
       "section": "3.13",
       "isChapterToc": false
     },
     {
-      "id": "274",
-      "title": "Chapter 11, Section 3.14",
+      "id": "C11S3_14",
+      "name": "C11S3_14",
+      "title": "Sect 3.14 — Registered Dietitian (RD)",
       "chapter": 11,
       "section": "3.14",
       "isChapterToc": false
     },
     {
-      "id": "275",
-      "title": "Chapter 11, Section 3.15",
+      "id": "C11S3_15",
+      "name": "C11S3_15",
+      "title": "Sect 3.15 — Nutritionist",
       "chapter": 11,
       "section": "3.15",
       "isChapterToc": false
     },
     {
-      "id": "276",
-      "title": "Chapter 11, Section 3.16",
+      "id": "C11S3_16",
+      "name": "C11S3_16",
+      "title": "Sect 3.16 — Physical Therapist Assistants (PTAs)",
       "chapter": 11,
       "section": "3.16",
       "isChapterToc": false
     },
     {
-      "id": "277",
-      "title": "Chapter 11, Section 3.17",
+      "id": "C11S3_17",
+      "name": "C11S3_17",
+      "title": "Sect 3.17 — Occupational Therapy Assistants (OTAs)",
       "chapter": 11,
       "section": "3.17",
       "isChapterToc": false
     },
     {
-      "id": "278",
-      "title": "Chapter 11, Section 4.1",
+      "id": "C11S4_1",
+      "name": "C11S4_1",
+      "title": "Sect 4.1 — Unauthorized Institution: Related Professional Services",
       "chapter": 11,
       "section": "4.1",
       "isChapterToc": false
     },
     {
-      "id": "279",
-      "title": "Chapter 11, Section 4.2",
+      "id": "C11S4_2",
+      "name": "C11S4_2",
+      "title": "Sect 4.2 — Unauthorized Provider: Emergency Services",
       "chapter": 11,
       "section": "4.2",
       "isChapterToc": false
     },
     {
-      "id": "280",
-      "title": "Chapter 11, Section 5.1",
+      "id": "C11S5_1",
+      "name": "C11S5_1",
+      "title": "Sect 5.1 — Provider Standards For Potentially Human Immunodeficiency Virus (HIV) Infectious Blood And Blood Products",
       "chapter": 11,
       "section": "5.1",
       "isChapterToc": false
     },
     {
-      "id": "281",
-      "title": "Chapter 11, Section 6.1",
+      "id": "C11S6_1",
+      "name": "C11S6_1",
+      "title": "Sect 6.1 — Ambulatory Surgery",
       "chapter": 11,
       "section": "6.1",
       "isChapterToc": false
     },
     {
-      "id": "282",
-      "title": "Chapter 11, Section 6.2",
+      "id": "C11S6_2",
+      "name": "C11S6_2",
+      "title": "Sect 6.2 — Freestanding Ambulatory Surgery Center (ASC)",
       "chapter": 11,
       "section": "6.2",
       "isChapterToc": false
     },
     {
-      "id": "283",
-      "title": "Chapter 11, Section 7.1",
+      "id": "C11S7_1",
+      "name": "C11S7_1",
+      "title": "Sect 7.1 — Certification Of Organ Transplant Centers",
       "chapter": 11,
       "section": "7.1",
       "isChapterToc": false
     },
     {
-      "id": "284",
-      "title": "Chapter 11, Section 8.1",
+      "id": "C11S8_1",
+      "name": "C11S8_1",
+      "title": "Sect 8.1 — Inpatient/Residential Substance Use Disorder Rehabilitation Facilities (SUDRFs) Standards",
       "chapter": 11,
       "section": "8.1",
       "isChapterToc": false
     },
     {
-      "id": "285",
-      "title": "Chapter 11, Section 9.1",
+      "id": "C11S9_1",
+      "name": "C11S9_1",
+      "title": "Sect 9.1 — Other Provider Certification",
       "chapter": 11,
       "section": "9.1",
       "isChapterToc": false
     },
     {
-      "id": "286",
-      "title": "Chapter 11, Section 9.2",
+      "id": "C11S9_2",
+      "name": "C11S9_2",
+      "title": "Sect 9.2 — State Vaccine Programs (SVPs) As TRICARE-Authorized Providers",
       "chapter": 11,
       "section": "9.2",
       "isChapterToc": false
     },
     {
-      "id": "287",
-      "title": "Chapter 11, Section 10.1",
+      "id": "C11S10_1",
+      "name": "C11S10_1",
+      "title": "Sect 10.1 — Services Rendered By Employees Of Authorized Independent Professional Providers",
       "chapter": 11,
       "section": "10.1",
       "isChapterToc": false
     },
     {
-      "id": "288",
-      "title": "Chapter 11, Section 11.1",
+      "id": "C11S11_1",
+      "name": "C11S11_1",
+      "title": "Sect 11.1 — Birthing Center Accreditation",
       "chapter": 11,
       "section": "11.1",
       "isChapterToc": false
     },
     {
-      "id": "289",
-      "title": "Chapter 11, Section 11.2",
+      "id": "C11S11_2",
+      "name": "C11S11_2",
+      "title": "Sect 11.2 — Birthing Center Certification Process",
       "chapter": 11,
       "section": "11.2",
       "isChapterToc": false
     },
     {
-      "id": "290",
-      "title": "Chapter 11, Section 11.3",
+      "id": "C11S11_3",
+      "name": "C11S11_3",
+      "title": "Sect 11.3 — Certified Marriage And Family Therapist Certification Process",
       "chapter": 11,
       "section": "11.3",
       "isChapterToc": false
     },
     {
-      "id": "291",
-      "title": "Chapter 11, Section 12.1",
+      "id": "C11S12_1",
+      "name": "C11S12_1",
+      "title": "Sect 12.1 — Corporate Services Provider (CSP) Class",
       "chapter": 11,
       "section": "12.1",
       "isChapterToc": false
     },
     {
-      "id": "292",
-      "title": "Chapter 11, Section 12.2",
+      "id": "C11S12_2",
+      "name": "C11S12_2",
+      "title": "Sect 12.2 — Qualified Accreditation Organization",
       "chapter": 11,
       "section": "12.2",
       "isChapterToc": false
     },
     {
-      "id": "293",
-      "title": "Chapter 11, Section 12.3",
+      "id": "C11S12_3",
+      "name": "C11S12_3",
+      "title": "Sect 12.3 — Participation Agreement Requirements",
       "chapter": 11,
       "section": "12.3",
       "isChapterToc": false
     },
     {
-      "id": "294",
-      "title": "Chapter 12 – Contents",
+      "id": "C12TOC",
+      "name": "C12TOC",
+      "title": "Chapter 12 — TRICARE Overseas Program (TOP)",
       "chapter": 12,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "295",
-      "title": "Chapter 12, Section 1.1",
+      "id": "C12S1_1",
+      "name": "C12S1_1",
+      "title": "Sect 1.1 — TRICARE Overseas Program (TOP)",
       "chapter": 12,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "296",
-      "title": "Chapter 12, Section 1.2",
+      "id": "C12S1_2",
+      "name": "C12S1_2",
+      "title": "Sect 1.2 — TRICARE Overseas Program (TOP) Medical Benefit Variations",
       "chapter": 12,
       "section": "1.2",
       "isChapterToc": false
     },
     {
-      "id": "297",
-      "title": "Chapter 12, Section 1.3",
+      "id": "C12S1_3",
+      "name": "C12S1_3",
+      "title": "Sect 1.3 — Outside The 50 United States (US) And The District Of Columbia Locality-Based Reimbursement Rate Waiver",
       "chapter": 12,
       "section": "1.3",
       "isChapterToc": false
     },
     {
-      "id": "298",
-      "title": "Chapter 13 – Contents",
+      "id": "C13TOC",
+      "name": "C13TOC",
+      "title": "Chapter 13 — Provisional Coverage For Emerging Services And Supplies",
       "chapter": 13,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "299",
-      "title": "Chapter 13, Section 1.1",
+      "id": "C13S1_1",
+      "name": "C13S1_1",
+      "title": "Sect 1.1 — Provisional Coverage For Emerging Services And Supplies",
       "chapter": 13,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "300",
-      "title": "Chapter 11 Addendum A",
+      "id": "C11ADA",
+      "name": "C11ADA",
+      "title": "Addendum A — Participation Agreement For Certified Marriage And Family Therapist",
       "chapter": 11,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "301",
-      "title": "Chapter 11 Addendum B",
+      "id": "C11ADB",
+      "name": "C11ADB",
+      "title": "Addendum B — Participation Agreement For Freestanding Or Institution-Affiliated Birthing Center (BC) Maternity Care Services",
       "chapter": 11,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "302",
-      "title": "Chapter 11 Addendum C",
+      "id": "C11ADC",
+      "name": "C11ADC",
+      "title": "Addendum C — Application Form For Corporate Services Providers",
       "chapter": 11,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "303",
-      "title": "Chapter 11 Addendum D",
+      "id": "C11ADD",
+      "name": "C11ADD",
+      "title": "Addendum D — Participation Agreement For Inpatient/Residential Substance Use Disorder Rehabilitation Facility (SUDRF) Services For TRICARE Beneficiaries",
       "chapter": 11,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "304",
-      "title": "Chapter 11 Addendum E",
+      "id": "C11ADE",
+      "name": "C11ADE",
+      "title": "Addendum E — Participation Agreement For Residential Treatment Center (RTC)",
       "chapter": 11,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "305",
-      "title": "Chapter 11 Addendum F",
+      "id": "C11ADF",
+      "name": "C11ADF",
+      "title": "Addendum F — Participation Agreement For Freestanding And Substance Use Disorder (SUD) Psychiatric Partial Hospitalization Program (PHP) Services",
       "chapter": 11,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "306",
-      "title": "Chapter 11 Addendum G",
+      "id": "C11ADG",
+      "name": "C11ADG",
+      "title": "Addendum G — Participation Agreement For Intensive Outpatient Program (IOP) Services",
       "chapter": 11,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "307",
-      "title": "Chapter 11 Addendum H",
+      "id": "C11ADH",
+      "name": "C11ADH",
+      "title": "Addendum H — Participation Agreement For Opioid Treatment Program (OTP) Services",
       "chapter": 11,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "308",
-      "title": "Chapter 11 Addendum I",
+      "id": "C11ADI",
+      "name": "C11ADI",
+      "title": "Addendum I — Participation Agreement For Intensive Outpatient Program (IOP) Services as Part of the IOP Pilot for Psychological Health Sequelae of Sexual Trauma",
       "chapter": 11,
       "section": "",
       "isChapterToc": false

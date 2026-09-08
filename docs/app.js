@@ -96,7 +96,7 @@ async function loadManualList() {
       <div class="no-content-msg" style="grid-column:1/-1">
         <strong>Could not load manual list</strong>
         <p>Please try refreshing, or visit
-          <a href="https://manuals.health.mil" target="_blank" rel="noopener">manuals.health.mil</a>
+          <a href="https://manuals.dha.mil" target="_blank" rel="noopener">manuals.dha.mil</a>
           directly.</p>
       </div>`;
   }
@@ -172,8 +172,8 @@ async function openManual(code) {
         <strong>Table of contents unavailable</strong>
         <p>Content for this manual has not been pre-fetched yet.<br>
           Visit
-          <a href="https://manuals.health.mil/pages/ManualToc.aspx?Manual=${code}"
-             target="_blank" rel="noopener">manuals.health.mil</a>
+          <a href="https://manuals.dha.mil/View-Publication/${code}"
+             target="_blank" rel="noopener">manuals.dha.mil</a>
           to read it online.</p>
       </div>`);
   }
@@ -244,7 +244,7 @@ async function loadSection(idx) {
       <div class="no-content-msg">
         <strong>Section unavailable</strong>
         <p>This section has not been cached yet. You can read it at<br>
-          <a href="https://manuals.health.mil" target="_blank" rel="noopener">manuals.health.mil</a>.</p>
+          <a href="https://manuals.dha.mil" target="_blank" rel="noopener">manuals.dha.mil</a>.</p>
       </div>`);
   }
 }

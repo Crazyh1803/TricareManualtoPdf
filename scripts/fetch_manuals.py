@@ -78,6 +78,19 @@ REQUEST_DELAY = 1.5
 # window reset before we begin the next manual.
 MANUAL_COOLDOWN_SECS = 60
 
+# The workflow job is capped at 2 hours and its commit step runs *after* this
+# script, so a run that overruns publishes nothing at all — two hours of work
+# thrown away and the site left stale (exactly what happened on 2026-09-07).
+#
+# Two budgets keep the run inside that cap. MANUAL_TIME_BUDGET_SECS caps any
+# single manual so one pathological manual cannot starve the rest; a manual is
+# only *started* while RUN_TIME_BUDGET_SECS still has a full manual budget
+# left, so the worst case is RUN_TIME_BUDGET_SECS of wall clock. That leaves
+# roughly 20 minutes of the job's 2 hours for the setup steps before this
+# script and the commit step after it.
+RUN_TIME_BUDGET_SECS = 100 * 60
+MANUAL_TIME_BUDGET_SECS = 30 * 60
+
 # Pause between browser navigations when fetching section content. The site
 # starts resetting connections (net::ERR_CONNECTION_RESET) when pages are
 # requested back to back — the same behaviour MANUAL_COOLDOWN_SECS above was
@@ -450,6 +463,17 @@ async def _collect_chapter_sections(ctx, chapter_toc_url: str) -> list[str]:
     return out
 
 
+# Wall-clock deadline for the manual currently being processed. Set by
+# process_manual(); consulted by the two open-ended loops below (change-number
+# probing and section fetching), which are the only places a manual can spend
+# unbounded time. None means "no limit" (direct calls, tests).
+_manual_deadline: float | None = None
+
+
+def manual_time_exhausted() -> bool:
+    return _manual_deadline is not None and time.monotonic() > _manual_deadline
+
+
 async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int | None, list[str], list[str]]:
     """
     Single Playwright session that detects the latest change number AND
@@ -503,6 +527,10 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                     latest = served_change
                     # Walk forward from the discovered change
                     for candidate in range(served_change + 1, served_change + 1 + FORWARD_WALK_LIMIT):
+                        if manual_time_exhausted():
+                            print(f"  [{code}] Out of time while probing — stopping at "
+                                  f"change {latest}.", file=sys.stderr)
+                            break
                         await asyncio.sleep(PROBE_DELAY)
                         print(f"  [{code}] Checking change {candidate}…")
                         if await _toc_has_sections(ctx, code, candidate):
@@ -520,6 +548,10 @@ async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int |
                 print(f"  [{code}] Change=0 sentinel — skipping forward walk.")
             else:
                 for candidate in range(known_change + 1, known_change + 1 + FORWARD_WALK_LIMIT):
+                    if manual_time_exhausted():
+                        print(f"  [{code}] Out of time while probing — stopping at "
+                              f"change {latest}.", file=sys.stderr)
+                        break
                     await asyncio.sleep(PROBE_DELAY)
                     print(f"  [{code}] Checking change {candidate}…")
                     if await _toc_has_sections(ctx, code, candidate):
@@ -834,6 +866,18 @@ async def fetch_sections_via_browser(
         try:
             first = True
             for s in sections:
+                # Give up on this manual rather than running until the job is
+                # killed. A failed section costs retries plus backoff plus a
+                # cooldown, so a manual hitting widespread failures can consume
+                # hours; abandoning it here leaves its data untouched and lets
+                # the remaining manuals still be fetched and published.
+                if manual_time_exhausted():
+                    raise RuntimeError(
+                        f"{code}: exceeded the {MANUAL_TIME_BUDGET_SECS // 60}-minute "
+                        f"budget after {done}/{content_total} sections — abandoning it so "
+                        f"the run can finish and publish. Existing data left untouched."
+                    )
+
                 # Throttle navigations: hammering the site back to back is what
                 # provokes the connection resets.
                 if not first:
@@ -1055,10 +1099,15 @@ def existing_content_count(code: str) -> int:
 
 # ── Main ─────────────────────────────────────────────────────────────────────
 def process_manual(entry: dict, force: bool = False) -> dict:
+    global _manual_deadline
+
     code = entry["code"]
     name = entry["name"]
     print(f"\n{'='*60}")
     print(f"  Manual: {name} ({code})")
+
+    # Arm the wall-clock ceiling for this manual (see MANUAL_TIME_BUDGET_SECS).
+    _manual_deadline = time.monotonic() + MANUAL_TIME_BUDGET_SECS
 
     _raw = entry.get("latestChange")
     known = _raw if _raw is not None else 1  # preserve 0 (special sentinel for TRT5)
@@ -1226,11 +1275,27 @@ def main():
 
     updated_manuals = []
     errors = []
+    skipped_for_time = []
     processed_count = 0
+    run_started = time.monotonic()
     for entry in data["manuals"]:
         if args.code and entry["code"] != args.code:
             updated_manuals.append(entry)
             continue
+
+        # Only start a manual if the run budget can still absorb a full manual
+        # budget, so the run cannot overshoot and get killed with nothing
+        # committed. The rest keep their existing data and are picked up next
+        # run.
+        elapsed = time.monotonic() - run_started
+        if elapsed + MANUAL_TIME_BUDGET_SECS > RUN_TIME_BUDGET_SECS:
+            print(f"\nTime budget reached after {elapsed/60:.0f} min — leaving "
+                  f"{entry['code']} for the next run so this one can publish.",
+                  file=sys.stderr)
+            skipped_for_time.append(entry["code"])
+            updated_manuals.append(entry)
+            continue
+
         if processed_count > 0:
             print(f"\nCooling down {MANUAL_COOLDOWN_SECS}s before next manual to avoid rate-limiting…")
             time.sleep(MANUAL_COOLDOWN_SECS)
@@ -1252,12 +1317,17 @@ def main():
     )
     print(f"\nUpdated {MANUALS_JSON.relative_to(REPO_ROOT)}")
 
+    if skipped_for_time:
+        print(f"\nNOTE: ran out of time budget; not attempted this run: "
+              f"{', '.join(skipped_for_time)}. They keep their existing data and "
+              f"will be picked up next run.", file=sys.stderr)
+
     if errors:
         print(f"\nWARNING: {len(errors)} manual(s) failed to update: {', '.join(errors)}", file=sys.stderr)
         print("Done (with errors).")
         sys.exit(1)
 
-    print("Done.")
+    print(f"Done in {(time.monotonic() - run_started)/60:.0f} min.")
 
 
 if __name__ == "__main__":

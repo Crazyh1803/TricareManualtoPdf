@@ -1,0 +1,21 @@
+name: Probe manuals site structure
+
+# Throwaway diagnostic, manual dispatch only. The scraper started landing on
+# manuals.dha.mil's homepage instead of the old manuals.health.mil TOC pages;
+# this dumps the new site's structure so the scraper can be retargeted.
+# Delete along with scripts/probe_site.py once that is done.
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r scripts/requirements.txt
+      - run: playwright install --with-deps chromium
+      - run: python -u scripts/probe_site.py

@@ -8,7 +8,7 @@ import com.tricare.manuals.data.db.HighlightDao
 import com.tricare.manuals.data.db.ManualDao
 import com.tricare.manuals.data.db.SectionDao
 import com.tricare.manuals.data.network.TocParser
-import com.tricare.manuals.data.network.TricareWebClient
+import com.tricare.manuals.data.network.MirrorClient
 import com.tricare.manuals.data.network.VersionChecker
 import com.tricare.manuals.data.repository.ManualRepository
 import dagger.Module
@@ -50,12 +50,12 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideTricareWebClient(): TricareWebClient = TricareWebClient()
+    fun provideMirrorClient(): MirrorClient = MirrorClient()
 
     @Provides
     @Singleton
-    fun provideVersionChecker(webClient: TricareWebClient): VersionChecker =
-        VersionChecker(webClient)
+    fun provideVersionChecker(mirror: MirrorClient): VersionChecker =
+        VersionChecker(mirror)
 
     @Provides
     @Singleton
@@ -67,7 +67,7 @@ object AppModule {
         manualDao: ManualDao,
         sectionDao: SectionDao,
         bookmarkDao: BookmarkDao,
-        webClient: TricareWebClient,
+        mirror: MirrorClient,
         versionChecker: VersionChecker
-    ): ManualRepository = ManualRepository(manualDao, sectionDao, bookmarkDao, webClient, versionChecker)
+    ): ManualRepository = ManualRepository(manualDao, sectionDao, bookmarkDao, mirror, versionChecker)
 }

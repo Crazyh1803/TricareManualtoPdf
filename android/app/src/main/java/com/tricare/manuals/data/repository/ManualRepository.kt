@@ -6,7 +6,7 @@ import com.tricare.manuals.data.db.SectionDao
 import com.tricare.manuals.data.model.Bookmark
 import com.tricare.manuals.data.model.Manual
 import com.tricare.manuals.data.model.Section
-import com.tricare.manuals.data.network.TricareWebClient
+import com.tricare.manuals.data.network.MirrorClient
 import com.tricare.manuals.data.network.VersionChecker
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -19,17 +19,22 @@ class ManualRepository @Inject constructor(
     private val manualDao: ManualDao,
     private val sectionDao: SectionDao,
     private val bookmarkDao: BookmarkDao,
-    private val webClient: TricareWebClient,
+    private val mirror: MirrorClient,
     private val versionChecker: VersionChecker
 ) {
 
     companion object {
-        // The four TRICARE manuals with their codes and display names
+        // Fallback list, used only when the mirror's manifest cannot be read
+        // (first run while offline). The manifest is the real source: it also
+        // carries FR16, which was added to the scraper and the website months
+        // ago but never to this list — seeding from the manifest is what stops
+        // the two drifting apart again.
         val KNOWN_MANUALS = listOf(
             Manual(code = "TOT5", name = "TRICARE Operations Manual"),
             Manual(code = "TPT5", name = "TRICARE Policy Manual"),
             Manual(code = "TRT5", name = "TRICARE Reimbursement Manual"),
-            Manual(code = "TST5", name = "TRICARE Systems Manual")
+            Manual(code = "TST5", name = "TRICARE Systems Manual"),
+            Manual(code = "FR16", name = "32 CFR Part 199")
         )
     }
 
@@ -37,7 +42,12 @@ class ManualRepository @Inject constructor(
 
     suspend fun ensureDefaultManualsExist() {
         withContext(Dispatchers.IO) {
-            for (manual in KNOWN_MANUALS) {
+            // Prefer the published manifest so a manual added to the scraper
+            // shows up without an app release; fall back to the built-in list
+            // when it cannot be reached.
+            val fromMirror = mirror.fetchManuals()
+                ?.map { Manual(code = it.code, name = it.name) }
+            for (manual in fromMirror ?: KNOWN_MANUALS) {
                 val existing = manualDao.getManual(manual.code)
                 if (existing == null) {
                     manualDao.upsertManual(manual)
@@ -46,7 +56,7 @@ class ManualRepository @Inject constructor(
         }
     }
 
-    fun getNetworkError(): String = webClient.lastError
+    fun getNetworkError(): String = mirror.lastError
 
     suspend fun checkLatestVersion(code: String): Int? {
         return withContext(Dispatchers.IO) {

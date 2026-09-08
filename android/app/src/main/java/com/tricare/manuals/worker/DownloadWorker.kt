@@ -21,14 +21,13 @@ import androidx.work.workDataOf
 import com.tricare.manuals.data.db.ManualDao
 import com.tricare.manuals.data.db.SectionDao
 import com.tricare.manuals.data.model.Section
+import com.tricare.manuals.data.network.MirrorClient
 import com.tricare.manuals.data.network.TocParser
-import com.tricare.manuals.data.network.TricareWebClient
 import com.tricare.manuals.data.repository.ManualRepository
 import com.tricare.manuals.util.appDataStore
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
 import java.io.BufferedWriter
@@ -38,7 +37,7 @@ import java.io.File
 class DownloadWorker @AssistedInject constructor(
     @Assisted appContext: Context,
     @Assisted params: WorkerParameters,
-    private val webClient: TricareWebClient,
+    private val mirror: MirrorClient,
     private val tocParser: TocParser,
     private val manualDao: ManualDao,
     private val sectionDao: SectionDao
@@ -56,7 +55,9 @@ class DownloadWorker @AssistedInject constructor(
         const val KEY_FILE_PATH = "file_path"
 
         private val WIFI_ONLY_KEY = booleanPreferencesKey("wifi_only_downloads")
-        private const val BASE_TOC_URL = "https://manuals.health.mil/pages/ManualToc.aspx?Manual="
+        // Content comes from the project's published mirror, not from the
+        // manuals site: see MirrorClient for why a browserless client cannot
+        // read the site directly any more.
         private const val CHANNEL_ID = "tricare_download"
         private const val NOTIFICATION_ID = 1001
     }
@@ -85,88 +86,72 @@ class DownloadWorker @AssistedInject constructor(
                     KEY_ETA_SECONDS to -1L
                 ))
 
-                // 1. Fetch the main TOC page for the requested change
-                val tocUrl = "$BASE_TOC_URL$code&Change=$changeNum"
-                val tocHtml = webClient.fetchHtml(tocUrl)
+                // 1. Read the manual's table of contents from the mirror.
+                val toc = mirror.fetchToc(code)
                     ?: return@withContext Result.failure(
-                        workDataOf(KEY_ERROR_REASON to "Failed to fetch TOC: $tocUrl")
+                        workDataOf(
+                            KEY_ERROR_REASON to
+                                "Could not read the table of contents for $code. " +
+                                mirror.lastError
+                        )
                     )
+                val (mirrorChange, allSections) = toc
 
-                // 2. Find chapter TOC links
-                val allLinks = tocParser.parseChapterTocUrls(tocHtml, tocUrl)
-                val chapterTocLinks = allLinks.filter { url ->
-                    val filename = url.substringAfterLast('/').substringBefore('?')
-                    tocParser.isChapterToc(filename)
-                }
+                // Chapter TOC entries are navigation the app builds for itself;
+                // they have no stored file.
+                val contentSections = allSections.filter { !it.isChapterToc }
 
-                // 3. Collect all section URLs — pre-seed seen with chapter TOC URLs
-                //    so they are never added as section content (deduplication).
-                val seenUrls = chapterTocLinks.toMutableSet()
-                val sectionUrls = mutableListOf<String>()
-
-                // Direct section links from the main TOC
-                allLinks.forEach { url ->
-                    val filename = url.substringAfterLast('/').substringBefore('?')
-                    if (!tocParser.isChapterToc(filename) && seenUrls.add(url)) {
-                        sectionUrls.add(url)
-                    }
-                }
-
-                // Section links from each chapter TOC
-                for (chapterUrl in chapterTocLinks) {
-                    delay(randomDelay())
-                    val chapterHtml = webClient.fetchHtml(chapterUrl) ?: continue
-                    tocParser.parseChapterTocUrls(chapterHtml, chapterUrl).forEach { url ->
-                        val filename = url.substringAfterLast('/').substringBefore('?')
-                        if (!tocParser.isChapterToc(filename) && seenUrls.add(url)) {
-                            sectionUrls.add(url)
-                        }
-                    }
-                }
-
-                val sortedUrls = tocParser.naturalSort(sectionUrls)
-
-                if (sortedUrls.isEmpty()) {
+                if (contentSections.isEmpty()) {
                     return@withContext Result.failure(
                         workDataOf(
                             KEY_ERROR_REASON to
-                                "No sections found for $code Change $changeNum. " +
-                                "TOC had ${allLinks.size} links, " +
-                                "${chapterTocLinks.size} chapter TOCs. " +
-                                "First link: ${allLinks.firstOrNull() ?: "none"}"
+                                "No sections listed for $code (change $mirrorChange)."
                         )
                     )
                 }
 
-                val total = sortedUrls.size
+                // The mirror holds one change per manual, so a request for an
+                // older one cannot be served. Say so rather than silently
+                // handing back different content than was asked for.
+                if (changeNum > 0 && changeNum != mirrorChange) {
+                    return@withContext Result.failure(
+                        workDataOf(
+                            KEY_ERROR_REASON to
+                                "Change $changeNum is no longer available for $code; " +
+                                "the current change is $mirrorChange."
+                        )
+                    )
+                }
+
+                val total = contentSections.size
                 setProgress(workDataOf(
                     KEY_MANUAL_PROGRESS to code,
                     KEY_PROGRESS_CURRENT to 0,
                     KEY_PROGRESS_TOTAL to total,
                     KEY_ETA_SECONDS to -1L
                 ))
-                setForeground(createForegroundInfo(code, changeNum, 0, total, null))
+                setForeground(createForegroundInfo(code, mirrorChange, 0, total, null))
 
-                // 4. Download each section
-                //    Always extract markdown content regardless of output format so
-                //    both MD and PDF outputs have real readable text.
+                // 2. Fetch each section's stored HTML and convert it to markdown,
+                //    regardless of output format, so both MD and PDF carry real
+                //    readable text.
                 val sections = mutableListOf<Section>()
                 var current = 0
                 val loopStartMs = System.currentTimeMillis()
                 var lastNotifUpdateMs = 0L
 
-                for (url in sortedUrls) {
-                    delay(randomDelay())
-                    val html = webClient.fetchHtml(url) ?: continue
-                    val filename = url.substringAfterLast('/').substringBefore('?').substringBefore('#')
-                    val title = tocParser.extractTitle(html)
+                for (s in contentSections) {
+                    val html = mirror.fetchSectionHtml(code, s.id) ?: continue
                     val contentMd = tocParser.htmlToMarkdown(html)
 
                     sections.add(Section(
                         manualCode = code,
-                        change = changeNum,
-                        filename = filename,
-                        title = title,
+                        change = mirrorChange,
+                        filename = s.name,
+                        // The mirror's title comes from the publication page's
+                        // own link text, which is better than anything that can
+                        // be recovered from the section body.
+                        title = s.title.ifBlank { s.name },
                         sortOrder = current,
                         contentMd = contentMd
                     ))
@@ -186,7 +171,7 @@ class DownloadWorker @AssistedInject constructor(
 
                     val now = System.currentTimeMillis()
                     if (now - lastNotifUpdateMs >= 3000) {
-                        setForeground(createForegroundInfo(code, changeNum, current, total, etaSeconds))
+                        setForeground(createForegroundInfo(code, mirrorChange, current, total, etaSeconds))
                         lastNotifUpdateMs = now
                     }
                 }
@@ -195,12 +180,12 @@ class DownloadWorker @AssistedInject constructor(
                 //    Android 10+ (API 29+): MediaStore.Downloads — no permission needed.
                 //    Android 9 and below: direct file write (WRITE_EXTERNAL_STORAGE granted by user).
                 val ext = if (format == "pdf") "pdf" else "md"
-                val fileName = "${code}_change${changeNum}.$ext"
+                val fileName = "${code}_change${mirrorChange}.$ext"
 
                 val filePath = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    writeViaMediaStore(fileName, code, changeNum, sections)
+                    writeViaMediaStore(fileName, code, mirrorChange, sections)
                 } else {
-                    writeViaLegacy(fileName, code, changeNum, sections)
+                    writeViaLegacy(fileName, code, mirrorChange, sections)
                 } ?: return@withContext Result.failure(
                     workDataOf(KEY_ERROR_REASON to "Failed to write file to Downloads folder")
                 )
@@ -209,14 +194,14 @@ class DownloadWorker @AssistedInject constructor(
                 //    Do this RIGHT AFTER the file is written so the card updates
                 //    correctly even if the section-cache insert below fails.
                 manualDao.updateDownloadInfo(
-                    code, changeNum, format, filePath, System.currentTimeMillis()
+                    code, mirrorChange, format, filePath, System.currentTimeMillis()
                 )
 
                 // 7. Cache section content in DB for in-app reader (best-effort).
                 //    A failure here does NOT roll back the download — the file is
                 //    already on disk and the manual is already marked complete.
                 try {
-                    sectionDao.clearSections(code, changeNum)
+                    sectionDao.clearSections(code, mirrorChange)
                     sectionDao.insertSections(sections)
                 } catch (e: Exception) {
                     // Non-fatal: reader will fall back to the file on disk
@@ -402,5 +387,4 @@ class DownloadWorker @AssistedInject constructor(
         return caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
     }
 
-    private fun randomDelay(): Long = (2000L + (Math.random() * 3000).toLong())
 }

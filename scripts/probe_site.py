@@ -1,92 +1,100 @@
 #!/usr/bin/env python3
-"""Throwaway diagnostic #5: is /api/publication/... fetchable without a browser?
+"""Throwaway diagnostic #6: can the Android app reach the new site directly?
 
-Probe #4 found that every section anchor carries
-    hx-get="/api/publication/{CODE}/{REVISION}/{FILENAME}"
-    hx-target="#publication-document" hx-swap="innerHTML"
-so htmx pulls the document fragment from that endpoint. If plain HTTP can
-reach it, content fetching drops Playwright entirely and the fragment needs no
-extraction — it is already the document.
+The app fetches with plain OkHttp — no browser, and OkHttp keeps no cookie jar
+by default. Two questions decide whether a URL swap is even possible, or
+whether the app has to read from our own published mirror instead:
 
-Tests, in order of how much we would have to keep:
-  1. plain GET, no special headers
-  2. plain GET with htmx's own HX-Request headers
-  3. the same via a browser context, as the control
+  A. Section content. Probe #5 showed a *fresh, cookie-less* request with
+     htmx's headers gets the real document, while our scraper's session — which
+     had picked up a cookie from visiting the site root — was refused. If
+     cookie-less access holds up over a realistic run of requests, the app can
+     fetch content directly. This makes 25 sequential requests and counts how
+     many return content rather than the interstitial.
 
-Also checks whether the fragment carries the manual's own title elements, so
-titles can come from the content when link text is unavailable.
+  B. Section discovery. The publication page is a Blazor shell over plain HTTP
+     (~6 KB, no links). Without a browser the app cannot learn which sections
+     exist. This confirms that, and checks whether the master TOC document —
+     which IS reachable through the content API — lists them instead.
 
-Delete once the retarget is done.
+Delete once the Android retarget is done.
 """
-import asyncio, sys
+import re, sys, time
 import requests
 from bs4 import BeautifulSoup
-from playwright.async_api import async_playwright
 
 BASE = "https://manuals.dha.mil"
-UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
-TARGETS = [("FR16", 20, "C1"), ("TPT5", 56, "C1S1_1")]
+UA = ("Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 "
+      "(KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36")
+CHALLENGE = "Please enable JavaScript to view the page content"
+
+SECTIONS = [f"C{c}S{s}_1" for c in (1, 2, 3) for s in (1, 2, 3, 4, 5)] + \
+           [f"C4S{s}_1" for s in range(1, 11)]
 
 
-def describe(label, text):
-    soup = BeautifulSoup(text, "html.parser")
-    body = soup.get_text(" ", strip=True)
-    print(f"    {label}: {len(text)}B raw, {len(body)} chars text")
-    print(f"      starts: {body[:160]!r}")
-    for sel in ("#publication-document", "article", ".Header", ".MPChapterTitle",
-                ".Chapter", ".CFRSubject", ".Section", "nav", "#leftNav"):
-        found = soup.select(sel)
-        if found:
-            print(f"      {sel!r}: {len(found)}  first={found[0].get_text(' ', strip=True)[:60]!r}")
+def hx_headers(code):
+    return {
+        "User-Agent": UA,
+        "HX-Request": "true",
+        "HX-Target": "publication-document",
+        "Referer": f"{BASE}/View-Publication/{code}",
+    }
 
 
-def plain(url, headers=None):
+print("=== A. 25 cookie-less content requests (no session, htmx headers) ===")
+ok = challenged = other = 0
+first_fail = None
+t0 = time.monotonic()
+for i, fn in enumerate(SECTIONS[:25], 1):
+    url = f"{BASE}/api/publication/TPT5/56/{fn}"
     try:
-        r = requests.get(url, headers={"User-Agent": UA, **(headers or {})}, timeout=45)
-        return r
+        # A brand-new connection each time, exactly like OkHttp with no cookie jar.
+        r = requests.get(url, headers=hx_headers("TPT5"), timeout=45)
     except Exception as e:
-        print(f"    ERROR {type(e).__name__}: {e}")
-        return None
+        other += 1
+        print(f"  {i:2}. {fn:10} ERROR {type(e).__name__}")
+        continue
+    body = r.text
+    if r.status_code != 200:
+        other += 1
+        state = f"HTTP {r.status_code}"
+    elif CHALLENGE in body:
+        challenged += 1
+        state = "CHALLENGED"
+        if first_fail is None:
+            first_fail = (i, round(time.monotonic() - t0))
+    else:
+        ok += 1
+        state = f"ok {len(body):,}B"
+    print(f"  {i:2}. {fn:10} {state}")
+    time.sleep(1.5)
 
+print(f"\n  content={ok}  challenged={challenged}  other={other}  "
+      f"elapsed={round(time.monotonic()-t0)}s")
+if first_fail:
+    print(f"  first refusal at request {first_fail[0]} after {first_fail[1]}s")
+else:
+    print("  no refusals — cookie-less access held for the whole run")
 
-async def via_browser(url):
-    async with async_playwright() as pw:
-        b = await pw.chromium.launch(args=["--disable-blink-features=AutomationControlled"])
-        ctx = await b.new_context(user_agent=UA)
-        try:
-            r = await ctx.request.get(url, headers={"HX-Request": "true"})
-            return r.status, await r.text()
-        finally:
-            await ctx.close(); await b.close()
+print("\n=== B. Can a browserless client discover sections? ===")
+r = requests.get(f"{BASE}/View-Publication/TPT5", headers={"User-Agent": UA}, timeout=45)
+soup = BeautifulSoup(r.text, "html.parser")
+links = [a["href"] for a in soup.find_all("a", href=True) if "/FileName/" in a["href"]]
+print(f"  publication page: HTTP {r.status_code}, {len(r.content)}B, "
+      f"{len(links)} section link(s)")
 
-
-for code, rev, fn in TARGETS:
-    url = f"{BASE}/api/publication/{code}/{rev}/{fn}"
-    print(f"\n=== {url} ===")
-
-    print("  1. plain GET")
-    r = plain(url)
-    if r is not None:
-        print(f"    HTTP {r.status_code}  {r.headers.get('content-type','')}")
-        if r.status_code == 200:
-            describe("body", r.text)
-
-    print("  2. plain GET with htmx headers")
-    r2 = plain(url, {"HX-Request": "true", "HX-Target": "publication-document",
-                     "Referer": f"{BASE}/View-Publication/{code}"})
-    if r2 is not None:
-        print(f"    HTTP {r2.status_code}  {r2.headers.get('content-type','')}")
-        if r2.status_code == 200:
-            describe("body", r2.text)
-
-    print("  3. browser context (control)")
-    try:
-        status, text = asyncio.run(via_browser(url))
-        print(f"    HTTP {status}")
-        if status == 200:
-            describe("body", text)
-    except Exception as e:
-        print(f"    ERROR {type(e).__name__}: {e}")
+r2 = requests.get(f"{BASE}/api/publication/TPT5/56/TPT5TOC",
+                  headers=hx_headers("TPT5"), timeout=45)
+print(f"  master TOC via content API: HTTP {r2.status_code}, {len(r2.content)}B")
+if r2.status_code == 200 and CHALLENGE not in r2.text:
+    s2 = BeautifulSoup(r2.text, "html.parser")
+    hrefs = [a.get("href", "") for a in s2.find_all("a", href=True)]
+    fn = [h for h in hrefs if "/FileName/" in h]
+    hx = [a.get("hx-get", "") for a in s2.find_all(attrs={"hx-get": True})]
+    print(f"    {len(hrefs)} href(s), {len(fn)} with /FileName/, {len(hx)} hx-get")
+    for h in (fn or hx)[:5]:
+        print(f"      {h}")
+    if not fn and not hx:
+        print(f"    text sample: {s2.get_text(' ', strip=True)[:300]!r}")
 
 print("\nProbe complete.")

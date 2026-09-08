@@ -200,6 +200,13 @@ EARLY_ABORT_SAMPLE = 10
 # EARLY_ABORT_SAMPLE, because a refused session will not recover on its own.
 CHALLENGE_ABORT_AFTER = 3
 
+# How long a browser-established session lasts before the site stops honouring
+# it. Measured, not guessed: TPT5 fetched 253 sections cleanly and was refused
+# on the 254th exactly 10m09s in, while TOT5 finished in 10m04s and TRT5 in
+# 6m47s and neither saw a single challenge. The session is renewed before that
+# ceiling rather than after, since a refusal costs a wasted request.
+SESSION_REFRESH_SECS = 8 * 60
+
 # How long to let a section page settle after navigation. The retry pass uses
 # the slower value together with wait_until="networkidle", to give genuinely
 # slow JS-rendered pages a second chance before they are written off.
@@ -361,6 +368,59 @@ async def _launch_context(pw):
     return browser, ctx
 
 
+async def _open_publication(code: str):
+    """Load a manual's publication page in Chromium; return (body, links, cookies).
+
+    Shared by discovery and session renewal: both need a real browser to visit
+    the page and run the bot-defence challenge, and renewal gets the revision
+    and link list for free.
+    """
+    url = PUBLICATION_URL.format(code=code)
+    async with async_playwright() as pw:
+        browser, ctx = await _launch_context(pw)
+        page = await ctx.new_page()
+        try:
+            try:
+                await page.goto(url, wait_until="networkidle", timeout=60_000)
+            except Exception as e:
+                print(f"  [{code}] goto failed ({e}); continuing with whatever rendered",
+                      file=sys.stderr)
+            await page.wait_for_timeout(4_000)
+            body = ""
+            try:
+                body = await page.inner_text("body")
+            except Exception:
+                pass
+            pairs = await page.eval_on_selector_all(
+                "a[href]",
+                "els => els.map(e => [e.getAttribute('href'), (e.innerText || '').trim()])",
+            )
+            cookies = await ctx.cookies()
+        finally:
+            try:
+                await page.close()
+            except Exception:
+                pass
+            await ctx.close()
+            await browser.close()
+    return body, pairs, cookies
+
+
+def renew_session(code: str) -> float:
+    """Re-establish the HTTP session's cookies through the browser.
+
+    The site expires a session about ten minutes after it is created, and then
+    answers every request with the interstitial instead of content. Visiting
+    the publication page again in Chromium re-runs the challenge exactly as a
+    reader leaving a tab open would, so long manuals continue rather than
+    stopping two thirds of the way through.
+    """
+    print(f"  [{code}] Renewing the browser session…")
+    _, _, cookies = asyncio.run(_open_publication(code))
+    adopt_browser_cookies(cookies)
+    return time.monotonic()
+
+
 async def fetch_publication(code: str) -> tuple[int | None, str, list[tuple[str, str]]]:
     """Read a manual's revision number and every section link from one page.
 
@@ -376,53 +436,7 @@ async def fetch_publication(code: str) -> tuple[int | None, str, list[tuple[str,
     carried out because every section page shares one generic <title>; the
     publication page is the only place a real title is available.
     """
-    url = PUBLICATION_URL.format(code=code)
-    cookies: list[dict] = []
-    async with async_playwright() as pw:
-        browser, ctx = await _launch_context(pw)
-        page = await ctx.new_page()
-        try:
-            try:
-                await page.goto(url, wait_until="networkidle", timeout=60_000)
-            except Exception as e:
-                print(f"  [{code}] goto failed ({e}); continuing with whatever rendered",
-                      file=sys.stderr)
-            await page.wait_for_timeout(4_000)
-
-            body = ""
-            try:
-                body = await page.inner_text("body")
-            except Exception:
-                pass
-
-            pairs = await page.eval_on_selector_all(
-                "a[href]",
-                "els => els.map(e => [e.getAttribute('href'), (e.innerText || '').trim()])",
-            )
-            cookies = await ctx.cookies()
-        finally:
-            try:
-                await page.close()
-            except Exception:
-                pass
-            await ctx.close()
-            await browser.close()
-
-    links: list[tuple[str, str]] = []
-    seen: set[str] = set()
-    revisions: set[int] = set()
-    for href, text in pairs:
-        if not href:
-            continue
-        m = _FILENAME_RE.search(href)
-        if not m or m.group(1).upper() != code.upper():
-            continue
-        revisions.add(int(m.group(2)))
-        full = urljoin(BASE_URL, href.split("?", 1)[0])
-        if full in seen:
-            continue
-        seen.add(full)
-        links.append((full, text))
+    body, pairs, cookies = await _open_publication(code)
 
     # Hand the browser's session to the HTTP client. The content endpoint is
     # behind bot defence that decides per session, not per request: a client
@@ -708,8 +722,16 @@ def fetch_sections(code: str, sections: list[dict]) -> tuple[list[tuple[str, str
     # Read before any writes — the loop below only buffers, so the files on
     # disk still hold the previous run's content while we are fetching.
     previous = load_previous_sections(code)
+    # The publication page was fetched moments ago by process_manual, so the
+    # session starts its clock here.
+    session_started = time.monotonic()
 
     for s in sections:
+        # Renew before the site stops honouring the session, rather than
+        # discovering it has lapsed by being refused.
+        if time.monotonic() - session_started > SESSION_REFRESH_SECS:
+            session_started = renew_session(code)
+
         # Give up on this manual rather than running until the job is killed.
         if manual_time_exhausted():
             raise RuntimeError(
@@ -722,6 +744,7 @@ def fetch_sections(code: str, sections: list[dict]) -> tuple[list[tuple[str, str
         content = RETRIEVAL_FAILED_HTML
         ok = False
         challenge = False
+        renewed_here = False
         for attempt in range(1, SECTION_FETCH_ATTEMPTS + 1):
             # get() already paces requests and retries transport errors; this
             # outer loop exists for the case that matters more here — a 200
@@ -729,8 +752,15 @@ def fetch_sections(code: str, sections: list[dict]) -> tuple[list[tuple[str, str
             # serves the bot-defence interstitial instead of the document.
             raw = fetch_section_html(s["url"])
             if is_challenge_page(raw):
-                # A refusal, not a hiccup: retrying earns three interstitials
-                # instead of one and pushes ~50s of backoff per section.
+                if not renewed_here:
+                    # Most likely the session simply lapsed. Re-establish it
+                    # through the browser and try this section once more
+                    # before treating the refusal as real.
+                    renewed_here = True
+                    session_started = renew_session(code)
+                    continue
+                # A refusal that survives a fresh session: retrying the same
+                # request earns another interstitial, not content.
                 challenge = True
                 break
             if raw.strip():

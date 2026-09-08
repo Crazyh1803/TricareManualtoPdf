@@ -50,6 +50,7 @@ jobs:
       #    Reading web's data into the runner fixes both. Nothing is pushed
       #    back to main — main's docs/data/ stays as-is.
       - name: Seed docs/data from web branch
+        id: seed
         run: |
           git fetch origin web
           rm -rf docs/data
@@ -73,6 +74,10 @@ jobs:
 
       # 6. Run scraper
       - name: Fetch manual content
+        # Step-level cap below the job's 120. Hitting a *step* timeout fails the
+        # step and lets the commit step below still run; hitting the *job*
+        # timeout cancels everything and publishes nothing.
+        timeout-minutes: 110
         run: |
           CODE_ARG=""
           FORCE_ARG=""
@@ -82,10 +87,27 @@ jobs:
           if [ "${{ github.event.inputs.force }}" = "true" ]; then
             FORCE_ARG="--force"
           fi
-          python scripts/fetch_manuals.py $CODE_ARG $FORCE_ARG
+          # -u keeps stdout unbuffered. Python buffers stdout when it is a
+          # pipe, so a job killed at the 2-hour cap flushes nothing: the
+          # 2026-09-07 timeout logged two hours of complete silence, leaving
+          # no way to tell where it had got stuck.
+          python -u scripts/fetch_manuals.py $CODE_ARG $FORCE_ARG
 
       # 7. Commit updated data files to the web branch (where GitHub Pages serves from)
+      #    always() so partial progress still gets published. The scraper writes
+      #    each manual's files only after that manual has been fetched and passed
+      #    its quality guards, so a run that fails or is cancelled part-way leaves
+      #    completed manuals on disk intact — publishing them is strictly better
+      #    than throwing the whole run away (which is what happened when the
+      #    2026-09-07 run hit the 2-hour cap). The job still reports red, so a
+      #    failure is not hidden. If nothing was scraped the diff is empty and
+      #    this step no-ops.
       - name: Commit updated content to web branch
+        # Guarded on the seed step: without a successful seed, docs/data is
+        # main's frozen May-2026 snapshot, and publishing that would reset every
+        # manual's live content — the exact clobbering bug step 2 exists to
+        # prevent.
+        if: always() && steps.seed.outcome == 'success'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

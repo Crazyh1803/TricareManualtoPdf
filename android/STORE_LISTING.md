@@ -14,13 +14,12 @@ reader and from Settings > About.
 ## App name (30 chars max)
 
 ```
-TRICARE Manuals Reader
+TRICARE Manuals
 ```
 
-Note: consider whether the name should carry "Unofficial". The current name
-reads as though it could be published by TRICARE, which is part of what the
-policy is concerned with. `Unofficial TRICARE Manuals` is 26 characters and
-removes the ambiguity at the point where most users first see the app.
+Keeping the existing name — decided by the owner. The unofficial status is
+carried by the short description, the full description, and the in-app
+disclaimer on the first screen rather than by the name itself.
 
 ## Short description (80 chars max)
 
@@ -83,7 +82,6 @@ https://crazyh1803.github.io/TricareManualtoPdf/privacy_policy.html
 ## Checklist before resubmitting
 
 - [ ] Paste the descriptions above into Play Console
-- [ ] Decide on the app name (see the note above about "Unofficial")
 - [ ] Confirm the in-app disclaimer is visible on first launch
 - [ ] Confirm "View official page" opens manuals.dha.mil from the reader
 - [ ] Confirm Settings > About shows the full disclaimer and the source link

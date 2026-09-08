@@ -447,6 +447,22 @@ async def fetch_publication(code: str) -> tuple[int | None, str, list[tuple[str,
     # works — the first FR16 run was refused on all 10 sections it tried.
     adopt_browser_cookies(cookies)
 
+    links: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    revisions: set[int] = set()
+    for href, text in pairs:
+        if not href:
+            continue
+        m = _FILENAME_RE.search(href)
+        if not m or m.group(1).upper() != code.upper():
+            continue
+        revisions.add(int(m.group(2)))
+        full = urljoin(BASE_URL, href.split("?", 1)[0])
+        if full in seen:
+            continue
+        seen.add(full)
+        links.append((full, text))
+
     published = ""
     revision: int | None = None
     m = _REVISION_RE.search(body)

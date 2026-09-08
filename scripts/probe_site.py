@@ -1,138 +1,92 @@
 #!/usr/bin/env python3
-"""Throwaway diagnostic #3: everything needed to write the new scraper.
+"""Throwaway diagnostic #5: is /api/publication/... fetchable without a browser?
 
-Probe #2 settled that plain HTTP gets only a ~5.8 KB SPA shell — no links, no
-title, no revision — so Playwright stays. This is the last probe: it collects
-the concrete details the rewrite needs.
+Probe #4 found that every section anchor carries
+    hx-get="/api/publication/{CODE}/{REVISION}/{FILENAME}"
+    hx-target="#publication-document" hx-swap="innerHTML"
+so htmx pulls the document fragment from that endpoint. If plain HTTP can
+reach it, content fetching drops Playwright entirely and the fragment needs no
+extraction — it is already the document.
 
-  A. Per manual: revision number, published date, manual name, link count.
-  B. One section page: which DOM node holds the content, and a sample of its
-     HTML, so the extractor can be written against something real.
-  C. Every network request the page makes, so a JSON API (if one exists) is
-     not missed — probe #1 only logged json content-types and caught a CSS
-     file on an /api/ path, which hints there is more under /api/.
+Tests, in order of how much we would have to keep:
+  1. plain GET, no special headers
+  2. plain GET with htmx's own HX-Request headers
+  3. the same via a browser context, as the control
+
+Also checks whether the fragment carries the manual's own title elements, so
+titles can come from the content when link text is unavailable.
 
 Delete once the retarget is done.
 """
-import asyncio, re, sys
+import asyncio, sys
+import requests
+from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
 
 BASE = "https://manuals.dha.mil"
-CODES = ["TOT5", "TPT5", "TRT5", "TST5", "FR16"]
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
-REV_RE = re.compile(r"Revision\s+(\d+)\s*\(Published\s*([^)]*)\)", re.I)
+TARGETS = [("FR16", 20, "C1"), ("TPT5", 56, "C1S1_1")]
 
 
-async def main():
+def describe(label, text):
+    soup = BeautifulSoup(text, "html.parser")
+    body = soup.get_text(" ", strip=True)
+    print(f"    {label}: {len(text)}B raw, {len(body)} chars text")
+    print(f"      starts: {body[:160]!r}")
+    for sel in ("#publication-document", "article", ".Header", ".MPChapterTitle",
+                ".Chapter", ".CFRSubject", ".Section", "nav", "#leftNav"):
+        found = soup.select(sel)
+        if found:
+            print(f"      {sel!r}: {len(found)}  first={found[0].get_text(' ', strip=True)[:60]!r}")
+
+
+def plain(url, headers=None):
+    try:
+        r = requests.get(url, headers={"User-Agent": UA, **(headers or {})}, timeout=45)
+        return r
+    except Exception as e:
+        print(f"    ERROR {type(e).__name__}: {e}")
+        return None
+
+
+async def via_browser(url):
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(args=["--disable-blink-features=AutomationControlled"])
-        ctx = await browser.new_context(user_agent=UA, viewport={"width": 1440, "height": 900})
-
-        requests_seen = []
-        first_section = None
-
-        print("\n=== A. Revision of each tracked manual ===")
-        for code in CODES:
-            page = await ctx.new_page()
-            page.on("request", lambda r: requests_seen.append((r.method, r.url,
-                                                              r.resource_type)))
-            url = f"{BASE}/View-Publication/{code}"
-            try:
-                await page.goto(url, wait_until="networkidle", timeout=60_000)
-            except Exception as e:
-                print(f"  {code}: goto failed: {e}")
-                await page.close()
-                continue
-            await page.wait_for_timeout(4_000)
-
-            title = await page.title()
-            body = await page.inner_text("body")
-            m = REV_RE.search(body)
-            hrefs = await page.eval_on_selector_all(
-                "a[href]", "els => els.map(e => e.getAttribute('href'))")
-            fn = [h for h in hrefs if h and "/FileName/" in h]
-            tocs = [h for h in fn if h.rstrip("/").upper().endswith("TOC")]
-
-            print(f"  {code}: revision={m.group(1) if m else '??'} "
-                  f"published={m.group(2).strip() if m else '??'} "
-                  f"| {len(fn)} section link(s), {len(tocs)} TOC-ish "
-                  f"| title={title!r}")
-            if code == "TPT5" and fn:
-                first_section = fn[0] if fn[0].startswith("http") else BASE + fn[0]
-                print(f"    sample links: {fn[:3]}")
-                print(f"    sample TOCs : {tocs[:3]}")
-            await page.close()
-
-        print("\n=== B. Structure of one section page ===")
-        if not first_section:
-            print("  no section link captured — cannot continue")
-        else:
-            page = await ctx.new_page()
-            print(f"  {first_section}")
-            try:
-                await page.goto(first_section, wait_until="networkidle", timeout=60_000)
-            except Exception as e:
-                print(f"  goto failed: {e}")
-            await page.wait_for_timeout(4_000)
-            print(f"  final url: {page.url}")
-            print(f"  title    : {await page.title()}")
-
-            info = await page.evaluate("""() => {
-                const out = [];
-                const walk = (el, depth) => {
-                    if (depth > 4) return;
-                    for (const c of el.children) {
-                        const txt = (c.innerText || '').trim();
-                        out.push({
-                            depth,
-                            tag: c.tagName.toLowerCase(),
-                            id: c.id || '',
-                            cls: (c.className && c.className.baseVal !== undefined
-                                  ? c.className.baseVal : c.className) || '',
-                            chars: txt.length,
-                        });
-                        walk(c, depth + 1);
-                    }
-                };
-                walk(document.body, 0);
-                return out;
-            }""")
-            print("\n  --- nodes with >200 chars of text (content candidates) ---")
-            for n in info:
-                if n["chars"] > 200:
-                    pad = "  " * n["depth"]
-                    print(f"    {pad}<{n['tag']} id={n['id']!r} class={str(n['cls'])[:60]!r}> "
-                          f"{n['chars']} chars")
-
-            for sel in ("main", "article", "#content", ".content", "#main-content",
-                        "[class*=publication]", "[class*=document]", "[class*=viewer]",
-                        "[class*=manual]", "iframe"):
-                try:
-                    c = await page.eval_on_selector_all(sel, "els => els.length")
-                except Exception:
-                    c = 0
-                if c:
-                    print(f"    selector {sel!r} matches {c}")
-
-            print("\n  --- first 1500 chars of visible text ---")
-            print("   ", (await page.inner_text("body"))[:1500].replace("\n", "\n    "))
-            await page.close()
-
-        print("\n=== C. Network requests (non-image), deduped ===")
-        seen = set()
-        for method, url, rtype in requests_seen:
-            if rtype in ("image", "font", "media"):
-                continue
-            key = (method, url.split("?")[0])
-            if key in seen:
-                continue
-            seen.add(key)
-            print(f"  {method:4} {rtype:12} {url[:160]}")
-
-        await browser.close()
-    print("\nProbe complete.")
+        b = await pw.chromium.launch(args=["--disable-blink-features=AutomationControlled"])
+        ctx = await b.new_context(user_agent=UA)
+        try:
+            r = await ctx.request.get(url, headers={"HX-Request": "true"})
+            return r.status, await r.text()
+        finally:
+            await ctx.close(); await b.close()
 
 
-if __name__ == "__main__":
-    asyncio.run(main())
+for code, rev, fn in TARGETS:
+    url = f"{BASE}/api/publication/{code}/{rev}/{fn}"
+    print(f"\n=== {url} ===")
+
+    print("  1. plain GET")
+    r = plain(url)
+    if r is not None:
+        print(f"    HTTP {r.status_code}  {r.headers.get('content-type','')}")
+        if r.status_code == 200:
+            describe("body", r.text)
+
+    print("  2. plain GET with htmx headers")
+    r2 = plain(url, {"HX-Request": "true", "HX-Target": "publication-document",
+                     "Referer": f"{BASE}/View-Publication/{code}"})
+    if r2 is not None:
+        print(f"    HTTP {r2.status_code}  {r2.headers.get('content-type','')}")
+        if r2.status_code == 200:
+            describe("body", r2.text)
+
+    print("  3. browser context (control)")
+    try:
+        status, text = asyncio.run(via_browser(url))
+        print(f"    HTTP {status}")
+        if status == 200:
+            describe("body", text)
+    except Exception as e:
+        print(f"    ERROR {type(e).__name__}: {e}")
+
+print("\nProbe complete.")

@@ -2,18 +2,20 @@
 """
 TRICARE Manuals — Content Scraper
 ==================================
-Fetches manual content from manuals.health.mil and writes static files
+Fetches manual content from manuals.dha.mil and writes static files
 to docs/data/ for consumption by the GitHub Pages web app.
 
-NOTE: manuals.health.mil uses DoD-signed certificates that are not in the
-standard CA bundle.  All requests use verify=False (SSL verification
-disabled) and Playwright uses ignore_https_errors=True — identical to the
-Android app's lenient OkHttp client.  All traffic is read-only public
-government documents.
+The old site, manuals.health.mil, was retired: every URL now redirects to the
+new site's home page, so the previous ASP.NET endpoints returned a valid but
+wrong page, which the scraper read as "no sections, already up to date".
 
-The ManualToc.aspx page renders its section tree via JavaScript, so we use
-Playwright (headless Chromium) to collect the section links, then fall back
-to plain requests for fetching the individual static HTML files.
+Each manual has one publication page listing its revision number and every
+section, so discovery is a single page load. Content is a Blazor app rendered
+client-side — a plain HTTP request gets back only a ~6 KB shell with no links,
+no title and no revision — so all fetching goes through Playwright (headless
+Chromium). The site sits behind bot defence; requests are paced and retried
+rather than parallelised, and the guards below refuse to publish a scrape that
+comes back empty instead of overwriting good data with it.
 
 Output layout:
   docs/data/manuals.json           — manual list with latestChange
@@ -52,8 +54,32 @@ from playwright.async_api import async_playwright
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ── Configuration ───────────────────────────────────────────────────────────
-BASE_URL  = "https://manuals.health.mil"
-TOC_URL   = BASE_URL + "/pages/ManualToc.aspx?Manual={code}&Change={change}"
+# manuals.health.mil was retired: it now redirects every URL — deep links
+# included — to this site's home page, so the old ASP.NET endpoints returned a
+# valid but wrong page and the scraper read that as "no sections, already up to
+# date". Nothing has been genuinely fetched since.
+BASE_URL = "https://manuals.dha.mil"
+
+# One page per manual lists every section in the publication, so there is no
+# per-chapter drilling any more. The revision number is printed on it.
+PUBLICATION_URL = BASE_URL + "/View-Publication/{code}"
+
+# Section content comes from the endpoint the site's own front end uses. Each
+# link on the publication page carries hx-get="/api/publication/<code>/<rev>/
+# <file>" and htmx swaps that fragment into #publication-document, so the
+# endpoint returns the document itself — no page chrome, no Alpine wrapper, no
+# loading overlay. Fetching it directly is both cleaner and far cheaper than
+# driving a browser to every section.
+SECTION_API_URL = BASE_URL + "/api/publication/{code}/{revision}/{name}"
+
+# The endpoint answers an unadorned request with the bot-defence interstitial
+# ("Please enable JavaScript to view the page content. Your support ID is …",
+# ~6 KB). Sending the same headers htmx does gets the real document, verified
+# byte-for-byte against a browser fetch of the same URL.
+HX_HEADERS = {
+    "HX-Request": "true",
+    "HX-Target": "publication-document",
+}
 REPO_ROOT = Path(__file__).parent.parent.resolve()
 DATA_DIR  = REPO_ROOT / "docs" / "data"
 MANUALS_JSON = DATA_DIR / "manuals.json"
@@ -69,7 +95,7 @@ HEADERS = {
 }
 
 # Throttle between individual section HTTP requests (seconds).
-# manuals.health.mil rate-limits aggressively; 0.5s was too fast.
+# The site rate-limits aggressively; 0.5s was too fast.
 REQUEST_DELAY = 1.5
 
 # Cooldown between processing different manuals (seconds).
@@ -116,9 +142,8 @@ FAILED_SECTION_COOLDOWN = 20.0
 # single-shot, and since the forward walk stops at the first failure, one
 # throttled probe silently caps the detected version (TPT5 came back as 55 on
 # one run and 51 on another with identical code).
+# Retained for the publication-page load, which is the only probe left.
 PROBE_DELAY = 1.5
-PROBE_ATTEMPTS = 2
-PROBE_RETRY_DELAY = 6.0
 
 # How many change numbers past the known one to probe when detecting the
 # latest version.  The walk breaks at the first candidate that fails, so in
@@ -155,10 +180,25 @@ MAX_FAILED_SECTION_RATIO = 0.5
 # are kilobytes, so anything this small is a failure however it was produced.
 MIN_SECTION_CONTENT_CHARS = 200
 
+# The bot-defence interstitial the site serves instead of a document. It is
+# returned with HTTP 200 and a plausible body, so it has to be recognised by
+# its text. Retrying it is pointless — it is a definitive refusal, not a
+# transient error — and backing off three times per section is what turns a
+# blocked run into ten minutes of waiting before the abort guard fires.
+CHALLENGE_MARKERS = (
+    "Please enable JavaScript to view the page content",
+    "Your support ID is",
+)
+
 # If this many sections are attempted and every one comes back empty, stop
 # immediately rather than working through hundreds of doomed requests against
 # a government server before the ratio check fires at the end.
 EARLY_ABORT_SAMPLE = 10
+
+# How many interstitials in a row before giving up on the manual. More than
+# one, so a single odd response does not abandon a run; far fewer than
+# EARLY_ABORT_SAMPLE, because a refused session will not recover on its own.
+CHALLENGE_ABORT_AFTER = 3
 
 # How long to let a section page settle after navigation. The retry pass uses
 # the slower value together with wait_until="networkidle", to give genuinely
@@ -172,16 +212,20 @@ STRIP_SELECTORS = [
     ".navbar", ".breadcrumb", ".breadcrumbs",
     "[role='banner']", "[role='navigation']",
     "script", "style", "noscript",
-    "#dnn_ContentPane > .dnnFormItem",
+    # New-site chrome. #leftNav is the in-page chapter tree that sits as a
+    # sibling of the content column, and .no-print marks the controls the site
+    # itself excludes from print — both are navigation, not manual text.
+    "#leftNav", ".no-print", "#gov-banner", ".usa-banner",
 ]
 
-# Selectors for the main content area (tried in order)
+# Selectors for the main content area (tried in order). The section body is a
+# single stable node on the new site; the rest are fallbacks so a markup change
+# degrades to "too much chrome" rather than to nothing at all.
 CONTENT_SELECTORS = [
-    "#dnn_ContentPane",
+    "#content-body",
+    "main#main-content",
     "[role='main']",
     "main",
-    ".content",
-    "#content",
     "body",
 ]
 
@@ -192,17 +236,17 @@ _FRONT_MATTER = {"FOREWORD", "INTRO", "PREFACE", "SUMMARY"}
 # ── HTTP session ────────────────────────────────────────────────────────────
 session = requests.Session()
 session.headers.update(HEADERS)
-# Disable SSL verification globally on the session —
-# health.mil uses DoD intermediate CAs not in the standard bundle.
-session.verify = False
+# manuals.dha.mil presents a chain that validates against the standard bundle,
+# so verification stays on. (The retired health.mil host needed it disabled;
+# that is no longer a reason to send unverified requests.)
 
 
-def get(url: str) -> requests.Response | None:
+def get(url: str, headers: dict | None = None) -> requests.Response | None:
     """GET with retries and polite throttling."""
     time.sleep(REQUEST_DELAY)
     for attempt in range(3):
         try:
-            r = session.get(url, timeout=30)
+            r = session.get(url, timeout=45, headers=headers)
             if r.status_code == 200:
                 return r
             print(f"  HTTP {r.status_code}: {url}", file=sys.stderr)
@@ -215,18 +259,17 @@ def get(url: str) -> requests.Response | None:
     return None
 
 
-_CHANGE_PARAM_RE = re.compile(r"[?&]Change=(\d+)", re.IGNORECASE)
-
-
 # ── URL helpers ──────────────────────────────────────────────────────────────
 
-def is_display_html(u: str) -> bool:
-    """Match any .html file served under the DisplayManualHtmlFile path."""
-    return bool(u and re.search(r"/pages/DisplayManualHtmlFile/.+\.html", u, re.I))
-
-
 def is_chapter_toc_name(name: str) -> bool:
-    return bool(re.match(r"^C\d+TOC\.HTML$", name.upper()))
+    """True for navigation-only pages: per-chapter TOCs and the master TOC.
+
+    These get a title in our own TOC but no stored file — the web app builds
+    its own navigation, so mirroring the site's would just duplicate it.
+    Accepts an optional .html suffix so pre-migration names still match.
+    """
+    base = name.upper().split(".", 1)[0]
+    return bool(re.match(r"^C\d+TOC$", base)) or base.endswith("TOC")
 
 
 def natural_sort_key(name: str):
@@ -234,6 +277,10 @@ def natural_sort_key(name: str):
     base = name.split(".", 1)[0].upper()
     # Strip common manual-code prefix (e.g. "TST5_", "TPT5_")
     base = re.sub(r"^[A-Z]{3,5}\d*_", "", base)
+
+    # Master TOC ("TPT5TOC", "MASTERTOC") sorts ahead of everything.
+    if base.endswith("TOC") and not re.match(r"^C\d+TOC$", base):
+        return (-2, 0, 0, 0, base)
 
     for keyword in _FRONT_MATTER:
         if base == keyword or base.endswith(keyword):
@@ -280,131 +327,25 @@ def parse_chapter_section(name: str) -> tuple[int, str]:
 
 # ── TOC collection via Playwright ────────────────────────────────────────────
 
-async def _expand_toc(page) -> None:
-    """Click 'Expand All' if present and wait for the tree to render.
-
-    Uses only very specific selectors — the generic 'a:has-text(Expand)'
-    is intentionally omitted because it can match unrelated navigation links
-    (e.g. on TRT5) and navigate the page away from the TOC entirely.
-    """
-    selectors = [
-        "a:has-text('Expand All')",
-        "button:has-text('Expand All')",
-        "input[value*='Expand All']",
-        "a[title='Expand All']",
-    ]
-    for frame in page.frames:
-        for sel in selectors:
-            try:
-                el = await frame.query_selector(sel)
-                if el:
-                    await el.click()
-                    await page.wait_for_load_state("networkidle", timeout=15_000)
-                    return
-            except Exception:
-                pass
-
-
-async def _collect_display_hrefs(page, base_url: str) -> list[str]:
-    """Return all unique DisplayManualHtmlFile hrefs visible across all frames."""
-    host = urlparse(base_url).netloc
-    seen: set[str] = set()
-    out:  list[str] = []
-    for frame in page.frames:
-        try:
-            hrefs: list[str] = await frame.eval_on_selector_all(
-                "a",
-                "els => els.map(a => a.href || a.getAttribute('href') || '')",
-            )
-        except Exception:
-            continue
-        for href in hrefs or []:
-            if not href:
-                continue
-            full = urljoin(frame.url, href)
-            if urlparse(full).netloc != host:
-                continue
-            if not is_display_html(full):
-                continue
-            if full not in seen:
-                seen.add(full)
-                out.append(full)
-    return out
-
-
-async def _toc_has_sections(ctx, code: str, change: int) -> bool:
-    """Return True if the TOC page for this change *genuinely* has sections.
-
-    The TRICARE site returns HTTP 200 for ANY change number (even non-existent
-    ones), serving the current content instead.  The only reliable test is to
-    check whether the section links that appear on the page actually reference
-    the requested Change number.  If all links carry a *different* Change value
-    the server redirected us to a different version, which means this change
-    does not exist yet.
-    """
-    toc_url = TOC_URL.format(code=code, change=change)
-
-    # "No links" is ambiguous: it means either the change does not exist, or
-    # the request was throttled/reset. The forward walk stops at the first
-    # failure, so one transient miss silently truncates detection — TPT5 was
-    # detected as 55 on one run and 51 on another from exactly this. Retry an
-    # empty result before believing it; a page that renders links but for a
-    # different change is a definitive answer and is not retried.
-    for attempt in range(1, PROBE_ATTEMPTS + 1):
-        if attempt > 1:
-            await asyncio.sleep(PROBE_RETRY_DELAY)
-        page = await ctx.new_page()
-        try:
-            try:
-                await page.goto(toc_url, wait_until="networkidle", timeout=20_000)
-            except Exception as e:
-                print(f"    ({code} change {change} probe attempt {attempt}: "
-                      f"{str(e).split(chr(10))[0]})", file=sys.stderr)
-            await page.wait_for_timeout(2_000)
-            urls = await _collect_display_hrefs(page, toc_url)
-        finally:
-            await page.close()
-
-        if not urls:
-            continue  # ambiguous — try again before concluding it does not exist
-
-        # Inspect Change= parameters in the returned URLs.
-        change_vals: set[int] = set()
-        has_paramless = False
-        for url in urls:
-            m = _CHANGE_PARAM_RE.search(url)
-            if m:
-                change_vals.add(int(m.group(1)))
-            else:
-                has_paramless = True  # URL has no Change param — can't validate
-
-        if has_paramless or not change_vals:
-            # Cannot validate via Change= param → fall back to "has links" check
-            return True
-
-        # If *any* returned link matches the requested change, the page is valid.
-        # If all links carry a different change number the site silently served a
-        # different version, so this change does not actually exist.
-        return change in change_vals
-
-    return False
+_REVISION_RE = re.compile(r"Revision\s+(\d+)\s*\(Published\s*([^)]*)\)", re.I)
+_FILENAME_RE = re.compile(
+    r"/View-Publication/([^/]+)/Revision/(\d+)/FileName/([^/?#]+)", re.I
+)
 
 
 async def _launch_context(pw):
     """Browser + context configured to get past the site's JS bot challenge.
 
-    manuals.health.mil answers plain HTTP clients with a constant 6572-byte
-    challenge interstitial (no <title>, no-cache metas, data: favicon) for
-    every URL, which is why requests-based fetching silently produced empty
-    content. A real browser runs the challenge and is then served the actual
-    document, so every fetch of manual content has to come through here.
+    The site is a Blazor app behind bot defence: a plain HTTP request returns
+    only a ~6 KB shell with no links, no title and no revision, which is why
+    requests-based fetching silently produced empty content. A real browser
+    renders the page, so every fetch has to come through here.
     """
     browser = await pw.chromium.launch(
         headless=True,
         args=["--disable-blink-features=AutomationControlled"],
     )
     ctx = await browser.new_context(
-        ignore_https_errors=True,
         user_agent=(
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
             "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -420,53 +361,97 @@ async def _launch_context(pw):
     return browser, ctx
 
 
-async def _collect_chapter_sections(ctx, chapter_toc_url: str) -> list[str]:
-    """Render one chapter TOC page in the browser and return its section URLs.
+async def fetch_publication(code: str) -> tuple[int | None, str, list[tuple[str, str]]]:
+    """Read a manual's revision number and every section link from one page.
 
-    Restricted to the chapter's own directory: chapters cross-reference other
-    manuals and publications ("../tpt5/...", "../fr16/...") which resolve to
-    valid DisplayManualHtmlFile URLs but belong elsewhere.
+    Everything the old two-stage crawl existed for is on this single page: the
+    revision is printed as "Revision 56 (Published Sep 4, 2026)", and every
+    section is linked as /View-Publication/<code>/Revision/<n>/FileName/<name>.
+    That removes both the forward-walk probe — which inferred the change number
+    by testing whether successive TOC pages rendered, and so silently answered
+    "no newer change" once the old site went away — and the per-chapter TOC
+    pass, which was what provoked the connection resets.
+
+    Returns (revision, published_date, [(url, link_text)]). The link text is
+    carried out because every section page shares one generic <title>; the
+    publication page is the only place a real title is available.
     """
-    # One bad chapter must not abort the whole manual, so every browser
-    # interaction here is contained — including new_page() itself.
-    page = None
-    try:
+    url = PUBLICATION_URL.format(code=code)
+    cookies: list[dict] = []
+    async with async_playwright() as pw:
+        browser, ctx = await _launch_context(pw)
         page = await ctx.new_page()
         try:
-            await page.goto(chapter_toc_url, wait_until="networkidle", timeout=25_000)
-        except Exception:
-            pass  # partial render is still worth scraping
-        await page.wait_for_timeout(1_500)
-        found = await _collect_display_hrefs(page, chapter_toc_url)
-    except Exception as e:
-        print(f"    (browser fetch failed for {chapter_toc_url}: {e})", file=sys.stderr)
-        return []
-    finally:
-        if page is not None:
+            try:
+                await page.goto(url, wait_until="networkidle", timeout=60_000)
+            except Exception as e:
+                print(f"  [{code}] goto failed ({e}); continuing with whatever rendered",
+                      file=sys.stderr)
+            await page.wait_for_timeout(4_000)
+
+            body = ""
+            try:
+                body = await page.inner_text("body")
+            except Exception:
+                pass
+
+            pairs = await page.eval_on_selector_all(
+                "a[href]",
+                "els => els.map(e => [e.getAttribute('href'), (e.innerText || '').trim()])",
+            )
+            cookies = await ctx.cookies()
+        finally:
             try:
                 await page.close()
             except Exception:
                 pass
+            await ctx.close()
+            await browser.close()
 
-    base_dir = chapter_toc_url.rsplit("/", 1)[0] + "/"
+    links: list[tuple[str, str]] = []
     seen: set[str] = set()
-    out: list[str] = []
-    for u in found:
-        u = urldefrag(u)[0]
-        if not u.lower().startswith(base_dir.lower()):
+    revisions: set[int] = set()
+    for href, text in pairs:
+        if not href:
             continue
-        if is_chapter_toc_name(Path(urlparse(u).path).name):
-            continue  # self-reference / sibling chapter TOC
-        if u not in seen:
-            seen.add(u)
-            out.append(u)
-    return out
+        m = _FILENAME_RE.search(href)
+        if not m or m.group(1).upper() != code.upper():
+            continue
+        revisions.add(int(m.group(2)))
+        full = urljoin(BASE_URL, href.split("?", 1)[0])
+        if full in seen:
+            continue
+        seen.add(full)
+        links.append((full, text))
+
+    # Hand the browser's session to the HTTP client. The content endpoint is
+    # behind bot defence that decides per session, not per request: a client
+    # that has not executed the challenge script gets the interstitial, and
+    # our own pre-flight GET was enough to earn a cookie marking us as one.
+    # Chromium runs the challenge as any reader's browser does, so continuing
+    # with its cookies is both the honest thing to send and the thing that
+    # works — the first FR16 run was refused on all 10 sections it tried.
+    adopt_browser_cookies(cookies)
+
+    published = ""
+    revision: int | None = None
+    m = _REVISION_RE.search(body)
+    if m:
+        revision, published = int(m.group(1)), m.group(2).strip()
+    elif revisions:
+        # The printed string is the intended source; fall back to the revision
+        # the links themselves were built with rather than giving up, but say
+        # so, because a missing string usually means the markup moved.
+        revision = max(revisions)
+        print(f"  [{code}] revision string not found on the page; using "
+              f"Revision={revision} from the section links.", file=sys.stderr)
+
+    return revision, published, links
 
 
 # Wall-clock deadline for the manual currently being processed. Set by
-# process_manual(); consulted by the two open-ended loops below (change-number
-# probing and section fetching), which are the only places a manual can spend
-# unbounded time. None means "no limit" (direct calls, tests).
+# process_manual(); consulted by the section-fetch loop, the only place a
+# manual can now spend unbounded time. None means "no limit" (tests).
 _manual_deadline: float | None = None
 
 
@@ -474,243 +459,19 @@ def manual_time_exhausted() -> bool:
     return _manual_deadline is not None and time.monotonic() > _manual_deadline
 
 
-async def fetch_change_and_toc_urls(code: str, known_change: int) -> tuple[int | None, list[str], list[str]]:
-    """
-    Single Playwright session that detects the latest change number AND
-    collects the top-level TOC URLs (chapter TOCs + front matter).
+def build_toc_sections(links: list[tuple[str, str]]) -> list[dict]:
+    """Convert (url, link_text) pairs from the publication page into sections.
 
-    Version detection:
-      Start from known_change (from manuals.json).  Check up to
-      FORWARD_WALK_LIMIT increments ahead, stopping at the first candidate
-      that fails — a change is "valid" only if its TOC page actually renders
-      DisplayManualHtmlFile section links.  This avoids the false-positive
-      caused by the site always returning HTTP 200, even for invalid changes.
-
-    Returns (latest_change, top_level_urls, chapter_section_urls).
-    """
-    async with async_playwright() as pw:
-        browser, ctx = await _launch_context(pw)
-        try:
-            # ── Detect latest change ──────────────────────────────────────────
-            # Walk forward from known_change until we find one with no links.
-            latest = known_change
-            print(f"  [{code}] Checking change {latest} (known)…")
-            if not await _toc_has_sections(ctx, code, latest):
-                # The known change failed URL-param validation — the site may be
-                # serving a newer version than we have recorded.  Try to recover
-                # by reading the actual Change= value from the served links.
-                toc_url_probe = TOC_URL.format(code=code, change=latest)
-                probe_page = await ctx.new_page()
-                try:
-                    try:
-                        await probe_page.goto(toc_url_probe, wait_until="networkidle", timeout=20_000)
-                    except Exception:
-                        pass
-                    await probe_page.wait_for_timeout(2_000)
-                    probe_urls = await _collect_display_hrefs(probe_page, toc_url_probe)
-                finally:
-                    await probe_page.close()
-
-                served_change: int | None = None
-                for u in probe_urls:
-                    m = _CHANGE_PARAM_RE.search(u)
-                    if m:
-                        served_change = int(m.group(1))
-                        break
-
-                if served_change and served_change != latest:
-                    print(
-                        f"  [{code}] Site served Change={served_change} when asked for "
-                        f"Change={latest}. Advancing known to {served_change}.",
-                        file=sys.stderr,
-                    )
-                    latest = served_change
-                    # Walk forward from the discovered change
-                    for candidate in range(served_change + 1, served_change + 1 + FORWARD_WALK_LIMIT):
-                        if manual_time_exhausted():
-                            print(f"  [{code}] Out of time while probing — stopping at "
-                                  f"change {latest}.", file=sys.stderr)
-                            break
-                        await asyncio.sleep(PROBE_DELAY)
-                        print(f"  [{code}] Checking change {candidate}…")
-                        if await _toc_has_sections(ctx, code, candidate):
-                            latest = candidate
-                        else:
-                            break
-                else:
-                    print(f"  [{code}] Known change {latest} has no sections (server issue?)", file=sys.stderr)
-            elif known_change == 0:
-                # Change=0 is a special "always-current" sentinel used by manuals
-                # whose TOC links are date-based (no ?Change= parameter).  The
-                # server accepts any numeric change value and returns the same
-                # content, so a forward walk would just keep incrementing the
-                # number every CI run forever.  Pin to 0 and skip it entirely.
-                print(f"  [{code}] Change=0 sentinel — skipping forward walk.")
-            else:
-                for candidate in range(known_change + 1, known_change + 1 + FORWARD_WALK_LIMIT):
-                    if manual_time_exhausted():
-                        print(f"  [{code}] Out of time while probing — stopping at "
-                              f"change {latest}.", file=sys.stderr)
-                        break
-                    await asyncio.sleep(PROBE_DELAY)
-                    print(f"  [{code}] Checking change {candidate}…")
-                    if await _toc_has_sections(ctx, code, candidate):
-                        latest = candidate
-                    else:
-                        break
-
-            print(f"  [{code}] Latest change: {latest}")
-
-            # ── Collect top-level TOC URLs for the detected change ─────────────
-            toc_url = TOC_URL.format(code=code, change=latest)
-            page = await ctx.new_page()
-            try:
-                try:
-                    await page.goto(toc_url, wait_until="networkidle", timeout=30_000)
-                except Exception as e:
-                    print(f"  [{code}] goto failed ({e}), continuing…", file=sys.stderr)
-
-                # ── Pass 1: progressive waits, collect without expanding ───────
-                # eval_on_selector_all sees all DOM nodes including hidden ones
-                # so collapsed trees are still found.  Collecting before any
-                # expand avoids the risk that clicking a nav link navigates
-                # the page away (observed on TRT5 with the old broad selectors).
-                # Mirror the PDF tool's progressive strategy: 2s → 5s → 8s.
-                urls: list[str] = []
-                for wait_ms in (2_000, 3_000, 5_000):
-                    await page.wait_for_timeout(wait_ms)
-                    urls = await _collect_display_hrefs(page, toc_url)
-                    print(f"  [{code}] Pass-1 after {wait_ms//1000}s: {len(urls)} URLs")
-                    if urls:
-                        break
-
-                # ── Pass 2: expand and re-collect only if Pass 1 found nothing ─
-                if not urls:
-                    await _expand_toc(page)
-                    await page.wait_for_timeout(5_000)
-                    for wait_s in (0, 3, 5):
-                        if wait_s:
-                            await page.wait_for_timeout(wait_s * 1_000)
-                        urls = await _collect_display_hrefs(page, toc_url)
-                        print(f"  [{code}] Pass-2 after expand+{wait_s}s: {len(urls)} URLs")
-                        if urls:
-                            break
-
-                if not urls:
-                    # ── Diagnostics: print everything visible to help debug ────
-                    page_title = await page.title()
-                    print(f"  [{code}] Page title: {page_title!r}")
-                    print(f"  [{code}] Frames on page:")
-                    all_hrefs: list[str] = []
-                    for frame in page.frames:
-                        print(f"    frame url: {frame.url}")
-                        try:
-                            hs = await frame.eval_on_selector_all(
-                                "a", "els => els.map(a => a.href || '')"
-                            )
-                            all_hrefs.extend(h for h in (hs or []) if h)
-                        except Exception:
-                            pass
-                    unique_hrefs = list(dict.fromkeys(all_hrefs))
-                    print(f"  [{code}] All hrefs on page ({len(unique_hrefs)} unique):")
-                    for h in unique_hrefs[:30]:
-                        print(f"    {h}")
-            finally:
-                await page.close()
-
-            # ── Stage 2: section links from each chapter TOC, same browser ──
-            # Done inside this context on purpose: a plain requests.Session()
-            # returns these pages with no section links at all (every chapter
-            # reported "0 section(s)"), while Playwright reads the same pages
-            # fine — so the browser's rendering/session is what makes them
-            # readable. Reusing the open context also keeps cookies warm.
-            chapter_toc_urls = [
-                u for u in urls
-                if is_chapter_toc_name(Path(urlparse(u).path).name)
-            ]
-            section_urls: list[str] = []
-            if chapter_toc_urls:
-                print(f"  [{code}] Stage 2: {len(chapter_toc_urls)} chapter TOC(s) via browser…")
-            for i, chap_url in enumerate(chapter_toc_urls, 1):
-                secs = await _collect_chapter_sections(ctx, chap_url)
-                note = ""
-                if not secs:
-                    # Last resort: the old plain-requests path.
-                    secs = fetch_chapter_section_urls(chap_url)
-                    note = " [requests fallback]"
-                    if not secs:
-                        note = f" [EMPTY] {chap_url}"
-                print(f"    Chapter TOC {i}/{len(chapter_toc_urls)}: {len(secs)} section(s){note}")
-                section_urls.extend(secs)
-
-            return latest, urls, section_urls
-        finally:
-            await ctx.close()
-            await browser.close()
-
-
-def fetch_chapter_section_urls(chapter_toc_url: str) -> list[str]:
-    """
-    Stage 2: Fetch a chapter TOC page (static HTML) with requests and extract
-    all DisplayManualHtmlFile section links.  Chapter TOC self-references are
-    excluded.
-    """
-    r = get(chapter_toc_url)
-    if r is None:
-        return []
-
-    host = urlparse(chapter_toc_url).netloc
-
-    # Chapters link their sections with document-relative hrefs — "c1s3.html",
-    # "./c3toc.html", "../tpt5/c10s2_1.html" — so they must be resolved against
-    # the chapter TOC's own URL.  Resolving against BASE_URL (which has no path)
-    # turned "c1s3.html" into https://manuals.health.mil/c1s3.html, which fails
-    # is_display_html() and was silently discarded, yielding "0 section(s)" for
-    # every chapter of every manual.
-    base_dir = chapter_toc_url.rsplit("/", 1)[0] + "/"
-
-    seen: set[str] = set()
-    results: list[str] = []
-
-    soup = BeautifulSoup(r.text, "lxml")
-    for a in soup.find_all("a", href=True):
-        href = a["href"].strip()
-        if not href or href.startswith("#"):
-            continue
-        # Drop the fragment so "c1s3.html#FM63551" and "c1s3.html#FM99999"
-        # dedupe to one section rather than being counted several times.
-        full = urldefrag(urljoin(chapter_toc_url, href))[0]
-        if urlparse(full).netloc != host:
-            continue
-        if not is_display_html(full):
-            continue
-        # Keep only this manual's own sections.  Chapters cross-reference other
-        # manuals and publications ("../tpt5/...", "../fr16/...") which resolve
-        # to valid DisplayManualHtmlFile URLs but belong to a different manual.
-        if not full.lower().startswith(base_dir.lower()):
-            continue
-        name = Path(urlparse(full).path).name
-        if is_chapter_toc_name(name):
-            continue  # skip self-references to the chapter TOC itself
-        if full not in seen:
-            seen.add(full)
-            results.append(full)
-
-    return results
-
-
-# ── TOC parsing ─────────────────────────────────────────────────────────────
-
-def build_toc_sections(urls: list[str]) -> list[dict]:
-    """
-    Convert a list of DisplayManualHtmlFile URLs into sorted section dicts.
-    Titles are derived from the filename; actual page titles are filled in
-    later when the section HTML is fetched.
+    The id is the site's own FileName token ("C7S18_2", "FOREWORD") rather than
+    a position in the list. Positional ids shifted whenever a section was added
+    upstream, which silently re-pointed every later section's stored file at
+    the wrong heading and made content preservation unsafe; a name-based id is
+    stable across scrapes for as long as the source file keeps its name.
     """
     seen: set[str] = set()
     sections: list[dict] = []
 
-    for url in urls:
+    for url, text in links:
         name = Path(urlparse(url).path).name
         if not name:
             continue
@@ -719,27 +480,21 @@ def build_toc_sections(urls: list[str]) -> list[dict]:
             continue
         seen.add(key)
 
-        is_chap_toc = is_chapter_toc_name(name)
         chapter, section = parse_chapter_section(name)
-
-        # Placeholder title — replaced when we fetch the page
-        title = name
-
         sections.append({
             "url":          url,
             "name":         name,
+            # Ids become filenames, so keep them to characters that are safe
+            # everywhere. The site's tokens are already alphanumeric, but a
+            # future one need not be.
+            "id":           re.sub(r"[^A-Za-z0-9_.-]", "_", name),
             "chapter":      chapter,
             "section":      section,
-            "title":        title,
-            "isChapterToc": is_chap_toc,
+            "title":        clean_title(text) or name,
+            "isChapterToc": is_chapter_toc_name(name),
         })
 
     sections.sort(key=lambda s: natural_sort_key(s["name"]))
-
-    pad = max(3, len(str(len(sections))))
-    for i, s in enumerate(sections):
-        s["id"] = str(i + 1).zfill(pad)
-
     return sections
 
 
@@ -748,6 +503,8 @@ _TITLE_PREFIXES = [
     "TRICARE Manuals - Display ",
     "TRICARE Manuals - ",
 ]
+# The site writes chapter labels as "Chap 1 -- Administration".
+_DASH_SEP = re.compile(r"\s+--\s+")
 _CHANGE_SUFFIX = re.compile(r",?\s*\(?Change\s+\d+.*$", re.IGNORECASE)
 _CHAP_SECT     = re.compile(r"Chap\s+(\d+)\s+Sect\s+([\d.]+)", re.IGNORECASE)
 _CHAP_TOC      = re.compile(r"Chap\s+(\d+)\s+TOC", re.IGNORECASE)
@@ -755,7 +512,8 @@ _CHAP_ONLY     = re.compile(r"Chap\s+(\d+)", re.IGNORECASE)
 
 
 def clean_title(raw: str) -> str:
-    title = raw.strip()
+    title = " ".join((raw or "").split())
+    title = _DASH_SEP.sub(" — ", title)
     for prefix in _TITLE_PREFIXES:
         if title.startswith(prefix):
             title = title[len(prefix):]
@@ -767,12 +525,54 @@ def clean_title(raw: str) -> str:
 
 
 def extract_title_from_html(soup: BeautifulSoup) -> str:
-    raw = soup.title.string.strip() if soup.title else ""
-    return clean_title(raw) if raw else "Untitled Section"
+    """Fallback title read from the document itself.
+
+    Only used when the publication page gave no link text for a section: that
+    link text ("Chap 199.1 -- General Provisions", "Sect 1.1 -- General Policy
+    And Responsibilities") is the best title the site offers, and this must
+    never override it.
+
+    Scoped to #publication-document deliberately. An earlier version searched
+    #content-body for its first heading, which is the site's own "Publication
+    Information" panel sitting above the document — so every section in the
+    first FR16 run came back titled "Publication Information". The <title> tag
+    is no use either; every page shares "View Publication | TRICARE Manuals".
+
+    Manuals label their documents differently — FR16 (CFR) uses .Chapter plus
+    .CFRSubject, TPT5 uses .MPChapterTitle — so several are tried and the
+    number and subject are joined when both exist.
+    """
+    doc = soup.select_one("#publication-document") or soup
+
+    # Try in priority order, one selector at a time: a comma-separated
+    # select_one returns whichever match comes first in the *document*, not
+    # first in the list, which picked .MPChapterTitle ("Civilian Health And
+    # Medical Program…") over the section's own .CFRSubject.
+    def first(*selectors):
+        for sel in selectors:
+            el = doc.select_one(sel)
+            if el and el.get_text(" ", strip=True):
+                return el
+        return None
+
+    number = first(".Chapter", ".Section")
+    subject = first(".CFRSubject", ".Subject", ".SectionTitle", ".MPChapterTitle")
+    parts = [el.get_text(" ", strip=True) for el in (number, subject) if el]
+    joined = clean_title(" ".join(p for p in parts if p))
+    if joined:
+        return joined
+
+    for tag in ("h1", "h2", "h3"):
+        el = doc.find(tag)
+        if el:
+            text = clean_title(el.get_text(" ", strip=True))
+            if text:
+                return text
+    return ""
 
 
 # ── Section content extraction ───────────────────────────────────────────────
-def extract_content_html(soup: BeautifulSoup) -> str:
+def extract_content_html(soup: BeautifulSoup, page_url: str = BASE_URL) -> str:
     for sel in STRIP_SELECTORS:
         for el in soup.select(sel):
             el.decompose()
@@ -787,8 +587,10 @@ def extract_content_html(soup: BeautifulSoup) -> str:
 
     for a in content.find_all("a", href=True):
         href = a["href"]
-        if href.startswith("/") or href.startswith("http"):
-            a["href"] = urljoin(BASE_URL, href)
+        # Resolve against the page, not the site root: cross-references
+        # between sections are written relative to the document, so joining
+        # them onto BASE_URL produced dead links.
+        a["href"] = urljoin(page_url, href)
         a["target"] = "_blank"
         a["rel"]    = "noopener"
 
@@ -817,8 +619,13 @@ def unavailable_html(url: str) -> str:
         "<p><em>This section could not be extracted as text — the official "
         "page renders it as an image.</em></p>\n"
         f'<p><a href="{url}" target="_blank" rel="noopener">'
-        "Read this section on manuals.health.mil</a></p>"
+        "Read this section on manuals.dha.mil</a></p>"
     )
+
+
+def is_challenge_page(html: str) -> bool:
+    """True if the server returned its bot-defence interstitial, not content."""
+    return any(marker in html for marker in CHALLENGE_MARKERS)
 
 
 def is_failed_section(html: str) -> bool:
@@ -830,24 +637,65 @@ def is_failed_section(html: str) -> bool:
     return html == RETRIEVAL_FAILED_HTML or len(html.strip()) < MIN_SECTION_CONTENT_CHARS
 
 
-async def fetch_sections_via_browser(
-    code: str, sections: list[dict]
-) -> tuple[list[tuple[str, str]], int]:
-    """Fetch every section's page in a real browser and extract its content.
+def adopt_browser_cookies(cookies: list[dict]) -> None:
+    """Copy Playwright context cookies into the module's requests session."""
+    added = 0
+    for c in cookies:
+        name, value = c.get("name"), c.get("value")
+        if not name or value is None:
+            continue
+        session.cookies.set(name, value,
+                            domain=c.get("domain") or "",
+                            path=c.get("path") or "/")
+        added += 1
+    if added:
+        print(f"  Carried {added} browser cookie(s) into the HTTP session.")
 
-    Plain HTTP cannot be used here: the site answers requests-based clients
-    with a JS challenge page, so extraction yielded empty content for every
-    section (run #42 published 199 one-byte files before this was understood).
 
-    Titles are written back onto the section dicts in place, for chapter TOC
-    entries too. Returns ([(section_id, content_html)], failed_count,
+def section_api_url(section_url: str) -> str | None:
+    """Map a /View-Publication/.../FileName/X link to its /api/publication URL."""
+    m = _FILENAME_RE.search(section_url)
+    if not m:
+        return None
+    return SECTION_API_URL.format(code=m.group(1), revision=m.group(2), name=m.group(3))
+
+
+def fetch_section_html(url: str) -> str:
+    """GET one section fragment, or "" if it could not be retrieved.
+
+    Forces UTF-8: the endpoint does not declare a charset, so requests guesses
+    latin-1 and the manuals' typography comes through as mojibake ("Â«" for
+    the « in the section navigation).
+    """
+    api = section_api_url(url)
+    if api is None:
+        print(f"    not a section URL: {url}", file=sys.stderr)
+        return ""
+    # Referer is per-manual, so it is built here rather than in HX_HEADERS.
+    headers = {**HX_HEADERS, "Referer": url}
+    r = get(api, headers=headers)
+    if r is None:
+        return ""
+    r.encoding = "utf-8"
+    return r.text
+
+
+def fetch_sections(code: str, sections: list[dict]) -> tuple[list[tuple[str, str]], int, int]:
+    """Fetch every section's document and extract its content.
+
+    Uses the site's own content endpoint over plain HTTP. Content previously
+    came through Playwright because the rendered page was the only way to see
+    a document at all; the endpoint returns the same document directly, so a
+    browser is now needed only once per manual, for the publication page.
+
+    Titles are written back onto the section dicts in place, chapter TOC
+    entries included. Returns ([(section_id, content_html)], failed_count,
     preserved_count) for the content sections only — chapter TOC entries
     contribute a title and no file.
 
     A section whose fetch fails keeps whatever content the manual already had
-    for that source filename, rather than being overwritten with a
-    placeholder. It still counts as failed, so the abort guards continue to
-    see the true failure rate.
+    under that source name, rather than being overwritten with a placeholder.
+    It still counts as failed, so the abort guards see the true failure rate.
     """
     results: list[tuple[str, str]] = []
     failed = 0
@@ -855,129 +703,104 @@ async def fetch_sections_via_browser(
     content_total = sum(1 for s in sections if not s["isChapterToc"])
     done = 0
     diagnosed = 0
+    consecutive_challenges = 0
 
     # Read before any writes — the loop below only buffers, so the files on
     # disk still hold the previous run's content while we are fetching.
     previous = load_previous_sections(code)
 
-    async with async_playwright() as pw:
-        browser, ctx = await _launch_context(pw)
-        page = await ctx.new_page()
-        try:
-            first = True
-            for s in sections:
-                # Give up on this manual rather than running until the job is
-                # killed. A failed section costs retries plus backoff plus a
-                # cooldown, so a manual hitting widespread failures can consume
-                # hours; abandoning it here leaves its data untouched and lets
-                # the remaining manuals still be fetched and published.
-                if manual_time_exhausted():
-                    raise RuntimeError(
-                        f"{code}: exceeded the {MANUAL_TIME_BUDGET_SECS // 60}-minute "
-                        f"budget after {done}/{content_total} sections — abandoning it so "
-                        f"the run can finish and publish. Existing data left untouched."
-                    )
+    for s in sections:
+        # Give up on this manual rather than running until the job is killed.
+        if manual_time_exhausted():
+            raise RuntimeError(
+                f"{code}: exceeded the {MANUAL_TIME_BUDGET_SECS // 60}-minute "
+                f"budget after {done}/{content_total} sections — abandoning it so "
+                f"the run can finish and publish. Existing data left untouched."
+            )
 
-                # Throttle navigations: hammering the site back to back is what
-                # provokes the connection resets.
-                if not first:
-                    await asyncio.sleep(SECTION_NAV_DELAY)
-                first = False
+        raw = ""
+        content = RETRIEVAL_FAILED_HTML
+        ok = False
+        challenge = False
+        for attempt in range(1, SECTION_FETCH_ATTEMPTS + 1):
+            # get() already paces requests and retries transport errors; this
+            # outer loop exists for the case that matters more here — a 200
+            # whose body extracts to nothing, which the site returns when it
+            # serves the bot-defence interstitial instead of the document.
+            raw = fetch_section_html(s["url"])
+            if is_challenge_page(raw):
+                # A refusal, not a hiccup: retrying earns three interstitials
+                # instead of one and pushes ~50s of backoff per section.
+                challenge = True
+                break
+            if raw.strip():
+                soup = BeautifulSoup(raw, "lxml")
+                # Only fill in a title the publication page could not supply;
+                # its link text is the better source.
+                if not s.get("title") or s["title"] == s["name"]:
+                    heading = extract_title_from_html(soup)
+                    if heading:
+                        s["title"] = heading
+                content = extract_content_html(soup, s["url"])
+                if not is_failed_section(content):
+                    ok = True
+                    break
+            if attempt < SECTION_FETCH_ATTEMPTS:
+                time.sleep(SECTION_RETRY_BACKOFF * attempt)
 
-                raw = ""
-                content = RETRIEVAL_FAILED_HTML
-                s["title"] = "Untitled Section"
-                ok = False
-                for attempt in range(1, SECTION_FETCH_ATTEMPTS + 1):
-                    # Retry escalates the wait: the first pass is fast, later
-                    # ones wait for the network to go idle so a slow
-                    # JS-rendered page has time to fill itself in. Extraction
-                    # is judged inside the loop — a page can return a complete
-                    # document that still yields no text, which the old
-                    # "did we get any HTML?" check accepted on the first try.
-                    wait_until = "domcontentloaded" if attempt == 1 else "networkidle"
-                    settle = SECTION_SETTLE_MS if attempt == 1 else SECTION_SETTLE_SLOW_MS
-                    try:
-                        await page.goto(s["url"], wait_until=wait_until, timeout=30_000)
-                        await page.wait_for_timeout(settle)
-                        raw = await page.content()
-                    except Exception as e:
-                        reason = str(e).split("\n", 1)[0]
-                        print(f"    (attempt {attempt}/{SECTION_FETCH_ATTEMPTS} failed for "
-                              f"{s['url']}: {reason})", file=sys.stderr)
-                        # The page may be wedged after a reset — replace it.
-                        try:
-                            await page.close()
-                        except Exception:
-                            pass
-                        page = await ctx.new_page()
-                        raw = ""
+        if s["isChapterToc"]:
+            continue  # title only; chapter TOCs are not stored as files
 
-                    if raw.strip():
-                        soup = BeautifulSoup(raw, "lxml")
-                        s["title"] = extract_title_from_html(soup)
-                        content = extract_content_html(soup)
-                        if not is_failed_section(content):
-                            ok = True
-                            break
+        consecutive_challenges = consecutive_challenges + 1 if challenge else 0
 
-                    if attempt < SECTION_FETCH_ATTEMPTS:
-                        await asyncio.sleep(SECTION_RETRY_BACKOFF * attempt)
+        done += 1
+        print(f"  [{done}/{content_total}] {s['name']}"
+              + ("  (refused: bot-defence interstitial)" if challenge else ""))
 
-                if s["isChapterToc"]:
-                    continue  # title only; chapter TOCs are not stored as files
+        if not ok:
+            failed += 1
+            if diagnosed < 3:
+                diagnosed += 1
+                snippet = " ".join(raw[:300].split())
+                print(f"    EMPTY EXTRACTION: {s['url']}", file=sys.stderr)
+                print(f"      raw={len(raw)}B extracted={len(content.strip())}ch "
+                      f"title={s['title']!r} starts: {snippet}", file=sys.stderr)
+            kept = previous.get(s["name"])
+            if kept:
+                # We already hold real text for this section; a failed fetch is
+                # no reason to throw it away.
+                content = kept["html"]
+                s["title"] = kept["title"] or s["title"]
+                preserved += 1
+                print(f"    kept previous content for {s['name']} ({len(content):,}B)")
+            else:
+                content = unavailable_html(s["url"])
+            # Back off before the next section: a failure usually means we are
+            # being throttled, and the retries just added to the burst.
+            time.sleep(FAILED_SECTION_COOLDOWN)
 
-                done += 1
-                print(f"  [{done}/{content_total}] {s['name']}")
+        results.append((s["id"], content))
 
-                if not ok:
-                    failed += 1
-                    if diagnosed < 3:
-                        diagnosed += 1
-                        snippet = " ".join(raw[:300].split())
-                        print(f"    EMPTY EXTRACTION: {s['url']}", file=sys.stderr)
-                        print(f"      raw={len(raw)}B extracted={len(content.strip())}ch "
-                              f"title={s['title']!r} starts: {snippet}", file=sys.stderr)
-                    # Leave a link to the official page rather than a blank
-                    # section: some pages draw their text into a <canvas>, so
-                    # no amount of waiting yields extractable HTML, and a
-                    # 43-byte canvas element reads as missing content in both
-                    # the reader and the Markdown export.
-                    kept = previous.get(s["name"])
-                    if kept:
-                        # We already hold real text for this section; a failed
-                        # fetch is no reason to throw it away. This is what
-                        # would have saved TPT5 003-005.
-                        content = kept["html"]
-                        s["title"] = kept["title"] or s["title"]
-                        preserved += 1
-                        print(f"    kept previous content for {s['name']} "
-                              f"({len(content):,}B)")
-                    else:
-                        content = unavailable_html(s["url"])
-                    # Back off before the next section. A failure usually means
-                    # we are being throttled, and the retries just added to the
-                    # burst — carrying straight on is what turned one bad
-                    # section into four consecutive ones on TPT5.
-                    await asyncio.sleep(FAILED_SECTION_COOLDOWN)
+        # Consecutive interstitials mean the session is being refused rather
+        # than throttled, so there is nothing to gain from the rest of the
+        # manual. Counted consecutively, and reset by any success, so an
+        # occasional challenge mid-run does not abandon a scrape that is
+        # otherwise working.
+        if consecutive_challenges >= CHALLENGE_ABORT_AFTER:
+            raise RuntimeError(
+                f"{code}: the server returned its bot-defence interstitial for "
+                f"{consecutive_challenges} sections in a row instead of content "
+                f"— aborting. Leaving existing data untouched."
+            )
 
-                results.append((s["id"], content))
-
-                # Bail as soon as the run is clearly failing rather than
-                # putting hundreds more requests through a government server.
-                if done >= EARLY_ABORT_SAMPLE and failed == done:
-                    raise RuntimeError(
-                        f"{code}: first {done} sections all came back empty — aborting "
-                        f"before issuing {content_total - done} more requests. "
-                        f"Leaving existing data untouched."
-                    )
-        finally:
-            try:
-                await page.close()
-            except Exception:
-                pass
-            await ctx.close()
-            await browser.close()
+        # Bail as soon as the run is clearly failing rather than putting
+        # hundreds more requests through a government server.
+        if done >= EARLY_ABORT_SAMPLE and failed == done:
+            raise RuntimeError(
+                f"{code}: first {done} sections all came back empty — aborting "
+                f"before issuing {content_total - done} more requests. "
+                f"Leaving existing data untouched."
+            )
 
     return results, failed, preserved
 
@@ -1111,33 +934,27 @@ def process_manual(entry: dict, force: bool = False) -> dict:
 
     _raw = entry.get("latestChange")
     known = _raw if _raw is not None else 1  # preserve 0 (special sentinel for TRT5)
-    print("  Discovering latest change + collecting TOC URLs via Playwright…")
-    latest, top_urls, chapter_section_urls = asyncio.run(
-        fetch_change_and_toc_urls(code, known)
-    )
+    print("  Reading revision + section list from the publication page…")
+    latest, published, links = asyncio.run(fetch_publication(code))
     if latest is None:
-        print("  Skipping — could not detect latest change number.")
+        print("  Skipping — the publication page did not yield a revision number.")
+        return entry
+    print(f"  Revision {latest}"
+          + (f" (published {published})" if published else "")
+          + f"; {len(links)} section link(s).")
+
+    if not links:
+        # A publication page that renders no section links is the signature of
+        # a blocked or half-rendered load, not of an empty manual. Refuse it
+        # rather than recording a revision we never actually read content for.
+        print("  No section links found — leaving existing data untouched.", file=sys.stderr)
         return entry
 
     if not force and latest == known and entry.get("hasContent"):
         print("  Already up-to-date. Skipping content fetch.")
         return {**entry, "latestChange": latest, "hasContent": True}
 
-    if not top_urls:
-        print("  No URLs found on TOC page — skipping content fetch.")
-        return {**entry, "latestChange": latest}
-
-    chapter_toc_urls = [u for u in top_urls if is_chapter_toc_name(Path(urlparse(u).path).name)]
-    front_matter_urls = [u for u in top_urls if not is_chapter_toc_name(Path(urlparse(u).path).name)]
-    print(f"  Found {len(chapter_toc_urls)} chapter TOC(s) + {len(front_matter_urls)} front-matter page(s).")
-
-    # Section URLs were gathered during the Playwright pass above (Stage 2).
-    all_section_urls: list[str] = list(front_matter_urls)
-    all_section_urls.extend(chapter_toc_urls)  # keep chapter TOCs for isChapterToc metadata
-    all_section_urls.extend(chapter_section_urls)
-    print(f"  Stage 2 returned {len(chapter_section_urls)} section URL(s).")
-
-    sections = build_toc_sections(all_section_urls)
+    sections = build_toc_sections(links)
     print(f"  Built {len(sections)} total section entries.")
 
     # Fetch titles and content for each non-chapter-TOC section
@@ -1163,9 +980,7 @@ def process_manual(entry: dict, force: bool = False) -> dict:
     # quality check below must be able to abandon a bad scrape without having
     # left half-written files on disk for the publish step to pick up.
     # Chapter TOC titles are resolved in the same pass.
-    fetched, failed, preserved = asyncio.run(
-        fetch_sections_via_browser(code, sections)
-    )
+    fetched, failed, preserved = fetch_sections(code, sections)
 
     # The count guard above only proves we found the right *number* of
     # sections. If the fetches themselves are being served a challenge page,

@@ -1,0 +1,1936 @@
+
+<div class="row my-3"><article class="TSM" data-manualacronym="TST5" tmaa-izihyxm-tk=""><div class="Header" tmaa-izihyxm-tk="">TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div class="MPChapterTitle" tmaa-izihyxm-tk="">TRICARE Duplicate Claims System (DCS) - TRICARE Encounter Data (TED) Version</div>
+<section data-element-id="TST507700001" data-element-type="Header" tmaa-izihyxm-tk="">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700002" data-element-type="Text" id="FM104796" tmaa-izihyxm-tk="">Chapter 4</div>
+<div class="Section" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700003" data-element-type="Text" id="FM104800" tmaa-izihyxm-tk="">Section 1.2</div>
+<div class="Subject" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700004" data-element-type="Text" id="FM104805" tmaa-izihyxm-tk="">Duplicate
+Claims Data</div>
+<div class="CPT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700005" data-element-type="Text" tmaa-izihyxm-tk="">Copyright:  CPT only © 2006 American Medical
+Association (or such other date of publication of CPT).
+All Rights Reserved.</div>
+<div class="Revision" data-element-change-state="Changed" data-element-format="Text" data-element-id="TST507700006" data-element-type="None" tmaa-izihyxm-tk="">Revision:  C-39, August 12, 2026</div>
+<div class="Line" tmaa-izihyxm-tk=""></div></section>
+<section data-element-id="TST507700007" data-element-type="Content" tmaa-izihyxm-tk="">
+<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700008" data-element-type="Text" tmaa-izihyxm-tk="">The DCS performs several functions
+for the maintenance of the DCS databases. First, it identifies,
+selects, and extracts potential duplicate claims from the TRICARE
+DCS-TRICARE Encounter Data (TED) Version database. It then groups
+potential duplicate claims into sets and stores these claims in
+the DCS Active database. Subsequently, it identifies adjustment
+and cancellation transactions processed by the TED system associated
+with claims in the DCS Active and History databases and attaches
+these adjustment transactions to their associated sets. In attaching adjustment/cancellation
+TED records to their associated sets, the system enables users to
+verify that duplicate payment records have been removed from the
+TED database.</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700009" data-element-type="Text" tmaa-izihyxm-tk="">The DCS performs these functions
+separate and apart from the proprietary, claims processing systems
+maintained and operated by the contractors, TRICARE Medicare Eligible
+Program (TMEP) contractor, and the TRICARE Overseas Program (TOP)
+contractor. Proprietary claims processing systems maintain claim
+and encounter processing histories which document the activities
+associated with the processing and payment of claims and encounters. These
+systems generate TEDs for submission to the Defense Health Agency
+(DHA). TEDs reflect specific claim/encounter processing activity
+and document health care services and associated payment actions.
+TEDs are in a uniform format to permit claims processing data from
+various contractors to be integrated into a single database.</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770000A" data-element-type="Text" tmaa-izihyxm-tk="">Contractors are required to
+prevent duplicate claim payments. Despite a variety of automated
+and manual controls established for this purpose, duplicate payments
+are made. These duplicate payments, appearing as duplicate TEDs,
+are detectable by DHA. When duplicate payments are identified, contractors
+are expected to initiate recoupment action. Upon receipt of the
+refunds or offsets, adjustment TEDs should be submitted to reflect
+the recoupments. When adjustments are added to the TED database,
+the duplicate payments are corrected, and the duplicate conditions
+are removed from the TED database.</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770000B" data-element-type="Text" tmaa-izihyxm-tk="">The correction of the TED database
+is a critical function of the DCS. Not only do duplicate TEDs represent overpayments,
+their very existence in the TED database skew statistics and reduce
+the confidence of analyses and projections based on this data. Data
+integrity is compromised if the database is not purged of TEDs representing duplicate
+payments.</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770000C" data-element-type="Text" tmaa-izihyxm-tk="">The DCS is not intended to
+replace or substitute for contractor developed, maintained, and
+operated duplicate detection and resolution activities within their
+own claims processing systems. The DCS does not pretend to capture
+all potential duplicate conditions. If it did, the volume of claim
+sets would soon become unmanageable. The DCS is an adjunct to contractor
+systems. It detects and displays most common duplicate conditions
+but not all.</div>
+<section aria-label="Requirement TST50770000D" class="requirement" role="region"><div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770000D" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk="">The contractor shall also employ
+their own systems to prevent, detect, and resolve duplicate payment
+conditions.</div></section>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770000E" data-element-type="Outline" id="i90620" role="heading" tmaa-izihyxm-tk="">1.0  <span class="Cross-RefMarker" id="FM95280" tmaa-izihyxm-tk=""></span>Source
+Of Duplicate Claims Data<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770000F" data-element-type="Text" tmaa-izihyxm-tk="">The following
+describes how TEDs become DCS sets and what happens to these sets
+over time within the DCS.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700010" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.1  </span>Contractors
+submit TEDs approximately daily. The TEDs are maintained on a TED
+database.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700011" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.2  </span>On a monthly basis, DHA reads
+the TED database and compares the TEDs received during the previous month
+to TEDs received during the previous 12 months of TED Net data to
+identify potential duplicate claims. The identified potential duplicate
+TEDs become the DCS monthly extract.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700012" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.3  </span>DHA also
+processes the daily TED data received from the contractors and extracts
+any TED adjustments and cancellations to TEDs previously identified
+as potential duplicates in a monthly extract and that reside in
+the DCS. These extracts become the DCS daily extract.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700013" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.4  </span>DHA transfers the extracts
+to the Database 2 (DB2) Server platform where they are processed
+and placed into the DCS Active database.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700014" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.5  </span>DCS users
+work the sets in the DCS Active database.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700015" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.6  </span>After
+a specified period of time, the DCS sets are deleted from the DCS
+History database.<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700016" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.6.1  </span>The DCS databases receive TED
+data through two extracts. The first extract is performed monthly,
+when TEDs submitted by contractors during the previous month are
+compared with TEDs submitted during the previous 12 months. Applying
+five different match criteria for institutional and non-institutional
+claims (four for each type), the system detects potential duplicate
+claims and selects these for extraction. See <span class="Para" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/C4S1_2#i90078" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">paragraph 2.0</a></span>, for a description of
+the five match criteria.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700017" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.6.2  </span>Institutional
+potential duplicates are identified by the application of the match
+criteria at the claim level. Non-institutional potential duplicates
+are identified at the line item level. This distinction is important
+in understanding how institutional and non-institutional claims
+are displayed within the claim sets. Refer to <span class="Sec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TST5/FileName/C4S1_4?referenceDate=2026-08-12&amp;bookmark=%23FM118597" hx-get="/api/publication/TST5/39/C4S1_4?referenceDate=2026-08-12&amp;bookmark=%23FM118597" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TST5/FileName/C4S1_4?referenceDate=2026-08-12&amp;bookmark=%23FM118597" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Section 1.4</a></span>,
+for details regarding claim set composition.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700018" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.6.3  </span>The second extract is performed
+following the processing of each payment record cycle, generally
+on a daily basis. The system maintains a table of all claims selected
+as potential duplicates during the first extract, and extracts adjustments
+and cancellations associated with these potential duplicates during
+the second extract. The system attaches the adjustments and cancellations
+to the appropriate DCS sets where users can access them.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700019" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.6.4  </span>The DCS databases store claim
+level data for both institutional and non-institutional claims.
+Examples of claim level data are: Internal Control Number (ICN),
+sponsor Social Security Number (SSN), Patient ID, diagnosis code,
+and the date the TED was processed to completion (PTC).</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770001A" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.6.5  </span>The system also stores line
+item data for non-institutional claims. Examples of line item detailed
+data are: procedure code, place of service, type of service, care
+begin and end dates.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770001B" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.6.6  </span><span class="Add" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TST5/FileName/C4ADA?referenceDate=2026-08-12&amp;bookmark=%23FM93586" hx-get="/api/publication/TST5/39/C4ADA?referenceDate=2026-08-12&amp;bookmark=%23FM93586" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TST5/FileName/C4ADA?referenceDate=2026-08-12&amp;bookmark=%23FM93586" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Addendum A</a></span>, contains a description of the
+data elements in the DCS databases.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770001C" data-element-type="Outline" id="i90078" role="heading" tmaa-izihyxm-tk="">2.0  <span class="Cross-RefMarker" id="FM32244" tmaa-izihyxm-tk=""></span>Criteria
+Used To Select Potential Duplicate Claims<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770001D" data-element-type="Text" tmaa-izihyxm-tk="">The DCS uses the criteria described
+on the following pages to extract TED data and load the DCS databases.
+Prior to the National Provider Identifier (NPI) implementation,
+the DCS inspects up to 12 TED data fields in each claim record;
+on or after the NPI implementation, 14 TED data fields in each claim
+record. If the claims match on one of the criteria categories, it
+extracts and groups these claims into sets. The criteria used by
+the system identifies claims with a high probability of being actual
+duplicates.</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770001E" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">2.1  Match Criteria for Institutional
+Claims Prior to the NPI Implementation<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770001F" data-element-type="Text" tmaa-izihyxm-tk="">The following categories of
+match criteria are used to identify and link two or more matched
+institutional claims. <span class="Fig" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/C4S1_2#FM102359" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">Figure 4.1.2-1</a></span>, shows the specific TED data
+field match criteria used to select potential institutional duplicate
+claims.</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507700020" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:15.517241379310345%" tmaa-izihyxm-tk=""/>
+<col style="width:84.48275862068965%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Exact Match</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">All 12 fields match.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Near Match</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Five fields match and the lesser
+Billed Amount is within 10% of the larger Billed Amount.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Date Overlap</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Three fields match and the
+beginning date of care of one claim falls between the beginning
+and ending dates of another.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Other</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Four fields match.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Other Inst.</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Three fields (Patient ID, National
+Provider Identifier (NPI) - Type II, and Care Begin Date) <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+<div class="CellBody9L" tmaa-izihyxm-tk="">Four fields (Patient ID, Provider
+ID, Provider Sub ID, and Care Begin Date)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST50770002C" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="Figure" id="FM102359" tmaa-izihyxm-tk="">Figure 4.1.2-1  <span class="Cross-RefMarker" id="FM23905" tmaa-izihyxm-tk=""></span>Data
+Field Match Criteria For Institutional Claims Prior To The NPI Implementation</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:24.137931034482758%" tmaa-izihyxm-tk=""/>
+<col style="width:18.96551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:18.96551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:18.96551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:18.96551724137931%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Field Name</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Other</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Date Overlap</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Near Match</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Exact Match</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="5" tmaa-izihyxm-tk="">
+<div class="Footnote" tmaa-izihyxm-tk="">*  The system determines
+date overlap as follows: (a) the begin date of care on one claim
+must be greater than the begin date of care on the other claim and
+less than the end date of care on the other claim, or (b) the begin
+date of care on one claim is equal to the begin date of care on
+the other claim(s) and the end dates of care are not equal.</div>
+<div class="Footnote" tmaa-izihyxm-tk="">**  The system calculates
+± 10% of the Billed Amount as follows: (a) the system takes the
+higher of the billed amounts and multiplies it by 90%; (b) the system
+then compares the lower billed amount from the other claim(s) to
+the 90% figure; (c) the lower billed amount(s) must be = 90% of
+the higher billed amount.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PATIENT ID</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PATIENT DOB</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PROVIDER TAX ID</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PROVIDER SUB ID</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADMIT DATE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">BILL FREQUENCY</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">BILLED AMOUNT</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">± 10%**</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ALLOWED AMOUNT</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">CARE BEGIN DATE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk=""> OVERLAP*</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">CARE END DATE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PRIN DIAGNOSIS</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DRG CODE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700072" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">2.2  Match
+Criteria for Institutional Claims On or After the NPI Implementation<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507700073" data-element-type="Text" tmaa-izihyxm-tk="">The following categories of
+match criteria are used to identify and link two or more matched
+institutional claims. <span class="Fig" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/C4S1_2#FM102811" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">Figure 4.1.2-2</a></span>, shows the specific TED data
+field match criteria used to select potential institutional duplicate
+claims.</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Changed" data-element-id="TST507700074" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:15.517241379310345%" tmaa-izihyxm-tk=""/>
+<col style="width:84.48275862068965%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Exact Match</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">All<del data-revision="39" datetime="2026-08-12" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 39, August 12, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 39, August 12, 2026" tmaa-izihyxm-tk=""></span> 14</del>
+<ins data-revision="39" datetime="2026-08-12" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 39, August 12, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 39, August 12, 2026" tmaa-izihyxm-tk=""></span>13</ins> fields
+match.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Near Match</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Four fields match and the lesser
+Billed Amount is within 10% of the larger Billed Amount.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Date Overlap</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Two fields match and the beginning
+date of care of one claim falls between the beginning and ending
+dates of another.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Other</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Three fields match.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST50770007D" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="Figure" id="FM102811" tmaa-izihyxm-tk="">Figure 4.1.2-2  <span class="Cross-RefMarker" id="FM70071" tmaa-izihyxm-tk=""></span>Data
+Field Match Criteria For Institutional Claims On Or After The NPI Implementation</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:24.137931034482758%" tmaa-izihyxm-tk=""/>
+<col style="width:18.96551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:18.96551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:18.96551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:18.96551724137931%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Field Name</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Other</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Date Overlap</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Near Match</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Exact Match</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="5" tmaa-izihyxm-tk="">
+<div class="Footnote" tmaa-izihyxm-tk="">*   The system determines
+date overlap as follows: (a) the begin date of care on one claim
+must be greater than the begin date of care on the other claim and
+less than the end date of care on the other claim, or (b) the begin
+date of care on one claim is equal to the begin date of care on
+the other claim(s) and the end dates of care are not equal.</div>
+<div class="Footnote" tmaa-izihyxm-tk="">**   The system calculates
+± 10% of the Billed Amount as follows: (a) the system takes the
+higher of the billed amounts and multiplies it by 90%; (b) the system
+then compares the lower billed amount from the other claim(s) to
+the 90% figure; (c) the lower billed amount(s) must be = 90% of
+the higher billed amount.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PATIENT ID</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PATIENT DOB</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PROVIDER ID</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PROVIDER SUB ID</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NPI - TYPE II</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADMIT DATE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">BILL FREQUENCY</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">BILLED AMOUNT</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">± 10%**</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ALLOWED AMOUNT</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">CARE BEGIN DATE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk=""> OVERLAP*</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">CARE END DATE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PRIN DIAGNOSIS</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DRG CODE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077000C8" data-element-type="Outline" id="i90640" role="heading" tmaa-izihyxm-tk="">2.3  <span class="Cross-RefMarker" id="FM65901" tmaa-izihyxm-tk=""></span>Match
+Criteria for Non-Institutional Claims Prior to the NPI Implementation<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077000C9" data-element-type="Text" tmaa-izihyxm-tk="">The following categories of
+match criteria are used to identify and link two or more matched
+non-institutional claims. <span class="Fig" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/C4S1_2#FM103269" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">Figure 4.1.2-3</a></span>, shows the specific TED data
+field match criteria used to select potential non-institutional duplicate
+claims.</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST5077000CA" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:74.13793103448276%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Exact Match</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">All 12 fields match.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Near Match</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Six fields match and the lesser
+Billed Amount is within 10% of the larger Billed Amount.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Current Procedural Terminology, 4th
+Edition (CPT-4) Code Match</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Five fields and the first three
+characters of the procedure code match.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Other</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Five fields match.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Changed" data-element-id="TST5077000D3" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="Figure" id="FM103269" tmaa-izihyxm-tk="">Figure 4.1.2-3  <span class="Cross-RefMarker" id="FM77796" tmaa-izihyxm-tk=""></span>Data
+Field Match Criteria For Non-Institutional Claims</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:24.137931034482758%" tmaa-izihyxm-tk=""/>
+<col style="width:18.96551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:18.96551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:18.96551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:18.96551724137931%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Field Name</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Other</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">CPT-4 Code</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Near Match</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Exact Match</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="5" tmaa-izihyxm-tk="">
+<div class="Footnote" tmaa-izihyxm-tk="">*  The procedure
+code of one line item is not equal to the procedure code of the
+other line item but the first three characters of the procedure
+codes are equal.</div>
+<div class="Footnote" tmaa-izihyxm-tk="">**  The system calculates
+± 10% of the Billed Amount as follows: (a) the system takes the
+higher of the billed amounts and multiplies it by 90%; (b) the system
+then compares the lower billed amount from the other claim(s) to
+the 90% figure; (c) the lower billed amount(s) must be = 90% of
+the higher billed amount.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="5" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Claim
+Level</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PATIENT ID</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PATIENT DOB</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PRIN DIAGNOSIS</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="5" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Line Item
+Level</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PROVIDER TAX NBR</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PROVIDER SUB ID</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PLACE OF SERVICE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">TYPE OF SERVICE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">CARE BEGIN DATE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">CARE END DATE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">
+<del data-revision="39" datetime="2026-08-12" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 39, August 12, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 39, August 12, 2026" tmaa-izihyxm-tk=""></span>4</del><span class="Bold" tmaa-izihyxm-tk=""><ins data-revision="39" datetime="2026-08-12" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 39, August 12, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 39, August 12, 2026" tmaa-izihyxm-tk=""></span>X</ins></span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">BILLED AMOUNT</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">± 10%**</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ALLOWED AMOUNT</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PROCED CODE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">posn 1-3*</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770011B" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">2.4  Match
+Criteria for Non-Institutional Claims On or After the NPI Implementation<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST50770011C" data-element-type="Text" tmaa-izihyxm-tk="">The following categories of
+match criteria are used to identify and link two or more matched
+non-institutional claims. <span class="Fig" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/C4S1_2#FM103749" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">Figure 4.1.2-4</a></span>, shows the specific TED data
+field match criteria used to select potential non- institutional duplicate
+claims.</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST50770011D" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:15.517241379310345%" tmaa-izihyxm-tk=""/>
+<col style="width:84.48275862068965%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Exact Match</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">All 14 fields match.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Near Match</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Five fields match and the lesser
+Billed Amount is within 10% of the larger Billed Amount.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">CPT-4 Code Match</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Four fields and the first three
+characters of the procedure code match.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Other</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Four fields match.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Other Inst</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Four fields.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507700128" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="Figure" id="FM103749" tmaa-izihyxm-tk="">Figure 4.1.2-4  <span class="Cross-RefMarker" id="FM48868" tmaa-izihyxm-tk=""></span>Data
+Field Match Criteria For Non-Institutional Claims On Or After The
+NPI Implementation</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:12.068965517241379%" tmaa-izihyxm-tk=""/>
+<col style="width:12.068965517241379%" tmaa-izihyxm-tk=""/>
+<col style="width:12.068965517241379%" tmaa-izihyxm-tk=""/>
+<col style="width:12.068965517241379%" tmaa-izihyxm-tk=""/>
+<col style="width:13.793103448275861%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th style="vertical-align:bottom;" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Field
+Name</div>
+</th>
+<th style="vertical-align:bottom;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Other</div>
+</th>
+<th style="vertical-align:bottom;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Other</div>
+</th>
+<th style="vertical-align:bottom;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">CPT-4
+Code</div>
+</th>
+<th style="vertical-align:bottom;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">CPT-4
+Code</div>
+</th>
+<th style="vertical-align:bottom;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Near Match</div>
+</th>
+<th style="vertical-align:bottom;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Near Match</div>
+</th>
+<th style="vertical-align:bottom;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Exact
+Match</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="8" tmaa-izihyxm-tk="">
+<div class="Footnote" tmaa-izihyxm-tk="">*  The procedure
+code of one line item is not equal to the procedure code of the
+other line item but the first three characters of the procedure
+codes are equal.</div>
+<div class="Footnote" tmaa-izihyxm-tk="">**  The system calculates
+± 10% of the Billed Amount as follows: (a) the system takes the
+higher of the billed amounts and multiplies it by 90%; (b) the system
+then compares the lower billed amount from the other claim(s) to
+the 90% figure; (c) the lower billed amount(s) must be = 90% of
+the higher billed amount.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="8" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Claim
+Level</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PATIENT ID</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PATIENT DOB</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PROVIDER ID</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PROVIDER SUB ID</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NPI - TYPE II</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NPI - TYPE I</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PRIN DIAGNOSIS</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="8" style="vertical-align:top;background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Line Item
+Level</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PLACE OF SERVICE</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">TYPE OF SERVICE</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">CARE BEGIN DATE</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">CARE END DATE</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">BILLED AMOUNT</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">4</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">4</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">± 10%**</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">± 10%**</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ALLOWED AMOUNT</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PROCED CODE</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">posn 1-3*</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">posn 1-3*</div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">X</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001A7" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">2.5  Exclusions<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001A8" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">2.5.1  Exclusion of Certain Claims<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001A9" data-element-type="Text" tmaa-izihyxm-tk="">The DCS excludes claims from
+the extract if they do not meet specific minimum dollar thresholds
+and other criteria. An individual claim is excluded if:</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001AA" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.1.1  </span>The Government paid amount
+at the claim level is $0.00.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001AB" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.1.2  </span>The total allowed amount is
+less than $30.00.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001AC" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.1.3  </span>The claim’s type of submission
+code is <span class="Bold" tmaa-izihyxm-tk="">B</span>, <span class="Bold" tmaa-izihyxm-tk="">D</span>, <span class="Bold" tmaa-izihyxm-tk="">E</span>, or <span class="Bold" tmaa-izihyxm-tk="">O</span> (adjustment
+or cancellation to a prior non-TED claim or 100% paid by other health
+insurance).</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001AD" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.1.4  </span>The claim level allowed amount
+on a non-financially underwritten institutional potential duplicate
+is less than $30.00.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001AE" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.1.5  </span>The claim level allowed amount
+on an financially underwritten institutional potential duplicate
+is less than $50.00.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001AF" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.1.6  </span>The sum of the line item level
+allowed amounts on a non-financially underwritten non-institutional potential
+duplicate is less than $30.00.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001B0" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.1.7  </span>The sum of the line item level
+allowed amounts on an financially underwritten non-institutional potential
+duplicate is less than $50.00.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001B1" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.1.8  </span>The second byte of the claim’s
+type of service code is <span class="Bold" tmaa-izihyxm-tk="">B</span> (Retail Drugs &amp; Supplies)
+or <span class="Bold" tmaa-izihyxm-tk="">M</span> (Mail Order Pharmacy Drugs &amp; Supplies).</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001B2" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">2.5.2  Exclusion of Certain Line Items<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001B3" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.2.1  </span>DCS excludes line items from
+the extract if the line item procedure code (Healthcare Common Procedure
+Coding System (HCPCS) or CPT-4) is one of the following:<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl3" data-element-change-state="Unchanged" data-element-id="TST5077001B4" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:17.24137931034483%" tmaa-izihyxm-tk=""/>
+<col style="width:17.24137931034483%" tmaa-izihyxm-tk=""/>
+<col style="width:65.51724137931035%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">HCPCS</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeadingC" tmaa-izihyxm-tk="">CPT-4</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Description</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">A4000 - A4999</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">06888</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Nutrition Equipment/Supplies
+- Purchase</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">A5000 - A6500</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">06942</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Other Equipment/Supplies -
+Purchase</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">R_ _ _ _</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">76499</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Radiographic Procedure</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">P_ _ _ _</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">84999</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Clinical Chemistry Test</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">P_ _ _ _</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">88305</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Tissue Exam By Pathologist</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">90593</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Whole Blood Charges</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">90594</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Professional Components Charge</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">90595</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Outpatient Hospital - Physician’s
+Charge</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">90596</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Outpatient Hospital - Recovery
+Room Charge</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">90597</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Outpatient Hospital - Operating
+Room Charge</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">90599</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Outpatient Hospital - Emergency
+Room Charge</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">J_ _ _ _</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">90782</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Injection (SC)/(IM)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">J_ _ _ _</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">90784</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Injection (IV)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">94799</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Unlisted Pulmonary Service
+Or Procedures</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">99070</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Special Supplies</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">99088</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Other Room, Ancillary and Drug
+Charges</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">99592</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Hospital Outpatient Birthing
+Room Charges</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001EB" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.2.2  </span>Anesthesia Assistants: When
+comparing two line items which have the same CPT-4 value (all five positions),
+if either of the CPT-4 Modifiers (CPT_4_1 or CPT_4_2) on one line
+item has a value of <span class="Bold" tmaa-izihyxm-tk="">QK</span> and either of the CPT-4 Modifiers
+on the other line item has a value of <span class="Bold" tmaa-izihyxm-tk="">QX</span> or a value
+of <span class="Bold" tmaa-izihyxm-tk="">QS</span>.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001EC" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.2.3  </span>Assistant Surgeon Modifiers:
+When comparing two line items which have the same CPT-4 value (all five
+positions), if either of the CPT-4 Modifiers on one of the line
+items has a value of <span class="Bold" tmaa-izihyxm-tk="">80</span>, <span class="Bold" tmaa-izihyxm-tk="">81</span>, <span class="Bold" tmaa-izihyxm-tk="">82</span>,
+or <span class="Bold" tmaa-izihyxm-tk="">AS</span> and neither of the CPT-4 Modifiers on the other
+line item has any of these values.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001ED" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.2.4  </span>Left/Right: When comparing
+two line items which have the same CPT-4 value (all five positions),
+if either of the CPT-4 Modifiers on one of the line items has a
+value of <span class="Bold" tmaa-izihyxm-tk="">RT</span> and either of the CPT-4 Modifiers on the other
+line item has a value of <span class="Bold" tmaa-izihyxm-tk="">LT</span>.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001EE" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.2.5  </span>Professional/Technical Components:
+When comparing two line items which have the same CPT-4 value (all
+five positions), if either of the CPT-4 Modifiers on one of the
+line items has a value of <span class="Bold" tmaa-izihyxm-tk="">26</span> and either of the CPT-4
+Modifiers on the other line item has a value of <span class="Bold" tmaa-izihyxm-tk="">TC</span>.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001EF" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.2.6  </span>Ambulance Services: When comparing
+two line items which have the same CPT-4 value (all five positions)
+and that CPT-4 value is in the range of <span class="Bold" tmaa-izihyxm-tk="">A0021</span> <span class="Bold" tmaa-izihyxm-tk="">through</span> <span class="Bold" tmaa-izihyxm-tk="">A0999</span>,
+if the values of the first CPT-4 Modifier (CPT_4_1) on the two line
+items are not equal.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001F0" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">2.5.3  Other
+Exclusions<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001F1" data-element-type="Text" tmaa-izihyxm-tk="">After
+potential duplicate claims have been identified and grouped into
+claim sets, a final test is applied to exclude certain types of
+claim sets least likely to contain actual duplicate claims. Claim
+sets are excluded if they meet any of the following conditions:</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001F2" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.3.1  </span>The claim set contains less
+than two claims after the elimination of claims in the set due to
+any of the previously listed exclusion criteria.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001F3" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.3.2  </span>The set is a “<span class="Bold" tmaa-izihyxm-tk="">Mother-Baby</span>”
+claim set and contains no more than two claims, where one claim
+has a <span class="Bold" tmaa-izihyxm-tk="">6...</span> series principal diagnosis code (mother
+- <span class="Bold" tmaa-izihyxm-tk="">O00-O9A</span>) and the other claim has a <span class="Bold" tmaa-izihyxm-tk="">V or Z...</span> series
+principal diagnosis code (baby - <span class="Bold" tmaa-izihyxm-tk="">Z38...</span>). (Applies
+only to institutional claims.)</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5077001F4" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.5.3.3  </span>The set is a “<span class="Bold" tmaa-izihyxm-tk="">Multiple
+Birth</span>” claim set and contains no more than two claims, where
+both claims have <span class="Bold" tmaa-izihyxm-tk="">V31... through V39...</span> (International
+Classification of Diseases, 9th Revision (ICD-9)) or <span class="Bold" tmaa-izihyxm-tk="">Z38.1
+through Z38.8</span> (International Classification of Diseases,
+9th Revision (ICD-10)) series principal diagnosis codes. (Applies
+only to institutional claims.)</div>
+</div>
+</div>
+</div></section>
+<div class="END" tmaa-izihyxm-tk="">- END -</div></article></div><div hx-swap-oob="true" id="publication-info"><div class="tmaa-stack" role="group" style="--gap: 0;"><div>TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div>Revision 39 (Published Aug 12, 2026)</div>
+<div>Chap 4 -- TRICARE Duplicate Claims System (DCS) - TRICARE Encounter Data (TED) Version</div>
+<div>Sect 1.2 -- Duplicate Claims Data</div></div></div><div class="" hx-swap-oob="true" id="publication-in-this-section-wrapper"><div class="card content-panel border-0 mb-4" role="group"><div class="card-header" style=""><h3>In This Section</h3></div><div class="card-body" style=""><div id="publication-in-this-section"><div class="tmaa-stack" role="group" style="--gap: 0;"><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST507700008']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">The DCS performs several functions
+for the maintenance of the DCS databases. First, it identifies,
+…</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST507700009']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">The DCS performs these functions
+separate and apart from the proprietary, claims processing systems…</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST50770000A']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">Contractors are required to
+prevent duplicate claim payments. Despite a variety of automated
+and ma…</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST50770000B']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">The correction of the TED database
+is a critical function of the DCS. Not only do duplicate TEDs re…</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST50770000C']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">The DCS is not intended to
+replace or substitute for contractor developed, maintained, and
+operated…</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST50770000E']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">1.0  Source
+Of Duplicate Claims Data</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST50770001C']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">2.0  Criteria
+Used To Select Potential Duplicate Claims</a></div></div></div></div></div>

@@ -1,0 +1,231 @@
+{
+  "code": "FR16",
+  "change": 20,
+  "fetchedAt": "2026-09-08T14:10:09Z",
+  "sections": [
+    {
+      "id": "FR16TOC",
+      "name": "FR16TOC",
+      "title": "Master TOC",
+      "chapter": 0,
+      "section": "",
+      "isChapterToc": true
+    },
+    {
+      "id": "C1",
+      "name": "C1",
+      "title": "Chapter 199.1 — General Provisions",
+      "chapter": 1,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C2",
+      "name": "C2",
+      "title": "Chapter 199.2 — Definitions",
+      "chapter": 2,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C3",
+      "name": "C3",
+      "title": "Chapter 199.3 — Eligibility",
+      "chapter": 3,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C4",
+      "name": "C4",
+      "title": "Chapter 199.4 — Basic Program Benefits",
+      "chapter": 4,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C5",
+      "name": "C5",
+      "title": "Chapter 199.5 — TRICARE Extended Care Health Option (ECHO)",
+      "chapter": 5,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6",
+      "name": "C6",
+      "title": "Chapter 199.6 — TRICARE-Authorized Providers",
+      "chapter": 6,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C7",
+      "name": "C7",
+      "title": "Chapter 199.7 — Claims Submission, Review, And Payment",
+      "chapter": 7,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C8",
+      "name": "C8",
+      "title": "Chapter 199.8 — Double Coverage",
+      "chapter": 8,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C9",
+      "name": "C9",
+      "title": "Chapter 199.9 — Administrative Remedies For Fraud, Abuse, And Conflict Of Interest",
+      "chapter": 9,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C10",
+      "name": "C10",
+      "title": "Chapter 199.10 — Appeal And Hearing Procedures",
+      "chapter": 10,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C11",
+      "name": "C11",
+      "title": "Chapter 199.11 — Overpayments Recovery",
+      "chapter": 11,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12",
+      "name": "C12",
+      "title": "Chapter 199.12 — Third Party Recoveries",
+      "chapter": 12,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C13",
+      "name": "C13",
+      "title": "Chapter 199.13 — TRICARE Dental Program",
+      "chapter": 13,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C14",
+      "name": "C14",
+      "title": "Chapter 199.14 — Provider Reimbursement Methods",
+      "chapter": 14,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C15",
+      "name": "C15",
+      "title": "Chapter 199.15 — Quality And Utilization Review Peer Review Organization Program",
+      "chapter": 15,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C16",
+      "name": "C16",
+      "title": "Chapter 199.16 — Supplemental Health Care Program For Active Duty Members",
+      "chapter": 16,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C17",
+      "name": "C17",
+      "title": "Chapter 199.17 — TRICARE Program",
+      "chapter": 17,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C18",
+      "name": "C18",
+      "title": "Chapter 199.18 — Reserved",
+      "chapter": 18,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C19",
+      "name": "C19",
+      "title": "Chapter 199.19 — Reserved",
+      "chapter": 19,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C20",
+      "name": "C20",
+      "title": "Chapter 199.20 — Continued Health Care Benefit Program (CHCBP)",
+      "chapter": 20,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C21",
+      "name": "C21",
+      "title": "Chapter 199.21 — Pharmacy Benefits Program",
+      "chapter": 21,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C22",
+      "name": "C22",
+      "title": "Chapter 199.22 — TRICARE Retiree Dental Program (TRDP)",
+      "chapter": 22,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C23",
+      "name": "C23",
+      "title": "Chapter 199.23 — Special Supplemental Food Program",
+      "chapter": 23,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C24",
+      "name": "C24",
+      "title": "Chapter 199.24 — TRICARE Reserve Select",
+      "chapter": 24,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C25",
+      "name": "C25",
+      "title": "Chapter 199.25 — TRICARE Retired Reserve",
+      "chapter": 25,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C26",
+      "name": "C26",
+      "title": "Chapter 199.26 — TRICARE Young Adult",
+      "chapter": 26,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "APPA",
+      "name": "APPA",
+      "title": "Appendix A — Acronyms",
+      "chapter": 0,
+      "section": "",
+      "isChapterToc": false
+    }
+  ]
+}

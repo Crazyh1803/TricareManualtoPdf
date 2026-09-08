@@ -1,0 +1,2716 @@
+
+<div class="row my-3"><article class="TSM" data-manualacronym="TST5" tmaa-izihyxm-tk=""><div class="Header" tmaa-izihyxm-tk="">TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div class="MPChapterTitle" tmaa-izihyxm-tk="">TRICARE Encounter Data (TED)</div>
+<section data-element-id="TST505600001" data-element-type="Header" tmaa-izihyxm-tk="">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST505600002" data-element-type="Text" id="FM90018" tmaa-izihyxm-tk="">Chapter 2</div>
+<div class="Section" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST505600003" data-element-type="Text" id="FM90023" tmaa-izihyxm-tk="">Section 5.4</div>
+<div class="Subject" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST505600004" data-element-type="Text" id="FM90027" tmaa-izihyxm-tk="">Institutional
+Edit Requirements (ELN 300 - 399)</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST505600005" data-element-type="None" tmaa-izihyxm-tk="">Revision:  C-30, November 14, 2025</div>
+<div class="Line" tmaa-izihyxm-tk=""></div></section>
+<section data-element-id="TST505600006" data-element-type="Content" tmaa-izihyxm-tk=""><div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505600007" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  PRINCIPAL TREATMENT DIAGNOSIS/POA
+INDICATOR (1-300)</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="Footnote-1-" tmaa-izihyxm-tk=""><span class="Superscript" tmaa-izihyxm-tk="">1  </span>PATIENT AGE IS CALCULATED ON
+PERSON BIRTH CALENDAR DATE (PATIENT) AND DATE OF ADMISSION.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-300-01V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">IF</span> FILING DATE
+PRIOR TO 10/01/2004</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> VALUE IN
+POSITIONS 1-7 MUST BE A VALID ICD DIAGNOSIS CODE, EXCLUDING E000.0-E999.1
+(ICD-9-CM).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-300-02V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">IF</span> FILING DATE
+ON OR AFTER 10/01/2004</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> VALUE IN
+POSITIONS 1-7 MUST BE A VALID ICD DIAGNOSIS CODE, EXCLUDING E000.0-E999.1
+(ICD-9-CM) AND V00-Y99.9 (ICD-10-CM).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> BEGIN DATE
+OF CARE MUST BE ON OR AFTER THE DIAGNOSIS EFFECTIVE DATE AND NOT
+LATER THAN THE DIAGNOSIS TERMINATION DATE ON THE ICD DIAGNOSIS REFERENCE
+TABLE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind3" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">OR</span> END DATE OF
+CARE MUST BE ON OR AFTER THE DIAGNOSIS EFFECTIVE DATE AND NOT LATER
+THAN THE DIAGNOSIS TERMINATION DATE ON THE ICD DIAGNOSIS REFERENCE
+TABLE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-300-03V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">POA INDICATOR (POSITION 8 OF
+THE PRINCIPAL DIAGNOSIS/POA INDICATOR) MUST BE A VALID VALUE.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-300-01R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF PRINCIPAL TREATMENT DIAGNOSIS/POA INDICATOR
+(POSITIONS 1-7) =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">799.9</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ICD-9-CM <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">R69</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ICD-10-CM <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">R99</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ICD-10-CM</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> AMOUNT ALLOWED
+(TOTAL) MUST = ZERO</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">OR</span> ANY OCCURRENCE
+OF SPECIAL PROCESSING CODE =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">MEDICAID</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-300-02R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF PRINCIPAL TREATMENT DIAGNOSIS/POA
+INDICATOR (POSITIONS 1-7) IS FOR FEMALE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> PERSON SEX
+(PATIENT) = MALE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> AT LEAST
+ONE OVERRIDE CODE MUST =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">G</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DIAGNOSIS/PROCEDURE CODE FOR
+FEMALE: SEX INDICATES MALE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-300-03R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF PRINCIPAL TREATMENT DIAGNOSIS/POA
+INDICATOR (POSITIONS 1-7) IS FOR MALE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> PERSON SEX
+(PATIENT) = FEMALE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> AT LEAST
+ONE OVERRIDE CODE MUST =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">H</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DIAGNOSIS/PROCEDURE CODE FOR
+MALE: SEX INDICATES FEMALE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-300-05R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF OP/NSP CODE IS CESAREAN
+SECTION OR REMOVAL OF FETUS (74.0-74.2, 74.4-74.99, 10D00Z0, 10D00Z1,
+10D00Z2, 10D07Z3, 10D07Z4, 10D07Z5, 10D07Z6, 10D07Z7, 10D07Z8, 10A00ZZ,
+10A03ZZ, 10A04ZZ, 10A08ZZ, 10A07Z6, 10A07ZW, 10A07ZX, <span class="Bold" tmaa-izihyxm-tk="">OR</span> 10A07ZZ)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> PRINCIPAL
+TREATMENT DIAGNOSIS/POA INDICATOR (POSITIONS 1-7) MUST BE 640-676 <span class="Bold" tmaa-izihyxm-tk="">OR</span> O09.00-O77.9,
+O82, <span class="Bold" tmaa-izihyxm-tk="">OR</span> O85-O9A.53.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-300-06R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF OP/NSP CODE IS ECTOPIC PREGNANCY
+(74.3, 10D27ZZ, 10D28ZZ, 10T20ZZ, 10T23ZZ, <span class="Bold" tmaa-izihyxm-tk="">OR</span> 10T24ZZ)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> PRINCIPAL
+TREATMENT DIAGNOSIS/POA INDICATOR (POSITIONS 1-7) MUST BE 633.0-633.9 <span class="Bold" tmaa-izihyxm-tk="">OR</span> O00.0-O00.92.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-300-07R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF TYPE OF INSTITUTION = </div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">72</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">RTC</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> AMOUNT ALLOWED
+(TOTAL) &gt; 0</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> PRINCIPAL
+TREATMENT DIAGNOSIS/POA INDICATOR (POSITIONS 1-7) MUST =</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">290-316 (MENTAL HEALTH, ICD-9-CM) <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">F01- F99 (MENTAL HEALTH, ICD-10-CM)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-300-09R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF TYPE OF INSTITUTION = </div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">72</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">RTC</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> AMOUNT ALLOWED
+(TOTAL) &gt; 0</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> PATIENT AGE<span class="Superscript" tmaa-izihyxm-tk="">1</span> MUST
+BE &lt; 21</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">UNLESS</span> ENROLLMENT/HEALTH
+PLAN CODE =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">SR</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">SHCP - MTF/MARKET REFERRED
+CARE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST50560005C" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  SECONDARY TREATMENT DIAGNOSIS/POA
+INDICATOR OCCURRENCES 1-24 (1-305 THROUGH 1-328)</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="Footnote-1-" tmaa-izihyxm-tk=""><span class="Superscript" tmaa-izihyxm-tk="">1  </span>XXX EQUALS ELN (305 THROUGH
+328) FOR EACH OCCURRENCE OF SECONDARY TREATMENT DIAGNOSIS/POA INDICATOR.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-XXX-01V<span class="Superscript" tmaa-izihyxm-tk="">1</span></span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF FILING DATE PRIOR TO 10/01/2004</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> VALUE IN
+POSITIONS 1-7 MUST BE A VALID ICD DIAGNOSIS CODE IF PRESENT OR BLANK
+FILLED</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-XXX-0V<span class="Superscript" tmaa-izihyxm-tk="">1</span></span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF FILLING DATE ON OR AFTER
+10/01/2004</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> VALUE IN
+POSITIONS 1-7 MUST BE A VALID ICD DIAGNOSIS CODE OR BLANK FILLED</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> BEGIN DATE
+OF CARE MUST BE ON OR AFTER THE DIAGNOSIS EFFECTIVE DATE AND NOT
+LATER THAN THE DIAGNOSIS TERMINATION DATE ON THE ICD DIAGNOSIS REFERENCE
+TABLE.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind3" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">OR</span> END DATE OF
+CARE MUST BE ON OR AFTER THE DIAGNOSIS EFFECTIVE DATE AND NOT LATER
+THAN THE DIAGNOSIS TERMINATION DATE ON THE ICD DIAGNOSIS REFERENCE
+TABLE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-XXX-03V<span class="Superscript" tmaa-izihyxm-tk="">1</span></span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ALL OCCURRENCES OF SECONDARY
+TREATMENT DIAGNOSIS/POA INDICATOR MUST BE BLANK FILLED FOLLOWING
+THE FIRST OCCURRENCE OF A BLANK FILLED SECONDARY TREATMENT DIAGNOSIS/POA
+INDICATOR.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-XXX-04V<span class="Superscript" tmaa-izihyxm-tk="">1</span></span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">POA INDICATOR (POSITION 8 OF
+THE SECONDARY TREATMENT DIAGNOSIS/POA INDICATOR) MUST BE A VALID
+VALUE.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-XXX-01R<span class="Superscript" tmaa-izihyxm-tk="">1</span></span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF ANY SECONDARY TREATMENT
+DIAGNOSIS/POA INDICATOR (POSITIONS 1-7) IS FOR FEMALE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> PERSON SEX
+(PATIENT) = MALE </div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> AT LEAST
+ONE OVERRIDE CODE MUST =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">G</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DIAGNOSIS/PROCEDURE CODE FOR
+FEMALE: SEX INDICATES MALE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-XXX-02R<span class="Superscript" tmaa-izihyxm-tk="">1</span></span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF ANY SECONDARY TREATMENT
+DIAGNOSIS/POA INDICATOR (POSITIONS 1-7) IS FOR MALE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> PERSON SEX
+(PATIENT) = FEMALE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> AT LEAST
+ONE OVERRIDE CODE MUST =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">H</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DIAGNOSIS/PROCEDURE CODE FOR
+MALE: SEX INDICATES FEMALE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505600081" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  PRINCIPAL OPERATION/NON-SURGICAL
+PROCEDURE CODE (OP/NSP) (1-345)</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-345-01V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">IF</span> FILING DATE
+IS PRIOR TO 10/01/2004</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> VALUE MUST
+BE A VALID ICD OP/NSP CODE IF PRESENT <span class="Bold" tmaa-izihyxm-tk="">OR</span> BLANK FILLED</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-345-02V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">IF</span> FILING DATE
+IS ON OR AFTER 10/01/2004</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> VALUE MUST
+BE A VALID ICD OP/NSP CODE IF PRESENT <span class="Bold" tmaa-izihyxm-tk="">OR</span> BLANK FILLED</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> ADMISSION
+DATE MUST BE ON OR AFTER THE OP/NSP EFFECTIVE DATE AND NOT LATER
+THAN THE OP/NSP TERMINATION DATE ON THE ICD OP/NSP</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">OR</span> BEGIN DATE
+OF CARE MUST BE ON OR AFTER THE OP/NSP EFFECTIVE DATE AND NOT LATER
+THAN THE OP/NSP TERMINATION DATE ON THE ICD OP/NSP REFERENCE TABLE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind3" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">OR</span> END DATE OF
+CARE MUST BE ON OR AFTER THE OP/NSP EFFECTIVE DATE AND NOT LATER
+THAN THE OP/NSP TERMINATION DATE ON THE ICD OP/NSP REFERENCE TABLE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505600095" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  SECONDARY OPERATION/NON/SURGICAL
+PROCEDURE CODE OCCURRENCES 1-24 (1-350 THROUGH 1-373)</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="Footnote-1-" tmaa-izihyxm-tk=""><span class="Superscript" tmaa-izihyxm-tk="">1  </span>XXX EQUALS ELN (350 THROUGH
+373) FOR EACH OCCURRENCE OF SECONDARY OPERATION/NON-SURGICAL PROCEDURE
+CODE.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-XXX-01V</span><span class="Superscript" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1</span></span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">IF</span> FILING DATE
+IS PRIOR TO 10/01/2004</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> VALUE MUST
+BE A VALID ICD OP/NSP CODE IF PRESENT <span class="Bold" tmaa-izihyxm-tk="">OR</span> BLANK FILLED</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-XXX-02V<span class="Superscript" tmaa-izihyxm-tk="">1</span></span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">IF</span> FILING DATE
+IS ON OR AFTER 10/01/2004</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> VALUE MUST
+BE VALID ICD OP/NSP CODE IF PRESENT <span class="Bold" tmaa-izihyxm-tk="">OR</span> BLANK FILLED</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> ADMISSION
+DATE MUST BE ON OR AFTER THE OP/NSP EFFECTIVE DATE AND NOT LATER
+THAN THE OP/NSP TERMINATION DATE ON THE ICD OP/NSP</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">OR</span> BEGIN DATE
+OF CARE MUST BE ON OR AFTER THE OP/NSP EFFECTIVE DATE AND NOT LATER
+THAN THE OP/NSP TERMINATION DATE ON THE ICD OP/NSP REFERENCE TABLE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind3" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">OR</span> END DATE OF
+CARE MUST BE ON OR AFTER THE OP/NSP EFFECTIVE DATE AND NOT LATER
+THAN THE OP/NSP TERMINATION DATE ON THE ICD OP/NSP REFERENCE TABLE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-XXX-03V<span class="Superscript" tmaa-izihyxm-tk="">1</span></span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ALL OCCURRENCES OF SECONDARY
+OP/NSP CODE FIELD MUST BE BLANK FILLED FOLLOWING THE FIRST OCCURRENCE
+OF A BLANK FILLED SECONDARY OP/NSP CODE.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST5056000AC" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  TED RECORD CORRECTION INDICATOR
+(1-374)</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-374-01V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">VALUE MUST BE BLANK.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST5056000B4" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  TOTAL OCCURRENCE/LINE ITEM
+COUNT (1-375)</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-375-01V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">VALUE MUST BE IN RANGE 001-450.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> MUST EQUAL
+THE PHYSICAL COUNT OF THE DETAIL LINE ITEMS ON THE TED RECORD</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-375-02V</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF TYPE OF SUBMISSION =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">A</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADJUSTMENT <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">B</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADJUSTMENT TO NON-TED RECORD
+(HCSR) DATA <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">C</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE CANCELLATION <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">E</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE CANCELLATION OF NON-TED
+RECORD (HCSR) DATA</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> TOTAL OCCURRENCE/LINE
+ITEM COUNT MUST BE = TOTAL OCCURRENCE/LINE ITEM COUNT FROM DHA DATABASE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST5056000D0" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  AMOUNT NETWORK PROVIDER DISCOUNT
+(1-377)</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-377-01V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">MUST BE NUMERIC AND = ZERO</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-377-01R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF TYPE OF SUBMISSION =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">B</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADJUSTMENT TO NON-TED (HCSR)
+DATA <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">C</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE CANCELLATION <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">D</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE DENIAL <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">E</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE CANCELLATION OF NON-TED
+RECORD (HCSR) DATA <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">O</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ZERO GOVERNMENT TED RECORD
+DUE TO 100% OHI</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> AMOUNT NETWORK
+PROVIDER DISCOUNT MUST = ZERO</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-377-02R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF PROVIDER NETWORK STATUS
+INDICATOR = </div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NON-NETWORK PROVIDER</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> AMOUNT NETWORK
+PROVIDER DISCOUNT MUST = ZERO</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-377-03R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF REGION INDICATOR =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="Blank9" tmaa-izihyxm-tk=""> b </div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">BLANK</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> AMOUNT NETWORK
+PROVIDER DISCOUNT MUST = ZERO</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST5056000F8" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  ADJUSTMENT SEQUENCE NUMBER
+(1-378)</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-378-01V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">MUST BE NUMERIC</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-378-01R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF TYPE OF SUBMISSION =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">D</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE DENIAL <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">I</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">INITIAL SUBMISSION <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">O</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ZERO PAYMENT WITH 100% OHI/TPL <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">R</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">RESUBMISSION</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> ADJUSTMENT
+SEQUENCE NUMBER MUST = 000 (ZEROES)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-378-02R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF TYPE OF SUBMISSION =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">A</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADJUSTMENT <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">C</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE CANCELLATION</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> ADJUSTMENT
+SEQUENCE NUMBER MUST BE ONE GREATER THAN THE CURRENT VALUE IN THE
+TED DATABASE</div>
+</td>
+</tr>
+<tr data-table-element-deleted="Yes" tmaa-izihyxm-tk="">
+<td data-table-element-deleted="Yes" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 30, November 14, 2025: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 30, November 14, 2025" tmaa-izihyxm-tk=""></span><div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk=""><del data-revision="30" datetime="2025-11-14" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 30, November 14, 2025: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 30, November 14, 2025" tmaa-izihyxm-tk=""></span>1-378-03R</del></span></div>
+</td>
+<td data-table-element-deleted="Yes" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">
+<del data-revision="30" datetime="2025-11-14" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 30, November 14, 2025: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 30, November 14, 2025" tmaa-izihyxm-tk=""></span>IF TYPE OF SUBMISSION
+=</del>
+</div>
+</td>
+<td data-table-element-deleted="Yes" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">
+<del data-revision="30" datetime="2025-11-14" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 30, November 14, 2025: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 30, November 14, 2025" tmaa-izihyxm-tk=""></span>B</del>
+</div>
+</td>
+<td data-table-element-deleted="Yes" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">
+<del data-revision="30" datetime="2025-11-14" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 30, November 14, 2025: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 30, November 14, 2025" tmaa-izihyxm-tk=""></span>ADJUSTMENT TO NON-TED
+RECORD (HCSR) DATA <span class="Bold" tmaa-izihyxm-tk="">OR</span></del>
+</div>
+</td>
+</tr>
+<tr data-table-element-deleted="Yes" tmaa-izihyxm-tk="">
+<td data-table-element-deleted="Yes" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 30, November 14, 2025: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 30, November 14, 2025" tmaa-izihyxm-tk=""></span><div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td data-table-element-deleted="Yes" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td data-table-element-deleted="Yes" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">
+<del data-revision="30" datetime="2025-11-14" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 30, November 14, 2025: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 30, November 14, 2025" tmaa-izihyxm-tk=""></span>E</del>
+</div>
+</td>
+<td data-table-element-deleted="Yes" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">
+<del data-revision="30" datetime="2025-11-14" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 30, November 14, 2025: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 30, November 14, 2025" tmaa-izihyxm-tk=""></span>COMPLETE CANCELLATION
+OF NON-TED RECORD (HCSR) DATA</del>
+</div>
+</td>
+</tr>
+<tr data-table-element-deleted="Yes" tmaa-izihyxm-tk="">
+<td data-table-element-deleted="Yes" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 30, November 14, 2025: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 30, November 14, 2025" tmaa-izihyxm-tk=""></span><div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" data-table-element-deleted="Yes" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">
+<del data-revision="30" datetime="2025-11-14" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 30, November 14, 2025: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 30, November 14, 2025" tmaa-izihyxm-tk=""></span><span class="Bold" tmaa-izihyxm-tk="">THEN</span> ADJUSTMENT
+SEQUENCE NUMBER MUST = 000 (ZEROES)</del>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST505600124" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  SCH DRG NUMBER (1-379)</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-379-01V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">MUST BE A VALID DRG NUMBER
+OR BLANK-FILLED.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-379-01R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF SCH DRG CALCULATION &gt; 0</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> SCH DRG NUMBER
+MUST NOT BE BLANK</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST50560012E" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  OCCURRENCE/LINE ITEM NUMBER
+(1-380)</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-380-01V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">EACH VALUE MUST BE NUMERIC.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-380-02V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">OCCURRENCE/LINE ITEM NUMBER
+MUST BE CODED FOR EACH NUMBER OF OCCURRENCES SPECIFIED BY THE TOTAL OCCURRENCE/LINE
+ITEM COUNT.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-380-03V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">OCCURRENCE/LINE ITEM NUMBER
+MUST BE REPORTED IN ASCENDING CONSECUTIVE ORDER.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NONE</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST50560013A" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  REVENUE CODE (1-385)</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-385-01V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">VALUE MUST BE A VALID REVENUE
+CODE.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">UNLESS</span> ADJUSTMENT/DENIAL
+REASON CODE IS A DENIAL REASON CODE LISTING IN <span class="Uppercase" tmaa-izihyxm-tk=""><span class="AddFig" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TST5/FileName/C2ADG?referenceDate=2026-08-12&amp;bookmark=%23FM77451" hx-get="/api/publication/TST5/39/C2ADG?referenceDate=2026-08-12&amp;bookmark=%23FM77451" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TST5/FileName/C2ADG?referenceDate=2026-08-12&amp;bookmark=%23FM77451" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Addendum G, Figure 2.G-1</a></span></span> OR <span class="Uppercase" tmaa-izihyxm-tk=""><span class="Fig" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TST5/FileName/C2ADG?referenceDate=2026-08-12&amp;bookmark=%23FM20105" hx-get="/api/publication/TST5/39/C2ADG?referenceDate=2026-08-12&amp;bookmark=%23FM20105" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TST5/FileName/C2ADG?referenceDate=2026-08-12&amp;bookmark=%23FM20105" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Figure 2.G-2</a></span></span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="Note9" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Note:  </span>THE FOLLOWING
+VALID OUTPATIENT REVENUE CODES ARE ALLOWED ON AN INSTITUTIONAL TED
+RECORD ONLY <span class="Bold" tmaa-izihyxm-tk="">WHEN</span> BEING DENIED</div>
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">049X,
+051X-054X, 0630-0635, 064X, 0661, 0662, 082X-085X, 0882, <span class="Bold" tmaa-izihyxm-tk="">AND</span> 310X.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-385-02V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FIRST DETAILED LINE MUST CONTAIN
+REVENUE CODE 0001.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-385-01R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ONLY ONE OCCURRENCE OF REVENUE
+CODE MUST = 0001.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-385-02R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">AT LEAST ONE OCCURRENCE OF
+REVENUE CODE FOR ROOM ACCOMMODATION CHARGES MUST = 010X-021X <span class="Bold" tmaa-izihyxm-tk="">OR</span> 0724 <span class="Bold" tmaa-izihyxm-tk="">OR</span> 100X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">UNLESS</span> ONE OCCURRENCE
+OF OVERRIDE CODE =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Y</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NEWBORN IN MOTHER’S ROOM WITHOUT
+NURSERY CHARGES</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">OR</span> ANY OCCURRENCE
+OF SPECIAL PROCESSING CODE =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">11</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">HOSPICE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">OR</span> ANY OCCURRENCE
+OF REVENUE CODE =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0023</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">HHA PPS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">OR</span> AMOUNT ALLOWED
+(TOTAL) = ZERO</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-385-03R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF PRICING RATE CODE =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">H</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">TRICARE DRG REIMBURSEMENT WITH
+SHORT STAY OUTLIER <span class="Bold" tmaa-izihyxm-tk="">OR</span> </div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">I</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">TRICARE DRG REIMBURSEMENT WITH
+COST OUTLIER <span class="Bold" tmaa-izihyxm-tk="">OR</span> </div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">J</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">TRICARE DRG REIMBURSEMENT WITH
+NO OUTLIER <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">S</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">HVBP ADJUSTMENT FACTOR <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">CV</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COVID-19 ADJUSTMENT FACTOR <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">DD</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DISCOUNTED DRG</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> PROFESSIONAL
+SERVICE REVENUE CODES = 0901, 0914-0918, <span class="Bold" tmaa-izihyxm-tk="">OR</span> 096X-098X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> AQUISITION
+OF BODY PARTS (081X) MUST BE DENIED.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-385-04R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF ANY REVENUE CODE = 0723</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> PERSON SEX
+(PATIENT) MUST = MALE.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-385-05R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF ANY REVENUE CODE = 072X
+BUT <span class="Bold" tmaa-izihyxm-tk="">NOT</span> 0723</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> PERSON SEX
+(PATIENT) MUST = FEMALE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-385-06R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF TYPE OF SUBMISSION =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">A</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADJUSTMENT <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">C</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE CANCELLATION</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> REVENUE CODES
+MUST OCCUR IN THE SAME ORDER</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> ON THE SAME
+OCCURRENCE/LINE ITEM NUMBER AS DHA DATABASE.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-385-07R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF REVENUE CODE =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0022</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">SNF CHARGE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> ADMISSION
+DATE = 08/01/2003</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> TYPE OF INSTITUTION
+MUST =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">76</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">SNF</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> HIPPS CODE
+? BLANK</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">UNLESS</span> PATIENT
+AGE IS &lt; 10 YEARS OF AGE ON DATE OF ADMISSION</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-385-09R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF ANY REVENUE CODE =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0650</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">GENERAL CLASSIFICATION <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0651</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ROUTINE HOME CARE <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0652</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">CONTINUOUS HOME CARE <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0655</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">INPATIENT RESPITE CARE <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0656</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">GENERAL INPATIENT CARE - NON-RESPITE <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0657</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PHYSICIAN SERVICES <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0659</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">OTHER HOSPICE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> TYPE OF INSTITUTION
+MUST =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">78</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NON-HOSPITAL BASED HOSPICE <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">79</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">HOSPITAL BASED HOSPICE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">UNLESS</span> AMOUNT
+ALLOWED (TOTAL) = ZERO</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-385-11R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF REVENUE CODE =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0023</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">HHA PPS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> BEGIN DATE
+OF CARE = 06/01/2004</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> TYPE OF INSTIUTION
+MUST =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">70</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">HHA</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST5056001BF" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  UNITS OF SERVICE BY REVENUE
+CODE (1-390)</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-390-01V</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">VALUE MUST BE SIGNED NUMERIC,
+0 TO 9,999,999.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">UNLESS</span> TYPE OF
+SUBMISSION =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">B</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADJUSTMENT TO NON-TED RECORD
+(HCSR) DATA <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">E</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE CANCELLATION OF NON-TED
+RECORD (HCSR) DATA</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> VALUE MUST
+BE SIGNED NUMERIC, -9,999,999 TO 9,999,999</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-390-01R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF TYPE OF SUBMISSION =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">A</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADJUSTMENT <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">C</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE CANCELLATION <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">D</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE DENIAL <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">I</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">INITIAL SUBMISSION <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">O</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ZERO PAYMENT WITH 100% OHI/TPL <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">R</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">RESUBMISSION</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> UNITS OF
+SERVICE BY REVENUE CODE MUST BE &gt; ZERO FOR ALL OCCURRENCES/LINE
+ITEMS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">EXCLUDING</span> REVENUE
+CODE 0001 <span class="Bold" tmaa-izihyxm-tk="">AND</span> 0023.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-390-02R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF UNITS OF SERVICE BY REVENUE
+CODE = 0</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> TYPE OF SUBMISSION
+?</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">B</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADJUSTMENT TO NON-TED RECORD
+(HCSR) DATA <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">E</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE CANCELLATION OF NON-TED
+RECORD (HCSR) DATA</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> TOTAL CHARGE
+BY REVENUE CODE MUST ALSO = 0 (FOR THAT OCCURRENCE/LINE ITEM)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind3" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">EXCEPT</span> FOR REVENUE
+CODE 0001 <span class="Bold" tmaa-izihyxm-tk="">OR</span> 0022</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-390-03R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF UNITS OF SERVICE BY REVENUE
+CODE &gt; 0</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">AND</span> TYPE OF SUBMISSION
+?</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">B</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADJUSTMENT TO NON-TED RECORD
+(HCSR) DATA <span class="Bold" tmaa-izihyxm-tk="">OR</span> </div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">E</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE CANCELLATION OF NON-TED
+RECORD (HCSR) DATA</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> TOTAL CHARGE
+BY REVENUE CODE MUST ALSO &gt; 0 (FOR THAT OCCURRENCE/LINE ITEM)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">UNLESS</span> REVENUE
+CODE = </div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0022</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">SNF PPS <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0023</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">HHA PPS <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0024</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">REHAB PPS <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0180</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">GENERAL CLASSIFICATION <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0182</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PATIENT CONVENIENCE <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0183</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">THERAPEUTIC LEAVE <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0184</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">RESERVED (EFFECTIVE 04/01/2004) <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0185</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">HOSPITALIZATION <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0189</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">OTHER LEAVE OF ABSENCE</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">OR </span>THE OCCURRENCE/LINE
+ITEM CONTAINS AN ADJUSTMENT/DENIAL REASON CODE LISTED IN <span class="Uppercase" tmaa-izihyxm-tk=""><span class="AddFig" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TST5/FileName/C2ADG?referenceDate=2026-08-12&amp;bookmark=%23FM77451" hx-get="/api/publication/TST5/39/C2ADG?referenceDate=2026-08-12&amp;bookmark=%23FM77451" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TST5/FileName/C2ADG?referenceDate=2026-08-12&amp;bookmark=%23FM77451" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Addendum G, Figure 2.G-1</a></span></span> OR <span class="Uppercase" tmaa-izihyxm-tk=""><span class="Fig" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TST5/FileName/C2ADG?referenceDate=2026-08-12&amp;bookmark=%23FM20105" hx-get="/api/publication/TST5/39/C2ADG?referenceDate=2026-08-12&amp;bookmark=%23FM20105" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TST5/FileName/C2ADG?referenceDate=2026-08-12&amp;bookmark=%23FM20105" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Figure 2.G-2</a></span></span>.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-390-04R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF REVENUE CODE = 0001</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> UNITS OF
+SERVICE BY REVENUE CODE MUST = ZERO.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleNameTbl" data-element-change-state="Unchanged" data-element-id="TST50560022F" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:10.344827586206896%" tmaa-izihyxm-tk=""/>
+<col style="width:37.93103448275862%" tmaa-izihyxm-tk=""/>
+<col style="width:8.620689655172414%" tmaa-izihyxm-tk=""/>
+<col style="width:43.10344827586207%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  TOTAL CHARGE BY REVENUE CODE
+(1-395)</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">VALIDITY
+EDITS</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-395-01V</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF TYPE OF SUBMISSION =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">B</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADJUSTMENT TO NON-TED RECORD
+(HCSR) DATA <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">E</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE CANCELLATION OF NON-TED
+RECORD (HCSR) DATA</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> MUST BE -
+999,999.99 TO 999,999.99</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">UNLESS</span> REVENUE
+CODE = 0001</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> MUST BE -
+9,999,999.99 TO 9,999,999.99</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind2" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">ELSE</span> MUST BE 0
+TO 999,999.99</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">UNLESS</span> REVENUE
+CODE = 0001</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> MUST BE 0
+TO 9,999,999.99</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" style="background-color:#819089;" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Relational
+Edits</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-395-01R</span></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">IF TYPE OF SUBMISSION =</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">A</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ADJUSTMENT <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">C</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE CANCELLATION <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">D</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">COMPLETE DENIAL <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">I</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">INITIAL SUBMISSION <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">O</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ZERO PAYMENT WITH 100% OHI/TPL <span class="Bold" tmaa-izihyxm-tk="">OR</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">R</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">RESUBMISSION</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">THEN</span> TOTAL CHARGE
+BY REVENUE CODE MUST BE &gt; ZERO ON EACH OCCURRENCE/LINE ITEM (EXCLUDING
+REVENUE CODE 0001, 0022, 0023, 0024, 0180, 0182, 0183, 0184, 0185,
+AND 0189)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1-395-02R</span></div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">THE SUM OF ALL TOTAL CHARGE
+BY REVENUE CODE FOR REVENUE CODES OTHER THAN 0001 MUST EQUAL THE
+TOTAL CHARGE BY REVENUE CODE FOR REVENUE CODE 0001.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></section>
+<div class="END" tmaa-izihyxm-tk="">- END -</div></article></div><div hx-swap-oob="true" id="publication-info"><div class="tmaa-stack" role="group" style="--gap: 0;"><div>TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div>Revision 39 (Published Aug 12, 2026)</div>
+<div>Chap 2 -- TRICARE Encounter Data (TED)</div>
+<div>Sect 5.4 -- Institutional Edit Requirements (ELN 300 - 399)</div></div></div><div class="d-none" hx-swap-oob="true" id="publication-in-this-section-wrapper"><div id="publication-in-this-section"></div></div>

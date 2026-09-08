@@ -20,6 +20,8 @@ const MANUAL_ICONS = {
   TPT5: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>',
   TRT5: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>',
   TST5: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>',
+  // FR16 is the regulation (32 CFR 199) rather than a TRICARE manual — gavel.
+  FR16: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h12v2H1zm4.245-12.93l2.83-2.827 14.14 14.142-2.828 2.828zM12.317 1l5.657 5.656-2.83 2.83-5.654-5.66zM3.825 9.485l5.657 5.657-2.828 2.828-5.657-5.657z"/></svg>',
 };
 
 // ── State ──────────────────────────────────────────────────────────────────
@@ -52,6 +54,7 @@ const els = {
   sectionCounter: $('section-counter'),
   toast:          $('toast'),
   btnDark:        $('btn-dark-toggle'),
+  printContainer: $('print-container'),
 };
 
 // ── Initialise ──────────────────────────────────────────────────────────────
@@ -105,11 +108,27 @@ async function loadManualList() {
 // ── Render home grid ────────────────────────────────────────────────────────
 function renderManualGrid() {
   const html = state.manuals.map(m => {
-    const icon   = MANUAL_ICONS[m.code] || MANUAL_ICONS.TPT5;
-    const chip   = m.hasContent
-      ? `<span class="chip">Change ${m.latestChange}</span>`
+    const icon        = MANUAL_ICONS[m.code] || MANUAL_ICONS.TPT5;
+    const changeLabel = m.latestChange ? `Change ${m.latestChange}` : 'Current';
+    const chip        = m.hasContent
+      ? `<span class="chip">${changeLabel}</span>`
       : `<span class="chip no-content-chip">Content coming soon</span>`;
     const btnDisabled = m.hasContent ? '' : 'disabled';
+
+    const exportRow = m.hasContent ? `
+      <div class="manual-card-exports">
+        <button class="btn-export-card" onclick="exportManual('${m.code}','md')"
+          aria-label="Download ${escHtml(m.name)} as Markdown">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Download .md
+        </button>
+        <button class="btn-export-card" onclick="exportManual('${m.code}','print')"
+          aria-label="Print or save ${escHtml(m.name)} as PDF">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+          Print / PDF
+        </button>
+      </div>` : '';
+
     return `
       <article class="manual-card" role="listitem">
         <div style="display:flex;align-items:center;gap:12px">
@@ -125,6 +144,7 @@ function renderManualGrid() {
             onclick="openManual('${m.code}')"
             aria-label="Open ${escHtml(m.name)}">Open</button>
         </div>
+        ${exportRow}
       </article>`;
   }).join('');
   els.manualGrid.innerHTML = html;
@@ -145,7 +165,7 @@ async function openManual(code) {
 
   els.readerManual.textContent = manual.name;
   els.readerChangeBadge.textContent = manual.latestChange
-    ? `Change ${manual.latestChange}` : '';
+    ? `Change ${manual.latestChange}` : 'Current Edition';
 
   // Clear content + TOC
   setReaderContent(spinnerHtml());
@@ -237,6 +257,7 @@ async function loadSection(idx) {
     const res = await fetch(`${DATA_ROOT}/${state.currentCode}/s/${section.id}.html`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const html = await res.text();
+    if (!html.trim()) throw new Error('Empty section content');
     setReaderContent(`<h2 style="margin-bottom:1rem">${escHtml(section.title)}</h2>${html}`);
     scrollReaderToTop();
   } catch (e) {
@@ -284,8 +305,19 @@ function updateSectionNav() {
     ? contentSections.indexOf(sections[idx])
     : -1;
 
-  els.btnPrev.disabled = idx <= 0;
-  els.btnNext.disabled = idx < 0 || idx >= sections.length - 1;
+  // Scan for the nearest real content section in each direction,
+  // skipping chapter-heading entries so buttons disable correctly.
+  let prevIdx = -1, nextIdx = -1;
+  if (idx >= 0) {
+    for (let i = idx - 1; i >= 0; i--) {
+      if (!sections[i].isChapterToc) { prevIdx = i; break; }
+    }
+    for (let i = idx + 1; i < sections.length; i++) {
+      if (!sections[i].isChapterToc) { nextIdx = i; break; }
+    }
+  }
+  els.btnPrev.disabled = prevIdx < 0;
+  els.btnNext.disabled = idx < 0 || nextIdx < 0;
 
   if (contentIdx >= 0) {
     els.sectionCounter.textContent =
@@ -358,6 +390,171 @@ function showToast(msg) {
   els.toast.classList.add('show');
   toastTimer = setTimeout(() => els.toast.classList.remove('show'), 2800);
 }
+
+// ── Export: Download Markdown / Print PDF ───────────────────────────────────
+
+/**
+ * Fetch every content section for a manual, then either:
+ *   format='md'    → convert to Markdown and trigger a file download
+ *   format='print' → inject into a print container and call window.print()
+ *
+ * Works from both the home screen and the reader (code is always explicit).
+ */
+async function exportManual(code, format) {
+  const manual = state.manuals.find(m => m.code === code);
+  if (!manual || !manual.hasContent) return;
+
+  const name = manual.name;
+
+  // Load TOC — reuse the already-loaded one if the reader has it open,
+  // otherwise fetch it fresh (home screen path).
+  let toc;
+  if (state.currentCode === code && state.currentToc) {
+    toc = state.currentToc;
+  } else {
+    showToast('Loading table of contents…');
+    try {
+      const r = await fetch(`${DATA_ROOT}/${code}/toc.json`);
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      toc = await r.json();
+    } catch (e) {
+      showToast('Could not load manual — try again');
+      return;
+    }
+  }
+
+  const sections = toc.sections.filter(s => !s.isChapterToc);
+
+  showToast(`Preparing ${sections.length} sections…`);
+
+  // Fetch all section HTML in parallel
+  const fetched = await Promise.all(
+    sections.map(async s => {
+      try {
+        const res = await fetch(`${DATA_ROOT}/${code}/s/${s.id}.html`);
+        if (!res.ok) return null;
+        const html = await res.text();
+        return html.trim() ? { title: s.title, html } : null;
+      } catch { return null; }
+    })
+  );
+  const valid = fetched.filter(Boolean);
+
+  if (!valid.length) {
+    showToast('No content available for this manual yet — try again later');
+    return;
+  }
+
+  if (format === 'md') {
+    const lines = [`# ${name}\n`];
+    if (manual && manual.latestChange) lines.push(`_Change ${manual.latestChange}_\n`);
+    for (const { title, html } of valid) {
+      lines.push(`\n## ${title}\n`);
+      lines.push(htmlToMarkdown(html));
+      lines.push('\n---\n');
+    }
+    const blob = new Blob([lines.join('\n')], { type: 'text/markdown; charset=utf-8' });
+    const url  = URL.createObjectURL(blob);
+    const a    = Object.assign(document.createElement('a'), { href: url, download: `${code}.md` });
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('Download started');
+
+  } else {
+    // Build print document
+    const changeStr = (manual && manual.latestChange) ? `, Change ${manual.latestChange}` : '';
+    const body = valid.map(({ title, html }) =>
+      `<section class="ps"><h2>${escHtml(title)}</h2>${html}</section>`
+    ).join('\n');
+
+    els.printContainer.innerHTML =
+      `<h1>${escHtml(name)}${escHtml(changeStr)}</h1>` +
+      `<p class="pm">Defense Health Agency &middot; manuals.dha.mil</p>` +
+      body;
+
+    window.print();
+    els.printContainer.innerHTML = '';
+    showToast('Print dialog opened');
+  }
+}
+
+// ── HTML → Markdown converter ────────────────────────────────────────────────
+
+function htmlToMarkdown(htmlStr) {
+  const doc = new DOMParser().parseFromString(htmlStr, 'text/html');
+  return domToMd(doc.body).replace(/\n{3,}/g, '\n\n').trim();
+}
+
+function domToMd(node) {
+  if (node.nodeType === Node.TEXT_NODE) {
+    return node.textContent.replace(/[ \t]+/g, ' ');
+  }
+  if (node.nodeType !== Node.ELEMENT_NODE) return '';
+
+  const tag   = node.tagName.toLowerCase();
+  const inner = () => Array.from(node.childNodes).map(domToMd).join('');
+
+  if (tag === 'table')  return mdTable(node);
+  if (tag === 'script' || tag === 'style' || tag === 'noscript') return '';
+
+  switch (tag) {
+    case 'h1': return `\n\n# ${inner().trim()}\n\n`;
+    case 'h2': return `\n\n## ${inner().trim()}\n\n`;
+    case 'h3': return `\n\n### ${inner().trim()}\n\n`;
+    case 'h4': return `\n\n#### ${inner().trim()}\n\n`;
+    case 'h5': case 'h6': return `\n\n##### ${inner().trim()}\n\n`;
+    case 'p':  return `\n\n${inner().trim()}\n\n`;
+    case 'br': return '\n';
+    case 'hr': return '\n\n---\n\n';
+    case 'strong': case 'b':  return `**${inner()}**`;
+    case 'em':     case 'i':  return `*${inner()}*`;
+    case 'code': return `\`${node.textContent}\``;
+    case 'pre':  return `\n\n\`\`\`\n${node.textContent.trim()}\n\`\`\`\n\n`;
+    case 'blockquote': return `\n\n> ${inner().trim().replace(/\n/g, '\n> ')}\n\n`;
+    case 'a': {
+      const href = node.getAttribute('href') || '';
+      const text = inner().trim();
+      return href ? `[${text}](${href})` : text;
+    }
+    case 'ul': {
+      const items = Array.from(node.children)
+        .filter(c => c.tagName === 'LI')
+        .map(li => `- ${domToMd(li).trim()}`)
+        .join('\n');
+      return `\n\n${items}\n\n`;
+    }
+    case 'ol': {
+      const items = Array.from(node.children)
+        .filter(c => c.tagName === 'LI')
+        .map((li, i) => `${i + 1}. ${domToMd(li).trim()}`)
+        .join('\n');
+      return `\n\n${items}\n\n`;
+    }
+    case 'li': return inner();
+    default:   return inner();
+  }
+}
+
+function mdTable(table) {
+  const rows = Array.from(table.querySelectorAll('tr'));
+  if (!rows.length) return '';
+  const cells = rows.map(r =>
+    Array.from(r.querySelectorAll('th, td'))
+      .map(c => c.textContent.trim().replace(/\|/g, '\\|').replace(/\s+/g, ' '))
+  );
+  const cols  = Math.max(...cells.map(r => r.length));
+  const pad   = row => { while (row.length < cols) row.push(''); return row; };
+  const fmt   = row => `| ${pad(row).join(' | ')} |`;
+  const [hdr, ...body] = cells;
+  const sep   = Array(cols).fill('---');
+  return `\n\n${fmt(hdr || sep)}\n${fmt(sep)}\n${body.map(fmt).join('\n')}\n\n`;
+}
+
+// ── Visitor counter ─────────────────────────────────────────────────────────
+// Now a plain <img> badge in index.html. Reading the number out of the SVG
+// required a CORS proxy (hits.sh sends no CORS headers), and that proxy chain
+// was the single point of failure that left the counter stuck on "—". An
+// image request has no such constraint, so there is no JS involved anymore.
 
 // ── Bootstrap ───────────────────────────────────────────────────────────────
 init().catch(console.error);

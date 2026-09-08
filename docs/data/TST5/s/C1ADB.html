@@ -1,0 +1,2029 @@
+
+<div class="row my-3"><article class="TSM" data-manualacronym="TST5" tmaa-izihyxm-tk=""><div class="Header" tmaa-izihyxm-tk="">TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div class="MPChapterTitle" tmaa-izihyxm-tk="">General Automated Data Processing (ADP) Requirements</div>
+<section data-element-id="TST504400001" data-element-type="Header" tmaa-izihyxm-tk="">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504400002" data-element-type="Text" id="FM144158" tmaa-izihyxm-tk="">Chapter 1</div>
+<div class="Addendum" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504400003" data-element-type="Text" id="FM144162" tmaa-izihyxm-tk="">Addendum B</div>
+<div class="AddendumTitle" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504400004" data-element-type="Text" id="FM144167" tmaa-izihyxm-tk="">United States Air Force (USAF)
+Allotment Record Layouts For Defense Health Agency (DHA) Contracts</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504400005" data-element-type="None" tmaa-izihyxm-tk="">Revision:  </div>
+<div class="Line" tmaa-izihyxm-tk=""></div></section>
+<section data-element-id="TST504400006" data-element-type="Content" tmaa-izihyxm-tk="">
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TST504400007" data-element-type="Text" role="heading" tmaa-izihyxm-tk="">1.0  Data
+Element field DESCRIPTIONS<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Data Type - Type of data stored
+in the data element (i.e., Varchar2, Date, Number, etc.).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Field Size - Maximum field
+size for the data element.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Multi Row - Identifies if the
+data element has multiple rows of data (i.e., most USAF members
+have several rows of enlisted/officer performance report data).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Seq of Field - Order of the
+field on output or incoming transactions if sent via flat file (i.e.,
+Card Column 3-18 (or) Position 3 of 18 fields).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Key Field - Identifies if the
+data element is a key field in the interface partner’s database.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Required Field - Identifies
+whether or not a field is mandatory in the interface partner’s database.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Customer Definition and Data
+Usage - Functional description of the data contained in the data
+element.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Example of Data - Example of
+the data contained in the data element.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Date Format - Format for the
+data contained in the data element, if applicable (i.e., YY/MM/DD,
+MMDDYY, DDMMMYYY).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Upper/Lower Case Restriction
+- Identifies if there are any upper or lower case restrictions/rules
+for the data element (i.e., Yes, must all be uppercase).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Field Filler - Field filler
+required by the interface partner’s database if this data element
+can’t be null.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Remarks - Identifies any remarks
+pertaining to the data element.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504400015" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">2.0  Data Elements - Premium Deduction
+Inbound File<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504400016" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:8.96551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:8.275862068965516%" tmaa-izihyxm-tk=""/>
+<col style="width:4.137931034482758%" tmaa-izihyxm-tk=""/>
+<col style="width:5.517241379310344%" tmaa-izihyxm-tk=""/>
+<col style="width:6.206896551724137%" tmaa-izihyxm-tk=""/>
+<col style="width:5.517241379310344%" tmaa-izihyxm-tk=""/>
+<col style="width:8.275862068965516%" tmaa-izihyxm-tk=""/>
+<col style="width:10.344827586206895%" tmaa-izihyxm-tk=""/>
+<col style="width:7.586206896551724%" tmaa-izihyxm-tk=""/>
+<col style="width:6.896551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:9.655172413793101%" tmaa-izihyxm-tk=""/>
+<col style="width:6.206896551724137%" tmaa-izihyxm-tk=""/>
+<col style="width:12.413793103448274%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">requested Data element/name</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">Data TYPE</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">FILE SIZE</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">multi row</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">SEQ OF FIELD</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">KEY FIELD</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">required FIELD</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">CUSTOMER DEFINITION AND DATE USAGE</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">EXAMPLE OF DATA</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">DATE FORMAT</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">Upper/lower case restriction</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">field filler</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">remarks</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Social Security #</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">NUMBER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">9</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Member’s SSN-Numeric</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Member Status (Service Component)</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">A = Active</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">G = Guard</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">V = Reserve</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Branch of Service (DoD Component)</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">A = Army</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">F = Air Force</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">N = Navy</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Short Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">5</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">First 5 letters of member’s
+last name.</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">If member’s last name is 3
+or less letters, skip one space, and fill remaining spaces with
+first letters from the member’s first name. If last name is 4 letters, leave
+remaining space blank. No embedded special characters are to be used.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Last Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">15</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Member’s last name.</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">First Name/Middle Initial</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">7</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Member’s first name and middle
+initial.</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">A space should separate the
+name and initial. If the first name is more than 5 characters, use
+only the first name. No punctuation is allowed.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Transaction Code</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">For active component:</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">1 = start</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">2 = stop</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">3 = increase monthly deduction</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">4 = decrease monthly deduction</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank
+for Reserve/Guard.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">6</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Effective Date</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">8</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Month of deduction from member’s
+pay. Use first day of month in YYYYMMDD format. (Always the first
+day of the month of receipt from contractor.)</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">19990501</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">YYYYMMDD</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Effective date is the first
+deduction date of a new or changed transaction. It is filled if
+the Transaction Code is 1, 3, or 4 (start, increase, decrease). For
+Transaction Code 2 (stop), it is zero filled.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Discontinue Date</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">8</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Last deduction date for active component.</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">19990501</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">YYYYMMDD</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be zero
+for Reserve/Guard.</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">For Active the field is filled
+if Transaction Code is 2, 3, or 4 (stop, increase, or decrease).
+For Transaction Code 1 (start), it is zeros. For Transaction Code
+2 (stop), it must be the month prior to the current work month,
+e.g., for May 1999 work month, the date is 199990501. For Transaction
+Code 3 or 4 (increase or decrease), it must be the month prior to
+the Effective Date.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Amount</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">6</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Monthly deduction amount. (Zero fill
+to the left.)</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">000100</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Show the amount of the deduction
+to be started or stopped as a numeric with 2 decimal positions implied.
+For starts or changes, minimum amount is one dollar (000100). For changes,
+it is the amount of the new deduction.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Original Amount</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">6</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be zero
+for Reserve/Guard.</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">For Active must be provided
+for transaction codes 3 and 4 (increase or decrease). For Transaction
+Codes 1 and 2 (start and stop) it is zeros. For Transaction Code
+3 (increase, Original Amount must be less than the amount starting
+in position 66. For Transaction Code 4 (decrease), it is the amount
+starting in position 66.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">6</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Purpose Code</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank
+for Reserve/Guard.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Account Number</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">17</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank
+for Reserve/Guard.</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">For active component, the Account
+Number equals active member SSN. Applies to Transaction Codes 1,
+3, and 4 (start, increase, and decrease). For Transaction Code 2, it
+is spaces.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504400119" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.0  Data Elements - deduct/no deduct
+outbound file<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST50440011A" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:8.96551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:8.275862068965516%" tmaa-izihyxm-tk=""/>
+<col style="width:4.137931034482758%" tmaa-izihyxm-tk=""/>
+<col style="width:5.517241379310344%" tmaa-izihyxm-tk=""/>
+<col style="width:6.206896551724137%" tmaa-izihyxm-tk=""/>
+<col style="width:5.517241379310344%" tmaa-izihyxm-tk=""/>
+<col style="width:8.275862068965516%" tmaa-izihyxm-tk=""/>
+<col style="width:10.344827586206895%" tmaa-izihyxm-tk=""/>
+<col style="width:7.586206896551724%" tmaa-izihyxm-tk=""/>
+<col style="width:6.896551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:9.655172413793101%" tmaa-izihyxm-tk=""/>
+<col style="width:6.206896551724137%" tmaa-izihyxm-tk=""/>
+<col style="width:12.413793103448274%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">requested Data element/name</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">Data TYPE</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">FILE SIZE</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">multi row</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">SEQ OF FIELD</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">KEY FIELD</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">required FIELD</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">CUSTOMER DEFINITION AND DATE USAGE</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">EXAMPLE OF DATA</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">DATE FORMAT</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">Upper/lower case restriction</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">field filler</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">remarks</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank and
+show spaces.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Social Security #</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">NUMBER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">9</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Member’s SSN</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank and
+show spaces.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Short Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">5</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">First 5 letters of member’s
+last name.</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">If member’s last name is 3
+or less letters, skip one space, and fill remaining spaces with
+first letters from the member’s first name. If last name is 4 letters, leave
+remaining space blank. No embedded special characters are to be used.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank and
+show spaces.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Effective Date</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">8</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Effective date of month of deduction.
+Use first day of month. Take date from contractor file, fields 50-57. (Note
+2)</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">YYYYMMDD</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The date represents the first day
+of the month for which a deduction has been attempted.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank and
+show spaces.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Reason Code</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Reason Codes for Deduct/No Deduct</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Service Level Codes</span>:</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">A = No match on SSN</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">B = Non-pay status</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">C = Separated/Retired (could
+be recent event or before the next pay month)</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">D = Deceased</div>
+<div class="CellBody7L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Allotment Status Codes</span>:</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">F = Invalid effective date</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">G = Open allotment already on
+file (applies to Start transactions - Type 1) </div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">H = No open allotment on file (applies
+to Stop &amp; Change transactions - Types 2, 3, 4) </div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">I = Invalid transaction type code
+(i.e., not 1, 2, 3, 4)</div>
+<div class="CellBody7L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Other Transaction Edit
+Codes</span>:</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">J = No Match on Name (short
+name)</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">K = “Original Amount” on transaction
+does not match current allotment amount (applies to Change transactions
+- Types 3, 4)</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">L = SSN Change</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">M = Name Change</div>
+<div class="CellBody7L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Compute Pay Codes</span>:</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">“ “= Deduction performed</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">N = No Pay Available for Deduction</div>
+<div class="CellBody7L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">“Something’s Wrong” Code</span>:</div>
+<div class="CellBody7L" tmaa-izihyxm-tk=""> Z = Unspecified</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Premium Deducted</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">6</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Numeric – fill from the right ($$$$CC)</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">0</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Use dollar amount deducted
+or zeros if there was no deduction. Fill from the right. Leave no spaces.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Branch of Service (DoD Component)</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">A = Army</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">F = Air Force</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">N = Navy</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Member Status (Service Component)</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">A = Active</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">G = Guard</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">V = Reserve</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST5044001CE" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">4.0  Data Elements - No Match Outbound
+file<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST5044001CF" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:8.96551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:8.275862068965516%" tmaa-izihyxm-tk=""/>
+<col style="width:4.137931034482758%" tmaa-izihyxm-tk=""/>
+<col style="width:5.517241379310344%" tmaa-izihyxm-tk=""/>
+<col style="width:6.206896551724137%" tmaa-izihyxm-tk=""/>
+<col style="width:5.517241379310344%" tmaa-izihyxm-tk=""/>
+<col style="width:8.275862068965516%" tmaa-izihyxm-tk=""/>
+<col style="width:10.344827586206895%" tmaa-izihyxm-tk=""/>
+<col style="width:7.586206896551724%" tmaa-izihyxm-tk=""/>
+<col style="width:6.896551724137931%" tmaa-izihyxm-tk=""/>
+<col style="width:9.655172413793101%" tmaa-izihyxm-tk=""/>
+<col style="width:6.206896551724137%" tmaa-izihyxm-tk=""/>
+<col style="width:12.413793103448274%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">requested Data element/name</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">Data TYPE</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">FILE SIZE</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">multi row</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">SEQ OF FIELD</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">KEY FIELD</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">required FIELD</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">CUSTOMER DEFINITION AND DATE USAGE</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">EXAMPLE OF DATA</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">DATE FORMAT</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">Upper/lower case restriction</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">field filler</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeading7L" tmaa-izihyxm-tk="">remarks</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Social Security #</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">NUMBER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">9</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Member’s SSN</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Short Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">5</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">First 5 letters of member’s
+last name.</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">If member’s last name is 3
+or less letters, skip one space, and fill remaining spaces with
+first letters from the member’s first name. If last name is 4 letters, leave
+remaining space blank. No embedded special characters are to be used.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank and
+show spaces.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Effective Date</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">8</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Effective date of month of deduction.
+Use first day of month.</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">YYYYMMDD</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The date represents the first day
+of the month for which a deduction has been attempted.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Filler</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">The column will always be blank and
+show spaces.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Reason Code</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Reason Codes for Deduct/No Deduct</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Service Level Codes</span>:</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">A = No match on SSN</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">B = Non-pay status</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">C = Separated/Retired (could
+be recent event or before the next pay month)</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">D = Deceased</div>
+<div class="CellBody7L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Allotment Status Codes</span>:</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">F = Invalid effective date</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">G = Open allotment already on
+file (applies to Start transactions - Type 1) </div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">H = No open allotment on file (applies
+to Stop &amp; Change transactions - Types 2, 3, 4) </div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">I = Invalid transaction type code
+(i.e., not 1, 2, 3, 4)</div>
+<div class="CellBody7L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Other Transaction Edit
+Codes</span>:</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">J = No Match on Name (short
+name)</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">K = “Original Amount” on transaction
+does not match current allotment amount (applies to Change transactions
+- Types 3, 4)</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">L = SSN Change</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">M = Name Change</div>
+<div class="CellBody7L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Compute Pay Codes</span>:</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">“ “= Deduction performed</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">N = No Pay Available for Deduction</div>
+<div class="CellBody7L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">“Something’s Wrong” Code</span>:</div>
+<div class="CellBody7L" tmaa-izihyxm-tk=""> Z = Unspecified</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Premium Deducted</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">6</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Numeric – fill from the right ($$$$CC)</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Use dollar amount deducted
+or zeros if there was no deduction. Fill from the right. Leave no spaces.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Branch of Service (DoD Component)</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">A = Army</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">F = Air Force</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">N = Navy</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">Member Status (Service Component)</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">VARCHAR2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk="">A = Active</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">G = Guard</div>
+<div class="CellBody7L" tmaa-izihyxm-tk="">V = Reserve</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody7L" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="TblSep" tmaa-izihyxm-tk=""></div></section>
+<div class="END" tmaa-izihyxm-tk="">- END -</div></article></div><div hx-swap-oob="true" id="publication-info"><div class="tmaa-stack" role="group" style="--gap: 0;"><div>TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div>Revision 39 (Published Aug 12, 2026)</div>
+<div>Chap 1 -- General Automated Data Processing (ADP) Requirements</div>
+<div>Addendum B -- United States Air Force (USAF) Allotment Record Layouts For Defense Health Agency (DHA) Contracts</div></div></div><div class="" hx-swap-oob="true" id="publication-in-this-section-wrapper"><div class="card content-panel border-0 mb-4" role="group"><div class="card-header" style=""><h3>In This Section</h3></div><div class="card-body" style=""><div id="publication-in-this-section"><div class="tmaa-stack" role="group" style="--gap: 0;"><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST504400007']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">1.0  Data
+Element field DESCRIPTIONS
+        •  Data Type - Type of data stored
+in the data element…</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST504400015']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">2.0  Data Elements - Premium Deduction
+Inbound File</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST504400119']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">3.0  Data Elements - deduct/no deduct
+outbound file</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST5044001CE']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">4.0  Data Elements - No Match Outbound
+file</a></div></div></div></div></div>

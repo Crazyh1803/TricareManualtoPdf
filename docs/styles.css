@@ -112,6 +112,20 @@ a:hover { text-decoration: underline; }
   margin-top: 1px;
 }
 
+/* Hero banner */
+.hero-banner {
+  width: 100%;
+  background: #0a1628;
+  line-height: 0;
+}
+.hero-banner-img {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* Main content */
 .home-main {
   max-width: 960px;
@@ -121,9 +135,13 @@ a:hover { text-decoration: underline; }
 }
 
 /* Manual Cards */
+/* Fixed 3 columns so five manuals always lay out 3 on top, 2 below.
+   auto-fit with a 280px minimum only fitted 2 columns between roughly
+   769px and 991px, which broke the rows into 2 + 2 + 1 at common laptop
+   window widths. */
 .manual-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 32px;
 }
@@ -253,6 +271,113 @@ a:hover { text-decoration: underline; }
   flex-shrink: 0;
 }
 .icon-btn:hover { background: rgba(128,128,128,.12); }
+
+/* Export buttons on home cards (Download .md / Print PDF) */
+.manual-card-exports {
+  display: flex;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  margin-top: 4px;
+}
+
+.btn-export-card {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: .78rem;
+  font-weight: 600;
+  padding: 6px 8px;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+.btn-export-card:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn-export-card svg { flex-shrink: 0; }
+
+/* Home support link */
+.home-support {
+  font-size: .8rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Visitor counter — retro easter egg 🥚 */
+.visitor-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 16px;
+  background: #0a0a0a;
+  border: 2px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,.7), 0 0 12px rgba(0,200,80,.1);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: default;
+  user-select: none;
+}
+
+.vc-badge {
+  display: block;
+  height: 20px;
+  width: auto;
+}
+
+/* Support / buy me a drink row */
+.support-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.btn-support {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFDD00;
+  color: #000;
+  font-weight: 700;
+  font-size: .92rem;
+  padding: 10px 24px;
+  border-radius: 24px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+  white-space: nowrap;
+}
+.btn-support:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+
+/* Logo image */
+.home-bar-logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
 
 /* Home footer note */
 .home-note {
@@ -605,6 +730,94 @@ a:hover { text-decoration: underline; }
 }
 
 /* ══════════════════════════════════════════════════
+   PRINT / PDF
+   ══════════════════════════════════════════════════ */
+
+#print-container { display: none; }
+
+@media print {
+  /* Hide the entire SPA; show only the print container */
+  #app, #toast { display: none !important; }
+
+  #print-container {
+    display: block !important;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #000;
+  }
+
+  #print-container h1 {
+    font-size: 20pt;
+    font-weight: 700;
+    border-bottom: 2px solid #003087;
+    padding-bottom: 6pt;
+    margin-bottom: 4pt;
+    color: #003087;
+  }
+
+  #print-container .pm {          /* print meta line */
+    font-size: 9pt;
+    color: #555;
+    margin-bottom: 28pt;
+  }
+
+  /* Each section gets its own logical block */
+  .ps {
+    margin-bottom: 24pt;
+    page-break-inside: avoid;
+  }
+
+  .ps h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #003087;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3pt;
+    margin: 0 0 8pt;
+    page-break-after: avoid;
+  }
+
+  .ps p  { margin: 4pt 0; font-size: 10.5pt; }
+  .ps ul,
+  .ps ol { margin: 4pt 0 4pt 18pt; font-size: 10.5pt; }
+  .ps li { margin-bottom: 2pt; }
+
+  .ps table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 9pt;
+    margin: 6pt 0;
+  }
+  .ps th,
+  .ps td {
+    border: 1px solid #aaa;
+    padding: 3pt 6pt;
+    vertical-align: top;
+  }
+  .ps th {
+    background: #dde8f5 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-weight: 700;
+  }
+
+  /* Alternate row shading */
+  .ps tr:nth-child(even) td {
+    background: #f5f7fa !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a { color: #000; text-decoration: underline; }
+
+  @page {
+    margin: 0.75in;
+    size: letter portrait;
+  }
+}
+
+/* ══════════════════════════════════════════════════
    MOBILE / RESPONSIVE  (≤768px)
    ══════════════════════════════════════════════════ */
 @media (max-width: 768px) {
@@ -630,9 +843,15 @@ a:hover { text-decoration: underline; }
 
   .reader-content { padding: 16px 14px 40px; }
 
-  .manual-grid { grid-template-columns: 1fr; }
-
   .back-btn span { display: none; }
 
   .home-main { padding: 20px 12px 60px; }
+
+  /* 2 columns on tablet */
+  .manual-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  /* 1 column on phone */
+  .manual-grid { grid-template-columns: 1fr; }
 }

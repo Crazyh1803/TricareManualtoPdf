@@ -1,375 +1,1340 @@
 {
   "code": "TRT5",
-  "change": 22,
-  "fetchedAt": "2026-05-20T04:04:04Z",
+  "change": 27,
+  "fetchedAt": "2026-09-08T14:25:55Z",
   "sections": [
     {
-      "id": "001",
+      "id": "TRT5TOC",
+      "name": "TRT5TOC",
+      "title": "Master TOC",
+      "chapter": 0,
+      "section": "",
+      "isChapterToc": true
+    },
+    {
+      "id": "FOREWORD",
+      "name": "FOREWORD",
       "title": "Foreword",
       "chapter": 0,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "002",
-      "title": "Chapter 1 – Contents",
+      "id": "C1TOC",
+      "name": "C1TOC",
+      "title": "Chapter 1 — General",
       "chapter": 1,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "003",
-      "title": "Chapter 1, Section 1",
+      "id": "C1S1",
+      "name": "C1S1",
+      "title": "Sect 1 — Network Provider Reimbursement",
       "chapter": 1,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "004",
-      "title": "Chapter 2 – Contents",
+      "id": "C1S2",
+      "name": "C1S2",
+      "title": "Sect 2 — Accommodation Of Discounts Under Provider Reimbursement Methods",
+      "chapter": 1,
+      "section": "2",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S3",
+      "name": "C1S3",
+      "title": "Sect 3 — Claims Auditing Software",
+      "chapter": 1,
+      "section": "3",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S4",
+      "name": "C1S4",
+      "title": "Sect 4 — Reimbursement In Teaching Setting",
+      "chapter": 1,
+      "section": "4",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S5",
+      "name": "C1S5",
+      "title": "Sect 5 — National Health Service Corps (NHSC) Physicians Of The Public Health Service (PHS)",
+      "chapter": 1,
+      "section": "5",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S6",
+      "name": "C1S6",
+      "title": "Sect 6 — Reimbursement Of Physician Assistants (PAs), Nurse Practitioners (NPs), And Certified Psychiatric Nurse Specialists (CPNSs)",
+      "chapter": 1,
+      "section": "6",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S7",
+      "name": "C1S7",
+      "title": "Sect 7 — Reimbursement Of Covered Services Provided By Individual Health Care Providers And Other Non-Institutional Health Care Providers",
+      "chapter": 1,
+      "section": "7",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S8",
+      "name": "C1S8",
+      "title": "Sect 8 — Economic Interest In Connection With Mental Health Admissions",
+      "chapter": 1,
+      "section": "8",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S9",
+      "name": "C1S9",
+      "title": "Sect 9 — Anesthesia",
+      "chapter": 1,
+      "section": "9",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S10",
+      "name": "C1S10",
+      "title": "Sect 10 — Postoperative Pain Management - Epidural Analgesia",
+      "chapter": 1,
+      "section": "10",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S11",
+      "name": "C1S11",
+      "title": "Sect 11 — Claims For Durable Equipment (DE) And Durable Medical Equipment, Prosthetics, Orthotics, And Supplies (DMEPOS)",
+      "chapter": 1,
+      "section": "11",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S12",
+      "name": "C1S12",
+      "title": "Sect 12 — Oxygen And Related Supplies",
+      "chapter": 1,
+      "section": "12",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S13",
+      "name": "C1S13",
+      "title": "Sect 13 — Laboratory Services",
+      "chapter": 1,
+      "section": "13",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S14",
+      "name": "C1S14",
+      "title": "Sect 14 — Ambulance Services",
+      "chapter": 1,
+      "section": "14",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S15",
+      "name": "C1S15",
+      "title": "Sect 15 — Legend Drugs And Insulin",
+      "chapter": 1,
+      "section": "15",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S16",
+      "name": "C1S16",
+      "title": "Sect 16 — Surgery",
+      "chapter": 1,
+      "section": "16",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S17",
+      "name": "C1S17",
+      "title": "Sect 17 — Assistant Surgeons",
+      "chapter": 1,
+      "section": "17",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S18",
+      "name": "C1S18",
+      "title": "Sect 18 — Professional Services: Obstetrical Care",
+      "chapter": 1,
+      "section": "18",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S19",
+      "name": "C1S19",
+      "title": "Sect 19 — Charges For Provider Administrative Expenses",
+      "chapter": 1,
+      "section": "19",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S20",
+      "name": "C1S20",
+      "title": "Sect 20 — State Agency Billing",
+      "chapter": 1,
+      "section": "20",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S21",
+      "name": "C1S21",
+      "title": "Sect 21 — Hospital Reimbursement - Billed Charges Set Rates",
+      "chapter": 1,
+      "section": "21",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S22",
+      "name": "C1S22",
+      "title": "Sect 22 — Hospital Reimbursement - Other Than Billed Charges",
+      "chapter": 1,
+      "section": "22",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S23",
+      "name": "C1S23",
+      "title": "Sect 23 — Hospital Reimbursement - Payment When Only Skilled Nursing Facility (SNF) Level Of Care Is Required",
+      "chapter": 1,
+      "section": "23",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S24",
+      "name": "C1S24",
+      "title": "Sect 24 — Hospital Reimbursement - Outpatient Services",
+      "chapter": 1,
+      "section": "24",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S25",
+      "name": "C1S25",
+      "title": "Sect 25 — Preferred Provider Organization (PPO) Reimbursement",
+      "chapter": 1,
+      "section": "25",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S26",
+      "name": "C1S26",
+      "title": "Sect 26 — Supplemental Insurance",
+      "chapter": 1,
+      "section": "26",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S27",
+      "name": "C1S27",
+      "title": "Sect 27 — Legal Obligation To Pay",
+      "chapter": 1,
+      "section": "27",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S28",
+      "name": "C1S28",
+      "title": "Sect 28 — Reduction Of Payment For Noncompliance With Utilization Review Requirements",
+      "chapter": 1,
+      "section": "28",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S29",
+      "name": "C1S29",
+      "title": "Sect 29 — Reimbursement Of Emergency Inpatient Admissions To Unauthorized Facilities",
+      "chapter": 1,
+      "section": "29",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S30",
+      "name": "C1S30",
+      "title": "Sect 30 — Reimbursement Of Travel Expenses For Specialty Care",
+      "chapter": 1,
+      "section": "30",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S31",
+      "name": "C1S31",
+      "title": "Sect 31 — Newborn Charges",
+      "chapter": 1,
+      "section": "31",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S32",
+      "name": "C1S32",
+      "title": "Sect 32 — Hospital-Based Birthing Room",
+      "chapter": 1,
+      "section": "32",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S33",
+      "name": "C1S33",
+      "title": "Sect 33 — Bonus Payments In Health Professional Shortage Areas (HPSAs)",
+      "chapter": 1,
+      "section": "33",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S34",
+      "name": "C1S34",
+      "title": "Sect 34 — Hospital Inpatient Reimbursement In Locations Outside The 50 United States (US) And The District Of Columbia",
+      "chapter": 1,
+      "section": "34",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S35",
+      "name": "C1S35",
+      "title": "Sect 35 — Professional Provider Reimbursement In Specified Locations Outside The 50 United States (US) And The District Of Columbia",
+      "chapter": 1,
+      "section": "35",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S36",
+      "name": "C1S36",
+      "title": "Sect 36 — Forensic Examinations Following Sexual Assault or Domestic Violence",
+      "chapter": 1,
+      "section": "36",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S37",
+      "name": "C1S37",
+      "title": "Sect 37 — Medical Errors",
+      "chapter": 1,
+      "section": "37",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S38",
+      "name": "C1S38",
+      "title": "Sect 38 — Reimbursement of State Vaccine Programs (SVPs)",
+      "chapter": 1,
+      "section": "38",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S39",
+      "name": "C1S39",
+      "title": "Sect 39 — CHAMPUS Maximum Allowable Charge (CMAC) For Banked Donor Milk (BDM)",
+      "chapter": 1,
+      "section": "39",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S40",
+      "name": "C1S40",
+      "title": "Sect 40 — Organ Acquisition Costs",
+      "chapter": 1,
+      "section": "40",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1S41",
+      "name": "C1S41",
+      "title": "Sect 41 — Temporary Reimbursement Changes In Response To The Coronavirus Disease 2019 (COVID-19) Pandemic",
+      "chapter": 1,
+      "section": "41",
+      "isChapterToc": false
+    },
+    {
+      "id": "C2TOC",
+      "name": "C2TOC",
+      "title": "Chapter 2 — Beneficiary Liability",
       "chapter": 2,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "005",
-      "title": "Chapter 2, Section 1",
+      "id": "C2S1",
+      "name": "C2S1",
+      "title": "Sect 1 — Cost-Shares And Deductibles For TRICARE Services Received Prior To January 1, 2018 And For TRICARE Services Received On Or After January 1, 2018 By TRICARE For Life (TFL) Beneficiaries",
       "chapter": 2,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "006",
-      "title": "Chapter 3 – Contents",
+      "id": "C2S2",
+      "name": "C2S2",
+      "title": "Sect 2 — Cost-Shares And Deductibles For TRICARE Services Received On Or After January 1, 2018",
+      "chapter": 2,
+      "section": "2",
+      "isChapterToc": false
+    },
+    {
+      "id": "C2S3",
+      "name": "C2S3",
+      "title": "Sect 3 — Catastrophic Loss Protection For TRICARE Services Received Prior To January 1, 2018; And For TRICARE Services Received On Or After January 1, 2018, By TRICARE For Life (TFL) Beneficiaries",
+      "chapter": 2,
+      "section": "3",
+      "isChapterToc": false
+    },
+    {
+      "id": "C2S4",
+      "name": "C2S4",
+      "title": "Sect 4 — Catastrophic Loss Protection For TRICARE Services Received On Or After January 1, 2018",
+      "chapter": 2,
+      "section": "4",
+      "isChapterToc": false
+    },
+    {
+      "id": "C2S5",
+      "name": "C2S5",
+      "title": "Sect 5 — Point Of Service (POS) Option",
+      "chapter": 2,
+      "section": "5",
+      "isChapterToc": false
+    },
+    {
+      "id": "C2S6",
+      "name": "C2S6",
+      "title": "Sect 6 — Waivers of Cost-Shares and Deductibles",
+      "chapter": 2,
+      "section": "6",
+      "isChapterToc": false
+    },
+    {
+      "id": "C2S7",
+      "name": "C2S7",
+      "title": "Sect 7 — Temporary Waivers of Copayments and Cost-Shares (Including Deductibles) in Response to Coronavirus 2019 (COVID-19) Pandemic",
+      "chapter": 2,
+      "section": "7",
+      "isChapterToc": false
+    },
+    {
+      "id": "C3TOC",
+      "name": "C3TOC",
+      "title": "Chapter 3 — Operational Requirements",
       "chapter": 3,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "007",
-      "title": "Chapter 3, Section 1",
+      "id": "C3S1",
+      "name": "C3S1",
+      "title": "Sect 1 — Reimbursement Of Individual Health Care Professionals And Other Non-Institutional Health Care Providers",
       "chapter": 3,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "008",
-      "title": "Chapter 3, Section 7",
+      "id": "C3S2",
+      "name": "C3S2",
+      "title": "Sect 2 — Hospital And Other Institutional Reimbursement",
+      "chapter": 3,
+      "section": "2",
+      "isChapterToc": false
+    },
+    {
+      "id": "C3S3",
+      "name": "C3S3",
+      "title": "Sect 3 — Discounts",
+      "chapter": 3,
+      "section": "3",
+      "isChapterToc": false
+    },
+    {
+      "id": "C3S4",
+      "name": "C3S4",
+      "title": "Sect 4 — Payment Reduction",
+      "chapter": 3,
+      "section": "4",
+      "isChapterToc": false
+    },
+    {
+      "id": "C3S5",
+      "name": "C3S5",
+      "title": "Sect 5 — Reimbursement Administration",
+      "chapter": 3,
+      "section": "5",
+      "isChapterToc": false
+    },
+    {
+      "id": "C3S6",
+      "name": "C3S6",
+      "title": "Sect 6 — Processing And Payment Of Home Infusion Claims",
+      "chapter": 3,
+      "section": "6",
+      "isChapterToc": false
+    },
+    {
+      "id": "C3S7",
+      "name": "C3S7",
+      "title": "Sect 7 — No Government Pay Procedure Codes",
       "chapter": 3,
       "section": "7",
       "isChapterToc": false
     },
     {
-      "id": "009",
-      "title": "Chapter 4 – Contents",
+      "id": "C4TOC",
+      "name": "C4TOC",
+      "title": "Chapter 4 — Double Coverage",
       "chapter": 4,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "010",
-      "title": "Chapter 4, Section 1",
+      "id": "C4S1",
+      "name": "C4S1",
+      "title": "Sect 1 — Double Coverage",
       "chapter": 4,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "011",
-      "title": "Chapter 4, Section 4",
+      "id": "C4S2",
+      "name": "C4S2",
+      "title": "Sect 2 — Double Coverage Review And Processing Of Claims",
+      "chapter": 4,
+      "section": "2",
+      "isChapterToc": false
+    },
+    {
+      "id": "C4S3",
+      "name": "C4S3",
+      "title": "Sect 3 — Coordination Of Benefits (COB)",
+      "chapter": 4,
+      "section": "3",
+      "isChapterToc": false
+    },
+    {
+      "id": "C4S4",
+      "name": "C4S4",
+      "title": "Sect 4 — Specific Double Coverage Actions",
       "chapter": 4,
       "section": "4",
       "isChapterToc": false
     },
     {
-      "id": "012",
-      "title": "Chapter 5 – Contents",
+      "id": "C5TOC",
+      "name": "C5TOC",
+      "title": "Chapter 5 — Allowable Charges",
       "chapter": 5,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "013",
-      "title": "Chapter 5, Section 1",
+      "id": "C5S1",
+      "name": "C5S1",
+      "title": "Sect 1 — Providers",
       "chapter": 5,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "014",
-      "title": "Chapter 5, Section 4",
+      "id": "C5S2",
+      "name": "C5S2",
+      "title": "Sect 2 — Locality-Based Reimbursement Rate Waiver",
+      "chapter": 5,
+      "section": "2",
+      "isChapterToc": false
+    },
+    {
+      "id": "C5S3",
+      "name": "C5S3",
+      "title": "Sect 3 — CHAMPUS Maximum Allowable Charges (CMAC)",
+      "chapter": 5,
+      "section": "3",
+      "isChapterToc": false
+    },
+    {
+      "id": "C5S4",
+      "name": "C5S4",
+      "title": "Sect 4 — Payment For Professional/Technical Components Of Diagnostic Services",
       "chapter": 5,
       "section": "4",
       "isChapterToc": false
     },
     {
-      "id": "015",
-      "title": "Chapter 6 – Contents",
+      "id": "C6TOC",
+      "name": "C6TOC",
+      "title": "Chapter 6 — Diagnosis Related Groups (DRGs)",
       "chapter": 6,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "016",
-      "title": "Chapter 6, Section 1",
+      "id": "C6S1",
+      "name": "C6S1",
+      "title": "Sect 1 — Hospital Reimbursement - TRICARE Diagnosis Related Group (DRG)-Based Payment System (General)",
       "chapter": 6,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "017",
-      "title": "Chapter 7 – Contents",
+      "id": "C6S2",
+      "name": "C6S2",
+      "title": "Sect 2 — Hospital Reimbursement - TRICARE Diagnosis Related Group (DRG)-Based Payment System (General Description Of System)",
+      "chapter": 6,
+      "section": "2",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6S3",
+      "name": "C6S3",
+      "title": "Sect 3 — Hospital Reimbursement - TRICARE Diagnosis Related Group (DRG)-Based Payment System (Basis Of Payment)",
+      "chapter": 6,
+      "section": "3",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6S4",
+      "name": "C6S4",
+      "title": "Sect 4 — Hospital Reimbursement - TRICARE Diagnosis Related Group (DRG)-Based Payment System (Applicability Of The DRG System)",
+      "chapter": 6,
+      "section": "4",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6S5",
+      "name": "C6S5",
+      "title": "Sect 5 — Hospital Reimbursement - TRICARE Diagnosis Related Group (DRG)-Based Payment System (Determination Of Payment Amounts)",
+      "chapter": 6,
+      "section": "5",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6S6",
+      "name": "C6S6",
+      "title": "Sect 6 — Hospital Reimbursement - TRICARE Diagnosis Related Group (DRG)-Based Payment System (DRG Weighting Factors)",
+      "chapter": 6,
+      "section": "6",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6S7",
+      "name": "C6S7",
+      "title": "Sect 7 — Hospital Reimbursement - TRICARE Diagnosis Related Group (DRG)-Based Payment System (Adjusted Standardized Amounts (ASAs))",
+      "chapter": 6,
+      "section": "7",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6S8",
+      "name": "C6S8",
+      "title": "Sect 8 — Hospital Reimbursement - TRICARE Diagnosis Related Group (DRG)-Based Payment System (Adjustments To Payment Amounts)",
+      "chapter": 6,
+      "section": "8",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6S9",
+      "name": "C6S9",
+      "title": "Sect 9 — Hospital Reimbursement - TRICARE Diagnosis Related Group (DRG)-Based Payment System (Information Provided By Defense Health Agency (DHA))",
+      "chapter": 6,
+      "section": "9",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6S10",
+      "name": "C6S10",
+      "title": "Sect 10 — Hospital Reimbursement - TRICARE Diagnosis Related Group (DRG)-Based Payment System (Charges To Beneficiaries)",
+      "chapter": 6,
+      "section": "10",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6S11",
+      "name": "C6S11",
+      "title": "Sect 11 — Hospital Reimbursement - TRICARE Diagnosis Related Group (DRG)-Based Payment System (New Technology Add-On Payments (NTAPs))",
+      "chapter": 6,
+      "section": "11",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6S12",
+      "name": "C6S12",
+      "title": "Sect 12 — Hospital Reimbursement - Hospital Value-Based Purchasing (HVBP)",
+      "chapter": 6,
+      "section": "12",
+      "isChapterToc": false
+    },
+    {
+      "id": "C7TOC",
+      "name": "C7TOC",
+      "title": "Chapter 7 — Mental Health",
       "chapter": 7,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "018",
-      "title": "Chapter 7, Section 1",
+      "id": "C7S1",
+      "name": "C7S1",
+      "title": "Sect 1 — Hospital Reimbursement - TRICARE Inpatient Mental Health Per Diem Payment System",
       "chapter": 7,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "019",
-      "title": "Chapter 8 – Contents",
+      "id": "C7S2",
+      "name": "C7S2",
+      "title": "Sect 2 — Partial Hospitalization Program (PHP) And Intensive Outpatient Program (IOP) Reimbursement: Mental Health And Substance Use Disorder (SUD) Treatment",
+      "chapter": 7,
+      "section": "2",
+      "isChapterToc": false
+    },
+    {
+      "id": "C7S3",
+      "name": "C7S3",
+      "title": "Sect 3 — Inpatient/Residential Substance Use Disorder Rehabilitation Facilities (SUDRFs) Reimbursement",
+      "chapter": 7,
+      "section": "3",
+      "isChapterToc": false
+    },
+    {
+      "id": "C7S4",
+      "name": "C7S4",
+      "title": "Sect 4 — Psychiatric Residential Treatment Center (RTC) Reimbursement",
+      "chapter": 7,
+      "section": "4",
+      "isChapterToc": false
+    },
+    {
+      "id": "C7S5",
+      "name": "C7S5",
+      "title": "Sect 5 — Opioid Treatment Programs (OTPs) Reimbursement",
+      "chapter": 7,
+      "section": "5",
+      "isChapterToc": false
+    },
+    {
+      "id": "C8TOC",
+      "name": "C8TOC",
+      "title": "Chapter 8 — Skilled Nursing Facilities (SNFs)",
       "chapter": 8,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "020",
-      "title": "Chapter 8, Section 1",
+      "id": "C8S1",
+      "name": "C8S1",
+      "title": "Sect 1 — Skilled Nursing Facility (SNF) Prospective Payment System (PPS) For Services Received Prior To October 1, 2019",
       "chapter": 8,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "021",
-      "title": "Chapter 9 – Contents",
+      "id": "C8S2",
+      "name": "C8S2",
+      "title": "Sect 2 — Skilled Nursing Facility (SNF) Prospective Payment System (PPS) For Care Rendered On Or After October 1, 2019",
+      "chapter": 8,
+      "section": "2",
+      "isChapterToc": false
+    },
+    {
+      "id": "C9TOC",
+      "name": "C9TOC",
+      "title": "Chapter 9 — Ambulatory Surgery Centers (ASCs)",
       "chapter": 9,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "022",
-      "title": "Chapter 9, Section 1",
+      "id": "C9S1",
+      "name": "C9S1",
+      "title": "Sect 1 — Ambulatory Surgical Center (ASC) Reimbursement For Services Before October 1, 2023",
       "chapter": 9,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "023",
-      "title": "Chapter 9, Section 2",
+      "id": "C9S2",
+      "name": "C9S2",
+      "title": "Sect 2 — Ambulatory Surgical Center (ASC) Reimbursement For Services On Or After October 1, 2023",
       "chapter": 9,
       "section": "2",
       "isChapterToc": false
     },
     {
-      "id": "024",
-      "title": "Chapter 10 – Contents",
+      "id": "C10TOC",
+      "name": "C10TOC",
+      "title": "Chapter 10 — Birthing Centers",
       "chapter": 10,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "025",
-      "title": "Chapter 10, Section 1",
+      "id": "C10S1",
+      "name": "C10S1",
+      "title": "Sect 1 — Freestanding And Hospital-Based Birthing Center Reimbursement",
       "chapter": 10,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "026",
-      "title": "Chapter 11 – Contents",
+      "id": "C11TOC",
+      "name": "C11TOC",
+      "title": "Chapter 11 — Hospice",
       "chapter": 11,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "027",
-      "title": "Chapter 11, Section 1",
+      "id": "C11S1",
+      "name": "C11S1",
+      "title": "Sect 1 — Hospice Reimbursement - General Overview",
       "chapter": 11,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "028",
-      "title": "Chapter 12 – Contents",
+      "id": "C11S2",
+      "name": "C11S2",
+      "title": "Sect 2 — Hospice Reimbursement - Coverage/Benefits",
+      "chapter": 11,
+      "section": "2",
+      "isChapterToc": false
+    },
+    {
+      "id": "C11S3",
+      "name": "C11S3",
+      "title": "Sect 3 — Hospice Reimbursement - Conditions For Coverage",
+      "chapter": 11,
+      "section": "3",
+      "isChapterToc": false
+    },
+    {
+      "id": "C11S4",
+      "name": "C11S4",
+      "title": "Sect 4 — Hospice Reimbursement - Guidelines For Payment Of Designated Levels Of Care",
+      "chapter": 11,
+      "section": "4",
+      "isChapterToc": false
+    },
+    {
+      "id": "C11S5",
+      "name": "C11S5",
+      "title": "Sect 5 — Hospice Reimbursement - Concurrent Hospice Services And Curative Care For Pediatric Beneficiaries",
+      "chapter": 11,
+      "section": "5",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12TOC",
+      "name": "C12TOC",
+      "title": "Chapter 12 — Home Health Care (HHC)",
       "chapter": 12,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "029",
-      "title": "Chapter 12, Section 1",
+      "id": "C12S1",
+      "name": "C12S1",
+      "title": "Sect 1 — Home Health Benefit Coverage And Reimbursement - General Overview",
       "chapter": 12,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "030",
-      "title": "Chapter 13 – Contents",
+      "id": "C12S2",
+      "name": "C12S2",
+      "title": "Sect 2 — Home Health Care (HHC) - Benefits And Conditions For Coverage",
+      "chapter": 12,
+      "section": "2",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12S3",
+      "name": "C12S3",
+      "title": "Sect 3 — Home Health Benefit Coverage And Reimbursement - Assessment Process",
+      "chapter": 12,
+      "section": "3",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12S4",
+      "name": "C12S4",
+      "title": "Sect 4 — Home Health Benefit Coverage And Reimbursement - Primary Provider Status And Episodes/Periods Of Care",
+      "chapter": 12,
+      "section": "4",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12S5",
+      "name": "C12S5",
+      "title": "Sect 5 — Home Health Benefit Coverage And Reimbursement - Medical Review Requirements",
+      "chapter": 12,
+      "section": "5",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12S6",
+      "name": "C12S6",
+      "title": "Sect 6 — Home Health Benefit Coverage And Reimbursement - Under The Patient-Driven Groupings Model (PDGM)",
+      "chapter": 12,
+      "section": "6",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12S7",
+      "name": "C12S7",
+      "title": "Sect 7 — Home Health Benefit Coverage And Reimbursement - Prospective Payment Methodology",
+      "chapter": 12,
+      "section": "7",
+      "isChapterToc": false
+    },
+    {
+      "id": "C13TOC",
+      "name": "C13TOC",
+      "title": "Chapter 13 — Outpatient Prospective Payment System (OPPS)-Ambulatory Payment Classification (APC)",
       "chapter": 13,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "031",
-      "title": "Chapter 13, Section 1",
+      "id": "C13S1",
+      "name": "C13S1",
+      "title": "Sect 1 — Outpatient Prospective Payment System (OPPS)-Ambulatory Payment Classification (APC)",
       "chapter": 13,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "032",
-      "title": "Chapter 14 – Contents",
+      "id": "C13S2",
+      "name": "C13S2",
+      "title": "Sect 2 — Billing And Coding Of Services Under Ambulatory Payment Classifications (APC) Groups",
+      "chapter": 13,
+      "section": "2",
+      "isChapterToc": false
+    },
+    {
+      "id": "C13S3",
+      "name": "C13S3",
+      "title": "Sect 3 — Prospective Payment Methodology",
+      "chapter": 13,
+      "section": "3",
+      "isChapterToc": false
+    },
+    {
+      "id": "C13S4",
+      "name": "C13S4",
+      "title": "Sect 4 — Claims Submission And Processing Requirements",
+      "chapter": 13,
+      "section": "4",
+      "isChapterToc": false
+    },
+    {
+      "id": "C13S5",
+      "name": "C13S5",
+      "title": "Sect 5 — Medical Review And Allowable Charge Review Under the Outpatient Prospective Payment System (OPPS)",
+      "chapter": 13,
+      "section": "5",
+      "isChapterToc": false
+    },
+    {
+      "id": "C14TOC",
+      "name": "C14TOC",
+      "title": "Chapter 14 — Sole Community Hospitals (SCHs)",
       "chapter": 14,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "033",
-      "title": "Chapter 14, Section 1",
+      "id": "C14S1",
+      "name": "C14S1",
+      "title": "Sect 1 — Sole Community Hospitals (SCHs)",
       "chapter": 14,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "034",
-      "title": "Chapter 15 – Contents",
+      "id": "C15TOC",
+      "name": "C15TOC",
+      "title": "Chapter 15 — Critical Access Hospitals (CAHs)",
       "chapter": 15,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "035",
-      "title": "Chapter 15, Section 1",
+      "id": "C15S1",
+      "name": "C15S1",
+      "title": "Sect 1 — Critical Access Hospitals (CAHs)",
       "chapter": 15,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "036",
-      "title": "Chapter 16 – Contents",
+      "id": "C16TOC",
+      "name": "C16TOC",
+      "title": "Chapter 16 — Long-Term Care Hospitals (LTCHs)",
       "chapter": 16,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "037",
-      "title": "Chapter 16, Section 1",
+      "id": "C16S1",
+      "name": "C16S1",
+      "title": "Sect 1 — Long-Term Care Hospitals (LTCHs)",
       "chapter": 16,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "038",
-      "title": "Chapter 17 – Contents",
+      "id": "C17TOC",
+      "name": "C17TOC",
+      "title": "Chapter 17 — Inpatient Rehabilitation Facilities (IRFs)",
       "chapter": 17,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "039",
-      "title": "Chapter 17, Section 1",
+      "id": "C17S1",
+      "name": "C17S1",
+      "title": "Sect 1 — Inpatient Rehabilitation Facilities (IRFs)",
       "chapter": 17,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "040",
-      "title": "Chapter 18 – Contents",
+      "id": "C18TOC",
+      "name": "C18TOC",
+      "title": "Chapter 18 — Alternate Payment Models (APMs)",
       "chapter": 18,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "041",
-      "title": "Chapter 18, Section 1",
+      "id": "C18S1",
+      "name": "C18S1",
+      "title": "Sect 1 — Alternate Payment Models (APMs)",
       "chapter": 18,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "042",
-      "title": "Chapter 18, Section 2",
+      "id": "C18S2",
+      "name": "C18S2",
+      "title": "Sect 2 — Low-Value Care (LVC) Medical Interventions",
       "chapter": 18,
       "section": "2",
       "isChapterToc": false
     },
     {
-      "id": "043",
-      "title": "Chapter 19 – Contents",
+      "id": "C19TOC",
+      "name": "C19TOC",
+      "title": "Chapter 19 — Freestanding End Stage Renal Disease (ESRD) Facility Reimbursement",
       "chapter": 19,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "044",
-      "title": "Chapter 19, Section 1",
+      "id": "C19S1",
+      "name": "C19S1",
+      "title": "Sect 1 — Freestanding End Stage Renal Disease (ESRD) Facility Reimbursement",
       "chapter": 19,
       "section": "1",
       "isChapterToc": false
     },
     {
-      "id": "045",
-      "title": "Chapter 1 Addendum E",
+      "id": "C1ADA",
+      "name": "C1ADA",
+      "title": "Addendum A — Sample State Agency Billing Agreement",
       "chapter": 1,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "046",
-      "title": "Chapter 2 Addendum B",
+      "id": "C1ADB",
+      "name": "C1ADB",
+      "title": "Addendum B — Figures",
+      "chapter": 1,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1ADC",
+      "name": "C1ADC",
+      "title": "Addendum C — Minimum Requirements For Reimbursement Of Per Capita State (Or Alternative) State Vaccine Programs (SVPs)",
+      "chapter": 1,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1ADD",
+      "name": "C1ADD",
+      "title": "Addendum D — Maximum Allowable Charge For Breastfeeding Supplies",
+      "chapter": 1,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C1ADE",
+      "name": "C1ADE",
+      "title": "Addendum E — Controls for Excessive Charges for Professional Services, and Durable Medical Equipment, Prosthetics, Orthotics, And Supplies/Parenteral and Enteral Nutrition (DMEPOS/PEN) Services without Established Rates",
+      "chapter": 1,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C2ADA",
+      "name": "C2ADA",
+      "title": "Addendum A — Benefits And Beneficiary Payments Under The TRICARE Program For Services Received Prior To January 1, 2018; And For TRICARE Services Received On Or After January 1, 2018 By TRICARE For Life (TFL) Beneficiaries",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "047",
-      "title": "Chapter 6 Addendum C",
+      "id": "C2ADB",
+      "name": "C2ADB",
+      "title": "Addendum B — Pharmacy Benefits Program - Cost-Shares",
+      "chapter": 2,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6ADA",
+      "name": "C6ADA",
+      "title": "Addendum A — Health Benefit Program Agreement",
       "chapter": 6,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "048",
-      "title": "Chapter 7 Addendum B",
+      "id": "C6ADB",
+      "name": "C6ADB",
+      "title": "Addendum B — TRICARE Adjusted Standardized Amounts (ASAs) - Fiscal Year (FY) 2016 And Beyond",
+      "chapter": 6,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6ADB_15",
+      "name": "C6ADB_15",
+      "title": "Addendum B — TRICARE Adjusted Standardized Amounts (ASAs) - FY 2015",
+      "chapter": 6,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6ADC",
+      "name": "C6ADC",
+      "title": "Addendum C — Diagnosis Related Groups (DRGs), DRG Relative Weights, Arithmetic And Geometric Mean Lengths-Of-Stay (LOS), And Short-Stay Outlier Thresholds - FY 2016 And Beyond",
+      "chapter": 6,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C6ADC_15",
+      "name": "C6ADC_15",
+      "title": "Addendum C — Diagnosis Related Groups (DRGs), DRG Relative Weights, Arithmetic And Geometric Mean Lengths-Of-Stay (LOS), And Short-Stay Outlier Thresholds - FY 2015",
+      "chapter": 6,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C7ADA",
+      "name": "C7ADA",
+      "title": "Addendum A — Table Of Regional Specific Rates For Psychiatric Hospitals And Units With Low TRICARE Volume - FY 2022 - FY 2024",
       "chapter": 7,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "049",
-      "title": "Chapter 8 Addendum H",
+      "id": "C7ADB",
+      "name": "C7ADB",
+      "title": "Addendum B — Guidelines For The Calculation Of Individual Psychiatric Residential Treatment Center (RTC) Per Diem Rates",
+      "chapter": 7,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C8ADA",
+      "name": "C8ADA",
+      "title": "Addendum A — Letter To Skilled Nursing Facility (SNF) Regarding Participation Agreement For Services Received On Or After October 1, 2019",
       "chapter": 8,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "050",
-      "title": "Chapter 10 Addendum A",
+      "id": "C8ADB",
+      "name": "C8ADB",
+      "title": "Addendum B — Letter To Skilled Nursing Facility (SNF) Regarding Participation Agreement For Services Prior To October 1, 2019",
+      "chapter": 8,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C8ADC",
+      "name": "C8ADC",
+      "title": "Addendum C — Resource Utilization Group-III/IV (RUG-III/IV) For Services Received Prior To October 1, 2019",
+      "chapter": 8,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C8ADD",
+      "name": "C8ADD",
+      "title": "Addendum D — Example Of Computation of Adjusted Prospective Payment System (PPS) Rates And Skilled Nursing Facility (SNF) Payment - FY 2018 For Services Received Prior To October 1, 2019",
+      "chapter": 8,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C8ADE",
+      "name": "C8ADE",
+      "title": "Addendum E — Fact Sheet Regarding Consolidated Billing and Ambulance Services For Services Received Prior To October 1, 2019",
+      "chapter": 8,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C8ADF",
+      "name": "C8ADF",
+      "title": "Addendum F — Case-Mix Adjusted Federal Rates For Skilled Nursing Facilities (SNFs)",
+      "chapter": 8,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C8ADG",
+      "name": "C8ADG",
+      "title": "Addendum G — Wage Indexes For Urban Areas For Skilled Nursing Facilities (SNFs) Based On Core-Based Statistical Area (CBSA) Labor Market Areas",
+      "chapter": 8,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C8ADH",
+      "name": "C8ADH",
+      "title": "Addendum H — Wage Indexes For Rural Areas For Skilled Nursing Facilities (SNFs) Based On Core-Based Statistical Area (CBSA) Labor Market Areas",
+      "chapter": 8,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C10ADA",
+      "name": "C10ADA",
+      "title": "Addendum A — Birthing Center Rate Non-Professional Component",
       "chapter": 10,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "051",
-      "title": "Chapter 11 Addendum D",
+      "id": "C11ADA",
+      "name": "C11ADA",
+      "title": "Addendum A — Hospice Care Rates",
       "chapter": 11,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "052",
-      "title": "Chapter 12 Addendum E",
+      "id": "C11ADB",
+      "name": "C11ADB",
+      "title": "Addendum B — Hospice Rate Information - Hospice Wage Indexes For Urban Areas",
+      "chapter": 11,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C11ADC",
+      "name": "C11ADC",
+      "title": "Addendum C — Hospice Rate Information - Hospice Wage Indexes For Rural Areas",
+      "chapter": 11,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C11ADD",
+      "name": "C11ADD",
+      "title": "Addendum D — Participation Agreement For Hospice Program Services For TRICARE Beneficiaries",
+      "chapter": 11,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12ADA",
+      "name": "C12ADA",
+      "title": "Addendum A — Definitions And Acronym Table",
       "chapter": 12,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "053",
-      "title": "Chapter 13 Addendum C",
+      "id": "C12ADB",
+      "name": "C12ADB",
+      "title": "Addendum B — Home Health Resource Group (HHRG) Worksheet",
+      "chapter": 12,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12ADC_24",
+      "name": "C12ADC_24",
+      "title": "Addendum C — Annual Home Health Agency Prospective Payment System (HHA PPS) Rate Updates - CY 2024",
+      "chapter": 12,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12ADC_25",
+      "name": "C12ADC_25",
+      "title": "Addendum C — Annual Home Health Agency Prospective Payment System (HHA PPS) Rate Updates - CY 2025",
+      "chapter": 12,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12ADC_26",
+      "name": "C12ADC_26",
+      "title": "Addendum C — Annual Home Health Agency Prospective Payment System (HHA PPS) Rate Updates - CY 2026",
+      "chapter": 12,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12ADD",
+      "name": "C12ADD",
+      "title": "Addendum D — Home Health Certification And Plan Of Care (POC)",
+      "chapter": 12,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C12ADE",
+      "name": "C12ADE",
+      "title": "Addendum E — Code Table For Converting Julian Dates To Two Position Alphabetic Values",
+      "chapter": 12,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C13ADA",
+      "name": "C13ADA",
+      "title": "Addendum A — Development Schedule For TRICARE Outpatient Code Editor (OCE)/Ambulatory Payment Classification (APC) Quarterly Update",
+      "chapter": 13,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C13ADB",
+      "name": "C13ADB",
+      "title": "Addendum B — Outpatient Prospective Payment System (OPPS) Outpatient Code Editor (OCE) Notification Process For Quarterly Updates",
+      "chapter": 13,
+      "section": "",
+      "isChapterToc": false
+    },
+    {
+      "id": "C13ADC",
+      "name": "C13ADC",
+      "title": "Addendum C — Approval Of OPPS - Outpatient Code Editor (OCE)/APC And No Government Pay List (NGPL) Quarterly Update Process",
       "chapter": 13,
       "section": "",
       "isChapterToc": false

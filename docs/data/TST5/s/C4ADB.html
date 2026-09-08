@@ -1,0 +1,4232 @@
+
+<div class="row my-3"><article class="TSM" data-manualacronym="TST5" tmaa-izihyxm-tk=""><div class="Header" tmaa-izihyxm-tk="">TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div class="MPChapterTitle" tmaa-izihyxm-tk="">TRICARE Duplicate Claims System (DCS) - TRICARE Encounter Data (TED) Version</div>
+<section data-element-id="TST507B00001" data-element-type="Header" tmaa-izihyxm-tk="">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507B00002" data-element-type="Text" id="FM350698" tmaa-izihyxm-tk="">Chapter 4</div>
+<div class="Addendum" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507B00003" data-element-type="Text" id="FM350702" tmaa-izihyxm-tk="">Addendum B</div>
+<div class="AddendumTitle" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507B00004" data-element-type="Text" id="FM452328" tmaa-izihyxm-tk="">Report Descriptions And Examples</div>
+<div class="CPT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507B00005" data-element-type="Text" tmaa-izihyxm-tk="">Copyright:  CPT only © 2006 American Medical
+Association (or such other date of publication of CPT).
+All Rights Reserved.</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST507B00006" data-element-type="None" tmaa-izihyxm-tk="">Revision:  </div>
+<div class="Line" tmaa-izihyxm-tk=""></div></section>
+<section data-element-id="TST507B00007" data-element-type="Content" tmaa-izihyxm-tk=""><div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00008" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SET
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">BASIC</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Duplicate Claim System Sets
+Grouped by Set Number</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides set-level
+information regarding all of the sets loaded in the DCS. The fields
+displayed on the report are: Institutional/Non-Institutional Indicator;
+Set Number; Status; Set Match Type; Multi-Contractor Set? (Y/N);
+Owner FI; Region; Initial Load Date; Current Load Date; Last Update
+Date; Adjustments? (Y/N); Total Amount Identified For Recoupment;
+Total Amount Actually Recouped; Total TED Adjustment Amount; and
+Set Level User Defined Code.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters (Claim Set Status, Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus Set Level User Defined Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00015" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00017" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SET
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">BASIC BY USER CODE</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Duplicate Claim System Sets
+Grouped by User Code</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides set-level
+information regarding all of the sets loaded in the DCS grouped
+by Set Level User Defined Codes. The fields displayed on the report are:
+Institutional/Non-Institutional Indicator; Set Number; Status; Set
+Match Type; Multi-Contractor Set? (Y/N); Owner FI; Region; Initial
+Load Date; Current Load Date; Last Update Date; Adjustments? (Y/N);
+Total Amount Identified For Recoupment; Total Amount Actually Recouped;
+Total TED Adjustment Amount; and Set Level User Defined Code.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters (Claim Set Status, Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus Set Level User Defined Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00024" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00027" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SET
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">USER LOG REPORT</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">User Log Grouped By Set Number
+(Transaction History)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report identifies the
+users who made changes to a set and the dates on which the changes
+occurred. The fields displayed on the report are: Set Number; Status;
+Owner FI; Region; Initial Load Date; Current Load Date; Transaction
+Date; User ID; Total Amount Identified For Recoupment; Total Amount
+Actually Recouped; and Total TED Adjustment Amount. The report will
+identify all of the sets meeting the criteria selected on the report
+parameter screen and list all of the changes made to those sets
+along with the associated User Ids. The system detects changes to:
+the status of a set; the Owner FI; the Region; and the three total
+dollar amount fields. Whenever a change to one or more of these
+fields occurs, a “log” record is created and will appear on this
+report along with the User ID associated with the change(s). The
+report will not show log entries generated as a result of: sets
+to which claims have been added during the monthly load process;
+or sets that have been archived out of the active database to history. Users
+may see entries with an “System” or “CLAIMADD” as the User ID. These
+two User IDs are used by the DCS for set management purposes. These
+User Ids may appear when the system makes a change to a set. The
+report groups the data by Set Number in ascending order.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters (Claim Set Status, Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus User IDs.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00034" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00036" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SET
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> EXPLANATION REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">NOTEPAD</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Explanations Notepad</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a listing
+of the notepad entries made on selected sets. The fields displayed
+on this report are: Set Number; Status; Match Type; Owner FI; Region;
+Initial Load Date; Current Load Date; and Notepad Entries.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters (Claim Set Status, Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00043" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00045" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SET
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> EXPLANATION REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">VALIDATE</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Validate Status Explanations</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a listing
+of the explanations entered when sets are resolved to a <span class="Italic" tmaa-izihyxm-tk="">Validate</span> status.
+The Duplicate Claims System requires that an explanation be entered
+when a set is resolved to a <span class="Italic" tmaa-izihyxm-tk="">Validate</span> status. One
+of the required <span class="Italic" tmaa-izihyxm-tk="">Validate</span> explanations describes
+why the amount actually recouped and the paid amount of the TED
+adjustments submitted do not equal the amount identified for recoupment.
+The other required <span class="Italic" tmaa-izihyxm-tk="">Validate</span> explanation describes
+why all of the identified line-items of a non-institutional actual
+duplicate claim have not been adjusted. The fields displayed on
+this report are: Set Number; Status; Match Type; Owner FI; Region;
+Initial Load Date; Current Load Date; and Validate Explanations.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Claim Set Status (Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00052" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00054" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SET
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> EXPLANATION REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">MODIFY</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Modify FI Explanations</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a listing
+of the explanations entered when the Owner FI is changed on multi-contractor
+sets. The Duplicate Claims System requires that an explanation be
+entered when ownership of a multi-contractor set is changed from
+one contractor to another. The explanation entered should indicate
+who changed set ownership, who the change was discussed with at
+the receiving contractor, the date the discussions and the change
+took place, and why ownership was changed. The fields displayed
+on the report are: Set Number; Status; Match Type; Owner FI; Region;
+Initial Load Date; Current Load Date; and the Modify FI Explanations.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Owner Type (Claim
+Set Status; Adjustments, Claim Type, Match Type, Date Type, Set
+Range, FI, Region).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">  <div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00061" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00063" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SET
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">REGION UNASSIGNED</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Multi-Contractor Sets</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Region Missing</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a listing
+of the multi-contractor sets in the Duplicate Claims System for
+which a region has not been assigned. All sets are assigned a region when
+they are loaded into the system and when mass changes occur. When ownership
+of a multi-contractor set is changed from one contractor to another, the
+receiving contractor must assign the applicable region to the set.
+If the receiving contractor does not assign a region, the set cannot
+be associated with a particular contract. This report will provide
+receiving contractors with a listing of the sets which have not
+had regions assigned. The fields displayed on the report are: Set
+Number; Status; Initial Load Date; Current Load Date; and Owner
+FI.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Owner Type and Set
+Range (Claim Set Status; Adjustments, Claim Type, Match Type, Date
+Type, FI, Region).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00071" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00073" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SET
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">SET COUNTS BY REGION</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Counts By Region</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides the numbers
+of sets of each match type by contract region. The report shows
+the number of sets of each match type, the percentage each match
+type represents of the total number of sets for the region, the
+number of sets for each match type which have associated adjustments,
+and the percentage of each match type which have been adjusted.
+This report will show the distribution of sets for a region across
+match types. It will also show the user how many sets in a given
+match type category have associated adjustments and the percentage
+of that match type category which have adjustments. This report
+can serve as a tool for contractors to help diagnose causes for
+duplicate payments and to help determine workload and needed resources.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Match Type and Set
+Range (Claim Set Status; Adjustments, Claim Type, Date Type, FI,
+Region) plus Set Level User Defined Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00080" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00083" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SET
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">SET LEVEL USER CODES</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Level User Defined Field
+Definitions</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report displays the Owner
+FI, the Set Level User Defined Codes, their definitions, and whether
+they are active or inactive.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may not customize this
+report.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00090" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00092" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">BASIC</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Basic Duplicate Claim Report</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Institutional and Non-Institutional</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim and Line Item Level Data</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report lists all of the
+claims loaded in the system grouped by claim number. The report
+will show institutional and non-institutional claims. This report
+format will allow the user to select by Duplicate Flag values. The
+fields displayed on the report are: Owner FI; ICN; Claim Level User
+Defined Code; Solicited Indicator; Set Number; Duplicate Flag Value;
+Reason Code; Processed-To-Completion Date; Responsible FI Number;
+Sponsor ID; Patient ID; Patient Name; Amount Billed; Amount Paid;
+Amount Identified For Recoupment; Amount Actually Recouped. For
+Non-Institutional claims, line item data will also be displayed.
+The line item fields displayed include: Line Item Number; Line Item
+Match Type; Procedure Code; Provider Tax ID; Provider Sub-ID; Place
+of Service; Type of Service; Care Begin Date; Care End Date; Line
+Item Amount Billed for the Procedure; and Amount Paid for the Procedure.
+The report identifies and prints all of the claims occurring in
+sets meeting the criteria selected on the report parameter screen.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters (Claim Set Status, Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus Dupe Flag Indicator; Solicited Indicator; Exclude Base;
+PTC Date; Set Level User Defined Codes; Claim Level User Defined
+Codes; Responsible FI; Region; and Enrollment Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level and line item level data. If a non-institutional
+claim exists in more than one set, it will print for each set in
+which it exists. Each instance of these non-institutional claims
+existing in multiple sets will contain a different set number on
+the report.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B000A1" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B000A3" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">BASIC BY SET</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Basic Duplicate Claim Report
+By Set</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Institutional and Non-Institutional</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim and Line Item Level Data</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report lists all of the
+claims loaded in the system grouped by set number. The report will
+show institutional and non-institutional claims. This report format
+will allow the user to select by Duplicate Flag values. The fields
+displayed on the report are: Owner FI; ICN; Claim Level User Defined
+Code; Solicited Indicator; Set Number; Duplicate Flag Value; Reason
+Code; Processed-To-Completion Date; Responsible FI Number; Sponsor
+ID; Patient ID; Patient Name; Amount Billed; Amount Paid; Amount
+Identified For Recoupment; Amount Actually Recouped. For Non-Institutional
+claims, line item data will also be displayed. The line item fields
+displayed include: Line Item Number; Line Item Match Type; Procedure Code;
+Provider Tax ID; Provider Sub-ID; Place of Service; Type of Service;
+Care Begin Date; Care End Date; Line Item Amount Billed for the
+Procedure; and Amount Paid for the Procedure. The report identifies
+and prints all of the claims occurring in sets meeting the criteria
+selected on the report parameter screen.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters (Claim Set Status, Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus Dupe Flag Indicator; Solicited Indicator; Exclude Base;
+PTC Date; Set Level User Defined Codes; Claim Level User Defined
+Codes; Responsible FI; and Region.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level and line item level data. If a non-institutional
+claim exists in more than one set, it will print for each set in
+which it exists. Each instance of these non-institutional claims
+existing in multiple sets will contain a different set number on
+the report.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B000B2" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B000B4" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">INSTITUTIONAL</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Institutional Claims</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report lists institutional
+claims grouped by current set status. This report lists institutional
+claims within their respective sets. The fields displayed on the
+report are: Owner FI; Institutional Indicator; Status Code; Set
+Number; ICN; Claim Level User Defined Code; Solicited Indicator;
+Dupe Flag Indicator; Processed to Completion Date; Responsible FI
+Number; Sponsor ID; Patient ID; Patient Name; Date of Birth; Provider
+Nbr; Provider Sub-ID; Amount Billed; Amount Allowed; and Government
+Paid Amount. The report identifies and prints all of the sets meeting the
+criteria selected on the report parameter screen. The report groups
+the claims in ascending set number order.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Claim Type (Claim
+Set Status, Adjustments, Set Owner Type, Match Type, Date Type,
+Set Range, FI, Region) plus Dupe Flag Indicator; Solicited Indicator;
+Exclude Base; PTC Date; Care Dates; Set Level User Defined Codes;
+Claim Level User Defined Codes; Responsible FI; Region; and Enrollment
+Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data. The billed and net Government paid amounts
+are claim level dollar amounts.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B000C1" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B000C5" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> NON-INSTITUTIONAL <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">BY
+CLAIM</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Non-Institutional Claims</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report lists non-institutional
+claims grouped by current set status. This report lists non- institutional
+claims within their respective sets. The fields displayed on the
+report are: Owner FI; Region; Set Status Code; ICN; Claim Level
+User Defined Code; Solicited Indicator; Set Number; Dupe Flag Indicator;
+Processed to Completion Date; Responsible FI; Sponsor ID; Patient
+ID; Patient Name; Date of Birth; Amount Billed; Amount Allowed;
+and Government Paid Amount. The report identifies and prints all
+of the sets meeting the criteria selected on the report parameter
+screen. The report groups the claims in ascending set number order.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Claim Type (Claim
+Set Status, Adjustments, Set Owner Type, Match Type, Date Type,
+Set Range, FI, Region) plus Dupe Flag Indicator, Solicited Indicator,
+Exclude Base, Processed To Completion date, Care dates, Set Level
+User Defined Codes, Claim Level User Defined Codes, Responsible
+FI, Region, and Enrollment Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data. The billed, paid and net Government
+paid amounts are claim level not line-item level dollar amounts.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B000D2" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B000D6" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> NON-INSTITUTIONAL <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">BY
+LINE ITEM</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Non-Institutional Claims By
+Line Item</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report lists non-institutional
+claims grouped by current set status. This report displays line-item
+data. The fields displayed on the report are: Owner FI; Region; Set
+Status Code; ICN; Claim Level User Defined Code; Solicited Indicator;
+Set Number; Responsible FI; Sponsor ID; Patient ID; Patient Name;
+Provider Number; Provider Sub-ID; Line Item Number; CPT-4 Code;
+Care Begin Date; Care End Date; and Amount Paid CPT-4 Code. The
+report identifies and prints all of the sets meeting the criteria
+selected on the report parameter screen. The report groups the claims
+in ascending set number order.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Claim Type (Claim
+Set Status, Adjustments, Set Owner Type, Match Type, Date Type,
+Set Range, FI, Region) plus Dupe Flag Indicator, Solicited Indicator,
+Exclude Base, PTC Date; Care Dates; Set Level User Defined Codes;
+Claim Level User Defined Codes; Responsible FI; Region; and Enrollment
+Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is line item level data. The paid amounts are line item level
+dollar amounts.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B000E3" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B000E6" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> RISK <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">RISK
+BASIC</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Risk Report By ICN</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a listing
+of claims based on the Risk Indicator values selected by the user.
+The Risk Indicator identifies the claim as either financially underwritten
+or non-financially underwritten. The claims are grouped by claim number.
+The report can show both institutional and non- institutional claims.
+The fields displayed on the report are: Owner FI; Region; ICN; Claim
+Level User Defined Code; Solicited Indicator; Set Number; Duplicate
+Flag Value; Risk Indicator; Responsible FI; Sponsor ID; Patient
+ID; Patient Name; Provider Number; Provider Sub-ID; Amount Billed;
+Amount Paid; Government Paid Amount; Amount Identified For Recoupment;
+Amount Actually Recouped; Adjustment Amount.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters (Claim Set Status, Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus Dupe Flag Indicator, Solicited Indicator, Exclude Base,
+PTC Dates, Care Dates, Set Level User Defined Codes, Claim Level
+User Defined Codes, Responsible FI, Region, Risk Indicator, and
+Enrollment Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data. For non-institutional claims, the billed,
+paid and net Government paid amounts are claim level not line-item
+level dollar amounts.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B000F3" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B000F6" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> RISK <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">RISK
+BY SET</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Risk Report By Set Number</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a listing
+of claims based on the Risk Indicator values selected by the user.
+The Risk Indicator identifies the claim as either financially underwritten
+or non-financially underwritten. The claims are grouped by set number.
+The report can show both institutional and non-institutional claims.
+The fields displayed on the report are: Owner FI; Region; Set Number;
+ICN; Claim Level User Defined Code; Solicited Indicator; Duplicate
+Flag Value; Risk Indicator; Responsible FI; Sponsor ID; Patient
+ID; Patient Name; Provider Number; Provider Sub-ID; Amount Billed;
+Amount Allowed; Government Paid Amount; Amount Identified For Recoupment;
+Amount Actually Recouped; Adjustment Amount.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters (Claim Set Status, Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus Dupe Flag Indicator, Solicited Indicator, Exclude Base,
+PTC Dates, Care Dates, Set Level User Defined Codes, Claim Level
+User Defined Codes, Responsible FI, Region, Risk Indicator, and
+Enrollment Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data. For non-institutional claims, the billed,
+paid and net Government paid amounts are claim level not line-item
+level dollar amounts.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00103" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00106" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> RISK <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">RISK
+SUMMARY</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Risk Summary Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report summarizes by Region
+the amounts billed, paid and Government paid amounts, as well as
+the amounts identified for recoupment, amounts actually recouped,
+and adjustment amounts. The fields displayed on the report are: Owner
+FI; Region; Amount Billed; Amount Allowed; Government Paid Amount; Amount
+Identified for Recoupment; Amount Actually Recouped; and Adjustment Amount.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters (Claim Set Status, Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus Dupe Flag Indicator, Solicited Indicator, Exclude Base,
+PTC Dates, Care Dates, Set Level User Defined Codes, Claim Level
+User Defined Codes, Responsible FI, Region, Risk Indicator, and
+Enrollment Code.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data. For non-institutional claims, the billed,
+paid and net Government paid amounts are claim level not line-item
+level dollar amounts.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00113" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00115" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> PROVIDER <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">CLAIM
+COUNTS</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Provider Claim Count Report</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Grouped By Provider Number
+and Sub-ID</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a total
+count by Provider Tax ID and Provider Sub-ID of all claims associated
+with selected providers. The fields displayed are: Provider Tax ID;
+Provider Sub-ID; and Total Number of Claims.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Last (update) Date,
+Set Range (Claim Set Status; Adjustments, Set Owner Type; Claim
+Type, Match Type, Date Type, Set Range, FI, Region) plus Dupe Flag Indicator,
+PTC Dates, Responsible FI, Region, Provider Tax IDs, and Enrollment Code.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00123" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00125" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> PROVIDER <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">CLAIM
+DETAIL</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Provider Claim Detail Report</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Grouped By Provider Number
+And Sub ID</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a listing
+of claims grouped by Provider Tax ID and Sub-ID, associated with
+selected providers. The fields displayed are: Provider Tax ID; Provider
+Sub-ID; ICN; Time Stamp; Claim Level User Defined Code; Solicited Indicator;
+Set #; Duplicate Flag Indicator; Sponsor ID; Patient ID; Patient
+Name; Amount Govt Paid; PTC Date; Responsible FI; Total Number of
+Claims and Total Paid Amounts by Provider Sub-ID; and Total number
+of Claims and Total Paid Amounts by Provider Tax ID.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Last (update) Dates
+(Owner Type, Claim Set Status; Adjustments, Claim Type, Match Type,
+Date Type, Set Range, FI, Region) plus Dupe Flag Indicator, Solicited Indicator,
+PTC Dates, Responsible FI, Region, Set Level User Defined Codes,
+Claim Level User Defined Codes, and Provider Tax IDs, and Enrollment
+Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">  <div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00133" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00135" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> PROVIDER <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">CPT-4</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Provider CPT-4 Report</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Grouped By Provider Tax ID
+and Sub ID</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">(CPT-4 Claim Level Match Types
+Only)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report shows line items
+which appear on non-institutional <span class="Bold" tmaa-izihyxm-tk="">claims</span> which carry
+a CPT-4 match type (<span class="Bold" tmaa-izihyxm-tk="">C</span>) at the claim level (see REPORT
+NOTES below). Due to the way the Duplicate Claims System assigns
+match types to claims and sets, this report must be used very carefully.
+Users have the option in this report of selecting actual duplicate
+claims only. The user may think that the report is showing only
+actual duplicate line items identified by the CPT-4 match type criteria.
+In fact, the report is showing the line-items of actual (<span class="Bold" tmaa-izihyxm-tk="">Y</span>)
+non-institutional duplicate claims which have been assigned a match
+type of CPT-4 (see REPORT NOTES below). As a result, line items
+identified using the OTHER match type may appear on this report
+along with the line items identified under the CPT-4 criteria which
+caused the claim to be assigned the match type of CPT-4. This report
+will not show any line items identified under the EXACT or NEAR
+match criteria since line items identified using the EXACT and NEAR
+match would force the claim(s) to be assigned a higher level match
+type than CPT- 4. This report looks for only those actual duplicate
+non-institutional <span class="Bold" tmaa-izihyxm-tk="">claims</span> with a match type of CPT-
+4 and then lists the line items on those claims.</div>
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report can be used by
+Program Integrity staff to obtain a listing of the claims carrying
+a match type of CPT-4 and their associated line items. Using the
+Provider Claim Count Report, users can identify the provider numbers
+associated with high volumes of non-institutional claims involving
+line items whose last two digits of the procedure code have been
+changed. Then using the Provider CPT-4 Report and entering those
+provider numbers identified, the user can generate a listing of
+the non- institutional claims with line item details associated
+with those provider numbers.</div>
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">The fields displayed on this
+report are: ICN; Time Stamp; Claim Level User Defined Code; Solicited
+Indicator; Set #; Duplicate Flag Indicator; Sponsor ID; Patient
+ID; Patient Name; Line Item Match Type; Line Item Number; CPT-4
+Code; Amount Paid CPT-4; PTC Date; and Responsible FI. The report
+is grouped by Provider Number and Sub-ID and provides sub-totals
+for each provider Sub-ID and grand totals for each provider Tax-ID.
+The sub-totals and grand totals sum the number of line items and
+the total Paid dollars.</div>
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Match Type, Claim
+Type, Last Dates, Set Range (Set Owner Type, Claim Set Status, Adjustments,
+Date Type, FI, Region) plus Dupe Flag Indicator, Solicited Indicator, PTC
+Dates, Responsible FI, Region, Set Level User Defined Codes, Claim
+Level User Defined Codes, and Provider Tax ID.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All claims or actual duplicate claims only (to be
+counted as an actual duplicate claim, it must have a <span class="Bold" tmaa-izihyxm-tk="">Y</span> dupe
+flag and be in a <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>,
+or <span class="Italic" tmaa-izihyxm-tk="">Closed</span> set); status (All, <span class="Italic" tmaa-izihyxm-tk="">Open</span>, <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Closed</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>); only
+sets that have adjustments associated with them; multi-FI sets,
+single FI sets, or both; <span class="Bold" tmaa-izihyxm-tk="">set</span> match type (All, Exact,
+Near, Date Overlap, CPT-4, Other); a single processed-to-completion
+date or a range of processed-to- completion dates; a single load
+date or a range of load dates; one or all FIs; one, several or all
+regions within selected FIs. Users may also select one, several
+or all Provider Tax ID numbers to be included in the report.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Match types are applied at
+the line-item, claim, and set levels based on a hierarchy. The most
+stringent match type applicable is assigned at each level. The hierarchy
+for institutional claims is as follows: Exact, Near, Date Overlap
+and Other. For non-institutional claims, the hierarchy is as follows:
+Exact, Near, CPT-4, and Other. For both claim types, Exact Match
+criteria is the most stringent with Near Match next. Other Match
+is the least stringent. When the Duplicate Claims System identifies
+non-institutional potential duplicates, it is doing so at a <span class="Bold" tmaa-izihyxm-tk="">line
+item</span> level. When a line item is identified as a potential
+duplicate, the system labels the <span class="Bold" tmaa-izihyxm-tk="">line item</span> with the
+Match Type used to identify it as a potential duplicate. If a non-institutional <span class="Bold" tmaa-izihyxm-tk="">claim</span> contains
+line items identified as potential duplicates using more than one
+match type criteria (one line item identified under Exact Match criteria
+and another line item under CPT-4 criteria), the system uses the
+match type hierarchy and labels the <span class="Bold" tmaa-izihyxm-tk="">claim</span> with the
+most stringent match type appearing on the line items. If the <span class="Bold" tmaa-izihyxm-tk="">set</span> contains <span class="Bold" tmaa-izihyxm-tk="">claims</span> labeled
+with different match types (one claim labeled ‘Near’ and another
+labeled ‘CPT-4’), the system uses the match type hierarchy and labels
+the <span class="Bold" tmaa-izihyxm-tk="">set</span> with the most stringent match type appearing
+on the claims.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">  <div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B0014A" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B0014C" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> REASON CODE EXPLANATION <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">INDIVIDUAL CLAIMS</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Reason Code Explanation Report</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Individual Claims</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a listing
+of the explanations associated with reason codes on individual claims.
+The Duplicate Claims System requires that an explanation be entered
+when certain reason codes are used to describe why a claim is or
+is not a duplicate claim. This report prints the reason code explanation
+associated with a claim. Individual claim data is grouped within
+their respective sets. The fields displayed on this report are:
+Owner FI; Region; Set Number; Set Status; Current Load Date; ICN;
+Time Stamp; Responsible FI; PTC Date; Dupe Flag Indicator; Reason
+Code; and Reason Code Explanation.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters (Claim Set Status, Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus Responsible FI, Region, Reason Codes, and Base Claims.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B0015A" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B0015C" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">REASON CODE EXPLANATION</span>
+<span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">ENTIRE
+SET</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Reason Code Explanation Report</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Entire Set</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a listing
+of the explanations associated with reason codes by set number.
+The Duplicate Claims System requires that an explanation be entered when
+certain reason codes are used to describe why a claim is or is not
+a duplicate claim. This report prints the reason code explanations
+associated with the claims in a set. Individual claim data is grouped
+within their respective sets. The fields displayed on this report
+are: Owner FI; Region; Set Number; Set Status; Current Load Date;
+ICN; Time Stamp; Responsible FI; PTC Date; Dupe Flag Indicator;
+Reason Code; and Reason Code Explanation.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters (Claim Set Status, Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus Responsible FI, Region, Reason Codes, and PTC Date.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B0016A" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B0016C" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">ADJUSTMENTS</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claims With Associated Adjustments</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a listing
+of claims, grouped in their respective sets, with any associated
+adjustment claims which have been submitted. Only sets which contain
+one or more claims that have associated adjustments will be listed.
+The fields displayed on the report are: Owner FI; Region; Set Number;
+ICN; Time Stamp; Dupe Flag Indicator; Reason Code; Responsible FI;
+Sponsor ID; Patient ID; Patient Name; Provider ID; Provider Sub-ID;
+Claim Level Paid; Line Item Number; Line Item Paid Amount; Adjustment
+Flag; Adjustment Line Item; and Adjustment Paid Amount.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Adjustments (Claim
+Set Status, Set Owner Type, Claim Type, Match Type, Date Type, Set
+Range, FI, Region) plus PTC Dates, Responsible FI, Region, Claim
+Level User Defined Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim and line item level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">  <div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00179" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B0017B" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIMS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> WORK
+SHEETS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">INSTITUTIONAL</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Institutional Claims Worksheet</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report resembles the paper
+duplicate claims reports provided to contractors in the past. This
+report lists institutional claim sets in <span class="Italic" tmaa-izihyxm-tk="">Open</span> status
+and provides space for entering by hand: 1) a <span class="Bold" tmaa-izihyxm-tk="">Y</span> or
+an <span class="Bold" tmaa-izihyxm-tk="">N</span> to indicate if the claim has been determined to
+be a duplicate or not; 2) a reason code for why the claim is or
+is not a duplicate; and 3) a recoupment or refund amount. This report
+provides the contractor with the ability to distribute the claim
+sets requiring research and duplicate determinations among several
+personnel. Once completed, these reports can be returned to the
+system operator for data entry. This report is limited to only institutional
+claims. The fields displayed on the report are: Owner FI; Region;
+ICN; Set Level User Defined Code; Solicited Indicator; Set Number;
+PTC Date; Responsible FI; Sponsor ID; Patient ID; Patient Name;
+Provider Nbr; Provider Sub-ID; Diagnosis; DRG; Amount Billed; Amount
+Allowed; Government Paid Amount; Dupe Flag?; Reason Code; ID Recoupment
+Amount. The report identifies and prints all of the sets meeting
+the criteria selected on the report parameter screen. The report
+groups the claims in ascending set number order.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Claim Set Status,
+Claims (Claim Set Status, Set Owner Type, Claim Type, Match Type,
+Date Type, Set Range, FI, Region) plus PTC Dates; Adjustments; Care
+Dates; Solicited Flag; Responsible FI; and Region.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00188" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B0018A" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIMS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> WORKSHEETS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">NON-INSTITUTIONAL</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Non-Institutional Claims Worksheet</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report resembles the paper
+duplicate claims reports provided to contractors in the past. This
+report lists the sets of non-institutional line items in <span class="Italic" tmaa-izihyxm-tk="">Open</span> status and
+provides space for entering by hand: 1) a <span class="Bold" tmaa-izihyxm-tk="">Y</span> or an <span class="Bold" tmaa-izihyxm-tk="">N</span> to
+indicate if the claim has been determined to be a duplicate or not;
+2) a reason code for why the claim is or is not a duplicate; and
+3) a recoupment or refund amount. This report provides the contractor
+with the ability to distribute the claim sets requiring research
+and duplicate determinations among several personnel. Once completed,
+these reports can be returned to the system operator for data entry.
+This report is limited to only non-institutional claims. The fields
+displayed on the report are: Owner FI; Region; ICN; Claim Level
+User Defined Code; Solicited Indicator; Set Number; Responsible
+FI; Sponsor ID; Patient ID; Patient Name; Provider Number; Provider
+Sub-ID; Diagnosis; Line Item Number; CPT-4 Code; Line Item Amount Billed;
+Line Item Paid Amount; Dupe? (Y/N); Reason Code; and Identified Recoupment
+or Refund Amount. The report identifies and prints all of the sets meeting
+the criteria selected on the report parameter screen. The report
+groups the claims in ascending set number order.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Status, Claim Type
+(Adjustments, Set Owner Type, Match Type, Date Type, Set Range,
+FI, Region) plus PTC Dates, Care Dates, Responsible FI, and Region.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is line item level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00197" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00199" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> CLAIM
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">CLAIM LEVEL USER CODES</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Level User Defined Field
+Definitions</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report displays the Owner
+FI; Contract Number; the Claim Level User Defined Codes; their definitions,
+and whether they are active or inactive.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may not customize this
+report.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B001A6" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B001A8" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt; </span><span class="Bold" tmaa-izihyxm-tk="">INST BY DUPLICATE TYPE</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Institutional Summary Report</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Potentials/Actuals/Non-Duplicates</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">By Contractor</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">(grouped by Region)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This summary/management report
+shows the total number of institutional potential duplicates, actual
+duplicates, non-duplicates, and those not yet worked by the contractor
+for the initial or current load date selected or load date range specified
+by the user. The report lists the number of claims and the amount
+paid by match type. The report also shows the number of actual duplicates,
+non-duplicates, and potential duplicate claims as a percentage of
+the total number of potential duplicates loaded. For this report,
+potential duplicates are the universe of all non-base claims. Actual
+duplicates are those claims with a <span class="Bold" tmaa-izihyxm-tk="">Y</span> dupe flag in <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>,
+or <span class="Italic" tmaa-izihyxm-tk="">Closed</span> status. Non-duplicates are those non-base
+claims with an <span class="Bold" tmaa-izihyxm-tk="">N</span> dupe flag in <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>,
+or <span class="Italic" tmaa-izihyxm-tk="">Closed</span> status. Potential duplicates not worked
+are non-base claims in <span class="Italic" tmaa-izihyxm-tk="">Open</span> status irrespective
+of any dupe flag value. The dollar totals on the report are for
+non-base claims only.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Claim Set Status;
+Claim Types; Match Types; Last Dates; Set Range (Adjustments, Set
+Owner Type, Date Type, FI, Region) plus Responsible FI, and Region,
+and Risk Indicator.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data.</div>
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">It should be noted that the
+total number of claims and percentages shown on this report may
+differ from that shown on the “Actual vs. Potential” graph report.
+Any discrepancy will be due to the fact that this report will count
+a claim more than once if it appears in two or more sets owned by
+the same region but which have different match types. The graph,
+alternatively, will not count a claim more than once if it appears
+in two or more sets owned by the same region.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B001BA" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B001BC" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">NONINST BY DUPLICATE TYPE</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Non-Institutional Summary Report</div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Potentials/Actuals/Non-Duplicate
+by FI/Contractor</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This summary/management report
+shows the total number of non-institutional potential duplicates,
+actual duplicates, non-duplicates, and those not yet worked by the
+contractor for the initial or current load dates selected or load
+date range specified by the user. The report lists the number of
+claims and the allowed amounts paid by match type. The report also
+shows the number of actual duplicates, non-duplicates, and potential
+duplicate claims as a percentage of the total number of potential
+duplicates loaded.</div>
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report does not count
+unique claims but rather all non-base claims appearing in sets with
+a particular match type, i.e., the total number of non-base claims
+appearing in CPT-4, Exact, Near, and Other match type sets. Since
+a non-institutional <span class="Bold" tmaa-izihyxm-tk="">claim</span> may appear in more than one
+set, the counts of the <span class="Bold" tmaa-izihyxm-tk="">claims</span> appearing on this report
+may be inflated. The dollars shown on this report, however, will
+not be inflated since a line-item will never appear in more than
+one set. As a result, the dollars appearing on this report are the
+paid amounts for the line items appearing in the sets in which their
+host claim appears. While the host claim may be counted more than
+once, the dollar amounts associated with the line items will not
+be counted more than once.</div>
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">For this report, potential
+duplicates are the universe of all non-base claims. Actual duplicates
+are those claims with a <span class="Bold" tmaa-izihyxm-tk="">Y</span> dupe flag in <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>,
+or <span class="Italic" tmaa-izihyxm-tk="">Closed</span> status. Non-duplicates are those non-base
+claims with an <span class="Bold" tmaa-izihyxm-tk="">N</span> dupe flag in <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>,
+or <span class="Italic" tmaa-izihyxm-tk="">Closed</span> status. Potential duplicates not worked
+are non-base claims in <span class="Italic" tmaa-izihyxm-tk="">Open</span> status irrespective
+of any dupe flag value. The dollar totals on the report are for
+non-base claims only.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Claim Set Status,
+Claim Types, Match Types, Last Dates, Set Range (Adjustments, Set
+Owner Type, Date Type, Region) plus Responsible FI, Region, and
+Risk Indicator.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level and line-item data.</div>
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">It should be noted that the
+total number of claims and percentages shown on this report may
+differ from that shown on the “Actual vs. Potential” graph report.
+Any discrepancy will be due to the fact that this report will count
+a claim more than once if it appears in two or more sets owned by
+the same region but which have different match types. The graph,
+alternatively, will not count a claim more than once if it appears
+in two or more sets owned by the same region.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B001D0" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B001D2" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">SET AGING REPORT</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Aging Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides the total
+number of sets in <span class="Italic" tmaa-izihyxm-tk="">Open</span>, <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>,
+and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> status grouped by region and either
+initial or current load date (depending on which is selected) as
+of the date the report is run. The report also shows the percentage
+each total represents of the total number of sets counted. The fields displayed
+on the report are: Owner FI; Region; Initial or Current Load Date; Number
+and Percentage of Open Sets; Number and Percentage of Pending Sets; Number
+and Percentage of Validate Sets; Number and Percentage of Closed
+Sets; and the Total Number of Sets. The report provides sub-totals
+for each contract region and grand totals for each contractor.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Status, Last Dates,
+Set Range (Adjustments, Set Owner Type, Claim Type, Match Type,
+Date Type, FI, Region).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B001DF" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B001E1" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">CLAIM AGING REPORT</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Claim Aging Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides the total
+number of non-base claims in <span class="Italic" tmaa-izihyxm-tk="">Open</span> status (Not Worked),
+the total number of actual duplicate claims (<span class="Bold" tmaa-izihyxm-tk="">Y</span> dupe
+flag in <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>, and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> status)
+and the total number of non-duplicate claims <span class="Bold" tmaa-izihyxm-tk="">N</span> dupe flag
+in <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>, and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> status)
+as of the date the report is run. The report also provides the total
+paid amounts of the non-base claims in <span class="Italic" tmaa-izihyxm-tk="">Open</span> status (Not
+Worked), the total amounts identified for recoupment and actually
+recouped of the actual duplicate claims, and the total paid amounts
+of the non-duplicate claims. The report shows claim counts but for
+non-institutional claims the paid amount totals are the sum of the
+line-item paid amounts in the system. The report is grouped by Initial
+or Current Load Date (depending on which is selected) and region
+and provides sub-totals by region and grand totals by contractor.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Status; Last Dates;
+Set Range (Adjustments, Set Owner Type, Claim Type, Match Type,
+Date Type, FI, Region) plus Responsible FI and Region.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B001EE" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B001F0" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">ARCHIVED SET REPORT</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Archived Set Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides the total
+number of sets in the History Database in <span class="Italic" tmaa-izihyxm-tk="">Validate</span> and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> status
+grouped by region and Initial Load Date as of the date the report
+is run. While the report contains columns for <span class="Italic" tmaa-izihyxm-tk="">Open</span> status
+and <span class="Italic" tmaa-izihyxm-tk="">Pending</span> status, these will always be 0% since
+sets in <span class="Italic" tmaa-izihyxm-tk="">Open</span> and <span class="Italic" tmaa-izihyxm-tk="">Pending</span> status
+are never archived to the History Database. The report also shows
+the percentage each total represents of the total number of sets
+counted. The fields displayed on the report are: Owner FI; Region;
+Initial Load Date; Number and Percentage of Open Sets; Number and
+Percentage of Pending Sets; Number and Percentage of Validate Sets;
+Number and Percentage of Closed Sets; and the Total Number of Sets.
+The report provides sub-totals for each contract region and grand
+totals for each contractor.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Status, Last Dates,
+Current Load Dates, Set Range (Adjustments, Set Owner Type, Claim
+Type, Match Type, Date Type, FI, Region).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B001FD" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B001FF" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">REASON CODE REPORT</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Reason Code Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a list
+of actual duplicate and non-duplicate reason codes and the total
+number claims to which each code was assigned. The report counts actual
+duplicate claims (<span class="Bold" tmaa-izihyxm-tk="">Y</span> dupe flag) and non-duplicate claims
+(<span class="Bold" tmaa-izihyxm-tk="">N</span> dupe flag) in <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>,
+and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> sets.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Claim Set Status (Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus Dupe Indicator, Solicited Indicator, Exclude Base, PTC
+Dates, Set Level User Defined Code, Claim Level User Defined Code, Responsible
+FI, Region, and Risk Indicator.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is claim level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B0020C" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B0020E" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">REASON CODE BY INIT LOAD
+DATE</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Reason Code Report by Initial
+Load Date</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a list
+of actual duplicate and non-duplicate reason codes and the total
+number claims to which each code was assigned. The report counts actual
+duplicate claims (<span class="Bold" tmaa-izihyxm-tk="">Y</span> dupe flag) and non-duplicate claims
+(<span class="Bold" tmaa-izihyxm-tk="">N</span> dupe flag) in <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>,
+and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> sets. The report is grouped by Initial
+Load Date.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a list
+of actual duplicate and non-duplicate reason codes and the total
+number claims to which each code was assigned. The report counts actual
+duplicate claims (<span class="Bold" tmaa-izihyxm-tk="">Y</span> dupe flag) and non-duplicate claims
+(<span class="Bold" tmaa-izihyxm-tk="">N</span> dupe flag) in <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>,
+and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> sets. The report is grouped by Initial
+Load Date.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Claim Set Status (Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus Dupe Flag Indicator, Solicited Indicator, Exclude Base,
+PTC Dates, Set and Claim Level User Defined Codes, Responsible FI,
+Region, and Risk Indicator.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B0021B" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B0021D" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">MODIFY FI</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Changed Owner FI Sets</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report identifies multi-contractor
+sets which have had their ownership changed through the use of the
+“Modify FI” function on the system menu bar. It does <span class="Underscore" tmaa-izihyxm-tk="">not</span> show
+multi-contractor sets which have had their ownership changed by the
+mass change process. The fields displayed on the report are: Set
+Number; Contractor; Changed Date; and User. The report shows each
+instance ownership of a multi-contractor set was changed; the name
+of the new owner contractor, the date ownership was changed, and
+the application User ID of the user who made the change. The first
+record listed for each set on the report shows the User as ‘INITLOAD.’
+This means that the set was initially loaded by the system.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Set Owner Type and
+Last Date (Claim Set Status Adjustments, Claim Type, Match Type,
+Date Type, Set Range, FI, Region) plus PTC Dates.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">Single-line entries with “INITLOAD”
+as the user may appear on this report. These single-line entries
+will appear for sets where a user has begun the process of changing
+(modifying) ownership of the multi-contractor set, enters the reason
+for making the change, presses the <span class="Bold" tmaa-izihyxm-tk="">UPDATE CHANGES</span> button,
+but decides to “rollback” the changes, i.e., does not complete changing
+the set’s ownership. Such sets will be listed on this report as
+a single-line entry with “INITLOAD” as the user.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B0022C" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B0022E" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">SET STATUS COUNT HISTORY</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Set Status Count History</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a count
+and percentage of sets within each status as of a date or range
+of dates grouped by contract.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: Owner FI, Region, and As of Dates.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B0023B" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<section aria-label="Requirement TST507B0023D" class="requirement" role="region"><table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B0023D" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">PERFORMANCE STANDARD</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Performance Standard</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report will be used to
+measure contractor compliance with the performance standard. The
+performance standard requires that no more than 10% of the sets remaining
+in <span class="Italic" tmaa-izihyxm-tk="">Open</span> status at the end of a month shall have
+load dates over 30 days old. The report shows the Reporting Month;
+Beginning Inventory; Receipts; Monthly Inventory; the total number
+of sets “Moved” during the reporting month; the total number of
+sets Moved within 30 days of set load dates; Ending Inventory; the
+total number of sets in Ending Inventory Over 30 Days old; the Percent
+Moved Within 30 Days; and the Percent Remaining Over 30 Days. The data
+is grouped by contract.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" style="background-color:#819089;border-top:1pt solid;border-bottom:1pt solid;" tmaa-izihyxm-tk="">
+<div class="CellHeadingC" tmaa-izihyxm-tk="">Field Descriptions</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Field Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Definition</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">Reporting Month:</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">The month and year for which
+the statistics are applicable.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">Beginning Inventory:</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">The total number of sets in <span class="Italic" tmaa-izihyxm-tk="">Open</span> status
+at the beginning of the reporting month.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">Receipts:</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">The total number of new sets
+loaded or the number of sets which changed to <span class="Italic" tmaa-izihyxm-tk="">Open</span> status
+during the reporting month.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">Monthly Inventory:</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">The sum of the Beginning Inventory
+and Receipts.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">Moved:</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">The total number of sets moved
+for <span class="Italic" tmaa-izihyxm-tk="">Open</span> status to <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>,
+or <span class="Italic" tmaa-izihyxm-tk="">Closed</span> status during the reporting month.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">Moved Within 30 Days:</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Of those sets moved during
+the reporting month, the number moved within 30 days of their load date.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">Ending Inventory:</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">The Monthly Inventory minus
+the number Moved. The result is the total number of remaining sets in <span class="Italic" tmaa-izihyxm-tk="">Open</span> status.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">Ending Inventory Over 30 Days:</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">The total number of claim sets
+remaining in <span class="Italic" tmaa-izihyxm-tk="">Open</span> status with load dates over 30
+days old.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">% Moved In 30 Days:</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Of those sets moved, the percentage
+moved within 30 days of their load date.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">% Remaining Over 30 Days:</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">The percentage of claim sets
+remaining in <span class="Italic" tmaa-izihyxm-tk="">Open</span> status with load dates over 30
+days old.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td style="border-top:0.5pt solid;border-bottom:0.5pt solid;" tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: a single reporting month or a range of reporting months;
+one or all FIs; one, several or all regions within selected FIs.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table></section>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00261" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00263" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">DOLLAR TOTALS</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Dollar Totals</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report summarizes the
+total dollars identified for recoupment and actually recouped, as
+well as the total paid amount of the applicable adjustments by Regional
+contract. The report reflects the total dollars on the system at
+the time the report is run. The fields displayed on the report are:
+Owner FI; Region; Total Amount Identified For Recoupment; Total
+Amount Actually Recouped; and the Total Paid Amount of the Associated
+Adjustments. The totals reflect only those sets in <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>,
+or <span class="Italic" tmaa-izihyxm-tk="">Closed</span> status.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Claim Set Status (Adjustments,
+Set Owner Type, Claim Type, Match Type, Date Type, Set Range, FI,
+Region) plus Set Range, Set and Claim Level User Defined Codes,
+Responsible FI, Region, and Enrollment Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B00270" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00272" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">LOAD DATE REPORT</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Initial Load Date Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a listing
+of set initial load dates grouped by contract.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Set Range (Claim Set
+Status, Adjustments, Set Owner Type, Claim Type, Match Type, Date
+Type, FI, Region) plus Enrollment Codes.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B0027F" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00281" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">USER ACTIVITY DETAIL</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">User Activity Detail Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a listing
+of transaction dates and times and associated User IDs grouped by
+set number. The report shows changes in Set Status; FI; User ID; Amount
+Identified For Recoupment; Amount Actually Recouped; and the Adjustment
+Amount.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: Set Range, Transaction Dates, and User IDs.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B0028E" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B00290" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Summary/Management Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> SUMMARY/MANAGEMENT
+REPORTS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">USER ACTIVITY SUMMARY</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">User Activity Summary Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides a summary
+of the transactions performed by individual user ID. The report
+provides the total number of updates performed by a USER ID, the total
+number of sets updated by that USER ID, and the net change in status
+in the following categories: sets moved from <span class="Italic" tmaa-izihyxm-tk="">Open</span> to <span class="Italic" tmaa-izihyxm-tk="">Pending</span> and <span class="Italic" tmaa-izihyxm-tk="">Pending</span> to <span class="Italic" tmaa-izihyxm-tk="">Open</span>; <span class="Italic" tmaa-izihyxm-tk="">Open</span> to <span class="Italic" tmaa-izihyxm-tk="">Validate</span> and <span class="Italic" tmaa-izihyxm-tk="">Validate</span> to <span class="Italic" tmaa-izihyxm-tk="">Open</span>; <span class="Italic" tmaa-izihyxm-tk="">Open</span> to <span class="Italic" tmaa-izihyxm-tk="">Closed</span> and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> to <span class="Italic" tmaa-izihyxm-tk="">Open</span>; <span class="Italic" tmaa-izihyxm-tk="">Pending</span> to <span class="Italic" tmaa-izihyxm-tk="">Closed</span> and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> to <span class="Italic" tmaa-izihyxm-tk="">Pending</span>; <span class="Italic" tmaa-izihyxm-tk="">Pending</span> to <span class="Italic" tmaa-izihyxm-tk="">Validate</span> and <span class="Italic" tmaa-izihyxm-tk="">Validate</span> to <span class="Italic" tmaa-izihyxm-tk="">Pending</span>;
+and <span class="Italic" tmaa-izihyxm-tk="">Validate</span> to <span class="Italic" tmaa-izihyxm-tk="">Closed</span> and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> to <span class="Italic" tmaa-izihyxm-tk="">Validate</span>.
+This report can provide management with a summary view of user activity
+by individual USER ID.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: Set Range, Transaction Dates, and User IDs.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B0029D" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B0029F" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Graphs</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> GRAPHS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">ACTUAL
+VS. POTENTIAL</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Total Actual Duplicates as
+a Percentage of Total Potential Duplicates</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides the user
+with a graph which shows the total number of distinct actual duplicate
+claims (<span class="Bold" tmaa-izihyxm-tk="">Y</span> dupe flags in <span class="Italic" tmaa-izihyxm-tk="">Pending</span>, <span class="Italic" tmaa-izihyxm-tk="">Validate</span>,
+or <span class="Italic" tmaa-izihyxm-tk="">Closed</span> status) as a percentage of the total
+number of distinct potential duplicates in the system (all non-base
+claims). The data displayed is grouped by region.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: All “Standard” parameters minus Claim Set Status and
+Set Range (Adjustments, Set Owner Type, Claim Type, Match Type,
+Date Type, FI, Region).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">If a claim appears in more
+than one set and the sets are owned by different regions, the claim
+will be counted once for each region.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B002AE" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl2" data-element-change-state="Unchanged" data-element-id="TST507B002B0" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:72.41379310344827%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Category:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Graphs</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Menu Hierarchy And Format
+Name:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">REPORT <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span> GRAPHS <span class="Uppercase" tmaa-izihyxm-tk="">=&gt;</span>
+<span class="Bold" tmaa-izihyxm-tk="">USER
+ACTIVITY SUMMARY</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Printed Report Title:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">User Activity Summary Report</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Description:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report provides the user
+with a graphical representation of the data in the User Activity
+Detail Report. The graph provides a summary of the transactions performed
+by individual user ID. The report provides the total number of updates performed
+by a USER ID, the total number of sets updated by that USER ID,
+and the net change in status in the following categories: sets moved
+from <span class="Italic" tmaa-izihyxm-tk="">Open</span> to <span class="Italic" tmaa-izihyxm-tk="">Pending</span> and <span class="Italic" tmaa-izihyxm-tk="">Pending</span> to <span class="Italic" tmaa-izihyxm-tk="">Open</span>; <span class="Italic" tmaa-izihyxm-tk="">Open</span> to <span class="Italic" tmaa-izihyxm-tk="">Validate</span> and <span class="Italic" tmaa-izihyxm-tk="">Validate</span> to <span class="Italic" tmaa-izihyxm-tk="">Open</span>; <span class="Italic" tmaa-izihyxm-tk="">Open</span> to <span class="Italic" tmaa-izihyxm-tk="">Closed</span> and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> to <span class="Italic" tmaa-izihyxm-tk="">Open</span>; <span class="Italic" tmaa-izihyxm-tk="">Pending</span> to <span class="Italic" tmaa-izihyxm-tk="">Closed</span> and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> to <span class="Italic" tmaa-izihyxm-tk="">Pending</span>; <span class="Italic" tmaa-izihyxm-tk="">Pending</span> to <span class="Italic" tmaa-izihyxm-tk="">Validate</span> and <span class="Italic" tmaa-izihyxm-tk="">Validate</span> to <span class="Italic" tmaa-izihyxm-tk="">Pending</span>;
+and <span class="Italic" tmaa-izihyxm-tk="">Validate</span> to <span class="Italic" tmaa-izihyxm-tk="">Closed</span> and <span class="Italic" tmaa-izihyxm-tk="">Closed</span> to <span class="Italic" tmaa-izihyxm-tk="">Validate</span>. This
+report can provide management with a summary view of user activity
+by individual USER ID.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Parameter Options:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Users may customize the report
+by selecting: Set Range, Transaction Dates, and User IDs.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">Report Notes:</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">The data used by this report
+format is set level data.</div>
+<div class="CellBodyL" tmaa-izihyxm-tk=""></div>
+<div class="CellBodyL" tmaa-izihyxm-tk="">This report is best viewed
+on screen or printed to a color printer.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">  <div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl1b" data-element-change-state="Unchanged" data-element-id="TST507B002BF" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:100%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="TblSep" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></section>
+<div class="END" tmaa-izihyxm-tk="">- END -</div></article></div><div hx-swap-oob="true" id="publication-info"><div class="tmaa-stack" role="group" style="--gap: 0;"><div>TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div>Revision 39 (Published Aug 12, 2026)</div>
+<div>Chap 4 -- TRICARE Duplicate Claims System (DCS) - TRICARE Encounter Data (TED) Version</div>
+<div>Addendum B -- Report Descriptions And Examples</div></div></div><div class="d-none" hx-swap-oob="true" id="publication-in-this-section-wrapper"><div id="publication-in-this-section"></div></div>

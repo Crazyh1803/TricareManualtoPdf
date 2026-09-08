@@ -1,0 +1,22 @@
+<div class="row"><div class="col-12 col-xl-9 col-md-8 order-1 order-md-0" id="contentTwoCol"><div class="position-relative" id="publication-content-container" x-bind:class="{ 'change-bar-margin': showMarkup }" x-data="{ changeBars: [],
+                     markupSelector: `ins, del, .ChangeAdd, .ChangeDelete, *[data-table-element-deleted='Yes' ], *[data-element-change-state='Deleted' ], *[data-table-element-deleted], *[data-element-change-state='Added' ], .RedAutoNum, .ChangeBarAdd, .ChangeBarDel, .ChangeBarRowDel, .ChangeBarTblDel, .change-modified`,
+                         recalculateChangeBars() { if (!this.showMarkup) { this.changeBars = []; return; }
+                            this.$nextTick(()=&gt; {
+                            const article = this.$el.querySelector('article');
+                            this.changeBars = [];
+                            if (!article) { return; }
+                            const containerRect = this.$el.getBoundingClientRect();
+                            const changedElements = article.querySelectorAll(this.markupSelector);
+                            changedElements.forEach(el =&gt; { const elRect = el.getBoundingClientRect(); this.changeBars.push({ top: elRect.top - containerRect.top, height: elRect.height }); }); }); } }" x-init="$el.querySelectorAll('.change-bar').forEach(bar =&gt; bar.remove()); recalculateChangeBars(); $watch('showMarkup', value =&gt; { if (value) recalculateChangeBars() })" x-on:all-publication-css-loaded.window="recalculateChangeBars()" x-on:htmx:history-restore.window="recalculateChangeBars()" x-on:htmx:load.window="recalculateChangeBars()" x-on:resize.window.debounce.200ms="recalculateChangeBars()"><div class="htmx-indicator position-absolute" id="loading-overlay"><div class="spinner position-fixed top-50 start-50 translate-middle" style="z-index: 9999;"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div></div>
+<div class="publication-document hide-revision-markings" data-publication-css="/api/css/masterpros7.css" id="publication-document" x-bind:class="{ 'highlight-requirements': highlightRequirements, 'hide-revision-markings': !showMarkup }">
+<div class="row my-3"><article class="CFR" data-manualacronym="FR16" tmaa-izihyxm-tk=""><div class="Header" tmaa-izihyxm-tk="">Title 32 National Defense</div>
+<div class="MPChapterTitle" tmaa-izihyxm-tk="">Civilian Health And Medical Program Of The Uniformed Services (CHAMPUS)</div>
+<section data-element-id="FR1602500001" data-element-type="Header" tmaa-izihyxm-tk="">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602500002" data-element-type="Text" id="FM1028870" tmaa-izihyxm-tk="">Part 199.19</div>
+<div class="CFRSubject" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602500006" data-element-type="Text" id="FM1026659" tmaa-izihyxm-tk="">Reserved</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602500003" data-element-type="None" tmaa-izihyxm-tk="">Revision:  </div>
+<div class="Rule" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602500004" data-element-type="None" tmaa-izihyxm-tk="">Rule:  </div>
+<div class="Line" tmaa-izihyxm-tk=""></div></section>
+<section data-element-id="FR1602500005" data-element-type="Header" tmaa-izihyxm-tk=""></section></article></div></div>
+<template x-bind:key="index" x-for="(bar, index) in changeBars"></template></div></div>
+</div>

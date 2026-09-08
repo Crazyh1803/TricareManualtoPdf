@@ -1,0 +1,380 @@
+<div class="row"><div class="col-12 col-xl-9 col-md-8 order-1 order-md-0" id="contentTwoCol"><div class="position-relative" id="publication-content-container" x-bind:class="{ 'change-bar-margin': showMarkup }" x-data="{ changeBars: [],
+                     markupSelector: `ins, del, .ChangeAdd, .ChangeDelete, *[data-table-element-deleted='Yes' ], *[data-element-change-state='Deleted' ], *[data-table-element-deleted], *[data-element-change-state='Added' ], .RedAutoNum, .ChangeBarAdd, .ChangeBarDel, .ChangeBarRowDel, .ChangeBarTblDel, .change-modified`,
+                         recalculateChangeBars() { if (!this.showMarkup) { this.changeBars = []; return; }
+                            this.$nextTick(()=&gt; {
+                            const article = this.$el.querySelector('article');
+                            this.changeBars = [];
+                            if (!article) { return; }
+                            const containerRect = this.$el.getBoundingClientRect();
+                            const changedElements = article.querySelectorAll(this.markupSelector);
+                            changedElements.forEach(el =&gt; { const elRect = el.getBoundingClientRect(); this.changeBars.push({ top: elRect.top - containerRect.top, height: elRect.height }); }); }); } }" x-init="$el.querySelectorAll('.change-bar').forEach(bar =&gt; bar.remove()); recalculateChangeBars(); $watch('showMarkup', value =&gt; { if (value) recalculateChangeBars() })" x-on:all-publication-css-loaded.window="recalculateChangeBars()" x-on:htmx:history-restore.window="recalculateChangeBars()" x-on:htmx:load.window="recalculateChangeBars()" x-on:resize.window.debounce.200ms="recalculateChangeBars()"><div class="htmx-indicator position-absolute" id="loading-overlay"><div class="spinner position-fixed top-50 start-50 translate-middle" style="z-index: 9999;"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div></div>
+<div class="publication-document hide-revision-markings" data-publication-css="/api/css/masterpros7.css" id="publication-document" x-bind:class="{ 'highlight-requirements': highlightRequirements, 'hide-revision-markings': !showMarkup }">
+<div class="row my-3"><article class="CFR" data-manualacronym="FR16" tmaa-izihyxm-tk=""><div class="Header" tmaa-izihyxm-tk="">Title 32 National Defense</div>
+<div class="MPChapterTitle" tmaa-izihyxm-tk="">Civilian Health And Medical Program Of The Uniformed Services (CHAMPUS)</div>
+<section data-element-id="FR1602700001" data-element-type="Header" tmaa-izihyxm-tk="">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700002" data-element-type="Text" id="FM1029338" tmaa-izihyxm-tk="">Part <span class="Cross-RefMarker" id="FM54611" tmaa-izihyxm-tk=""></span>199.20</div>
+<div class="CFRSubject" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700003" data-element-type="Text" id="FM1029345" tmaa-izihyxm-tk="">Continued Health Care Benefit
+Program (CHCBP)</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700004" data-element-type="Text" tmaa-izihyxm-tk="">Revision:  C-1, September 29, 2017</div>
+<div class="Rule" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700005" data-element-type="Text" tmaa-izihyxm-tk="">Rule:  Interim Final Rule/FR Vol 82,
+No 188</div>
+<div class="Line" tmaa-izihyxm-tk=""></div></section>
+<section data-element-id="FR1602700006" data-element-type="Content" tmaa-izihyxm-tk="">
+<div class="FM1L-a-" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700007" data-element-type="Text" id="FM1029365" tmaa-izihyxm-tk="">(a)   Purpose.<div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700008" data-element-type="Text" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>The CHCBP is
+a premium-based temporary health care coverage program, authorized
+by 10 U.S.C. 1078a, and available to individuals who meet the eligibility
+and enrollment criteria as set forth in paragraph (d)(1) of this
+section. The CHCBP is not part of the TRICARE program. However,
+as set forth in this section, it functions under similar rules and
+procedures to the TRICARE Select program. Because the purpose of
+the CHCBP is to provide a continuation health care benefit for Department
+of Defense and the other uniformed services beneficiaries losing eligibility,
+it will be administered so that it appears, to the maximum extent
+practicable, to be part of the TRICARE Select program. Medical coverage
+under this program will be the same as the benefits payable under
+the TRICARE Select program. There is a cost for enrollment to the
+CHCBP and these premium costs must be paid by CHCBP enrollees before
+any care may be cost shared.</ins>
+</div>
+</div>
+<section aria-label="Requirement FR1602700009" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700009" data-element-type="Text" data-is-requirement="" id="FM1029375" tmaa-izihyxm-tk="">(b)   General
+provisions.<section aria-label="Requirement FR160270000A" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270000A" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> Except for any provisions the
+Director of the TRICARE Management Activity may exclude, the general
+provisions of Sec. 199.1 shall apply to the CHCBP as they do to
+TRICARE.</div></section>
+</div></section>
+<section aria-label="Requirement FR160270000B" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270000B" data-element-type="Text" data-is-requirement="" id="FM1029385" tmaa-izihyxm-tk="">(c)   Definitions.<section aria-label="Requirement FR160270000C" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270000C" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>Except as may
+be specifically provided in this section, to the extent terms defined
+in Sec. 199.2 are relevant to the administration of the CHCBP, the
+definitions contained in that section shall apply to the CHCBP as
+they do to the TRICARE Select program.</ins>
+</div></section>
+</div></section>
+<section aria-label="Requirement FR160270000D" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270000D" data-element-type="Text" data-is-requirement="" id="FM1029395" tmaa-izihyxm-tk="">(d)   Eligibility
+and enrollment. <div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270000E" data-element-type="Text" id="FM1029400" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(1)   </span>Eligibility.<div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270000F" data-element-type="Text" tmaa-izihyxm-tk=""> Enrollment
+in the CHCBP is open to any individual, except as noted in this
+section, who:</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700010" data-element-type="Text" tmaa-izihyxm-tk="">(i)   Ceases
+to meet the requirements for eligibility under 10 U.S.C. chapter
+55 or 10 U.S.C. 1145, and</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700011" data-element-type="Text" tmaa-izihyxm-tk="">(ii)   Who
+on the day before they cease to meet the eligibility requirements
+for such care they were covered under a health benefit plan under
+10 U.S.C. chapter 55 or transitional healthcare under 10 U.S.C.
+1145, and</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700012" data-element-type="Text" tmaa-izihyxm-tk="">(iii)   Who
+would otherwise not be eligible for any benefits under 10 U.S.C.
+chapter 55 or 10 U.S.C. 1145 except for CHCBP.</div>
+</div>
+<div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700013" data-element-type="Text" id="FM1029425" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(2)   </span>Exceptions.<div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700014" data-element-type="Text" tmaa-izihyxm-tk=""> The following individuals are
+not eligible to enroll in CHCBP:</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700015" data-element-type="Text" tmaa-izihyxm-tk="">(i)   Members of uniformed
+services, who are discharged or released from active duty either
+voluntarily or involuntarily under conditions that are adverse.</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700016" data-element-type="Text" tmaa-izihyxm-tk="">(ii)   Individuals who
+lost their eligibility or entitlement to care under 10 U.S.C. chapter
+55 or 10 U.S.C. 1145 before October 1, 1994.</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700017" data-element-type="Text" tmaa-izihyxm-tk="">(iii)   Individuals who
+are locked out of other TRICARE programs per that program’s requirements.</div>
+</div>
+<section aria-label="Requirement FR1602700018" class="requirement" role="region"><div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700018" data-element-type="Text" data-is-requirement="" id="FM1029450" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(3)   </span>Effective
+date.<section aria-label="Requirement FR1602700019" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700019" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> Eligibility in the CHCBP is
+limited to individuals who lost their entitlement to benefits under the
+MHS on or after October 1, 1994. The effective date of their coverage
+under CHCBP shall begin on the day after they cease to be eligible
+for care under 10 U.S.C. chapter 55 or 10 U.S.C. 1145.</div></section>
+</div></section>
+<section aria-label="Requirement FR160270001A" class="requirement" role="region"><div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270001A" data-element-type="Text" data-is-requirement="" id="FM1029460" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(4)   </span>Notification
+of eligibility. <section aria-label="Requirement FR160270001B" class="requirement" role="region"><div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270001B" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk="">(i)   The Department
+of Defense and the other uniformed services (National Oceanic and
+Atmospheric Administration (NOAA), Public Health Service (PHS),
+and Coast Guard) will notify persons in the uniformed services eligible
+to receive health benefits under the CHCBP. In the case of a member
+who becomes (or will become) eligible for continued coverage, the
+Department of Defense shall notify the member of their rights for coverage
+as part of pre-separation counseling conducted under 10 U.S.C. 1142.</div></section>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270001C" data-element-type="Text" tmaa-izihyxm-tk="">(ii)   In the case of
+a dependent of a member or former member who become eligible for
+continued coverage under paragraph (d)(1)(ii) of this section:<div class="FM4L-A-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270001D" data-element-type="Text" tmaa-izihyxm-tk="">(A)   The member or former
+member may submit to the CHCBP contractor a notice with supporting documentation
+of the dependent’s change in status (including the dependent’s name,
+address, and such other information needed); and</div>
+<div class="FM4L-A-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270001E" data-element-type="Text" tmaa-izihyxm-tk="">(B)   The CHCBP contractor,
+within fourteen (14) days after receiving such information, will
+inform the dependent of the dependent’s rights under 10 U.S.C. 1142.</div>
+</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270001F" data-element-type="Text" tmaa-izihyxm-tk="">(iii)   In the case of
+a former spouse of a member or former member who becomes eligible
+for continued coverage, the member, former member or former spouse
+may submit to the CHCBP contractor a notice of the former spouse’s change
+in status. The CHCBP contractor within fourteen (14) days after
+receiving such information will notify the individual of their potential
+eligibility for CHCBP.</div>
+</div></section>
+<section aria-label="Requirement FR1602700020" class="requirement" role="region"><div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700020" data-element-type="Text" data-is-requirement="" id="FM1029490" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(5)   </span>Election
+of coverage.<div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700021" data-element-type="Text" tmaa-izihyxm-tk=""> In order to obtain coverage
+under the CHCBP, a written election by the eligible beneficiary
+must be made within a prescribed time period.</div>
+<section aria-label="Requirement FR1602700022" class="requirement" role="region"><div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700022" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk="">(i)   In the case of
+a member discharged or released from active duty or full-time National
+Guard duty (whether voluntarily or involuntarily), or a RC member
+formerly eligible for care under 10 U.S.C. chapter 55, the written election
+shall be submitted to the CHCBP contractor before the end of the
+60-day period beginning on the later of:<div class="FM4L-A-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700023" data-element-type="Text" tmaa-izihyxm-tk="">(A)   The date of the
+discharge or release of the member; or</div>
+<div class="FM4L-A-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700024" data-element-type="Text" tmaa-izihyxm-tk="">(B)   The date that the
+period of transitional health care applicable to the member under
+10 U.S.C. 1145(a) ends; or</div>
+<div class="FM4L-A-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700025" data-element-type="Text" tmaa-izihyxm-tk="">(C)   The
+date the member receives the notification required in paragraph
+(d)(3) of this section.</div>
+</div></section>
+<section aria-label="Requirement FR1602700026" class="requirement" role="region"><div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700026" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk="">(ii)   In the case of
+a child who ceases to meet the requirements for being an unremarried
+dependent child of a member or former member under 10 U.S.C. 1072(2)(D)
+or an unmarried dependent of a member or former member of the uniformed
+services under 10 U.S.C. 1072(2)(I), the written election shall
+be submitted to the CHCBP contractor before the end of the 60-day
+period beginning on the later of:<div class="FM4L-A-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700027" data-element-type="Text" tmaa-izihyxm-tk="">(A)   The
+date that the dependent ceases to meet the definition of a dependent
+under 10 U.S.C. 1072(2)(D) or 10 U.S.C. 1072(2)(I); or</div>
+<div class="FM4L-A-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700028" data-element-type="Text" tmaa-izihyxm-tk="">(B)   The date that the
+dependent receives the notification required in paragraph (d)(3)
+of this section,</div>
+</div></section>
+<section aria-label="Requirement FR1602700029" class="requirement" role="region"><div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700029" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk="">(iii)   In
+the case of former spouse of a member or former member, the written
+election shall be submitted to the CHCBP contractor before the end
+of the 60-day period beginning on the date as of which the former
+spouse first ceases to meet the requirements for being considered
+a dependent under 10 U.S.C. 1072(2).</div></section>
+<section aria-label="Requirement FR160270002A" class="requirement" role="region"><div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270002A" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk="">(iv)   In the case of
+an unmarried surviving spouse of a member or former member of the
+uniformed services who on the day before the death of the member
+or former member was covered under 10 U.S.C. chapter 55 or 10 U.S.C. 1145(a),
+the written election shall be submitted to the CHCBP contractor
+within 60 days of the date of the member or former member’s death.</div></section>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270002B" data-element-type="Text" tmaa-izihyxm-tk="">(v)   A member of the
+uniformed services who is eligible for enrollment under paragraph
+(d)(1) of this section may elect self-only or family coverage. Family
+members who may be included in such family coverage are the spouse and
+children of the member.</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270002C" data-element-type="Text" tmaa-izihyxm-tk="">(vi)   All
+other categories eligible for enrollment under paragraph (d)(1)
+of this section must elect self-only coverage.</div>
+</div></section>
+<div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270002D" data-element-type="Text" id="FM1029555" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(6)   </span>Enrollment.<div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270002E" data-element-type="Text" tmaa-izihyxm-tk=""> To enroll in the CHCBP, an
+eligible individual must submit the completed enrollment form designated
+by the Director, TRICARE as well as any documentation as requested
+on the enrollment form to verify the applicant’s eligibility for
+enrolling in CHCBP, and payment to cover the quarter’s premium.
+The CHCBP contractor may request additional information and documentation
+to confirm the applicant’s eligibility for CHCBP.</div>
+</div>
+<div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270002F" data-element-type="Text" id="FM1029565" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(7)   </span>Period
+of coverage.<div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700030" data-element-type="Text" tmaa-izihyxm-tk=""> Except as noted below CHCBP
+coverage may not extend beyond 18 months from the date the individual
+becomes eligible for CHCBP. Although beneficiaries have sixty (60)
+days to elect coverage under the CHCBP, upon enrolling, the period
+of coverage must begin the day after entitlement or eligibility
+to a military health care plan ends as though no break in coverage
+had occurred notwithstanding the date the enrollment form with any
+applicable premium is submitted.</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700031" data-element-type="Text" tmaa-izihyxm-tk="">(i)   Exceptions:<div class="FM4L-A-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700032" data-element-type="Text" tmaa-izihyxm-tk="">(A)   In the case of
+a child of a member or former member, the date which is 36 months
+after the date on which the person first ceases to meet the requirements
+for being considered an unmarried dependent child under 10 U.S.C. 1072(2)(D)
+or 10 U.S.C. 1072(2)(I).</div>
+<div class="FM4L-A-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700033" data-element-type="Text" tmaa-izihyxm-tk="">(B)   In
+the case of an unremarried former spouse (as this term is defined
+in 10 U.S.C. 1072(2)(G) or (H)) of a member or former member, the
+date which is 36 months after the later of:<div class="FM5L-in-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700034" data-element-type="Text" tmaa-izihyxm-tk=""><span class="Italic" tmaa-izihyxm-tk="">(1)   </span>The date
+on which the final decree of divorce, dissolution, or annulment
+occurs; or</div>
+<div class="FM5L-in-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700035" data-element-type="Text" tmaa-izihyxm-tk=""><span class="Italic" tmaa-izihyxm-tk="">(2)   </span>If applicable, the date the one-year extension
+of dependency under 10 U.S.C. 1072(2)(H) expires.</div>
+</div>
+<div class="FM4L-A-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700036" data-element-type="Text" tmaa-izihyxm-tk="">(C)   In the case of
+an unremarried surviving spouse (widow or widower) (under 10 U.S.C.
+1072(2)(B) or (C)) of a member or former member of the uniformed
+services who is not otherwise eligible for care under 10 U.S.C.
+chapter 55, the date which is 36 months after the date the surviving
+spouse becomes ineligible under 10 U.S.C chapter 55 or 10 U.S.C.
+1145(a).</div>
+<div class="FM4L-A-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700037" data-element-type="Text" tmaa-izihyxm-tk="">(D)   <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>In
+the case of a former spouse of a member or former member (other
+than the former spouse whose marriage was dissolved after the separation
+of the member from the service unless such separation was by retirement),
+the period of coverage under the CHCBP is unlimited, if former spouse:</ins>
+<div class="FM5L-in-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700038" data-element-type="Text" tmaa-izihyxm-tk=""><span class="Italic" tmaa-izihyxm-tk="">(1)   </span><ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>Has
+not remarried before age of 55 after the marriage to the member
+or former member was dissolved; and</ins>
+</div>
+<div class="FM5L-in-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700039" data-element-type="Text" tmaa-izihyxm-tk=""><span class="Italic" tmaa-izihyxm-tk="">(2)   </span><ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>Was
+eligible for TRICARE as a dependent or enrolled in CHCBP at any
+time during the 18 month period before the date of the divorce,
+dissolution, or annulment; and</ins>
+</div>
+<div class="FM5L-in-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270003A" data-element-type="Text" tmaa-izihyxm-tk=""><span class="Italic" tmaa-izihyxm-tk="">(3)   </span>Is receiving
+a portion of the retired or retainer pay of a member or former member
+or an annuity based on the retainer pay of the member; or</div>
+<div class="FM5L-in-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270003B" data-element-type="Text" tmaa-izihyxm-tk=""><span class="Italic" tmaa-izihyxm-tk="">(4)   </span>Has a court
+order for payment of any portion of the retired or retainer pay
+or has a written agreement (whether voluntary or pursuant to a court
+order) which provides for an election by the member or former member to
+provide an annuity to the former spouse.</div>
+</div>
+<div class="FM4L-A-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270003C" data-element-type="Text" tmaa-izihyxm-tk="">(E)   For the beneficiary
+who becomes eligible for the CHCBP by ceasing to meet the requirements
+for being considered an unmarried dependent child of a member or
+former member, health care coverage may not extend beyond the date
+which is 36 months after the date the member becomes ineligible
+for medical and dental care under 10 U.S.C. 1074(a) and any transitional
+health care under 10 U.S.C. 1145(a).</div>
+</div>
+</div>
+</div></section>
+<section aria-label="Requirement FR160270003D" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270003D" data-element-type="Text" data-is-requirement="" id="FM1029635" tmaa-izihyxm-tk="">(e)   CHCBP
+benefits. <section aria-label="Requirement FR160270003E" class="requirement" role="region"><div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270003E" data-element-type="Text" data-is-requirement="" id="FM1029640" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(1)   </span>In general.<section aria-label="Requirement FR160270003F" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270003F" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>Except
+as provided in paragraph (e)(2) of this section, the provisions
+of Sec. 199.4 shall apply to the CHCBP as they do to TRICARE Select
+under Sec. 199.17.</ins>
+</div></section>
+</div></section>
+<div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700040" data-element-type="Text" id="FM1029650" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(2)   </span>Exceptions.<div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700041" data-element-type="Text" tmaa-izihyxm-tk=""> The following provisions of
+Sec. 199.4 are not applicable to the CHCBP:</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700042" data-element-type="Text" tmaa-izihyxm-tk="">(i)   Section 199.4(a)(2)
+concerning eligibility.</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700043" data-element-type="Text" tmaa-izihyxm-tk="">(ii)   All
+provisions regarding requirements to use facilities of the uniformed
+services because CHCBP enrollees are not eligible to use those facilities.</div>
+</div>
+<section aria-label="Requirement FR1602700044" class="requirement" role="region"><div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700044" data-element-type="Text" data-is-requirement="" id="FM1029670" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(3)   </span>Beneficiary
+liability.<section aria-label="Requirement FR1602700045" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700045" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>For purposes
+of CHCBP coverage, the beneficiary deductible, catastrophic cap
+and cost share provisions of the TRICARE Select plan applicable
+to Group B beneficiaries under Sec. 199.17(l)(2)(ii) shall apply based
+on the category of beneficiary (e.g., Active Duty Family Member
+or Retiree Family) to which the CHCBP enrollee last belonged, except
+that for separating active duty members, amounts applicable to TRICARE
+Select Active Duty Family Members shall apply. The premium under
+paragraph (q) of this section applies instead of any TRICARE Select
+plan enrollment fee under Sec. 199.17.</ins>
+</div></section>
+</div></section>
+</div></section>
+<section aria-label="Requirement FR1602700046" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700046" data-element-type="Text" data-is-requirement="" id="FM1029680" tmaa-izihyxm-tk="">(f)   Authorized
+providers.<section aria-label="Requirement FR1602700047" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700047" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>The provisions
+of Sec. 199.6 shall apply to the CHCBP as they do to TRICARE Select program.</ins>
+</div></section>
+</div></section>
+<section aria-label="Requirement FR1602700048" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700048" data-element-type="Text" data-is-requirement="" id="FM1029690" tmaa-izihyxm-tk="">(g)   Claims
+submission, review, and payment.<section aria-label="Requirement FR1602700049" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700049" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>The provisions
+of Sec. 199.7 shall apply to the CHCBP as they do to TRICARE Select
+program except no provisions regarding nonavailability statements
+shall apply.</ins>
+</div></section>
+</div></section>
+<section aria-label="Requirement FR160270004A" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270004A" data-element-type="Text" data-is-requirement="" id="FM1029700" tmaa-izihyxm-tk="">(h)   Double
+coverage.<section aria-label="Requirement FR160270004B" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270004B" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>The provisions
+of Sec. 199.8 shall apply to the CHCBP as they do to TRICARE Select program.</ins>
+</div></section>
+</div></section>
+<section aria-label="Requirement FR160270004C" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270004C" data-element-type="Text" data-is-requirement="" id="FM1029710" tmaa-izihyxm-tk="">(i)   Administrative
+remedies for fraud, abuse, and conflict of interest.<section aria-label="Requirement FR160270004D" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270004D" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>The provisions
+of Sec. 199.9 shall apply to the CHCBP as they do to TRICARE Select
+program.</ins>
+</div></section>
+</div></section>
+<section aria-label="Requirement FR160270004E" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270004E" data-element-type="Text" data-is-requirement="" id="FM1029720" tmaa-izihyxm-tk="">(j)   Appeal
+and hearing procedures.<section aria-label="Requirement FR160270004F" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270004F" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>The provisions
+of Sec. 199.10 shall apply to the CHCBP as they do to TRICARE Select
+program.</ins>
+</div></section>
+</div></section>
+<section aria-label="Requirement FR1602700050" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700050" data-element-type="Text" data-is-requirement="" id="FM1029730" tmaa-izihyxm-tk="">(k)   Overpayments
+recovery.<section aria-label="Requirement FR1602700051" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700051" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>The provisions
+of Sec. 199.11 shall apply to the CHCBP as they do to TRICARE Select
+program.</ins>
+</div></section>
+</div></section>
+<section aria-label="Requirement FR1602700052" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700052" data-element-type="Text" data-is-requirement="" id="FM1029740" tmaa-izihyxm-tk="">(l)   Third
+party recoveries.<section aria-label="Requirement FR1602700053" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700053" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>The provisions
+of Sec. 199.12 shall apply to the CHCBP as they do to TRICARE Select program.</ins>
+</div></section>
+</div></section>
+<section aria-label="Requirement FR1602700054" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700054" data-element-type="Text" data-is-requirement="" id="FM1029750" tmaa-izihyxm-tk="">(m)   Provider
+reimbursement methods.<section aria-label="Requirement FR1602700055" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700055" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>The provisions
+of Sec. 199.14 shall apply to the CHCBP as they do to TRICARE Select
+program.</ins>
+</div></section>
+</div></section>
+<section aria-label="Requirement FR1602700056" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700056" data-element-type="Text" data-is-requirement="" id="FM1029760" tmaa-izihyxm-tk="">(n)   Quality
+and Utilization Review Peer Review Organization Program.<section aria-label="Requirement FR1602700057" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700057" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>The provisions
+of Sec. 199.15 shall apply to the CHCBP as they do to TRICARE Select
+program.</ins>
+</div></section>
+</div></section>
+<div class="FM1L-a-NT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700058" data-element-type="Text" id="FM1029770" tmaa-izihyxm-tk="">(o)   <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>[Reserved]</ins>
+</div>
+<div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700059" data-element-type="Text" id="FM1029780" tmaa-izihyxm-tk="">(p)   Special
+programs not applicable. <div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270005A" data-element-type="Text" id="FM1029785" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(1)   </span>In
+general.<div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270005B" data-element-type="Text" tmaa-izihyxm-tk=""> <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>Special programs
+established under this part that are not part of the TRICARE Select
+program are not, unless specifically provided in this section, available
+to participants in the CHCBP.</ins>
+</div>
+</div>
+<div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270005C" data-element-type="Text" id="FM1029795" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(2)   </span>Examples.<div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270005D" data-element-type="Text" tmaa-izihyxm-tk=""> The special programs referred
+to in paragraph (p)(1) of this section include but are not limited
+to:</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270005E" data-element-type="Text" tmaa-izihyxm-tk="">(i)   The Extended Care
+Health Option under Sec. 199.5;</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR160270005F" data-element-type="Text" tmaa-izihyxm-tk="">(ii)   The TRICARE Dental
+Program or Retiree Dental Program under Sec. 199.13 and 199.22 respectively;</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700060" data-element-type="Text" tmaa-izihyxm-tk="">(iii)   <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>The
+Supplemental Health Care Program under Sec. 199.16; and</ins>
+</div>
+<div class="FM3L-r-NR" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700061" data-element-type="Text" tmaa-izihyxm-tk="">(iv)   <ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>The
+TRICARE Prime Program under Sec. 199.17.</ins>
+</div>
+</div>
+</div>
+<section aria-label="Requirement FR1602700062" class="requirement" role="region"><div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700062" data-element-type="Text" data-is-requirement="" id="FM1029830" tmaa-izihyxm-tk="">(q)   Premiums. <section aria-label="Requirement FR1602700063" class="requirement" role="region"><div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700063" data-element-type="Text" data-is-requirement="" id="FM1029835" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(1)   </span>Rates.<section aria-label="Requirement FR1602700064" class="requirement" role="region"><div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700064" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk=""> Premium rates will be established
+by the Assistant Secretary of Defense (Health Affairs) for two rate
+groups--individual and family. Eligible beneficiaries will select
+the level of coverage they require at the time of initial enrollment
+(either individual or family) and pay the appropriate premium payment.
+The rates are based on Federal Employees Health Benefits Program
+employee and agency contributions required for a comparable health
+benefits plan, plus an administrative fee. The administrative fee,
+not to exceed ten percent of the basic premium amount, shall be
+determined based on actual expected administrative costs for administration of
+the program. Premiums may be revised annually and shall be published
+when the premium amount is changed. Premiums will be paid by enrollees
+quarterly.</div></section>
+</div></section>
+<div class="FM2L-n- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700065" data-element-type="Text" id="FM1029845" tmaa-izihyxm-tk=""><span class="MP" tmaa-izihyxm-tk="">(2)   </span>Effects
+of failure to make premium payments.<div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700066" data-element-type="Text" tmaa-izihyxm-tk=""> Failure
+by enrollees to submit timely and proper premium payments will result
+in denial of continued enrollment and denial of payment of medical
+claims. Premium payments that are late thirty (30) days or more
+past the start of the quarter for which payment is due will result
+in the termination of beneficiary enrollment. Beneficiaries denied
+continued enrollment due to lack of premium payments will not be
+allowed to reenroll. In such a case, benefit coverage will cease
+at the end of the ninety (90) day period for which a premium payment
+was received. Enrollees will be held liable for medical costs incurred
+after losing eligibility.</div>
+</div>
+</div></section>
+<div class="FM1L-a- RunInNext" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700067" data-element-type="Text" id="FM1029855" tmaa-izihyxm-tk="">(r)   Procedures.<div class="BodySpace" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700068" data-element-type="Text" tmaa-izihyxm-tk=""> The Director, TRICARE Management
+Activity, may establish other rules and procedures for the administration
+of the CHCBP.</div>
+</div>
+<div class="BodySA" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="FR1602700069" data-element-type="Text" tmaa-izihyxm-tk="">[59 FR 49818, Sep 30, 1994,
+as amended at 62 FR 35097, Jun 30, 1997; 64 FR 46141, Aug 24, 1999;
+69 FR 44952, Jul 28, 2004; 69 FR 51569, Aug 20, 2004; 76 FR 57639,
+Sep 16, 2011<ins class="legacy-revision-mark" data-change-datetime="2017-09-29" data-revision="1" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 1, September 29, 2017: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 1, September 29, 2017" tmaa-izihyxm-tk=""></span>; 82 FR 45457, Sep 29, 2017</ins>]</div></section></article></div></div>
+<template x-bind:key="index" x-for="(bar, index) in changeBars"></template></div></div>
+</div>

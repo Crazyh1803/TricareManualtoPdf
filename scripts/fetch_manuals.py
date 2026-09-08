@@ -63,6 +63,23 @@ BASE_URL = "https://manuals.dha.mil"
 # One page per manual lists every section in the publication, so there is no
 # per-chapter drilling any more. The revision number is printed on it.
 PUBLICATION_URL = BASE_URL + "/View-Publication/{code}"
+
+# Section content comes from the endpoint the site's own front end uses. Each
+# link on the publication page carries hx-get="/api/publication/<code>/<rev>/
+# <file>" and htmx swaps that fragment into #publication-document, so the
+# endpoint returns the document itself — no page chrome, no Alpine wrapper, no
+# loading overlay. Fetching it directly is both cleaner and far cheaper than
+# driving a browser to every section.
+SECTION_API_URL = BASE_URL + "/api/publication/{code}/{revision}/{name}"
+
+# The endpoint answers an unadorned request with the bot-defence interstitial
+# ("Please enable JavaScript to view the page content. Your support ID is …",
+# ~6 KB). Sending the same headers htmx does gets the real document, verified
+# byte-for-byte against a browser fetch of the same URL.
+HX_HEADERS = {
+    "HX-Request": "true",
+    "HX-Target": "publication-document",
+}
 REPO_ROOT = Path(__file__).parent.parent.resolve()
 DATA_DIR  = REPO_ROOT / "docs" / "data"
 MANUALS_JSON = DATA_DIR / "manuals.json"
@@ -209,12 +226,12 @@ session.headers.update(HEADERS)
 # that is no longer a reason to send unverified requests.)
 
 
-def get(url: str) -> requests.Response | None:
+def get(url: str, headers: dict | None = None) -> requests.Response | None:
     """GET with retries and polite throttling."""
     time.sleep(REQUEST_DELAY)
     for attempt in range(3):
         try:
-            r = session.get(url, timeout=30)
+            r = session.get(url, timeout=45, headers=headers)
             if r.status_code == 200:
                 return r
             print(f"  HTTP {r.status_code}: {url}", file=sys.stderr)
@@ -482,17 +499,45 @@ def clean_title(raw: str) -> str:
 
 
 def extract_title_from_html(soup: BeautifulSoup) -> str:
-    """Best title available from a section page itself.
+    """Fallback title read from the document itself.
 
-    Every page on the new site shares one <title> ("View Publication | TRICARE
-    Manuals"), so it carries no information; the first heading inside the
-    content column is the only per-section title on the page. Returns "" when
-    there is nothing usable, leaving the publication page's link text — set at
-    discovery — in place.
+    Only used when the publication page gave no link text for a section: that
+    link text ("Chap 199.1 -- General Provisions", "Sect 1.1 -- General Policy
+    And Responsibilities") is the best title the site offers, and this must
+    never override it.
+
+    Scoped to #publication-document deliberately. An earlier version searched
+    #content-body for its first heading, which is the site's own "Publication
+    Information" panel sitting above the document — so every section in the
+    first FR16 run came back titled "Publication Information". The <title> tag
+    is no use either; every page shares "View Publication | TRICARE Manuals".
+
+    Manuals label their documents differently — FR16 (CFR) uses .Chapter plus
+    .CFRSubject, TPT5 uses .MPChapterTitle — so several are tried and the
+    number and subject are joined when both exist.
     """
-    body = soup.select_one("#content-body") or soup
+    doc = soup.select_one("#publication-document") or soup
+
+    # Try in priority order, one selector at a time: a comma-separated
+    # select_one returns whichever match comes first in the *document*, not
+    # first in the list, which picked .MPChapterTitle ("Civilian Health And
+    # Medical Program…") over the section's own .CFRSubject.
+    def first(*selectors):
+        for sel in selectors:
+            el = doc.select_one(sel)
+            if el and el.get_text(" ", strip=True):
+                return el
+        return None
+
+    number = first(".Chapter", ".Section")
+    subject = first(".CFRSubject", ".Subject", ".SectionTitle", ".MPChapterTitle")
+    parts = [el.get_text(" ", strip=True) for el in (number, subject) if el]
+    joined = clean_title(" ".join(p for p in parts if p))
+    if joined:
+        return joined
+
     for tag in ("h1", "h2", "h3"):
-        el = body.find(tag)
+        el = doc.find(tag)
         if el:
             text = clean_title(el.get_text(" ", strip=True))
             if text:
@@ -561,24 +606,50 @@ def is_failed_section(html: str) -> bool:
     return html == RETRIEVAL_FAILED_HTML or len(html.strip()) < MIN_SECTION_CONTENT_CHARS
 
 
-async def fetch_sections_via_browser(
-    code: str, sections: list[dict]
-) -> tuple[list[tuple[str, str]], int]:
-    """Fetch every section's page in a real browser and extract its content.
+def section_api_url(section_url: str) -> str | None:
+    """Map a /View-Publication/.../FileName/X link to its /api/publication URL."""
+    m = _FILENAME_RE.search(section_url)
+    if not m:
+        return None
+    return SECTION_API_URL.format(code=m.group(1), revision=m.group(2), name=m.group(3))
 
-    Plain HTTP cannot be used here: the site answers requests-based clients
-    with a JS challenge page, so extraction yielded empty content for every
-    section (run #42 published 199 one-byte files before this was understood).
 
-    Titles are written back onto the section dicts in place, for chapter TOC
-    entries too. Returns ([(section_id, content_html)], failed_count,
+def fetch_section_html(url: str) -> str:
+    """GET one section fragment, or "" if it could not be retrieved.
+
+    Forces UTF-8: the endpoint does not declare a charset, so requests guesses
+    latin-1 and the manuals' typography comes through as mojibake ("Â«" for
+    the « in the section navigation).
+    """
+    api = section_api_url(url)
+    if api is None:
+        print(f"    not a section URL: {url}", file=sys.stderr)
+        return ""
+    # Referer is per-manual, so it is built here rather than in HX_HEADERS.
+    headers = {**HX_HEADERS, "Referer": url}
+    r = get(api, headers=headers)
+    if r is None:
+        return ""
+    r.encoding = "utf-8"
+    return r.text
+
+
+def fetch_sections(code: str, sections: list[dict]) -> tuple[list[tuple[str, str]], int, int]:
+    """Fetch every section's document and extract its content.
+
+    Uses the site's own content endpoint over plain HTTP. Content previously
+    came through Playwright because the rendered page was the only way to see
+    a document at all; the endpoint returns the same document directly, so a
+    browser is now needed only once per manual, for the publication page.
+
+    Titles are written back onto the section dicts in place, chapter TOC
+    entries included. Returns ([(section_id, content_html)], failed_count,
     preserved_count) for the content sections only — chapter TOC entries
     contribute a title and no file.
 
     A section whose fetch fails keeps whatever content the manual already had
-    for that source filename, rather than being overwritten with a
-    placeholder. It still counts as failed, so the abort guards continue to
-    see the true failure rate.
+    under that source name, rather than being overwritten with a placeholder.
+    It still counts as failed, so the abort guards see the true failure rate.
     """
     results: list[tuple[str, str]] = []
     failed = 0
@@ -591,125 +662,77 @@ async def fetch_sections_via_browser(
     # disk still hold the previous run's content while we are fetching.
     previous = load_previous_sections(code)
 
-    async with async_playwright() as pw:
-        browser, ctx = await _launch_context(pw)
-        page = await ctx.new_page()
-        try:
-            first = True
-            for s in sections:
-                # Give up on this manual rather than running until the job is
-                # killed. A failed section costs retries plus backoff plus a
-                # cooldown, so a manual hitting widespread failures can consume
-                # hours; abandoning it here leaves its data untouched and lets
-                # the remaining manuals still be fetched and published.
-                if manual_time_exhausted():
-                    raise RuntimeError(
-                        f"{code}: exceeded the {MANUAL_TIME_BUDGET_SECS // 60}-minute "
-                        f"budget after {done}/{content_total} sections — abandoning it so "
-                        f"the run can finish and publish. Existing data left untouched."
-                    )
+    for s in sections:
+        # Give up on this manual rather than running until the job is killed.
+        if manual_time_exhausted():
+            raise RuntimeError(
+                f"{code}: exceeded the {MANUAL_TIME_BUDGET_SECS // 60}-minute "
+                f"budget after {done}/{content_total} sections — abandoning it so "
+                f"the run can finish and publish. Existing data left untouched."
+            )
 
-                # Throttle navigations: hammering the site back to back is what
-                # provokes the connection resets.
-                if not first:
-                    await asyncio.sleep(SECTION_NAV_DELAY)
-                first = False
+        raw = ""
+        content = RETRIEVAL_FAILED_HTML
+        ok = False
+        for attempt in range(1, SECTION_FETCH_ATTEMPTS + 1):
+            # get() already paces requests and retries transport errors; this
+            # outer loop exists for the case that matters more here — a 200
+            # whose body extracts to nothing, which the site returns when it
+            # serves the bot-defence interstitial instead of the document.
+            raw = fetch_section_html(s["url"])
+            if raw.strip():
+                soup = BeautifulSoup(raw, "lxml")
+                # Only fill in a title the publication page could not supply;
+                # its link text is the better source.
+                if not s.get("title") or s["title"] == s["name"]:
+                    heading = extract_title_from_html(soup)
+                    if heading:
+                        s["title"] = heading
+                content = extract_content_html(soup, s["url"])
+                if not is_failed_section(content):
+                    ok = True
+                    break
+            if attempt < SECTION_FETCH_ATTEMPTS:
+                time.sleep(SECTION_RETRY_BACKOFF * attempt)
 
-                raw = ""
-                content = RETRIEVAL_FAILED_HTML
-                ok = False
-                for attempt in range(1, SECTION_FETCH_ATTEMPTS + 1):
-                    # Retry escalates the wait: the first pass is fast, later
-                    # ones wait for the network to go idle so a slow
-                    # JS-rendered page has time to fill itself in. Extraction
-                    # is judged inside the loop — a page can return a complete
-                    # document that still yields no text, which the old
-                    # "did we get any HTML?" check accepted on the first try.
-                    wait_until = "domcontentloaded" if attempt == 1 else "networkidle"
-                    settle = SECTION_SETTLE_MS if attempt == 1 else SECTION_SETTLE_SLOW_MS
-                    try:
-                        await page.goto(s["url"], wait_until=wait_until, timeout=30_000)
-                        await page.wait_for_timeout(settle)
-                        raw = await page.content()
-                    except Exception as e:
-                        reason = str(e).split("\n", 1)[0]
-                        print(f"    (attempt {attempt}/{SECTION_FETCH_ATTEMPTS} failed for "
-                              f"{s['url']}: {reason})", file=sys.stderr)
-                        # The page may be wedged after a reset — replace it.
-                        try:
-                            await page.close()
-                        except Exception:
-                            pass
-                        page = await ctx.new_page()
-                        raw = ""
+        if s["isChapterToc"]:
+            continue  # title only; chapter TOCs are not stored as files
 
-                    if raw.strip():
-                        soup = BeautifulSoup(raw, "lxml")
-                        heading = extract_title_from_html(soup)
-                        if heading:
-                            s["title"] = heading
-                        content = extract_content_html(soup, s["url"])
-                        if not is_failed_section(content):
-                            ok = True
-                            break
+        done += 1
+        print(f"  [{done}/{content_total}] {s['name']}")
 
-                    if attempt < SECTION_FETCH_ATTEMPTS:
-                        await asyncio.sleep(SECTION_RETRY_BACKOFF * attempt)
+        if not ok:
+            failed += 1
+            if diagnosed < 3:
+                diagnosed += 1
+                snippet = " ".join(raw[:300].split())
+                print(f"    EMPTY EXTRACTION: {s['url']}", file=sys.stderr)
+                print(f"      raw={len(raw)}B extracted={len(content.strip())}ch "
+                      f"title={s['title']!r} starts: {snippet}", file=sys.stderr)
+            kept = previous.get(s["name"])
+            if kept:
+                # We already hold real text for this section; a failed fetch is
+                # no reason to throw it away.
+                content = kept["html"]
+                s["title"] = kept["title"] or s["title"]
+                preserved += 1
+                print(f"    kept previous content for {s['name']} ({len(content):,}B)")
+            else:
+                content = unavailable_html(s["url"])
+            # Back off before the next section: a failure usually means we are
+            # being throttled, and the retries just added to the burst.
+            time.sleep(FAILED_SECTION_COOLDOWN)
 
-                if s["isChapterToc"]:
-                    continue  # title only; chapter TOCs are not stored as files
+        results.append((s["id"], content))
 
-                done += 1
-                print(f"  [{done}/{content_total}] {s['name']}")
-
-                if not ok:
-                    failed += 1
-                    if diagnosed < 3:
-                        diagnosed += 1
-                        snippet = " ".join(raw[:300].split())
-                        print(f"    EMPTY EXTRACTION: {s['url']}", file=sys.stderr)
-                        print(f"      raw={len(raw)}B extracted={len(content.strip())}ch "
-                              f"title={s['title']!r} starts: {snippet}", file=sys.stderr)
-                    # Leave a link to the official page rather than a blank
-                    # section: some pages draw their text into a <canvas>, so
-                    # no amount of waiting yields extractable HTML, and a
-                    # 43-byte canvas element reads as missing content in both
-                    # the reader and the Markdown export.
-                    kept = previous.get(s["name"])
-                    if kept:
-                        # We already hold real text for this section; a failed
-                        # fetch is no reason to throw it away. This is what
-                        # would have saved TPT5 003-005.
-                        content = kept["html"]
-                        s["title"] = kept["title"] or s["title"]
-                        preserved += 1
-                        print(f"    kept previous content for {s['name']} "
-                              f"({len(content):,}B)")
-                    else:
-                        content = unavailable_html(s["url"])
-                    # Back off before the next section. A failure usually means
-                    # we are being throttled, and the retries just added to the
-                    # burst — carrying straight on is what turned one bad
-                    # section into four consecutive ones on TPT5.
-                    await asyncio.sleep(FAILED_SECTION_COOLDOWN)
-
-                results.append((s["id"], content))
-
-                # Bail as soon as the run is clearly failing rather than
-                # putting hundreds more requests through a government server.
-                if done >= EARLY_ABORT_SAMPLE and failed == done:
-                    raise RuntimeError(
-                        f"{code}: first {done} sections all came back empty — aborting "
-                        f"before issuing {content_total - done} more requests. "
-                        f"Leaving existing data untouched."
-                    )
-        finally:
-            try:
-                await page.close()
-            except Exception:
-                pass
-            await ctx.close()
-            await browser.close()
+        # Bail as soon as the run is clearly failing rather than putting
+        # hundreds more requests through a government server.
+        if done >= EARLY_ABORT_SAMPLE and failed == done:
+            raise RuntimeError(
+                f"{code}: first {done} sections all came back empty — aborting "
+                f"before issuing {content_total - done} more requests. "
+                f"Leaving existing data untouched."
+            )
 
     return results, failed, preserved
 
@@ -889,9 +912,7 @@ def process_manual(entry: dict, force: bool = False) -> dict:
     # quality check below must be able to abandon a bad scrape without having
     # left half-written files on disk for the publish step to pick up.
     # Chapter TOC titles are resolved in the same pass.
-    fetched, failed, preserved = asyncio.run(
-        fetch_sections_via_browser(code, sections)
-    )
+    fetched, failed, preserved = fetch_sections(code, sections)
 
     # The count guard above only proves we found the right *number* of
     # sections. If the fetches themselves are being served a challenge page,

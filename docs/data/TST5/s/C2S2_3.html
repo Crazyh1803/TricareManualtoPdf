@@ -1,0 +1,1880 @@
+
+<div class="row my-3"><article class="TSM" data-manualacronym="TST5" tmaa-izihyxm-tk=""><div class="Header" tmaa-izihyxm-tk="">TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div class="MPChapterTitle" tmaa-izihyxm-tk="">TRICARE Encounter Data (TED)</div>
+<section data-element-id="TST504900001" data-element-type="Header" tmaa-izihyxm-tk="">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504900002" data-element-type="Text" id="FM100058" tmaa-izihyxm-tk="">Chapter 2</div>
+<div class="Section" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504900003" data-element-type="Text" id="FM100062" tmaa-izihyxm-tk="">Section <span class="Cross-RefMarker" id="FM78884" tmaa-izihyxm-tk=""></span>2.3</div>
+<div class="Subject" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504900004" data-element-type="Text" id="FM100067" tmaa-izihyxm-tk="">Data Requirements
+- Header Record Data</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504900005" data-element-type="None" tmaa-izihyxm-tk="">Revision:  </div>
+<div class="Line" tmaa-izihyxm-tk=""></div></section>
+<section data-element-id="TST504900006" data-element-type="Content" tmaa-izihyxm-tk=""><div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<section aria-label="Requirement TST504900007" class="requirement" role="region"><table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504900007" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  BATCH/VOUCHER CLIN/ASAP ACCOUNT
+NUMBER</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="Footnote-1-" tmaa-izihyxm-tk=""><span class="Superscript" tmaa-izihyxm-tk="">1  </span>For Header Type Indicator <span class="Bold" tmaa-izihyxm-tk="">0</span> or <span class="Bold" tmaa-izihyxm-tk="">9</span>,
+Batch/Voucher CLIN/ASAP Account Number can only be zero filled.</div>
+<div class="Footnote-n-" tmaa-izihyxm-tk=""><span class="Superscript" tmaa-izihyxm-tk="">2  </span>For Header Type Indicator <span class="Bold" tmaa-izihyxm-tk="">5</span> or <span class="Bold" tmaa-izihyxm-tk="">6</span>,
+contractor must have “opened” CLIN/ASAP Accounts with DHA, Contract
+Resource Management (CRM) per Section G.II of the contract.</div>
+<div class="CellBody9LSA" tmaa-izihyxm-tk="">CLIN based CLIN/ASAP Account
+Numbers are used for Invoicing (via the TED record) the Cost Reimbursement
+Benefit CLINs (positions 1 through 6 of the CLIN/ASAP Account Number
+shall equal the benefit contract CLIN or sub-CLIN you are invoicing),
+ASAP based CLIN/ASAP Account Numbers are used for the reporting
+of ‘pass-through’ costs.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-025</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes<span class="Superscript" tmaa-izihyxm-tk="">1</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Eight (8) alphanumeric characters.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">This field is used to identify
+the Automated Standard Application for Payment (ASAP) Account Number<span class="Superscript" tmaa-izihyxm-tk="">2</span> the
+voucher will be drawn from. Each year when new non-financially underwritten
+bank account(s) are setup by the contractor (per the financial provisions
+of the contract), Defense Health Agency (DHA) will assign an eight
+digit Contract Line Item Number (CLIN)/ASAP Account Number to draw
+funds from as checks clear the non-financially underwritten bank
+account(s).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="SecPara" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TST5/FileName/C2S1_1?referenceDate=2026-08-12&amp;bookmark=%23FM42576" hx-get="/api/publication/TST5/39/C2S1_1?referenceDate=2026-08-12&amp;bookmark=%23FM42576" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TST5/FileName/C2S1_1?referenceDate=2026-08-12&amp;bookmark=%23FM42576" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Section 1.1, paragraph 5.0</a></span> provides instructions
+on how to assign TED records to the Accrual Fund.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">VOUCHER NUMBER</div>
+</td>
+</tr>
+</tbody>
+</table></section>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504900025" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  BATCH/VOUCHER DATE</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-030</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Seven (7) alphanumeric characters,
+YYYYDDD.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Date the contractor first created
+the batch/voucher for transmission to DHA. This date will not change through
+the resubmission process.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">YYYY</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">4 digit calendar year</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">DDD</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">3 digit Julian date</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">BATCH/VOUCHER NUMBER</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504900045" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  BATCH/VOUCHER IDENTIFIER</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-015</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">One (1) alphanumeric character.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Identifies the type of records
+submitted in the batch/voucher.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">3</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Provider (Batch Only)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">5</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Institutional/Non-Institutional
+(Batch/Voucher)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">CONTRACT IDENTIFIER</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504900065" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  BATCH/VOUCHER NUMBER</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-020</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Field containing multiple elements
+that uniquely identify the batch/voucher.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">BATCH/VOUCHER ASAP ACCOUNT
+NUMBER</div>
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">BATCH/VOUCHER DATE</div>
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">BATCH/VOUCHER
+SEQUENCE NUMBER</div>
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">BATCH/VOUCHER RESUBMISSION
+NUMBER</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">CONTRACT IDENTIFIER</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504900084" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  BATCH/VOUCHER RESUBMISSION
+NUMBER</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-040</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Two (2) alphanumeric characters.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Identifies the number of submissions
+for the batch/voucher.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Set initial submission batch/voucher
+to 00 and increment by one (1) with each resubmission of rejected TED
+records. Do <span class="Bold" tmaa-izihyxm-tk="">not</span> increment if resubmitting a batch/voucher
+that failed batch/voucher header edits.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">BATCH/VOUCHER NUMBER</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST5049000A0" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  BATCH/VOUCHER SEQUENCE NUMBER</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="CellBody9L" tmaa-izihyxm-tk="">Batch/Voucher Sequence Number
+will not be duplicated for that date (i.e., once sequence number
+01 has been assigned to a batch or voucher it cannot be assigned
+to any other batch or voucher for that day).</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-035</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Two (2) alphanumeric characters.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">A sequential number assigned
+by the contractor to uniquely identify the batch/voucher. Once assigned,
+the number remains with the batch/voucher throughout the resubmission
+process if applicable.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Set initial sequence number
+to 01 and increment by one (1) for each subsequent batch/voucher
+for that date. Do not “reuse” sequence number within Contract Identifier
+for that date.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">BATCH/VOUCHER NUMBER</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST5049000BC" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  CONTRACT IDENTIFIER</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-005</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Field containing multiple elements
+that uniquely identify each batch/voucher of records submitted by the
+contractor.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">CONTRACT NUMBER</div>
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">BATCH/VOUCHER
+IDENTIFIER</div>
+<div class="CellBody9Ind1" tmaa-izihyxm-tk="">BATCH/VOUCHER NUMBER</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST5049000DA" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  CONTRACT NUMBER</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-010</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Thirteen (13) alphanumeric
+characters.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">The unique 13 digit contract
+number assigned to a contract.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">CONTRACT IDENTIFIER</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST5049000F6" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  FUND ACCOUNTING</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="Footnote-1-" tmaa-izihyxm-tk=""><span class="Superscript" tmaa-izihyxm-tk="">1  </span>Required for TRICARE Mail Order
+Pharmacy (TMOP) and TRICARE Pharmacy (TPharm) MOP records only,
+must be zero filled for all others.</div>
+<div class="Note9" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Note:  </span>For TMOP records, the FUND
+ACCOUNTING must equal the sum of (AMOUNT ALLOWED BY PROCEDURE CODE
+minus AMOUNT BILLED BY PROCEDURE CODE) for all included records.</div>
+<div class="CellBody9L" tmaa-izihyxm-tk="">For TPharm MOP records, the
+FUND ACCOUNTING must equal the sum of AMOUNT ALLOWED BY PROCEDURE
+CODE for all included records for Batch/Voucher Dates on or after
+July 14, 2011. FUND ACCOUNTING must be zero for Batch/Voucher Dates
+prior to July 14, 2011.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-065</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes<span class="Superscript" tmaa-izihyxm-tk="">1</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Ten (10) signed numeric digits
+including two (2) decimal places.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">This field contains the total
+Government drug cost dollars dispensed by the contractor.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<section aria-label="Requirement TST504900114" class="requirement" role="region"><table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504900114" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  HEADER TYPE INDICATOR</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="CellBody9L" tmaa-izihyxm-tk="">Contractors are responsible
+for ensuring claims are submitted under the correct Header Type
+Indicator when billing Administrative CLINs on a TED record. TED
+records shall be submitted under the correct Header Type Indicator
+in order to receive and retain Administrative CLIN payment(s). Refer
+to Section G.II of the contract for guidance on using this field
+to invoice Administrative CLINs.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-001</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">One (1) alphanumeric character.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Code to indicate whether the
+record is a batch header or voucher header, and whether a voucher contains
+admin rate eligible records.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Batch Header (used on all provider
+batches, and for institutional/non-institutional non-admin claim
+rate TED records).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">5</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Voucher Header (used only for
+institutional/non-institutional non-admin claim rate eligible TED
+records).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">6</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Voucher Header (used only for
+institutional/non-institutional admin claim rate eligible TED records).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">9</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Batch Header (institutional/non-institutional
+admin claim rate eligible TED records).</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tbody>
+</table></section>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<section aria-label="Requirement TST50490013A" class="requirement" role="region"><table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST50490013A" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  INITIAL TRANSMISSION DATE (DHA
+DERIVED)</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="Footnote-1-" tmaa-izihyxm-tk=""><span class="Superscript" tmaa-izihyxm-tk="">1  </span>Contractor shall leave this
+field blank. Data will be populated and maintained by DHA.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-055</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes<span class="Superscript" tmaa-izihyxm-tk="">1</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Eight (8) numeric digits, YYYYMMDD.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">The Initial Transmission Date
+is the date the contractor transmitted the voucher to DHA.</div>
+<div class="CellBody9L-1-" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.  </span><span class="Bold" tmaa-izihyxm-tk="">Voucher</span>: Once
+submission 00 has cleared, the Initial Transmission Received date <span class="Bold" tmaa-izihyxm-tk="">cannot</span> change, since
+this will be the date that DHA obligates the non-financially underwritten
+money and the date that will appear on the checks being issued to
+the providers/beneficiaries.</div>
+<div class="CellBody9L-n-" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.  </span><span class="Bold" tmaa-izihyxm-tk="">Batch</span>: This field
+will be zero filled.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">YYYY</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">4 digit calendar year</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">MM</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">2 digit calendar month</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">DD</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">2 digit calendar day</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tbody>
+</table></section>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<section aria-label="Requirement TST50490015F" class="requirement" role="region"><table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST50490015F" data-element-type="Text" data-is-requirement="" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  DHA BATCH/VOUCHER PROCESSING
+DATE (DHA DERIVED)</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="Footnote-1-" tmaa-izihyxm-tk=""><span class="Superscript" tmaa-izihyxm-tk="">1  </span>Contractor shall leave this
+field blank. Data will be populated by DHA.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-060</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">No<span class="Superscript" tmaa-izihyxm-tk="">1</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Eight (8) numeric digits, YYYYMMDD.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">The date the batch/voucher
+was processed by DHA.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">YYYY</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">4 digit calendar year</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">MM</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">2 digit calendar month</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">DD</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">2 digit calendar day</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tbody>
+</table></section>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST504900182" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  TOTAL AMOUNT PAID</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="Footnote-1-" tmaa-izihyxm-tk=""><span class="Superscript" tmaa-izihyxm-tk="">1  </span>Must be zero filled for Provider
+file batch header records.</div>
+<div class="Note9" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Note:  </span>For MOP Contract MDA906-02-C-0013
+records, the TOTAL AMOUNT PAID must equal AMOUNT PAID BY GOVERNMENT
+CONTRACTOR BY PROCEDURE CODE for all included records.</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-050</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes<span class="Superscript" tmaa-izihyxm-tk="">1</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Twelve (12) signed numeric
+digits including two (2) decimal places.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">This field contains the total
+benefit dollars paid by the contractor and the interest paid for
+the TED records contained in either the batch or voucher.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="NewPage" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TST50490019F" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">DATA ELEMENT
+DEFINITION</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:20.689655172413793%" tmaa-izihyxm-tk=""/>
+<col style="width:25.862068965517242%" tmaa-izihyxm-tk=""/>
+<col style="width:27.586206896551722%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  TOTAL NUMBER OF RECORDS</div>
+</th>
+</tr>
+</thead>
+<tfoot tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">Notes And Special Instructions:</div>
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tfoot>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Records/Locator
+Numbers</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Record Name</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Locator#</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Occurrences</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Required</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Header</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">0-045</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">1</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">Yes</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Primary Picture (Format)</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Seven (7) numeric digits.</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Definition</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">Total number of records submitted
+in the batch or voucher, exclusive of the header and trailer records. (Refer
+to <span class="SecPara" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TST5/FileName/C2S2_2?referenceDate=2026-08-12&amp;bookmark=%23FM50096" hx-get="/api/publication/TST5/39/C2S2_2?referenceDate=2026-08-12&amp;bookmark=%23FM50096" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TST5/FileName/C2S2_2?referenceDate=2026-08-12&amp;bookmark=%23FM50096" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Section 2.2, paragraph 5.0</a></span>.)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Code/Value Specifications</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellHeading9R" tmaa-izihyxm-tk="">Algorithm</div>
+</td>
+<td colspan="3" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate And/Or Group Elements</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Subordinate</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellHeading9C" tmaa-izihyxm-tk="">Group</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+<td colspan="2" tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">N/A</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></section>
+<div class="END" tmaa-izihyxm-tk="">- END -</div></article></div><div hx-swap-oob="true" id="publication-info"><div class="tmaa-stack" role="group" style="--gap: 0;"><div>TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div>Revision 39 (Published Aug 12, 2026)</div>
+<div>Chap 2 -- TRICARE Encounter Data (TED)</div>
+<div>Sect 2.3 -- Data Requirements - Header Record Data</div></div></div><div class="d-none" hx-swap-oob="true" id="publication-in-this-section-wrapper"><div id="publication-in-this-section"></div></div>

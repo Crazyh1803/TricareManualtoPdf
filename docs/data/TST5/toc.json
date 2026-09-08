@@ -1,452 +1,524 @@
 {
   "code": "TST5",
   "change": 39,
-  "fetchedAt": "2026-08-15T15:21:44Z",
+  "fetchedAt": "2026-09-08T14:16:18Z",
   "sections": [
     {
-      "id": "001",
-      "title": "Untitled Section",
+      "id": "TST5TOC",
+      "name": "TST5TOC",
+      "title": "Master TOC",
+      "chapter": 0,
+      "section": "",
+      "isChapterToc": true
+    },
+    {
+      "id": "FOREWORD",
+      "name": "FOREWORD",
+      "title": "Foreword",
       "chapter": 0,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "002",
-      "title": "Chapter 1 – Contents",
+      "id": "C1TOC",
+      "name": "C1TOC",
+      "title": "Chapter 1 — General Automated Data Processing (ADP) Requirements",
       "chapter": 1,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "003",
-      "title": "Chapter 1, Section 1.1",
+      "id": "C1S1_1",
+      "name": "C1S1_1",
+      "title": "Sect 1.1 — General Automated Data Processing (ADP) Requirements",
       "chapter": 1,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "004",
-      "title": "Chapter 1, Section 1.2",
+      "id": "C1S1_2",
+      "name": "C1S1_2",
+      "title": "Sect 1.2 — Beneficiary Authentication Requirements",
       "chapter": 1,
       "section": "1.2",
       "isChapterToc": false
     },
     {
-      "id": "005",
-      "title": "Chapter 2 – Contents",
+      "id": "C2TOC",
+      "name": "C2TOC",
+      "title": "Chapter 2 — TRICARE Encounter Data (TED)",
       "chapter": 2,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "006",
-      "title": "Chapter 2, Section 1.1",
+      "id": "C2S1_1",
+      "name": "C2S1_1",
+      "title": "Sect 1.1 — Data Reporting - TRICARE Encounter Data (TED) Record Submission",
       "chapter": 2,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "007",
-      "title": "Chapter 2, Section 1.2",
+      "id": "C2S1_2",
+      "name": "C2S1_2",
+      "title": "Sect 1.2 — Data Reporting - Provider File Record Submisstion",
       "chapter": 2,
       "section": "1.2",
       "isChapterToc": false
     },
     {
-      "id": "008",
-      "title": "Chapter 2, Section 2.1",
+      "id": "C2S2_1",
+      "name": "C2S2_1",
+      "title": "Sect 2.1 — Data Requirements - Overview",
       "chapter": 2,
       "section": "2.1",
       "isChapterToc": false
     },
     {
-      "id": "009",
-      "title": "Chapter 2, Section 2.2",
+      "id": "C2S2_2",
+      "name": "C2S2_2",
+      "title": "Sect 2.2 — Data Requirements - Data Element Layout",
       "chapter": 2,
       "section": "2.2",
       "isChapterToc": false
     },
     {
-      "id": "010",
-      "title": "Chapter 2, Section 2.3",
+      "id": "C2S2_3",
+      "name": "C2S2_3",
+      "title": "Sect 2.3 — Data Requirements - Header Record Data",
       "chapter": 2,
       "section": "2.3",
       "isChapterToc": false
     },
     {
-      "id": "011",
-      "title": "Chapter 2, Section 2.4",
+      "id": "C2S2_4",
+      "name": "C2S2_4",
+      "title": "Sect 2.4 — Data Requirements - Institutional/Non-Institutional Record Data Elements (A - D)",
       "chapter": 2,
       "section": "2.4",
       "isChapterToc": false
     },
     {
-      "id": "012",
-      "title": "Chapter 2, Section 2.5",
+      "id": "C2S2_5",
+      "name": "C2S2_5",
+      "title": "Sect 2.5 — Data Requirements - Institutional/Non-Institutional Record Data Elements (E - L)",
       "chapter": 2,
       "section": "2.5",
       "isChapterToc": false
     },
     {
-      "id": "013",
-      "title": "Chapter 2, Section 2.6",
+      "id": "C2S2_6",
+      "name": "C2S2_6",
+      "title": "Sect 2.6 — Data Requirements - Institutional/Non-Institutional Record Data Elements (M - O)",
       "chapter": 2,
       "section": "2.6",
       "isChapterToc": false
     },
     {
-      "id": "014",
-      "title": "Chapter 2, Section 2.7",
+      "id": "C2S2_7",
+      "name": "C2S2_7",
+      "title": "Sect 2.7 — Data Requirements - Institutional/Non-Institutional Record Data Elements (P)",
       "chapter": 2,
       "section": "2.7",
       "isChapterToc": false
     },
     {
-      "id": "015",
-      "title": "Chapter 2, Section 2.8",
+      "id": "C2S2_8",
+      "name": "C2S2_8",
+      "title": "Sect 2.8 — Data Requirements - Institutional/Non-Institutional Record Data Elements (Q - S)",
       "chapter": 2,
       "section": "2.8",
       "isChapterToc": false
     },
     {
-      "id": "016",
-      "title": "Chapter 2, Section 2.9",
+      "id": "C2S2_9",
+      "name": "C2S2_9",
+      "title": "Sect 2.9 — Data Requirements - Institutional/Non-Institutional Record Data Elements (T - Z)",
       "chapter": 2,
       "section": "2.9",
       "isChapterToc": false
     },
     {
-      "id": "017",
-      "title": "Chapter 2, Section 2.10",
+      "id": "C2S2_10",
+      "name": "C2S2_10",
+      "title": "Sect 2.10 — Data Requirements - Provider Record Data",
       "chapter": 2,
       "section": "2.10",
       "isChapterToc": false
     },
     {
-      "id": "018",
-      "title": "Chapter 2, Section 3.1",
+      "id": "C2S3_1",
+      "name": "C2S3_1",
+      "title": "Sect 3.1 — General Edit Requirements - Overview",
       "chapter": 2,
       "section": "3.1",
       "isChapterToc": false
     },
     {
-      "id": "019",
-      "title": "Chapter 2, Section 4.1",
+      "id": "C2S4_1",
+      "name": "C2S4_1",
+      "title": "Sect 4.1 — Header Edit Requirements (ELN 000 - 099)",
       "chapter": 2,
       "section": "4.1",
       "isChapterToc": false
     },
     {
-      "id": "020",
-      "title": "Chapter 2, Section 5.1",
+      "id": "C2S5_1",
+      "name": "C2S5_1",
+      "title": "Sect 5.1 — Institutional Edit Requirements (ELN 000 - 099)",
       "chapter": 2,
       "section": "5.1",
       "isChapterToc": false
     },
     {
-      "id": "021",
-      "title": "Chapter 2, Section 5.2",
+      "id": "C2S5_2",
+      "name": "C2S5_2",
+      "title": "Sect 5.2 — Institutional Edit Requirements (ELN 100 - 199)",
       "chapter": 2,
       "section": "5.2",
       "isChapterToc": false
     },
     {
-      "id": "022",
-      "title": "Chapter 2, Section 5.3",
+      "id": "C2S5_3",
+      "name": "C2S5_3",
+      "title": "Sect 5.3 — Institutional Edit Requirements (ELN 200 - 299)",
       "chapter": 2,
       "section": "5.3",
       "isChapterToc": false
     },
     {
-      "id": "023",
-      "title": "Chapter 2, Section 5.4",
+      "id": "C2S5_4",
+      "name": "C2S5_4",
+      "title": "Sect 5.4 — Institutional Edit Requirements (ELN 300 - 399)",
       "chapter": 2,
       "section": "5.4",
       "isChapterToc": false
     },
     {
-      "id": "024",
-      "title": "Chapter 2, Section 5.5",
+      "id": "C2S5_5",
+      "name": "C2S5_5",
+      "title": "Sect 5.5 — Institutional Edit Requirements (ELN 400 - 499)",
       "chapter": 2,
       "section": "5.5",
       "isChapterToc": false
     },
     {
-      "id": "025",
-      "title": "Chapter 2, Section 6.1",
+      "id": "C2S6_1",
+      "name": "C2S6_1",
+      "title": "Sect 6.1 — Non-Institutional Edit Requirements (ELN 000 - 099)",
       "chapter": 2,
       "section": "6.1",
       "isChapterToc": false
     },
     {
-      "id": "026",
-      "title": "Chapter 2, Section 6.2",
+      "id": "C2S6_2",
+      "name": "C2S6_2",
+      "title": "Sect 6.2 — Non-Institutional Edit Requirements (ELN 100 - 199)",
       "chapter": 2,
       "section": "6.2",
       "isChapterToc": false
     },
     {
-      "id": "027",
-      "title": "Chapter 2, Section 6.3",
+      "id": "C2S6_3",
+      "name": "C2S6_3",
+      "title": "Sect 6.3 — Non-Institutional Edit Requirements (ELN 200 - 299)",
       "chapter": 2,
       "section": "6.3",
       "isChapterToc": false
     },
     {
-      "id": "028",
-      "title": "Chapter 2, Section 6.4",
+      "id": "C2S6_4",
+      "name": "C2S6_4",
+      "title": "Sect 6.4 — Non-Institutional Edit Requirements (ELN 300 - 399)",
       "chapter": 2,
       "section": "6.4",
       "isChapterToc": false
     },
     {
-      "id": "029",
-      "title": "Chapter 2, Section 7.1",
+      "id": "C2S7_1",
+      "name": "C2S7_1",
+      "title": "Sect 7.1 — Provider Edit Requirements (ELN 000 - 099)",
       "chapter": 2,
       "section": "7.1",
       "isChapterToc": false
     },
     {
-      "id": "030",
-      "title": "Chapter 2, Section 7.2",
+      "id": "C2S7_2",
+      "name": "C2S7_2",
+      "title": "Sect 7.2 — Provider Edit Requirements (ELN 100 - 199)",
       "chapter": 2,
       "section": "7.2",
       "isChapterToc": false
     },
     {
-      "id": "031",
-      "title": "Chapter 2, Section 8.1",
+      "id": "C2S8_1",
+      "name": "C2S8_1",
+      "title": "Sect 8.1 — Financial Edit Requirements",
       "chapter": 2,
       "section": "8.1",
       "isChapterToc": false
     },
     {
-      "id": "032",
-      "title": "Chapter 3 – Contents",
+      "id": "C3TOC",
+      "name": "C3TOC",
+      "title": "Chapter 3 — Defense Enrollment Eligibility Reporting System (DEERS)",
       "chapter": 3,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "033",
-      "title": "Chapter 3, Section 1.1",
+      "id": "C3S1_1",
+      "name": "C3S1_1",
+      "title": "Sect 1.1 — General",
       "chapter": 3,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "034",
-      "title": "Chapter 3, Section 2.1",
+      "id": "C3S2_1",
+      "name": "C3S2_1",
+      "title": "Sect 2.1 — Referenced Documents",
       "chapter": 3,
       "section": "2.1",
       "isChapterToc": false
     },
     {
-      "id": "035",
-      "title": "Chapter 3, Section 3.1",
+      "id": "C3S3_1",
+      "name": "C3S3_1",
+      "title": "Sect 3.1 — Beneficiary Identification",
       "chapter": 3,
       "section": "3.1",
       "isChapterToc": false
     },
     {
-      "id": "036",
-      "title": "Chapter 3, Section 4.1",
+      "id": "C3S4_1",
+      "name": "C3S4_1",
+      "title": "Sect 4.1 — Defense Enrollment Eligibility Reporting System (DEERS) Concepts",
       "chapter": 3,
       "section": "4.1",
       "isChapterToc": false
     },
     {
-      "id": "037",
-      "title": "Chapter 3, Section 4.2",
+      "id": "C3S4_2",
+      "name": "C3S4_2",
+      "title": "Sect 4.2 — Defense Enrollment Eligibility Reporting System (DEERS) Functionality",
       "chapter": 3,
       "section": "4.2",
       "isChapterToc": false
     },
     {
-      "id": "038",
-      "title": "Chapter 3, Section 4.3",
+      "id": "C3S4_3",
+      "name": "C3S4_3",
+      "title": "Sect 4.3 — Defense Manpower Data Center (DMDC) Support",
       "chapter": 3,
       "section": "4.3",
       "isChapterToc": false
     },
     {
-      "id": "039",
-      "title": "Chapter 3, Section 4.4",
+      "id": "C3S4_4",
+      "name": "C3S4_4",
+      "title": "Sect 4.4 — Test Environment",
       "chapter": 3,
       "section": "4.4",
       "isChapterToc": false
     },
     {
-      "id": "040",
-      "title": "Chapter 3, Section 5.1",
+      "id": "C3S5_1",
+      "name": "C3S5_1",
+      "title": "Sect 5.1 — Defense Enrollment Eligibility Reporting System (DEERS) Functions In Support Of The TRICARE Dental Program (TDP)",
       "chapter": 3,
       "section": "5.1",
       "isChapterToc": false
     },
     {
-      "id": "041",
-      "title": "Chapter 3, Section 5.2",
+      "id": "C3S5_2",
+      "name": "C3S5_2",
+      "title": "Sect 5.2 — Defense Enrollment Eligibility Reporting System (DEERS) Functions In Support Of The TRICARE Active Duty Dental Program (ADDP)",
       "chapter": 3,
       "section": "5.2",
       "isChapterToc": false
     },
     {
-      "id": "042",
-      "title": "Chapter 4 – Contents",
+      "id": "C4TOC",
+      "name": "C4TOC",
+      "title": "Chapter 4 — TRICARE Duplicate Claims System (DCS) - TRICARE Encounter Data (TED) Version",
       "chapter": 4,
       "section": "",
       "isChapterToc": true
     },
     {
-      "id": "043",
-      "title": "Chapter 4, Section 1.1",
+      "id": "C4S1_1",
+      "name": "C4S1_1",
+      "title": "Sect 1.1 — Overview",
       "chapter": 4,
       "section": "1.1",
       "isChapterToc": false
     },
     {
-      "id": "044",
-      "title": "Chapter 4, Section 1.2",
+      "id": "C4S1_2",
+      "name": "C4S1_2",
+      "title": "Sect 1.2 — Duplicate Claims Data",
       "chapter": 4,
       "section": "1.2",
       "isChapterToc": false
     },
     {
-      "id": "045",
-      "title": "Chapter 4, Section 1.3",
+      "id": "C4S1_3",
+      "name": "C4S1_3",
+      "title": "Sect 1.3 — Multi-Contractor Claim Sets",
       "chapter": 4,
       "section": "1.3",
       "isChapterToc": false
     },
     {
-      "id": "046",
-      "title": "Chapter 4, Section 1.4",
+      "id": "C4S1_4",
+      "name": "C4S1_4",
+      "title": "Sect 1.4 — System Implementation And Operational Requirements",
       "chapter": 4,
       "section": "1.4",
       "isChapterToc": false
     },
     {
-      "id": "047",
-      "title": "Chapter 1 Addendum A",
+      "id": "C1ADA",
+      "name": "C1ADA",
+      "title": "Addendum A — Defense Finance And Accounting Service (DFAS) Allotment Record Layouts For Defense Health Agency (DHA) Contracts",
       "chapter": 1,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "048",
-      "title": "Chapter 1 Addendum B",
+      "id": "C1ADB",
+      "name": "C1ADB",
+      "title": "Addendum B — United States Air Force (USAF) Allotment Record Layouts For Defense Health Agency (DHA) Contracts",
       "chapter": 1,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "049",
-      "title": "Chapter 2 Addendum A",
+      "id": "C2ADA",
+      "name": "C2ADA",
+      "title": "Addendum A — Data Requirements - Country And/Or Islands Codes",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "050",
-      "title": "Chapter 2 Addendum B",
+      "id": "C2ADB",
+      "name": "C2ADB",
+      "title": "Addendum B — Data Requirements - State Codes",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "051",
-      "title": "Chapter 2 Addendum C",
+      "id": "C2ADC",
+      "name": "C2ADC",
+      "title": "Addendum C — Data Requirements - Provider’s Major Specialty Codes",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "052",
-      "title": "Chapter 2 Addendum D",
+      "id": "C2ADD",
+      "name": "C2ADD",
+      "title": "Addendum D — Data Requirements - Type Of Institution Codes",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "053",
-      "title": "Chapter 2 Addendum E",
+      "id": "C2ADE",
+      "name": "C2ADE",
+      "title": "Addendum E — Data Requirements - Other Special Procedure Codes",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "054",
-      "title": "Chapter 2 Addendum F",
+      "id": "C2ADF",
+      "name": "C2ADF",
+      "title": "Addendum F — Data Requirements - Place Of Service/Type Of Service Allowable Relationships",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "055",
-      "title": "Chapter 2 Addendum G",
+      "id": "C2ADG",
+      "name": "C2ADG",
+      "title": "Addendum G — Data Requirements - Adjustment/Denial Reason Codes",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "056",
-      "title": "Chapter 2 Addendum H",
+      "id": "C2ADH",
+      "name": "C2ADH",
+      "title": "Addendum H — Data Requirements - Revenue Codes",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "057",
-      "title": "Chapter 2 Addendum I",
+      "id": "C2ADI",
+      "name": "C2ADI",
+      "title": "Addendum I — Data Requirements - Contract Area Of Responsibility",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "058",
-      "title": "Chapter 2 Addendum J",
+      "id": "C2ADJ",
+      "name": "C2ADJ",
+      "title": "Addendum J — Data Requirements - Pay Plan Code Valid Values",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "059",
-      "title": "Chapter 2 Addendum K",
+      "id": "C2ADK",
+      "name": "C2ADK",
+      "title": "Addendum K — Data Requirements - Dependent Elements And Values For Rank Code, Sponsor Pay Category",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "060",
-      "title": "Chapter 2 Addendum L",
+      "id": "C2ADL",
+      "name": "C2ADL",
+      "title": "Addendum L — Data Requirements - Health Care Delivery Program (HCDP) Plan Coverage Code Values",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "061",
-      "title": "Chapter 2 Addendum M",
+      "id": "C2ADM",
+      "name": "C2ADM",
+      "title": "Addendum M — Data Requirements - Default Values For Complete Claims Denials",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "062",
-      "title": "Chapter 2 Addendum N",
+      "id": "C2ADN",
+      "name": "C2ADN",
+      "title": "Addendum N — UB-04/UB-92 Conversion Table - To Be Used For Reporting Non-Institutional TRICARE Encounter Data (TED) Records",
       "chapter": 2,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "063",
-      "title": "Chapter 4 Addendum A",
+      "id": "C4ADA",
+      "name": "C4ADA",
+      "title": "Addendum A — Duplicate Claims System (DCS) Displayed Data Fields",
       "chapter": 4,
       "section": "",
       "isChapterToc": false
     },
     {
-      "id": "064",
-      "title": "Chapter 4 Addendum B",
+      "id": "C4ADB",
+      "name": "C4ADB",
+      "title": "Addendum B — Report Descriptions And Examples",
       "chapter": 4,
       "section": "",
       "isChapterToc": false

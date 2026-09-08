@@ -1,0 +1,77 @@
+
+<div class="row my-3"><article class="TSM" data-manualacronym="TST5" tmaa-izihyxm-tk=""><div class="Header" tmaa-izihyxm-tk="">TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div class="MPChapterTitle" tmaa-izihyxm-tk="">TRICARE Encounter Data (TED)</div>
+<section data-element-id="TST504700001" data-element-type="Header" tmaa-izihyxm-tk="">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504700002" data-element-type="Text" id="FM79747" tmaa-izihyxm-tk="">Chapter 2</div>
+<div class="Section" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504700003" data-element-type="Text" id="FM79752" tmaa-izihyxm-tk="">Section 2.1</div>
+<div class="Subject" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504700004" data-element-type="Text" id="FM79756" tmaa-izihyxm-tk="">Data Requirements
+- Overview</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504700005" data-element-type="None" tmaa-izihyxm-tk="">Revision:  </div>
+<div class="Line" tmaa-izihyxm-tk=""></div></section>
+<section data-element-id="TST504700006" data-element-type="Content" tmaa-izihyxm-tk="">
+<div aria-level="2" class="FM1LevelNT" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TST504700008" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.0  </span>This chapter covers the Defense
+Health Agency (DHA) requirements for the presentation of data submitted by
+the contractor. It specifies the structure of files and records
+to be sent to DHA for editing and processing. It also gives a complete
+definition of each data element included in these records. The data
+element definitions are in alphabetical order by data element name.
+Data element definition forms, used for consistent presentation
+of each element, include element characteristics and parameters
+needed by the contractor for accurate submission of data required
+by DHA. Every data element is assigned an Element Locator Number
+(ELN) according to the following structure: <div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>One Digit Record Type (followed
+by a hyphen)<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBulletInd" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>0 - Batch Header (includes
+vouchers for ELN assignment)</div>
+<div class="BodyLBulletInd" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>1 - Institutional</div>
+<div class="BodyLBulletInd" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>2 - Non-Institutional</div>
+<div class="BodyLBulletInd" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>3 - Provider</div>
+</div>
+</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Three Digit Element Locator
+Number For A Given Record Category</div>
+</div>
+</div>
+<section aria-label="Requirement TST504700011" class="requirement" role="region"><div aria-level="2" class="FM1LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504700011" data-element-type="Text" data-is-requirement="" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.0  </span>A Batch Header record is to
+be used as the first record in each batch/voucher of Institutional,
+Non-Institutional, and Provider records. Contractors use Batch Header
+records for Provider records and Batch/Voucher Header records for
+Institutional and Non-Institutional TRICARE Encounter Data (TED)
+records.</div></section>
+<section aria-label="Requirement TST504700012" class="requirement" role="region"><div aria-level="2" class="FM1LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504700012" data-element-type="Text" data-is-requirement="" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.0  </span>The Institutional record category
+is to be used primarily only when there is an inpatient admission
+to the institution. The Non-Institutional record category is to
+be used for submission of all other TED records, including outpatient
+maternity care rendered in an institution (cost-shared on an inpatient
+basis). The Provider record category is to be used to submit information
+for each provider who rendered care to TRICARE beneficiaries.</div></section>
+<div aria-level="2" class="FM1LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504700013" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">4.0  </span>A data element “FILLER” has
+been included in all Record Layouts to provide for future expansion
+of data elements.</div>
+<section aria-label="Requirement TST504700014" class="requirement" role="region"><div aria-level="2" class="FM1LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504700014" data-element-type="Text" data-is-requirement="" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.0  </span>The following editing rules
+will apply to all data elements unless the Data Element Definition
+contains different instructions. Edits will be applied to all TED
+and Provider records.</div></section>
+<section aria-label="Requirement TST504700015" class="requirement" role="region"><div aria-level="2" class="FM1LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504700015" data-element-type="Text" data-is-requirement="" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.0  </span>All numeric fields (including
+monetary fields) must be right-justified and zero-filled. Non-numeric
+values are not permitted. All numeric fields which do not contain
+data must be completely zero-filled. Fields identified as signed
+numeric fields will be processed by DHA as positive values unless
+the low-order position of the field indicates it contains a negative
+value. All money fields are signed numeric containing dollars and
+cents without the decimal point.</div></section>
+<section aria-label="Requirement TST504700016" class="requirement" role="region"><div aria-level="2" class="FM1LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504700016" data-element-type="Text" data-is-requirement="" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.0  </span>All alphabetic fields must
+be left-justified and blank-filled. A HEX 40 must be used to represent
+a blank. All alphabetic fields which do not contain data must be
+completely blank-filled.</div></section>
+<section aria-label="Requirement TST504700017" class="requirement" role="region"><div aria-level="2" class="FM1LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TST504700017" data-element-type="Text" data-is-requirement="" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">8.0  </span>All alphanumeric fields must
+be left-justified and blank-filled. A HEX 40 must be used to represent
+a blank. All alphanumeric fields which do not contain data must
+be completely blank-filled.</div></section></section>
+<div class="END" tmaa-izihyxm-tk="">- END -</div></article></div><div hx-swap-oob="true" id="publication-info"><div class="tmaa-stack" role="group" style="--gap: 0;"><div>TRICARE Systems Manual 7950.4-M, April 2021</div>
+<div>Revision 39 (Published Aug 12, 2026)</div>
+<div>Chap 2 -- TRICARE Encounter Data (TED)</div>
+<div>Sect 2.1 -- Data Requirements - Overview</div></div></div><div class="" hx-swap-oob="true" id="publication-in-this-section-wrapper"><div class="card content-panel border-0 mb-4" role="group"><div class="card-header" style=""><h3>In This Section</h3></div><div class="card-body" style=""><div id="publication-in-this-section"><div class="tmaa-stack" role="group" style="--gap: 0;"><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST504700008']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">1.0  This chapter covers the Defense
+Health Agency (DHA) requirements for the presentation of data …</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TST5/Revision/39/FileName/[data-element-id='TST504700013']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">4.0  A data element “FILLER” has
+been included in all Record Layouts to provide for future expansio…</a></div></div></div></div></div>

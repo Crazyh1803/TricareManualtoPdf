@@ -1,97 +1,123 @@
 #!/usr/bin/env python3
-"""Throwaway diagnostic: map the new manuals.dha.mil site structure.
+"""Throwaway diagnostic #2: can we scrape manuals.dha.mil without a browser?
 
-The 2026-09-08 TPT5 run landed on 'Home | TRICARE Manuals' at manuals.dha.mil
-with zero DisplayManualHtmlFile links, which means manuals.health.mil (the
-ASP.NET site the scraper targets) has been replaced. This dumps enough of the
-new site — redirects, rendered links, and any JSON/XHR the page calls — to
-retarget the scraper. Delete once that work is done.
+Probe #1 established the new URL scheme and that the revision number is
+printed on the publication page. This answers the two questions that decide
+how big the scraper rewrite is:
+
+  1. Does a FileName/... URL serve real content to a plain HTTP request, or
+     does it still need Playwright (the old site served plain clients a JS
+     challenge)?
+  2. Is manuals.health.mil dead or redirecting? That decides whether existing
+     app installs degrade gracefully or just fail.
+
+Also dumps the shape of a section page so the content extractor can be
+written, and the revision number of every manual we track.
+Delete once the retarget is done.
 """
-import asyncio, json, sys
-from urllib.parse import urlparse
-
+import re, sys
 import requests
-from playwright.async_api import async_playwright
+from bs4 import BeautifulSoup
 
-OLD = "https://manuals.health.mil/pages/ManualToc.aspx?Manual=TPT5&Change=55"
-NEW = "https://manuals.dha.mil/View-Publication/TPT5"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
+S = requests.Session()
+S.headers.update({"User-Agent": UA})
+
+NEW = "https://manuals.dha.mil"
+CODES = ["TOT5", "TPT5", "TRT5", "TST5", "FR16"]
+REV_RE = re.compile(r"Revision\s+(\d+)\s*\(Published([^)]*)\)", re.I)
 
 
-def probe_redirects():
-    print("\n=== 1. Where does the OLD url go? ===")
-    for url in (OLD, "https://manuals.health.mil/"):
-        try:
-            r = requests.get(url, headers={"User-Agent": UA}, timeout=30, allow_redirects=True)
-            print(f"  {url}")
-            print(f"    -> {r.status_code} {r.url}  ({len(r.content)} bytes)")
-            for h in r.history:
-                print(f"       hop: {h.status_code} {h.url}")
-        except Exception as e:
-            print(f"  {url} -> ERROR {type(e).__name__}: {e}")
+def get(url, **kw):
+    try:
+        return S.get(url, timeout=45, **kw)
+    except Exception as e:
+        print(f"    ERROR {type(e).__name__}: {e}")
+        return None
 
 
-async def probe_new():
-    print("\n=== 2. Rendered NEW publication page ===")
-    xhr = []
-    async with async_playwright() as pw:
-        browser = await pw.chromium.launch(args=["--disable-blink-features=AutomationControlled"])
-        ctx = await browser.new_context(user_agent=UA, viewport={"width": 1440, "height": 900})
-        page = await ctx.new_page()
+def q1_old_domain():
+    print("\n=== Q1. Is manuals.health.mil dead or redirecting? ===")
+    for url in ("https://manuals.health.mil/",
+                "https://manuals.health.mil/pages/ManualToc.aspx?Manual=TPT5&Change=55"):
+        r = get(url, allow_redirects=True)
+        if r is None:
+            continue
+        print(f"  {url}")
+        for h in r.history:
+            print(f"    hop {h.status_code} -> {h.headers.get('location','')}")
+        print(f"    final {r.status_code} {r.url} ({len(r.content)} bytes)")
 
-        async def on_response(resp):
-            ct = (resp.headers or {}).get("content-type", "")
-            if "json" in ct or "/api/" in resp.url.lower():
-                xhr.append((resp.status, resp.url, ct))
 
-        page.on("response", lambda r: asyncio.ensure_future(on_response(r)))
+def q2_plain_http():
+    print("\n=== Q2. Does plain HTTP (no browser) get real content? ===")
+    pub = get(f"{NEW}/View-Publication/TPT5")
+    if pub is None:
+        return None
+    print(f"  publication page: {pub.status_code}, {len(pub.content)} bytes")
+    soup = BeautifulSoup(pub.text, "html.parser")
+    text = soup.get_text(" ", strip=True)
+    m = REV_RE.search(text)
+    print(f"  revision string found in plain HTML: {m.group(0) if m else 'NO'}")
 
-        try:
-            await page.goto(NEW, wait_until="networkidle", timeout=60_000)
-        except Exception as e:
-            print(f"  goto: {e}")
-        await page.wait_for_timeout(6_000)
+    links = [a["href"] for a in soup.find_all("a", href=True) if "/FileName/" in a["href"]]
+    print(f"  /FileName/ links in plain HTML: {len(links)}")
+    if not links:
+        print("  -> plain HTTP does NOT render the link list; a browser is still required.")
+        return None
+    for h in links[:3]:
+        print(f"    e.g. {h}")
 
-        print(f"  final url : {page.url}")
-        print(f"  title     : {await page.title()}")
+    target = links[0]
+    if target.startswith("/"):
+        target = NEW + target
+    print(f"\n  --- fetching one section: {target}")
+    sec = get(target)
+    if sec is None:
+        return None
+    print(f"  {sec.status_code}, {len(sec.content)} bytes, {sec.headers.get('content-type','')}")
+    ssoup = BeautifulSoup(sec.text, "html.parser")
+    stext = ssoup.get_text(" ", strip=True)
+    print(f"  visible text length: {len(stext)}")
+    print(f"  first 400 chars: {stext[:400]!r}")
 
-        hrefs = await page.eval_on_selector_all("a[href]", "els => els.map(e => e.href)")
-        uniq = sorted(set(hrefs))
-        print(f"\n  --- {len(uniq)} unique href(s) ---")
-        for h in uniq:
-            print(f"    {h}")
+    print("\n  --- candidate content containers ---")
+    for sel in ("main", "article", "#content", ".content", "#main-content",
+                ".publication-content", ".manual-content", "table"):
+        found = ssoup.select(sel)
+        if found:
+            print(f"    {sel!r}: {len(found)} node(s), first has "
+                  f"{len(found[0].get_text(strip=True))} chars of text")
+    print("\n  --- top-level structure under <body> ---")
+    body = ssoup.body
+    if body:
+        for child in list(body.children)[:25]:
+            if getattr(child, "name", None):
+                cls = " ".join(child.get("class", []))
+                cid = child.get("id", "")
+                print(f"    <{child.name} id={cid!r} class={cls!r}> "
+                      f"{len(child.get_text(strip=True))} chars")
+    return target
 
-        body = await page.inner_text("body")
-        print("\n  --- lines mentioning Change/Version/Chapter ---")
-        seen = set()
-        for line in body.splitlines():
-            s = line.strip()
-            low = s.lower()
-            if s and s not in seen and any(k in low for k in ("change", "version", "chapter", "revision")):
-                seen.add(s)
-                print(f"    {s[:200]}")
 
-        print(f"\n  --- {len(xhr)} JSON/API response(s) the page fetched ---")
-        for status, url, ct in xhr:
-            print(f"    {status} {ct.split(';')[0]}  {url}")
-
-        # Dump the first JSON payload that looks like manual data
-        for status, url, _ in xhr:
-            if status == 200:
-                try:
-                    r = await ctx.request.get(url)
-                    txt = (await r.text())[:3000]
-                    print(f"\n  --- body of {url} (first 3000 chars) ---")
-                    print(txt)
-                    break
-                except Exception as e:
-                    print(f"    could not re-fetch {url}: {e}")
-
-        await browser.close()
+def q3_revisions():
+    print("\n=== Q3. Current revision of each manual we track ===")
+    for code in CODES:
+        r = get(f"{NEW}/View-Publication/{code}")
+        if r is None:
+            continue
+        soup = BeautifulSoup(r.text, "html.parser")
+        text = soup.get_text(" ", strip=True)
+        m = REV_RE.search(text)
+        n = len([a for a in soup.find_all("a", href=True) if "/FileName/" in a["href"]])
+        title = (soup.title.string or "").strip() if soup.title else ""
+        print(f"  {code}: {m.group(0) if m else 'revision NOT FOUND'} | "
+              f"{n} FileName link(s) | title={title!r}")
 
 
 if __name__ == "__main__":
-    probe_redirects()
-    asyncio.run(probe_new())
+    q1_old_domain()
+    q2_plain_http()
+    q3_revisions()
     print("\nProbe complete.")

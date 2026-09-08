@@ -1,5 +1,8 @@
 package com.tricare.manuals.ui.reader
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tricare.manuals.R
+import com.tricare.manuals.data.network.MirrorClient
 import com.tricare.manuals.databinding.ActivityReaderBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -115,6 +119,30 @@ class ReaderActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Open the section being read on the official government site.
+     *
+     * The app shows a copy taken by the scraper, so a reader needs a way to
+     * reach the authoritative page — both to check anything that matters and
+     * because Google Play flagged the app for presenting government content
+     * without clearly linking its source. Falls back to the manual's own page
+     * when no section is resolved, so the action is never a dead end.
+     */
+    private fun openOfficialPage() {
+        val sections = viewModel.sections.value
+        val section = sections.getOrNull(currentSectionIndex)
+        val url = if (section != null && section.filename.isNotBlank()) {
+            MirrorClient.sourceUrl(section.manualCode, section.change, section.filename)
+        } else {
+            MirrorClient.sourceUrl(manualCode)
+        }
+        try {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        } catch (_: ActivityNotFoundException) {
+            Toast.makeText(this, getString(R.string.source_link_failed), Toast.LENGTH_SHORT).show()
+        }
+    }
+
     private fun showBookmarkSheet() {
         BookmarkSheetFragment.newInstance(manualCode)
             .show(supportFragmentManager, BookmarkSheetFragment.TAG)
@@ -165,6 +193,10 @@ class ReaderActivity : AppCompatActivity() {
             }
             R.id.action_bookmarks_list -> {
                 showBookmarkSheet()
+                true
+            }
+            R.id.action_view_official -> {
+                openOfficialPage()
                 true
             }
             else -> super.onOptionsItemSelected(item)

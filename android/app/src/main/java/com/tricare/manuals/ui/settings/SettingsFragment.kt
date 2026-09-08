@@ -18,6 +18,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.tricare.manuals.R
+import com.tricare.manuals.data.network.MirrorClient
 import com.tricare.manuals.databinding.FragmentSettingsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
@@ -60,6 +61,7 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         setupDarkTheme()
         setupStorageUsed()
         setupDeleteAll()
+        setupOfficialSource()
         setupSupportDeveloper()
         setupVersion()
     }
@@ -174,6 +176,19 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
             }
         }
         return toDelete.count { resolver.delete(it, null, null) > 0 }
+    }
+
+    /** Open the official TRICARE manuals site from Settings > About. */
+    private fun setupOfficialSource() {
+        findPreference<Preference>("official_source")?.setOnPreferenceClickListener {
+            try {
+                startActivity(Intent(Intent.ACTION_VIEW,
+                    Uri.parse(MirrorClient.SOURCE_BASE)))
+            } catch (_: Exception) {
+                // No browser available; nothing useful to fall back to.
+            }
+            true
+        }
     }
 
     private fun setupSupportDeveloper() {

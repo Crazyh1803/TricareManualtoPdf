@@ -20,6 +20,24 @@
             app:title="@string/app_name"
             app:titleTextColor="@android:color/white" />
 
+        <!-- Affiliation disclaimer. Inside the AppBarLayout so it sits
+             directly under the title and is visible on first launch: Google
+             Play flagged the app because the only such notice was in
+             Settings > About. -->
+        <TextView
+            android:id="@+id/text_disclaimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp"
+            android:text="@string/disclaimer_short"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:alpha="0.9" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView

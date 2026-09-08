@@ -2,6 +2,26 @@
 <resources>
     <string name="app_name">TRICARE Manuals</string>
 
+    <!-- Affiliation disclaimer and source attribution.
+         Google Play flagged this app under the Misleading Claims policy: it
+         presents government information without clearly linking the official
+         source, and without stating that it is not a government entity. The
+         only disclaimer was buried in Settings > About. These strings put it
+         where a reader actually sees it, on the manual list and in the reader.
+         Keep the wording explicit — "unofficial", "not affiliated", and the
+         named departments — rather than shortening it. -->
+    <string name="disclaimer_short">Unofficial app · Not affiliated with the U.S. Government</string>
+    <string name="disclaimer_full">This is an unofficial, independently developed app. It is not affiliated with, endorsed by, or maintained by the U.S. Government, the Department of Defense, the Defense Health Agency, or TRICARE. Manual content is reproduced from the official publications at manuals.dha.mil.</string>
+    <string name="disclaimer_source_note">Content is copied from the official TRICARE manuals and may be out of date. Always confirm against the official source before relying on it.</string>
+
+    <!-- Source links back to the authoritative government page -->
+    <string name="action_view_official">View official page</string>
+    <string name="source_official_site">Official source: manuals.dha.mil</string>
+    <string name="source_link_failed">Could not open the official page.</string>
+    <string name="pref_source_title">Official source</string>
+    <string name="pref_source_summary">View these manuals on manuals.dha.mil</string>
+    <string name="pref_disclaimer_title">About this app</string>
+
     <!-- Manual names -->
     <string name="manual_policy">TRICARE Policy Manual</string>
     <string name="manual_reimbursement">TRICARE Reimbursement Manual</string>

@@ -13,4 +13,11 @@
         android:title="@string/action_bookmarks_list"
         app:showAsAction="never" />
 
+    <!-- Links the section being read to the authoritative government page it
+         was copied from. -->
+    <item
+        android:id="@+id/action_view_official"
+        android:title="@string/action_view_official"
+        app:showAsAction="never" />
+
 </menu>

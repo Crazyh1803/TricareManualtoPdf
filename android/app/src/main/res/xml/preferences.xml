@@ -49,8 +49,14 @@
             android:selectable="false" />
 
         <Preference
-            android:title="TRICARE Manuals"
-            android:summary="Unofficial app for offline TRICARE manual access.\nNot affiliated with DoD or TRICARE."
+            android:key="official_source"
+            android:title="@string/pref_source_title"
+            android:summary="@string/pref_source_summary" />
+
+        <Preference
+            android:key="disclaimer"
+            android:title="@string/pref_disclaimer_title"
+            android:summary="@string/disclaimer_full"
             android:selectable="false" />
 
     </PreferenceCategory>

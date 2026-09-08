@@ -24,18 +24,30 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // Only define the release signing config when a keystore is actually
+    // configured. Signing configs are evaluated when the project is configured,
+    // not when a release build runs, so the previous unconditional
+    // file(localProps['storeFile'] ?: '') threw "path may not be null or empty
+    // string" on any machine without local.properties — which meant even
+    // assembleDebug could not be built anywhere but the release machine.
+    def hasKeystore = localProps['storeFile'] as boolean
+
     signingConfigs {
         release {
-            storeFile     file(localProps['storeFile'] ?: '')
-            storePassword localProps['storePassword'] ?: ''
-            keyAlias      localProps['keyAlias']      ?: ''
-            keyPassword   localProps['keyPassword']   ?: ''
+            if (hasKeystore) {
+                storeFile     file(localProps['storeFile'])
+                storePassword localProps['storePassword'] ?: ''
+                keyAlias      localProps['keyAlias']      ?: ''
+                keyPassword   localProps['keyPassword']   ?: ''
+            }
         }
     }
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            // Unsigned when no keystore is present; the release machine still
+            // signs exactly as before.
+            if (hasKeystore) signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

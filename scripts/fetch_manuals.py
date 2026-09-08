@@ -180,10 +180,25 @@ MAX_FAILED_SECTION_RATIO = 0.5
 # are kilobytes, so anything this small is a failure however it was produced.
 MIN_SECTION_CONTENT_CHARS = 200
 
+# The bot-defence interstitial the site serves instead of a document. It is
+# returned with HTTP 200 and a plausible body, so it has to be recognised by
+# its text. Retrying it is pointless — it is a definitive refusal, not a
+# transient error — and backing off three times per section is what turns a
+# blocked run into ten minutes of waiting before the abort guard fires.
+CHALLENGE_MARKERS = (
+    "Please enable JavaScript to view the page content",
+    "Your support ID is",
+)
+
 # If this many sections are attempted and every one comes back empty, stop
 # immediately rather than working through hundreds of doomed requests against
 # a government server before the ratio check fires at the end.
 EARLY_ABORT_SAMPLE = 10
+
+# How many interstitials in a row before giving up on the manual. More than
+# one, so a single odd response does not abandon a run; far fewer than
+# EARLY_ABORT_SAMPLE, because a refused session will not recover on its own.
+CHALLENGE_ABORT_AFTER = 3
 
 # How long to let a section page settle after navigation. The retry pass uses
 # the slower value together with wait_until="networkidle", to give genuinely
@@ -362,6 +377,7 @@ async def fetch_publication(code: str) -> tuple[int | None, str, list[tuple[str,
     publication page is the only place a real title is available.
     """
     url = PUBLICATION_URL.format(code=code)
+    cookies: list[dict] = []
     async with async_playwright() as pw:
         browser, ctx = await _launch_context(pw)
         page = await ctx.new_page()
@@ -383,6 +399,7 @@ async def fetch_publication(code: str) -> tuple[int | None, str, list[tuple[str,
                 "a[href]",
                 "els => els.map(e => [e.getAttribute('href'), (e.innerText || '').trim()])",
             )
+            cookies = await ctx.cookies()
         finally:
             try:
                 await page.close()
@@ -406,6 +423,15 @@ async def fetch_publication(code: str) -> tuple[int | None, str, list[tuple[str,
             continue
         seen.add(full)
         links.append((full, text))
+
+    # Hand the browser's session to the HTTP client. The content endpoint is
+    # behind bot defence that decides per session, not per request: a client
+    # that has not executed the challenge script gets the interstitial, and
+    # our own pre-flight GET was enough to earn a cookie marking us as one.
+    # Chromium runs the challenge as any reader's browser does, so continuing
+    # with its cookies is both the honest thing to send and the thing that
+    # works — the first FR16 run was refused on all 10 sections it tried.
+    adopt_browser_cookies(cookies)
 
     published = ""
     revision: int | None = None
@@ -597,6 +623,11 @@ def unavailable_html(url: str) -> str:
     )
 
 
+def is_challenge_page(html: str) -> bool:
+    """True if the server returned its bot-defence interstitial, not content."""
+    return any(marker in html for marker in CHALLENGE_MARKERS)
+
+
 def is_failed_section(html: str) -> bool:
     """True if this section's content is missing rather than merely short.
 
@@ -604,6 +635,21 @@ def is_failed_section(html: str) -> bool:
     answering 200 with a body that extraction reduces to (almost) nothing.
     """
     return html == RETRIEVAL_FAILED_HTML or len(html.strip()) < MIN_SECTION_CONTENT_CHARS
+
+
+def adopt_browser_cookies(cookies: list[dict]) -> None:
+    """Copy Playwright context cookies into the module's requests session."""
+    added = 0
+    for c in cookies:
+        name, value = c.get("name"), c.get("value")
+        if not name or value is None:
+            continue
+        session.cookies.set(name, value,
+                            domain=c.get("domain") or "",
+                            path=c.get("path") or "/")
+        added += 1
+    if added:
+        print(f"  Carried {added} browser cookie(s) into the HTTP session.")
 
 
 def section_api_url(section_url: str) -> str | None:
@@ -657,6 +703,7 @@ def fetch_sections(code: str, sections: list[dict]) -> tuple[list[tuple[str, str
     content_total = sum(1 for s in sections if not s["isChapterToc"])
     done = 0
     diagnosed = 0
+    consecutive_challenges = 0
 
     # Read before any writes — the loop below only buffers, so the files on
     # disk still hold the previous run's content while we are fetching.
@@ -674,12 +721,18 @@ def fetch_sections(code: str, sections: list[dict]) -> tuple[list[tuple[str, str
         raw = ""
         content = RETRIEVAL_FAILED_HTML
         ok = False
+        challenge = False
         for attempt in range(1, SECTION_FETCH_ATTEMPTS + 1):
             # get() already paces requests and retries transport errors; this
             # outer loop exists for the case that matters more here — a 200
             # whose body extracts to nothing, which the site returns when it
             # serves the bot-defence interstitial instead of the document.
             raw = fetch_section_html(s["url"])
+            if is_challenge_page(raw):
+                # A refusal, not a hiccup: retrying earns three interstitials
+                # instead of one and pushes ~50s of backoff per section.
+                challenge = True
+                break
             if raw.strip():
                 soup = BeautifulSoup(raw, "lxml")
                 # Only fill in a title the publication page could not supply;
@@ -698,8 +751,11 @@ def fetch_sections(code: str, sections: list[dict]) -> tuple[list[tuple[str, str
         if s["isChapterToc"]:
             continue  # title only; chapter TOCs are not stored as files
 
+        consecutive_challenges = consecutive_challenges + 1 if challenge else 0
+
         done += 1
-        print(f"  [{done}/{content_total}] {s['name']}")
+        print(f"  [{done}/{content_total}] {s['name']}"
+              + ("  (refused: bot-defence interstitial)" if challenge else ""))
 
         if not ok:
             failed += 1
@@ -724,6 +780,18 @@ def fetch_sections(code: str, sections: list[dict]) -> tuple[list[tuple[str, str
             time.sleep(FAILED_SECTION_COOLDOWN)
 
         results.append((s["id"], content))
+
+        # Consecutive interstitials mean the session is being refused rather
+        # than throttled, so there is nothing to gain from the rest of the
+        # manual. Counted consecutively, and reset by any success, so an
+        # occasional challenge mid-run does not abandon a scrape that is
+        # otherwise working.
+        if consecutive_challenges >= CHALLENGE_ABORT_AFTER:
+            raise RuntimeError(
+                f"{code}: the server returned its bot-defence interstitial for "
+                f"{consecutive_challenges} sections in a row instead of content "
+                f"— aborting. Leaving existing data untouched."
+            )
 
         # Bail as soon as the run is clearly failing rather than putting
         # hundreds more requests through a government server.

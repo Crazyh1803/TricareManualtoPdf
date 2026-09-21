@@ -1,7 +1,7 @@
 {
   "code": "TOT5",
-  "change": 64,
-  "fetchedAt": "2026-09-14T11:37:31Z",
+  "change": 66,
+  "fetchedAt": "2026-09-21T11:54:17Z",
   "sections": [
     {
       "id": "TOT5TOC",
@@ -937,6 +937,14 @@
       "title": "Sect 12 — Competitive Plans Demonstration (CPD)",
       "chapter": 18,
       "section": "12",
+      "isChapterToc": false
+    },
+    {
+      "id": "C18S13",
+      "name": "C18S13",
+      "title": "Sect 13 — Virtual Value Networks (VVNs) Pilot",
+      "chapter": 18,
+      "section": "13",
       "isChapterToc": false
     },
     {

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-28",
+  "lastUpdated": "2026-09-30",
   "manuals": [
     {
       "code": "TOT5",
@@ -28,26 +28,26 @@
     {
       "code": "TO15",
       "name": "TRICARE Operations Manual (T-2017)",
-      "latestChange": 0,
-      "hasContent": false
+      "latestChange": 166,
+      "hasContent": true
     },
     {
       "code": "TP15",
       "name": "TRICARE Policy Manual (T-2017)",
-      "latestChange": 0,
-      "hasContent": false
+      "latestChange": 166,
+      "hasContent": true
     },
     {
       "code": "TR15",
       "name": "TRICARE Reimbursement Manual (T-2017)",
-      "latestChange": 0,
-      "hasContent": false
+      "latestChange": 94,
+      "hasContent": true
     },
     {
       "code": "TS15",
       "name": "TRICARE Systems Manual (T-2017)",
-      "latestChange": 0,
-      "hasContent": false
+      "latestChange": 102,
+      "hasContent": true
     },
     {
       "code": "FR16",

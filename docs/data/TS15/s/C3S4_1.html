@@ -1,0 +1,660 @@
+
+<div class="row my-3"><article class="TSM" data-manualacronym="TS15" tmaa-izihyxm-tk=""><div class="Header" tmaa-izihyxm-tk="">TRICARE Systems Manual 7950.3-M, April 1, 2015</div>
+<div class="MPChapterTitle" tmaa-izihyxm-tk="">Defense Enrollment Eligibility Reporting System (DEERS)</div>
+<section data-element-id="TS1503400001" data-element-type="Header" tmaa-izihyxm-tk="">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400002" data-element-type="Text" id="FM105577" tmaa-izihyxm-tk="">Chapter 3</div>
+<div class="Section" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400003" data-element-type="Text" id="FM105581" tmaa-izihyxm-tk="">Section <span class="Cross-RefMarker" id="FM44644" tmaa-izihyxm-tk=""></span>4.1</div>
+<div class="Subject" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400004" data-element-type="Text" id="FM105586" tmaa-izihyxm-tk="">Defense
+Enrollment Eligibility Reporting System (DEERS) Concepts</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400005" data-element-type="Text" tmaa-izihyxm-tk="">Revision:  C-82, August 2, 2024</div>
+<div class="Line" tmaa-izihyxm-tk=""></div></section>
+<section data-element-id="TS1503400006" data-element-type="Content" tmaa-izihyxm-tk="">
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400007" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">1.0  Application<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400008" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.1  </span>This section
+provides general guidance for all contractors that interface with
+the DEERS in support of their contractual requirements </div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400009" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.2  </span>See also <span class="Secs" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/FileName/C3S1_1?referenceDate=2026-09-17&amp;bookmark=%23FM20910" hx-get="/api/publication/TS15/102/C3S1_1?referenceDate=2026-09-17&amp;bookmark=%23FM20910" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TS15/FileName/C3S1_1?referenceDate=2026-09-17&amp;bookmark=%23FM20910" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Sections 1.1</a></span> and <span class="Misc-Text" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/FileName/C3S4_2?referenceDate=2026-09-17&amp;bookmark=%23FM50234" hx-get="/api/publication/TS15/102/C3S4_2?referenceDate=2026-09-17&amp;bookmark=%23FM50234" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TS15/FileName/C3S4_2?referenceDate=2026-09-17&amp;bookmark=%23FM50234" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">4.2</a></span>.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340000A" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.3  </span>For the
+purpose of defining geographical areas the 50 United States (U.S.)
+and the District of Columbia are hereafter referred to as the Continental
+United States or CONUS; all areas Outside of CONUS are considered
+OCONUS.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Changed" data-element-format="List" data-element-id="TS150340000B" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.4  </span>This section describes the
+following:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Terminology used within DEERS
+(also, see the TRICARE Operations Manual (TOM), <span class="App" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TO15/FileName/APPA?referenceDate=2026-09-17&amp;bookmark=%23FM42265" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Appendix A</a></span>).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Methodology for identifying
+individuals and their roles within DEERS.</div>
+<div class="BodyLBullet" data-element-change-state="Changed" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Functional data components within
+DEERS (e.g., eligibility, enrollment (Health Care Delivery Program
+(HCDP) plans with premiums/fees, claims<del data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span>,</del>
+<ins data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span> and</ins> Catastrophic
+Cap and Deductible Data (CCDD)<del data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span>, Other Health Insurance
+(OHI)</del>).</div>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400010" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">2.0  Contractor Responsibility<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400011" data-element-type="Text" tmaa-izihyxm-tk="">The contractor shall understand
+and execute the DEERS concepts described in this section. The contractor
+shall consult with DEERS and Defense Health Agency (DHA) if clarification
+is required.</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400012" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.0  DEERS Data Use Concepts<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400013" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.1  </span>All DEERS data provided by
+the Defense Manpower Data Center (DMDC) to the DHA for the use of
+determining medical eligibility, enrollment, and health care claims
+payment are subject to the Privacy Act of 1974, as amended. DEERS
+data includes all data that is provided for test and/or production
+activities.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400014" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.2  </span>Release is made to all globally
+executed TRICARE program support contractors (hereafter referred
+to as “the contractor”) in accordance with the provisions of the
+Privacy Act allowing for intra-department release when an appropriate
+“need to know” exists. As such, the authorized organizations shall
+use the protected Privacy Act data in accordance with the applicable
+provisions of the Privacy Act or the DHA comparable approved or
+accepted security check process for overseas contractors accessible
+by personnel with at least an Automated Data Processing/Information
+Technology-II (ADP/IT-II) designation.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400015" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3  </span>This includes:<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400016" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.1  </span>Granting access only<ins data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span> to</ins> personnel
+(military, civilian, contractor) with a need to know in the official
+performance of their duties, and using the data only for the specific
+purposes agreed to by DMDC and DHA.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400017" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.2  </span>The contractor/organization
+to which these data are provided shall ensure sufficient physical
+and procedural safeguards are in place to satisfy the requirements
+of the Privacy Act.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400018" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.3  </span>The contractor
+shall return data to DMDC or destroy data when the approved use
+has been accomplished. The contractor shall not retain copies.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400019" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.4  </span>The contractor shall first
+submit any additional intended uses through DHA to DMDC for approval
+and shall not proceed until the request is favorably coordinated
+with DMDC.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340001A" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.5  </span>In addition, DMDC only provides
+the DEERS data for specific purposes, such as:<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340001B" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.5.1  </span>Eligibility data is for reporting
+the eligibility of a beneficiary on DEERS as of the time of the eligibility
+inquiry.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340001C" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.5.2  </span>Enrollment data is for the
+authorized enrollment of beneficiaries into valid HCDPs as defined
+under the provisions of the respective Request For Proposal (RFP)/contract.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340001D" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.5.3  </span>Claims data is for the processing
+and resolution of claims submitted for reimbursement of health care
+received.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340001E" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.5.4  </span>CCDD is for the processing
+and resolution of Catastrophic Cap and Deductible (CC&amp;D) information
+resulting from heath care services received.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Deleted" data-element-format="Text" data-element-id="TS150340001F" data-element-type="Text" role="heading" tmaa-izihyxm-tk="">
+<del data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span><span class="Bold" tmaa-izihyxm-tk="">3.3.5.5  </span>OHI and Standard
+Insurance Table (SIT) data is for the processing and resolution
+of OHI resulting of and from heath care services received.</del>
+</div>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400020" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">4.0  DEERS System Overview<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400021" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">4.1  Program Description<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400022" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">4.1.1  </span>DEERS serves as a centralized
+Department of Defense (DoD) data repository of personnel and medical
+data. The DEERS database contains detailed personnel eligibility
+information for benefits and entitlements distribution to Uniformed
+Services members; U. S. sponsored Foreign Military members; DoD
+and Uniformed Services civilians; other personnel as directed by
+the DoD; and their eligible family members. DEERS supports essential
+day-to-day operations in a broad range of functional areas, including
+personnel, benefit entitlements, pharmacy, dental, medical, and
+finance.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400025" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">4.1.2  </span>DEERS is updated by transactions
+from the Uniformed Services’ personnel, finance, medical, and mobilization
+management systems, the Department of Veterans Affairs (DVA)/Veterans Health
+Administration (VHA), and the Centers for Medicare and Medicaid
+Services (CMS). DEERS is also accessed and updated by on-line DEERS
+client applications, such as the Real-Time Automated Personnel Identification
+System (RAPIDS), and interfacing client systems of the Military
+Health System (MHS), such as Market/Military Treatment Facility
+(MTF) clinical, patient appointing, and Referral Management (RM)
+systems/applications. DEERS helps detect and prevent fraud and abuse
+in DoD benefits and entitlements distribution.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400026" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">4.1.3  </span>DEERS provides and receives
+updates to enrollment and eligibility verification data from existing
+DEERS’ applications and interfacing information systems, as well
+as from other DoD, Uniformed Services, and non-DoD information systems,
+in accordance with DoD Directive (DoDD) 8000.01. It provides statistical
+and demographic data to support DoD and Uniformed Services peacetime
+and wartime missions. DEERS maintains casualty identification data
+on members of the Uniformed Services, and other personnel as designated
+by DoD, to support casualty identification and verification of entitlement
+eligibility for surviving family members.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400027" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.0  DEERS System Description<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400028" data-element-type="Text" tmaa-izihyxm-tk="">DEERS is a person-centric system
+that contains information about all DoD beneficiaries plus information
+about some people who are not eligible for DoD benefits. Within
+DEERS, interfaces with external systems are based on commercial
+standards where it supports the business requirements or standardized
+DEERS defined messages where needed. DEERS data provided by DMDC
+to DHA is also considered “Protected Health Information” (PHI) as
+the term is defined in the Health and Human Services (HHS) Health
+Insurance Portability and Accountability Act (HIPAA) Privacy Final
+Rule and accordingly is subject to the requirements of DoD 6025.18-R
+which implements that rule for DoD and through the use of DHA business
+associate agreements to contractors and other non-DoD entities.</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400029" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.0  TRICARE Populations<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340002A" data-element-type="Text" tmaa-izihyxm-tk="">The TRICARE Program serves
+a wide range of beneficiaries holding various statuses throughout
+their lifetime. The following information details the populations
+covered by the TRICARE benefit. The Government may modify the definition
+of the populations as legislation or DHA requires. These populations
+include:</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340002B" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.1  </span>Service members and Active
+Duty Family Members (ADFMs). These may include members from both
+the active duty and RC.<div class="Note" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340002C" data-element-type="Text" role="note" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Note:  </span>The term “active duty” is inclusive
+of full-time active duty and RC on orders for 30 days or more. Plus,
+the term RC includes both the Reserves and National Guard (NG).</div>
+</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340002D" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.2  </span>Transitional Assistance Management
+Program (TAMP) sponsors and family members.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340002E" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.3  </span>Selected Reserve members and
+their family members.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340002F" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.4  </span>Retired
+sponsors and family members. Retirees eligible for retirement pay
+and their family members as well as Medal of Honor (MOH) recipients.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400030" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.5  </span>Survivors of Service members.
+When an active duty sponsor dies (Includes activated NG/Reserve
+members), spouses and children become “transitional survivors.”
+As transitional survivors, surviving family members remain eligible
+for TRICARE as “ADFMs.” This means that health plan options and
+costs will not change. After three years, the surviving spouse's
+coverage will change to be the same as retired family members. Children
+remain covered as active duty family members until they lose eligibility
+due to age or other reasons</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400031" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.6  </span>Survivors
+of retired Service members. If a sponsor dies after retiring from
+active duty (either regular or a medical retirement) their surviving
+family members remain eligible for TRICARE with the same health
+plan options and costs they had before their sponsor passed away.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400032" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.7  </span>Survivors of non-activated
+NG/Reserve members. If an NG or Reserve sponsor dies when not on active
+duty, surviving family members are only eligible for continued TRICARE
+health benefits if the sponsor was covered by TRICARE Reserve Select
+(TRS) or under the TAMP when he or she died.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400033" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.8  </span>Survivors of retired NG or
+Reserve members. If a retired NG or Reserve member dies, surviving family
+members may qualify for TRICARE benefits if the sponsor was covered
+by TRICARE Retired Reserve (TRR) at the time he or she passed away.</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400034" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.0  Identification Schema For Electronic
+Data Interchange (EDI)<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400035" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.1  Primary And Secondary Identifiers<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400036" data-element-type="Text" tmaa-izihyxm-tk="">Person identification in the
+DEERS database is established via the two DoD required identifiers;
+DoD Identification Number and DoD Benefits Number (DBN). See <span class="Sec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/FileName/C3S3_1?referenceDate=2026-09-17&amp;bookmark=%23FM32148" hx-get="/api/publication/TS15/102/C3S3_1?referenceDate=2026-09-17&amp;bookmark=%23FM32148" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TS15/FileName/C3S3_1?referenceDate=2026-09-17&amp;bookmark=%23FM32148" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Section 3.1</a></span> for additional information on beneficiary
+identification. The use of these two identifiers allows for proper
+exchange between systems and software.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400037" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.2  Beneficiary
+Identification<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400038" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.2.1  </span>DEERS is the definitive system
+for person identification for DoD benefits and entitlements. Every
+beneficiary in DEERS that is authorized DoD benefits will have a
+DBN. See also <span class="Para" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/C3S4_1#i99878" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">paragraph 9.3</a></span>.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400039" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.2.2  </span>A person
+may have more than one DBN, stemming from multiple entitlements
+over time and some of these instances are described in <span class="Para" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/C3S4_1#i99878" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">paragraph 9.3</a></span>.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340003A" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.3  Patient Identification<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340003B" data-element-type="Text" tmaa-izihyxm-tk="">As discussed in <span class="Paras" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/C3S4_1#i99878" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">paragraphs 9.3</a></span> and <span class="Misc-Number" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/C3S4_1#i99858" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">9.4</a></span>,
+there are situational difference between a beneficiary and a patient,
+which can affect the data storage/retrieval within the MHS information
+systems. The contractor shall use the DoD Identification Number
+and DBN as identifiers to support their execution of contracted
+health care service delivery.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340003C" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.4  Person
+Identification and Secondary Identification<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS150340003D" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.4.1  </span>Should
+a beneficiary or patient not show a DBN, the contractor shall use
+secondary identifiers. The secondary identifiers are:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Sponsor’s Social Security Number
+(SSN) or DoD Identification Number.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>First three characters of the
+last name.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Date of Birth (DOB).</div>
+</div>
+</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400042" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.4.2  </span>Any one secondary identifier,
+such as the sponsor SSN, could be duplicated across several beneficiaries.
+Therefore, the contractor shall positively identify each beneficiary
+using a DMDC interface/application and at least two secondary identifiers.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400043" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">8.0  Types Of Data That DEERS Uses
+And Stores<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400044" data-element-type="Text" tmaa-izihyxm-tk="">DEERS
+stores different categories of information, including Person/Personnel,
+Beneficiary, and Health Care Benefit. Each is detailed below.</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400045" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">8.1  Person/Personnel Information<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400046" data-element-type="Text" tmaa-izihyxm-tk="">This is basic characteristic
+data about individuals, including both affiliations to DoD organizations
+or organizations designated by DoD, and affiliations within family
+units. Although historical data is available for longitudinal studies
+and demographic trend analysis, only current data is required for
+day-to-day health care operations.</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS1503400047" data-element-type="Text" role="heading" tmaa-izihyxm-tk="">8.1.1  Person
+Data<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Primary (internal) identification
+- A mutually agreed-upon internal identifier shared between the repository
+and DoD approved external interfacing systems, i.e., Electronic
+Data Interchange Personal Identifier (EDIPI), also known as the
+DoD Identification Number.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Secondary (external) identification
+- Name, DOB, and SSN (contractors use of SSN is by DEERS and DHA
+approval only).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>General characteristics - Sex,
+blood type, etc.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Person-based programs - Organ
+donor.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Family association - Self,
+child, etc.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Contact information - Address,
+telephone number.</div>
+</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS150340004F" data-element-type="Text" role="heading" tmaa-izihyxm-tk="">8.1.2  Personnel
+Data<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Personnel category - active
+duty, reserve, retired, etc.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Service or organization - Army,
+Navy, DoD civilians, etc.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Position - Rank.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Personnel readiness programs
+- Deoxyribonucleic Acid (DNA), blood type.</div>
+</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400055" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">8.2  Beneficiary Information<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400056" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">8.2.1  </span>This information combines the
+underlying rules-based system that captures DoDI 1000.13 “Identification
+(ID) Cards for Members of the Uniformed Services, Their Dependents,
+and Other Eligible Individuals” and other applicable regulations
+and procedures with enrollment information, as maintained by the
+MHS community. When the beneficiary is eligible for DoD benefits,
+they will have a DBN. This data is provided for past, current, and
+future periods from the inquiry date, and consists of specific HCDP
+information.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Changed" data-element-format="List" data-element-id="TS1503400057" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">8.2.2  </span>Examples of this information
+are:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoD HCDPs: DoD HCDPs are defined
+by DEERS as the methods of providing basic health benefits. These
+HCDPs indicate eligibility and/or enrollment for the following.
+(examples only); TRICARE Pharmacy (TPharm), TRICARE Prime, TRICARE
+Plus, TRS, and Continued Health Care Benefit Program (CHCBP).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Other Government Programs (OGPs):
+DEERS defines OGP as programs or plans provided and supported by
+a U.S. Government agency other than the DoD.</div>
+<div class="BodyLBullet" data-element-change-state="Deleted" role="listitem" tmaa-izihyxm-tk="">
+<del data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span><span class="Bold" tmaa-izihyxm-tk="">•  </span>Commercial
+OHI: OHI information is stored in DEERS to support third party collections.</del>
+</div>
+</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340005C" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">8.3  Health Care Benefit Information<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340005D" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">8.3.1  General Policy<div class="BodyL" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS150340005E" data-element-type="Text" tmaa-izihyxm-tk="">Examples of health care benefit
+information that DEERS tracks on a policy level include:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Enrollment fee accumulation
+and fee details (including fee exceptions).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Deductible accumulation.</div>
+</div>
+</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400062" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">8.3.2  Person Related<div class="BodyL" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS1503400063" data-element-type="Text" tmaa-izihyxm-tk="">
+<del data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span>Examples</del>
+<ins data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span>An
+example</ins> of health care benefit information that DEERS
+tracks on a person level<del data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span> include:</del>
+<ins data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span> is enrollment
+fee waiver information.</ins>
+<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Deleted" role="listitem" tmaa-izihyxm-tk="">
+<del data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span><span class="Bold" tmaa-izihyxm-tk="">•  </span>Enrollment
+fee waiver information.</del>
+</div>
+<div class="BodyLBullet" data-element-change-state="Deleted" role="listitem" tmaa-izihyxm-tk="">
+<del data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span><span class="Bold" tmaa-izihyxm-tk="">•  </span>OHI.</del>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400067" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">9.0  Specific DEERS Beneficiary
+Roles<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400068" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">9.1  Person Role<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400069" data-element-type="Text" tmaa-izihyxm-tk="">An individual exists within
+DEERS as a person who may have multiple roles, including but not
+limited to: a sponsor, a family member, a beneficiary, and a patient.
+This implies the existence of certain attributes tied to a person
+that do not normally change as his or her role within the system
+changes. For example, a person has a name, DOB, weight, height,
+hair color, eye color, and an SSN. These attributes make up the
+information associated with the primary person identifier DoD Identification
+Number. Both sponsor and family member are possible but not mutually
+exclusive roles of a person in the DEERS database. The family member
+role is supported by person association and condition data that
+is cross-referenced to the family member’s sponsor. This family
+affiliation is associated with the DBN identifier.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340006A" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">9.2  Sponsor And Family Member Roles<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340006B" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">9.2.1  </span>A sponsor is any person who,
+as a direct affiliate or Service member of an organization within
+the DoD, is entitled to benefits from the DoD and who, through that
+affiliation or membership, may entitle his or her family members
+to benefits. Members of non-DoD organizations whose employees are
+authorized DoD benefits are also sponsors, and often accord eligibility
+to their family members.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340006C" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">9.2.2  </span>Unremarried
+Former Spouses (URFSs) who meet eligibility requirements are considered sponsors
+and are identified by their individual identifiers; DoD Identification
+Number and DBN. TRICARE entitlement for an URFS is ended with the
+existence of an employer sponsored health plan. The contractor can
+identify an URFS on the DEERS claims response from their DoD Identification Number
+and/or DBN.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340006D" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">9.2.3  </span>Abused family members also have
+a distinct member category (reflected in the DBN) indicating their
+status.<del data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span> The presence of OHI does not remove an abused
+family member’s entitlement to TRICARE (see 32 CFR 199).</del>
+</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340006E" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">9.2.4  </span>DEERS defines which relationships
+to sponsors make individual family members eligible for benefits.
+Some restrictions that influence the definition of a child family
+member include age, degree of support by the sponsor, physical disability,
+and educational status.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340006F" data-element-type="Outline" id="i99878" role="heading" tmaa-izihyxm-tk="">9.3  <span class="Cross-RefMarker" id="FM17976" tmaa-izihyxm-tk=""></span>Beneficiary
+Role - Multiple Entitlements/Dual Eligibility<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400070" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">9.3.1  </span>DEERS
+considers both sponsors and family members as beneficiaries (i.e.,
+recipients of DoD benefits). The role of beneficiary is ambiguous,
+a person may be entitled to DoD benefits via his or her simultaneous
+association to more than one sponsor or by being a sponsor in one
+family while being a member of another. An example is a person that
+is a family member in two sponsored families at the same time. This
+situation occurs when both spouses in a family are sponsors. This
+condition is known as multiple entitlements. DEERS supports multiple
+entitlements by not only storing persons but any combination of
+their current and past associations.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400071" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">9.3.2  </span>Entitlement
+periods may be sequential, such as when a son or daughter of a sponsor
+joins a Uniformed Service and he or she becomes a sponsor. Becoming
+a sponsor terminates the individual’s previous eligibility for benefits
+as a family member.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400072" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">9.3.3  </span>In some
+cases, the roles leading to multiple entitlements may change back
+and forth. For example, a child of a married reservist who moves
+in and out of active duty assignments may have transitory periods
+of entitlement to health care benefits under each sponsor. Each
+sponsor in this family has the potential to provide health care
+benefits for the family member (child) for various periods of time.
+Therefore, this multiple-entitled child will reflect different DBNs
+for each sponsorship/situation and the contractor shall ensure they
+have the correct DBN for the health care service encounter being reviewed
+or executed. The concept of dual eligibility occurs when multiple
+entitlements are concurrent. This situation can occur when a sponsor
+is both a retired sponsor and a civil servant on overseas assignment.
+The beneficiary would have a coverage plan as the retired sponsor
+and another coverage plan as the civil servant. Hence, dual eligibility
+results when a person is associated with more than one DoD affiliation.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400073" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">9.3.4  </span>All instances of family membership
+and/or sponsorship are stored as the DBN. See <span class="Sec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/FileName/C3S3_1?referenceDate=2026-09-17&amp;bookmark=%23FM32148" hx-get="/api/publication/TS15/102/C3S3_1?referenceDate=2026-09-17&amp;bookmark=%23FM32148" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TS15/FileName/C3S3_1?referenceDate=2026-09-17&amp;bookmark=%23FM32148" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Section 3.1</a></span> for
+additional information on beneficiary identification. All information
+about TRICARE enrollments and policies to and from DEERS and the
+contractor shall be done using the DoD Identification Number and/or
+DBN (as prescribed by DEERS and DHA). Updates of all other secondary
+attributes including SSN (on DEERS/DHA approval), Name, or DOB are
+exchanged using the DoD Identification Number and/or DBN (as prescribed
+by DEERS and DHA) as the primary means of identification.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400074" data-element-type="Outline" id="i99858" role="heading" tmaa-izihyxm-tk="">9.4  <span class="Cross-RefMarker" id="FM38149" tmaa-izihyxm-tk=""></span>Patient
+Role<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400075" data-element-type="Text" tmaa-izihyxm-tk="">The patient role results from
+an association or interaction between a person and a DoD health
+care delivery provider (Note: Civilian providers contracted by a
+TRICARE Program support contractor are considered DoD health care
+delivery providers.). It is important to note that a person is not
+required to be currently eligible for DoD benefits to be considered
+a patient. For example, the patient may have been a beneficiary
+in the past but is no longer eligible for DoD benefits. In certain
+cases, an individual who is not an authorized DoD beneficiary may
+be treated in an emergency situation at a DoD Market/MTF, and is
+therefore a patient. Persons on DEERS and on clinical systems within
+the DoD are identified in the patient role by the DoD Identification
+Number. The contractor shall exchange all clinical data by using
+the DoD Identification Number. Thus, in addition to the DBN, the
+contractor shall also store the DoD Identification Number associated
+with each beneficiary on their database.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400076" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">9.5  Beneficiary Roles Within HCDPs<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400077" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">9.5.1  Subscriber Role<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400078" data-element-type="Text" tmaa-izihyxm-tk="">A subscriber is an individual
+who is the primary holder of a DoD policy (i.e., the primary holder
+of a DoD entitlement) for health care benefits based on his or her
+affiliation with the DoD. The subscriber is the sponsor.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400079" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">9.5.2  Insured Role<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340007A" data-element-type="Text" tmaa-izihyxm-tk="">An insured is an individual
+who is covered by a Uniformed Services health benefits program (i.e.,
+an HCDP) for health care coverage. The individual is entitled to
+these programs based upon his or her association to a subscriber.
+A person may be both a subscriber and an insured. For example, under TRICARE
+Prime Individual Coverage for Retired Sponsors and Family Members,
+the sponsor is both the subscriber and an insured. However, other
+sponsors may be a subscriber and not be an insured. For example,
+a sponsor on active duty may be the subscriber for his or her family
+members that are insured under TRICARE Prime Family Coverage for
+ADFMs.</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340007B" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">9.6  Sponsor,
+Subscriber, Beneficiary, And Insured Roles<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340007C" data-element-type="Text" tmaa-izihyxm-tk="">As a sponsor, the person may
+also be the subscriber who holds the DoD “policy” for health care benefits.
+As a beneficiary, the person may also be an insured who is covered
+by a DoD “policy” for health care benefits.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340007D" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">9.7  Family Member, Beneficiary,
+and Insured Roles<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340007E" data-element-type="Text" tmaa-izihyxm-tk="">As a sponsor,
+the person may also be the subscriber who holds the DoD policy for
+health care benefits. Another person, through associations and relationships,
+may be a family member to the sponsor, which implies a role as a
+beneficiary. As a beneficiary, the person may also be an insured
+who is covered by a DoD policy for health care benefits.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340007F" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.0  TYPES OF HCDP PLANS<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400080" data-element-type="Text" tmaa-izihyxm-tk="">HCDP plans are methods of providing
+pharmacy, dental, and medical benefits. Coverage under these programs
+may be either individual or family, depending on the number of beneficiaries
+enrolled and beneficiaries’ affiliation to the sponsor, as well
+as the program definition.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400081" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.1  </span>There
+are two types of plans within DEERS: Assigned and Enrolled.<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400082" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.1.1  </span>Assigned plans represent the
+base entitlement of a beneficiary (e.g., TRICARE For Life (TFL) and
+Pharmacy). Dental plans (e.g., TRICARE Dental Program (TDP), is
+done by enrollment and thus not assigned (see <span class="Paras" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/C3S4_1#i100145" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">paragraphs 10.1.2</a></span> and <span class="Misc-Number" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/C3S4_1#i100156" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">10.3</a></span>).
+Assigned plans are based on a sponsor’s affiliation to a DoD organization
+(e.g., Army active duty); therefore, when a sponsor’s DoD affiliation
+changes (e.g., Army active duty to Army Reserves), a new assigned
+plan is created for both the service member and family members. </div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400083" data-element-type="Text" id="i100145" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.1.2  </span><span class="Cross-RefMarker" id="FM63853" tmaa-izihyxm-tk=""></span>Enrolled
+plans represent another level of benefit into which the beneficiary
+has elected enrollment (e.g., TDP, TRICARE Prime, TRICARE Select,
+TRS, TRICARE Young Adult (TYA), etc).</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400084" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.2  Pharmacy HCDP (Assigned And
+Enrolled)<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400085" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.2.1  </span>The contractor shall implement
+a system that allows changes to pharmacy plans and HCDP plan coverage
+codes as legislation and regulation require.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400086" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.2.2  </span>TPharm benefits, assigned only
+at this time.<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400087" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.2.2.1  </span>The TPharm benefit includes
+Market/MTF, mail order, and retail prescription services, medications
+provided by physicians and other appropriate clinicians, and pharmaceutical
+agents provided in support of home health care.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400088" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.2.2.2  </span>The TPharm Benefits Program is
+available to all TRICARE eligible beneficiaries. Eligible beneficiaries
+need not enroll in order to use the pharmacy program. The TPharm
+contractor shall use DEERS to verify TRICARE eligibility prior to
+dispensing pharmaceuticals (or paying any claim) for all beneficiaries.
+The TPharm contractor shall<del data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span> also</del>
+<ins data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span> develop,
+maintain, and</ins> update pharmacy<ins data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span> Other Health Insurance
+(</ins>OHI<ins data-revision="82" datetime="2024-08-02" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 82, August 2, 2024: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 82, August 2, 2024" tmaa-izihyxm-tk=""></span>) (see TOM, <span class="ChapSec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TO15/FileName/C8S1?referenceDate=2026-09-17&amp;bookmark=%23FM69148" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter 8, Section 1</a></span>)</ins> and CC&amp;D.</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400089" data-element-type="Outline" id="i100156" role="heading" tmaa-izihyxm-tk="">10.3  <span class="Cross-RefMarker" id="FM21530" tmaa-izihyxm-tk=""></span>Dental
+HCDP (Assigned And Enrolled)<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340008A" data-element-type="Text" tmaa-izihyxm-tk="">The contractor shall implement
+a system that allows changes to dental plans and HCDP plan coverage codes
+as legislation and regulation require.</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340008B" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.3.1  Active
+Duty Dental Program (ADDP) (And Associated Remote Active Duty Dental Program
+(RADDP))<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340008C" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.3.1.1  </span>The ADDP provides worldwide
+dental coverage to all Service Members of the Uniformed Services,
+eligible members of the Reserves and NG, and those Foreign Force
+Members (FFMs) eligible for care pursuant to an approved agreement
+(e.g., reciprocal health care agreement, North Atlantic Treaty Organization
+(NATO) Status of Forces Agreement (SOFA), Partnership for Peace
+(PFP) SOFA). The Uniformed Services include the U.S. Army, the U.S.
+Navy, the U.S. Air Force, the U.S. Marine Corps, the U.S. Space
+Force, the U.S. Coast Guard, the Commissioned Corps of NOAA, and
+the Commissioned Corps of USPHS. The Commissioned Corps of the USPHS
+is not included in this program. The ADDP contractor shall supplement
+care provided in the DoD’s Dental Treatment Facilities (DTFs), and
+shall provide care to those Service members living in regions without
+access to DTFs (i.e., RADDP).</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS150340008D" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.3.1.2  </span>The ADDP has two components:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Service members referred from
+military DTFs for civilian dental care; and</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Service members with a duty
+location and residence greater than 50 miles from a DTF will be required
+to comply with the requirements and limitations of the RADDP before
+receiving dental care.</div>
+</div>
+</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400091" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.3.2  TDP<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400092" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.3.2.1  </span>The TDP is a voluntary dental
+insurance program that is available to ADFMs, Selected Reserve and
+Individual Ready Reserve (IRR) members, and their eligible family
+members. </div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400093" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.3.2.2  </span>TDP offers worldwide (CONUS
+and OCONUS) coverage to all eligible family members of Uniformed
+Service active duty personnel and to members of the Selected Reserve
+and IRR and their eligible family members. Service Members, former
+spouses, parents, in-laws, disabled veterans, foreign personnel,
+and retirees and their families are not eligible for the TDP. </div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400094" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.3.3  TRICARE Retiree Dental Program
+(TRDP)<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400095" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.3.3.1  </span>The TRDP was authorized by
+Congress to provide a basic dental program for Uniformed Services
+retirees and their family members. Further legislation has allowed
+the program to be enhanced to include more comprehensive coverage.
+The TRDP is a voluntary dental benefits program with enrollee-paid
+premiums.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400096" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.3.3.2  </span>The TRDP offers coverage to
+all eligible personnel retired from the Uniformed Services, unremarried
+surviving spouses, eligible dependents, and former members of the
+armed forces who are MOH recipients and their immediate dependents.
+The TRDP currently has two programs: the Basic program which is
+closed to new enrollments and the Enhanced program to which all
+TRDP enrollees shall be enrolled. The TRDP is a worldwide program.
+The TRDP Basic program offers coverage for dental services rendered
+in CONUS, Puerto Rico, Guam, the U.S. Virgin Islands, American Samoa,
+the Commonwealth of the Northern Mariana Islands, and Canada. TRDP
+enhanced program benefits are offered worldwide.</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400097" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.4  Medical HCDP (assigned and
+enrolled)<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400098" data-element-type="Text" tmaa-izihyxm-tk="">The contractor
+shall implement a system that allows changes to medical health care
+plans and HCDP plan coverage codes as legislation and regulation
+require.</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1503400099" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.4.1  Assigned Plans<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340009A" data-element-type="Text" tmaa-izihyxm-tk="">These plans are the defaults
+assigned by DEERS for beneficiaries based on their eligibility status. Assigned
+plans do not require enrollment actions.</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340009B" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.4.1.1  Service
+Members - TRICARE Prime, No Primary Care Manager (PCM) Selected<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340009C" data-element-type="Text" tmaa-izihyxm-tk="">TRICARE Prime for Active Duty
+Sponsors, No PCM Assigned is the default coverage assigned by DEERS for
+active duty sponsors. They are entitled to Direct Care (DC), Civilian
+Health Care (CHC) under the Supplemental Health Care Program (SHCP),
+and pharmacy benefits. This plan is the default for Service members
+who are not enrolled in a specific Market/MTF or TRICARE Prime Remote
+(TPR). These enrollees are deemed TRICARE Prime but do not have
+a PCM.</div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150340009F" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.4.1.2  DC
+Only<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15034000A0" data-element-type="Text" tmaa-izihyxm-tk="">This plan identifies beneficiaries
+who are entitled only to DC in Markets/MTFs, on a space available
+basis or under TRICARE Plus enrollment (see the TOM). This is the
+assigned plan for all non-active duty beneficiaries. Examples of
+this population include dependent parents and parents-in-law, or
+Non-Active Duty Family Members (NADFMs) who are eligible for Medicare
+benefits that do not have both Medicare Parts A and B.</div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15034000A1" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.4.1.3  TRICARE
+For Life (TFL)<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15034000A2" data-element-type="Text" tmaa-izihyxm-tk="">Beneficiaries
+eligible for TRICARE under 10 USC 1086(d) with Medicare Parts A
+and B are eligible for the TFL benefit.</div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15034000A3" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.4.1.4  Care
+Plans for DoD Affiliates<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15034000A4" data-element-type="Text" tmaa-izihyxm-tk="">DoD affiliates
+are a conglomerate category of individuals entitled to DC or CHC
+at different levels than the groups defined in other HCDPs. The
+most commonly defined DoD Affiliates follow (may not be all-inclusive):</div>
+<div aria-level="6" class="FM5LevelNT" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS15034000A5" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.4.1.4.1  </span>DC within the CONUS DoD Affiliates.
+This health care plan is available for the following population(s):<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>NATO Sponsored, PFP, and NATO
+non-sponsored Foreign Military and their family members.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Non-NATO sponsored Foreign
+Military and their family members.</div>
+</div>
+</div>
+<div aria-level="6" class="FM5LevelNT" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS15034000A9" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">10.4.1.4.2  </span>DC For OCONUS DoD Affiliates.
+This health care plan is available for the following population(s):<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>NATO and non-NATO Foreign Military
+and their family members.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Civilian personnel of DoD and
+other Government agencies and their accompanying family members.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Civilian contractors under
+contract to the DoD or the Uniformed Services.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Uniformed and non-uniformed
+full-time personnel of the Red Cross and their family members.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>United Service Organization
+(USO) area executives, center directors, and assistant directors
+and their family members.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>United Seaman’s Service (USS)
+personnel and their accompanying family members.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Military Sealift Command (MSC)
+Civil Service personnel.</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15034000B2" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.4.2  Enrolled Plans<div class="BodyL" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS15034000B3" data-element-type="Text" tmaa-izihyxm-tk="">See the TRICARE Policy Manual
+(TPM) and TOM for types of CONUS and OCONUS plans and eligibility requirements.
+They include:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TRICARE Prime (Service member)</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TRICARE Select</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TPR (Service member)</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TRICARE Prime</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TPRADFM</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TRICARE Plus</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>USFHP</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>CHCBP</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TRS Program</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TRR Program</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TYA Standard (Effective January
+1, 2018, TYA Select)</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TYA Prime</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15034000C1" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">10.5  Special Health Care Programs<div class="BodyL" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS15034000C2" data-element-type="Text" tmaa-izihyxm-tk="">DEERS supports any special
+health care program mandated by the DoD. These special health care programs
+are programs into which a beneficiary can enroll or register concurrently
+with other assigned or enrolled health care coverage plans to which
+they are entitled. The contractor may also use a Government furnished
+web-based general inquiry of DEERS system/application to obtain
+special program coverage information. See the TPM and the TOM for
+details regarding these special programs. They include, but may
+not be limited to:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TRICARE Extended Care Health
+Option (ECHO).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Wounded Ill and Injured (WII).</div>
+</div>
+</div>
+</div>
+</div></section>
+<div class="END" tmaa-izihyxm-tk="">- END -</div></article></div><div hx-swap-oob="true" id="publication-info"><div class="tmaa-stack" role="group" style="--gap: 0;"><div>TRICARE Systems Manual 7950.3-M, April 2015</div>
+<div>Revision 102 (Published Sep 17, 2026)</div>
+<div>Chap 3 -- Defense Enrollment Eligibility Reporting System (DEERS)</div>
+<div>Sect 4.1 -- Defense Enrollment Eligibility Reporting System (DEERS) Concepts</div></div></div><div class="" hx-swap-oob="true" id="publication-in-this-section-wrapper"><div class="card content-panel border-0 mb-4" role="group"><div class="card-header" style=""><h3>In This Section</h3></div><div class="card-body" style=""><div id="publication-in-this-section"><div class="tmaa-stack" role="group" style="--gap: 0;"><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1503400007']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">1.0  Application</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1503400010']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">2.0  Contractor Responsibility</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1503400012']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">3.0  DEERS Data Use Concepts</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1503400020']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">4.0  DEERS System Overview</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1503400027']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">5.0  DEERS System Description</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1503400029']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">6.0  TRICARE Populations</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1503400034']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">7.0  Identification Schema For Electronic
+Data Interchange (EDI)</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1503400043']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">8.0  Types Of Data That DEERS Uses
+And Stores</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1503400067']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">9.0  Specific DEERS Beneficiary
+Roles</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS150340007F']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">10.0  TYPES OF HCDP PLANS</a></div></div></div></div></div>

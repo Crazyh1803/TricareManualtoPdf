@@ -1,0 +1,1136 @@
+
+<div class="row my-3"><article class="TSM" data-manualacronym="TS15" tmaa-izihyxm-tk=""><div class="Header" tmaa-izihyxm-tk="">TRICARE Systems Manual 7950.3-M, April 1, 2015</div>
+<div class="MPChapterTitle" tmaa-izihyxm-tk="">General Automated Data Processing (ADP) Requirements</div>
+<section data-element-id="TS1500600001" data-element-type="Header" tmaa-izihyxm-tk="">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500600002" data-element-type="Text" id="FM144158" tmaa-izihyxm-tk="">Chapter 1</div>
+<div class="Addendum" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500600003" data-element-type="Text" id="FM144162" tmaa-izihyxm-tk="">Addendum <span class="Cross-RefMarker" id="FM65887" tmaa-izihyxm-tk=""></span>A</div>
+<div class="AddendumTitle" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500600004" data-element-type="Text" id="FM144167" tmaa-izihyxm-tk="">Defense Finance And Accounting
+Service (DFAS) Allotment Record Layouts For Defense Health Agency
+(DHA) Contracts</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500600005" data-element-type="None" tmaa-izihyxm-tk="">Revision:  </div>
+<div class="Line" tmaa-izihyxm-tk=""></div></section>
+<section data-element-id="TS1500600006" data-element-type="Content" tmaa-izihyxm-tk="">
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500600007" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">1.0  Input Data<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500600008" data-element-type="Text" tmaa-izihyxm-tk="">Input data includes a header
+record, detail records and control record. First position in all
+header records is <span class="Bold" tmaa-izihyxm-tk="">H</span> and the first position in all control
+or summary records contains an <span class="Bold" tmaa-izihyxm-tk="">S</span>.</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TS1500600009" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">Data Element
+Definition</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:21.153846153846153%" tmaa-izihyxm-tk=""/>
+<col style="width:7.6923076923076925%" tmaa-izihyxm-tk=""/>
+<col style="width:38.46153846153846%" tmaa-izihyxm-tk=""/>
+<col style="width:32.69230769230769%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  Input Data - Header - Record</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">01 HEADER - RECORD</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">HEADER-DATE-CCYYMMDD</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (8)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (91)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TS150060001A" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">Data Element
+Definition</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:21.153846153846153%" tmaa-izihyxm-tk=""/>
+<col style="width:7.6923076923076925%" tmaa-izihyxm-tk=""/>
+<col style="width:38.46153846153846%" tmaa-izihyxm-tk=""/>
+<col style="width:32.69230769230769%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  Input Data - Detail - Record</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">01 DETAIL - RECORD</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">RECORD-ID</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">MEMBER-SSN</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">10 SSN-1 TO 7</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (7)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">10 SSN-TD</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (2)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">MEMBER-STATUS</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">BRANCH-SERVICE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">MEMBER-SHORT-NAME</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (5)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">MEMBER-LAST-NAME</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (15)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">MEMBER-FIRST-MID-NAME</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (7)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">TRANS-CODE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC 9</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (6)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">EFF-DATE-CCYMMDD</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC 9 (8)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DISCONT-DATE-CCYYMMDD</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC 9 (8)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">MONTHLY-AMOUNT</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC 9 (4)V99</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ORIGINAL-AMOUNT</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC 9(4)V99</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (5)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PURPOSE-CODE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">ACCOUNT-NUMBER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC 9(17)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TS1500600073" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">Data Element
+Definition</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:21.153846153846153%" tmaa-izihyxm-tk=""/>
+<col style="width:7.6923076923076925%" tmaa-izihyxm-tk=""/>
+<col style="width:38.46153846153846%" tmaa-izihyxm-tk=""/>
+<col style="width:32.69230769230769%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  Input Data - Control - Record</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">01 CONTROL - RECORD</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">SUMMARY</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">CONTROL-ITEMS</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (7)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (92)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500600084" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">2.0  Reject Reports<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500600085" data-element-type="Text" tmaa-izihyxm-tk="">Reject data includes a header
+record, no match/reject records and control record.</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TS1500600086" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">Data Element
+Definition</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:21.153846153846153%" tmaa-izihyxm-tk=""/>
+<col style="width:7.6923076923076925%" tmaa-izihyxm-tk=""/>
+<col style="width:38.46153846153846%" tmaa-izihyxm-tk=""/>
+<col style="width:32.69230769230769%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  Reject Data - Header - Record</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">01 HEADER - RECORD</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">HEADER-DATE-CCYYMMDD</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (8)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (91)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TS1500600097" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">Data Element
+Definition</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:21.153846153846153%" tmaa-izihyxm-tk=""/>
+<col style="width:7.6923076923076925%" tmaa-izihyxm-tk=""/>
+<col style="width:38.46153846153846%" tmaa-izihyxm-tk=""/>
+<col style="width:32.69230769230769%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  Reject Data - Nomatch-Detail
+- Record</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">01 NOMATCH-DETAIL - RECORD</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (2)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NOMATCH-SSN</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC 9 (9)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NOMATCH-SHORT-NAME</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (5)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NOMATCH-EFF-DATE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X(8)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NOMATCH-REASON</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NOMATCH-PREMIUM</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X 9(6)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NOMATCH-BRANCH</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">NOMATCH-MEM-STATUS</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TS15006000C8" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">Data Element
+Definition</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:21.153846153846153%" tmaa-izihyxm-tk=""/>
+<col style="width:7.6923076923076925%" tmaa-izihyxm-tk=""/>
+<col style="width:38.46153846153846%" tmaa-izihyxm-tk=""/>
+<col style="width:32.69230769230769%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  Reject Data - Control - Record</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">01 CONTROL- RECORD</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">05 </div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">SUMMARY</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">CONTROL-ITEMS</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X(7)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (92)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15006000D9" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.0  Deduction Reports<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15006000DA" data-element-type="Text" tmaa-izihyxm-tk="">Deducts data and includes a
+header record, deducts records and control record.</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TS15006000DB" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">Data Element
+Definition</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:21.153846153846153%" tmaa-izihyxm-tk=""/>
+<col style="width:7.6923076923076925%" tmaa-izihyxm-tk=""/>
+<col style="width:38.46153846153846%" tmaa-izihyxm-tk=""/>
+<col style="width:32.69230769230769%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  Deduct Data - Header - Record</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">01 HEADER - RECORD</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">HEADER-DATE-CCYYMMDD</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (8)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (91)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TS15006000EC" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">Data Element
+Definition</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:21.153846153846153%" tmaa-izihyxm-tk=""/>
+<col style="width:7.6923076923076925%" tmaa-izihyxm-tk=""/>
+<col style="width:38.46153846153846%" tmaa-izihyxm-tk=""/>
+<col style="width:32.69230769230769%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  Deduct Data - Nomatch-Detail
+- Record</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">01 DEDUCT-REPORT-DETAIL
+- RECORD</span></div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (2)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DEDUCT-SSN</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC 9 (9)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DEDUCT-SHORT-NAME</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (5)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DEDUCT-EFF-DATE</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X(8)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DEDUCT-REASON</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DEDUCT-PREMIUM</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X 9(6)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DEDUCT-BRANCH</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">DEDUCT-MEM-STATUS</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="EleDefTbl" data-element-change-state="Unchanged" data-element-id="TS150060011D" data-element-type="Text" tmaa-izihyxm-tk="">
+<caption tmaa-izihyxm-tk=""><span class="CellHeadingC" tmaa-izihyxm-tk="">Data Element
+Definition</span></caption>
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:21.153846153846153%" tmaa-izihyxm-tk=""/>
+<col style="width:7.6923076923076925%" tmaa-izihyxm-tk=""/>
+<col style="width:38.46153846153846%" tmaa-izihyxm-tk=""/>
+<col style="width:32.69230769230769%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th colspan="4" tmaa-izihyxm-tk="">
+<div class="ElementName" tmaa-izihyxm-tk="">ELEMENT NAME:  Deduct Data - Control - Record</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td colspan="4" tmaa-izihyxm-tk="">
+<div class="CellHeading9L" tmaa-izihyxm-tk="">01 CONTROL- RECORD</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">SUMMARY</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">CONTROL-ITEMS</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X(7)</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk=""></div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9C" tmaa-izihyxm-tk="">05</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">FILLER</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBody9L" tmaa-izihyxm-tk="">PIC X (92)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></section>
+<div class="END" tmaa-izihyxm-tk="">- END -</div></article></div><div hx-swap-oob="true" id="publication-info"><div class="tmaa-stack" role="group" style="--gap: 0;"><div>TRICARE Systems Manual 7950.3-M, April 2015</div>
+<div>Revision 102 (Published Sep 17, 2026)</div>
+<div>Chap 1 -- General Automated Data Processing (ADP) Requirements</div>
+<div>Addendum A -- Defense Finance And Accounting Service (DFAS) Allotment Record Layouts For Defense Health Agency (DHA) Contracts</div></div></div><div class="" hx-swap-oob="true" id="publication-in-this-section-wrapper"><div class="card content-panel border-0 mb-4" role="group"><div class="card-header" style=""><h3>In This Section</h3></div><div class="card-body" style=""><div id="publication-in-this-section"><div class="tmaa-stack" role="group" style="--gap: 0;"><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1500600007']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">1.0  Input Data</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1500600084']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">2.0  Reject Reports</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS15006000D9']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">3.0  Deduction Reports</a></div></div></div></div></div>

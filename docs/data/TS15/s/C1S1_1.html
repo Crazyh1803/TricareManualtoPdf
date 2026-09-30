@@ -1,0 +1,1572 @@
+
+<div class="row my-3"><article class="TSM" data-manualacronym="TS15" tmaa-izihyxm-tk=""><div class="Header" tmaa-izihyxm-tk="">TRICARE Systems Manual 7950.3-M, April 1, 2015</div>
+<div class="MPChapterTitle" tmaa-izihyxm-tk="">General Automated Data Processing (ADP) Requirements</div>
+<section data-element-id="TS1500400001" data-element-type="Header" tmaa-izihyxm-tk="">
+<div class="Chapter" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400002" data-element-type="Text" id="FM121013" tmaa-izihyxm-tk="">Chapter 1</div>
+<div class="Section" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400003" data-element-type="Text" id="FM121017" tmaa-izihyxm-tk="">Section <span class="Cross-RefMarker" id="FM17677" tmaa-izihyxm-tk=""></span>1.1</div>
+<div class="Subject" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400004" data-element-type="Text" id="FM121022" tmaa-izihyxm-tk="">General
+Automated Data Processing (ADP) Requirements</div>
+<div class="Revision" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400005" data-element-type="Text" tmaa-izihyxm-tk="">Revision:  C-92, January 20, 2026</div>
+<div class="Line" tmaa-izihyxm-tk=""></div></section>
+<section data-element-id="TS1500400006" data-element-type="Content" tmaa-izihyxm-tk="">
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400007" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">1.0  General<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400008" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.1  </span>The TRICARE
+Systems Manual (TSM) describes how TRICARE business functions are implemented
+technically via system-to-system interactions and Government provided
+applications. The TSM also describes the technical concept of operations,
+including the responsibilities associated with various Information
+Systems (IS) including Defense Enrollment Eligibility Reporting
+System (DEERS), the contractor systems, and selected Direct Care
+(DC) IS.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400009" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.2  </span>The contractor shall comply
+with the Department of Defense (DoD) guidance regarding directed
+Ports, Protocols, and Services (PPS).</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040000A" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.3  </span>The contractor
+shall comply with DoD guidance regarding allowable ports, protocols
+and risk mitigation strategies. The Government will provide the
+contractor connectivity requirements that comply with PPS in accordance
+with DoD Instructions (DoDIs).</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040000B" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.4  </span>The contractor
+shall ensure that laptops, flash drives, and other portable electronic
+devices do not contain Personally Identifiable Information (PII)/Protected
+Health Information (PHI) unless the device is fully encrypted and
+accredited per National Institute of Standards and Technology (NIST) standards.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040000C" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.5  </span>Portable electronic devices
+are often used to transmit reference materials and data of a general nature
+at meetings and conferences. The contractor shall ensure that their
+computer systems can accept and load all such information, regardless
+of the media used to transmit it. The contractor shall maintain
+all materials provided to the contractors at meetings, workgroups,
+and/or training sessions sponsored by or reimbursed by the Government
+in accordance with the Records Management requirements in the TRICARE
+Operations Manual (TOM), <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TO15/FileName/C9TOC?referenceDate=2026-09-17" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter 9</a></span>.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040000D" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.6  </span>This chapter addresses major
+administrative, functional, and technical requirements related to the
+flow of health care related Automated Data Processing/Information
+Technology (ADP/IT) information between the contractor and the DoD/Defense
+Health Agency (DHA). The contractor shall submit TRICARE Encounter
+Data (TED) records as well as provider information to DHA in electronic media.
+This information is essential to both the accounting and statistical
+needs of DHA in the management of the TRICARE program and in required
+reports to DoD, Congress, other governmental entities, and to the
+public. Technical requirements for the transmission of data between
+the contractor and DHA are presented in this section. The requirements
+for submission of TED records and resubmission of records are outlined
+in the <span class="ChapSec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/FileName/C2S1_1?referenceDate=2026-09-17&amp;bookmark=%23FM86215" hx-get="/api/publication/TS15/102/C2S1_1?referenceDate=2026-09-17&amp;bookmark=%23FM86215" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TS15/FileName/C2S1_1?referenceDate=2026-09-17&amp;bookmark=%23FM86215" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter 2, Section 1.1</a></span>, and the Government
+requirements related to submission and updating of provider information
+are outlined in <span class="ChapSec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/FileName/C2S1_2?referenceDate=2026-09-17&amp;bookmark=%23FM55057" hx-get="/api/publication/TS15/102/C2S1_2?referenceDate=2026-09-17&amp;bookmark=%23FM55057" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TS15/FileName/C2S1_2?referenceDate=2026-09-17&amp;bookmark=%23FM55057" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter 2, Section 1.2</a></span>.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040000E" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.7  </span>DoD/DHA data includes all information
+(e.g., test or production data) provided to the contractor for the
+purposes of determining eligibility, enrollment, disenrollment,
+capitation, fees, claims, Catastrophic Cap And Deductible (CC&amp;D),
+patient health information, protected as defined by DoD Manual (DoDM)
+6025.18, or any other information for which the source is the Government.
+Any information received by a contractor or other functionary or
+system(s), whether Government owned or contractor owned, in the
+course of performing Government business is also DoD/DHA data. DoD/DHA data
+means any information, regardless of form or the media on which
+it may be recorded.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040000F" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.8  </span>The ADP
+requirements shall incorporate standards mandated by the Health
+Insurance Portability and Accountability Act (HIPAA) Privacy, Security,
+and Breach Rules, 45 CFR Parts 160 and 164 (collectively, “HIPAA
+Rules”), and the DoD HIPAA Issuances identified below. Contractor
+compliance with the HIPAA Rules and DoD HIPAA Issuances and related
+privacy requirements is addressed in the TOM, <span class="ChapSec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TO15/FileName/C1S5?referenceDate=2026-09-17&amp;bookmark=%23FM63791" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter 1, Section 5</a></span> and <span class="ChapSec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TO15/FileName/C19S3?referenceDate=2026-09-17&amp;bookmark=%23FM56948" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter 19, Section 3</a></span> and <span class="Para" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/C1S1_1#i104332" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">paragraph 1.10</a></span>.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400010" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.9  </span>TOM, <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TO15/FileName/C1TOC?referenceDate=2026-09-17" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter
+1</a></span> addresses management and quality controls specific to
+the accuracy and timeliness of transactions associated with ADP
+and financial functions. In addition to these requirements, DHA
+also conducts reviews of ADP and financial functions for data integrity
+purposes and may identify issues specific to data quality (e.g.,
+catastrophic cap issue). Upon notification of data quality issues
+by DHA, the contractor shall participate in development of a resolution
+for the issue(s) identified as appropriate. If DHA determines corrective
+actions are required as a result of Government reviews and determinations,
+the Contracting Officer (CO) will notify the contractor of the actions
+to be taken by the contractor to resolve the data issues. The contractor
+shall take corrective actions to correct data integrity issues,
+resulting from contractor actions.</div>
+<div aria-level="2" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS1500400011" data-element-type="Text" id="i104332" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">1.10  </span><span class="Cross-RefMarker" id="FM53987" tmaa-izihyxm-tk=""></span>The
+references below relate to the subject matter covered in this section:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Privacy Act of 1974.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoD HIPAA Issuances:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDM 6025.18, “Implementation
+of the HIPAA Privacy Rule in DoD Health Care Programs,” March 13,
+2019.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDI 8580.02, “Security of
+Individually Identifiable Health Information in DoD Health Care Programs,”
+August 12, 2015.</div>
+</div>
+</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDM 5200.2, “Procedures for
+the DoD Personnel Security Program (PSP),” April 3, 2017.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDI 5400.11, “DoD Privacy
+and Civil Liberties Programs,” January 29, 2019.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDI 5015.02, “DoD Records
+Management Program,” February 24, 2015.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDI 8500.01, “Cybersecurity,”
+March 14, 2014.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Homeland Security Presidential
+Directive 12 (HSPD-12), “Policy for a Common Identification Standard
+for Federal Employees and Contractors,” August 27, 2004.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Federal Information Processing
+Standards Publication 201 (FIPS 201-1), “Personal Identity Verification
+(PIV) of Federal Employees and Contractors,” August 2013.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Directive Type Memorandum (DTM)
+08-006, “DoD Implementation of Homeland Security Presidential Directive-12
+(HSPD-12),” November 26, 2008.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDI 8582.01, “Security of
+Non-DoD Information Systems Processing Unclassified Non-Public DoD Information,”
+December 9, 2019.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDI 5200.48, “Controlled Unclassified
+Information (CUI),” March 6, 2020.</div>
+</div>
+<div class="BodyL" data-element-change-state="Unchanged" tmaa-izihyxm-tk="">The contractor, subcontractor(s)
+and other individuals with access to IS containing PII protected
+by the Privacy Act of 1974 and PHI under HIPAA shall meet the above
+requirements.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400023" data-element-type="Outline" id="CHDGHFEIE4" role="heading" tmaa-izihyxm-tk="">2.0  System
+Integration, Implementation And Testing Meetings<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS1500400024" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.1  </span>The DHA
+hosts regularly scheduled meetings, via teleconference, with contractor
+and Government representatives. Government attendees may include,
+but are not limited to Defense Manpower Data Center (DMDC), Infrastructure
+&amp; Operations Division (I&amp;OD), and Defense Information Systems
+Agency (DISA). These meetings will:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Review the status of system
+connectivity and communications.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Identify new DEERS applications
+or modifications to existing applications, e.g., Government furnished
+web-based enrollment systems/applications.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Issue software enhancements.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Implement system changes required
+for the implementation of new programs and/or benefits.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Review data correction issues
+and corrective actions to be taken (e.g., catastrophic cap effort-review,
+research and adjustments).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Monitor results of contractor
+testing efforts.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Other activities as appropriate.</div>
+</div>
+</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040002D" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.2  </span>DHA provides a standing agenda
+for the teleconference with the meeting announcement. Additional
+subjects for the meetings are identified as appropriate. The contractor
+shall ensure representatives participating in the calls are subject
+matter experts for the identified agenda items and are able to provide
+the current status of activities for their organization. The contractor
+shall ensure testing activities are completed within the scheduled
+time frames and report any problems experienced during testing via
+the Government defined application for review and corrective action
+by DHA or their designee. Upon the provision of a corrective action
+strategy or implementation of a modification to a software application
+by DHA (to correct the problem reported by the contractor), the contractor
+shall retest the scenario to determine if the resolution is successful.
+The contractor shall accomplish retesting within the agreed upon
+time frame. The contractor shall update the Government defined application
+upon completion of retesting activities.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040002E" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.3  </span>DHA will
+also document system issues and deficiencies into the Government
+defined application related to testing and production analysis of
+the contractors systems and processes. Upon the provision of a corrective
+action strategy or implementation of a modification to a software application
+by the contractor (to correct the problem reported by DHA), the
+contractor shall retest the scenario to determine if the resolution
+is successful. The contractor shall accomplish retesting within the
+agreed upon time frames. The contractor shall correct internal system
+problems that negatively impact their interface with the Business
+to Business (B2B) Gateway, Military Health System (MHS), DMDC, etc.
+and/or the transmission of data, at their own expense.</div>
+<div aria-level="3" class="FM2LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040002F" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">2.4  </span>Each organization identified
+shall provide two Points of Contact (POCs) to DHA to include telephone
+numbers and emails to be used for call back purposes, notification
+of planned and unplanned outages and software releases. The Government
+will notify POCs via email in the event of an unplanned outage using
+the POC notification list. The contractor shall notify DHA regarding
+changes to the POC list.</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400030" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.0  ADP Requirements<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400031" data-element-type="Text" tmaa-izihyxm-tk="">The contractor shall obtain
+and maintain adequate hardware, software, personnel, procedures, controls,
+contingency plans, and documentation to satisfy DHA data processing
+and reporting requirements. Items requiring special attention are
+listed below.</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400032" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.1  Continuity of Operations Plan
+(COOP)<div class="BodyL" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS1500400033" data-element-type="Text" tmaa-izihyxm-tk="">The contractor
+shall develop a single plan, deliverable to the DHA CO on an annual
+basis that ensures the continuous operation of their Information
+Technologies (IT) systems and data support of TRICARE. The plan
+shall provide information specific to all actions that will be taken
+by the prime contractor and subcontractors in order to continue
+operations should an actual disaster be declared for their region. The
+contractor shall ensure the COOP:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Ensures the availability of
+the system and associated data in the event of hardware, software
+and/or communications failures.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Includes the prime contractor
+and subcontractor’s plans for relocation/recovery of operations, timeline
+for recovery, and relocation site information in order to ensure
+compliance with the TOM, <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/to15/c1toc.html " rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapters 1</a></span> and <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TO15/FileName/C6TOC?referenceDate=2026-09-17" rel="noopener" target="_blank" tmaa-izihyxm-tk="">6</a></span>.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Includes information specific
+to connection to the B2B Gateway to and from the relocation/recovery
+site for operations in the COOP. For relocation/recovery sites,
+contractors shall ensure all security requirements are met and appropriate
+processes are followed for the B2B Gateway connectivity.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Enables compliance with all
+processing standards as defined in the TOM, <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/to15/c1toc.html " rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter
+1</a></span>, and compliance with enrollment processing and Primary
+Care Manager (PCM) assignment as defined in TOM, <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/to15/c6toc.html " rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter
+6</a></span>.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Includes restoration of critical
+functions such as claims and enrollment within five days of the disaster.</div>
+</div>
+</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400189" data-element-type="Text" tmaa-izihyxm-tk="">The Government reserves the
+right to re-prioritize the functions and system interactions proposed
+in the COOP during the review and approval process for the COOP.
+See Section J of the contract for information specific to deliverables,
+milestones, and due dates.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400034" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.2  Security
+Requirements<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400035" data-element-type="Text" tmaa-izihyxm-tk="">The contractor
+shall ensure security and access requirements are met in accordance
+with existing contract requirements for all COOP and disaster recovery
+activities. The Government will not grant waivers of security and
+access requirements for COOP or disaster recovery activities.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400036" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.3  Annual Disaster Recovery Tests<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400037" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.1  </span>The prime contractor shall
+coordinate annual disaster recovery testing of the COOP with its subcontractor(s)
+and the Government. The contractor shall ensure coordination begins
+no later than 90 days prior to the requested start date of the disaster
+recovery test. Each Prime contractor shall ensure all aspects of
+the COOP are tested and coordinated with all contractors responsible
+for the transmission of TRICARE data. Each Prime contractor shall
+ensure major TRICARE functions are tested.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400038" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.2  </span>The prime
+contractor shall also ensure testing support activities (e.g., DEERS,
+TED, etc.) are coordinated with the responsible Government POC no
+later than 90 days prior to the requested start date of the annual
+disaster recovery test.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS1500400039" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.3  </span>Annual
+disaster recovery tests will evaluate and validate that the COOP
+sufficiently ensures continuation of operations and the processing
+of TRICARE data in accordance with the TOM, <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/to15/c1toc.html " rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapters
+1</a></span> and <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/to15/c6toc.html " rel="noopener" target="_blank" tmaa-izihyxm-tk="">6</a></span>. See Section
+J of the contract for information specific to deliverables, milestones,
+and due dates. At a minimum, annual disaster recovery testing shall
+include processing:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TRICARE Prime enrollments in
+the DEERS contractor test region to demonstrate the ability to update
+records of enrollees and disenrollees using the Government furnished
+web-based enrollment system/application.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Referrals.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Preauthorizations/authorizations.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Claims.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Claims and catastrophic cap
+inquiries against production DEERS and the Catastrophic Cap and Deductible
+Database (CCDD) from the relocation/recovery site. Contractors shall
+test their ability to successfully submit claims inquiries and receive
+DEERS claim responses and catastrophic cap inquiries and responses.
+Contractors shall not perform catastrophic cap updates in the CCDD
+and DEERS production for test claims.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Catastrophic cap updates and
+the creation of newborn placeholder records on DEERS. The contractor
+shall process a number of claims using the DEERS contractor test
+region.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>TED records. The contractor
+shall create TED records for every test claim processed during the claims
+processing portion of the disaster recovery test. The contractor
+shall demonstrate the ability to process provider, institutional
+and non-institutional claims. The contractor shall submit these test
+claims to the DHA TED landing area.</div>
+</div>
+</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400042" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.4  </span>The contractor shall maintain
+static B2B Gateway connections or other Government approved connections
+at relocation/recovery sites that may be activated in the event
+a disaster is declared for their region.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400043" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.3.5  </span>In all
+cases, the contractor shall report results of the review and/or
+test results to the DHA Managed Care Contracting Division (MC-CD)
+within 10 days of test conclusion. The contractor’s report shall
+include if any additional testing is required or if corrective actions
+are required as a result of the disaster recovery test. The contractor
+shall submit notice of additional testing requirements or corrective
+actions to be taken along with the proposed date for retesting and
+the completion date for any corrective actions required. Upon completion
+of the retest, the contractor shall provide a report of the results
+of the actions taken to the MC-CD within 10 business days of completion.
+See Section J of the contract for information specific to deliverables,
+milestones, and due dates.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400044" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.4  <span class="Cross-RefMarker" id="FM97600" tmaa-izihyxm-tk=""></span>Information
+Security Compliance Programs<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400045" data-element-type="Text" tmaa-izihyxm-tk="">Information Security Compliance
+under the NIST Program is recognized by the DoD for non- DoD IS (defined
+as an IS that is not owned, controlled, or operated by the DoD,
+and is not used or operated by a contractor or other non-DoD entity
+exclusively on behalf of the DoD) that processes CUI. Contracts governed
+by this manual are generally considered to be non-DoD IS.</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400046" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.4.1  CUI and DoD Information Contractor
+IS<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400047" data-element-type="Text" tmaa-izihyxm-tk="">PII/PHI that is DoD information,
+constitutes DoD CUI because PII/PHI requires safeguarding or dissemination
+controls unless it has been cleared for public release. CUI is defined
+in Section 2002.4 Title 32 CFR. For examples of DoD CUI, see the
+DoD CUI Registry located at <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://www.dodcui.mil/Home/DoD-CUI-Registry/" rel="noopener" target="_blank" tmaa-izihyxm-tk="">https://www.dodcui.mil/Home/DoD-CUI-Registry/</a></span>.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400048" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.4.2  NIST References and Related
+DoD Issuances<div class="BodyL" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS1500400049" data-element-type="Text" tmaa-izihyxm-tk="">The references
+below support the IA requirements outlined in the following paragraphs.<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>32 CFR Part 2002, “Controlled
+Unclassified Information,” September 14, 2016.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>48 CFR Parts 204, 212, and
+252 as amended by 76 FR 69273 - 69282 / Vol. 78, No. 222 /Monday, November
+18, 2013.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>NIST SP 800-171 Revision 2,
+“Protecting Controlled Unclassified Information in Non-Federal Information
+Systems and Organizations,” January 28, 2021.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDI 5230.09, “Clearance of
+DoD Information for Public Release,” January 25, 2019.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDI 8582.01, “Security of
+Non-DoD Information Systems Processing Non-Public Unclassified DoD information,”
+December 9, 2019.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>“Health Insurance Portability
+and Accountability Act (HIPAA) of 1996, Security Rule, 45 CFR Part
+160 and Subparts A and C of Part 164”.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDM 1000.13, Volume 1, “DoD
+Identification (ID) Cards: ID Card Life-Cycle,” January 23, 2014.</div>
+</div>
+</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400052" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.4.3  Compliance with Federal Programs<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400053" data-element-type="Text" tmaa-izihyxm-tk="">The NIST-based computer security
+program leverages a contractor’s compliance with existing Federal Information
+Security-related measures (i.e., HIPAA, Federal Information Security
+Management Act (FISMA), etc.) to attest to its readiness to process
+CUI DoD information on non-DoD IS. This Information Security program
+requires participating contractors to document compliance with the
+security controls described in detail within the NIST SP 800-171,
+“Protecting Controlled Unclassified Information in Non-Federal Information
+Systems and Organizations.” With respect to HIPAA Security Rule
+compliance, the contractor shall follow the TOM, <span class="ChapSec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TO15/FileName/C19S3?referenceDate=2026-09-17&amp;bookmark=%23FM56948" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter 19, Section 3</a></span>, including the requirement
+for contractors to designate a Security Official with specified
+responsibilities. Those responsibilities involve compliance with
+HIPAA Security Rule and DHA DoD Information Security Program requirements
+under this section.</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400054" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.4.3.1  Risk
+Management<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400055" data-element-type="Text" tmaa-izihyxm-tk="">Contractors
+certifying compliance with the NIST-based process accept sole responsibility
+for the risk(s) associated with developing and maintaining its IA
+readiness posture.</div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400056" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.4.3.2  IA
+Compliance Requirement<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400057" data-element-type="Text" tmaa-izihyxm-tk="">The contractor
+shall provide and maintain its NIST-related compliance as required
+by the contract, in order to connect to Government systems or to
+receive, store, process, develop, or transmit CUI on non-DoD IS.</div>
+</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400058" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.4.4  NIST Certification/Recertification
+Procedures<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400059" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.4.4.1  Contractor Self-Certification
+Process<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040005A" data-element-type="Text" tmaa-izihyxm-tk="">The contractor
+shall self-certify all IS that access, process, reproduce, modify,
+perform, store, display, release, disclose, or disseminate CUI.
+The contractor shall achieve self-certification, as specified in
+the contract. The contractor shall employ, Audit Review, Analysis,
+and Reporting through proper Integration/Scanning and Continuous
+Monitoring Capabilities (i.e., continuous monitoring for vulnerabilities)
+that identify the breadth, depth, and rigor of coverage during the
+security review process for submission of their self-certification
+documentation. The contractor shall ensure security reviews describe,
+at a high level, how the security controls and control enhancements
+meet those security requirements, and provide detailed, technical
+descriptions of the specific implementation of the controls and
+enhancements. The contractor shall ensure that the security controls
+required by the contract are implemented correctly, operating as
+intended, and support the security policies of the DHA.</div>
+</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040005B" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.4.4.2  </span>The NIST SP 800-171, certification
+process, as allowed by DoDI 8582.01 and applicable contract clauses,
+requires compliance by contractors for the protection of DoD information
+provided to, contained within and/or processed by contractor IS.
+The following process applies to the NIST-based Information Security
+certification process. See Section J of the contract for information
+specific to deliverables, milestones, and due dates.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040005C" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.4.4.3  </span>The contractor shall submit
+self-certification documents and the Government will notify the
+contractor regarding any identified areas that need additional information.
+The contractor shall respond within 10 days.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040005D" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.4.5  Operation and Connectivity
+Decisions<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040005E" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.4.5.1  </span>The contractor shall complete
+and submit the NIST Certificate of Compliance in accordance with
+Section J of the contract for information specific to deliverables.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040005F" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">3.4.5.2  </span>The contractor shall submit
+a written determination report for any failure to achieve and/or maintain
+its compliance with the NIST-based IA program.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400060" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.4.6  Documentation<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400061" data-element-type="Text" tmaa-izihyxm-tk="">The Government will provide
+the contractor with the most current version of the NIST Checklist
+and Written Determination Report (WDR) within 10 days of contract
+award. If the contractor changes its compliance status with a vulnerability
+mitigation plan for any IA control shown on the NIST Checklist, the
+contractor shall submit an updated WDR statement within 10 days.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400062" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">3.4.7  Disposing of Electronic Media<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400063" data-element-type="Text" tmaa-izihyxm-tk="">The contractor shall follow
+the DoD standards, procedures and use approved products to dispose
+of unclassified hard drives and other electronic media, as appropriate,
+in accordance with DoDI 5200.48 and NIST SP 800-171.</div>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400064" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">4.0  <span class="Cross-RefMarker" id="FM88430" tmaa-izihyxm-tk=""></span>Health
+Insurance Portability And Accountability Act (HIPAA)<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400065" data-element-type="Text" tmaa-izihyxm-tk="">The contractor shall be in
+compliance with the HIPAA Rules, the DoD HIPAA Issuances, the TOM, <span class="ChapSec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TO15/FileName/C19S3?referenceDate=2026-09-17&amp;bookmark=%23FM56948" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter 19, Section 3</a></span>, and any provisions
+of this manual and DoD cybersecurity guidance addressing security
+incident response. In particular, the contractor shall be in compliance
+with HIPAA breach response requirements, which are addressed in
+conjunction with DoD breach response requirements in the TOM, <span class="ChapSec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TO15/FileName/C1S5?referenceDate=2026-09-17&amp;bookmark=%23FM63791" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter 1, Section 5</a></span>.</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400066" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">4.1  Data
+Sharing Agreements (DSAs)<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400067" data-element-type="Text" tmaa-izihyxm-tk="">Contractors
+requiring access to PII, which includes PHI, or access to de-identified
+data, are subject to the DHA Privacy and Civil Liberties Office
+(PCLO) Data Sharing Program. This program requires DHA to enter
+into DSAs with parties outside the MHS who use or create MHS data.
+(DHA contracts may use the term Data Use Agreement (DUA) rather
+than DSA.) DSAs assure that outside parties protect MHS data in accordance
+with the Privacy Act and the HIPAA Rules. To apply for a DSA, the
+prime contractor shall submit a Data Sharing Agreement Application
+(DSAA) to the DHA data sharing mailbox: dha.ncr.pcl.mbx.data-sharing@health.mil.
+The Prime contractor submits the DSAA even if a subcontractor will
+be the party accessing MHS data. After review and approval of the
+DSAA, the PCLO provides a DSA to the contractor for execution. The
+DSAA template and other DSA guidance and forms are available at
+the following page on the PCLO web site: <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://health.mil/Military-Health-Topics/Privacy-and-Civil-Liberties/Data-Sharing-Agreements" rel="noopener" target="_blank" tmaa-izihyxm-tk="">https://health.mil/Military-Health-Topics/Privacy-and-Civil-Liberties/Data-Sharing-Agreements</a></span>.
+Privacy compliance inquiries may be sent to the compliance inquiry
+mailbox: dha.ncr.pcl.mbx.privacy-compliance@health.mil.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400068" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">4.2  Disclosure Tracking and Accounting
+and Other System Capabilities for Privacy Act and HIPAA Privacy
+Compliance<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400069" data-element-type="Text" tmaa-izihyxm-tk="">The contractor
+shall maintain systems (or use MHS systems) with the capabilities
+to track and report on disclosure requests, disclosure restrictions,
+accounting for disclosure requests, authorizations, PII/PHI amendments,
+Notice of Privacy Practices (NoPP) distribution management, confidential communications
+requests, and complaint management. The contractor shall submit
+situation reports as necessary to address complaints, inquiries,
+or unique events related to the foregoing responsibilities.</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040006A" data-element-type="Outline" id="i105487" role="heading" tmaa-izihyxm-tk="">5.0  <span class="Cross-RefMarker" id="FM47924" tmaa-izihyxm-tk=""></span>Personnel
+Security Requirements<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040006B" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.1  Formal Designations Required<div class="BodyL" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS150040006C" data-element-type="Text" tmaa-izihyxm-tk="">Contractor personnel requiring
+access to the following shall be in (non-sensitive or non-critical sensitive)
+designated positions:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Access to a secure DoD facility.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Access to a DoD IS or a DoD
+Common Access Card (CAC)-enabled network.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Access to DEERS or the B2B
+Gateway.</div>
+</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400071" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.2  Position
+Sensitivity Designations<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400072" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.2.1  </span>Position
+sensitivity designations indicate the level of access required to
+fulfill the responsibilities of the position, including the potential
+risk for an individual assigned to the position to adversely impact
+DoD missions or functions.   The contractor’s Facility Security
+Officer (FSO) shall use the guidance below to determine a contractor
+employee’s specific position sensitivity designation level. The
+contractor shall ensure its personnel designated for assignment
+to a non-sensitive or non-critical sensitive position undergo a
+successful background security screening before being granted access
+to DoD Information Technology (IT) systems and/or any DoD/Defense
+Health Agency (DHA) data directly extracted from those contained
+on any system (e.g, test and /or production) that contains sensitive
+data.<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400073" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.2.1.1  Non-Sensitive Position<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400074" data-element-type="Text" tmaa-izihyxm-tk="">A position where the individual
+is requiring physical and logical access to an unclassified DoD
+IS (e.g., DEERS) or a CAC-enabled unclassified network and whose
+access is limited to data entry or singular search capability. The
+required background investigation is a favorable and adjudicated
+Tier 1 or (former) National Agency Check with Inquiries (NACI) or
+equivalent. </div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040007D" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.2.1.2  Non-Critical-Sensitive
+Position<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040007E" data-element-type="Text" tmaa-izihyxm-tk="">A position
+where an individual whose access allows multiple search capability
+with ability to aggregate and extract MHS/DHA data in mass from
+a DoD IS or CAC-enabled unclassified network. The required background
+investigation is a favorable and adjudicated Tier 3 or National
+Agency Check with Law Enforcement and Credit or equivalent.</div>
+</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400082" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.2.2  Employee Prescreening<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS1500400083" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.2.2.1  </span>The contractor shall conduct
+thorough reviews of information submitted on an individual’s application
+for employment in a position that requires either position sensitivity
+designation background investigation or involves access via a contractor
+system to data protected by either the Privacy Act of 1974, as amended,
+or the HHS HIPAA Privacy and Security Final Rule. For contractors working
+in the United States (U.S.) and the District of Columbia, this prescreening
+shall include reviews that:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Verify U.S. citizenship.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Verify education (degrees and
+certifications) required for the position in question.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Screen for negative criminal
+history at all levels (federal, state, and local).</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Screen for egregious financial
+history; for example, where adverse actions by creditors over time indicate
+a pattern of financial irresponsibility or where the applicant has
+taken on excessive debt or is involved in multiple disputes with
+creditors.</div>
+</div>
+</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS1500400089" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.2.2.2  </span>For contractors working outside
+the U.S. and District of Columbia, prescreening shall include reviews
+that:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Verify United States citizenship.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Verify education (degrees and
+certifications) required for the position in question.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Screen for negative criminal
+history, to the maximum extent possible as permitted by local laws
+of the host Government.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Screen for egregious financial
+history, to the maximum extent possible as permitted by local laws
+of the host Government.</div>
+</div>
+</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040008F" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.2.2.3  </span>The contractor shall conduct
+prescreening as part of the pre-employment screening, and shall
+complete the prescreening before the assigning of any personnel
+to a position requiring the aforementioned position sensitivity
+designation accesses. The pre-screening shall be performed by the contractor’s
+personnel security specialists, human resource manager, hiring manager,
+or similar individual.</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400090" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.3  Processing
+Personnel Security Requirements and Granting Interim Access to DoD
+IS<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400091" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.3.1  </span>The contractor shall submit
+requests for a non-sensitive or non-critical sensitive position designation
+type of security investigation to the federal investigating agency,
+Defense Counterintelligence and Security Agency (DCSA), via the
+National Background Investigation System (NBIS) electronic application
+(e-APP). Contractor personnel who do not have an investigation or appropriate
+level of investigation to obtain access to DoD/DHA IT data, systems
+or networks shall complete the appropriate SF form in NBIS e-APP. </div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400092" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.3.2  </span>The Personnel Security Branch
+(PSB) may grant DHA contractors that are U.S. citizens interim eligibility
+and CAC access upon confirmation of a favorably reviewed background
+investigation, FBI fingerprint check and a scheduled/open investigation
+at DCSA. PSB will notify the FSO of any derogatory findings. If
+the company does not have a FSO, PSB will notify the company’s NBIS
+e-APP initiator. See <span class="Para" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/C1S1_1#CHDFIHAGI5" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">paragraph 5.5.8</a></span> for foreign nationals.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400093" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.4  NBIS e-APP Training and Access<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400094" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.4.1  </span>The contractor FSO shall complete
+NBIS e-APP training to access and use NBIS e-APP.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400095" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.4.2  </span>The contractor FSO shall complete
+and submit the DD Form 2962, Personnel Security System Access Request
+(PSSAR) Defense Counterintelligence and Security Agency (DCSA) and necessary
+training certificates to request access to the NBIS e-APP.</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400096" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.4.3  FSO Roles and Responsibilities<div class="BodyL" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS1500400097" data-element-type="Text" tmaa-izihyxm-tk="">The contractor FSO shall:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Be a U.S. citizen.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Possess a favorably adjudicated
+Tier 3/NACLC or equivalent investigation.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Provide list of applicants
+to PSB for verification of security eligibility.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Initiate applicant’s security
+questionnaire in NBIS e-APP.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Select the appropriate Agency
+Use Block (AUB) template in NBIS e-APP.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Notify the PSB by email that
+an NBIS e-APP request has been initiated and requires their approval.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Inform applicant to complete
+security questionnaire in NBIS e-APP within 10 calendars days.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Perform initial review of applications
+for required information.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Capture and transmit e-fingerprints
+to the Office of Personnel Management (OPM) via Secured Web Fingerprint
+Transmission (SWFT). If SWFT method unavailable, then mail two FD258
+fingerprint cards to PSB.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Verify applicant’s citizenship
+and upload proof of citizenship document to investigation request before
+releasing case to PSB.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Serve as the main Point of
+Contact (POC) for the applicant.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Monitor the NBIS e-APP request,
+which includes ensuring the applicant completes the NBIS e-APP form
+in designated time period.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Cancel or delete an NBIS e-APP
+request on an applicant.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Act as POC if DoD Central Adjudication
+Facility (CAF) requires additional information on contractor employees.</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000A7" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.5  Additional Requirements/Information<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000A8" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.5.1  Requests for Higher Background
+Investigation<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000A9" data-element-type="Text" tmaa-izihyxm-tk="">Contractors
+requiring a higher Tier background investigation for their personnel
+shall have their FSOs coordinate and submit a written request on
+company letterhead to the DHA COR for endorsement. The request letter
+shall be signed by, at a minimum, the FSO or other appropriate executive.
+It shall include a detailed job description which justifies the
+requirement for the higher background investigation. The FSO shall
+email the approved justification letter to its company assigned
+POC in PSB.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000AA" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.5.2  Reinvestigation
+Requirements<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000AB" data-element-type="Text" tmaa-izihyxm-tk="">Contractor
+personnel in positions designated as non-sensitive do not have reinvestigation requirements.
+Contractor personnel in positions designated as non-critical sensitive
+shall be enrolled in Continuous Vetting (CV) to be re-evaluated
+every five years. The contractor FSO shall initiate re-evaluations
+by submitting new SF-86 within 60 days of the closed date of the
+last investigation. The FSO shall track the CV requirement for contractor
+employees and initiate re-evaluations, as required above. Fingerprints
+are not required for re-evaluations unless specifically requested.
+Proof of U.S. citizenship may be required, as needed. If subject
+is enrolled in CV and a PSB receives a CV alert, then PSB will notify
+the COR and FSO. In addition, PSB will submit an incident report
+into the current system of record.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000AC" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.5.3  Reciprocal
+Acceptance of Prior Investigation<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000AD" data-element-type="Text" tmaa-izihyxm-tk="">An investigation is reciprocated
+when a new contractor employee has an existing favorably adjudicated
+investigation that meets the appropriate level of investigation
+required; and the break in service is two years or less. The FSO
+shall verify prior investigation and if valid, provide to PSB with
+the new employee’s name, Social Security Number (SSN), and Date
+of Birth (DOB).</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000AE" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.5.4  Requests
+for Additional Information<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000AF" data-element-type="Text" tmaa-izihyxm-tk="">PSB may require additional
+information while the contractor employee’s investigation is in
+progress. PSB will notify the FSO regarding the required information
+and a due date. If the contractor does not provide the required
+information by the due date, the Government may reject the investigation
+or return it. The FSOs shall review applications for required information
+prior to release, to reduce case rejections and requests for additional
+information.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000B0" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.5.5  Notification
+of Employee Termination and Unfavorable Personnel Security Determination<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000B1" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.5.5.1  </span>The FSO shall notify PSB immediately
+when a contractor employee is terminated from a DHA contract. The
+contractor shall email notification and include the employee’s name
+and termination date. The contractor shall immediately notify PSB
+if they move an employee to another one of its DHA contracts, especially
+when an employee is being moved from an unclassified contract to
+a classified contract.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000B2" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.5.5.2  </span>PSB will notify FSOs by email
+when a contractor employee has received an unfavorable personnel
+security determination. Upon receipt of a denial letter from PSB,
+the FSO shall immediately terminate the employee’s access to DoD
+IT systems. The contractor shall return the return receipt letter (included
+with the denial letter from PSB) to PSB within one week after receipt
+of the letter to show compliance with terminating the employee’s
+access.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000B3" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.5.6  Transfers
+Between Contractors<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000B4" data-element-type="Text" tmaa-izihyxm-tk="">When contractor
+employees transfer employment from one DHA contractor to another
+DHA contractor while their investigation for position sensitivity
+trustworthiness determination is in process, the scheduled investigation
+may be applied to the new employing contractor. The gaining contractor
+shall notify PSB when this type of transfer occurs. The notification
+shall contain the employee’s name and the effective date of transfer.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000B5" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.5.7  Electronic Fingerprint Capture
+and Submission<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000B6" data-element-type="Text" tmaa-izihyxm-tk="">The contractor
+shall capture e-fingerprints and transmit via SWFT as it improves
+processing time and securely transmits fingerprints. The contractor
+and its subcontractors with access to DoD IS containing information
+protected by the Privacy Act of 1974, as amended, and PHl under
+HIPAA, shall meet these requirements.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000B7" data-element-type="Outline" id="CHDFIHAGI5" role="heading" tmaa-izihyxm-tk="">5.5.8  Foreign
+Nationals<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000B8" data-element-type="Text" tmaa-izihyxm-tk="">The personnel
+security requirements above shall be met by foreign nationals who
+require access to a secure DoD facility or DoD IS containing CUI
+(e.g., information protected by the Privacy Act of 1974, as amended,
+and PHI under HIPAA). Foreign nationals are not authorized to receive
+or access PII/PHI/CUI unless dissemination controls or contract
+requirements allow it. The contractor shall complete the required
+investigation with a favorable adjudication prior to authorizing
+access to DoD system/networks and before a CAC can be issued to
+a foreign national. The foreign national must be able to establish
+their identity or obtain a foreign national identification number
+(FIN) before they can be sponsored for a CAC. Government sponsors
+may work with the local consular affairs office to determine guidelines
+for the appropriate identity documentation for eligible foreign
+nationals in accordance with agreements with host nations. In most
+cases, OPM will not be able to conduct a NACI unless the Foreign National
+is or has been residing in the U.S.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400194" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.5.8.1  </span>Foreign nationals in U.S. based
+locations or U.S. territories (other than American Samoa and Commonwealth
+of the Northern Mariana Islands). Foreign nationals must meet a
+three or more years of continuous residency and immediately preceding
+the start of Federal affiliation before a Tier 1 or NACI equivalent
+investigation can be initiated. Foreign nationals who have been
+in the U.S. or U.S. territories for less than three years do not
+meet the investigative requirements for CAC issuance.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400195" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">5.5.8.2  </span>Foreign nationals in non-U.S.
+based locations or non-U.S. territories. The investigation of a foreign
+national at a foreign location must be consistent with a Tier 1
+or NACI equivalent background investigation that complies with the
+local Status of Forces Agreement (SOFA) or host nation agreements.
+In addition, a fingerprint check against the FBI criminal history
+database, an FBI investigation files (name check search), and a
+name check against the Terrorist Screening Database shall be required
+prior to CAC issuance in accordance with Office of Personnel Management Memorandum,
+“Final Credentialing Standards for Issuing Personal Identity Verification
+Cards under HSPD-12,” July 31, 2008.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000B9" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">5.5.9  Notification and Mailing<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000BA" data-element-type="Text" tmaa-izihyxm-tk="">The contractor shall use the
+following information to contact the PSB. The contractor shall handle sensitive
+information according to applicable laws and DoD policies related
+to privacy and confidentiality. The contractor shall transmit personally
+identifiable information or protected health information via encrypted
+email or the OPM secure portal.</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000BB" data-element-type="Text" tmaa-izihyxm-tk="">Mailing Address:</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000BC" data-element-type="Text" tmaa-izihyxm-tk="">Defense Health Agency</div>
+<div class="BodyLNSA" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000BD" data-element-type="Text" tmaa-izihyxm-tk="">ATTN: Personnel Security Branch</div>
+<div class="BodyLNSA" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000BE" data-element-type="Text" tmaa-izihyxm-tk="">7700 Arlington Blvd., Suite
+5101</div>
+<div class="BodyLNSA" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000BF" data-element-type="Text" tmaa-izihyxm-tk="">Falls
+Church, VA 22042-5101</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000C0" data-element-type="Text" tmaa-izihyxm-tk="">PSB Help Desk: (703) 681-2286</div>
+<div class="BodyLNSA" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000C1" data-element-type="Text" tmaa-izihyxm-tk="">Email address: dha.ncr.security.mbx.personnel-security-office@health.mil</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS15004000C2" data-element-type="Text" role="heading" tmaa-izihyxm-tk="">5.6  References<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDD 5136.01, “Assistant Secretary
+of Defense for Health Affairs (ASD(HA)),” September 30, 2013.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDD 5136.13, “Defense Health
+Agency (DHA),” September 30, 2013.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDI 5025.01, “DoD Issuances
+Program,” August 1, 2016.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDM 5200.02, “Procedures for
+the DoD Personnel Security Program (PSP),” April 3, 2017.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>FIPS Publication 140-2, Security
+Requirements for Cryptographic Modules, <span class="xrefpub" tmaa-izihyxm-tk=""><a href="http://csrc.nist.gov/publications/fips/fips140-2/fips1402.pdf." rel="noopener" target="_blank" tmaa-izihyxm-tk="">http://csrc.nist.gov/publications/fips/fips140-2/fips1402.pdf</a></span>.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>U.S. Code of Federal Regulations,
+Title 5, Part 731, “Suitability Regulations,” January 9, 2009.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoD Administrative Instruction
+15, “Office of the Secretary of Defense Records and Information Management
+Program,” May 3, 2013.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Executive Order 12968, “Access
+to Classified Information,” August 4, 1995.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDM 5102.21, “Sensitive Compartmented
+Information Administrative Security Manual,” October 2012.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Intelligence Community Directive
+(ICD) 704, “Personnel Security Standards and Procedures Governing
+Eligibility for Access to Sensitive Compartmented Information and
+Other Controlled Access Program Information,” October 1, 2008.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>United States Code, Title 5
+§ 552a, “The Privacy Act of 1974,”.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>DoDI 8520.02 “Public Key Infrastructure
+and Public Key Enabling,” May 18, 2023.</div>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000CF" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.0  Public Key Infrastructure (PKI)<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000D0" data-element-type="Text" tmaa-izihyxm-tk="">DoD has initiated a PKI policy
+to support enhanced risk mitigation strategies in support of the protection
+of DoD’s system infrastructure and data. DoD’s implementation of
+PKI requirements is specific to the identification and authentication
+of users and systems within DoD (DoDI 8520.02). The following paragraphs
+provide current DoD PKI requirements.</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000D1" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1  User
+Authentication<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000D2" data-element-type="Text" tmaa-izihyxm-tk="">All contractor
+personnel accessing DoD applications and networks shall obtain PKI
+enabled and Personal Identity Verification (PIV) compliant Government
+accepted credentials. Contractor personnel with access limited to
+internal contractor systems and applications are not required to
+obtain PKI enabled and PIV compliant credentials. Such credentials
+shall follow the PIV trust model (FIPS 201-2) and be acceptable
+to the Government. To meet this requirement, contractor employees
+shall obtain Government-issued CACs. PIV compliant credentials are
+required for access to DoD systems, networks and data. The Government
+will not grant alternate sign on access. The contractor shall use
+encryption and digital signatures for electronically transmitted
+information that includes DoD/DHA data covered by the Privacy Act,
+HIPAA and SI and network requirements.</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000D3" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.1  Common
+Access Card (CAC) Issuance<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000D4" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.1.1.1  </span>The CAC is the standard identification
+for Service members, DoD civilian employees, and eligible DoD contractor
+personnel. It is the principal card used to enable both physical
+access to a DoD facility and access, via logon, to DoD networks
+on-site or remotely. Access to the DoD network requires the use
+of a computer with Government-controlled configuration or use of
+a DoD-approved remote access procedure in accordance with the DISA
+Security Technical Implementation Guide.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000D5" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.1.1.2  </span>Mission Partner Identity, Credential,
+and Access Management (MP ICAM), is a web-based system that allows
+eligible DoD contractors to apply for a CAC through the Internet.
+Government sponsors (also known as Mission Partner Affiliation Sponsors
+(MPAS)) approve the application to receive Government credential
+applications.</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000D6" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.1.3  CACs
+Issued On or After January 6, 2017<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000D7" data-element-type="Text" tmaa-izihyxm-tk="">The Government will issue,
+reissue, or replace CACs with a blank email certificate unless the
+CAC holder already has a DoD approved email address. Instructions
+for requesting an approved email address are available in <span class="Para" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/C1S1_1#CHDHEGJDF7" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">paragraph 6.1.1.3.1.3</a></span>. Without an approved
+Government email address (and the accompanying DoD email certificate),
+the CAC holder will be unable to use the capabilities afforded by such
+a certificate, including digital signatures, digital encryption,
+and/or to access Government systems that require a DoD approved
+email certificate authentication. CAC capabilities that do not require
+a DoD approved email certificate for authentication will still function.
+If a CAC owner requires a DoD approved email certificate to perform
+their duties, the DHA’s DoD approved email is the MED365 (@health.mil)
+email. Not all contractors require a DoD approved email certificates
+on their CAC to perform those duties. More information is provided
+in <span class="Para" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/C1S1_1#FM11150" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">paragraph 6.1.1.3.1.1</a></span> or the contractor shall reference
+the specific requirements outlined in the contract for clarification.</div>
+<div aria-level="6" class="FM5Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000D8" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.1.3.1  Email Address Certificates
+on CACs<div aria-level="7" class="FM6LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000D9" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.1.1.3.1.1  </span><span class="Cross-RefMarker" id="FM11150" tmaa-izihyxm-tk=""></span>CAC
+owners<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> need</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> may require</ins> a
+DoD approved<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> Government</ins> email address<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> associated with
+the email</ins> certificate on their CAC<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> in
+order</del> to perform<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> certain functions,
+such as the ability to digitally sign, digitally encrypt, and/or
+access Government systems that require a DoD approved email address
+certificate assigned and the email address certificate will remain
+blank. Some current CAC users may already have another type of email
+certificate that complies with DoD requirements</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> specific capabilities
+afforded to their CAC</ins>.<div aria-level="8" class="FM7LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040019D" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="change-modified Bold" data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Modified in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-modified-badge" title="Modified in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>6.1.1.3.1.1.1  </span>If<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> a contractor</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> the
+CAC owner</ins> requires the<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> capabilities afforded
+by a DoD approved email certificate on their CAC, the contractor
+shall obtain a MED365 email account, as described below</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> capability
+to digitally sign or securely transmit CUI to DHA Government associates,
+then they shall request a DHA medical Joint Active Directory (mJAD)
+account</ins>.</div>
+<div aria-level="8" class="FM7LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040019E" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="change-modified Bold" data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Modified in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-modified-badge" title="Modified in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>6.1.1.3.1.1.2  </span>The<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> MED365 email</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> DHA
+mJAD</ins> account<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> provides</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> provisions</ins> the
+CAC<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> holder with the necessary DoD approved</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> owner
+a MED365</ins> email<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> certificates for the CAC.
+It also allows the user to send/receive encrypted emails and send/receive
+Government correspondence, among other capabilities. Once a CAC
+holder obtains their MD365 email account, the holder may request</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> address
+and</ins> access to the DHA’s Application Virtual Hosting
+Environment (AVHE)<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>, if needed. See paragraph 6.1.1.3.1.2.1</del>.</div>
+</div>
+<div aria-level="7" class="FM6LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400197" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.1.1.3.1.2  </span><del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>Upon request from
+the Contracting Officer’s Representative/Program Manager (COR/ PM),
+the</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>The</ins> contractor FSO shall
+email<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> a list of users’ first and last names, persona
+type codes (Civilian, Military, Contractor) and DoD Identification
+(ID) Number, located on the back of the user’s CAC to the COR. Upon
+receipt, the COR/PM will forward the information to Global Service
+Center (GSC) HelpDesk at DHAGSC@health.mil and request MED365 email
+accounts for each user listed. A DHA Add User Form is not required
+to only obtain MED365 accounts for CAC owners. The GSC HelpDesk
+will create a MED365 account for each contractor request submitted,
+and provide the COR/PM acknowledgment of the account creation. The
+COR/PM will forward the account information to the FSO, who shall
+provide the CAC owners the new account information, instructions
+to request an AVHE account, if needed, and instructions on how to
+create or update their DEERS/Real-Time Automated Personnel Identification Systems
+(RAPIDS) Online profiles as described below</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> their
+Contracting Officer’s Representative (COR) requesting the documentation
+for CAC owners requiring a mJAD account. The COR will provide the required
+documentation and instructions to process the mJAD account request.
+The contractor FSO shall email the completed documentation to the
+COR. The COR, or designated Government representative, will submit
+the mJAD account request on the Service Now Catalog via the Global Service
+Center (GSC) Help Desk portal (</ins><span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://gsc.health.mil/portal" rel="noopener" target="_blank" tmaa-izihyxm-tk="">https://gsc.health.mil/portal</a></span><ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>).
+The COR will email the contractor FSO when the CAC owner’s mJAD
+account is provisioned</ins>.<div aria-level="8" class="FM7Level" data-element-change-state="Deleted" data-element-format="Text" data-element-id="TS1500400198" data-element-type="Outline" id="CHDCJIADD4" role="heading" tmaa-izihyxm-tk="">
+<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span><span tmaa-izihyxm-tk="">6.1.1.3.1.2.1  </span>AVHE Requirements<div class="BodyL" data-element-change-state="Deleted" data-element-format="Text" data-element-id="TS1500400199" data-element-type="Text" tmaa-izihyxm-tk="">If the contractor
+requires the capability to perform government email correspondence
+using their MED365 email account, then access to the DHA AVHE is
+required. To request an AVHE account, the contractor shall contract
+the GSC HelpDesk at DHAGSC@health.mil or by calling (800) 600-9332 (CONUS),
+or by the appropriate country code for OCONUS. The GSC HelpDesk
+will request a completed DD2875 and any additional documentation
+required. The GSC HelpDesk will provide acknowledgment of the account
+creation and instructions on how to access AVHE.</div>
+</del>
+</div>
+<div aria-level="8" class="FM7LevelNT" data-element-change-state="Deleted" data-element-format="Text" data-element-id="TS150040019A" data-element-type="Text" role="heading" tmaa-izihyxm-tk="">
+<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span><span class="Bold" tmaa-izihyxm-tk="">6.1.1.3.1.2.2  </span>The
+software to run AVHE on non-DHA IT is available for download, as
+well as installation documentation, for both users and IT system
+administrators at <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://info.health.mil/hit/io/AVHE/Pages/Home.aspx" rel="noopener" target="_blank" tmaa-izihyxm-tk="">https://info.health.mil/hit/io/AVHE/Pages/Home.aspx</a></span>.
+To log a AVHE support ticket, please search for “AVHE” at the Remedy Center
+Request Management Module (<span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://support-gsc.health.mil" rel="noopener" target="_blank" tmaa-izihyxm-tk="">https://support-gsc.health.mil</a></span>).</del>
+</div>
+</div>
+<div aria-level="7" class="FM6LevelNT" data-element-change-state="Changed" data-element-format="List" data-element-id="TS15004000DB" data-element-type="Text" id="CHDHEGJDF7" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.1.1.3.1.3  </span>When the CAC<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> holder</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> owner</ins> receives
+their MED365 email<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> account information</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> address</ins>, they
+shall:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Update the email certificate
+associated with their CAC:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBulletInd" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Sign in to the following link
+(do not select the DoD EMAIL certificate option): <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://idco.dmdc.osd.mil/idco" rel="noopener" target="_blank" tmaa-izihyxm-tk="">https://idco.dmdc.osd.mil/idco </a></span></div>
+<div class="BodyLBulletInd" data-element-change-state="Changed" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span><del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>Within CAC Maintenance,
+select Change CAC Email.</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>Select the appropriate
+option to update email address.</ins>
+</div>
+<div class="BodyLBulletInd" data-element-change-state="Changed" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Update<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> the DoD
+approved</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> their</ins> email address
+on the CAC to reflect the MED365<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> email</ins> (@health.mil)<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> account</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> address</ins>. <del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>This
+will create the DoD Certs needed for the digital signature and encryption.
+(This may take up to 72 hours for the settings to update and be
+reflected in the system.)</del>
+</div>
+</div>
+</div>
+<div class="BodyLBullet" data-element-change-state="Changed" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Update their<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> contact
+and</ins> Global Address List (GAL) properties:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBulletInd" data-element-change-state="Changed" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Sign in to the following link<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> (do
+not select the DoD EMAIL certificate option)</ins>: <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://idco.dmdc.osd.mil/idco/" rel="noopener" target="_blank" tmaa-izihyxm-tk="">https://idco.dmdc.osd.mil/idco/</a></span></div>
+<div class="BodyLBulletInd" data-element-change-state="Changed" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Select <del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>Update Work
+Contact Info (</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>the appropriate option to
+update contact and</ins> GAL<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>)</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> information</ins>.</div>
+<div class="BodyLBulletInd" data-element-change-state="Deleted" role="listitem" tmaa-izihyxm-tk="">
+<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span><span class="Bold" tmaa-izihyxm-tk="">•  </span>Update contact
+information accordingly.</del>
+</div>
+<div class="BodyLBulletInd" data-element-change-state="Changed" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span><del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>Optional: </del>Access<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> their
+MED365 email account using</del>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> DHA</ins> AVHE
+at <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://avhe.health.mil" rel="noopener" target="_blank" tmaa-izihyxm-tk="">https://avhe.health.mil</a></span><ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span> to utilize
+their MED365 email address</ins>.</div>
+</div>
+</div>
+<div class="Note" data-element-change-state="Deleted" role="note" tmaa-izihyxm-tk="">
+<del data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Deleted in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-deleted-badge" title="Deleted in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span><span class="Bold" tmaa-izihyxm-tk="">Note:  </span>The
+amount of time required to obtain a MED365 email and AVHE account
+is contingent upon the independent steps performed by the parties
+outlined above. Activities are typically completed in hours.</del>
+</div>
+</div>
+</div>
+<div aria-level="7" class="FM6Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040019F" data-element-type="Outline" role="heading" tmaa-izihyxm-tk=""><span class="change-modified Bold" data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Modified in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-modified-badge" title="Modified in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>6.1.1.3.1.4  </span><ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>Government Email and
+AVHE Support</ins>
+<div aria-level="8" class="FM7LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004001A0" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="change-modified Bold" data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Modified in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-modified-badge" title="Modified in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>6.1.1.3.1.4.1  </span><ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>The contractor shall
+contact the GSC Help Desk </ins>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span><span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://gsc.health.mil/" rel="noopener" target="_blank" tmaa-izihyxm-tk="">https://gsc.health.mil/</a></span></ins>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>,
+or by calling (800) 600-9332 or by the appropriate country code
+for outside of the continental United States (OCONUS), for support
+with their MED365 email.</ins>
+</div>
+<div aria-level="8" class="FM7LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004001A1" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="change-modified Bold" data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Modified in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-modified-badge" title="Modified in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>6.1.1.3.1.4.2  </span><ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>The contractor shall
+contact the AVHE Tier III support at </ins>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span><span class="Bold" tmaa-izihyxm-tk="">dha.jbcharleston.j-6.list.dcops-support@health.mil</span></ins>
+<ins data-revision="92" datetime="2026-01-20" tmaa-izihyxm-tk=""><span class="visually-hidden" tmaa-izihyxm-tk="">Added in Revision 92, January 20, 2026: </span><span aria-hidden="true" class="change-badge change-added-badge" title="Added in Revision 92, January 20, 2026" tmaa-izihyxm-tk=""></span>,
+or by calling (843) 410-5858 or the appropriate country code for OCONUS,
+for support with the AVHE.</ins>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000E9" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.2  FSO Roles and Responsibilities<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000EA" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.2.1  Obtaining a CAC</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS15004000EB" data-element-type="Text" tmaa-izihyxm-tk="">The FSO shall:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Identify contractor support
+personnel who require a CAC for accessing DoD networks and facilities.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Verify the applicant’s background
+investigation by submitting a request to PSB.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Email requests to dha.ncr.security.mbx.personnel-security-tass@health.mil.
+Please note that all requests containing PII must be encrypted or
+sent via DoD SAFE (<span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://safe.apps.mil" rel="noopener" target="_blank" tmaa-izihyxm-tk="">https://safe.apps.mil</a></span>).</div>
+</div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000F2" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.2.2  Obtaining MED365 Email Address
+Certificate<div class="BodyL" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS15004000F3" data-element-type="Text" tmaa-izihyxm-tk="">The FSO
+shall:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Assist the CAC owner with obtaining
+a DoD approved email address (and the accompanying email certificate)
+for their CAC, if one is required to perform their job duties.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Submit to the COR a list of
+user’s first and last names, personal type codes (Civilian, Military, Contractor)
+and DoD ID Number, for those requiring an email certificate.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Assist the CAC owner with obtaining
+access to DHA AVHE, if required to perform their job duties.</div>
+</div>
+</div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000F7" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.2.3  Out-Processing Procedures<div class="BodyL" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS15004000F8" data-element-type="Text" tmaa-izihyxm-tk="">The FSO shall:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Establish out-processing procedures
+to collect the CAC when an employee quits, is terminated from the
+company or when the CAC is no longer required.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Notify the TA to revoke the
+applicant’s CAC.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Return CACs in accordance with <span class="Para" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/C1S1_1#FM48185" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">paragraph 6.1.3.8</a></span>.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Notify the GSC HelpDesk to
+request disabling AVHE accounts when an employee with an AVHE account
+quits, is terminated from the company or when the AVHE account is
+no longer required.</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000FD" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.3  CAC Guidelines and Restrictions<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000FE" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.1.3.1  </span>Any person willfully altering,
+damaging, lending, counterfeiting, or using these cards in any unauthorized
+manner is subject to fine or imprisonment or both, as prescribed
+in sections 499, 506, 509, 701, and 1001 of title 18, United States
+Code (USC). Section 701 prohibits photographing or otherwise reproducing
+or possessing DoD ID cards in an unauthorized manner, under penalty
+of fine or imprisonment or both. Unauthorized or fraudulent use
+of ID cards would exist if bearers used the card to obtain benefits
+and privileges to which they are not entitled. Examples of authorized
+photocopying include photocopying of DoD ID cards to facilitate
+medical care processing, check cashing, voting, tax matters, compliance
+with appendix 501 of title 50, USC (also known as “The Service member’s
+Civil Relief Act”), or administering other military-related benefits
+to eligible beneficiaries. When possible, the ID card shall be electronically
+authenticated in lieu of photographing the card.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS15004000FF" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.1.3.2  </span>The contractor shall not amend,
+modify, or overprint ID cards by any means. The contractor shall
+not place stickers or other adhesive materials on either side of
+an ID card. The contractor shall not punch holes into ID cards,
+except when a CAC has been requested by the next of kin for an individual who
+has perished in the line of duty. The contractor shall ensure the
+status of the CAC is revoked in DEERS, the certificates are revoked,
+and a hole is punched through the integrated circuit chip before
+it is released to the next of kin.</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400100" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.3.3  Access<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400101" data-element-type="Text" tmaa-izihyxm-tk="">The granting of access is determined
+by the contractor or system owner as prescribed by the DoD.</div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400102" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.3.4  Accountability<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400103" data-element-type="Text" tmaa-izihyxm-tk="">CAC holders shall maintain
+accountability of their CAC at all times while affiliated with the
+DoD.</div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400104" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.3.5  Multiple Cards<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400105" data-element-type="Text" tmaa-izihyxm-tk="">In instances where an individual
+has been issued more than one ID card (e.g., an individual that
+is eligible for an ID card as both a Reservist and as a contractor
+employee), the individual shall use the ID card that most accurately
+depicts the capacity in which the individual is affiliated with
+the DoD at any given time.</div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400106" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.3.6  Renewal
+and Reissuance<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400107" data-element-type="Text" tmaa-izihyxm-tk="">The applicant
+for CAC renewal or reissuance shall surrender the current CAC card
+that is up for renewal. The individual shall renew their CAC 90
+days prior to the CAC expiring.</div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400108" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.3.7  Replacement<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400109" data-element-type="Text" tmaa-izihyxm-tk="">The applicant shall provide
+a letter from the local security office confirming the CAC has been
+reported lost, stolen confiscated or destroyed, and a valid (unexpired)
+State or Federal Government-issued picture ID.</div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040010A" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.3.8  <span class="Cross-RefMarker" id="FM48185" tmaa-izihyxm-tk=""></span>Retrieval<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040010B" data-element-type="Text" tmaa-izihyxm-tk="">The CAC is property of the
+U.S. Government and the contractor shall retrieve and return the
+CAC to the nearest ID Card/RAPIDS center issuing facility when the
+card has expired, is damaged, compromised, when the applicant is
+no longer affiliated with the DoD contractor or no longer meets
+the eligibility requirements for the card.</div>
+</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400112" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.4  Personal Identification Number
+(PIN) Resets<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400113" data-element-type="Text" tmaa-izihyxm-tk="">Should
+an individual’s CAC become locked after three unsuccessful attempts
+to access it, the individual shall get the PIN at a RAPIDS facility
+or by designated individuals authorized CAC PIN Reset (CPR) applications.
+These individuals may be contractor personnel, if approved by the
+Government representative. PIN resets shall not be done remotely.
+The Government will provide CPR software licenses; the contractor
+shall provide all hardware for the workstation (PC, Card Readers,
+Fingerprint capture device). The contractor shall not use the CPR
+workstation for other applications, as the Government has not tested
+the CPR software for compatibility. The contractor shall ensure
+the CPR software is installed on the desktop and not run from the
+Local Area Network (LAN). The contractor shall install the CPR hardware
+and software, and provide the personnel necessary to run the workstation.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400114" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.1.5  Systems Requirements for CAC
+Authentication<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400115" data-element-type="Text" tmaa-izihyxm-tk="">The contractor
+shall procure, install, and maintain desktop level CAC readers and
+middleware. The contractor shall ensure the middleware software
+runs on the desktop and not be run from the LAN. For CAC and CAC
+reader technical specifications go to <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://www.dmdc.osd.mil/appj/dwp/contractor_civ_roles.jsp" rel="noopener" target="_blank" tmaa-izihyxm-tk="">https://www.dmdc.osd.mil/appj/dwp/contractor_civ_roles.jsp</a></span>.</div>
+</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400116" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.1.6  </span>The contractor shall ensure
+that CACs are only used by the individual to whom the CAC was issued.
+Individuals shall protect their PIN and not allow it to be discovered
+or allow the use of their CAC by anyone other than him/herself.
+The contractor shall ensure access to DoD systems applications and data
+is only provided to individuals who have been issued a CAC and whose
+CAC has been validated by the desktop middleware, including use
+of a card reader. The contractor shall not allow CACs, PINs, and other
+access code sharing.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400117" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.1.7  </span>The contractor shall provide
+to the Government the locations and approximate number of contractor
+personnel by site who require CAC issuance upon contract award.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400118" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">6.1.8  </span>The contractor shall identify
+to DHA and DMDC the personnel that require access to the DMDC Contractor
+Test environment in advance of the initiation of testing activities.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400119" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">6.2  System Authentication<div class="BodyL" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS150040011A" data-element-type="Text" tmaa-izihyxm-tk="">The contractor shall obtain
+DoD-acceptable PKI server certificates for identity and authentication
+of the servers upon direction of the CO. These interfaces include,
+but are not limited to, the following:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Contractor systems for inquiries
+and responses with DEERS.</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Contractor systems and the
+TED Processing Center.</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-level="2" class="FM1Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040011E" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.0  Telecommunications<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040011F" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.1  MHS Demilitarized Zone (DMZ)
+Medical Community of Interest (MedCOI) B2B Gateway<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400120" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.1.1  </span>In accordance with contract
+requirements, the contractor shall connect to the B2B Gateway via
+a contractor procured Internet Service Provider (ISP) connection.
+The contractor shall assume all responsibilities for establishing
+and maintaining their connectivity to the B2B Gateway. This shall include
+acquiring and maintaining the circuit used to connect to the B2B
+Gateway and the acquisition of a Virtual Private Network (VPN) device
+maintenance agreement and license compatible with the MHS VPN device.
+The list of compatible devices are detailed in the DHA B2B/MedCOI
+Gateway questionnaire.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400121" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.1.2  </span>The contractors shall submit
+a completed current version of the DHA B2B/MedCOI Gateway questionnaire
+to their Government sponsor or Government Program Office within
+10 days after new requirements have been provided to the contractor.
+The contractor shall provide information specific to their connectivity
+requirements, proposed path for the connection and last mile diagram.
+The contractor shall submit the completed questionnaire directly
+to the DHA B2B office or through the contractor’s Government Program
+Office/sponsor for review and scheduling of an initial technical specifications
+meeting.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400122" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.2  Contractor Provided IT Infrastructure<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400123" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.2.1  </span>The contractor shall ensure
+its platforms support HyperText Transfer (Transport) Protocol (HTTP),
+HyperText Transfer (Transport) Protocol Secure (HTTPS), web-derived
+Java Applets, and Secure File Transfer Protocols (SFTPs) (e.g.,
+STFP, Secure Socket Layer (SSL)/Transport Layer Security (TLS)),
+and all software that the contractor proposes to use to interconnect
+with DoD facilities.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400124" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.2.2  </span>The contractor
+shall configure their networks to support access to Government systems (e.g.,
+configure ports and protocols for access).</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400125" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.2.3  </span>The contractor
+shall provide full time connections to a TIER 1 or TIER 2 ISP. The
+contractor shall not use dial-up ISP connections. The contractor
+shall ensure all IP addresses are publicly routable. The contractor
+shall not use Network Address Translation (NAT) for private address
+space.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400126" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.2.4  </span>The contractor
+shall maintain a valid maintenance contract and pertinent licenses
+for all devices connecting to the MHS B2B Gateway.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400127" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.3  System Authorization Access
+Request (SAAR) Defense Department (DD) Form 2875<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400128" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.3.1  </span>All contractors
+that use the DoD Gateways to access Government IT systems and/or
+DoD applications shall submit the most current version of DD Form
+2875 in accordance with CO guidance. The contractor shall complete
+a DD Form 2875 for each contractor employee who will access any system
+and/or application on a DoD network. The contractor shall ensure
+the DD Form 2875 clearly specifies the system and/or application
+name and justification for access to that system and/or application.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400129" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.3.2  </span>The contractor shall submit
+the completed DD Form 2875 to the DHA DPCLO for verification of
+Position Sensitivity Designation. The DHA DPCLO will verify that
+the contractor employee has either a complete appropriate background
+investigation or one requested from OPM. DHA DPCLO will verify the
+background investigation request and scheduled investigation with
+OPM prior to approving access.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040012A" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.3.3  </span>The DHA
+DPCLO will forward the DD Form 2875 to I&amp;OD for processing;
+I&amp;OD will forward DD Form 2875s to DHA. DHA will notify the
+user of the ID and password via secure/encrypted email upon the
+establishment of a user account. User accounts will be established
+for individual use and may not be shared by multiple users or for
+system generated access to any DoD application. Misuse of user accounts
+by individuals or contractor entities will result in termination
+of system access for the individual user account.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040012B" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.3.4  </span>The contractor shall conduct
+a monthly review of all contractor employees who have been granted
+access to DoD IS’/networks to verify that continued access is required.
+The contractor shall provide the DHA DPCLO with a report of the
+findings of their review by the 10th day of each month following
+the review. Details for reporting are identified in DD Form 1423,
+Contract Data Requirements List (CDRL), located in Section J of
+the applicable contract.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040012C" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.4  MHS
+Systems Telecommunications<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040012D" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.4.1  </span>The contractor
+shall ensure primary communication links are via encrypted tunnels
+(i.e., Secure Internet Protocol (IPSEC), GetVPN, or SSL) between
+the contractor’s primary site and the MHS B2B Gateway.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040012E" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.4.2  </span>The contractor shall place
+the VPN appliance device outside the contractor’s firewalls and shall
+allow full management access to this device (e.g., in router access
+control lists) to allow Central VPN Management services provided
+by DHA or other source of service as designated by the MHS to remotely
+manage, configure, and support this VPN device as part of the MHS
+VPN domain.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040012F" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.4.3  </span>For backup purposes, the contractor
+shall procure an auxiliary VPN device for contractor locations and
+configure devices for operation to minimize any downtime associated
+with problems of the primary VPN.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400130" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.4.4  </span>The contractors
+send devices to the MHS VPN management authority (e.g., DHA) postage paid
+and include prepaid return shipping arrangements for the devices(s).</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400131" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.4.5  </span>The MHS VPN management authority
+(e.g., DHA) will remotely configure and manage the VPN appliance
+once installed by the contractor.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400132" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.4.6  </span>The contractor
+shall maintain and repair contractor procured VPN equipment. The Government
+will troubleshoot of VPN equipment.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400133" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.5  Establishment
+of Telecommunications<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400134" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.5.1  </span>The contractor shall establish
+telecommunications with the MHS in coordination with DHA. The contractor
+shall identify their requirement(s) for the establishment of telecommunications
+with the MHS, DMDC or other Government entities.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400135" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.5.2  </span>The DHA/MedCOI B2B Gateway
+Questionnaire (provided by DHA) identifies the required telecommunication
+infrastructure between the contractor and the MHS systems. This
+includes all Wide Area Network (WAN), LAN, VPN, Web DMZ, and B2B
+Gateway access requirements. The contractor shall complete their
+applicable portion of the questionnaire and shall return it to the
+DHA designated POC for review and approval. Upon Government request,
+the contractor shall provide technical experts to provide any clarification
+of information provided in the questionnaire. DHA will review and
+process the questionnaire when it is accepted.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400136" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.5.3  </span>DHA will coordinate any requirements
+for additional information with the POC and schedule any meetings
+required to review the Questionnaire. Upon approval of the Questionnaire,
+DHA will coordinate a testing meeting with appropriate stakeholders.
+DHA will notify the contractor POC of the meeting schedule. The
+purpose of the testing meeting is to complete a final review of
+the telecommunication requirements and establish testing dates.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400137" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.5.4  </span>The contractor shall provide
+DHA with a copy of the approved and signed B2B Questionnaire for
+all telecommunication efforts upon request. Details for submission
+of this questionnaire are identified in DD Form 1423, CDRL, located
+in applicable Section of the applicable contracts.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400138" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.6  Contractors Located On Military
+Installations<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400139" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.6.1  </span>Contractors located on a military
+installation who require direct access to Government systems shall
+coordinate/obtain these connections with the local Market/Military
+Treatment Facilities (MTFs) and Base/Post/Camp communication personnel.
+The Government will furnish these connections.</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040013A" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.6.2  </span>Contractors located on military
+installations that require direct connections to their networks
+shall provide an isolated IT infrastructure. The contractor shall
+coordinate with the Base/Post/Camp communications personnel and
+the Market/MTF to get approval for a contractor procured circuit prior
+to installation to ensure the contractor is within compliance with
+the respective organizational security policies, guidance and protocols.<div class="Note" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040013B" data-element-type="Text" role="note" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Note:  </span>In some cases, the contractor
+may not be allowed to establish these connections due to local administrative/security
+requirements.</div>
+</div>
+<div aria-level="4" class="FM3LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040013C" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.6.3  </span>The contractor
+shall be responsible for all security certification documentation
+as required to support DoD IA requirements for network interconnections.
+Further, the contractor shall provide, on request, detailed network
+configuration diagrams to support IA accreditation requirements.
+The contractor shall comply with IA accreditation requirements.
+The contractor shall ensure all network traffic is via Transmission
+Control Protocol/Internet Protocol (TCP/IP) using ports and protocols
+in accordance with current Uniformed Service security policy. All
+traffic that traverses MHS, DMDC, and/or military Service Base/Post/Camp
+security infrastructure is subject to monitoring by security staff
+using Intrusion Detection Systems.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040013D" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.7  DHA/TED<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040013E" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.7.1  Primary Site<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040013F" data-element-type="Text" tmaa-izihyxm-tk="">The TED primary processing
+site is currently located in San Antonio, TX; and operated by the
+DISA Defense Enterprise Computing Center (DECC), Detachment San
+Antonio, TX.</div>
+<div class="Note" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400140" data-element-type="Text" role="note" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">Note:  </span>The location of the primary
+site may be changed. The Government will advise the contractor if
+the primary site changes.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400141" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.7.2  General<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400142" data-element-type="Text" tmaa-izihyxm-tk="">The common means of administrative
+communication between Government representatives and the contractor
+is via telephone and email. DHA may approve an alternate method.
+At the start-up planning meeting, each contractor on the telecommunication
+network shall provide DHA the name, address, and telephone number
+of the technical POC and update the information when changes occur.
+The contractor shall also provide a separate computer center (Help
+Desk) number to DHA for the DHA computer operator to use for data
+transmission problem resolution.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400143" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.7.3  TED-Specific
+Data Communications Technical Requirements<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400144" data-element-type="Text" tmaa-izihyxm-tk="">The contractor shall communicate
+with the Government’s TED Data Center through the MHS B2B Gateway.</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400145" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.7.3.1  Communication Protocol Requirements<div aria-level="6" class="FM5LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400146" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.7.3.1.1  </span>The contractor shall use file
+transfer software to support communications with the TED Data Processing
+Center. CONNECT:Direct is the current communications software standard
+for TED transmissions. The contractor shall upgrade/comply with
+any changes to this software. The contractor shall provide this
+product and a platform capable of supporting this product with the
+TCP/IP option included. Details on this product may be obtained
+from:<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400147" data-element-type="Text" tmaa-izihyxm-tk="">Sterling
+Commerce</div>
+<div class="BodyLNSA" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400148" data-element-type="Text" tmaa-izihyxm-tk="">4600 Lakehurst
+Court</div>
+<div class="BodyLNSA" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400149" data-element-type="Text" tmaa-izihyxm-tk="">P.O. Box
+8000</div>
+<div class="BodyLNSA" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040014A" data-element-type="Text" tmaa-izihyxm-tk="">Dublin
+OH 43016-2000 USA</div>
+<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040014B" data-element-type="Text" tmaa-izihyxm-tk="">Phone: (614) 793-7000</div>
+<div class="BodyLNSA" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040014C" data-element-type="Text" tmaa-izihyxm-tk="">Fax: (614) 793-4040</div>
+</div>
+<div aria-level="6" class="FM5LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040014D" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.7.3.1.2  </span> The contractor shall provide
+TCP/IP communications software incorporating the TN3270 emulation,
+for ports and protocol support.</div>
+<div aria-level="6" class="FM5LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040014E" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.7.3.1.3  </span>The contractor shall not transmit
+more than any combination of 400,000 records at one time.</div>
+<div aria-level="6" class="FM5Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040014F" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.7.3.1.4  “As Required” Transfers<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400150" data-element-type="Text" tmaa-izihyxm-tk="">The contractor shall coordinate
+and execute ad hoc movement of data files through the network administrator
+or designated representative at the source file site. Generally
+speaking, the requestor needs only to provide the POC at the remote
+site, and the source file name. The contractor shall obtain destination
+file names from the network administrator at the site receiving
+the data. Compliance with naming conventions used for recurring
+automated transfers is not required. Other site specific requirements,
+such as security constraints and pool names are generally known
+to the network administrators.</div>
+</div>
+<div aria-level="6" class="FM5Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400151" data-element-type="Outline" id="i106148" role="heading" tmaa-izihyxm-tk="">7.7.3.1.5  <span class="Cross-RefMarker" id="FM37023" tmaa-izihyxm-tk=""></span>File
+Naming Convention<div aria-level="7" class="FM6LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400152" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.7.3.1.5.1  </span>The contractor shall ensure
+all files received by and sent from the DHA data processing site
+comply with the following standards when using CONNECT:Direct:<div class="TblSepSA" tmaa-izihyxm-tk="">
+<div class="table-wrapper" tmaa-izihyxm-tk="">
+<table class="Tbl3" data-element-change-state="Unchanged" data-element-id="TS1500400153" data-element-type="Text" tmaa-izihyxm-tk="">
+<colgroup tmaa-izihyxm-tk="">
+<col style="width:21.153846153846153%" tmaa-izihyxm-tk=""/>
+<col style="width:78.84615384615384%" tmaa-izihyxm-tk=""/>
+</colgroup>
+<thead tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<th tmaa-izihyxm-tk="">
+<div class="CellHeadingC" tmaa-izihyxm-tk="">POSITION(S)</div>
+</th>
+<th tmaa-izihyxm-tk="">
+<div class="CellHeadingL" tmaa-izihyxm-tk="">CONTENT</div>
+</th>
+</tr>
+</thead>
+<tbody tmaa-izihyxm-tk="">
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">1 - 2</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">TD</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">3 - 8</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">YYMMDD Date of transmission</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">9 - 10</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Contractor number</div>
+</td>
+</tr>
+<tr tmaa-izihyxm-tk="">
+<td style="vertical-align:top;" tmaa-izihyxm-tk="">
+<div class="CellBodyC" tmaa-izihyxm-tk="">11 - 12</div>
+</td>
+<td tmaa-izihyxm-tk="">
+<div class="CellBodyL" tmaa-izihyxm-tk="">Sequence number of the file
+sent on a particular day. Ranges from 01 to 99. Reset with the first
+file transmission the next day.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div aria-level="7" class="FM6LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040015E" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.7.3.1.5.2  </span>All files sent from the DHA
+data processing site shall be named after coordination with receiving
+entities in order to accommodate specific communication requirements
+for the receivers.</div>
+</div>
+<div aria-level="6" class="FM5Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040015F" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.7.3.1.6  Timing<div aria-level="7" class="FM6LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400160" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.7.3.1.6.1  </span>Under most circumstances, the
+source file site shall initiate automated processes to cause transmission
+to occur. With considerations for timing and frequency, activation
+of transfers for each application shall be addressed on a case by
+case basis.</div>
+<div aria-level="7" class="FM6Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400161" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.7.3.1.6.2  Alternate
+Transmission<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400162" data-element-type="Text" tmaa-izihyxm-tk="">Should
+the contractor not be able to transmit their files through the normal
+operating means, the contractor shall notify DHA to discuss alternative
+delivery methods.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400163" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.8  DHA/MHS Referral And Authorization
+System<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400164" data-element-type="Text" tmaa-izihyxm-tk="">The MHS
+Referral and Authorization System is to be determined. Interim processes
+are described in the TOM.</div>
+</div>
+<div aria-level="3" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400165" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.9  DHA/TRICARE
+Duplicate Claims System (DCS)<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400166" data-element-type="Text" tmaa-izihyxm-tk="">The DCS is a web application
+accessible via Microsoft Internet Explorer (MSIE) version 6.0, 7.0
+or as directed by the Government. The contractor shall provide internal
+connectivity to the public Internet and shall supply all systems
+and operating system software needed internally to support the DCS.
+(See <span class="xrefpub" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/c4toc.htmlmessage URL ./c4toc.html " rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter
+4</a></span> for DCS Specifications.)</div>
+</div>
+<div aria-level="2" class="FM2Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400167" data-element-type="Outline" id="i106125" role="heading" tmaa-izihyxm-tk="">7.10  <span class="Cross-RefMarker" id="FM55596" tmaa-izihyxm-tk=""></span>Payroll
+Allotment Systems<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400168" data-element-type="Text" tmaa-izihyxm-tk="">Enrollment
+fees/premium payments for specified TRICARE Programs may be paid
+by electronic monthly allotments from military payroll. The availability
+of this payment option is determined by the Program requirements
+and the Service member’s duty status and may not be available for
+all TRICARE Programs. Payroll allotment data is exchanged between
+Uniformed Services pay centers and the DHA private care contractors.
+DHA contractors process allotment information exchanged with Uniformed Services
+pay in accordance with the TOM, <span class="ChapSec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TO15/FileName/C6S1?referenceDate=2026-09-17&amp;bookmark=%23FM31394" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter 6, Section 1</a></span>. The following allotment
+from retirement pay processing guidance is provided in accordance
+with the Memorandum of Understanding (MOU) established between the
+Defense Health Agency (DHA) and Defense Finance and Accounting Service
+(DFAS), or the Uniformed Services pay center.</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400169" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.10.1  Exchange
+of Payroll Allotment Data<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040016A" data-element-type="Text" tmaa-izihyxm-tk="">The contractor
+shall exchange payroll allotment data with the DFAS and the Uniformed
+Services pay centers using a specified transmission protocol.</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040016B" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.10.1.1  DFAS<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040016C" data-element-type="Text" tmaa-izihyxm-tk="">The contractor shall transmit
+Army, Air Force, Navy, Marines, and Space Force pay allotment data
+to DFAS via the B2B Gateway using SFTP or a secure Internet file
+transfer, e.g., Multi-Host Internet Access Portal (MIAP). The use
+of the B2B or a Government identified secure file transfer requires
+compliance with all security requirements in this Chapter. The contractor
+shall separately provide DFAS with a System Authorization Access
+Request (SAAR) DD Form 2875 requesting access to DFAS systems. This
+is in addition to anything already submitted for B2B access.</div>
+</div>
+<div aria-level="5" class="FM4Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040016D" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.10.1.2  Pay Center Specific Allotment
+Data - U.S. Coast Guard (USCG) and Public Health Service (PHS)<div class="BodyL" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040016E" data-element-type="Text" tmaa-izihyxm-tk="">The contractor shall transmit
+USCG and PHS payroll allotment data via the SilkWeb (a SFTP) and
+Titan web application (see instructions in <span class="Add" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/FileName/C1ADA?referenceDate=2026-09-17&amp;bookmark=%23FM65887" hx-get="/api/publication/TS15/102/C1ADA?referenceDate=2026-09-17&amp;bookmark=%23FM65887" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TS15/FileName/C1ADA?referenceDate=2026-09-17&amp;bookmark=%23FM65887" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Addendum A</a></span>).
+All security and data handling requirements in this Chapter remain
+in effect. In addition, the contractor shall obtain User IDs and
+passwords from the designated POC at the PHS.</div>
+</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040016F" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.10.2  Data Transmission Requirements <div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400170" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.2.1  </span>The contractor shall provide
+DFAS or the appropriate Uniformed Services pay center with a monthly
+file of retirees who have selected a TRICARE Health Plan (THP) or
+a file to include active duty sponsors who have selected the TRICARE
+Dental Program (TDP). The contractor shall ensure the files include
+the elected monthly allotments as the methodology for paying enrollment
+fees. DFAS or the appropriate Uniformed Service pay centers will
+return feedback files to the contractor providing determinations
+of the actions, acceptance or rejection and whether the item is
+paid or unpaid.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400171" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.2.2  </span>The contractor shall provide
+POCs to the DFAS or the appropriate Uniformed Services pay center
+for testing, system and ongoing business requirements. The contractor
+shall maintain POC information and include: name, title, contractor
+name, address, electronic mail address and telephone number. The
+contractor shall provide updated information to DFAS when the POC
+or contact information changes.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400172" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.2.3  </span>DFAS or the appropriate Uniformed
+Services pay center will provide the contractor with start/stop
+and change allotment requests received directly from TRICARE beneficiaries.
+The contractor shall process these requests and submit an initial
+file containing information for all allotments selected in time
+for the first submission. The contractor shall only include new
+allotments and stops and/or changes for subsequent files.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400173" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.2.4  </span>The contractor shall send the
+file (initial and subsequent) using the appropriate transmission
+protocol determined by the receiving payroll center, e.g., DFAS
+or the appropriate Uniformed Services pay center.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400174" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.2.5  </span>The contractor shall email
+notification to DFAS or the appropriate Uniformed Services pay center
+regarding file transmission.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400175" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.10.3  File
+Layout<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS1500400176" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.3.1  </span>The contractor shall exchange
+the following files with DFAS or the appropriate Uniformed Services
+pay center not identified in <span class="Para" tmaa-izihyxm-tk=""><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/C1S1_1#CHDIGIGIB6" rel="noopener" target="_blank" tmaa-izihyxm-tk="" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">paragraph 7.10.3.2</a></span>:<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Input data</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Reject Report</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Deduction Report</div>
+</div>
+</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="List" data-element-id="TS150040018B" data-element-type="Text" id="CHDIGIGIB6" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.3.2  </span>The contractor shall exchange
+the following files for both the U.S. Air Force (USAF) and U.S. Navy
+(USN):<div data-element-change-state="Unchanged" role="list" tmaa-izihyxm-tk="">
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Premium Deduction File</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>No Match File</div>
+<div class="BodyLBullet" data-element-change-state="Unchanged" role="listitem" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">•  </span>Deduct/No Deduct File</div>
+</div>
+</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040017B" data-element-type="Text" id="CHDDHDDFE1" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.3.3  </span>The general file layout is
+provided at <span class="Add" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/FileName/C1ADA?referenceDate=2026-09-17&amp;bookmark=%23FM65887" hx-get="/api/publication/TS15/102/C1ADA?referenceDate=2026-09-17&amp;bookmark=%23FM65887" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TS15/FileName/C1ADA?referenceDate=2026-09-17&amp;bookmark=%23FM65887" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Addendum A</a></span>. The CO will notify the contractor regarding
+changes to the file layout.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400190" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.3.4  </span>The USAF file layout is provided
+at <span class="Add" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TS15/FileName/C1ADB?referenceDate=2026-09-17&amp;bookmark=%23FM144162" hx-get="/api/publication/TS15/102/C1ADB?referenceDate=2026-09-17&amp;bookmark=%23FM144162" hx-indicator="#loading-overlay" hx-push-url="/View-Publication/TS15/FileName/C1ADB?referenceDate=2026-09-17&amp;bookmark=%23FM144162" hx-swap="innerHTML" hx-target="#publication-document" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Addendum B</a></span>. The contractor will be notified
+of any changes to the file layout by the CO.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040017C" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.3.5  </span>The contractor shall submit
+files using the DFAS naming convention.</div>
+</div>
+<div aria-level="4" class="FM3Level" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040017D" data-element-type="Outline" role="heading" tmaa-izihyxm-tk="">7.10.4  Data Transmission Schedule<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040017E" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.4.1  </span>The contractor (or their designated
+subcontractor) shall transmit data on the business day immediately
+prior to the eighth day of each month (or on the previous Thursday,
+should the eighth fall on a Saturday or Sunday), for allotments
+due on the first day of the upcoming month. The only exception to
+this schedule is for the month of December when the contractor shall
+transmit all data so it is received on the first business day of
+December.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS150040017F" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.4.2  </span>During months when no monthly
+beneficiary data exists, the contractor shall continue to submit
+a file without data in accordance with the eighth day of the month
+rule. The file shall consist of a header and trailer record with
+no data in between. In the accompanying email, the contractor shall indicate
+the file does not contain member data.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400180" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.4.3  </span>Within 24 hours of file processing
+by DFAS or the appropriate Uniformed Services pay center, the contractor
+will receive a file from the pay center identifying all “rejected”
+submissions and the reasons for the rejection. The contractor shall
+research the rejected submissions and resubmit resolved transactions
+on the following month’s file. The contractor shall also notify
+the beneficiary in accordance with TOM, <span class="ChapSec" tmaa-izihyxm-tk=""><a href="https://manuals.dha.mil/View-Publication/TO15/FileName/C6S1?referenceDate=2026-09-17&amp;bookmark=%23FM31394" rel="noopener" target="_blank" tmaa-izihyxm-tk="">Chapter 6, Section 1</a></span>.</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400181" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.4.4  </span>The contractor will receive
+a file of the “deduct/no deduct” file that contains the “no deduct”
+reasons following processing of the “compute pay cycle” by the pay
+center. The contractor shall research these items and resubmit resolved
+items, as appropriate, on the following month’s file. The “deduct/no
+deduct” file is informational and documents all payments not collected
+as well as unfulfilled allotment requests (e.g., insufficient pay
+to cover deduction).</div>
+<div aria-level="5" class="FM4LevelNT" data-element-change-state="Unchanged" data-element-format="Text" data-element-id="TS1500400182" data-element-type="Text" role="heading" tmaa-izihyxm-tk=""><span class="Bold" tmaa-izihyxm-tk="">7.10.4.5  </span>The contractor’s banking institution
+will receive a Corporate Trade Exchange (CTX) “payment” file from
+DFAS on the first business day of the month following the file submission.</div>
+</div>
+</div>
+</div></section>
+<div class="END" tmaa-izihyxm-tk="">- END -</div></article></div><div hx-swap-oob="true" id="publication-info"><div class="tmaa-stack" role="group" style="--gap: 0;"><div>TRICARE Systems Manual 7950.3-M, April 2015</div>
+<div>Revision 102 (Published Sep 17, 2026)</div>
+<div>Chap 1 -- General Automated Data Processing (ADP) Requirements</div>
+<div>Sect 1.1 -- General Automated Data Processing (ADP) Requirements</div></div></div><div class="" hx-swap-oob="true" id="publication-in-this-section-wrapper"><div class="card content-panel border-0 mb-4" role="group"><div class="card-header" style=""><h3>In This Section</h3></div><div class="card-body" style=""><div id="publication-in-this-section"><div class="tmaa-stack" role="group" style="--gap: 0;"><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1500400007']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">1.0  General</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1500400023']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">2.0  System
+Integration, Implementation And Testing Meetings</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1500400030']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">3.0  ADP Requirements</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS1500400064']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">4.0  Health
+Insurance Portability And Accountability Act (HIPAA)</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS150040006A']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">5.0  Personnel
+Security Requirements</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS15004000CF']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">6.0  Public Key Infrastructure (PKI)</a><a class="tmaa-scroll-to-link" href="https://manuals.dha.mil/View-Publication/TS15/Revision/102/FileName/[data-element-id='TS150040011E']" rel="noopener" target="_blank" x-on:click.prevent="smoothScrollTo($el.getAttribute('href'), 800, true)">7.0  Telecommunications</a></div></div></div></div></div>

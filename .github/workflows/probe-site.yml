@@ -6,6 +6,11 @@ name: Probe manuals site structure
 # Delete along with scripts/probe_site.py once that is done.
 on:
   workflow_dispatch:
+    inputs:
+      script:
+        description: 'Which probe script to run'
+        required: false
+        default: 'scripts/probe_site.py'
 
 jobs:
   probe:
@@ -18,4 +23,4 @@ jobs:
           python-version: '3.12'
       - run: pip install -r scripts/requirements.txt
       - run: playwright install --with-deps chromium
-      - run: python -u scripts/probe_site.py
+      - run: python -u ${{ github.event.inputs.script || 'scripts/probe_site.py' }}

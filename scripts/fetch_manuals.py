@@ -207,6 +207,19 @@ CHALLENGE_ABORT_AFTER = 3
 # ceiling rather than after, since a refusal costs a wasted request.
 SESSION_REFRESH_SECS = 8 * 60
 
+# When the site starts resetting connections it refuses the browser too, so a
+# renewal fails and leaves the session dead. Waiting it out is what actually
+# recovers: the block that cost TS15 twelve sections lasted roughly ten
+# minutes and then cleared by itself.
+RENEWAL_ATTEMPTS = 3
+RENEWAL_BACKOFF_SECS = 60.0
+
+# Consecutive transport failures that trigger a renewal rather than grinding
+# through the rest of the manual one doomed section at a time. Two, because a
+# single reset is common and self-corrects, while a second in a row means the
+# session is gone.
+RESET_RENEWAL_AFTER = 2
+
 # How long to let a section page settle after navigation. The retry pass uses
 # the slower value together with wait_until="networkidle", to give genuinely
 # slow JS-rendered pages a second chance before they are written off.
@@ -369,13 +382,20 @@ async def _launch_context(pw):
 
 
 async def _open_publication(code: str):
-    """Load a manual's publication page in Chromium; return (body, links, cookies).
+    """Load a manual's publication page in Chromium.
 
-    Shared by discovery and session renewal: both need a real browser to visit
-    the page and run the bot-defence challenge, and renewal gets the revision
-    and link list for free.
+    Returns (body, links, cookies, ok). Shared by discovery and session
+    renewal: both need a real browser to visit the page and run the
+    bot-defence challenge, and renewal gets the revision and link list free.
+
+    `ok` says whether the navigation itself succeeded. It matters because a
+    renewal whose goto was reset produces no usable cookies, and continuing
+    with the old ones means every following section fails too — which is
+    exactly how a TS15 run spent ten minutes retrying against a session it
+    already knew was dead.
     """
     url = PUBLICATION_URL.format(code=code)
+    ok = True
     async with async_playwright() as pw:
         browser, ctx = await _launch_context(pw)
         page = await ctx.new_page()
@@ -383,6 +403,7 @@ async def _open_publication(code: str):
             try:
                 await page.goto(url, wait_until="networkidle", timeout=60_000)
             except Exception as e:
+                ok = False
                 print(f"  [{code}] goto failed ({e}); continuing with whatever rendered",
                       file=sys.stderr)
             await page.wait_for_timeout(4_000)
@@ -403,7 +424,7 @@ async def _open_publication(code: str):
                 pass
             await ctx.close()
             await browser.close()
-    return body, pairs, cookies
+    return body, pairs, cookies, ok
 
 
 def renew_session(code: str) -> float:
@@ -414,10 +435,29 @@ def renew_session(code: str) -> float:
     the publication page again in Chromium re-runs the challenge exactly as a
     reader leaving a tab open would, so long manuals continue rather than
     stopping two thirds of the way through.
+
+    Renewal can itself be refused. When the site is resetting connections it
+    resets the browser's navigation too, and the old code took the empty
+    result and carried on, so every subsequent section failed against a
+    session already known to be dead. Now a failed attempt is waited out and
+    retried: the block that hit TS15 lasted about ten minutes and cleared on
+    its own, so waiting is both what works and the polite response to being
+    told to slow down.
     """
-    print(f"  [{code}] Renewing the browser session…")
-    _, _, cookies = asyncio.run(_open_publication(code))
-    adopt_browser_cookies(cookies)
+    for attempt in range(1, RENEWAL_ATTEMPTS + 1):
+        print(f"  [{code}] Renewing the browser session"
+              + (f" (attempt {attempt}/{RENEWAL_ATTEMPTS})" if attempt > 1 else "") + "…")
+        _, _, cookies, ok = asyncio.run(_open_publication(code))
+        if ok and cookies:
+            adopt_browser_cookies(cookies)
+            return time.monotonic()
+        if attempt < RENEWAL_ATTEMPTS:
+            wait = RENEWAL_BACKOFF_SECS * attempt
+            print(f"  [{code}] Renewal refused; waiting {wait:.0f}s before trying again.",
+                  file=sys.stderr)
+            time.sleep(wait)
+    print(f"  [{code}] Could not re-establish a session after {RENEWAL_ATTEMPTS} "
+          f"attempts; continuing with the existing one.", file=sys.stderr)
     return time.monotonic()
 
 
@@ -436,7 +476,7 @@ async def fetch_publication(code: str) -> tuple[int | None, str, list[tuple[str,
     carried out because every section page shares one generic <title>; the
     publication page is the only place a real title is available.
     """
-    body, pairs, cookies = await _open_publication(code)
+    body, pairs, cookies, _ok = await _open_publication(code)
 
     # Hand the browser's session to the HTTP client. The content endpoint is
     # behind bot defence that decides per session, not per request: a client
@@ -734,6 +774,7 @@ def fetch_sections(code: str, sections: list[dict]) -> tuple[list[tuple[str, str
     done = 0
     diagnosed = 0
     consecutive_challenges = 0
+    consecutive_failures = 0
 
     # Read before any writes — the loop below only buffers, so the files on
     # disk still hold the previous run's content while we are fetching.
@@ -761,6 +802,14 @@ def fetch_sections(code: str, sections: list[dict]) -> tuple[list[tuple[str, str
         ok = False
         challenge = False
         renewed_here = False
+
+        # A dead session shows up as connection resets, not as the
+        # interstitial, so the challenge path alone never catches it.
+        if consecutive_failures >= RESET_RENEWAL_AFTER:
+            print(f"  [{code}] {consecutive_failures} sections failed in a row — "
+                  f"re-establishing the session before continuing.", file=sys.stderr)
+            session_started = renew_session(code)
+            consecutive_failures = 0
         for attempt in range(1, SECTION_FETCH_ATTEMPTS + 1):
             # get() already paces requests and retries transport errors; this
             # outer loop exists for the case that matters more here — a 200
@@ -798,6 +847,7 @@ def fetch_sections(code: str, sections: list[dict]) -> tuple[list[tuple[str, str
             continue  # title only; chapter TOCs are not stored as files
 
         consecutive_challenges = consecutive_challenges + 1 if challenge else 0
+        consecutive_failures = 0 if ok else consecutive_failures + 1
 
         done += 1
         print(f"  [{done}/{content_total}] {s['name']}"

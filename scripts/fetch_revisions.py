@@ -28,6 +28,13 @@ endpoint is read directly instead: one request per page of any size, with the
 filter the page itself builds (it names all fourteen publications), so no
 query parameter is guessed and nothing depends on the UI's own paging.
 
+The request is made by the register page, through its own fetch(). Lifting
+the browser's cookies into a requests session worked at first and then
+started being reset outright by the bot defence, which went on to reset the
+navigation too. A same-origin fetch from the open page is the request htmx
+itself would make, with the session, headers and TLS fingerprint the site has
+already accepted.
+
 Two honesty requirements shape the output:
 
   * The register begins in December 2020. Manuals older than that have change
@@ -46,7 +53,6 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-import requests
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
 
@@ -64,36 +70,30 @@ PAGE_SIZE = 100
 # Hard ceiling on requests, so a paging bug cannot loop forever.
 MAX_PAGES = 40
 PAGE_DELAY_SECS = 1.5
-# The site's bot defence resets a request outright when it dislikes the
-# session — "Connection reset by peer", not an HTTP status. One of those on
-# page 0 used to end the whole read. Retry the page, and from the second
-# failure open a fresh browser session first, which is the only thing that
-# reliably clears it (fetch_manuals.py learned the same lesson).
+# The site's bot defence resets a request outright when it dislikes it —
+# "Connection reset by peer", not an HTTP status — and a single one of those
+# on page 0 used to end the whole read. Each page is retried, and from the
+# second failure the register is reloaded first, which also refreshes the
+# filter. Backoff grows with each attempt and the whole step is capped at ten
+# minutes in CI, so a site that is resetting everything costs one run's
+# refresh, not a stuck job: the files already published simply stay.
 PAGE_ATTEMPTS = 4
 RENEW_AFTER = 2
 PAGE_RETRY_BACKOFF_SECS = 20.0
 
 CARDS_API = BASE_URL + "/api/changepackages/cards"
-HX_HEADERS = {
-    "HX-Request": "true",
-    "HX-Target": "change-packages-wrapper",
-    "Referer": CHANGES_URL,
-}
+HX_TARGET = "change-packages-wrapper"
 
 _PUBLISHED_RE = re.compile(r"Published on:\s*([0-9]{1,2}/[0-9]{1,2}/[0-9]{4})")
 _CODE_CHANGE_RE = re.compile(r"^\s*([A-Z][A-Z0-9]{3})\s+Change\s+(\d+)\s*$", re.I)
 _CONREQ_RE = re.compile(r"Conreq:\s*(\S+)")
 _HXGET_RE = re.compile(r"/api/changepackages/cards\?([^\"\']+)")
 
-session = requests.Session()
-session.headers.update({
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/124.0.0.0 Safari/537.36"
-    ),
-    "Accept-Language": "en-US,en;q=0.9",
-})
+USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/124.0.0.0 Safari/537.36"
+)
 
 
 def iso_date(american: str) -> str:
@@ -141,48 +141,43 @@ def parse_cards(html: str) -> list[dict]:
     return entries
 
 
-async def _open_register() -> tuple[str, list[dict]]:
-    """Open the register in a browser; return (api query string, cookies).
+async def _open_register_page(page) -> str:
+    """Navigate to the register and lift the filter its own paging links carry.
 
-    Two things only a real browser can get: a session the content API will
-    honour, and the filter the page builds for itself — a JSON blob naming
-    every publication, which is lifted from a pagination link rather than
-    reconstructed, so the request matches what the site asks for.
+    The filter is a JSON blob naming every publication. It is taken verbatim
+    from a pagination link rather than reconstructed, so the request matches
+    what the site asks for and no query parameter is invented.
     """
-    browser_query = ""
-    async with async_playwright() as pw:
-        browser = await pw.chromium.launch(
-            headless=True, args=["--disable-blink-features=AutomationControlled"]
-        )
-        ctx = await browser.new_context(
-            user_agent=session.headers["User-Agent"],
-            viewport={"width": 1440, "height": 1000},
-            extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
-        )
-        await ctx.add_init_script(
-            "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
-        )
-        page = await ctx.new_page()
-        try:
-            await page.goto(CHANGES_URL, wait_until="networkidle", timeout=60_000)
-            await page.wait_for_timeout(4_000)
-            hx = await page.evaluate("""() => {
-                const a = document.querySelector('.pagination a.page-link[hx-get]');
-                return a ? a.getAttribute('hx-get') : '';
-            }""")
-            if hx:
-                m = _HXGET_RE.search(hx)
-                if m:
-                    browser_query = m.group(1)
-            cookies = await ctx.cookies()
-        finally:
-            try:
-                await page.close()
-            except Exception:
-                pass
-            await ctx.close()
-            await browser.close()
-    return browser_query, cookies
+    await page.goto(CHANGES_URL, wait_until="networkidle", timeout=60_000)
+    await page.wait_for_timeout(4_000)
+    hx = await page.evaluate("""() => {
+        const a = document.querySelector('.pagination a.page-link[hx-get]');
+        return a ? a.getAttribute('hx-get') : '';
+    }""")
+    m = _HXGET_RE.search(hx or "")
+    return m.group(1) if m else ""
+
+
+_FETCH_JS = """async ([url, target]) => {
+    const r = await fetch(url, {
+        headers: {'HX-Request': 'true', 'HX-Target': target},
+        credentials: 'same-origin',
+    });
+    return [r.status, await r.text()];
+}"""
+
+
+async def _fetch_cards(page, url: str) -> tuple[int, str]:
+    """Request a page of cards from inside the register page itself.
+
+    Carrying the browser's cookies into a requests session stopped working:
+    the bot defence resets those calls outright ("Connection reset by peer"),
+    and after enough of them it resets the navigation too. Asking the page to
+    fetch its own API is the same-origin request htmx would make, with the
+    session, headers and TLS fingerprint the site already accepted.
+    """
+    status, text = await page.evaluate(_FETCH_JS, [url, HX_TARGET])
+    return int(status), text
 
 
 def _api_url(query: str, page: int) -> str:
@@ -200,55 +195,16 @@ def _api_url(query: str, page: int) -> str:
     return CARDS_API + "?" + "&".join(parts)
 
 
-def start_session() -> str:
-    """Open the register in a browser and adopt its session; return the filter."""
-    query, cookies = asyncio.run(_open_register())
-    added = 0
-    for c in cookies:
-        if c.get("name") and c.get("value") is not None:
-            session.cookies.set(c["name"], c["value"],
-                                domain=c.get("domain") or "", path=c.get("path") or "/")
-            added += 1
-    print(f"  carried {added} browser cookie(s)")
-    return query
+async def collect_pages(fetch_cards, renew) -> tuple[list[dict], bool]:
+    """Page the register. Returns (entries, truncated).
 
-
-def fetch_page(query: str, page_no: int) -> tuple[str | None, str]:
-    """Fetch one page of cards, retrying a reset session. Returns (html, query).
-
-    The query comes back because a renewal reads a fresh filter out of the
-    reopened page, and the caller must keep using that one.
-    """
-    for attempt in range(1, PAGE_ATTEMPTS + 1):
-        try:
-            r = session.get(_api_url(query, page_no), headers=HX_HEADERS, timeout=45)
-            if r.status_code == 200:
-                r.encoding = "utf-8"
-                return r.text, query
-            reason = f"HTTP {r.status_code}"
-        except Exception as e:
-            reason = f"{type(e).__name__}: {e}"
-        print(f"  page {page_no}: {reason} "
-              f"(attempt {attempt}/{PAGE_ATTEMPTS})", file=sys.stderr)
-        if attempt == PAGE_ATTEMPTS:
-            break
-        if attempt >= RENEW_AFTER:
-            print("  renewing the browser session…", file=sys.stderr)
-            fresh = start_session()
-            if fresh:
-                query = fresh
-        time.sleep(PAGE_RETRY_BACKOFF_SECS * attempt)
-    return None, query
-
-
-def fetch_register() -> tuple[list[dict], bool]:
-    """Read every page of the change register. Returns (entries, truncated).
+    fetch_cards(query, page_no) -> (status, html), and may raise;
+    renew() -> a fresh filter query, or '' if the session could not be renewed.
 
     truncated means the read stopped somewhere other than the end of the
-    register, so what came back is the newest slice of it rather than all of
-    it — the caller must not publish that as a manual's history.
+    register, so what came back is its newest slice rather than all of it.
     """
-    query = start_session()
+    query = await renew()
     if not query:
         # Without the page's own filter the endpoint returns nothing useful,
         # and guessing one risks silently narrowing the register.
@@ -260,39 +216,106 @@ def fetch_register() -> tuple[list[dict], bool]:
     all_entries: list[dict] = []
     seen: set[str] = set()
     truncated = True
+
     for page_no in range(0, MAX_PAGES):
-        html, query = fetch_page(query, page_no)
+        html = None
+        for attempt in range(1, PAGE_ATTEMPTS + 1):
+            try:
+                status, body = await fetch_cards(query, page_no)
+                if status == 200:
+                    html = body
+                    break
+                reason = f"HTTP {status}"
+            except Exception as e:
+                reason = f"{type(e).__name__}: {e}"
+            print(f"  page {page_no}: {reason} "
+                  f"(attempt {attempt}/{PAGE_ATTEMPTS})", file=sys.stderr)
+            if attempt == PAGE_ATTEMPTS:
+                break
+            await asyncio.sleep(PAGE_RETRY_BACKOFF_SECS * attempt)
+            if attempt >= RENEW_AFTER:
+                # Reload the register so the session, and the filter it
+                # carries, are the site's current ones.
+                print("  reloading the register…", file=sys.stderr)
+                fresh = await renew()
+                if fresh:
+                    query = fresh
         if html is None:
             print(f"  page {page_no}: gave up after {PAGE_ATTEMPTS} attempts",
                   file=sys.stderr)
             break
+
         batch = parse_cards(html)
-        fresh = [e for e in batch if not e["package"] or e["package"] not in seen]
-        for e in fresh:
+        fresh_cards = [e for e in batch
+                       if not e["package"] or e["package"] not in seen]
+        for e in fresh_cards:
             if e["package"]:
                 seen.add(e["package"])
-        all_entries.extend(fresh)
-        print(f"  page {page_no}: {len(batch)} card(s), {len(fresh)} new "
+        all_entries.extend(fresh_cards)
+        print(f"  page {page_no}: {len(batch)} card(s), {len(fresh_cards)} new "
               f"({len(all_entries)} total)")
+
         if not batch:
-            # Ran off the end of the register.
-            truncated = False
+            truncated = False          # ran off the end of the register
             break
         if len(batch) < PAGE_SIZE:
-            # A short page is the last page.
-            truncated = False
+            truncated = False          # a short page is the last page
             break
-        if not fresh:
+        if not fresh_cards:
             # A full page that adds nothing new means the endpoint is ignoring
             # our page number. Stop, and do not call the result complete.
-            print(f"  page {page_no}: all duplicates — the endpoint is not "
-                  f"paging", file=sys.stderr)
+            print(f"  page {page_no}: all duplicates — the endpoint is not paging",
+                  file=sys.stderr)
             break
-        time.sleep(PAGE_DELAY_SECS)
+        await asyncio.sleep(PAGE_DELAY_SECS)
     else:
         print(f"  stopped at the {MAX_PAGES}-request ceiling", file=sys.stderr)
 
     return all_entries, truncated
+
+
+async def read_register() -> tuple[list[dict], bool]:
+    """Open the register in a browser and page its API from inside the page."""
+    async with async_playwright() as pw:
+        browser = await pw.chromium.launch(
+            headless=True, args=["--disable-blink-features=AutomationControlled"]
+        )
+        ctx = await browser.new_context(
+            user_agent=USER_AGENT,
+            viewport={"width": 1440, "height": 1000},
+            extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
+        )
+        await ctx.add_init_script(
+            "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+        )
+        page = await ctx.new_page()
+
+        async def renew() -> str:
+            # A reset navigation must not end the run: the retry loop above
+            # treats an empty filter as one more failed attempt.
+            try:
+                return await _open_register_page(page)
+            except Exception as e:
+                print(f"  could not reload the register: {type(e).__name__}: {e}",
+                      file=sys.stderr)
+                return ""
+
+        async def fetch_cards(query: str, page_no: int):
+            return await _fetch_cards(page, _api_url(query, page_no))
+
+        try:
+            return await collect_pages(fetch_cards, renew)
+        finally:
+            try:
+                await page.close()
+            except Exception:
+                pass
+            await ctx.close()
+            await browser.close()
+
+
+def fetch_register() -> tuple[list[dict], bool]:
+    return asyncio.run(read_register())
 
 
 def build_per_manual(entries: list[dict]) -> tuple[dict[str, list[dict]], str, str]:

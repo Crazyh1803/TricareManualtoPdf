@@ -64,6 +64,14 @@ PAGE_SIZE = 100
 # Hard ceiling on requests, so a paging bug cannot loop forever.
 MAX_PAGES = 40
 PAGE_DELAY_SECS = 1.5
+# The site's bot defence resets a request outright when it dislikes the
+# session — "Connection reset by peer", not an HTTP status. One of those on
+# page 0 used to end the whole read. Retry the page, and from the second
+# failure open a fresh browser session first, which is the only thing that
+# reliably clears it (fetch_manuals.py learned the same lesson).
+PAGE_ATTEMPTS = 4
+RENEW_AFTER = 2
+PAGE_RETRY_BACKOFF_SECS = 20.0
 
 CARDS_API = BASE_URL + "/api/changepackages/cards"
 HX_HEADERS = {
@@ -192,8 +200,8 @@ def _api_url(query: str, page: int) -> str:
     return CARDS_API + "?" + "&".join(parts)
 
 
-def fetch_register() -> list[dict]:
-    """Read every page of the change register through its own API."""
+def start_session() -> str:
+    """Open the register in a browser and adopt its session; return the filter."""
     query, cookies = asyncio.run(_open_register())
     added = 0
     for c in cookies:
@@ -202,28 +210,63 @@ def fetch_register() -> list[dict]:
                                 domain=c.get("domain") or "", path=c.get("path") or "/")
             added += 1
     print(f"  carried {added} browser cookie(s)")
+    return query
+
+
+def fetch_page(query: str, page_no: int) -> tuple[str | None, str]:
+    """Fetch one page of cards, retrying a reset session. Returns (html, query).
+
+    The query comes back because a renewal reads a fresh filter out of the
+    reopened page, and the caller must keep using that one.
+    """
+    for attempt in range(1, PAGE_ATTEMPTS + 1):
+        try:
+            r = session.get(_api_url(query, page_no), headers=HX_HEADERS, timeout=45)
+            if r.status_code == 200:
+                r.encoding = "utf-8"
+                return r.text, query
+            reason = f"HTTP {r.status_code}"
+        except Exception as e:
+            reason = f"{type(e).__name__}: {e}"
+        print(f"  page {page_no}: {reason} "
+              f"(attempt {attempt}/{PAGE_ATTEMPTS})", file=sys.stderr)
+        if attempt == PAGE_ATTEMPTS:
+            break
+        if attempt >= RENEW_AFTER:
+            print("  renewing the browser session…", file=sys.stderr)
+            fresh = start_session()
+            if fresh:
+                query = fresh
+        time.sleep(PAGE_RETRY_BACKOFF_SECS * attempt)
+    return None, query
+
+
+def fetch_register() -> tuple[list[dict], bool]:
+    """Read every page of the change register. Returns (entries, truncated).
+
+    truncated means the read stopped somewhere other than the end of the
+    register, so what came back is the newest slice of it rather than all of
+    it — the caller must not publish that as a manual's history.
+    """
+    query = start_session()
     if not query:
         # Without the page's own filter the endpoint returns nothing useful,
         # and guessing one risks silently narrowing the register.
         print("  could not read the register's filter from a pagination link",
               file=sys.stderr)
-        return []
+        return [], True
     print(f"  filter captured ({len(query)} chars)")
 
     all_entries: list[dict] = []
     seen: set[str] = set()
+    truncated = True
     for page_no in range(0, MAX_PAGES):
-        url = _api_url(query, page_no)
-        try:
-            r = session.get(url, headers=HX_HEADERS, timeout=45)
-        except Exception as e:
-            print(f"  page {page_no}: {type(e).__name__}: {e}", file=sys.stderr)
+        html, query = fetch_page(query, page_no)
+        if html is None:
+            print(f"  page {page_no}: gave up after {PAGE_ATTEMPTS} attempts",
+                  file=sys.stderr)
             break
-        if r.status_code != 200:
-            print(f"  page {page_no}: HTTP {r.status_code}", file=sys.stderr)
-            break
-        r.encoding = "utf-8"
-        batch = parse_cards(r.text)
+        batch = parse_cards(html)
         fresh = [e for e in batch if not e["package"] or e["package"] not in seen]
         for e in fresh:
             if e["package"]:
@@ -232,16 +275,24 @@ def fetch_register() -> list[dict]:
         print(f"  page {page_no}: {len(batch)} card(s), {len(fresh)} new "
               f"({len(all_entries)} total)")
         if not batch:
+            # Ran off the end of the register.
+            truncated = False
             break
-        # A short page means the end; a full one that adds nothing new means
-        # the endpoint is ignoring our page number, which must not loop.
-        if len(batch) < PAGE_SIZE or not fresh:
+        if len(batch) < PAGE_SIZE:
+            # A short page is the last page.
+            truncated = False
+            break
+        if not fresh:
+            # A full page that adds nothing new means the endpoint is ignoring
+            # our page number. Stop, and do not call the result complete.
+            print(f"  page {page_no}: all duplicates — the endpoint is not "
+                  f"paging", file=sys.stderr)
             break
         time.sleep(PAGE_DELAY_SECS)
     else:
         print(f"  stopped at the {MAX_PAGES}-request ceiling", file=sys.stderr)
 
-    return all_entries
+    return all_entries, truncated
 
 
 def build_per_manual(entries: list[dict]) -> tuple[dict[str, list[dict]], str, str]:
@@ -312,14 +363,18 @@ def main() -> None:
     current_by_code = {m["code"]: m.get("latestChange") for m in manuals}
 
     print("Reading the change register…")
-    entries = fetch_register()
+    entries, truncated = fetch_register()
     print(f"\n{len(entries)} change package(s) read.")
 
-    if not entries:
-        # An empty register means the page moved or we were blocked. Writing
-        # empty revision lists would replace a real history with nothing.
-        print("No entries parsed — leaving existing revisions.json files alone.",
-              file=sys.stderr)
+    if not entries or truncated:
+        # Either the register could not be read at all, or only its newest
+        # pages came back. Both would publish a slice of the history as though
+        # it were the whole of it, which is the specific way this feature
+        # misleads people — it already published six weeks as six years once.
+        # The files already on disk stay exactly as they are.
+        print("Register read " + ("returned nothing" if not entries
+                                  else f"stopped early with {len(entries)} entries")
+              + " — leaving existing revisions.json files alone.", file=sys.stderr)
         sys.exit(1)
 
     per_manual, covered_from, covered_to = build_per_manual(entries)

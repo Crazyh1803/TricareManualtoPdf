@@ -127,7 +127,7 @@ function renderManualGrid() {
     const icon        = MANUAL_ICONS[m.code] || MANUAL_ICONS.TPT5;
     const changeLabel = m.latestChange ? `Change ${m.latestChange}` : 'Current';
     const chip        = m.hasContent
-      ? `<span class="chip" data-chip-code="${m.code}">${changeLabel}</span>`
+      ? `<span class="chip">${changeLabel}</span>`
       : `<span class="chip no-content-chip">Content coming soon</span>`;
     const btnDisabled = m.hasContent ? '' : 'disabled';
 
@@ -151,7 +151,7 @@ function renderManualGrid() {
           <div class="manual-card-icon">${icon}</div>
           <div>
             <div class="manual-card-name">${escHtml(m.name)}</div>
-            <div class="manual-card-meta">${escHtml(m.code)}</div>
+            <div class="manual-card-meta" data-meta-code="${m.code}">${escHtml(m.code)}</div>
           </div>
         </div>
         <div class="manual-card-footer">
@@ -164,16 +164,18 @@ function renderManualGrid() {
       </article>`;
   }).join('');
   els.manualGrid.innerHTML = html;
-  annotateChipDates();
+  annotateCardDates();
 }
 
 /**
- * Add the publication date of each manual's current change to its chip. The
- * date lives in the revision history, which is a per-manual file, so the grid
- * paints first and the dates arrive after — a manual without a history file
- * simply keeps "Change 66".
+ * Add the publication date of each manual's current change under its name,
+ * next to the code. It goes on that line rather than in the chip so the chip
+ * stays short enough to sit beside the Open button on a four-across card.
+ * The date lives in the revision history, a per-manual file, so the grid
+ * paints first and the dates arrive after; a manual without a history file
+ * simply keeps its bare code.
  */
-async function annotateChipDates() {
+async function annotateCardDates() {
   await Promise.all(state.manuals.filter(m => m.hasContent).map(async m => {
     const payload = await loadRevisions(m.code);
     if (!payload) return;
@@ -181,8 +183,8 @@ async function annotateChipDates() {
     const rev = (payload.revisions || []).find(r => r.change === current);
     const date = rev ? formatRevDate(rev.published) : '';
     if (!date) return;
-    const chip = els.manualGrid.querySelector(`[data-chip-code="${m.code}"]`);
-    if (chip) chip.textContent = `Change ${current} · ${date}`;
+    const meta = els.manualGrid.querySelector(`[data-meta-code="${m.code}"]`);
+    if (meta) meta.textContent = `${m.code} · Published ${date}`;
   }));
 }
 

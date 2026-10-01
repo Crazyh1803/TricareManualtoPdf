@@ -16,6 +16,9 @@
   --text-secondary:#5a6278;
   --text-on-navy:  #ffffff;
   --toc-width:     300px;
+  /* Home page content width. Four cards across at the same card width the
+     three-across layout had (~290px): 1240 - 32 padding - 48 gaps = 1160. */
+  --page-max:      1240px;
   --reader-bar-h:  56px;
   --section-nav-h: 52px;
   --transition:    0.2s ease;
@@ -81,7 +84,7 @@ a:hover { text-decoration: underline; }
 }
 
 .home-bar-inner {
-  max-width: 960px;
+  max-width: var(--page-max);
   margin: 0 auto;
   padding: 14px 20px;
   display: flex;
@@ -128,20 +131,21 @@ a:hover { text-decoration: underline; }
 
 /* Main content */
 .home-main {
-  max-width: 960px;
+  max-width: var(--page-max);
   margin: 0 auto;
   padding: 28px 16px 60px;
   width: 100%;
 }
 
 /* Manual Cards */
-/* Fixed 3 columns so five manuals always lay out 3 on top, 2 below.
-   auto-fit with a 280px minimum only fitted 2 columns between roughly
-   769px and 991px, which broke the rows into 2 + 2 + 1 at common laptop
-   window widths. */
+/* Fixed column counts per breakpoint rather than auto-fit. auto-fit with a
+   280px minimum fitted only 2 columns between roughly 769px and 991px, which
+   broke the rows at common laptop window widths.
+   Four across suits the nine manuals: the four T-5 manuals fill the first
+   row, the four T-2017 ones the second, and 32 CFR 199 sits on its own. */
 .manual-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 32px;
 }
@@ -208,6 +212,9 @@ a:hover { text-decoration: underline; }
   justify-content: space-between;
   gap: 8px;
   margin-top: auto;
+  /* The chip carries a change number and a date, so on a narrow card the
+     Open button drops below it rather than pushing out of the card. */
+  flex-wrap: wrap;
 }
 
 .chip {
@@ -866,6 +873,12 @@ a:hover { text-decoration: underline; }
 /* ══════════════════════════════════════════════════
    MOBILE / RESPONSIVE  (≤768px)
    ══════════════════════════════════════════════════ */
+@media (max-width: 1199px) {
+  /* 3 columns on a narrow laptop: below this, four cards fall under the
+     ~280px that the chip-and-button row needs side by side. */
+  .manual-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 @media (max-width: 768px) {
   :root { --toc-width: min(300px, 88vw); }
 

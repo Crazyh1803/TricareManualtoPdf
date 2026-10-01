@@ -86,7 +86,7 @@ a:hover { text-decoration: underline; }
 .home-bar-inner {
   max-width: var(--page-max);
   margin: 0 auto;
-  padding: 14px 20px;
+  padding: 8px 20px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -124,7 +124,10 @@ a:hover { text-decoration: underline; }
 .hero-banner-img {
   display: block;
   width: 100%;
-  max-height: 260px;
+  /* Deliberately short: the home screen has to hold nine manual cards and
+     the notes under them without scrolling on a laptop. object-fit keeps the
+     banner's middle band, where the artwork is. */
+  max-height: 128px;
   object-fit: cover;
   object-position: center;
 }
@@ -133,7 +136,7 @@ a:hover { text-decoration: underline; }
 .home-main {
   max-width: var(--page-max);
   margin: 0 auto;
-  padding: 28px 16px 60px;
+  padding: 18px 16px 14px;
   width: 100%;
 }
 
@@ -146,8 +149,8 @@ a:hover { text-decoration: underline; }
 .manual-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 
 /* Skeleton loaders */
@@ -168,10 +171,10 @@ a:hover { text-decoration: underline; }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 20px 20px 16px;
+  padding: 12px 16px 10px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   box-shadow: var(--shadow-sm);
   transition: box-shadow var(--transition), transform var(--transition);
   cursor: default;
@@ -183,8 +186,8 @@ a:hover { text-decoration: underline; }
 }
 
 .manual-card-icon {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   background: var(--navy);
   border-radius: 8px;
   display: flex;
@@ -195,10 +198,10 @@ a:hover { text-decoration: underline; }
 }
 
 .manual-card-name {
-  font-size: 1rem;
+  font-size: .95rem;
   font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .manual-card-meta {
@@ -283,9 +286,9 @@ a:hover { text-decoration: underline; }
 .manual-card-exports {
   display: flex;
   gap: 8px;
-  padding-top: 10px;
+  padding-top: 8px;
   border-top: 1px solid var(--border);
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .btn-export-card {
@@ -312,12 +315,21 @@ a:hover { text-decoration: underline; }
 }
 .btn-export-card svg { flex-shrink: 0; }
 
+/* One row under the note: support link, drink button, visitor counter. */
+.home-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 20px;
+  margin-top: 12px;
+}
+
 /* Home support link */
 .home-support {
   font-size: .8rem;
   color: var(--text-secondary);
   text-align: center;
-  margin-top: 8px;
 }
 
 /* Visitor counter — retro easter egg 🥚 */
@@ -326,16 +338,13 @@ a:hover { text-decoration: underline; }
   align-items: center;
   justify-content: center;
   gap: 0;
-  margin-top: 16px;
   background: #0a0a0a;
   border: 2px solid #2a2a2a;
   border-radius: 6px;
-  padding: 8px 20px;
+  padding: 6px 16px;
   font-family: 'Courier New', Courier, monospace;
   box-shadow: inset 0 2px 6px rgba(0,0,0,.7), 0 0 12px rgba(0,200,80,.1);
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
   cursor: default;
   user-select: none;
 }
@@ -346,13 +355,6 @@ a:hover { text-decoration: underline; }
   width: auto;
 }
 
-/* Support / buy me a drink row */
-.support-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 24px;
-}
-
 .btn-support {
   display: inline-flex;
   align-items: center;
@@ -361,7 +363,7 @@ a:hover { text-decoration: underline; }
   color: #000;
   font-weight: 700;
   font-size: .92rem;
-  padding: 10px 24px;
+  padding: 8px 20px;
   border-radius: 24px;
   text-decoration: none;
   border: none;
@@ -391,9 +393,9 @@ a:hover { text-decoration: underline; }
   font-size: .82rem;
   color: var(--text-secondary);
   text-align: center;
-  max-width: 560px;
+  max-width: 780px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 /* ══════════════════════════════════════════════════

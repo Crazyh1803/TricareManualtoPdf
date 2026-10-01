@@ -49,32 +49,33 @@
         </div>
 
         <p class="home-note">
-          Content is scraped weekly from
+          Content is scraped weekly from official U.S. government publications at
           <a href="https://manuals.dha.mil" target="_blank" rel="noopener">manuals.dha.mil</a>
-          and may lag by a few days. These documents are scraped from official U.S. government publications.
-          Open a manual to see its published changes — the current one is stored here, and earlier
-          ones open on the official site.
-        </p>
-        <p class="home-support">
-          Questions? <a href="mailto:odysseypages@gmail.com">Contact support</a>
+          and may lag by a few days. Open a manual to pick an earlier change — the current
+          one is stored here, and earlier ones open on the official site.
         </p>
 
-        <!-- Support / buy me a drink -->
-        <div class="support-row">
+        <!-- Support link, the drink button and the counter share one row, so
+             they all fit on screen with the manuals above them. -->
+        <div class="home-footer">
+          <span class="home-support">
+            Questions? <a href="mailto:odysseypages@gmail.com">Contact support</a>
+          </span>
+
           <a href="https://www.buymeacoffee.com/AppsbyDan" target="_blank" rel="noopener" class="btn-support">
             ☕ Buy me a drink
           </a>
-        </div>
 
-        <!-- Visitor counter — retro easter egg 🥚 -->
-        <!-- Rendered as a plain <img>: an image request is not subject to
-             CORS, so unlike the old fetch-via-proxy approach this cannot
-             silently fail. hits.sh increments the count on load. -->
-        <div class="visitor-counter" title="You found the visitor counter! 🎉">
-          <img class="vc-badge"
-               src="https://hits.sh/github.com/Crazyh1803/TricareManualtoPdf.svg?style=flat-square&amp;label=Total%20Visits&amp;labelColor=0a0a0a&amp;color=00a848"
-               alt="Total visits to this site"
-               onerror="this.closest('.visitor-counter').style.display='none'">
+          <!-- Visitor counter — retro easter egg 🥚 -->
+          <!-- Rendered as a plain <img>: an image request is not subject to
+               CORS, so unlike the old fetch-via-proxy approach this cannot
+               silently fail. hits.sh increments the count on load. -->
+          <div class="visitor-counter" title="You found the visitor counter! 🎉">
+            <img class="vc-badge"
+                 src="https://hits.sh/github.com/Crazyh1803/TricareManualtoPdf.svg?style=flat-square&amp;label=Total%20Visits&amp;labelColor=0a0a0a&amp;color=00a848"
+                 alt="Total visits to this site"
+                 onerror="this.closest('.visitor-counter').style.display='none'">
+          </div>
         </div>
       </main>
     </div>

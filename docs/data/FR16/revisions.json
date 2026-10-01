@@ -1,0 +1,14 @@
+{
+  "code": "FR16",
+  "fetchedAt": "2026-10-01T06:46:32Z",
+  "current": 20,
+  "register": {
+    "source": "https://manuals.dha.mil/Explore/Changes",
+    "coversFrom": "2026-08-19",
+    "coversTo": "2026-09-18",
+    "listed": 0,
+    "unlisted": 20,
+    "complete": false
+  },
+  "revisions": []
+}

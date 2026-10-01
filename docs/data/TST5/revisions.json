@@ -1,0 +1,22 @@
+{
+  "code": "TST5",
+  "fetchedAt": "2026-10-01T06:46:32Z",
+  "current": 40,
+  "register": {
+    "source": "https://manuals.dha.mil/Explore/Changes",
+    "coversFrom": "2026-08-19",
+    "coversTo": "2026-09-18",
+    "listed": 1,
+    "unlisted": 39,
+    "complete": false
+  },
+  "revisions": [
+    {
+      "change": 40,
+      "published": "2026-09-18",
+      "title": "Establish East Region Virtual Value Network Pilot + CDRL",
+      "conreq": "23891",
+      "package": "364"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "code": "TR15",
+  "fetchedAt": "2026-10-01T06:46:32Z",
+  "current": 94,
+  "register": {
+    "source": "https://manuals.dha.mil/Explore/Changes",
+    "coversFrom": "2026-08-19",
+    "coversTo": "2026-09-18",
+    "listed": 1,
+    "unlisted": 93,
+    "complete": false
+  },
+  "revisions": [
+    {
+      "change": 94,
+      "published": "2026-09-03",
+      "title": "Consolidated Change 25-004",
+      "conreq": "23566",
+      "package": "354"
+    }
+  ]
+}

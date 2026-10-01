@@ -1,0 +1,29 @@
+{
+  "code": "TP15",
+  "fetchedAt": "2026-10-01T06:46:32Z",
+  "current": 166,
+  "register": {
+    "source": "https://manuals.dha.mil/Explore/Changes",
+    "coversFrom": "2026-08-19",
+    "coversTo": "2026-09-18",
+    "listed": 2,
+    "unlisted": 164,
+    "complete": false
+  },
+  "revisions": [
+    {
+      "change": 166,
+      "published": "2026-09-14",
+      "title": "Evolving Practices 26-004",
+      "conreq": "23944",
+      "package": "360"
+    },
+    {
+      "change": 165,
+      "published": "2026-09-03",
+      "title": "Consolidated Change 25-004",
+      "conreq": "23566",
+      "package": "354"
+    }
+  ]
+}

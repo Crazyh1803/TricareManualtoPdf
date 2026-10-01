@@ -1,0 +1,29 @@
+{
+  "code": "TPT5",
+  "fetchedAt": "2026-10-01T06:46:32Z",
+  "current": 57,
+  "register": {
+    "source": "https://manuals.dha.mil/Explore/Changes",
+    "coversFrom": "2026-08-19",
+    "coversTo": "2026-09-18",
+    "listed": 2,
+    "unlisted": 55,
+    "complete": false
+  },
+  "revisions": [
+    {
+      "change": 57,
+      "published": "2026-09-15",
+      "title": "Evolving Practices 26-004",
+      "conreq": "23944",
+      "package": "361"
+    },
+    {
+      "change": 56,
+      "published": "2026-09-04",
+      "title": "Consolidated Change 25-004",
+      "conreq": "23566",
+      "package": "355"
+    }
+  ]
+}

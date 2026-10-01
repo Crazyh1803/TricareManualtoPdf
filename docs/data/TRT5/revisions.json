@@ -1,0 +1,36 @@
+{
+  "code": "TRT5",
+  "fetchedAt": "2026-10-01T06:46:32Z",
+  "current": 28,
+  "register": {
+    "source": "https://manuals.dha.mil/Explore/Changes",
+    "coversFrom": "2026-08-19",
+    "coversTo": "2026-09-18",
+    "listed": 3,
+    "unlisted": 25,
+    "complete": false
+  },
+  "revisions": [
+    {
+      "change": 28,
+      "published": "2026-09-16",
+      "title": "T5 NDAA FY26, Sec701, PTB Change for Armed Forces Dependents",
+      "conreq": "23901",
+      "package": "362"
+    },
+    {
+      "change": 27,
+      "published": "2026-09-04",
+      "title": "Consolidated Change 25-004",
+      "conreq": "23566",
+      "package": "355"
+    },
+    {
+      "change": 26,
+      "published": "2026-08-20",
+      "title": "TRICARE Prime Travel Benefit Removal of Attestation Requirements and CDRLs",
+      "conreq": "23714",
+      "package": "351"
+    }
+  ]
+}

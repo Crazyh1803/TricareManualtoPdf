@@ -1,0 +1,43 @@
+{
+  "code": "TOT5",
+  "fetchedAt": "2026-10-01T06:46:32Z",
+  "current": 66,
+  "register": {
+    "source": "https://manuals.dha.mil/Explore/Changes",
+    "coversFrom": "2026-08-19",
+    "coversTo": "2026-09-18",
+    "listed": 4,
+    "unlisted": 62,
+    "complete": false
+  },
+  "revisions": [
+    {
+      "change": 66,
+      "published": "2026-09-18",
+      "title": "Establish East Region Virtual Value Network Pilot + CDRL",
+      "conreq": "23891",
+      "package": "364"
+    },
+    {
+      "change": 65,
+      "published": "2026-09-16",
+      "title": "T5 NDAA FY26, Sec701, PTB Change for Armed Forces Dependents",
+      "conreq": "23901",
+      "package": "362"
+    },
+    {
+      "change": 64,
+      "published": "2026-09-11",
+      "title": "Clarifying TRICARE Overseas Program CPD Requirements",
+      "conreq": "23881",
+      "package": "359"
+    },
+    {
+      "change": 63,
+      "published": "2026-08-19",
+      "title": "CY 2027 Premium Rates for TRS, TRR, TYA, and CHCBP",
+      "conreq": "23934",
+      "package": "350"
+    }
+  ]
+}

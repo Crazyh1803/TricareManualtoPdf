@@ -1,0 +1,22 @@
+{
+  "code": "TO15",
+  "fetchedAt": "2026-10-01T06:46:32Z",
+  "current": 166,
+  "register": {
+    "source": "https://manuals.dha.mil/Explore/Changes",
+    "coversFrom": "2026-08-19",
+    "coversTo": "2026-09-18",
+    "listed": 1,
+    "unlisted": 165,
+    "complete": false
+  },
+  "revisions": [
+    {
+      "change": 166,
+      "published": "2026-09-10",
+      "title": "Clarifying TRICARE Overseas Program CPD Requirements",
+      "conreq": "23881",
+      "package": "358"
+    }
+  ]
+}

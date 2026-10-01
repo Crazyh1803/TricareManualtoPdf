@@ -1,32 +1,17 @@
 #!/usr/bin/env python3
-"""Map /Explore/Changes so a reliable parser can be written for it.
+"""Why did paging the change register not work?
 
-Phase 1 of the version picker publishes the official revision history: for each
-manual, every change number with its publication date and title. That register
-is the only place this exists. The earlier dump showed the shape
-
-    Establish East Region Virtual Value Network Pilot + CDRL
-    Published on: 9/18/2026
-    AD25 Change 2
-    TST5 Change 40
-    TOT5 Change 66
-    Conreq: 23891
-
-but not whether the page shows everything at once. It claims to span Dec 9 2020
-to Sep 18 2026; if that is lazy-loaded or paginated, a parser that reads the
-first screenful would silently publish a truncated history.
-
-So: count entries, look for paging or filter controls, scroll to see whether
-more appear, and dump the markup of a few entries so the parser matches real
-structure rather than the rendered text.
+The revision fetch read only page 1 — 12 cards, one month of history — even
+though it asked for ?PageSize=48 and then looked for a link to page 2. Both
+were ignored, which says the controls are not plain links or query parameters.
+Dump their actual attributes, and try clicking one to see what happens.
 """
-import asyncio, re
+import asyncio, json, re
 from playwright.async_api import async_playwright
 
 BASE = "https://manuals.dha.mil"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
-CODE_CHANGE = re.compile(r"\b([A-Z]{2}[A-Z0-9]{2})\s+Change\s+(\d+)\b")
 
 
 async def main():
@@ -34,71 +19,71 @@ async def main():
         browser = await pw.chromium.launch(args=["--disable-blink-features=AutomationControlled"])
         ctx = await browser.new_context(user_agent=UA, viewport={"width": 1440, "height": 1000})
         page = await ctx.new_page()
-        await page.goto(f"{BASE}/Explore/Changes", wait_until="networkidle", timeout=60_000)
-        await page.wait_for_timeout(5_000)
 
-        async def census(label):
-            text = await page.inner_text("body")
-            pairs = CODE_CHANGE.findall(text)
-            dates = re.findall(r"Published on:\s*([0-9/]+)", text)
-            codes = sorted({c for c, _ in pairs})
-            print(f"  {label}: {len(pairs)} code/change pairs, {len(dates)} dated entries")
-            if dates:
-                print(f"    newest={dates[0]}  oldest={dates[-1]}")
-            print(f"    codes seen: {codes}")
-            return len(pairs)
+        reqs = []
+        page.on("request", lambda r: reqs.append((r.method, r.url)))
 
-        print("=== initial render ===")
-        before = await census("on load")
+        # Does the PageSize query parameter do anything at all?
+        await page.goto(f"{BASE}/Explore/Changes?PageSize=48",
+                        wait_until="networkidle", timeout=60_000)
+        await page.wait_for_timeout(4_000)
+        n = await page.eval_on_selector_all(".changepackage-card", "els => els.length")
+        sel = await page.evaluate(
+            "() => { const s = document.querySelector('#PageSize'); return s ? s.value : null; }")
+        print(f"=== ?PageSize=48 -> {n} cards on page, select shows {sel!r} ===")
 
-        # Paging or filtering controls?
-        print("\n=== controls ===")
-        ctrls = await page.evaluate("""() => {
+        print("\n=== every attribute on the paging controls ===")
+        attrs = await page.evaluate("""() => {
             const out = [];
-            const sel = 'button, a[role=button], select, input, [class*=pag], [class*=page], [aria-label*=ext], [aria-label*=rev]';
-            for (const e of document.querySelectorAll(sel)) {
-                const t = (e.innerText || e.getAttribute('aria-label') || e.getAttribute('placeholder') || '').trim();
-                if (!t && !e.name) continue;
-                out.push({tag: e.tagName.toLowerCase(), text: t.slice(0, 50),
-                          name: e.getAttribute('name') || '', id: e.id || '',
-                          cls: (typeof e.className === 'string' ? e.className : '').slice(0, 45)});
+            for (const a of document.querySelectorAll('.pagination a, .pagination button')) {
+                const o = {text: (a.innerText || '').trim(), tag: a.tagName.toLowerCase(), attrs: {}};
+                for (const at of a.attributes) o.attrs[at.name] = at.value.slice(0, 160);
+                out.push(o);
             }
             return out;
         }""")
-        for c in ctrls[:20]:
-            print(f"    <{c['tag']}> {c['text']!r} name={c['name']!r} id={c['id']!r} class={c['cls']!r}")
-        if not ctrls:
-            print("    none found")
+        for a in attrs[:8]:
+            print(f"  <{a['tag']}> {a['text']!r}")
+            for k, v in a["attrs"].items():
+                print(f"       {k}={v!r}")
 
-        # Does scrolling load more?
-        print("\n=== after scrolling to the bottom ===")
-        for _ in range(6):
-            await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-            await page.wait_for_timeout(1_500)
-        after = await census("after scroll")
-        print(f"    {'MORE LOADED — the list is lazy' if after > before else 'no change — fully rendered on load'}")
-
-        # Entry markup, so the parser targets elements not text.
-        print("\n=== markup of the first entries ===")
-        html = await page.evaluate("""() => {
-            const t = [...document.querySelectorAll('*')]
-                .find(e => /Published on:/.test(e.innerText || '') &&
-                           e.children.length && (e.innerText || '').length < 400);
-            if (!t) return null;
-            const box = t.closest('div, li, article, tr') || t;
-            const parent = box.parentElement;
-            return {
-                container: parent ? parent.tagName.toLowerCase() + '.' +
-                           ((typeof parent.className === 'string' ? parent.className : '') || '') : '',
-                siblings: parent ? parent.children.length : 0,
-                sample: box.outerHTML.replace(/\\s+/g, ' ').slice(0, 900),
-            };
+        print("\n=== the PageSize select's own attributes ===")
+        sattrs = await page.evaluate("""() => {
+            const s = document.querySelector('#PageSize');
+            if (!s) return null;
+            const o = {};
+            for (const at of s.attributes) o[at.name] = at.value.slice(0, 200);
+            return o;
         }""")
-        if html:
-            print(f"    container: {html['container']!r} with {html['siblings']} children")
-            print(f"    entry markup:\n      {html['sample']}")
-        else:
-            print("    could not locate an entry element")
+        print(f"  {json.dumps(sattrs, indent=2) if sattrs else 'not found'}")
+
+        # Is there a form wrapping them?
+        form = await page.evaluate("""() => {
+            const f = document.querySelector('#PageSize') &&
+                      document.querySelector('#PageSize').closest('form');
+            if (!f) return null;
+            return {action: f.getAttribute('action'), method: f.getAttribute('method'),
+                    id: f.id, hx: f.getAttribute('hx-get') || f.getAttribute('hx-post') || ''};
+        }""")
+        print(f"\n=== wrapping form ===\n  {form}")
+
+        # Click page 2 and watch what the page requests.
+        print("\n=== clicking page 2 ===")
+        reqs.clear()
+        try:
+            link = page.locator(".pagination a.page-link", has_text=re.compile(r"^\s*2\s*$")).first
+            await link.click(timeout=10_000)
+            await page.wait_for_timeout(5_000)
+            n2 = await page.eval_on_selector_all(".changepackage-card", "els => els.length")
+            txt = await page.inner_text("body")
+            dates = re.findall(r"Published on:\s*([0-9/]+)", txt)
+            print(f"  after click: url={page.url}")
+            print(f"  {n2} cards; newest={dates[0] if dates else '?'} oldest={dates[-1] if dates else '?'}")
+            for m, u in reqs:
+                if "manuals.dha.mil" in u and "/css/" not in u and "/js/" not in u and "/lib/" not in u:
+                    print(f"    {m} {u[:150]}")
+        except Exception as e:
+            print(f"  click failed: {type(e).__name__}: {e}")
 
         await browser.close()
     print("\nProbe complete.")

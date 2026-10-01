@@ -312,7 +312,7 @@ def main() -> None:
     current_by_code = {m["code"]: m.get("latestChange") for m in manuals}
 
     print("Reading the change register…")
-    entries = asyncio.run(fetch_register())
+    entries = fetch_register()
     print(f"\n{len(entries)} change package(s) read.")
 
     if not entries:

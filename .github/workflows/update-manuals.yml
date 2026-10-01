@@ -93,6 +93,19 @@ jobs:
           # no way to tell where it had got stuck.
           python -u scripts/fetch_manuals.py $CODE_ARG $FORCE_ARG
 
+      # 6b. Refresh the published revision history.
+      #     Reads the site's change register — one paginated page set, about a
+      #     minute — and writes docs/data/<CODE>/revisions.json. Runs after the
+      #     content scrape so a manual whose change number just moved gets its
+      #     new revision listed in the same publish, and runs whatever --code
+      #     filter the scrape used, since the register is global.
+      #     continue-on-error: a failure here must not discard a good content
+      #     scrape; the existing revisions.json files simply stay as they are.
+      - name: Refresh revision history
+        continue-on-error: true
+        timeout-minutes: 10
+        run: python -u scripts/fetch_revisions.py
+
       # 7. Commit updated data files to the web branch (where GitHub Pages serves from)
       #    always() so partial progress still gets published. The scraper writes
       #    each manual's files only after that manual has been fetched and passed

@@ -17,10 +17,16 @@ so the register is the only place the date and reason behind a change number
 can be found. The manual's own publication page states its current revision
 and nothing about the ones before it.
 
-The register is paginated — 12 entries per page over roughly 29 pages — and
-nothing lazy-loads, so every page has to be visited. Reading only what renders
-first would publish six weeks of history as though it were the whole six
-years.
+The register is paginated — 12 cards a page over roughly 29 pages — and its
+controls are htmx, not links: each page number carries
+
+    hx-get="/api/changepackages/cards?page=N&pageSize=12&filter=<json>"
+
+with href="#". A first attempt followed the href and so re-loaded page one,
+publishing six weeks of history as though it were the whole six years. That
+endpoint is read directly instead: one request per page of any size, with the
+filter the page itself builds (it names all fourteen publications), so no
+query parameter is guessed and nothing depends on the UI's own paging.
 
 Two honesty requirements shape the output:
 
@@ -36,9 +42,12 @@ import asyncio
 import json
 import re
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+import requests
+from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
 
 REPO_ROOT = Path(__file__).parent.parent.resolve()
@@ -48,16 +57,35 @@ MANUALS_JSON = DATA_DIR / "manuals.json"
 BASE_URL = "https://manuals.dha.mil"
 CHANGES_URL = BASE_URL + "/Explore/Changes"
 
-# Largest page size the register offers, to keep the number of page loads down.
-PAGE_SIZE = 48
-# Hard ceiling on pages followed, so a pagination bug cannot loop forever.
-MAX_PAGES = 60
-PAGE_SETTLE_MS = 3_000
+# Cards per API request. The UI offers 12/24/48; the endpoint takes whatever
+# it is given, so ask for a size that pulls the whole register in a few calls
+# and let the loop handle a server-side cap by reading what actually comes back.
+PAGE_SIZE = 100
+# Hard ceiling on requests, so a paging bug cannot loop forever.
+MAX_PAGES = 40
 PAGE_DELAY_SECS = 1.5
+
+CARDS_API = BASE_URL + "/api/changepackages/cards"
+HX_HEADERS = {
+    "HX-Request": "true",
+    "HX-Target": "change-packages-wrapper",
+    "Referer": CHANGES_URL,
+}
 
 _PUBLISHED_RE = re.compile(r"Published on:\s*([0-9]{1,2}/[0-9]{1,2}/[0-9]{4})")
 _CODE_CHANGE_RE = re.compile(r"^\s*([A-Z][A-Z0-9]{3})\s+Change\s+(\d+)\s*$", re.I)
 _CONREQ_RE = re.compile(r"Conreq:\s*(\S+)")
+_HXGET_RE = re.compile(r"/api/changepackages/cards\?([^\"\']+)")
+
+session = requests.Session()
+session.headers.update({
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept-Language": "en-US,en;q=0.9",
+})
 
 
 def iso_date(american: str) -> str:
@@ -68,65 +96,35 @@ def iso_date(american: str) -> str:
         return ""
 
 
-async def _launch(pw):
-    browser = await pw.chromium.launch(
-        headless=True, args=["--disable-blink-features=AutomationControlled"]
-    )
-    ctx = await browser.new_context(
-        user_agent=(
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/124.0.0.0 Safari/537.36"
-        ),
-        viewport={"width": 1440, "height": 1000},
-        extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
-    )
-    await ctx.add_init_script(
-        "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
-    )
-    return browser, ctx
-
-
-async def _entries_on_page(page) -> list[dict]:
-    """Parse the change-package cards rendered on the current page."""
-    raw = await page.evaluate("""() => {
-        const out = [];
-        for (const card of document.querySelectorAll('.changepackage-card')) {
-            const link = card.querySelector('a[href*="/View-Change/"]');
-            out.push({
-                title: link ? (link.innerText || '').trim() : '',
-                href: link ? link.getAttribute('href') : '',
-                // Whole-card text carries the "Published on:" and "Conreq:" lines.
-                text: (card.innerText || '').replace(/\\u00a0/g, ' '),
-                items: Array.from(card.querySelectorAll('li'))
-                            .map(li => (li.innerText || '').trim()),
-            });
-        }
-        return out;
-    }""")
-
+def parse_cards(html: str) -> list[dict]:
+    """Parse change-package cards out of a register page or API fragment."""
+    soup = BeautifulSoup(html, "lxml")
     entries = []
-    for r in raw:
-        m = _PUBLISHED_RE.search(r["text"])
-        published = iso_date(m.group(1)) if m else ""
-        conreq = ""
-        mc = _CONREQ_RE.search(r["text"])
-        if mc:
-            conreq = mc.group(1)
+    for card in soup.select(".changepackage-card"):
+        text = card.get_text("\n", strip=True).replace("\u00a0", " ")
+
+        link = card.select_one('a[href*="/View-Change/"]')
+        title = " ".join(link.get_text(" ", strip=True).split()) if link else ""
         pkg = ""
-        if r["href"]:
-            mp = re.search(r"/View-Change/(\d+)", r["href"])
+        if link and link.get("href"):
+            mp = re.search(r"/View-Change/(\d+)", link["href"])
             if mp:
                 pkg = mp.group(1)
 
+        m = _PUBLISHED_RE.search(text)
+        published = iso_date(m.group(1)) if m else ""
+        mc = _CONREQ_RE.search(text)
+        conreq = mc.group(1) if mc else ""
+
         bumps = []
-        for item in r["items"]:
-            mi = _CODE_CHANGE_RE.match(item)
+        for li in card.select("li"):
+            mi = _CODE_CHANGE_RE.match(li.get_text(" ", strip=True))
             if mi:
                 bumps.append((mi.group(1).upper(), int(mi.group(2))))
+
         if bumps:
             entries.append({
-                "title": " ".join(r["title"].split()),
+                "title": title,
                 "published": published,
                 "conreq": conreq,
                 "package": pkg,
@@ -135,50 +133,40 @@ async def _entries_on_page(page) -> list[dict]:
     return entries
 
 
-async def fetch_register() -> list[dict]:
-    """Walk every page of the change register and return all entries."""
-    all_entries: list[dict] = []
-    seen_pkgs: set[str] = set()
+async def _open_register() -> tuple[str, list[dict]]:
+    """Open the register in a browser; return (api query string, cookies).
 
+    Two things only a real browser can get: a session the content API will
+    honour, and the filter the page builds for itself — a JSON blob naming
+    every publication, which is lifted from a pagination link rather than
+    reconstructed, so the request matches what the site asks for.
+    """
+    browser_query = ""
     async with async_playwright() as pw:
-        browser, ctx = await _launch(pw)
+        browser = await pw.chromium.launch(
+            headless=True, args=["--disable-blink-features=AutomationControlled"]
+        )
+        ctx = await browser.new_context(
+            user_agent=session.headers["User-Agent"],
+            viewport={"width": 1440, "height": 1000},
+            extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
+        )
+        await ctx.add_init_script(
+            "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+        )
         page = await ctx.new_page()
         try:
-            url = f"{CHANGES_URL}?PageSize={PAGE_SIZE}"
-            await page.goto(url, wait_until="networkidle", timeout=60_000)
-            await page.wait_for_timeout(PAGE_SETTLE_MS)
-
-            for page_no in range(1, MAX_PAGES + 1):
-                batch = await _entries_on_page(page)
-                fresh = [e for e in batch
-                         if not e["package"] or e["package"] not in seen_pkgs]
-                for e in fresh:
-                    if e["package"]:
-                        seen_pkgs.add(e["package"])
-                all_entries.extend(fresh)
-                print(f"  page {page_no}: {len(batch)} card(s), {len(fresh)} new "
-                      f"({len(all_entries)} total)")
-
-                # Follow the pagination link whose text is the next page number.
-                # Reading the control rather than guessing a query parameter
-                # keeps this working if the site renames it.
-                nxt = await page.evaluate("""(n) => {
-                    const links = Array.from(
-                        document.querySelectorAll('.pagination a.page-link'));
-                    const want = String(n + 1);
-                    const a = links.find(x => (x.innerText || '').trim() === want);
-                    return a ? a.getAttribute('href') : null;
-                }""", page_no)
-                if not nxt:
-                    print(f"  no link to page {page_no + 1}; register ends here")
-                    break
-
-                await asyncio.sleep(PAGE_DELAY_SECS)
-                target = nxt if nxt.startswith("http") else BASE_URL + nxt
-                await page.goto(target, wait_until="networkidle", timeout=60_000)
-                await page.wait_for_timeout(PAGE_SETTLE_MS)
-            else:
-                print(f"  stopped at the {MAX_PAGES}-page ceiling", file=sys.stderr)
+            await page.goto(CHANGES_URL, wait_until="networkidle", timeout=60_000)
+            await page.wait_for_timeout(4_000)
+            hx = await page.evaluate("""() => {
+                const a = document.querySelector('.pagination a.page-link[hx-get]');
+                return a ? a.getAttribute('hx-get') : '';
+            }""")
+            if hx:
+                m = _HXGET_RE.search(hx)
+                if m:
+                    browser_query = m.group(1)
+            cookies = await ctx.cookies()
         finally:
             try:
                 await page.close()
@@ -186,6 +174,72 @@ async def fetch_register() -> list[dict]:
                 pass
             await ctx.close()
             await browser.close()
+    return browser_query, cookies
+
+
+def _api_url(query: str, page: int) -> str:
+    """Rewrite the captured query for a given page and our page size."""
+    parts = []
+    for kv in query.split("&"):
+        if not kv:
+            continue
+        k = kv.split("=", 1)[0]
+        if k in ("page", "pageSize"):
+            continue
+        parts.append(kv)
+    parts.insert(0, f"page={page}")
+    parts.insert(1, f"pageSize={PAGE_SIZE}")
+    return CARDS_API + "?" + "&".join(parts)
+
+
+def fetch_register() -> list[dict]:
+    """Read every page of the change register through its own API."""
+    query, cookies = asyncio.run(_open_register())
+    added = 0
+    for c in cookies:
+        if c.get("name") and c.get("value") is not None:
+            session.cookies.set(c["name"], c["value"],
+                                domain=c.get("domain") or "", path=c.get("path") or "/")
+            added += 1
+    print(f"  carried {added} browser cookie(s)")
+    if not query:
+        # Without the page's own filter the endpoint returns nothing useful,
+        # and guessing one risks silently narrowing the register.
+        print("  could not read the register's filter from a pagination link",
+              file=sys.stderr)
+        return []
+    print(f"  filter captured ({len(query)} chars)")
+
+    all_entries: list[dict] = []
+    seen: set[str] = set()
+    for page_no in range(0, MAX_PAGES):
+        url = _api_url(query, page_no)
+        try:
+            r = session.get(url, headers=HX_HEADERS, timeout=45)
+        except Exception as e:
+            print(f"  page {page_no}: {type(e).__name__}: {e}", file=sys.stderr)
+            break
+        if r.status_code != 200:
+            print(f"  page {page_no}: HTTP {r.status_code}", file=sys.stderr)
+            break
+        r.encoding = "utf-8"
+        batch = parse_cards(r.text)
+        fresh = [e for e in batch if not e["package"] or e["package"] not in seen]
+        for e in fresh:
+            if e["package"]:
+                seen.add(e["package"])
+        all_entries.extend(fresh)
+        print(f"  page {page_no}: {len(batch)} card(s), {len(fresh)} new "
+              f"({len(all_entries)} total)")
+        if not batch:
+            break
+        # A short page means the end; a full one that adds nothing new means
+        # the endpoint is ignoring our page number, which must not loop.
+        if len(batch) < PAGE_SIZE or not fresh:
+            break
+        time.sleep(PAGE_DELAY_SECS)
+    else:
+        print(f"  stopped at the {MAX_PAGES}-request ceiling", file=sys.stderr)
 
     return all_entries
 

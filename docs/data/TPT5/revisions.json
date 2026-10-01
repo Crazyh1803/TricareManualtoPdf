@@ -1,14 +1,14 @@
 {
   "code": "TPT5",
-  "fetchedAt": "2026-10-01T06:46:32Z",
+  "fetchedAt": "2026-10-01T07:48:17Z",
   "current": 57,
   "register": {
     "source": "https://manuals.dha.mil/Explore/Changes",
-    "coversFrom": "2026-08-19",
+    "coversFrom": "2020-12-09",
     "coversTo": "2026-09-18",
-    "listed": 2,
-    "unlisted": 55,
-    "complete": false
+    "listed": 57,
+    "unlisted": 0,
+    "complete": true
   },
   "revisions": [
     {
@@ -24,6 +24,391 @@
       "title": "Consolidated Change 25-004",
       "conreq": "23566",
       "package": "355"
+    },
+    {
+      "change": 55,
+      "published": "2026-07-23",
+      "title": "CY 2026 Evolving Practices-003",
+      "conreq": "223849",
+      "package": "342"
+    },
+    {
+      "change": 54,
+      "published": "2026-06-24",
+      "title": "Mental Health to Replace Behavioral Health",
+      "conreq": "23749",
+      "package": "327"
+    },
+    {
+      "change": 53,
+      "published": "2026-06-10",
+      "title": "TENS Policy Update",
+      "conreq": "23746",
+      "package": "323"
+    },
+    {
+      "change": 52,
+      "published": "2026-06-04",
+      "title": "TOPO Clerical Edits to TPM Chapter 7, Section 2.1",
+      "conreq": "23747",
+      "package": "321"
+    },
+    {
+      "change": 51,
+      "published": "2026-04-28",
+      "title": "Coding Update 26-001",
+      "conreq": "23757",
+      "package": "307"
+    },
+    {
+      "change": 50,
+      "published": "2026-04-24",
+      "title": "Requirement Update to Radiofrequency Ablation Policy for Facet Joint Pain",
+      "conreq": "23777",
+      "package": "303"
+    },
+    {
+      "change": 49,
+      "published": "2026-04-21",
+      "title": "MB&R Fall 2025 No-Cost Routine Updates",
+      "conreq": "23607",
+      "package": "300"
+    },
+    {
+      "change": 48,
+      "published": "2026-03-17",
+      "title": "Updates to Cervical Cancer Screening Policy",
+      "conreq": "23565",
+      "package": "295"
+    },
+    {
+      "change": 47,
+      "published": "2026-03-13",
+      "title": "CY 2026 Evolving Practices-002",
+      "conreq": "23745",
+      "package": "293"
+    },
+    {
+      "change": 46,
+      "published": "2026-03-10",
+      "title": "Evolving Practices 25-003",
+      "conreq": "23557",
+      "package": "290"
+    },
+    {
+      "change": 45,
+      "published": "2026-03-05",
+      "title": "Clinical Trials Modifications",
+      "conreq": "23577",
+      "package": "287"
+    },
+    {
+      "change": 44,
+      "published": "2026-02-19",
+      "title": "CY 2026 Evolving Practice-001",
+      "conreq": "23742",
+      "package": "284"
+    },
+    {
+      "change": 43,
+      "published": "2026-02-11",
+      "title": "Clarifying Tumor Profile and LDT Demo Web Link",
+      "conreq": "23641",
+      "package": "282"
+    },
+    {
+      "change": 42,
+      "published": "2025-09-12",
+      "title": "25-001 Clerical Edits",
+      "conreq": "23485",
+      "package": "268"
+    },
+    {
+      "change": 41,
+      "published": "2025-08-15",
+      "title": "Consolidated Change 25-001",
+      "conreq": "23362",
+      "package": "262"
+    },
+    {
+      "change": 40,
+      "published": "2025-08-12",
+      "title": "Updating TRICARE Coverage of Chemotherapy Drugs for the Treatment of Cancer",
+      "conreq": "23422",
+      "package": "260"
+    },
+    {
+      "change": 39,
+      "published": "2025-07-31",
+      "title": "Digital Breast Tomosynthesis for Breast Cancer Screening",
+      "conreq": "23348",
+      "package": "251"
+    },
+    {
+      "change": 38,
+      "published": "2025-07-25",
+      "title": "HIV Pre-Exposure Prophylaxis (PrEP)",
+      "conreq": "23338",
+      "package": "249"
+    },
+    {
+      "change": 37,
+      "published": "2025-06-24",
+      "title": "Clerical Edits to TOM and TPM",
+      "conreq": "23363",
+      "package": "244"
+    },
+    {
+      "change": 36,
+      "published": "2025-06-18",
+      "title": "Evolving Practices 25-002",
+      "conreq": "23433",
+      "package": "243"
+    },
+    {
+      "change": 35,
+      "published": "2025-06-11",
+      "title": "TRICARE Coverage Limitations on Treatment of Gender Dysphoria in Minors",
+      "conreq": "23369",
+      "package": "240"
+    },
+    {
+      "change": 34,
+      "published": "2025-06-04",
+      "title": "Discrepant Address and Claims Jurisdiction",
+      "conreq": "23347",
+      "package": "238"
+    },
+    {
+      "change": 33,
+      "published": "2025-05-13",
+      "title": "Reimbursement And Coding 25-001",
+      "conreq": "23335",
+      "package": "237"
+    },
+    {
+      "change": 32,
+      "published": "2025-04-29",
+      "title": "Beneficiary Notifications & Reinstatement Situations",
+      "conreq": "23202",
+      "package": "212"
+    },
+    {
+      "change": 31,
+      "published": "2025-04-25",
+      "title": "TRICARE Coverage of EHHC Services",
+      "conreq": "23304",
+      "package": "225"
+    },
+    {
+      "change": 30,
+      "published": "2025-03-28",
+      "title": "Evolving Practices 25-001",
+      "conreq": "23305",
+      "package": "227"
+    },
+    {
+      "change": 29,
+      "published": "2025-03-25",
+      "title": "Safety Beds Clarification",
+      "conreq": "23245",
+      "package": "223"
+    },
+    {
+      "change": 28,
+      "published": "2025-01-08",
+      "title": "Reimbursement & Coding Update 24-002",
+      "conreq": "23203",
+      "package": "213"
+    },
+    {
+      "change": 27,
+      "published": "2024-12-31",
+      "title": "Provisional Coverage MABs for AD",
+      "conreq": "23184",
+      "package": "204"
+    },
+    {
+      "change": 26,
+      "published": "2024-12-06",
+      "title": "Evolving Practices 24-005",
+      "conreq": "23210",
+      "package": "217"
+    },
+    {
+      "change": 25,
+      "published": "2024-11-07",
+      "title": "Evolving Practices 24-004",
+      "conreq": "23165",
+      "package": "200"
+    },
+    {
+      "change": 24,
+      "published": "2024-10-31",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 5 of 5",
+      "conreq": "23067",
+      "package": "182"
+    },
+    {
+      "change": 23,
+      "published": "2024-10-23",
+      "title": "T5 Clarification of Rare Disease Policy for TOP and the USFHP/DPs",
+      "conreq": "23041",
+      "package": "169"
+    },
+    {
+      "change": 22,
+      "published": "2024-10-15",
+      "title": "Companion Diagnostics Clarification",
+      "conreq": "23025",
+      "package": "164"
+    },
+    {
+      "change": 21,
+      "published": "2024-10-11",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 4 of 5",
+      "conreq": "23066",
+      "package": "181"
+    },
+    {
+      "change": 20,
+      "published": "2024-10-02",
+      "title": "Complications Care Update",
+      "conreq": "23021",
+      "package": "160"
+    },
+    {
+      "change": 19,
+      "published": "2024-09-30",
+      "title": "Consolidated Change 24-001",
+      "conreq": "23022",
+      "package": "161"
+    },
+    {
+      "change": 18,
+      "published": "2024-09-25",
+      "title": "Clarify Limitations of Sensory Integration Therapy",
+      "conreq": "23042",
+      "package": "170"
+    },
+    {
+      "change": 17,
+      "published": "2024-09-20",
+      "title": "OHI Repository Sunset",
+      "conreq": "23058",
+      "package": "173"
+    },
+    {
+      "change": 16,
+      "published": "2024-09-13",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 3 of 5",
+      "conreq": "23065",
+      "package": "180"
+    },
+    {
+      "change": 15,
+      "published": "2024-09-06",
+      "title": "Mobile Medical Application",
+      "conreq": "23038",
+      "package": "166"
+    },
+    {
+      "change": 14,
+      "published": "2024-09-03",
+      "title": "Automatic Blood Pressure Monitors",
+      "conreq": "23039",
+      "package": "167"
+    },
+    {
+      "change": 13,
+      "published": "2024-08-30",
+      "title": "NDAA FY 2024, Section 703, Hearing Aids",
+      "conreq": "23023",
+      "package": "162"
+    },
+    {
+      "change": 12,
+      "published": "2024-08-26",
+      "title": "Evolving Practices 24-003",
+      "conreq": "23103",
+      "package": "189"
+    },
+    {
+      "change": 11,
+      "published": "2024-08-21",
+      "title": "Reimbursement Update 24-003",
+      "conreq": "23019",
+      "package": "158"
+    },
+    {
+      "change": 10,
+      "published": "2024-08-14",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 2 of 5",
+      "conreq": "23064",
+      "package": "179"
+    },
+    {
+      "change": 9,
+      "published": "2024-07-24",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 1 of 5",
+      "conreq": "23063",
+      "package": "178"
+    },
+    {
+      "change": 8,
+      "published": "2024-07-19",
+      "title": "Mastectomy Policy Clarification",
+      "conreq": "23020",
+      "package": "159"
+    },
+    {
+      "change": 7,
+      "published": "2024-07-17",
+      "title": "Evolving Practices 24-002",
+      "conreq": "22965",
+      "package": "152"
+    },
+    {
+      "change": 6,
+      "published": "2024-06-27",
+      "title": "Breast Milk Supply Bags",
+      "conreq": "22941",
+      "package": "144"
+    },
+    {
+      "change": 5,
+      "published": "2024-06-20",
+      "title": "Reimbursement Methodology Changes",
+      "conreq": "22942",
+      "package": "145"
+    },
+    {
+      "change": 4,
+      "published": "2024-06-13",
+      "title": "COVID-19 Coverage and Reimbursement for Certain Services",
+      "conreq": "22940",
+      "package": "143"
+    },
+    {
+      "change": 3,
+      "published": "2024-05-03",
+      "title": "Updates to Telemedicine/Telehealth",
+      "conreq": "22936",
+      "package": "139"
+    },
+    {
+      "change": 2,
+      "published": "2024-04-30",
+      "title": "Prevention and Vision Care Updates",
+      "conreq": "22935",
+      "package": "138"
+    },
+    {
+      "change": 1,
+      "published": "2024-04-23",
+      "title": "Durable Medical Equipment, Prosthetics, Orthotics, and Supplies (DMEPOS)",
+      "conreq": "22933",
+      "package": "136"
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "code": "TOT5",
-  "fetchedAt": "2026-10-01T06:46:32Z",
+  "fetchedAt": "2026-10-01T07:48:17Z",
   "current": 66,
   "register": {
     "source": "https://manuals.dha.mil/Explore/Changes",
-    "coversFrom": "2026-08-19",
+    "coversFrom": "2020-12-09",
     "coversTo": "2026-09-18",
-    "listed": 4,
-    "unlisted": 62,
-    "complete": false
+    "listed": 66,
+    "unlisted": 0,
+    "complete": true
   },
   "revisions": [
     {
@@ -38,6 +38,440 @@
       "title": "CY 2027 Premium Rates for TRS, TRR, TYA, and CHCBP",
       "conreq": "23934",
       "package": "350"
+    },
+    {
+      "change": 62,
+      "published": "2026-08-14",
+      "title": "NDAA FY 2025, Section 702, TPR Rx Copay Waiver for Certain Dependents Enrolled in TPR",
+      "conreq": "23743",
+      "package": "348"
+    },
+    {
+      "change": 61,
+      "published": "2026-07-31",
+      "title": "Third-Party Authorization for TRICARE TPA TYA Coverage",
+      "conreq": "23758",
+      "package": "344"
+    },
+    {
+      "change": 60,
+      "published": "2026-07-24",
+      "title": "NDAA FY 2021, Section 746, 2026 Extension of CBSD",
+      "conreq": "23796",
+      "package": "339"
+    },
+    {
+      "change": 59,
+      "published": "2026-07-13",
+      "title": "Eliminating Dermatology Review for PS Laser Hair Removal for PFB in ADSM",
+      "conreq": "23839",
+      "package": "337"
+    },
+    {
+      "change": 58,
+      "published": "2026-07-02",
+      "title": "PCS Provider Services and Clerical Edits",
+      "conreq": "23840",
+      "package": "334"
+    },
+    {
+      "change": 57,
+      "published": "2026-06-24",
+      "title": "Mental Health to Replace Behavioral Health",
+      "conreq": "23749",
+      "package": "327"
+    },
+    {
+      "change": 56,
+      "published": "2026-05-07",
+      "title": "DMDC myAuth Implementation DS Logon Sunset",
+      "conreq": "23778",
+      "package": "313"
+    },
+    {
+      "change": 55,
+      "published": "2026-04-21",
+      "title": "MB&R Fall 2025 No-Cost Routine Updates",
+      "conreq": "23607",
+      "package": "300"
+    },
+    {
+      "change": 54,
+      "published": "2026-03-27",
+      "title": "Establishing Competitive Plans Demo in T17 & Administrative Manual Changes",
+      "conreq": "23642",
+      "package": "297"
+    },
+    {
+      "change": 53,
+      "published": "2026-03-11",
+      "title": "ROFR Processing Timeline Change From One to Three Days",
+      "conreq": "23713",
+      "package": "291"
+    },
+    {
+      "change": 52,
+      "published": "2026-02-24",
+      "title": "T5 Clerical Edits",
+      "conreq": "23588",
+      "package": "285"
+    },
+    {
+      "change": 51,
+      "published": "2025-12-19",
+      "title": "CPD Administrative Transition-in Clean-up Changes",
+      "conreq": "23545",
+      "package": "278"
+    },
+    {
+      "change": 50,
+      "published": "2025-09-17",
+      "title": "Removal of Expired HHVBP Demonstration",
+      "conreq": "23368",
+      "package": "273"
+    },
+    {
+      "change": 49,
+      "published": "2025-09-12",
+      "title": "25-001 Clerical Edits",
+      "conreq": "23485",
+      "package": "268"
+    },
+    {
+      "change": 48,
+      "published": "2025-09-10",
+      "title": "NDAA FY 2024, Section 702 TRS, TYA Coverage and Survivor Eligibility",
+      "conreq": "23525",
+      "package": "266"
+    },
+    {
+      "change": 47,
+      "published": "2025-09-04",
+      "title": "Premium Rates TRS TRR TYA CHCBP",
+      "conreq": "23514",
+      "package": "264"
+    },
+    {
+      "change": 46,
+      "published": "2025-08-06",
+      "title": "Uniformed Service Headquarters/Service Project Officers",
+      "conreq": "23320",
+      "package": "256"
+    },
+    {
+      "change": 45,
+      "published": "2025-07-29",
+      "title": "NDAA FY17 S 705 Competitive Plans Demo (CPD)",
+      "conreq": "23071",
+      "package": "255"
+    },
+    {
+      "change": 44,
+      "published": "2025-07-08",
+      "title": "DCS Training Requirement Updates",
+      "conreq": "23371",
+      "package": "246"
+    },
+    {
+      "change": 43,
+      "published": "2025-06-24",
+      "title": "Clerical Edits to TOM and TPM",
+      "conreq": "23363",
+      "package": "244"
+    },
+    {
+      "change": 42,
+      "published": "2025-06-04",
+      "title": "Discrepant Address and Claims Jurisdiction",
+      "conreq": "23347",
+      "package": "238"
+    },
+    {
+      "change": 41,
+      "published": "2025-04-29",
+      "title": "Beneficiary Notifications & Reinstatement Situations",
+      "conreq": "23202",
+      "package": "212"
+    },
+    {
+      "change": 40,
+      "published": "2025-04-22",
+      "title": "Population Health (PH) Care Update for HEDIS Audit",
+      "conreq": "23228",
+      "package": "221"
+    },
+    {
+      "change": 39,
+      "published": "2025-04-18",
+      "title": "Update Reporting Procedures",
+      "conreq": "23319",
+      "package": "234"
+    },
+    {
+      "change": 38,
+      "published": "2025-04-11",
+      "title": "T5 Prime Enrollee In-Network Claims Metric",
+      "conreq": "23318",
+      "package": "232"
+    },
+    {
+      "change": 37,
+      "published": "2025-04-04",
+      "title": "T5 Chapter 28-Prescription Program",
+      "conreq": "23307",
+      "package": "228"
+    },
+    {
+      "change": 36,
+      "published": "2025-01-17",
+      "title": "T5 NDAA FY2020, Section 702, New TRICARE Prime Retiree Payment by Allotment",
+      "conreq": "23046",
+      "package": "172"
+    },
+    {
+      "change": 35,
+      "published": "2025-01-10",
+      "title": "Premium Updates CY25 TRS/TRR/TYA & CHCBP-CORRECTION",
+      "conreq": "23205",
+      "package": "215"
+    },
+    {
+      "change": 34,
+      "published": "2025-01-03",
+      "title": "Premium Updates CY25 TRS/TRR/TYA & CHCBP",
+      "conreq": "23205",
+      "package": "214"
+    },
+    {
+      "change": 33,
+      "published": "2024-12-27",
+      "title": "Referral Management KSA Update + CDRL",
+      "conreq": "23185",
+      "package": "205"
+    },
+    {
+      "change": 32,
+      "published": "2024-12-24",
+      "title": "Laboratory Developed Test (LDTs) Demonstration Update",
+      "conreq": "23145",
+      "package": "193"
+    },
+    {
+      "change": 31,
+      "published": "2024-12-19",
+      "title": "NDAA16, Section 717, Provider Readiness Designation",
+      "conreq": "23201",
+      "package": "210"
+    },
+    {
+      "change": 30,
+      "published": "2024-12-09",
+      "title": "Call Resolution Definition Language",
+      "conreq": "23186",
+      "package": "206"
+    },
+    {
+      "change": 29,
+      "published": "2024-12-06",
+      "title": "Evolving Practices 24-005",
+      "conreq": "23210",
+      "package": "217"
+    },
+    {
+      "change": 28,
+      "published": "2024-12-04",
+      "title": "Catastrophic Cap",
+      "conreq": "23132",
+      "package": "191"
+    },
+    {
+      "change": 27,
+      "published": "2024-11-25",
+      "title": "Telehealth Services-Removing Market/MTF",
+      "conreq": "23200",
+      "package": "209"
+    },
+    {
+      "change": 26,
+      "published": "2024-11-22",
+      "title": "SHCP Expansion of Extended Benefits for ART & Administrative Edits",
+      "conreq": "23157",
+      "package": "194"
+    },
+    {
+      "change": 25,
+      "published": "2024-11-21",
+      "title": "Discrepant Address Drive Time Waiver",
+      "conreq": "23162",
+      "package": "198"
+    },
+    {
+      "change": 24,
+      "published": "2024-11-15",
+      "title": "NDAA FY 2017, Section 701, Prime Fee Waiver",
+      "conreq": "23161",
+      "package": "196"
+    },
+    {
+      "change": 23,
+      "published": "2024-11-13",
+      "title": "Records Management Changes",
+      "conreq": "23073",
+      "package": "185"
+    },
+    {
+      "change": 22,
+      "published": "2024-11-08",
+      "title": "DoD Comprehensive Autism Care Demonstration Referral and Appointing Center/CDRL",
+      "conreq": "23062",
+      "package": "177"
+    },
+    {
+      "change": 21,
+      "published": "2024-11-05",
+      "title": "LDT Demo NIPT Update",
+      "conreq": "23040",
+      "package": "168"
+    },
+    {
+      "change": 20,
+      "published": "2024-10-31",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 5 of 5",
+      "conreq": "23067",
+      "package": "182"
+    },
+    {
+      "change": 19,
+      "published": "2024-10-24",
+      "title": "T5 Clinical Changes",
+      "conreq": "23070",
+      "package": "183"
+    },
+    {
+      "change": 18,
+      "published": "2024-10-11",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 4 of 5",
+      "conreq": "23066",
+      "package": "181"
+    },
+    {
+      "change": 17,
+      "published": "2024-09-27",
+      "title": "T5 MMSO Changes",
+      "conreq": "23060",
+      "package": "174"
+    },
+    {
+      "change": 16,
+      "published": "2024-09-20",
+      "title": "OHI Repository Sunset",
+      "conreq": "23058",
+      "package": "173"
+    },
+    {
+      "change": 15,
+      "published": "2024-09-16",
+      "title": "Critical Processes (CP's) - Clinical Operations",
+      "conreq": "23045",
+      "package": "171"
+    },
+    {
+      "change": 14,
+      "published": "2024-09-13",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 3 of 5",
+      "conreq": "23065",
+      "package": "180"
+    },
+    {
+      "change": 13,
+      "published": "2024-08-22",
+      "title": "NDAA FY21 Sec 764 Childbirth and Breastfeeding Support Demonstration (CBSD)",
+      "conreq": "23017",
+      "package": "155"
+    },
+    {
+      "change": 12,
+      "published": "2024-08-14",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 2 of 5",
+      "conreq": "23064",
+      "package": "179"
+    },
+    {
+      "change": 11,
+      "published": "2024-07-24",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 1 of 5",
+      "conreq": "23063",
+      "package": "178"
+    },
+    {
+      "change": 10,
+      "published": "2024-06-28",
+      "title": "LDTs Demo Extension and Test Updates",
+      "conreq": "22945",
+      "package": "147"
+    },
+    {
+      "change": 9,
+      "published": "2024-06-21",
+      "title": "SHCP Blanket Waiver for GAS Evaluations",
+      "conreq": "22943",
+      "package": "146"
+    },
+    {
+      "change": 8,
+      "published": "2024-06-13",
+      "title": "COVID-19 Coverage and Reimbursement for Certain Services",
+      "conreq": "22940",
+      "package": "143"
+    },
+    {
+      "change": 7,
+      "published": "2024-06-06",
+      "title": "Autism Care Demonstration & CDRL",
+      "conreq": "22946",
+      "package": "148"
+    },
+    {
+      "change": 6,
+      "published": "2024-05-30",
+      "title": "Suspended Providers and Pharmacies",
+      "conreq": "22964",
+      "package": "150"
+    },
+    {
+      "change": 5,
+      "published": "2024-05-16",
+      "title": "NDAA 2021, Section 746, Childbirth and Breastfeeding Support Demonstration",
+      "conreq": "22938",
+      "package": "141"
+    },
+    {
+      "change": 4,
+      "published": "2024-05-08",
+      "title": "Failure to Pay Acknowledgment for TRICARE Premium Plan Enrollment Process",
+      "conreq": "22937",
+      "package": "140"
+    },
+    {
+      "change": 3,
+      "published": "2024-04-26",
+      "title": "Pay Center Language",
+      "conreq": "22934",
+      "package": "137"
+    },
+    {
+      "change": 2,
+      "published": "2024-04-19",
+      "title": "Active Duty Service Member (ADSM) Payment",
+      "conreq": "22932",
+      "package": "135"
+    },
+    {
+      "change": 1,
+      "published": "2024-04-05",
+      "title": "TRICARE Overseas Program Admin",
+      "conreq": "22930",
+      "package": "133"
     }
   ]
 }

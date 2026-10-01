@@ -1,14 +1,14 @@
 {
   "code": "TST5",
-  "fetchedAt": "2026-10-01T06:46:32Z",
+  "fetchedAt": "2026-10-01T07:48:17Z",
   "current": 40,
   "register": {
     "source": "https://manuals.dha.mil/Explore/Changes",
-    "coversFrom": "2026-08-19",
+    "coversFrom": "2020-12-09",
     "coversTo": "2026-09-18",
-    "listed": 1,
-    "unlisted": 39,
-    "complete": false
+    "listed": 40,
+    "unlisted": 0,
+    "complete": true
   },
   "revisions": [
     {
@@ -17,6 +17,279 @@
       "title": "Establish East Region Virtual Value Network Pilot + CDRL",
       "conreq": "23891",
       "package": "364"
+    },
+    {
+      "change": 39,
+      "published": "2026-08-12",
+      "title": "Expansion of DHA DCS Data Elements for Identification of Potential Post Payment Duplicate Claims",
+      "conreq": "23755",
+      "package": "346"
+    },
+    {
+      "change": 38,
+      "published": "2026-07-24",
+      "title": "NDAA FY 2021, Section 746, 2026 Extension of CBSD",
+      "conreq": "23796",
+      "package": "339"
+    },
+    {
+      "change": 37,
+      "published": "2026-07-09",
+      "title": "Consolidated Change 26-001",
+      "conreq": "23798",
+      "package": "336"
+    },
+    {
+      "change": 36,
+      "published": "2026-06-24",
+      "title": "Mental Health to Replace Behavioral Health",
+      "conreq": "23749",
+      "package": "327"
+    },
+    {
+      "change": 35,
+      "published": "2026-05-12",
+      "title": "Reimbursement and Coding 26-001",
+      "conreq": "23776",
+      "package": "316"
+    },
+    {
+      "change": 34,
+      "published": "2026-05-07",
+      "title": "DMDC myAuth Implementation DS Logon Sunset",
+      "conreq": "23778",
+      "package": "313"
+    },
+    {
+      "change": 33,
+      "published": "2026-05-05",
+      "title": "2025 Q4 TSM Consolidated Change",
+      "conreq": "23644",
+      "package": "311"
+    },
+    {
+      "change": 32,
+      "published": "2026-03-05",
+      "title": "Clinical Trials Modifications",
+      "conreq": "23577",
+      "package": "287"
+    },
+    {
+      "change": 31,
+      "published": "2026-01-21",
+      "title": "Government Email Update",
+      "conreq": "23597",
+      "package": "280"
+    },
+    {
+      "change": 30,
+      "published": "2025-11-14",
+      "title": "Consolidated Change 25-003",
+      "conreq": "23474",
+      "package": "277"
+    },
+    {
+      "change": 29,
+      "published": "2025-09-17",
+      "title": "Removal of Expired HHVBP Demonstration",
+      "conreq": "23368",
+      "package": "273"
+    },
+    {
+      "change": 28,
+      "published": "2025-09-12",
+      "title": "25-001 Clerical Edits",
+      "conreq": "23485",
+      "package": "268"
+    },
+    {
+      "change": 27,
+      "published": "2025-07-29",
+      "title": "NDAA FY17 S 705 Competitive Plans Demo (CPD)",
+      "conreq": "23071",
+      "package": "255"
+    },
+    {
+      "change": 26,
+      "published": "2025-05-01",
+      "title": "T5 Type of Institution 94",
+      "conreq": "23309",
+      "package": "235"
+    },
+    {
+      "change": 25,
+      "published": "2025-04-16",
+      "title": "T17/T5 Mail Order Specialty Pharmacy",
+      "conreq": "23311",
+      "package": "231"
+    },
+    {
+      "change": 24,
+      "published": "2025-04-08",
+      "title": "Duplicate Claims System Access Requirements",
+      "conreq": "23212",
+      "package": "219"
+    },
+    {
+      "change": 23,
+      "published": "2025-04-02",
+      "title": "Consolidated Change 24-002",
+      "conreq": "23166",
+      "package": "202"
+    },
+    {
+      "change": 22,
+      "published": "2025-01-08",
+      "title": "Reimbursement & Coding Update 24-002",
+      "conreq": "23203",
+      "package": "213"
+    },
+    {
+      "change": 21,
+      "published": "2024-12-31",
+      "title": "Provisional Coverage MABs for AD",
+      "conreq": "23184",
+      "package": "204"
+    },
+    {
+      "change": 20,
+      "published": "2024-12-17",
+      "title": "Mission Partner Identity, Credential and Access Management (MP ICAM)",
+      "conreq": "23199",
+      "package": "208"
+    },
+    {
+      "change": 19,
+      "published": "2024-11-29",
+      "title": "Pediatric COVID Policy",
+      "conreq": "23037",
+      "package": "165"
+    },
+    {
+      "change": 18,
+      "published": "2024-11-19",
+      "title": "Personnel Security Updates",
+      "conreq": "23072",
+      "package": "184"
+    },
+    {
+      "change": 17,
+      "published": "2024-11-13",
+      "title": "Records Management Changes",
+      "conreq": "23073",
+      "package": "185"
+    },
+    {
+      "change": 16,
+      "published": "2024-11-05",
+      "title": "LDT Demo NIPT Update",
+      "conreq": "23040",
+      "package": "168"
+    },
+    {
+      "change": 15,
+      "published": "2024-10-31",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 5 of 5",
+      "conreq": "23067",
+      "package": "182"
+    },
+    {
+      "change": 14,
+      "published": "2024-10-22",
+      "title": "Batch/Voucher ASAP Account Number Format",
+      "conreq": "23061",
+      "package": "176"
+    },
+    {
+      "change": 13,
+      "published": "2024-10-11",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 4 of 5",
+      "conreq": "23066",
+      "package": "181"
+    },
+    {
+      "change": 12,
+      "published": "2024-09-20",
+      "title": "OHI Repository Sunset",
+      "conreq": "23058",
+      "package": "173"
+    },
+    {
+      "change": 11,
+      "published": "2024-09-18",
+      "title": "Public Key Infrastructure (PKI) Requirements",
+      "conreq": "23074",
+      "package": "186"
+    },
+    {
+      "change": 10,
+      "published": "2024-09-13",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 3 of 5",
+      "conreq": "23065",
+      "package": "180"
+    },
+    {
+      "change": 9,
+      "published": "2024-08-22",
+      "title": "NDAA FY21 Sec 764 Childbirth and Breastfeeding Support Demonstration (CBSD)",
+      "conreq": "23017",
+      "package": "155"
+    },
+    {
+      "change": 8,
+      "published": "2024-08-14",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 2 of 5",
+      "conreq": "23064",
+      "package": "179"
+    },
+    {
+      "change": 7,
+      "published": "2024-07-24",
+      "title": "Incorporating T17 Published Changes into T5 Manuals - Consolidated 1 of 5",
+      "conreq": "23063",
+      "package": "178"
+    },
+    {
+      "change": 6,
+      "published": "2024-06-20",
+      "title": "Reimbursement Methodology Changes",
+      "conreq": "22942",
+      "package": "145"
+    },
+    {
+      "change": 5,
+      "published": "2024-06-06",
+      "title": "Autism Care Demonstration & CDRL",
+      "conreq": "22946",
+      "package": "148"
+    },
+    {
+      "change": 4,
+      "published": "2024-05-30",
+      "title": "Suspended Providers and Pharmacies",
+      "conreq": "22964",
+      "package": "150"
+    },
+    {
+      "change": 3,
+      "published": "2024-05-22",
+      "title": "Special Processing Code Effective / Termination Dates",
+      "conreq": "22939",
+      "package": "142"
+    },
+    {
+      "change": 2,
+      "published": "2024-05-16",
+      "title": "NDAA 2021, Section 746, Childbirth and Breastfeeding Support Demonstration",
+      "conreq": "22938",
+      "package": "141"
+    },
+    {
+      "change": 1,
+      "published": "2024-04-26",
+      "title": "Pay Center Language",
+      "conreq": "22934",
+      "package": "137"
     }
   ]
 }

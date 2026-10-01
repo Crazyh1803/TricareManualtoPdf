@@ -102,9 +102,19 @@ jobs:
       #     continue-on-error: a failure here must not discard a good content
       #     scrape; the existing revisions.json files simply stay as they are.
       - name: Refresh revision history
+        id: revisions
         continue-on-error: true
         timeout-minutes: 10
         run: python -u scripts/fetch_revisions.py
+
+      # continue-on-error reports the step as *successful*, which is how two
+      # runs in a row crashed in here without anyone noticing. Say so in the
+      # run summary instead, without failing the job over it.
+      - name: Note a failed revision refresh
+        if: always() && steps.revisions.outcome == 'failure'
+        run: |
+          echo "::warning title=Revision history not refreshed::scripts/fetch_revisions.py failed; the revisions.json files already published are unchanged. See the step log above."
+          echo "⚠️ Revision history was not refreshed this run — the published revisions.json files are unchanged." >> "$GITHUB_STEP_SUMMARY"
 
       # 7. Commit updated data files to the web branch (where GitHub Pages serves from)
       #    always() so partial progress still gets published. The scraper writes

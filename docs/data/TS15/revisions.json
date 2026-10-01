@@ -1,0 +1,442 @@
+{
+  "code": "TS15",
+  "fetchedAt": "2026-10-01T07:48:17Z",
+  "current": 102,
+  "register": {
+    "source": "https://manuals.dha.mil/Explore/Changes",
+    "coversFrom": "2020-12-09",
+    "coversTo": "2026-09-18",
+    "listed": 61,
+    "unlisted": 41,
+    "complete": false
+  },
+  "revisions": [
+    {
+      "change": 102,
+      "published": "2026-09-17",
+      "title": "Establish East Region Virtual Value Network Pilot + CDRL",
+      "conreq": "23891",
+      "package": "363"
+    },
+    {
+      "change": 101,
+      "published": "2026-08-11",
+      "title": "Expansion of DHA DCS Data Elements for Identification of Potential Post Payment Duplicate Claims",
+      "conreq": "23755",
+      "package": "345"
+    },
+    {
+      "change": 100,
+      "published": "2026-07-23",
+      "title": "NDAA FY 2021, Section 746, 2026 Extension of CBSD",
+      "conreq": "23796",
+      "package": "338"
+    },
+    {
+      "change": 99,
+      "published": "2026-07-08",
+      "title": "Consolidated Change 26-001",
+      "conreq": "23798",
+      "package": "335"
+    },
+    {
+      "change": 98,
+      "published": "2026-06-23",
+      "title": "Mental Health to Replace Behavioral Health",
+      "conreq": "23749",
+      "package": "326"
+    },
+    {
+      "change": 97,
+      "published": "2026-05-11",
+      "title": "Reimbursement and Coding 26-001",
+      "conreq": "23776",
+      "package": "315"
+    },
+    {
+      "change": 96,
+      "published": "2026-05-06",
+      "title": "DMDC myAuth Implementation DS Logon Sunset",
+      "conreq": "23778",
+      "package": "312"
+    },
+    {
+      "change": 95,
+      "published": "2026-05-04",
+      "title": "2025 Q4 TSM Consolidated Change",
+      "conreq": "23644",
+      "package": "310"
+    },
+    {
+      "change": 94,
+      "published": "2026-03-26",
+      "title": "Establishing Competitive Plans Demo in T17 & Administrative Manual Changes",
+      "conreq": "23642",
+      "package": "296"
+    },
+    {
+      "change": 93,
+      "published": "2026-03-04",
+      "title": "Clinical Trials Modifications",
+      "conreq": "23577",
+      "package": "286"
+    },
+    {
+      "change": 92,
+      "published": "2026-01-20",
+      "title": "Government Email Update",
+      "conreq": "23597",
+      "package": "279"
+    },
+    {
+      "change": 91,
+      "published": "2025-11-13",
+      "title": "Consolidated Change 25-003",
+      "conreq": "23474",
+      "package": "276"
+    },
+    {
+      "change": 90,
+      "published": "2025-09-16",
+      "title": "Removal of Expired HHVBP Demonstration",
+      "conreq": "23368",
+      "package": "271"
+    },
+    {
+      "change": 89,
+      "published": "2025-09-11",
+      "title": "25-001 Clerical Edits",
+      "conreq": "23485",
+      "package": "267"
+    },
+    {
+      "change": 88,
+      "published": "2025-04-15",
+      "title": "T17/T5 Mail Order Specialty Pharmacy",
+      "conreq": "23311",
+      "package": "230"
+    },
+    {
+      "change": 87,
+      "published": "2025-04-07",
+      "title": "Duplicate Claims System Access Requirements",
+      "conreq": "23212",
+      "package": "218"
+    },
+    {
+      "change": 86,
+      "published": "2025-04-01",
+      "title": "Consolidated Change 24-002",
+      "conreq": "23166",
+      "package": "201"
+    },
+    {
+      "change": 85,
+      "published": "2024-12-30",
+      "title": "Provisional Coverage MABs for AD",
+      "conreq": "23184",
+      "package": "203"
+    },
+    {
+      "change": 84,
+      "published": "2024-12-16",
+      "title": "Mission Partner Identity, Credential and Access Management (MP ICAM)",
+      "conreq": "23199",
+      "package": "207"
+    },
+    {
+      "change": 83,
+      "published": "2024-10-21",
+      "title": "Batch/Voucher ASAP Account Number Format",
+      "conreq": "23061",
+      "package": "175"
+    },
+    {
+      "change": 82,
+      "published": "2024-08-02",
+      "title": "OHI Repository Sunset",
+      "conreq": "22912",
+      "package": "130"
+    },
+    {
+      "change": 81,
+      "published": "2024-06-14",
+      "title": "Cybersecurity Updates",
+      "conreq": "22607",
+      "package": "93"
+    },
+    {
+      "change": 80,
+      "published": "2024-06-10",
+      "title": "NDAA FY21 Section746 Childbirth and Breastfeeding Support Demonstration (CBSD) Adjustments",
+      "conreq": "22902",
+      "package": "127"
+    },
+    {
+      "change": 79,
+      "published": "2024-05-29",
+      "title": "Type of Institution 94",
+      "conreq": "22881",
+      "package": "122"
+    },
+    {
+      "change": 78,
+      "published": "2024-05-02",
+      "title": "Mail Order Specialty Pharmacy",
+      "conreq": "22905",
+      "package": "128"
+    },
+    {
+      "change": 77,
+      "published": "2024-03-12",
+      "title": "Limitations of Sensory Integration Therapy",
+      "conreq": "22834",
+      "package": "116"
+    },
+    {
+      "change": 76,
+      "published": "2024-01-12",
+      "title": "LDT Demo NIPT Update",
+      "conreq": "22767",
+      "package": "111"
+    },
+    {
+      "change": 75,
+      "published": "2023-12-20",
+      "title": "Reimbursement Update 23-004",
+      "conreq": "22799",
+      "package": "114"
+    },
+    {
+      "change": 74,
+      "published": "2023-12-06",
+      "title": "Consolidated Change 23-003",
+      "conreq": "22717",
+      "package": "107"
+    },
+    {
+      "change": 73,
+      "published": "2023-09-08",
+      "title": "Pediatric COVID Policy",
+      "conreq": "22365",
+      "package": "79"
+    },
+    {
+      "change": 72,
+      "published": "2023-08-28",
+      "title": "Rescind DCS Performance Standard",
+      "conreq": "22666",
+      "package": "99"
+    },
+    {
+      "change": 71,
+      "published": "2023-08-22",
+      "title": "Other Government Program (OGP) Type Code - Medicare Advantage",
+      "conreq": "22604",
+      "package": "91"
+    },
+    {
+      "change": 70,
+      "published": "2023-08-01",
+      "title": "Consolidated Change 23-002",
+      "conreq": "22620",
+      "package": "96"
+    },
+    {
+      "change": 69,
+      "published": "2023-06-16",
+      "title": "Autism Care Demonstration Expiration Date",
+      "conreq": "22618",
+      "package": "95"
+    },
+    {
+      "change": 68,
+      "published": "2023-06-12",
+      "title": "TRICARE Dual Eligible Fiscal Intermediary Contract (TDEFIC) to TRICARE Medicare Eligible Program (TMEP) Updates",
+      "conreq": "22144",
+      "package": "68"
+    },
+    {
+      "change": 67,
+      "published": "2023-05-31",
+      "title": "Reimbursement Methodology Changes",
+      "conreq": "21836",
+      "package": "47"
+    },
+    {
+      "change": 66,
+      "published": "2023-05-05",
+      "title": "Consolidated Change 23-001",
+      "conreq": "22498",
+      "package": "81"
+    },
+    {
+      "change": 65,
+      "published": "2023-03-27",
+      "title": "Reimbursement Update 23-001",
+      "conreq": "22527",
+      "package": "82"
+    },
+    {
+      "change": 64,
+      "published": "2023-02-22",
+      "title": "DCS Performance Standard and Training Requirement Updates",
+      "conreq": "22235",
+      "package": "71"
+    },
+    {
+      "change": 63,
+      "published": "2022-10-18",
+      "title": "Consolidated Change 22-003",
+      "conreq": "22204",
+      "package": "70"
+    },
+    {
+      "change": 62,
+      "published": "2022-08-03",
+      "title": "COVID-19 Coverage and Reimbursement for Certain Services",
+      "conreq": "21962",
+      "package": "56"
+    },
+    {
+      "change": 61,
+      "published": "2022-04-26",
+      "title": "Consolidated Change 22-002",
+      "conreq": "22053",
+      "package": "65"
+    },
+    {
+      "change": 60,
+      "published": "2022-03-29",
+      "title": "Consolidated Change 21-005",
+      "conreq": "21982",
+      "package": "58"
+    },
+    {
+      "change": 59,
+      "published": "2022-03-04",
+      "title": "Consolidated Change 22-001",
+      "conreq": "22012",
+      "package": "63"
+    },
+    {
+      "change": 58,
+      "published": "2022-02-25",
+      "title": "Special Processing Code Effective / Termination Dates",
+      "conreq": "21910",
+      "package": "53"
+    },
+    {
+      "change": 57,
+      "published": "2021-12-23",
+      "title": "Consolidated Change 21-002",
+      "conreq": "21743",
+      "package": "37"
+    },
+    {
+      "change": 56,
+      "published": "2021-11-29",
+      "title": "NDAA 2021, Section 746, Childbirth and Breastfeeding Support Demonstration",
+      "conreq": "21826",
+      "package": "45"
+    },
+    {
+      "change": 55,
+      "published": "2021-11-17",
+      "title": "Rescind - Pay Center Language",
+      "conreq": "21404",
+      "package": "16"
+    },
+    {
+      "change": 54,
+      "published": "2021-09-16",
+      "title": "Suspended Providers and Pharmacies",
+      "conreq": "20808",
+      "package": "3"
+    },
+    {
+      "change": 53,
+      "published": "2021-09-08",
+      "title": "Consolidated Change 21-003",
+      "conreq": "21794",
+      "package": "41"
+    },
+    {
+      "change": 52,
+      "published": "2021-08-10",
+      "title": "Provisional Coverage of Ablative Fractional Laser Treatment for Symptomatic Burns and Scars",
+      "conreq": "21643",
+      "package": "32"
+    },
+    {
+      "change": 51,
+      "published": "2021-08-05",
+      "title": "NDAA FY 2017, Section 701, FY to CY for TFL and OHI Application",
+      "conreq": "21573",
+      "package": "27"
+    },
+    {
+      "change": 50,
+      "published": "2021-07-29",
+      "title": "Pay Center Language",
+      "conreq": "21404",
+      "package": "15"
+    },
+    {
+      "change": 49,
+      "published": "2021-07-14",
+      "title": "NDAA FY 2020, Sec 9081, Space Force Designation as a Uniformed Service",
+      "conreq": "21534",
+      "package": "24"
+    },
+    {
+      "change": 48,
+      "published": "2021-04-09",
+      "title": "Temporary Changes to TRICARE Benefits and Reimbursement Due to COVID19",
+      "conreq": "21244",
+      "package": "6"
+    },
+    {
+      "change": 47,
+      "published": "2021-03-23",
+      "title": "Autism Care Demonstration Comprehensive Revisions",
+      "conreq": "20598",
+      "package": "1"
+    },
+    {
+      "change": 46,
+      "published": "2021-02-16",
+      "title": "NDAA FY 2017, Section 705, Buckley Prime Service Area Pilot",
+      "conreq": "21439",
+      "package": "17"
+    },
+    {
+      "change": 45,
+      "published": "2021-02-03",
+      "title": "Hospital Value Based Purchasing (HVBP)",
+      "conreq": "20670",
+      "package": "2"
+    },
+    {
+      "change": 44,
+      "published": "2020-12-24",
+      "title": "COVID-19 Updates",
+      "conreq": "21149",
+      "package": "5"
+    },
+    {
+      "change": 43,
+      "published": "2020-12-16",
+      "title": "Reimbursement Update 20-003",
+      "conreq": "21346",
+      "package": "11"
+    },
+    {
+      "change": 42,
+      "published": "2020-12-09",
+      "title": "COVID-19 National Institute of Allergy and Infectious Disease (NIAID) Clinical Trials",
+      "conreq": "21334",
+      "package": "8"
+    }
+  ]
+}

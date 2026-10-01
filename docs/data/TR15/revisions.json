@@ -1,0 +1,323 @@
+{
+  "code": "TR15",
+  "fetchedAt": "2026-10-01T07:48:17Z",
+  "current": 94,
+  "register": {
+    "source": "https://manuals.dha.mil/Explore/Changes",
+    "coversFrom": "2020-12-09",
+    "coversTo": "2026-09-18",
+    "listed": 44,
+    "unlisted": 50,
+    "complete": false
+  },
+  "revisions": [
+    {
+      "change": 94,
+      "published": "2026-09-03",
+      "title": "Consolidated Change 25-004",
+      "conreq": "23566",
+      "package": "354"
+    },
+    {
+      "change": 93,
+      "published": "2026-06-29",
+      "title": "CY 2026 Annual DRG Update",
+      "conreq": "23759",
+      "package": "331"
+    },
+    {
+      "change": 92,
+      "published": "2026-06-23",
+      "title": "Mental Health to Replace Behavioral Health",
+      "conreq": "23749",
+      "package": "326"
+    },
+    {
+      "change": 91,
+      "published": "2026-06-11",
+      "title": "Consolidated Change 25-002",
+      "conreq": "23412",
+      "package": "324"
+    },
+    {
+      "change": 90,
+      "published": "2026-05-14",
+      "title": "ESRD Reimbursement Rate Correction",
+      "conreq": "23711",
+      "package": "318"
+    },
+    {
+      "change": 89,
+      "published": "2026-05-11",
+      "title": "Reimbursement and Coding 26-001",
+      "conreq": "23776",
+      "package": "315"
+    },
+    {
+      "change": 88,
+      "published": "2026-04-29",
+      "title": "CY2026 Home Health Care Annual Update",
+      "conreq": "23741",
+      "package": "308"
+    },
+    {
+      "change": 87,
+      "published": "2025-12-17",
+      "title": "T17/T5 2025 Pharmacy Copay Updates",
+      "conreq": "23505",
+      "package": "305"
+    },
+    {
+      "change": 86,
+      "published": "2025-09-16",
+      "title": "Removal of Expired HHVBP Demonstration",
+      "conreq": "23368",
+      "package": "271"
+    },
+    {
+      "change": 85,
+      "published": "2025-05-12",
+      "title": "Reimbursement And Coding 25-001",
+      "conreq": "23335",
+      "package": "236"
+    },
+    {
+      "change": 84,
+      "published": "2024-10-16",
+      "title": "Reimbursement Update 24-005",
+      "conreq": "23077",
+      "package": "272"
+    },
+    {
+      "change": 83,
+      "published": "2024-08-20",
+      "title": "Reimbursement Update 24-003",
+      "conreq": "23019",
+      "package": "157"
+    },
+    {
+      "change": 82,
+      "published": "2024-08-06",
+      "title": "Reimbursement Update 24-002",
+      "conreq": "22868",
+      "package": "120"
+    },
+    {
+      "change": 81,
+      "published": "2024-08-02",
+      "title": "OHI Repository Sunset",
+      "conreq": "22912",
+      "package": "130"
+    },
+    {
+      "change": 80,
+      "published": "2024-07-18",
+      "title": "Professional and DMEPOS/PEN Services without Fee-Schedule Rates",
+      "conreq": "22842",
+      "package": "117"
+    },
+    {
+      "change": 79,
+      "published": "2024-06-04",
+      "title": "Reimbursement and Coding 24-001",
+      "conreq": "22883",
+      "package": "123"
+    },
+    {
+      "change": 78,
+      "published": "2024-05-20",
+      "title": "Reimbursement Update 24-003",
+      "conreq": "22953",
+      "package": "149"
+    },
+    {
+      "change": 77,
+      "published": "2024-03-25",
+      "title": "Reimbursement Update 24-001",
+      "conreq": "22867",
+      "package": "119"
+    },
+    {
+      "change": 76,
+      "published": "2024-01-09",
+      "title": "Reimbursement Update 23-002",
+      "conreq": "22752",
+      "package": "109"
+    },
+    {
+      "change": 75,
+      "published": "2023-11-17",
+      "title": "Reimbursement Update 23-003",
+      "conreq": "22766",
+      "package": "110"
+    },
+    {
+      "change": 74,
+      "published": "2023-09-08",
+      "title": "Pediatric COVID Policy",
+      "conreq": "22365",
+      "package": "79"
+    },
+    {
+      "change": 73,
+      "published": "2023-08-21",
+      "title": "Administrative Edits",
+      "conreq": "22589",
+      "package": "89"
+    },
+    {
+      "change": 72,
+      "published": "2023-08-07",
+      "title": "Female Tubal Sterilization",
+      "conreq": "22616",
+      "package": "94"
+    },
+    {
+      "change": 71,
+      "published": "2023-08-01",
+      "title": "Consolidated Change 23-002",
+      "conreq": "22620",
+      "package": "96"
+    },
+    {
+      "change": 70,
+      "published": "2023-06-12",
+      "title": "TRICARE Dual Eligible Fiscal Intermediary Contract (TDEFIC) to TRICARE Medicare Eligible Program (TMEP) Updates",
+      "conreq": "22144",
+      "package": "68"
+    },
+    {
+      "change": 69,
+      "published": "2023-05-31",
+      "title": "Reimbursement Methodology Changes",
+      "conreq": "21836",
+      "package": "47"
+    },
+    {
+      "change": 68,
+      "published": "2023-05-03",
+      "title": "Pharmacy Co-Pay Updates",
+      "conreq": "22497",
+      "package": "80"
+    },
+    {
+      "change": 67,
+      "published": "2023-03-27",
+      "title": "Reimbursement Update 23-001",
+      "conreq": "22527",
+      "package": "82"
+    },
+    {
+      "change": 66,
+      "published": "2023-01-06",
+      "title": "Reimbursement & Coding Change 22-001",
+      "conreq": "22063",
+      "package": "66"
+    },
+    {
+      "change": 65,
+      "published": "2022-09-16",
+      "title": "Adding Med Benefit Contraceptives as Preventive Services",
+      "conreq": "22294",
+      "package": "76"
+    },
+    {
+      "change": 64,
+      "published": "2022-08-03",
+      "title": "COVID-19 Coverage and Reimbursement for Certain Services",
+      "conreq": "21962",
+      "package": "56"
+    },
+    {
+      "change": 63,
+      "published": "2021-12-23",
+      "title": "Consolidated Change 21-002",
+      "conreq": "21743",
+      "package": "37"
+    },
+    {
+      "change": 62,
+      "published": "2021-09-03",
+      "title": "Consolidated Change 21-001",
+      "conreq": "21663",
+      "package": "33"
+    },
+    {
+      "change": 61,
+      "published": "2021-08-05",
+      "title": "NDAA FY 2017, Section 701, FY to CY for TFL and OHI Application",
+      "conreq": "21573",
+      "package": "27"
+    },
+    {
+      "change": 60,
+      "published": "2021-06-30",
+      "title": "Durable Medical Equipment, Prosthetics, Orthotics, and Supplies (DMEPOS)",
+      "conreq": "21773",
+      "package": "38"
+    },
+    {
+      "change": 59,
+      "published": "2021-05-26",
+      "title": "Prime Travel Benefit - Military Treatment Facility (MTF) Attestations",
+      "conreq": "21501",
+      "package": "22"
+    },
+    {
+      "change": 58,
+      "published": "2021-04-20",
+      "title": "Reimbursement Update 21-001",
+      "conreq": "21481",
+      "package": "19"
+    },
+    {
+      "change": 57,
+      "published": "2021-04-09",
+      "title": "Temporary Changes to TRICARE Benefits and Reimbursement Due to COVID19",
+      "conreq": "21244",
+      "package": "6"
+    },
+    {
+      "change": 56,
+      "published": "2021-04-02",
+      "title": "Reimbursement Update 21-002",
+      "conreq": "21492",
+      "package": "21"
+    },
+    {
+      "change": 55,
+      "published": "2021-03-26",
+      "title": "NDAA FY17, Sec 701, TRICARE Select Group A Enrollment Fees, Retiree Pay by Allotment and Federal Holidays/Open Season",
+      "conreq": "21078",
+      "package": "4"
+    },
+    {
+      "change": 54,
+      "published": "2021-02-03",
+      "title": "Hospital Value Based Purchasing (HVBP)",
+      "conreq": "20670",
+      "package": "2"
+    },
+    {
+      "change": 53,
+      "published": "2021-01-08",
+      "title": "New Technology Add-on Payment",
+      "conreq": "21264",
+      "package": "7"
+    },
+    {
+      "change": 52,
+      "published": "2020-12-24",
+      "title": "COVID-19 Updates",
+      "conreq": "21149",
+      "package": "5"
+    },
+    {
+      "change": 51,
+      "published": "2020-12-18",
+      "title": "Reimbursement Update 20-002",
+      "conreq": "21335",
+      "package": "9"
+    }
+  ]
+}

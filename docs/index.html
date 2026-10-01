@@ -52,6 +52,8 @@
           Content is scraped weekly from
           <a href="https://manuals.dha.mil" target="_blank" rel="noopener">manuals.dha.mil</a>
           and may lag by a few days. These documents are scraped from official U.S. government publications.
+          Open a manual to see its published changes — the current one is stored here, and earlier
+          ones open on the official site.
         </p>
         <p class="home-support">
           Questions? <a href="mailto:odysseypages@gmail.com">Contact support</a>
@@ -107,7 +109,11 @@
             </button>
             <div class="reader-bar-center">
               <span id="reader-manual-name" class="reader-manual-name"></span>
+              <!-- The badge is the fallback: it shows the current change when
+                   a manual has no published revision history to pick from. -->
               <span id="reader-change-badge" class="reader-change-badge"></span>
+              <select id="version-select" class="version-select"
+                      aria-label="Choose which change of this manual to view" hidden></select>
             </div>
             <button id="btn-open-toc" class="icon-btn toc-toggle-btn" aria-label="Open table of contents" aria-expanded="false" aria-controls="toc-panel">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>

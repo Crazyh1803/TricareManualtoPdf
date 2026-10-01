@@ -571,6 +571,52 @@ a:hover { text-decoration: underline; }
   opacity: .8;
 }
 
+/* Version picker — sits in the navy reader bar, so it is styled rather than
+   left to the browser's default light-on-light select. */
+.version-select {
+  max-width: 100%;
+  margin-top: 2px;
+  padding: 2px 22px 2px 8px;
+  font: inherit;
+  font-size: .72rem;
+  color: var(--text-on-navy);
+  background-color: rgba(255,255,255,.12);
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+  background-size: 16px 16px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 6px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.version-select:hover { background-color: rgba(255,255,255,.2); }
+.version-select:focus-visible { outline: 2px solid #fff; outline-offset: 1px; }
+/* Options drop out of the navy bar onto the page, so they need page colours. */
+.version-select option { color: var(--text-primary); background: var(--surface); }
+
+/* An older change is not stored here, so its sections cannot be opened. */
+.toc-list.locked { opacity: .45; pointer-events: none; }
+
+.archived-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 20px 22px;
+}
+.archived-panel h2 { margin-top: 0; }
+.archived-title {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.archived-meta {
+  font-size: .8rem;
+  color: var(--text-secondary);
+}
+.archived-panel .btn-primary { display: inline-block; text-decoration: none; }
+
 .toc-toggle-btn { color: var(--text-on-navy); display: none; }
 
 .reader-body {

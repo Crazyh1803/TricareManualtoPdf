@@ -616,6 +616,13 @@ async function exportManual(code, format) {
 
   const sections = toc.sections.filter(s => !s.isChapterToc);
 
+  // Date the export from the revision history, so a downloaded file says
+  // which change it is and when that change was published.
+  const payload  = await loadRevisions(code);
+  const change   = (payload && payload.current != null) ? payload.current : manual.latestChange;
+  const rev      = payload ? (payload.revisions || []).find(r => r.change === change) : null;
+  const pubDate  = rev ? formatRevDate(rev.published) : '';
+
   showToast(`Preparing ${sections.length} sections…`);
 
   // Fetch all section HTML in parallel
@@ -638,7 +645,9 @@ async function exportManual(code, format) {
 
   if (format === 'md') {
     const lines = [`# ${name}\n`];
-    if (manual && manual.latestChange) lines.push(`_Change ${manual.latestChange}_\n`);
+    if (change != null) {
+      lines.push(`_Change ${change}${pubDate ? `, published ${pubDate}` : ''}_\n`);
+    }
     for (const { title, html } of valid) {
       lines.push(`\n## ${title}\n`);
       lines.push(htmlToMarkdown(html));
@@ -653,14 +662,15 @@ async function exportManual(code, format) {
 
   } else {
     // Build print document
-    const changeStr = (manual && manual.latestChange) ? `, Change ${manual.latestChange}` : '';
+    const changeStr = (change != null) ? `, Change ${change}` : '';
     const body = valid.map(({ title, html }) =>
       `<section class="ps"><h2>${escHtml(title)}</h2>${html}</section>`
     ).join('\n');
 
     els.printContainer.innerHTML =
       `<h1>${escHtml(name)}${escHtml(changeStr)}</h1>` +
-      `<p class="pm">Defense Health Agency &middot; manuals.dha.mil</p>` +
+      `<p class="pm">Defense Health Agency &middot; manuals.dha.mil` +
+      `${pubDate ? ` &middot; published ${escHtml(pubDate)}` : ''}</p>` +
       body;
 
     window.print();

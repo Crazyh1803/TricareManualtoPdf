@@ -40,6 +40,11 @@ const state = {
   currentToc:    null,   // { change, sections: [{ id, title, chapter, isChapterToc }] }
   currentIdx:    -1,
   tocOpen:       false,
+  // code -> revisions.json payload, or null when the manual has none published.
+  revisions:     {},
+  // The change the reader is showing when it is NOT the current one. Only the
+  // current change is stored here, so this means "showing the notice, not text".
+  viewingChange: null,
 };
 
 // ── Element references ──────────────────────────────────────────────────────
@@ -55,6 +60,7 @@ const els = {
   readerContent:  $('reader-content'),
   readerManual:   $('reader-manual-name'),
   readerChangeBadge: $('reader-change-badge'),
+  versionSelect:  $('version-select'),
   btnBack:        $('btn-back'),
   btnOpenToc:     $('btn-open-toc'),
   btnCloseToc:    $('btn-close-toc'),
@@ -81,6 +87,7 @@ async function init() {
   els.btnPrev.addEventListener('click', () => navigateSection(-1));
   els.btnNext.addEventListener('click', () => navigateSection(+1));
   els.tocSearch.addEventListener('input', filterToc);
+  els.versionSelect.addEventListener('change', onVersionChange);
 
   // Handle browser back/forward
   window.addEventListener('popstate', handlePopState);
@@ -120,7 +127,7 @@ function renderManualGrid() {
     const icon        = MANUAL_ICONS[m.code] || MANUAL_ICONS.TPT5;
     const changeLabel = m.latestChange ? `Change ${m.latestChange}` : 'Current';
     const chip        = m.hasContent
-      ? `<span class="chip">${changeLabel}</span>`
+      ? `<span class="chip" data-chip-code="${m.code}">${changeLabel}</span>`
       : `<span class="chip no-content-chip">Content coming soon</span>`;
     const btnDisabled = m.hasContent ? '' : 'disabled';
 
@@ -157,6 +164,26 @@ function renderManualGrid() {
       </article>`;
   }).join('');
   els.manualGrid.innerHTML = html;
+  annotateChipDates();
+}
+
+/**
+ * Add the publication date of each manual's current change to its chip. The
+ * date lives in the revision history, which is a per-manual file, so the grid
+ * paints first and the dates arrive after — a manual without a history file
+ * simply keeps "Change 66".
+ */
+async function annotateChipDates() {
+  await Promise.all(state.manuals.filter(m => m.hasContent).map(async m => {
+    const payload = await loadRevisions(m.code);
+    if (!payload) return;
+    const current = (payload.current != null) ? payload.current : m.latestChange;
+    const rev = (payload.revisions || []).find(r => r.change === current);
+    const date = rev ? formatRevDate(rev.published) : '';
+    if (!date) return;
+    const chip = els.manualGrid.querySelector(`[data-chip-code="${m.code}"]`);
+    if (chip) chip.textContent = `Change ${current} · ${date}`;
+  }));
 }
 
 // ── Open a manual ───────────────────────────────────────────────────────────
@@ -175,6 +202,16 @@ async function openManual(code) {
   els.readerManual.textContent = manual.name;
   els.readerChangeBadge.textContent = manual.latestChange
     ? `Change ${manual.latestChange}` : 'Current Edition';
+  els.readerChangeBadge.hidden = false;
+  els.versionSelect.hidden = true;
+  els.tocList.classList.remove('locked');
+  state.viewingChange = null;
+
+  // The history is a separate file and only drives the picker, so it loads
+  // alongside the TOC rather than holding the manual's text up.
+  loadRevisions(code).then(payload => {
+    if (state.currentCode === code) renderVersionPicker(payload, manual);
+  });
 
   // Clear content + TOC
   setReaderContent(spinnerHtml());
@@ -206,6 +243,147 @@ async function openManual(code) {
           to read it online.</p>
       </div>`);
   }
+}
+
+// ── Revision history / version picker ───────────────────────────────────────
+
+/**
+ * docs/data/{CODE}/revisions.json — every change the site's register lists
+ * for this manual, with the date and title of each. Cached per code; a
+ * missing file is cached as null, so a manual without published history just
+ * keeps the plain change badge instead of retrying on every open.
+ */
+async function loadRevisions(code) {
+  if (code in state.revisions) return state.revisions[code];
+  let payload = null;
+  try {
+    const res = await fetch(`${DATA_ROOT}/${code}/revisions.json`);
+    if (res.ok) payload = await res.json();
+  } catch (e) { /* not published yet, or offline */ }
+  state.revisions[code] = payload;
+  return payload;
+}
+
+/** '2026-09-18' -> '18 Sep 2026' in the reader's locale; UTC, never shifted. */
+function formatRevDate(iso) {
+  const parts = String(iso || '').split('-').map(Number);
+  if (parts.length !== 3 || parts.some(n => !n)) return '';
+  const [y, m, d] = parts;
+  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString(undefined, {
+    year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC',
+  });
+}
+
+function renderVersionPicker(payload, manual) {
+  const sel = els.versionSelect;
+  const revisions = (payload && payload.revisions) || [];
+  if (!revisions.length) {
+    sel.hidden = true;
+    sel.innerHTML = '';
+    els.readerChangeBadge.hidden = false;
+    return;
+  }
+
+  const current = (payload.current != null) ? payload.current : manual.latestChange;
+  const opts = [];
+
+  // The current change is what this site actually stores. If the register
+  // does not list it — it is published a few days behind — it still belongs
+  // at the top of the list, because it is the one the reader is showing.
+  if (current != null && !revisions.some(r => r.change === current)) {
+    opts.push(`<option value="${current}">Change ${current} (current)</option>`);
+  }
+  for (const r of revisions) {
+    const date  = formatRevDate(r.published);
+    const label = `Change ${r.change}`
+      + (date ? ` — ${date}` : '')
+      + (r.change === current ? ' (current)' : '');
+    opts.push(`<option value="${r.change}">${escHtml(label)}</option>`);
+  }
+
+  // The register begins in December 2020, so the early changes of an older
+  // manual are outside it. Say so in the list rather than letting it read as
+  // the manual's whole history. The wording stays "not listed here" rather
+  // than naming the register's window, because it has to hold whether the
+  // shortfall is the register's age or a short read.
+  const unlisted = (payload.register && payload.register.unlisted) || 0;
+  if (unlisted > 0) {
+    opts.push(`<option value="" disabled>· ${unlisted} earlier change`
+      + `${unlisted === 1 ? '' : 's'} not listed here ·</option>`);
+  }
+
+  sel.innerHTML = opts.join('');
+  sel.value = String(current != null ? current : revisions[0].change);
+  sel.hidden = false;
+  els.readerChangeBadge.hidden = true;
+}
+
+function onVersionChange() {
+  const payload = state.revisions[state.currentCode];
+  const chosen  = Number(els.versionSelect.value);
+  const manual  = state.manuals.find(m => m.code === state.currentCode);
+  const current = (payload && payload.current != null)
+    ? payload.current : (manual && manual.latestChange);
+
+  if (!chosen || chosen === current) { showCurrentChange(); return; }
+  const rev = ((payload && payload.revisions) || []).find(r => r.change === chosen);
+  if (rev) showArchivedChange(rev);
+}
+
+/** Back to the change this site stores — the one the TOC belongs to. */
+function showCurrentChange() {
+  state.viewingChange = null;
+  els.tocList.classList.remove('locked');
+  const payload = state.revisions[state.currentCode];
+  const manual  = state.manuals.find(m => m.code === state.currentCode);
+  const current = (payload && payload.current != null)
+    ? payload.current : (manual && manual.latestChange);
+  if (current != null) els.versionSelect.value = String(current);
+
+  if (state.currentIdx >= 0) {
+    loadSection(state.currentIdx);
+  } else {
+    setReaderContent('<div class="splash"><p>Select a section from the '
+      + 'Table of Contents →</p></div>');
+  }
+}
+
+/**
+ * An older change: this site holds only the current one, so the reader shows
+ * what the register knows about the change and sends people to the official
+ * site for its text. The TOC is locked while this is showing, because every
+ * section behind it is the current change's text, not this one's.
+ */
+function showArchivedChange(rev) {
+  state.viewingChange = rev.change;
+  els.tocList.classList.add('locked');
+
+  const code = state.currentCode;
+  const date = formatRevDate(rev.published);
+  const meta = [
+    rev.conreq ? `Change request ${escHtml(rev.conreq)}` : '',
+    rev.package ? `change package ${escHtml(rev.package)}` : '',
+  ].filter(Boolean).join(' · ');
+
+  setReaderContent(`
+    <div class="archived-panel">
+      <h2>Change ${rev.change}${date ? ` — ${escHtml(date)}` : ''}</h2>
+      ${rev.title ? `<p class="archived-title">${escHtml(rev.title)}</p>` : ''}
+      <p>This change has been superseded. Only the current change is stored
+        here, so its text is on the official site:</p>
+      <p>
+        <a class="btn-primary" target="_blank" rel="noopener"
+           href="https://manuals.dha.mil/View-Publication/${encodeURIComponent(code)}/Revision/${rev.change}"
+        >Open Change ${rev.change} on manuals.dha.mil</a>
+      </p>
+      ${meta ? `<p class="archived-meta">${meta}</p>` : ''}
+      <p>
+        <button class="btn-export-card" onclick="showCurrentChange()">
+          ← Back to the current change
+        </button>
+      </p>
+    </div>`);
+  scrollReaderToTop();
 }
 
 // ── Render TOC ──────────────────────────────────────────────────────────────
@@ -257,6 +435,12 @@ async function loadSection(idx) {
   }
 
   state.currentIdx = idx;
+  if (state.viewingChange != null) {
+    // Opening a section always shows the stored change; the picker must not
+    // keep claiming an older one.
+    state.viewingChange = null;
+    els.tocList.classList.remove('locked');
+  }
   setReaderContent(spinnerHtml());
   highlightTocItem(idx);
   updateSectionNav();
@@ -434,6 +618,13 @@ async function exportManual(code, format) {
 
   const sections = toc.sections.filter(s => !s.isChapterToc);
 
+  // Date the export from the revision history, so a downloaded file says
+  // which change it is and when that change was published.
+  const payload  = await loadRevisions(code);
+  const change   = (payload && payload.current != null) ? payload.current : manual.latestChange;
+  const rev      = payload ? (payload.revisions || []).find(r => r.change === change) : null;
+  const pubDate  = rev ? formatRevDate(rev.published) : '';
+
   showToast(`Preparing ${sections.length} sections…`);
 
   // Fetch all section HTML in parallel
@@ -456,7 +647,9 @@ async function exportManual(code, format) {
 
   if (format === 'md') {
     const lines = [`# ${name}\n`];
-    if (manual && manual.latestChange) lines.push(`_Change ${manual.latestChange}_\n`);
+    if (change != null) {
+      lines.push(`_Change ${change}${pubDate ? `, published ${pubDate}` : ''}_\n`);
+    }
     for (const { title, html } of valid) {
       lines.push(`\n## ${title}\n`);
       lines.push(htmlToMarkdown(html));
@@ -471,14 +664,15 @@ async function exportManual(code, format) {
 
   } else {
     // Build print document
-    const changeStr = (manual && manual.latestChange) ? `, Change ${manual.latestChange}` : '';
+    const changeStr = (change != null) ? `, Change ${change}` : '';
     const body = valid.map(({ title, html }) =>
       `<section class="ps"><h2>${escHtml(title)}</h2>${html}</section>`
     ).join('\n');
 
     els.printContainer.innerHTML =
       `<h1>${escHtml(name)}${escHtml(changeStr)}</h1>` +
-      `<p class="pm">Defense Health Agency &middot; manuals.dha.mil</p>` +
+      `<p class="pm">Defense Health Agency &middot; manuals.dha.mil` +
+      `${pubDate ? ` &middot; published ${escHtml(pubDate)}` : ''}</p>` +
       body;
 
     window.print();

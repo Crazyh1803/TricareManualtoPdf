@@ -1,106 +1,105 @@
 #!/usr/bin/env python3
-"""Does the site offer a manual (or chapter) as a downloadable file?
+"""Map /Explore/Changes so a reliable parser can be written for it.
 
-The ask is: current version always available, older versions fetched on
-demand. Scraping on demand needs a backend and takes 5-15 minutes per manual,
-which cannot feel like a download button. But if the site publishes a whole
-manual or chapter as a PDF at a given revision, on-demand becomes fetching one
-file — no scraping, no storage, and it works for any revision.
+Phase 1 of the version picker publishes the official revision history: for each
+manual, every change number with its publication date and title. That register
+is the only place this exists. The earlier dump showed the shape
 
-So: enumerate every download / print / export affordance on a publication page
-and on a section page, and see whether any of them carries a revision.
+    Establish East Region Virtual Value Network Pilot + CDRL
+    Published on: 9/18/2026
+    AD25 Change 2
+    TST5 Change 40
+    TOT5 Change 66
+    Conreq: 23891
+
+but not whether the page shows everything at once. It claims to span Dec 9 2020
+to Sep 18 2026; if that is lazy-loaded or paginated, a parser that reads the
+first screenful would silently publish a truncated history.
+
+So: count entries, look for paging or filter controls, scroll to see whether
+more appear, and dump the markup of a few entries so the parser matches real
+structure rather than the rendered text.
 """
-import asyncio, json, re
+import asyncio, re
 from playwright.async_api import async_playwright
 
 BASE = "https://manuals.dha.mil"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
-WORDS = ("download", "pdf", "print", "export", "save", "zip", "docx", "file")
-
-
-async def dump(ctx, label, url):
-    print(f"\n=== {label}: {url} ===")
-    page = await ctx.new_page()
-    seen = []
-    page.on("request", lambda r: seen.append((r.method, r.url, r.resource_type)))
-    try:
-        await page.goto(url, wait_until="networkidle", timeout=60_000)
-        await page.wait_for_timeout(4_000)
-
-        hits = await page.evaluate("""(words) => {
-            const out = [];
-            const els = document.querySelectorAll(
-                'a, button, [role=button], [download], [onclick], form, select, option');
-            for (const e of els) {
-                const hay = [
-                    e.getAttribute('href') || '', e.getAttribute('download') || '',
-                    e.getAttribute('onclick') || '', e.getAttribute('title') || '',
-                    e.getAttribute('aria-label') || '', e.getAttribute('hx-get') || '',
-                    e.getAttribute('name') || '', e.id || '',
-                    (e.innerText || '').trim()
-                ].join(' ').toLowerCase();
-                if (words.some(w => hay.includes(w))) {
-                    out.push({
-                        tag: e.tagName.toLowerCase(),
-                        text: (e.innerText || '').trim().slice(0, 60),
-                        href: e.getAttribute('href') || '',
-                        hxget: e.getAttribute('hx-get') || '',
-                        id: e.id || '',
-                        cls: (typeof e.className === 'string' ? e.className : '').slice(0, 50),
-                    });
-                }
-            }
-            return out;
-        }""", list(WORDS))
-        if hits:
-            for h in hits[:25]:
-                print(f"  <{h['tag']}> {h['text']!r}")
-                if h['href']:  print(f"        href={h['href']}")
-                if h['hxget']: print(f"        hx-get={h['hxget']}")
-                if h['id'] or h['cls']:
-                    print(f"        id={h['id']!r} class={h['cls']!r}")
-        else:
-            print("  no download/print/export affordance found")
-
-        # Any <select> is a candidate revision picker — the site may already
-        # have one, which would be the cleanest signal of what is offered.
-        sels = await page.evaluate("""() => {
-            const out = [];
-            for (const s of document.querySelectorAll('select')) {
-                out.push({
-                    name: s.getAttribute('name') || s.id || '',
-                    options: Array.from(s.options).slice(0, 12).map(o =>
-                        ({value: o.value, text: (o.text || '').trim().slice(0, 50)}))
-                });
-            }
-            return out;
-        }""")
-        if sels:
-            print("  --- <select> elements ---")
-            for s in sels:
-                print(f"    name={s['name']!r} ({len(s['options'])} shown)")
-                for o in s["options"][:8]:
-                    print(f"      {o['value']!r} = {o['text']!r}")
-    finally:
-        await page.close()
-
-    inter = [u for (m, u, t) in seen
-             if any(w in u.lower() for w in ("pdf", "download", "export", "print"))]
-    if inter:
-        print("  --- requests mentioning a file format ---")
-        for u in sorted(set(inter))[:10]:
-            print(f"    {u[:150]}")
+CODE_CHANGE = re.compile(r"\b([A-Z]{2}[A-Z0-9]{2})\s+Change\s+(\d+)\b")
 
 
 async def main():
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(args=["--disable-blink-features=AutomationControlled"])
-        ctx = await browser.new_context(user_agent=UA, viewport={"width": 1440, "height": 900})
-        await dump(ctx, "publication page", f"{BASE}/View-Publication/TPT5")
-        await dump(ctx, "section page",
-                   f"{BASE}/View-Publication/TPT5/Revision/57/FileName/C1S1_1")
-        await dump(ctx, "archives", f"{BASE}/Explore/Archives")
+        ctx = await browser.new_context(user_agent=UA, viewport={"width": 1440, "height": 1000})
+        page = await ctx.new_page()
+        await page.goto(f"{BASE}/Explore/Changes", wait_until="networkidle", timeout=60_000)
+        await page.wait_for_timeout(5_000)
+
+        async def census(label):
+            text = await page.inner_text("body")
+            pairs = CODE_CHANGE.findall(text)
+            dates = re.findall(r"Published on:\s*([0-9/]+)", text)
+            codes = sorted({c for c, _ in pairs})
+            print(f"  {label}: {len(pairs)} code/change pairs, {len(dates)} dated entries")
+            if dates:
+                print(f"    newest={dates[0]}  oldest={dates[-1]}")
+            print(f"    codes seen: {codes}")
+            return len(pairs)
+
+        print("=== initial render ===")
+        before = await census("on load")
+
+        # Paging or filtering controls?
+        print("\n=== controls ===")
+        ctrls = await page.evaluate("""() => {
+            const out = [];
+            const sel = 'button, a[role=button], select, input, [class*=pag], [class*=page], [aria-label*=ext], [aria-label*=rev]';
+            for (const e of document.querySelectorAll(sel)) {
+                const t = (e.innerText || e.getAttribute('aria-label') || e.getAttribute('placeholder') || '').trim();
+                if (!t && !e.name) continue;
+                out.push({tag: e.tagName.toLowerCase(), text: t.slice(0, 50),
+                          name: e.getAttribute('name') || '', id: e.id || '',
+                          cls: (typeof e.className === 'string' ? e.className : '').slice(0, 45)});
+            }
+            return out;
+        }""")
+        for c in ctrls[:20]:
+            print(f"    <{c['tag']}> {c['text']!r} name={c['name']!r} id={c['id']!r} class={c['cls']!r}")
+        if not ctrls:
+            print("    none found")
+
+        # Does scrolling load more?
+        print("\n=== after scrolling to the bottom ===")
+        for _ in range(6):
+            await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+            await page.wait_for_timeout(1_500)
+        after = await census("after scroll")
+        print(f"    {'MORE LOADED — the list is lazy' if after > before else 'no change — fully rendered on load'}")
+
+        # Entry markup, so the parser targets elements not text.
+        print("\n=== markup of the first entries ===")
+        html = await page.evaluate("""() => {
+            const t = [...document.querySelectorAll('*')]
+                .find(e => /Published on:/.test(e.innerText || '') &&
+                           e.children.length && (e.innerText || '').length < 400);
+            if (!t) return null;
+            const box = t.closest('div, li, article, tr') || t;
+            const parent = box.parentElement;
+            return {
+                container: parent ? parent.tagName.toLowerCase() + '.' +
+                           ((typeof parent.className === 'string' ? parent.className : '') || '') : '',
+                siblings: parent ? parent.children.length : 0,
+                sample: box.outerHTML.replace(/\\s+/g, ' ').slice(0, 900),
+            };
+        }""")
+        if html:
+            print(f"    container: {html['container']!r} with {html['siblings']} children")
+            print(f"    entry markup:\n      {html['sample']}")
+        else:
+            print("    could not locate an entry element")
+
         await browser.close()
     print("\nProbe complete.")
 

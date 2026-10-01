@@ -303,11 +303,13 @@ function renderVersionPicker(payload, manual) {
 
   // The register begins in December 2020, so the early changes of an older
   // manual are outside it. Say so in the list rather than letting it read as
-  // the manual's whole history.
+  // the manual's whole history. The wording stays "not listed here" rather
+  // than naming the register's window, because it has to hold whether the
+  // shortfall is the register's age or a short read.
   const unlisted = (payload.register && payload.register.unlisted) || 0;
   if (unlisted > 0) {
     opts.push(`<option value="" disabled>· ${unlisted} earlier change`
-      + `${unlisted === 1 ? '' : 's'} predate the register ·</option>`);
+      + `${unlisted === 1 ? '' : 's'} not listed here ·</option>`);
   }
 
   sel.innerHTML = opts.join('');

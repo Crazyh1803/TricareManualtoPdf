@@ -325,6 +325,19 @@ a:hover { text-decoration: underline; }
   margin-top: 12px;
 }
 
+/* Back to the author's other apps. */
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+.home-link:hover { text-decoration: underline; }
+.home-link svg { flex-shrink: 0; }
+
 /* Home support link */
 .home-support {
   font-size: .8rem;

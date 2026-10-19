@@ -1,16 +1,23 @@
 {
   "code": "TO15",
-  "fetchedAt": "2026-10-12T14:16:01Z",
-  "current": 166,
+  "fetchedAt": "2026-10-19T12:15:09Z",
+  "current": 167,
   "register": {
     "source": "https://manuals.dha.mil/Explore/Changes",
     "coversFrom": "2020-12-09",
-    "coversTo": "2026-09-18",
-    "listed": 86,
+    "coversTo": "2026-10-16",
+    "listed": 87,
     "unlisted": 80,
     "complete": false
   },
   "revisions": [
+    {
+      "change": 167,
+      "published": "2026-10-13",
+      "title": "VHA Office of Integrated Veteran Care and CHAMPVA Claims Address Change",
+      "conreq": "23756",
+      "package": "365"
+    },
     {
       "change": 166,
       "published": "2026-09-10",

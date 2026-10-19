@@ -1,11 +1,11 @@
 {
   "code": "TRT5",
-  "fetchedAt": "2026-10-12T14:16:01Z",
+  "fetchedAt": "2026-10-19T12:15:09Z",
   "current": 28,
   "register": {
     "source": "https://manuals.dha.mil/Explore/Changes",
     "coversFrom": "2020-12-09",
-    "coversTo": "2026-09-18",
+    "coversTo": "2026-10-16",
     "listed": 28,
     "unlisted": 0,
     "complete": true

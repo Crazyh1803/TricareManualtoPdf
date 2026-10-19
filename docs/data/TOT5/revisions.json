@@ -1,16 +1,30 @@
 {
   "code": "TOT5",
-  "fetchedAt": "2026-10-12T14:16:01Z",
-  "current": 66,
+  "fetchedAt": "2026-10-19T12:15:09Z",
+  "current": 68,
   "register": {
     "source": "https://manuals.dha.mil/Explore/Changes",
     "coversFrom": "2020-12-09",
-    "coversTo": "2026-09-18",
-    "listed": 66,
+    "coversTo": "2026-10-16",
+    "listed": 68,
     "unlisted": 0,
     "complete": true
   },
   "revisions": [
+    {
+      "change": 68,
+      "published": "2026-10-16",
+      "title": "Competitive Plans Demonstration (CPD) Prescription Monitoring Program (PMP) Exceptions",
+      "conreq": "23953",
+      "package": "367"
+    },
+    {
+      "change": 67,
+      "published": "2026-10-14",
+      "title": "VHA Office of Integrated Veteran Care and CHAMPVA Claims Address Change",
+      "conreq": "23756",
+      "package": "366"
+    },
     {
       "change": 66,
       "published": "2026-09-18",

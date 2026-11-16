@@ -1,16 +1,23 @@
 {
   "code": "TPT5",
-  "fetchedAt": "2026-11-09T15:02:37Z",
-  "current": 57,
+  "fetchedAt": "2026-11-16T15:01:44Z",
+  "current": 58,
   "register": {
     "source": "https://manuals.dha.mil/Explore/Changes",
     "coversFrom": "2020-12-09",
-    "coversTo": "2026-10-16",
-    "listed": 57,
+    "coversTo": "2026-11-10",
+    "listed": 58,
     "unlisted": 0,
     "complete": true
   },
   "revisions": [
+    {
+      "change": 58,
+      "published": "2026-11-10",
+      "title": "Evolving Practice 26-006",
+      "conreq": "24040",
+      "package": "1367"
+    },
     {
       "change": 57,
       "published": "2026-09-15",

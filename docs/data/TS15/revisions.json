@@ -1,11 +1,11 @@
 {
   "code": "TS15",
-  "fetchedAt": "2026-11-09T15:02:37Z",
+  "fetchedAt": "2026-11-16T15:01:44Z",
   "current": 102,
   "register": {
     "source": "https://manuals.dha.mil/Explore/Changes",
     "coversFrom": "2020-12-09",
-    "coversTo": "2026-10-16",
+    "coversTo": "2026-11-10",
     "listed": 61,
     "unlisted": 41,
     "complete": false
